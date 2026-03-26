@@ -430,9 +430,32 @@ tbody td{padding:5px 8px;font-variant-numeric:tabular-nums}
 .day-modal-ov.active{display:flex}
 .day-modal-card{background:var(--surface);border:1px solid var(--border);
   width:100%;max-width:700px;max-height:80vh;overflow-y:auto;animation:mfade .18s ease-out}
+
+/* ── ENTREGA 1 — Orbes atmosféricos ── */
+.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;opacity:0}
+[data-theme="dark"] .orb{opacity:1}
+.orb1{width:500px;height:500px;background:rgba(0,255,170,0.05);top:-100px;left:-100px;animation:orbMove1 25s ease-in-out infinite}
+.orb2{width:400px;height:400px;background:rgba(0,212,255,0.04);bottom:-100px;right:-100px;animation:orbMove2 30s ease-in-out infinite}
+.orb3{width:350px;height:350px;background:rgba(0,255,170,0.03);top:50%;left:50%;animation:orbMove3 20s ease-in-out infinite}
+@keyframes orbMove1{0%,100%{transform:translate(0,0)}50%{transform:translate(80px,60px)}}
+@keyframes orbMove2{0%,100%{transform:translate(0,0)}50%{transform:translate(-60px,-80px)}}
+@keyframes orbMove3{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(calc(-50% + 40px),calc(-50% + 30px))}}
+
+/* ── ENTREGA 1 — Logo glow pulsante ── */
+.logo-txt{animation:logoGlow 3s ease-in-out infinite}
+@keyframes logoGlow{
+  0%,100%{text-shadow:0 0 24px rgba(0,255,170,0.55),0 0 48px rgba(0,255,170,0.2)}
+  50%{text-shadow:0 0 32px rgba(0,255,170,0.75),0 0 64px rgba(0,255,170,0.3)}
+}
+
+/* ── ENTREGA 1 — Reloj NY ── */
+#clockNY{font-family:var(--font-mono);font-size:9px;color:var(--text-dim);letter-spacing:1px;padding-right:8px;border-right:1px solid var(--border2);margin-right:4px}
 </style>
 </head>
 <body>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
 <div class="app">
   <header class="hdr">
     <div class="logo-wrap">
@@ -467,6 +490,7 @@ tbody td{padding:5px 8px;font-variant-numeric:tabular-nums}
       <span class="logo-sub">Quantitative Terminal</span>
     </div>
     <div class="hdr-r">
+      <span id="clockNY"></span>
       <div style="display:flex;align-items:center;gap:0">
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;padding:0 12px;border-left:1px solid rgba(0,255,170,0.07)">
           <span style="font-size:7px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase">Estrategia</span>
@@ -3666,6 +3690,17 @@ function resetAll(){
   subState.temporal='calendar';subState.riesgo='montecarlo';subState.analisis='maemfe';
   subState.edge='kelly';subState.benchmark='ratios';
 }
+
+// ── ENTREGA 1 — Reloj NY en vivo ─────────────────────
+function startClockNY(){
+  function tick(){
+    const el=document.getElementById('clockNY');if(!el)return;
+    const ny=new Date(new Date().toLocaleString('en-US',{timeZone:'America/New_York'}));
+    el.textContent=`${String(ny.getHours()).padStart(2,'0')}:${String(ny.getMinutes()).padStart(2,'0')}:${String(ny.getSeconds()).padStart(2,'0')} NY`;
+  }
+  tick();setInterval(tick,1000);
+}
+startClockNY();
 
 // ── Presentation Mode ────────────────────────────────
 function togglePresentation(){
