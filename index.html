@@ -536,22 +536,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0}
   50%{opacity:.3;box-shadow:0 0 3px var(--accent)}}
 
 /* 6 ─ Header nav tabs (moved into header) */
-.hdr-nav{
-  display:flex;height:100%;flex:1;
-  border-left:1px solid var(--border);
-  border-right:1px solid var(--border);
-  overflow-x:auto}
-.hdr-nav .tab-btn{
-  flex:none;padding:0 16px;height:100%;
-  font-size:9px;letter-spacing:1.5px;
-  border-bottom:2px solid transparent;
-  color:var(--text-mid)}
-.hdr-nav .tab-btn:hover{color:var(--text);background:rgba(255,255,255,0.02)}
-.hdr-nav .tab-btn.active{
-  color:var(--accent);border-bottom-color:var(--accent);
-  background:transparent}
-/* Hide old tabs-wrap since tabs moved to header */
-.tabs-wrap{display:none!important}
 
 /* 7 ─ Sidebar */
 .sidebar{background:var(--surface);border-right:1px solid var(--border)}
@@ -813,16 +797,6 @@ tbody td{padding:6px 12px}
       <span class="logo-txt">ARES QUANT</span>
       <span class="logo-sub">Quantitative Terminal</span>
     </div>
-    <nav class="hdr-nav">
-      <button class="tab-btn active" onclick="showTab('overview',this)">Resumen</button>
-      <button class="tab-btn" onclick="showTab('temporal',this)">Temporal</button>
-      <button class="tab-btn" onclick="showTab('riesgo',this)">Riesgo</button>
-      <button class="tab-btn" onclick="showTab('edge',this)">Edge</button>
-      <button class="tab-btn" onclick="showTab('benchmark',this)">Benchmark</button>
-      <button class="tab-btn" onclick="showTab('analisis',this)">Análisis</button>
-      <button class="tab-btn" onclick="showTab('trades',this)">Trades</button>
-      <button class="tab-btn" onclick="showTab('chart',this)">Gráfico</button>
-    </nav>
     <div class="hdr-r">
       <span id="clockNY"></span>
       <div style="display:flex;align-items:center;gap:0">
@@ -1015,6 +989,16 @@ tbody td{padding:6px 12px}
       </div>
 
       <div id="statsSection" style="display:none;height:100%;flex-direction:column;overflow:hidden">
+        <div class="tabs-wrap">
+          <button class="tab-btn active" onclick="showTab('overview',this)">Resumen</button>
+          <button class="tab-btn" onclick="showTab('temporal',this)">Temporal</button>
+          <button class="tab-btn" onclick="showTab('riesgo',this)">Riesgo</button>
+          <button class="tab-btn" onclick="showTab('edge',this)">Edge</button>
+          <button class="tab-btn" onclick="showTab('benchmark',this)">Benchmark</button>
+          <button class="tab-btn" onclick="showTab('analisis',this)">Análisis</button>
+          <button class="tab-btn" onclick="showTab('trades',this)">Trades</button>
+          <button class="tab-btn" onclick="showTab('chart',this)">Gráfico</button>
+        </div>
         <div class="tabs-content">
 
           <!-- OVERVIEW -->
