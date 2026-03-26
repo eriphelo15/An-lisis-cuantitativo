@@ -459,6 +459,30 @@ tbody td{padding:5px 8px;font-variant-numeric:tabular-nums}
 .kpi:nth-child(2){animation-delay:60ms}
 .kpi:nth-child(3){animation-delay:120ms}
 .kpi:nth-child(4){animation-delay:180ms}
+
+/* ── ENTREGA 3 — Shimmer sweep en botón RUN ── */
+.btn-run{overflow:hidden}
+.btn-run::after{content:'';position:absolute;top:0;left:0;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(0,255,170,0.12),transparent);
+  transform:translateX(-150%);pointer-events:none}
+.btn-run:not(:disabled):hover::after{animation:shimmerSweep 0.7s ease forwards}
+@keyframes shimmerSweep{to{transform:translateX(350%)}}
+
+/* ── ENTREGA 3 — Toasts ── */
+@keyframes toastIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+@keyframes toastOut{to{opacity:0;transform:translateX(20px)}}
+
+/* ── ENTREGA 3 — Sidebar colapsible ── */
+.sec.collapsed .sec-ttl::before{transform:rotate(180deg)}
+.sec-ttl{cursor:pointer;user-select:none;position:relative}
+.sec-ttl::before{content:'▾';position:absolute;right:0;font-size:10px;color:var(--accent);
+  transition:transform 0.2s ease;line-height:1}
+.sec-content{overflow:hidden;max-height:600px;transition:max-height 0.25s ease,opacity 0.2s ease;opacity:1}
+.sec.collapsed .sec-content{max-height:0;opacity:0}
+
+/* ── ENTREGA 3 — Hover filas tabla ── */
+tbody tr{transition:background 0.12s,transform 0.12s ease}
+tbody tr:hover{transform:translateX(2px)}
 </style>
 </head>
 <body>
@@ -3662,6 +3686,7 @@ async function startBacktest(){
     await delay(300);
     document.getElementById('progressWrap').style.display='none';
     renderResults(result,params);
+    showToast(`Backtest completado — ${result.trades.length} operaciones`,'success');
     document.getElementById('btnRst').style.display='block';
     btn.style.display='none';
     chartLoaded=false;
@@ -3673,6 +3698,7 @@ async function startBacktest(){
   }catch(err){
     setProgress(0,`⚠ ERROR: ${err.message}`);
     btn.disabled=false;btn.textContent='▶ Ejecutar Backtest';
+    showToast('Error: '+err.message,'error');
     console.error(err);
   }
 }
@@ -3779,6 +3805,46 @@ function togglePresentation(){
     if(lwChart && wrap) lwChart.applyOptions({width:wrap.clientWidth, height:wrap.clientHeight});
   }, 350);
 }
+
+// ── ENTREGA 3 — Toasts ───────────────────────────────
+function showToast(msg,type='success'){
+  let c=document.getElementById('toastContainer');
+  if(!c){c=document.createElement('div');c.id='toastContainer';
+    c.style.cssText='position:fixed;bottom:20px;right:20px;z-index:99999;display:flex;flex-direction:column;gap:8px';
+    document.body.appendChild(c);}
+  const t=document.createElement('div');
+  const col=type==='success'?'var(--accent)':'var(--neg)';
+  t.style.cssText=`font-family:var(--font-mono);font-size:10px;letter-spacing:1px;padding:10px 16px;
+    border:1px solid ${col};background:var(--surface);color:${col};
+    box-shadow:0 0 20px ${col}22;animation:toastIn 0.3s cubic-bezier(.34,1.2,.64,1) forwards`;
+  t.textContent=(type==='success'?'✓  ':'⚠  ')+msg;
+  c.appendChild(t);
+  setTimeout(()=>{t.style.animation='toastOut 0.2s ease forwards';setTimeout(()=>t.remove(),200);},4000);
+}
+
+// ── ENTREGA 3 — Sidebar colapsible ──────────────────
+(function(){
+  function initCollapsible(){
+    document.querySelectorAll('.sec-ttl').forEach(ttl=>{
+      // Wrap existing children (except ttl itself) in .sec-content if not already done
+      const sec = ttl.closest('.sec');
+      if(!sec || sec.querySelector('.sec-content')) return;
+      const content = document.createElement('div');
+      content.className = 'sec-content';
+      // Move all siblings after sec-ttl into the wrapper
+      const children = Array.from(sec.children).filter(c=>c!==ttl);
+      children.forEach(c=>content.appendChild(c));
+      sec.appendChild(content);
+      // Click handler
+      ttl.addEventListener('click', ()=>sec.classList.toggle('collapsed'));
+    });
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded', initCollapsible);
+  } else {
+    initCollapsible();
+  }
+})();
 </script>
 <!-- PANEL FULLSCREEN OVERLAY -->
 <div class="panel-fs-overlay" id="panelFsOverlay">
