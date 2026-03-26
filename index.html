@@ -236,11 +236,12 @@ input[type=checkbox]{accent-color:var(--accent);width:13px;height:13px;cursor:po
 
 /* ── PANELS ──────────────────────────────────────────── */
 .pb{
-  background:linear-gradient(135deg,#0a0f1e 0%,#080c18 100%);
+  background:linear-gradient(135deg,rgba(10,15,30,0.88) 0%,rgba(8,12,24,0.88) 100%);
+  backdrop-filter:blur(10px);
   border:1px solid var(--border2);
   position:relative;margin-bottom:10px;
-  transition:border-color .2s}
-.pb:hover{border-color:rgba(0,255,170,0.14)}
+  transition:transform 0.2s ease,border-color .2s}
+.pb:hover{border-color:rgba(0,255,170,0.18);transform:translateY(-1px)}
 .pb::before,.pb::after{
   content:'';position:absolute;width:6px;height:6px;
   border-color:rgba(0,255,170,0.4);border-style:solid;pointer-events:none;z-index:2;
@@ -450,6 +451,14 @@ tbody td{padding:5px 8px;font-variant-numeric:tabular-nums}
 
 /* ── ENTREGA 1 — Reloj NY ── */
 #clockNY{font-family:var(--font-mono);font-size:9px;color:var(--text-dim);letter-spacing:1px;padding-right:8px;border-right:1px solid var(--border2);margin-right:4px}
+
+/* ── ENTREGA 2 — KPI Cards entrada escalonada ── */
+@keyframes kpiEnter{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.kpi-g .kpi,.kpi-g2 .kpi{animation:kpiEnter 0.3s cubic-bezier(.34,1.2,.64,1) both}
+.kpi:nth-child(1){animation-delay:0ms}
+.kpi:nth-child(2){animation-delay:60ms}
+.kpi:nth-child(3){animation-delay:120ms}
+.kpi:nth-child(4){animation-delay:180ms}
 </style>
 </head>
 <body>
@@ -3690,6 +3699,62 @@ function resetAll(){
   subState.temporal='calendar';subState.riesgo='montecarlo';subState.analisis='maemfe';
   subState.edge='kelly';subState.benchmark='ratios';
 }
+
+// ── ENTREGA 2 — Count-up animado en KPI values ───────
+(function(){
+  function animateValue(el, raw){
+    // Parse prefix/suffix and numeric value
+    const txt = raw.trim();
+    const prefix = txt.match(/^[+\-\$]*/) ? txt.match(/^([+\-\$]*)/)[1] : '';
+    const suffix = txt.match(/(%|pts?|x)$/i) ? txt.match(/(%|pts?|x)$/i)[1] : '';
+    const numStr = txt.replace(/^[+\-\$]*/, '').replace(/(%|pts?|x)$/i, '').replace(/,/g,'');
+    const num = parseFloat(numStr);
+    if(isNaN(num)) return;
+    const duration = 800;
+    const start = performance.now();
+    const isNeg = txt.includes('-');
+    function step(now){
+      const t = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - t, 3);
+      const current = num * ease;
+      const formatted = Number.isInteger(num)
+        ? Math.round(current).toLocaleString('en-US')
+        : current.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+      el.textContent = (isNeg && !prefix.includes('-') ? '-' : '') + prefix.replace('-','') + formatted + suffix;
+      if(t < 1) requestAnimationFrame(step);
+      else el.textContent = raw; // restore exact original
+    }
+    requestAnimationFrame(step);
+  }
+
+  function observeGrid(gridId){
+    const grid = document.getElementById(gridId);
+    if(!grid) return;
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(m => {
+        m.addedNodes.forEach(node => {
+          if(node.nodeType !== 1) return;
+          const vals = node.classList && node.classList.contains('kpi-v')
+            ? [node]
+            : Array.from(node.querySelectorAll('.kpi-v'));
+          vals.forEach(el => {
+            const raw = el.textContent;
+            if(raw && raw !== '—' && raw !== '-') animateValue(el, raw);
+          });
+        });
+      });
+    });
+    observer.observe(grid, {childList:true, subtree:true});
+  }
+
+  // Wait for DOM then attach observers
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', ()=>{observeGrid('statsGrid1');observeGrid('statsGrid2');});
+  } else {
+    observeGrid('statsGrid1');
+    observeGrid('statsGrid2');
+  }
+})();
 
 // ── ENTREGA 1 — Reloj NY en vivo ─────────────────────
 function startClockNY(){
