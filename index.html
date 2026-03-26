@@ -26,7 +26,7 @@ html,body{height:100%;font-family:'IBM Plex Mono',monospace;-webkit-font-smoothi
   --red:#ff3a5c;
   --amber:#ffb300;
   --text:#d4e0ee;
-  --text-dim:#2e4258;
+  --text-dim:#4a6680;
   --text-mid:#6a8099;
   --pos:#00ffb3;
   --neg:#ff3a5c;
@@ -89,7 +89,7 @@ html,body{background:var(--bg);color:var(--text)}
 .logo-txt{
   font-family:var(--font-display);font-size:17px;font-weight:700;letter-spacing:5px;
   color:var(--accent);text-transform:uppercase;white-space:nowrap;
-  text-shadow:0 0 24px rgba(0,240,160,0.55),0 0 48px rgba(0,240,160,0.2)}
+  text-shadow:0 0 20px rgba(0,240,160,0.18)}
 .logo-sub{
   font-size:8px;letter-spacing:2.5px;color:var(--text-dim);
   border-left:1px solid rgba(0,240,160,0.12);padding-left:12px;margin-left:2px;
@@ -217,7 +217,7 @@ input[type=checkbox]{accent-color:var(--accent);width:13px;height:13px;cursor:po
 .tab-btn.active{
   color:var(--accent);border-bottom-color:var(--accent);
   background:linear-gradient(180deg,rgba(0,255,170,0.05),transparent);
-  text-shadow:0 0 10px rgba(0,255,170,0.35)}
+  text-shadow:none}
 .tabs-content{flex:1;overflow:hidden;position:relative}
 .tab-pane{display:none;height:100%;overflow-y:auto;overflow-x:hidden;padding:14px 16px}
 .tab-pane.active{display:block;animation:fadeInUp .2s ease-out}
@@ -527,7 +527,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0}
   font-size:22px;font-weight:400;letter-spacing:3px;
   animation:none}
 [data-theme="dark"] .logo-txt{
-  text-shadow:0 0 30px rgba(0,255,179,0.4)}
+  text-shadow:0 0 20px rgba(0,255,179,0.18)}
 [data-theme="light"] .logo-txt{text-shadow:none}
 
 /* 5 ─ Pulse dot */
@@ -625,31 +625,31 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0}
 .kpi::after{height:1px}
 .kpi.green::after{
   background:linear-gradient(90deg,var(--pos),transparent 70%);
-  box-shadow:0 0 20px rgba(0,255,179,0.5)}
+  box-shadow:0 0 10px rgba(0,255,179,0.2)}
 .kpi.red::after{
   background:linear-gradient(90deg,var(--neg),transparent 70%);
-  box-shadow:0 0 20px rgba(255,58,92,0.5)}
+  box-shadow:0 0 10px rgba(255,58,92,0.2)}
 .kpi.blue::after{
   background:linear-gradient(90deg,var(--accent2),transparent 70%);
-  box-shadow:0 0 20px rgba(0,184,255,0.5)}
+  box-shadow:0 0 10px rgba(0,184,255,0.2)}
 .kpi.amber::after{
   background:linear-gradient(90deg,var(--amber),transparent 70%);
-  box-shadow:0 0 20px rgba(255,179,0,0.5)}
+  box-shadow:0 0 10px rgba(255,179,0,0.2)}
 .kpi.purple::after{
   background:linear-gradient(90deg,#9b6dff,transparent 70%);
-  box-shadow:0 0 20px rgba(155,109,255,0.5)}
+  box-shadow:0 0 10px rgba(155,109,255,0.2)}
 /* KPI values — DM Sans for big numbers */
 .kpi-v{
   font-family:'DM Sans',sans-serif;
-  font-size:28px;font-weight:900;letter-spacing:-1.5px;line-height:1}
-.kpi-v.pos{color:var(--pos);text-shadow:0 0 28px rgba(0,255,179,0.35)}
-.kpi-v.neg{color:var(--neg);text-shadow:0 0 28px rgba(255,58,92,0.35)}
-.kpi-v.neu{color:var(--accent2);text-shadow:0 0 28px rgba(0,184,255,0.35)}
-.kpi-l{font-size:8px;letter-spacing:2.5px;color:var(--text-dim)}
+  font-size:22px;font-weight:900;letter-spacing:-1px;line-height:1}
+.kpi-v.pos{color:var(--pos);text-shadow:none}
+.kpi-v.neg{color:var(--neg);text-shadow:none}
+.kpi-v.neu{color:var(--accent2);text-shadow:none}
+.kpi-l{font-size:8px;letter-spacing:2px;color:var(--text-dim)}
 .kpi-s{font-size:9px;color:var(--text-mid)}
 
 /* Secondary KPI row — slightly smaller values */
-.kpi-g2 .kpi-v{font-size:22px}
+.kpi-g2 .kpi-v{font-size:17px}
 
 /* 16 ─ Sub-tabs */
 .sub-tabs{background:var(--surface2);gap:4px;padding:6px 12px}
