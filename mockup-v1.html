@@ -37,10 +37,10 @@ html,body{height:100%;font-family:'IBM Plex Mono',monospace}
   --amber:     #c89030;
 
   /* Texto — escala de 4 niveles bien calibrada */
-  --t1:        #c2d4e2;   /* principal — datos importantes */
-  --t2:        #7a9ab8;   /* secundario — labels, sub-valores */
-  --t3:        #3d5470;   /* dim — metadata, encabezados de sección */
-  --t4:        #1e3048;   /* ghost — separadores de texto, muy secundario */
+  --t1:        #c8d8e8;   /* principal — datos importantes */
+  --t2:        #8aaac8;   /* secundario — labels, sub-valores */
+  --t3:        #5a7a96;   /* dim — metadata, encabezados de sección */
+  --t4:        #3a5268;   /* ghost — separadores de texto, muy secundario */
 
   --font:'IBM Plex Mono',monospace;
   --display:'Bebas Neue',sans-serif;
@@ -106,13 +106,13 @@ html,body{background:var(--bg);color:var(--t1)}
 
 .sec{padding:14px 16px;border-bottom:1px solid var(--border2)}
 .sec-ttl{
-  font-size:7px;letter-spacing:3px;color:var(--t3);
+  font-size:7px;letter-spacing:3px;color:var(--t2);
   text-transform:uppercase;font-weight:500;margin-bottom:12px}
 
 .field{margin-bottom:10px}
 .field label{
   display:block;font-size:7px;letter-spacing:2px;
-  color:var(--t3);text-transform:uppercase;margin-bottom:4px}
+  color:var(--t2);text-transform:uppercase;margin-bottom:4px}
 .field input,.field select{
   width:100%;background:var(--surface2);
   border:1px solid var(--border2);color:var(--t1);
@@ -142,11 +142,11 @@ html,body{background:var(--bg);color:var(--t1)}
 .tab-btn{
   font-family:var(--font);font-size:8px;letter-spacing:1.5px;
   flex:1;padding:12px 8px;cursor:pointer;
-  color:var(--t3);background:transparent;border:none;
+  color:var(--t2);background:transparent;border:none;
   border-bottom:2px solid transparent;
   text-transform:uppercase;white-space:nowrap;
   transition:color 0.15s,border-color 0.15s}
-.tab-btn:hover{color:var(--t2)}
+.tab-btn:hover{color:var(--t1)}
 .tab-btn.active{
   color:var(--accent);
   border-bottom-color:var(--accent)}
@@ -176,7 +176,7 @@ html,body{background:var(--bg);color:var(--t1)}
 .kpi.gray::before{background:var(--t3);opacity:0.7}
 
 .kpi-l{
-  font-size:7px;letter-spacing:2px;color:var(--t3);
+  font-size:7px;letter-spacing:2px;color:var(--t2);
   text-transform:uppercase;margin-bottom:8px}
 .kpi-v{
   font-family:var(--font);font-size:20px;font-weight:600;
@@ -193,14 +193,14 @@ html,body{background:var(--bg);color:var(--t1)}
 /* ── Panel / Card ── */
 .pb{
   background:var(--surface);
-  border:1px solid var(--border2);
+  border:none;
   margin-bottom:12px}
 .pb-ttl-bar{
   padding:8px 14px;
-  border-bottom:1px solid var(--border2);
+  border-bottom:1px solid var(--border3);
   display:flex;align-items:center;justify-content:space-between}
 .pb-ttl{
-  font-size:7px;letter-spacing:3px;color:var(--t3);
+  font-size:7px;letter-spacing:3px;color:var(--t2);
   text-transform:uppercase;font-weight:500}
 .pb-ttl-r{font-size:8px;color:var(--t3)}
 .pb-body{padding:14px}
@@ -208,7 +208,7 @@ html,body{background:var(--bg);color:var(--t1)}
 /* ── Tables ── */
 table{width:100%;border-collapse:collapse;font-size:10px}
 thead th{
-  font-size:7px;letter-spacing:2px;color:var(--t3);
+  font-size:7px;letter-spacing:2px;color:var(--t2);
   text-transform:uppercase;font-weight:500;
   padding:8px 12px;text-align:left;
   background:var(--surface2);
@@ -226,7 +226,7 @@ tbody td.dim{color:var(--t2)}
 .stat-item{
   flex:1;padding:10px 14px;border-right:1px solid var(--border2)}
 .stat-item:last-child{border-right:none}
-.stat-l{font-size:7px;letter-spacing:2px;color:var(--t3);text-transform:uppercase;margin-bottom:4px}
+.stat-l{font-size:7px;letter-spacing:2px;color:var(--t2);text-transform:uppercase;margin-bottom:4px}
 .stat-v{font-size:13px;font-weight:600;color:var(--t1)}
 .stat-v.pos{color:var(--pos)}
 .stat-v.neg{color:var(--neg)}
