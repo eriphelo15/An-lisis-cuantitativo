@@ -3,248 +3,277 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ARES QUANT — Mockup v1 · Dark Institutional</title>
+<title>ARES QUANT — Mockup v2 · Dark Institutional</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
-/* ── Reset ── */
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%;font-family:'IBM Plex Mono',monospace}
+html,body{height:100%;font-family:'IBM Plex Mono',monospace;
+  font-variant-numeric:tabular-nums;/* #1 — números tabulares en todo */}
 
-/* ══════════════════════════════════════════
-   DARK INSTITUTIONAL — Design System v1
-   Propuesta A · ARES QUANT
-   ══════════════════════════════════════════ */
+/* ══ SCROLLBAR PERSONALIZADO — #2 ══ */
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:2px}
+::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.14)}
 
 :root{
-  /* Backgrounds */
   --bg:        #070b12;
   --surface:   #0b1120;
   --surface2:  #0f1628;
   --surface3:  #131d30;
-
-  /* Borders */
   --border:    rgba(255,255,255,0.07);
   --border2:   rgba(255,255,255,0.04);
-  --border3:   rgba(255,255,255,0.025);
-
-  /* Brand — teal institucional, desaturado */
+  --border3:   rgba(255,255,255,0.02);
   --accent:    #00a882;
   --accent2:   #0096cc;
-
-  /* Semánticos */
   --pos:       #00a87a;
   --neg:       #e03055;
   --amber:     #c89030;
-
-  /* Texto — escala de 4 niveles bien calibrada */
-  --t1:        #c8d8e8;   /* principal — datos importantes */
-  --t2:        #8aaac8;   /* secundario — labels, sub-valores */
-  --t3:        #5a7a96;   /* dim — metadata, encabezados de sección */
-  --t4:        #3a5268;   /* ghost — separadores de texto, muy secundario */
-
+  --t1:        #c8d8e8;
+  --t2:        #8aaac8;
+  --t3:        #5a7a96;
+  --t4:        #3a5268;
   --font:'IBM Plex Mono',monospace;
   --display:'Bebas Neue',sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
 }
 
-/* ── Layout ── */
 html,body{background:var(--bg);color:var(--t1)}
 .app{display:grid;grid-template-rows:52px 1fr;height:100vh}
 .body{display:grid;grid-template-columns:288px 1fr;overflow:hidden}
 
-/* ══ HEADER ══════════════════════════════ */
+/* ══ HEADER ══ */
 .hdr{
   display:flex;align-items:center;gap:16px;padding:0 20px;
   background:var(--surface);
-  border-bottom:1px solid var(--border);
+  position:relative;
   font-family:var(--font);font-size:11px}
+/* #3 — línea inferior con gradiente */
+.hdr::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,
+    transparent 0%,
+    rgba(0,168,130,0.4) 20%,
+    rgba(0,168,130,0.6) 50%,
+    rgba(0,168,130,0.4) 80%,
+    transparent 100%)}
 
 .logo-wrap{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.logo-icon{width:26px;height:30px;flex-shrink:0;opacity:0.9}
+.logo-icon{width:26px;height:30px;flex-shrink:0;opacity:0.85}
 .logo-txt{
-  font-family:var(--display);
-  font-size:20px;letter-spacing:4px;
-  color:var(--t1);
-  /* sin glow — el peso tipográfico es suficiente */}
+  font-family:var(--display);font-size:20px;letter-spacing:4px;color:var(--t1)}
 .logo-sep{width:1px;height:24px;background:var(--border);margin:0 4px}
-.logo-sub{
-  font-size:7px;letter-spacing:2.5px;
-  color:var(--t3);text-transform:uppercase}
+.logo-sub{font-size:7px;letter-spacing:2.5px;color:var(--t3);text-transform:uppercase}
 
 .hdr-mid{flex:1}
 
-.hdr-r{
-  display:flex;align-items:center;gap:16px;
-  font-size:10px;color:var(--t2)}
+.hdr-r{display:flex;align-items:center;gap:14px;font-size:10px;color:var(--t2)}
 
 .hdr-stat{
   display:flex;flex-direction:column;align-items:flex-end;gap:2px;
   padding:0 14px;border-left:1px solid var(--border2)}
-.hdr-stat-l{font-size:7px;letter-spacing:2px;color:var(--t3);text-transform:uppercase}
+/* #9 — small-caps en labels del header */
+.hdr-stat-l{font-size:7px;letter-spacing:2px;color:var(--t3);font-variant:small-caps}
 .hdr-stat-v{font-size:11px;font-weight:600;color:var(--accent)}
 
+/* #8 — puntito de conexión animado */
 .pdot{
   width:6px;height:6px;border-radius:50%;
-  background:var(--accent);
-  animation:pdot 2s ease-in-out infinite}
-@keyframes pdot{0%,100%{opacity:1}50%{opacity:0.3}}
+  background:var(--accent);flex-shrink:0;
+  animation:pdot 2.4s ease-in-out infinite}
+@keyframes pdot{0%,100%{opacity:1}50%{opacity:0.25}}
 
+/* #8 — badge con puntito de conexión */
 .hdr-badge{
+  display:flex;align-items:center;gap:6px;
   font-size:8px;letter-spacing:1.5px;color:var(--t3);
   border:1px solid var(--border2);padding:3px 8px}
+.hdr-badge-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--pos);flex-shrink:0;
+  animation:pdot 2.4s ease-in-out infinite}
+
+/* #8 — reloj NY */
+.hdr-clock{
+  font-size:10px;font-weight:500;color:var(--t2);
+  letter-spacing:1px;min-width:80px;text-align:right}
 
 .btn-theme{
   font-family:var(--font);font-size:8px;letter-spacing:1px;
   color:var(--t3);background:transparent;border:1px solid var(--border2);
-  padding:4px 10px;cursor:pointer;transition:all 0.15s}
+  padding:4px 10px;cursor:pointer;
+  transition:color 150ms var(--ease),border-color 150ms var(--ease)}/* #4 */
 .btn-theme:hover{color:var(--t2);border-color:var(--border)}
 
-/* ══ SIDEBAR ══════════════════════════════ */
+/* ══ SIDEBAR ══ */
 .sidebar{
-  background:var(--surface);
-  border-right:1px solid var(--border);
+  background:var(--surface);border-right:1px solid var(--border);
   overflow-y:auto;display:flex;flex-direction:column}
 
-.sec{padding:14px 16px;border-bottom:1px solid var(--border2)}
+/* #9 — separadores de sección más aireados */
+.sec{padding:16px 16px 14px;border-bottom:1px solid var(--border2)}
+
+/* #9 — small-caps en títulos de sección */
 .sec-ttl{
-  font-size:7px;letter-spacing:3px;color:var(--t2);
-  text-transform:uppercase;font-weight:500;margin-bottom:12px}
+  font-size:8px;letter-spacing:2px;color:var(--t2);
+  font-variant:small-caps;font-weight:600;margin-bottom:14px}
 
 .field{margin-bottom:10px}
 .field label{
-  display:block;font-size:7px;letter-spacing:2px;
-  color:var(--t2);text-transform:uppercase;margin-bottom:4px}
+  display:block;font-size:7px;letter-spacing:1.5px;
+  color:var(--t2);font-variant:small-caps;margin-bottom:5px}/* #9 */
 .field input,.field select{
   width:100%;background:var(--surface2);
   border:1px solid var(--border2);color:var(--t1);
   font-family:var(--font);font-size:10px;padding:7px 10px;
-  outline:none;transition:border-color 0.15s}
-.field input:focus,.field select:focus{border-color:var(--accent)}
+  outline:none;
+  transition:border-color 150ms var(--ease),box-shadow 150ms var(--ease)}/* #4 */
+/* #4 — focus ring limpio, sin default del browser */
+.field input:focus,.field select:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 1px rgba(0,168,130,0.15)}
 .field select option{background:var(--surface2)}
-
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 
+/* #7 — botón RUN con estados */
 .btn-run{
-  width:100%;padding:12px;margin-top:4px;
+  width:100%;padding:12px;margin-top:6px;
   font-family:var(--display);font-size:15px;letter-spacing:7px;
   color:#000;background:var(--accent);
-  border:none;cursor:pointer;
-  transition:background 0.15s,opacity 0.15s}
-.btn-run:hover{background:#00c49a}
+  border:none;cursor:pointer;position:relative;overflow:hidden;
+  transition:background 150ms var(--ease),opacity 150ms var(--ease)}
+.btn-run::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent);
+  transform:translateX(-100%);transition:transform 0.4s var(--ease)}
+.btn-run:hover{background:#00be94}
+.btn-run:hover::before{transform:translateX(100%)}/* shimmer sutil al hover */
+.btn-run:active{opacity:0.85}
 
-/* ══ MAIN AREA ════════════════════════════ */
+/* ══ MAIN ══ */
 .main{display:flex;flex-direction:column;overflow:hidden;background:var(--bg)}
 
-/* ── Tab bar ── */
+/* ── Tabs ── */
 .tabs-wrap{
   display:flex;background:var(--surface);
   border-bottom:1px solid var(--border2);
   flex-shrink:0;overflow-x:auto}
 .tab-btn{
   font-family:var(--font);font-size:8px;letter-spacing:1.5px;
-  flex:1;padding:12px 8px;cursor:pointer;
+  flex:1;padding:13px 8px;cursor:pointer;
   color:var(--t2);background:transparent;border:none;
   border-bottom:2px solid transparent;
   text-transform:uppercase;white-space:nowrap;
-  transition:color 0.15s,border-color 0.15s}
+  transition:color 150ms var(--ease),border-color 150ms var(--ease)}/* #4 */
 .tab-btn:hover{color:var(--t1)}
-.tab-btn.active{
-  color:var(--accent);
-  border-bottom-color:var(--accent)}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
 
-/* ── Content area ── */
-.content{flex:1;overflow-y:auto;overflow-x:hidden;padding:16px}
+/* ── Content ── */
+.content{flex:1;overflow-y:auto;overflow-x:hidden;padding:16px;
+  /* #6 — fade-in al montar */
+  animation:fadeUp 0.2s var(--ease)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 
 /* ── KPI Grid ── */
-.kpi-g{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border2)}
-.kpi-g2{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border2);border-top:none}
+.kpi-g{display:grid;grid-template-columns:repeat(4,1fr)}
+.kpi-g2{display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--border2)}
 
+/* #5 — más padding, sin borde exterior, línea top como gradiente */
 .kpi{
-  padding:18px 20px 14px;
+  padding:20px 20px 16px;
   background:var(--surface);
   border-right:1px solid var(--border2);
-  position:relative}
+  border-bottom:1px solid var(--border2);
+  position:relative;overflow:hidden;
+  transition:background 150ms var(--ease)}/* #4 */
 .kpi:last-child{border-right:none}
+.kpi:hover{background:rgba(255,255,255,0.012)}
 
-/* Top accent line — solo 2px de color sólido, sin glow */
+/* #5 — línea top como gradiente color → transparent */
 .kpi::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px}
-.kpi.green::before{background:var(--pos);opacity:0.7}
-.kpi.red::before{background:var(--neg);opacity:0.7}
-.kpi.blue::before{background:var(--accent2);opacity:0.7}
-.kpi.amber::before{background:var(--amber);opacity:0.7}
-.kpi.teal::before{background:var(--accent);opacity:0.7}
-.kpi.gray::before{background:var(--t3);opacity:0.7}
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  opacity:0.8}
+.kpi.green::before{background:linear-gradient(90deg,var(--pos),transparent 70%)}
+.kpi.red::before{background:linear-gradient(90deg,var(--neg),transparent 70%)}
+.kpi.blue::before{background:linear-gradient(90deg,var(--accent2),transparent 70%)}
+.kpi.amber::before{background:linear-gradient(90deg,var(--amber),transparent 70%)}
+.kpi.teal::before{background:linear-gradient(90deg,var(--accent),transparent 70%)}
+.kpi.gray::before{background:linear-gradient(90deg,var(--t3),transparent 70%)}
 
-.kpi-l{
-  font-size:7px;letter-spacing:2px;color:var(--t2);
-  text-transform:uppercase;margin-bottom:8px}
+/* #9 — small-caps en labels de KPI */
+.kpi-l{font-size:7px;letter-spacing:1.5px;color:var(--t2);
+  font-variant:small-caps;margin-bottom:10px}
+/* #1 — tabular-nums en valores */
 .kpi-v{
   font-family:var(--font);font-size:20px;font-weight:600;
-  line-height:1;letter-spacing:-0.5px;margin-bottom:5px}
+  line-height:1;letter-spacing:-0.5px;margin-bottom:6px;
+  font-variant-numeric:tabular-nums}
 .kpi-v.pos{color:var(--pos)}
 .kpi-v.neg{color:var(--neg)}
 .kpi-v.neu{color:var(--accent2)}
 .kpi-v.wht{color:var(--t1)}
-.kpi-s{font-size:9px;color:var(--t2)}
-
-/* Fila secundaria — valores más pequeños */
+.kpi-s{font-size:9px;color:var(--t3)}
 .kpi-g2 .kpi-v{font-size:15px;font-weight:500;letter-spacing:0}
 
-/* ── Panel / Card ── */
-.pb{
-  background:var(--surface);
-  border:none;
-  margin-bottom:12px}
+/* ── Panel ── */
+.pb{background:var(--surface);margin-bottom:12px}
 .pb-ttl-bar{
-  padding:8px 14px;
-  border-bottom:1px solid var(--border3);
+  padding:10px 16px;border-bottom:1px solid var(--border3);
   display:flex;align-items:center;justify-content:space-between}
-.pb-ttl{
-  font-size:7px;letter-spacing:3px;color:var(--t2);
-  text-transform:uppercase;font-weight:500}
+.pb-ttl{font-size:7px;letter-spacing:2px;color:var(--t2);
+  font-variant:small-caps;font-weight:600}/* #9 */
 .pb-ttl-r{font-size:8px;color:var(--t3)}
-.pb-body{padding:14px}
+.pb-body{padding:16px}
 
 /* ── Tables ── */
-table{width:100%;border-collapse:collapse;font-size:10px}
+table{width:100%;border-collapse:collapse;font-size:10px;
+  font-variant-numeric:tabular-nums}/* #1 */
 thead th{
-  font-size:7px;letter-spacing:2px;color:var(--t2);
-  text-transform:uppercase;font-weight:500;
-  padding:8px 12px;text-align:left;
+  font-size:7px;letter-spacing:1.5px;color:var(--t2);
+  font-variant:small-caps;font-weight:600;/* #9 */
+  padding:9px 12px;
   background:var(--surface2);
   border-bottom:1px solid var(--border)}
-tbody tr{border-bottom:1px solid var(--border3)}
-tbody tr:hover{background:rgba(255,255,255,0.02)}
+/* #1 — columnas numéricas alineadas a la derecha */
+thead th.num,tbody td.num{text-align:right}
+tbody tr{border-bottom:1px solid var(--border3);
+  transition:background 150ms var(--ease)}/* #4 */
+tbody tr:hover{background:rgba(255,255,255,0.025)}/* #4 — sin translación */
 tbody td{padding:8px 12px;color:var(--t1)}
 tbody td.pos{color:var(--pos)}
 tbody td.neg{color:var(--neg)}
-tbody td.dim{color:var(--t2)}
+tbody td.dim{color:var(--t3)}
 
-/* ── Stats row inside panel ── */
+/* ── Stats row ── */
 .stat-row{
-  display:flex;gap:0;border-top:1px solid var(--border2);margin-top:12px}
+  display:flex;border-top:1px solid var(--border2);margin-top:0}
 .stat-item{
-  flex:1;padding:10px 14px;border-right:1px solid var(--border2)}
+  flex:1;padding:12px 16px;border-right:1px solid var(--border2)}
 .stat-item:last-child{border-right:none}
-.stat-l{font-size:7px;letter-spacing:2px;color:var(--t2);text-transform:uppercase;margin-bottom:4px}
-.stat-v{font-size:13px;font-weight:600;color:var(--t1)}
+.stat-l{font-size:7px;letter-spacing:1.5px;color:var(--t2);
+  font-variant:small-caps;margin-bottom:5px}/* #9 */
+.stat-v{font-size:13px;font-weight:600;color:var(--t1);
+  font-variant-numeric:tabular-nums}/* #1 */
 .stat-v.pos{color:var(--pos)}
 .stat-v.neg{color:var(--neg)}
 
-/* ── Legend badge ── */
+/* ── Badges ── */
 .badge{
   display:inline-block;font-size:7px;letter-spacing:1.5px;
-  padding:2px 7px;border:1px solid;text-transform:uppercase}
-.badge.pos{color:var(--pos);border-color:rgba(0,168,122,0.3)}
-.badge.neg{color:var(--neg);border-color:rgba(224,48,85,0.3)}
+  padding:2px 7px;border:1px solid;text-transform:uppercase;
+  font-variant-numeric:tabular-nums}
+.badge.pos{color:var(--pos);border-color:rgba(0,168,122,0.25);
+  background:rgba(0,168,122,0.05)}
+.badge.neg{color:var(--neg);border-color:rgba(224,48,85,0.25);
+  background:rgba(224,48,85,0.05)}
 .badge.neu{color:var(--t2);border-color:var(--border)}
 
-/* ── Nota de maqueta ── */
+/* ── Nota maqueta ── */
 .mockup-note{
   position:fixed;bottom:16px;right:16px;
   background:var(--surface);border:1px solid var(--border);
-  padding:10px 14px;font-size:8px;letter-spacing:1px;color:var(--t3);
-  z-index:999}
+  padding:10px 14px;font-size:8px;letter-spacing:1px;color:var(--t3);z-index:999}
 .mockup-note strong{color:var(--accent)}
 </style>
 </head>
@@ -254,13 +283,13 @@ tbody td.dim{color:var(--t2)}
   <!-- HEADER -->
   <header class="hdr">
     <div class="logo-wrap">
-      <svg class="logo-icon" viewBox="0 0 36 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 4 L32 12 L32 28 L18 36 L4 28 L4 12 Z" stroke="#00a882" stroke-width="1.2" fill="none" opacity="0.6"/>
-        <path d="M18 10 L26 15 L26 25 L18 30 L10 25 L10 15 Z" stroke="#00a882" stroke-width="0.8" fill="none" opacity="0.4"/>
-        <line x1="18" y1="4" x2="18" y2="36" stroke="#00a882" stroke-width="0.5" opacity="0.3"/>
-        <line x1="4" y1="12" x2="32" y2="28" stroke="#00a882" stroke-width="0.5" opacity="0.3"/>
-        <line x1="32" y1="12" x2="4" y2="28" stroke="#00a882" stroke-width="0.5" opacity="0.3"/>
-        <circle cx="18" cy="20" r="2.5" fill="#00a882" opacity="0.8"/>
+      <svg class="logo-icon" viewBox="0 0 36 44" fill="none">
+        <path d="M18 4 L32 12 L32 28 L18 36 L4 28 L4 12 Z" stroke="#00a882" stroke-width="1.2" fill="none" opacity="0.55"/>
+        <path d="M18 10 L26 15 L26 25 L18 30 L10 25 L10 15 Z" stroke="#00a882" stroke-width="0.8" fill="none" opacity="0.35"/>
+        <line x1="18" y1="4" x2="18" y2="36" stroke="#00a882" stroke-width="0.5" opacity="0.25"/>
+        <line x1="4" y1="12" x2="32" y2="28" stroke="#00a882" stroke-width="0.5" opacity="0.25"/>
+        <line x1="32" y1="12" x2="4" y2="28" stroke="#00a882" stroke-width="0.5" opacity="0.25"/>
+        <circle cx="18" cy="20" r="2.5" fill="#00a882" opacity="0.9"/>
       </svg>
       <span class="logo-txt">ARES QUANT</span>
       <div class="logo-sep"></div>
@@ -270,6 +299,8 @@ tbody td.dim{color:var(--t2)}
     <div class="hdr-mid"></div>
 
     <div class="hdr-r">
+      <!-- #8 — reloj NY -->
+      <span class="hdr-clock" id="clock">NY 09:34:22</span>
       <div class="hdr-stat">
         <span class="hdr-stat-l">Estrategia</span>
         <span class="hdr-stat-v">ASRS 5MIN</span>
@@ -278,9 +309,12 @@ tbody td.dim{color:var(--t2)}
         <span class="hdr-stat-l">Instrumento</span>
         <span class="hdr-stat-v" style="color:var(--accent2)">MNQ</span>
       </div>
-      <div class="pdot"></div>
-      <span class="hdr-badge">POLYGON.IO · 2 AÑOS</span>
-      <button class="btn-theme">☀ CLARO</button>
+      <!-- #8 — puntito de conexión + badge -->
+      <div class="hdr-badge">
+        <span class="hdr-badge-dot"></span>
+        POLYGON.IO · 2 AÑOS
+      </div>
+      <button class="btn-theme" onclick="toggleTheme(this)">☀ CLARO</button>
     </div>
   </header>
 
@@ -311,7 +345,7 @@ tbody td.dim{color:var(--t2)}
       </div>
 
       <div class="sec">
-        <div class="sec-ttl">Parámetros de estrategia</div>
+        <div class="sec-ttl">Parámetros</div>
         <div class="field">
           <label>Tipo de señal</label>
           <select><option>Momentum 5min</option><option>Mean Reversion</option></select>
@@ -348,16 +382,17 @@ tbody td.dim{color:var(--t2)}
           <label>Contratos</label>
           <input type="text" value="1">
         </div>
-        <button class="btn-run">EJECUTAR BACKTEST</button>
+        <!-- #7 — botón RUN con shimmer -->
+        <button class="btn-run" onclick="simulateRun(this)">EJECUTAR BACKTEST</button>
       </div>
 
-      <div class="sec" style="flex:1">
-        <div class="sec-ttl">Log de ejecución</div>
-        <div style="font-size:9px;color:var(--t3);line-height:1.8">
-          <div><span style="color:var(--t4)">09:34:12</span> &nbsp;Sistema listo</div>
-          <div><span style="color:var(--t4)">09:34:18</span> &nbsp;<span style="color:var(--accent)">Cargando datos...</span></div>
-          <div><span style="color:var(--t4)">09:34:21</span> &nbsp;2,847 barras procesadas</div>
-          <div><span style="color:var(--t4)">09:34:22</span> &nbsp;<span style="color:var(--pos)">✓ Backtest completado</span></div>
+      <div class="sec" style="flex:1;border-bottom:none">
+        <div class="sec-ttl">Log</div>
+        <div style="font-size:9px;line-height:2;color:var(--t2)">
+          <div><span style="color:var(--t4)">09:34:12</span>&nbsp; Sistema listo</div>
+          <div><span style="color:var(--t4)">09:34:18</span>&nbsp; <span style="color:var(--accent)">Cargando datos...</span></div>
+          <div><span style="color:var(--t4)">09:34:21</span>&nbsp; 2,847 barras procesadas</div>
+          <div><span style="color:var(--t4)">09:34:22</span>&nbsp; <span style="color:var(--pos)">✓ Completado</span></div>
         </div>
       </div>
     </aside>
@@ -365,46 +400,46 @@ tbody td.dim{color:var(--t2)}
     <!-- MAIN -->
     <main class="main">
 
-      <!-- Tab bar -->
+      <!-- Tabs -->
       <div class="tabs-wrap">
-        <button class="tab-btn active">Resumen</button>
-        <button class="tab-btn">Temporal</button>
-        <button class="tab-btn">Riesgo</button>
-        <button class="tab-btn">Edge</button>
-        <button class="tab-btn">Benchmark</button>
-        <button class="tab-btn">Análisis</button>
-        <button class="tab-btn">Trades</button>
-        <button class="tab-btn">Gráfico</button>
+        <button class="tab-btn active" onclick="switchTab(this,'overview')">Resumen</button>
+        <button class="tab-btn" onclick="switchTab(this,'temporal')">Temporal</button>
+        <button class="tab-btn" onclick="switchTab(this,'riesgo')">Riesgo</button>
+        <button class="tab-btn" onclick="switchTab(this,'edge')">Edge</button>
+        <button class="tab-btn" onclick="switchTab(this,'benchmark')">Benchmark</button>
+        <button class="tab-btn" onclick="switchTab(this,'analisis')">Análisis</button>
+        <button class="tab-btn" onclick="switchTab(this,'trades')">Trades</button>
+        <button class="tab-btn" onclick="switchTab(this,'grafico')">Gráfico</button>
       </div>
 
-      <!-- Content -->
-      <div class="content">
+      <!-- RESUMEN -->
+      <div class="content" id="tab-overview">
 
-        <!-- KPI Row 1 — principales -->
+        <!-- KPI fila 1 -->
         <div class="kpi-g" style="margin-bottom:0">
           <div class="kpi green">
             <div class="kpi-l">P&amp;L Neto</div>
-            <div class="kpi-v pos">$48,320.00</div>
-            <div class="kpi-s" style="color:var(--t2)">+12.4% retorno</div>
+            <div class="kpi-v pos" data-target="48320">$48,320.00</div>
+            <div class="kpi-s">+12.4% retorno total</div>
           </div>
           <div class="kpi teal">
             <div class="kpi-l">Win Rate</div>
             <div class="kpi-v wht">64.2%</div>
-            <div class="kpi-s" style="color:var(--t2)">386 / 601 trades</div>
+            <div class="kpi-s">386 / 601 trades</div>
           </div>
           <div class="kpi blue">
             <div class="kpi-l">Profit Factor</div>
             <div class="kpi-v neu">1.84</div>
-            <div class="kpi-s" style="color:var(--t2)">ratio bruto</div>
+            <div class="kpi-s">ratio bruto</div>
           </div>
           <div class="kpi red">
             <div class="kpi-l">Max Drawdown</div>
             <div class="kpi-v neg">-$6,240.00</div>
-            <div class="kpi-s" style="color:var(--t2)">-7.2% del capital</div>
+            <div class="kpi-s">-7.2% del capital</div>
           </div>
         </div>
 
-        <!-- KPI Row 2 — secundarios -->
+        <!-- KPI fila 2 -->
         <div class="kpi-g2" style="margin-bottom:16px">
           <div class="kpi gray">
             <div class="kpi-l">Trades totales</div>
@@ -424,7 +459,7 @@ tbody td.dim{color:var(--t2)}
           </div>
         </div>
 
-        <!-- Tabla de trades recientes -->
+        <!-- Tabla trades recientes -->
         <div class="pb">
           <div class="pb-ttl-bar">
             <span class="pb-ttl">Trades recientes</span>
@@ -435,181 +470,179 @@ tbody td.dim{color:var(--t2)}
               <tr>
                 <th>#</th>
                 <th>Fecha</th>
-                <th>Hora entrada</th>
-                <th>Dirección</th>
-                <th>Entrada</th>
-                <th>Salida</th>
-                <th>P&amp;L</th>
+                <th>Hora</th>
+                <th>Dir.</th>
+                <th class="num">Entrada</th>
+                <th class="num">Salida</th>
+                <th class="num">P&amp;L</th>
                 <th>Estado</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="dim">001</td>
-                <td class="dim">2024-11-14</td>
-                <td class="dim">09:35</td>
+                <td class="dim">001</td><td class="dim">2024-11-14</td><td class="dim">09:35</td>
                 <td><span class="badge pos">LONG</span></td>
-                <td>19,842.50</td>
-                <td>19,858.75</td>
-                <td class="pos">+$325.00</td>
-                <td><span class="badge pos">WIN</span></td>
+                <td class="num">19,842.50</td><td class="num">19,858.75</td>
+                <td class="num pos">+$325.00</td><td><span class="badge pos">WIN</span></td>
               </tr>
               <tr>
-                <td class="dim">002</td>
-                <td class="dim">2024-11-14</td>
-                <td class="dim">11:10</td>
+                <td class="dim">002</td><td class="dim">2024-11-14</td><td class="dim">11:10</td>
                 <td><span class="badge neg">SHORT</span></td>
-                <td>19,871.25</td>
-                <td>19,879.50</td>
-                <td class="neg">-$165.00</td>
-                <td><span class="badge neg">LOSS</span></td>
+                <td class="num">19,871.25</td><td class="num">19,879.50</td>
+                <td class="num neg">-$165.00</td><td><span class="badge neg">LOSS</span></td>
               </tr>
               <tr>
-                <td class="dim">003</td>
-                <td class="dim">2024-11-15</td>
-                <td class="dim">09:48</td>
+                <td class="dim">003</td><td class="dim">2024-11-15</td><td class="dim">09:48</td>
                 <td><span class="badge pos">LONG</span></td>
-                <td>19,910.00</td>
-                <td>19,926.25</td>
-                <td class="pos">+$325.00</td>
-                <td><span class="badge pos">WIN</span></td>
+                <td class="num">19,910.00</td><td class="num">19,926.25</td>
+                <td class="num pos">+$325.00</td><td><span class="badge pos">WIN</span></td>
               </tr>
               <tr>
-                <td class="dim">004</td>
-                <td class="dim">2024-11-15</td>
-                <td class="dim">13:22</td>
+                <td class="dim">004</td><td class="dim">2024-11-15</td><td class="dim">13:22</td>
                 <td><span class="badge neg">SHORT</span></td>
-                <td>19,955.50</td>
-                <td>19,939.25</td>
-                <td class="pos">+$325.00</td>
-                <td><span class="badge pos">WIN</span></td>
+                <td class="num">19,955.50</td><td class="num">19,939.25</td>
+                <td class="num pos">+$325.00</td><td><span class="badge pos">WIN</span></td>
               </tr>
               <tr>
-                <td class="dim">005</td>
-                <td class="dim">2024-11-18</td>
-                <td class="dim">10:05</td>
+                <td class="dim">005</td><td class="dim">2024-11-18</td><td class="dim">10:05</td>
                 <td><span class="badge pos">LONG</span></td>
-                <td>20,014.75</td>
-                <td>20,006.50</td>
-                <td class="neg">-$165.00</td>
-                <td><span class="badge neg">LOSS</span></td>
+                <td class="num">20,014.75</td><td class="num">20,006.50</td>
+                <td class="num neg">-$165.00</td><td><span class="badge neg">LOSS</span></td>
               </tr>
             </tbody>
           </table>
-
-          <!-- Stats summary row -->
           <div class="stat-row">
-            <div class="stat-item">
-              <div class="stat-l">Días operados</div>
-              <div class="stat-v">142</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-l">Trades / día</div>
-              <div class="stat-v">4.2</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-l">Mejor día</div>
-              <div class="stat-v pos">+$1,950</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-l">Peor día</div>
-              <div class="stat-v neg">-$825</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-l">Comisiones</div>
-              <div class="stat-v" style="color:var(--t2)">$1,202.00</div>
-            </div>
+            <div class="stat-item"><div class="stat-l">Días operados</div><div class="stat-v">142</div></div>
+            <div class="stat-item"><div class="stat-l">Trades / día</div><div class="stat-v">4.2</div></div>
+            <div class="stat-item"><div class="stat-l">Mejor día</div><div class="stat-v pos">+$1,950</div></div>
+            <div class="stat-item"><div class="stat-l">Peor día</div><div class="stat-v neg">-$825</div></div>
+            <div class="stat-item"><div class="stat-l">Comisiones</div><div class="stat-v" style="color:var(--t2)">$1,202.00</div></div>
           </div>
         </div>
 
-        <!-- Dos panels secundarios -->
+        <!-- 2 paneles -->
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <div class="pb">
-            <div class="pb-ttl-bar">
-              <span class="pb-ttl">Distribución por día</span>
-            </div>
+            <div class="pb-ttl-bar"><span class="pb-ttl">P&amp;L por día de semana</span></div>
             <div class="pb-body">
-              <!-- Barras simples como representación -->
-              <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;flex-direction:column;gap:10px">
                 <div style="display:flex;align-items:center;gap:10px">
-                  <span style="font-size:8px;color:var(--t3);width:24px;letter-spacing:1px">LUN</span>
-                  <div style="flex:1;height:6px;background:var(--surface2);position:relative">
-                    <div style="width:72%;height:100%;background:var(--pos);opacity:0.6"></div>
-                  </div>
-                  <span style="font-size:9px;color:var(--pos);width:52px;text-align:right">+$9,840</span>
+                  <span style="font-size:8px;color:var(--t3);width:28px;font-variant:small-caps">Lun</span>
+                  <div style="flex:1;height:5px;background:var(--surface2)"><div style="width:72%;height:100%;background:var(--pos);opacity:0.55"></div></div>
+                  <span style="font-size:9px;color:var(--pos);width:56px;text-align:right;font-variant-numeric:tabular-nums">+$9,840</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:10px">
-                  <span style="font-size:8px;color:var(--t3);width:24px;letter-spacing:1px">MAR</span>
-                  <div style="flex:1;height:6px;background:var(--surface2)">
-                    <div style="width:58%;height:100%;background:var(--pos);opacity:0.6"></div>
-                  </div>
-                  <span style="font-size:9px;color:var(--pos);width:52px;text-align:right">+$7,920</span>
+                  <span style="font-size:8px;color:var(--t3);width:28px;font-variant:small-caps">Mar</span>
+                  <div style="flex:1;height:5px;background:var(--surface2)"><div style="width:58%;height:100%;background:var(--pos);opacity:0.55"></div></div>
+                  <span style="font-size:9px;color:var(--pos);width:56px;text-align:right;font-variant-numeric:tabular-nums">+$7,920</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:10px">
-                  <span style="font-size:8px;color:var(--t3);width:24px;letter-spacing:1px">MIÉ</span>
-                  <div style="flex:1;height:6px;background:var(--surface2)">
-                    <div style="width:44%;height:100%;background:var(--pos);opacity:0.6"></div>
-                  </div>
-                  <span style="font-size:9px;color:var(--pos);width:52px;text-align:right">+$6,050</span>
+                  <span style="font-size:8px;color:var(--t3);width:28px;font-variant:small-caps">Mié</span>
+                  <div style="flex:1;height:5px;background:var(--surface2)"><div style="width:44%;height:100%;background:var(--pos);opacity:0.55"></div></div>
+                  <span style="font-size:9px;color:var(--pos);width:56px;text-align:right;font-variant-numeric:tabular-nums">+$6,050</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:10px">
-                  <span style="font-size:8px;color:var(--t3);width:24px;letter-spacing:1px">JUE</span>
-                  <div style="flex:1;height:6px;background:var(--surface2)">
-                    <div style="width:30%;height:100%;background:var(--neg);opacity:0.6"></div>
-                  </div>
-                  <span style="font-size:9px;color:var(--neg);width:52px;text-align:right">-$4,120</span>
+                  <span style="font-size:8px;color:var(--t3);width:28px;font-variant:small-caps">Jue</span>
+                  <div style="flex:1;height:5px;background:var(--surface2)"><div style="width:30%;height:100%;background:var(--neg);opacity:0.55"></div></div>
+                  <span style="font-size:9px;color:var(--neg);width:56px;text-align:right;font-variant-numeric:tabular-nums">-$4,120</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:10px">
-                  <span style="font-size:8px;color:var(--t3);width:24px;letter-spacing:1px">VIE</span>
-                  <div style="flex:1;height:6px;background:var(--surface2)">
-                    <div style="width:85%;height:100%;background:var(--pos);opacity:0.6"></div>
-                  </div>
-                  <span style="font-size:9px;color:var(--pos);width:52px;text-align:right">+$11,580</span>
+                  <span style="font-size:8px;color:var(--t3);width:28px;font-variant:small-caps">Vie</span>
+                  <div style="flex:1;height:5px;background:var(--surface2)"><div style="width:85%;height:100%;background:var(--pos);opacity:0.55"></div></div>
+                  <span style="font-size:9px;color:var(--pos);width:56px;text-align:right;font-variant-numeric:tabular-nums">+$11,580</span>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="pb">
-            <div class="pb-ttl-bar">
-              <span class="pb-ttl">Métricas de riesgo</span>
-            </div>
+            <div class="pb-ttl-bar"><span class="pb-ttl">Métricas de riesgo</span></div>
             <div class="pb-body">
-              <div style="display:flex;flex-direction:column;gap:10px">
-                <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--border3);padding-bottom:8px">
-                  <span style="font-size:8px;letter-spacing:1.5px;color:var(--t3);text-transform:uppercase">Calmar Ratio</span>
-                  <span style="font-size:14px;font-weight:600;color:var(--t1)">2.14</span>
+              <div style="display:flex;flex-direction:column;gap:0">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--border3)">
+                  <span style="font-size:8px;color:var(--t2);font-variant:small-caps;letter-spacing:1px">Calmar Ratio</span>
+                  <span style="font-size:14px;font-weight:600;color:var(--t1);font-variant-numeric:tabular-nums">2.14</span>
                 </div>
-                <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--border3);padding-bottom:8px">
-                  <span style="font-size:8px;letter-spacing:1.5px;color:var(--t3);text-transform:uppercase">Sortino Ratio</span>
-                  <span style="font-size:14px;font-weight:600;color:var(--t1)">2.38</span>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--border3)">
+                  <span style="font-size:8px;color:var(--t2);font-variant:small-caps;letter-spacing:1px">Sortino Ratio</span>
+                  <span style="font-size:14px;font-weight:600;color:var(--t1);font-variant-numeric:tabular-nums">2.38</span>
                 </div>
-                <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--border3);padding-bottom:8px">
-                  <span style="font-size:8px;letter-spacing:1.5px;color:var(--t3);text-transform:uppercase">Max Consec. Losses</span>
-                  <span style="font-size:14px;font-weight:600;color:var(--neg)">6</span>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--border3)">
+                  <span style="font-size:8px;color:var(--t2);font-variant:small-caps;letter-spacing:1px">Max Consec. Losses</span>
+                  <span style="font-size:14px;font-weight:600;color:var(--neg);font-variant-numeric:tabular-nums">6</span>
                 </div>
-                <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--border3);padding-bottom:8px">
-                  <span style="font-size:8px;letter-spacing:1.5px;color:var(--t3);text-transform:uppercase">Recovery Factor</span>
-                  <span style="font-size:14px;font-weight:600;color:var(--pos)">7.75</span>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--border3)">
+                  <span style="font-size:8px;color:var(--t2);font-variant:small-caps;letter-spacing:1px">Recovery Factor</span>
+                  <span style="font-size:14px;font-weight:600;color:var(--pos);font-variant-numeric:tabular-nums">7.75</span>
                 </div>
-                <div style="display:flex;justify-content:space-between;align-items:baseline">
-                  <span style="font-size:8px;letter-spacing:1.5px;color:var(--t3);text-transform:uppercase">Expectancy / trade</span>
-                  <span style="font-size:14px;font-weight:600;color:var(--pos)">+$80.40</span>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;padding:9px 0">
+                  <span style="font-size:8px;color:var(--t2);font-variant:small-caps;letter-spacing:1px">Expectancy / trade</span>
+                  <span style="font-size:14px;font-weight:600;color:var(--pos);font-variant-numeric:tabular-nums">+$80.40</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-      </div><!-- /content -->
+      </div><!-- /tab-overview -->
+
     </main>
   </div>
 </div>
 
-<!-- Nota de maqueta -->
 <div class="mockup-note">
-  <strong>MOCKUP v1</strong> · Dark Institutional · Solo visual, sin lógica
+  <strong>MOCKUP v2</strong> · 9 mejoras premium aplicadas
 </div>
 
+<script>
+/* #8 — Reloj NY en tiempo real */
+function updateClock(){
+  const now=new Date();
+  const ny=new Date(now.toLocaleString('en-US',{timeZone:'America/New_York'}));
+  const h=String(ny.getHours()).padStart(2,'0');
+  const m=String(ny.getMinutes()).padStart(2,'0');
+  const s=String(ny.getSeconds()).padStart(2,'0');
+  const el=document.getElementById('clock');
+  if(el) el.textContent=`NY ${h}:${m}:${s}`;
+}
+updateClock();
+setInterval(updateClock,1000);
+
+/* Tab switching con fade — #6 */
+function switchTab(btn,id){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const content=document.querySelector('.content');
+  if(content){
+    content.style.animation='none';
+    content.offsetHeight;/* reflow */
+    content.style.animation='fadeUp 0.18s cubic-bezier(.4,0,.2,1)';
+  }
+}
+
+/* #7 — simulación estado RUN */
+function simulateRun(btn){
+  btn.textContent='PROCESANDO...';
+  btn.style.opacity='0.7';
+  btn.disabled=true;
+  setTimeout(()=>{
+    btn.textContent='EJECUTAR BACKTEST';
+    btn.style.opacity='1';
+    btn.disabled=false;
+  },2000);
+}
+
+/* Toggle theme (demo) */
+function toggleTheme(btn){
+  const html=document.documentElement;
+  if(html.dataset.theme==='dark'){
+    html.dataset.theme='light';
+    btn.textContent='☾ OSCURO';
+  } else {
+    html.dataset.theme='dark';
+    btn.textContent='☀ CLARO';
+  }
+}
+</script>
 </body>
 </html>
