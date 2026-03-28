@@ -1023,7 +1023,11 @@ tbody td{padding:8px 12px}
                 <div class="pb-ttl-bar"><span class="pb-ttl">Estadísticas anualizadas</span></div>
                 <div class="tbl-scroll"><table><thead><tr>
                   <th>Año</th><th>Trades</th><th>WR</th><th>P&L Neto</th>
-                  <th>Crecimiento</th><th>Profit Factor</th><th>Max DD</th>
+                  <th>Crecimiento</th><th>Profit Factor</th>
+                  <th>Max DD $</th><th>Max DD %</th>
+                  <th>R:R</th><th>Recovery F.</th>
+                  <th>Meses +</th><th>Mejor Mes</th><th>Peor Mes</th><th>Prom. Mensual</th>
+                  <th>Racha W</th><th>Racha L</th>
                   <th>Avg Win</th><th>Avg Loss</th><th>Equity Final</th>
                 </tr></thead><tbody id="anualTbody"></tbody></table></div>
               </div>
@@ -2281,10 +2285,37 @@ function renderAnual(trades,ic){
     const endEq=yTrades[yTrades.length-1].equity;
     let peak=startEq,maxDD=0;
     for(const t of yTrades){if(t.equity>peak)peak=t.equity;const d=peak-t.equity;if(d>maxDD)maxDD=d;}
+    const growth=(endEq-startEq)/startEq*100;
+    // Max DD como % del pico
+    const maxDDPct=peak>0?(maxDD/peak)*100:0;
+    // R:R promedio anual
+    const avgWinVal=wins.length?grossW/wins.length:0;
+    const avgLossVal=losses.length?grossL/losses.length:0;
+    const rr=avgLossVal>0?avgWinVal/avgLossVal:0;
+    // Recovery Factor anual
+    const rf=maxDD>0?pnl/maxDD:0;
+    // Meses positivos del año
+    const monthlyPnlYear={};
+    for(const t of yTrades){const mo=t.date.slice(0,7);monthlyPnlYear[mo]=(monthlyPnlYear[mo]||0)+t.pnl;}
+    const monthValsYear=Object.values(monthlyPnlYear);
+    const posMonthsYear=monthValsYear.filter(v=>v>0).length;
+    const totalMonthsYear=monthValsYear.length;
+    const pctPosMonths=totalMonthsYear>0?(posMonthsYear/totalMonthsYear)*100:0;
+    const bestMonthYear=monthValsYear.length?Math.max(...monthValsYear):0;
+    const worstMonthYear=monthValsYear.length?Math.min(...monthValsYear):0;
+    const avgMonthYear=monthValsYear.length?monthValsYear.reduce((a,b)=>a+b,0)/monthValsYear.length:0;
+    // Rachas W y L del año
+    let maxWStreak=0,maxLStreak=0,curW=0,curL=0;
+    for(const t of yTrades){
+      if(t.pnl>0){curW++;curL=0;maxWStreak=Math.max(maxWStreak,curW);}
+      else{curL++;curW=0;maxLStreak=Math.max(maxLStreak,curL);}
+    }
     return{yr,total:yTrades.length,wins:wins.length,losses:losses.length,
-      wr:wins.length/yTrades.length*100,pnl,pf,maxDD,
-      avgWin:wins.length?grossW/wins.length:0,avgLoss:losses.length?grossL/losses.length:0,
-      startEq,endEq,growth:(endEq-startEq)/startEq*100};
+      wr:wins.length/yTrades.length*100,pnl,pf,maxDD,maxDDPct,
+      avgWin:avgWinVal,avgLoss:avgLossVal,rr,rf,
+      pctPosMonths,bestMonthYear,worstMonthYear,avgMonthYear,
+      maxWStreak,maxLStreak,
+      startEq,endEq,growth};
   });
 
   // Table
@@ -2295,11 +2326,20 @@ function renderAnual(trades,ic){
       <td class="${s.wr>=50?'c-pos':'c-neg'}">${fmt(s.wr,1)}%</td>
       <td class="${s.pnl>=0?'c-pos':'c-neg'}">${s.pnl>=0?'+':''}$${fmt(s.pnl,0)}</td>
       <td class="${s.growth>=0?'c-pos':'c-neg'}" style="font-weight:700">${s.growth>=0?'+':''}${fmt(s.growth,1)}%</td>
-      <td class="${s.pf&&s.pf>=1.5?'c-pos':s.pf&&s.pf>=1?'':' c-neg'}">${s.pf?fmt(s.pf):'∞'}</td>
+      <td class="${s.pf&&s.pf>=1.5?'c-pos':s.pf&&s.pf>=1?'':'c-neg'}">${s.pf?fmt(s.pf):'∞'}</td>
       <td class="c-neg">-$${fmt(s.maxDD,0)}</td>
+      <td class="c-neg">-${fmt(s.maxDDPct,1)}%</td>
+      <td class="${s.rr>=2?'c-pos':s.rr>=1?'':'c-neg'}">${fmt(s.rr,2)}</td>
+      <td class="${s.rf>=5?'c-pos':s.rf>=1?'':'c-neg'}">${fmt(s.rf,2)}</td>
+      <td class="${s.pctPosMonths>=80?'c-pos':s.pctPosMonths>=60?'':'c-neg'}">${fmt(s.pctPosMonths,1)}%</td>
+      <td class="c-pos">+$${fmt(s.bestMonthYear,0)}</td>
+      <td class="${s.worstMonthYear>=0?'c-pos':'c-neg'}">${s.worstMonthYear>=0?'+':''}$${fmt(s.worstMonthYear,0)}</td>
+      <td class="${s.avgMonthYear>=0?'c-pos':'c-neg'}">${s.avgMonthYear>=0?'+':''}$${fmt(s.avgMonthYear,0)}</td>
+      <td class="c-pos">${s.maxWStreak}</td>
+      <td class="c-neg">${s.maxLStreak}</td>
       <td class="c-pos">$${fmt(s.avgWin,0)}</td>
       <td class="c-neg">-$${fmt(s.avgLoss,0)}</td>
-      <td class="${s.endEq>=ic?'c-pos':'c-neg'}">$${fmt(s.endEq,0)}</td>
+      <td class="${s.endEq>=s.startEq?'c-pos':'c-neg'}">$${fmt(s.endEq,0)}</td>
     </tr>`).join('');
 
   // Annual P&L bar chart
