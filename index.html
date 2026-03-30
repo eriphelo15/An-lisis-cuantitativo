@@ -1857,7 +1857,7 @@ function runBacktest(c5raw,p){
       }
     }
 
-    let dir=0,inTrade=false,tDir=0,entry=0,sl=0,tp=0,ctrs=1;
+    let dir=0,inTrade=false,tDir=0,entry=0,sl=0,tp=0,ctrs=1,entryBar=false;
     let entryTime='',entryTsSec=0,tradeMAE=0,tradeMFE=0;
 
     for(let i=0;i<rth.length;i++){
@@ -1866,8 +1866,11 @@ function runBacktest(c5raw,p){
       if(i<=setupIdx) continue;
 
       if(inTrade){
-        if(tDir===1){tradeMAE=Math.max(tradeMAE,entry-bar.l);tradeMFE=Math.max(tradeMFE,bar.h-entry);}
-        else{tradeMAE=Math.max(tradeMAE,bar.h-entry);tradeMFE=Math.max(tradeMFE,entry-bar.l);}
+        if(!entryBar){
+          if(tDir===1){tradeMAE=Math.max(tradeMAE,entry-bar.l);tradeMFE=Math.max(tradeMFE,bar.h-entry);}
+          else{tradeMAE=Math.max(tradeMAE,bar.h-entry);tradeMFE=Math.max(tradeMFE,entry-bar.l);}
+        }
+        entryBar=false;
 
         let xp=null,xr=null;
         if(p.use_atr_exit){const ap=Math.abs(bar.c-rthOpen)/atr*100;if(ap>=p.atr_exit_pct){xp=bar.c;xr=`ATR ${Math.round(ap)}%`;}}
@@ -1916,7 +1919,7 @@ function runBacktest(c5raw,p){
           const dist=Math.abs(entry-sl);
           const riskUsd=p.risk_mode==='pct'?equity*(p.risk_pct/100):p.risk_usd;
           ctrs=dist>0?Math.max(1,Math.floor(riskUsd/(dist*p.point_value))):1;
-          inTrade=true;tradeMAE=0;tradeMFE=0;
+          inTrade=true;tradeMAE=0;tradeMFE=0;entryBar=true;
         }
       }
     }
