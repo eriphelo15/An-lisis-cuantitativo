@@ -1813,9 +1813,9 @@ function runBacktest(c5raw,p){
   let emaMap1d={};
   if(p.ema_mode==='1d'){
     const closes=daily.map(b=>b.c),emas=computeEMA(closes,p.ema_period);
-    for(let i=0;i<daily.length;i++)
+    for(let i=0;i<daily.length-1;i++)
       if(emas[i]!==null&&i>0&&emas[i-1]!==null)
-        emaMap1d[daily[i].date]=(emas[i]-emas[i-1])/emas[i-1]*100;
+        emaMap1d[daily[i+1].date]=(emas[i]-emas[i-1])/emas[i-1]*100;
   }
   const days=groupByDay(c5);
   // Build day bars cache for modal chart (Fix #2 — include ETH bars)
