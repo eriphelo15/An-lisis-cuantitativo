@@ -898,8 +898,9 @@ tbody td{padding:8px 12px}
         <div class="field">
           <label>Filtro EMA Slope</label>
           <select id="ema_mode" onchange="onEmaModeChange()">
-            <option value="off">Desactivado</option>
-            <option value="1d" selected>EMA 1D — tendencia diaria</option>
+            <option value="off" selected>Desactivado</option>
+            <option value="intraday">EMA Intraday — temporalidad activa</option>
+            <option value="1d">EMA 1D — tendencia diaria</option>
           </select>
         </div>
         <div class="frow" id="ema-fields">
@@ -1533,7 +1534,11 @@ function onEmaModeChange(){
   if(mode==='off'){fields.style.display='none';note.style.display='none';}
   else{
     fields.style.display='grid';note.style.display='block';
-    note.innerHTML='<b>EMA 1D:</b> Pendiente sobre cierres diarios (últimos N días). Umbral 0.02% recomendado.';
+    if(mode==='intraday'){
+      note.innerHTML='<b>EMA Intraday:</b> Pendiente sobre barras de la temporalidad activa (1min o 5min). Solo usa barras cerradas antes de la señal de las 9:45. Sin look-ahead ni sesgo de ningún tipo.';
+    } else {
+      note.innerHTML='<b>EMA 1D:</b> Pendiente sobre cierres diarios (últimos N días). Umbral 0.02% recomendado.';
+    }
   }
 }
 
@@ -1817,6 +1822,25 @@ function runBacktest(c5raw,p){
       if(emas[i]!==null&&i>0&&emas[i-1]!==null)
         emaMap1d[daily[i+1].date]=(emas[i]-emas[i-1])/emas[i-1]*100;
   }
+  // EMA Intraday — calculada sobre barras de la temporalidad activa
+  // IMPORTANTE: la barra i-1 filtra la barra i
+  // En la señal de las 9:45, solo se usan barras cerradas anteriores
+  // Sin look-ahead: nunca se usa información de la barra actual ni futuras
+  let emaMapIntraday={};
+  if(p.ema_mode==='intraday'){
+    const emas=computeEMA(c5.map(b=>b.c),p.ema_period);
+    for(let i=1;i<c5.length;i++){
+      if(emas[i-1]===null||i<2||emas[i-2]===null) continue;
+      const slope=(emas[i-1]-emas[i-2])/emas[i-2]*100;
+      const b=c5[i];
+      const dateStr=b.dateStr!==undefined?b.dateStr:getNYInfo(b.t).dateStr;
+      const hm=b.hm!==undefined?b.hm:getNYInfo(b.t).hm;
+      emaMapIntraday[`${dateStr}_${hm}`]={
+        up:slope>p.ema_slope_th,
+        down:slope<-p.ema_slope_th
+      };
+    }
+  }
   const days=groupByDay(c5);
   // Build day bars cache for modal chart (Fix #2 — include ETH bars)
   dayBarsMap={};
@@ -1912,6 +1936,14 @@ function runBacktest(c5raw,p){
             const sl_=emaMap1d[dateStr];
             if(tDir===1&&sl_<p.ema_slope_th){dir=0;continue;}
             if(tDir===-1&&sl_>-p.ema_slope_th){dir=0;continue;}
+          }
+          if(p.ema_mode==='intraday'){
+            const key=`${dateStr}_${bar.hm}`;
+            const ef=emaMapIntraday[key];
+            if(ef!==undefined){
+              if(tDir===1&&!ef.up){dir=0;continue;}
+              if(tDir===-1&&!ef.down){dir=0;continue;}
+            }
           }
           entry=bar.c;entryTime=bar.timeStr;entryTsSec=bar.tsSec;
           if(tDir===1){sl=sll;tp=entry+(entry-sll)*p.rr;}
