@@ -857,7 +857,16 @@ tbody td{padding:8px 12px}
       </div>
 
       <div class="sec">
-        <div class="sec-ttl">Parámetros ASRS</div>
+        <div class="sec-ttl">Parámetros Estrategia</div>
+        <div class="field">
+          <label>Estrategia</label>
+          <select id="btStrategy" onchange="onStrategyChange()">
+            <option value="asrs5" selected>ASRS 5min — señal al cierre de vela 5min</option>
+            <option value="asrs1">ASRS 1min — entrada más temprana</option>
+            <option value="clbr5">CL-BR 5min — mejor rango 9:45 vs 9:50</option>
+            <option value="clbr1">CL-BR 1min — mejor rango 9:40-9:45, eval. inmediata</option>
+          </select>
+        </div>
         <div class="frow">
           <div class="field"><label>Fecha inicio</label><input type="date" id="date_from" value="2017-01-01" style="font-family:var(--font-mono);font-size:10px"></div>
           <div class="field"><label>Fecha fin</label><input type="date" id="date_to" style="font-family:var(--font-mono);font-size:10px"></div>
@@ -946,6 +955,8 @@ tbody td{padding:8px 12px}
               <option value="10"   data-comm="1.74">MGC (Micro Gold) — $10/pt</option>
               <option value="100"  data-comm="4.80">GC (Mini Gold) — $100/pt</option>
               <option value="1"    data-comm="0.70">QQQ / Share — $1/pt</option>
+              <option value="100"  data-comm="2.10">MCL (Micro Crude Oil) — $100/pt</option>
+              <option value="1000" data-comm="2.10">CL (Crude Oil) — $1000/pt</option>
             </select>
           </div>
         </div>
@@ -1382,8 +1393,9 @@ function updateHdrStats(){
   const stratEl=document.getElementById('hdrStrategy');
   const instEl=document.getElementById('hdrInstrument');
   if(stratEl){
-    const is1min=tf&&tf.value==='1';
-    stratEl.textContent=is1min?'UASRS 1MIN':'ASRS 5MIN';
+    const s=document.getElementById('btStrategy')?.value||'asrs5';
+    const names={asrs5:'ASRS 5MIN',asrs1:'ASRS 1MIN',clbr5:'CL-BR 5MIN',clbr1:'CL-BR 1MIN'};
+    stratEl.textContent=names[s]||'ASRS 5MIN';
   }
   if(instEl){
     if(src==='csv'){
@@ -1397,6 +1409,13 @@ function updateHdrStats(){
     }
   }
 }
+function onStrategyChange(){
+  const s=document.getElementById('btStrategy')?.value||'asrs5';
+  const tf=document.getElementById('btTimeframe');
+  if(tf) tf.value=(s==='asrs1'||s==='clbr1')?'1':'5';
+  updateHdrStats();
+}
+
 // Set date_to default to today
 (function(){
   const el=document.getElementById('date_to');
@@ -1810,9 +1829,9 @@ function aggregateTo5m(bars1m){
 }
 
 function runBacktest(c5raw,p){
-  // Aggregate to 5min if source is 1min and user selected 5min
-  const btTF=parseInt(document.getElementById('btTimeframe')?.value||5);
-  const c5=btTF===5&&c5raw.length>0&&c5raw[0].hm!==undefined?aggregateTo5m(c5raw):c5raw;
+  const strategy=p.strategy||'asrs5';
+  const need5min=strategy==='asrs5'||strategy==='clbr5';
+  const c5=need5min&&c5raw.length>0&&c5raw[0].hm!==undefined?aggregateTo5m(c5raw):c5raw;
   const daily=buildDailyBars(c5);
   const atrMap=computeWilderATR(daily,14);
   let emaMap1d={};
@@ -1859,25 +1878,58 @@ function runBacktest(c5raw,p){
     const rthOpen=rth[0].o;
     let dayHigh=-Infinity,dayLow=Infinity;
 
-    const i945=rth.findIndex(b=>b.hm===945);if(i945<0) continue;
-    const b945=rth[i945];
-    // ── Buf: % of signal bar range OR fixed pts ──
-    const bRange=b945.h-b945.l;
-    const bufVal = p.buf_mode==='pct' ? bRange*p.buf_pct : p.buf_pts;
-    // ── Min rng: % of open price OR fixed pts ──
-    const minRngVal = p.min_rng_mode==='pct' ? b945.o*(p.min_rng_pct/100) : p.min_rng;
-    let el=b945.h+bufVal,es=b945.l-bufVal;
-    let sll=b945.l-bufVal,sls=b945.h+bufVal;
-    let weak=bRange<minRngVal,setupIdx=i945,sig='9:45';
+    let el,es,sll,sls,weak=false,setupIdx,sig;
 
-    if(weak){
+    if(strategy==='clbr5'){
+      // CL-BR 5min: compare 9:45 and 9:50 bars, use the one with larger range
+      const i945=rth.findIndex(b=>b.hm===945);if(i945<0) continue;
       const i950=rth.findIndex(b=>b.hm===950);
+      const b945=rth[i945];
+      let setupBar=b945,setupRange=b945.h-b945.l,setupI=i945;
       if(i950>0){
-        const b=rth[i950];
-        const bRange2=b.h-b.l;
-        const bufVal2 = p.buf_mode==='pct' ? bRange2*p.buf_pct : p.buf_pts;
-        el=b.h+bufVal2;es=b.l-bufVal2;sll=b.l-bufVal2;sls=b.h+bufVal2;
-        setupIdx=i950;sig='9:50fb';
+        const b950=rth[i950];
+        const r950=b950.h-b950.l;
+        if(r950>setupRange){setupBar=b950;setupRange=r950;setupI=i950;}
+      }
+      const bufVal=p.buf_mode==='pct'?setupRange*p.buf_pct:p.buf_pts;
+      el=setupBar.h+bufVal;es=setupBar.l-bufVal;
+      sll=setupBar.l-bufVal;sls=setupBar.h+bufVal;
+      setupIdx=setupI;sig=setupBar.hm===945?'CL-BR9:45':'CL-BR9:50';
+    } else if(strategy==='clbr1'){
+      // CL-BR 1min: find best range bar among 9:40-9:45 1min bars, eval at 9:45 close
+      const candidates=rth.filter(b=>b.hm>=940&&b.hm<=945);
+      if(!candidates.length) continue;
+      let best=candidates[0];
+      for(const b of candidates) if((b.h-b.l)>(best.h-best.l)) best=b;
+      const setupRange=best.h-best.l;
+      const bufVal=p.buf_mode==='pct'?setupRange*p.buf_pct:p.buf_pts;
+      el=best.h+bufVal;es=best.l-bufVal;
+      sll=best.l-bufVal;sls=best.h+bufVal;
+      // Process from 9:44 (so 9:45 is first evaluated bar — immediate eval)
+      const i944=rth.findIndex(b=>b.hm===944);
+      const i945=rth.findIndex(b=>b.hm===945);
+      if(i945<0) continue;
+      setupIdx=i944>=0?i944:i945-1;
+      sig=`CL-BR${best.hm}`;
+    } else {
+      // ASRS 5min / ASRS 1min — original logic
+      const i945=rth.findIndex(b=>b.hm===945);if(i945<0) continue;
+      const b945=rth[i945];
+      const bRange=b945.h-b945.l;
+      const bufVal=p.buf_mode==='pct'?bRange*p.buf_pct:p.buf_pts;
+      const minRngVal=p.min_rng_mode==='pct'?b945.o*(p.min_rng_pct/100):p.min_rng;
+      el=b945.h+bufVal;es=b945.l-bufVal;
+      sll=b945.l-bufVal;sls=b945.h+bufVal;
+      weak=bRange<minRngVal;setupIdx=i945;sig='9:45';
+      if(weak){
+        const i950=rth.findIndex(b=>b.hm===950);
+        if(i950>0){
+          const b=rth[i950];
+          const bRange2=b.h-b.l;
+          const bufVal2=p.buf_mode==='pct'?bRange2*p.buf_pct:p.buf_pts;
+          el=b.h+bufVal2;es=b.l-bufVal2;sll=b.l-bufVal2;sls=b.h+bufVal2;
+          setupIdx=i950;sig='9:50fb';
+        }
       }
     }
 
@@ -3977,6 +4029,7 @@ async function startBacktest(){
     atr_exit_pct:parseFloat(document.getElementById('atr_exit_pct').value),
     use_range_exit:document.getElementById('use_range_exit').checked,
     range_exit_pct:parseFloat(document.getElementById('range_exit_pct').value||80),
+    strategy:document.getElementById('btStrategy')?.value||'asrs5',
     ema_mode:document.getElementById('ema_mode').value,
     ema_period:parseInt(document.getElementById('ema_period').value||15),
     ema_slope_th:parseFloat(document.getElementById('ema_slope_th').value||0.02),
@@ -4002,7 +4055,7 @@ async function startBacktest(){
       setProgress(80,'Procesando datos CSV...');
       await delay(50);
       candles=csvBars;
-      setProgress(85,`${candles.length.toLocaleString()} velas CSV. Ejecutando ASRS...`);
+      setProgress(85,`${candles.length.toLocaleString()} velas CSV. Ejecutando backtest...`);
     } else {
       // Polygon fetch
       const key=document.getElementById('apiKey').value.trim();
@@ -4010,7 +4063,7 @@ async function startBacktest(){
       candles=await fetchTwoYears(params.symbol,key);
       if(!candles.length) throw new Error(`Sin datos para ${params.symbol}`);
       allBars5m=candles;
-      setProgress(85,`${candles.length.toLocaleString()} velas. Ejecutando ASRS...`);
+      setProgress(85,`${candles.length.toLocaleString()} velas. Ejecutando backtest...`);
     }
 
     allBars5m=candles;
