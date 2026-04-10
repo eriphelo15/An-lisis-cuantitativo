@@ -189,7 +189,53 @@ html,body{background:var(--bg);color:var(--text)}
 .event-assets{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
 .event-asset-tag{font-size:8px;padding:2px 6px;border:1px solid var(--border);color:var(--text-mid)}
 
-/* ═══ UTILIDADES ══════════════════════════════════════════ */
+/* ═══ TAB JOURNAL ════════════════════════════════════════ */
+.jn-wrap{padding:14px;display:flex;flex-direction:column;gap:12px;height:100%;overflow-y:auto}
+.jn-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.jn-kpi{background:var(--surface);border:1px solid var(--border2);padding:12px 14px}
+.jn-kpi-lbl{font-size:7px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase;margin-bottom:5px}
+.jn-kpi-val{font-size:20px;font-weight:600;font-variant-numeric:tabular-nums;font-family:var(--font-mono)}
+.jn-kpi-sub{font-size:8px;color:var(--text-dim);margin-top:2px;letter-spacing:.5px}
+.jn-body{display:grid;grid-template-columns:280px 1fr;gap:12px;flex:1;min-height:0}
+/* Formulario */
+.jn-form{background:var(--surface);border:1px solid var(--border2);display:flex;flex-direction:column;overflow-y:auto}
+.jn-form-fields{padding:10px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.jf-field{display:flex;flex-direction:column;gap:2px}
+.jf-field label{font-size:7px;letter-spacing:1.5px;color:var(--text-dim);text-transform:uppercase}
+.jf-field input,.jf-field select,.jf-field textarea{
+  background:rgba(5,8,16,0.7);border:1px solid var(--border2);color:var(--text);
+  font-family:var(--font-mono);font-size:10px;padding:5px 8px;outline:none;
+  transition:border-color .2s;width:100%;resize:none}
+.jf-field input:focus,.jf-field select:focus,.jf-field textarea:focus{border-color:var(--accent)}
+.jf-field select option{background:var(--surface)}
+.jf-row{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.jf-calc{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:6px 0}
+.jf-calc-box{background:var(--surface2);border:1px solid var(--border3);padding:6px 8px;text-align:center}
+.jf-calc-lbl{font-size:7px;letter-spacing:1.5px;color:var(--text-dim);text-transform:uppercase}
+.jf-calc-val{font-size:13px;font-weight:600;margin-top:2px;font-variant-numeric:tabular-nums}
+.jn-form-footer{padding:10px 14px;border-top:1px solid var(--border2);display:flex;gap:6px}
+.btn-jn-add{flex:1;background:transparent;color:var(--accent);border:1px solid var(--accent);font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:2px;padding:8px;cursor:pointer;text-transform:uppercase;transition:all .2s}
+.btn-jn-add:hover{background:var(--accent);color:#000}
+.btn-jn-clear{background:transparent;color:var(--text-dim);border:1px solid var(--border);font-family:var(--font-mono);font-size:9px;letter-spacing:1px;padding:8px 10px;cursor:pointer;text-transform:uppercase;transition:all .2s}
+.btn-jn-clear:hover{border-color:var(--red);color:var(--red)}
+/* Tabla de trades */
+.jn-table-wrap{background:var(--surface);border:1px solid var(--border2);display:flex;flex-direction:column;overflow:hidden}
+.jn-table-toolbar{padding:8px 14px;border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:8px}
+.jn-search{background:rgba(5,8,16,0.7);border:1px solid var(--border2);color:var(--text);font-family:var(--font-mono);font-size:10px;padding:4px 8px;outline:none;flex:1;transition:border-color .2s}
+.jn-search:focus{border-color:var(--accent)}
+.btn-csv{background:transparent;color:var(--text-dim);border:1px solid var(--border);font-family:var(--font-mono);font-size:8px;letter-spacing:1px;padding:4px 10px;cursor:pointer;text-transform:uppercase;transition:all .2s}
+.btn-csv:hover{border-color:var(--accent2);color:var(--accent2)}
+.jn-table-scroll{flex:1;overflow-y:auto}
+.jn-tbl{width:100%;border-collapse:collapse;font-size:9px}
+.jn-tbl thead th{font-size:8px;letter-spacing:1px;color:var(--text-dim);text-transform:uppercase;padding:7px 10px;text-align:left;border-bottom:1px solid var(--border2);white-space:nowrap;cursor:pointer;user-select:none}
+.jn-tbl thead th:hover{color:var(--text-mid)}
+.jn-tbl tbody tr{border-bottom:1px solid var(--border3);transition:background 120ms}
+.jn-tbl tbody tr:hover{background:rgba(255,255,255,0.02)}
+.jn-tbl td{padding:7px 10px;vertical-align:middle;white-space:nowrap}
+.jn-dir-long{color:var(--pos);font-weight:600}.jn-dir-short{color:var(--neg);font-weight:600}
+.jn-empty{text-align:center;padding:40px;color:var(--text-dim);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;opacity:.5}
+.btn-del{background:transparent;border:none;color:var(--text-dim);cursor:pointer;font-size:10px;padding:2px 5px;transition:color .15s}
+.btn-del:hover{color:var(--neg)}
 .pos{color:var(--pos)}.neg{color:var(--neg)}.amb{color:var(--amber)}.dim{color:var(--text-dim)}.mid{color:var(--text-mid)}
 </style>
 </head>
@@ -351,10 +397,87 @@ html,body{background:var(--bg);color:var(--text)}
         </div>
       </div>
       <div class="tab-pane" id="tab-journal">
-        <div class="tab-placeholder">
-          <div class="tab-ph-icon">▤</div>
-          <div class="tab-ph-title">Journal</div>
-          <div class="tab-ph-sub">Registro Personal de Operaciones — En construcción</div>
+        <div class="jn-wrap">
+          <!-- KPIs -->
+          <div class="jn-kpis">
+            <div class="jn-kpi"><div class="jn-kpi-lbl">Win Rate</div><div class="jn-kpi-val" id="jkWR">—</div><div class="jn-kpi-sub" id="jkWRsub">0 ops</div></div>
+            <div class="jn-kpi"><div class="jn-kpi-lbl">Profit Factor</div><div class="jn-kpi-val" id="jkPF">—</div><div class="jn-kpi-sub" id="jkPFsub">—</div></div>
+            <div class="jn-kpi"><div class="jn-kpi-lbl">P&amp;L Total</div><div class="jn-kpi-val" id="jkPNL">$0</div><div class="jn-kpi-sub" id="jkPNLsub">neto</div></div>
+            <div class="jn-kpi"><div class="jn-kpi-lbl">Racha Actual</div><div class="jn-kpi-val" id="jkRAC">—</div><div class="jn-kpi-sub" id="jkRACsub">—</div></div>
+          </div>
+
+          <div class="jn-body">
+            <!-- Formulario -->
+            <div class="jn-form">
+              <div class="pb-ttl" style="padding:10px 14px 0">Nueva Operación</div>
+              <div class="jn-form-fields">
+                <div class="jf-row">
+                  <div class="jf-field"><label>Fecha</label><input type="date" id="jfDate"></div>
+                  <div class="jf-field"><label>Hora ET</label><input type="time" id="jfTime" value="09:45"></div>
+                </div>
+                <div class="jf-row">
+                  <div class="jf-field"><label>Activo</label>
+                    <select id="jfSym"><option>NQ</option><option>ES</option><option>YM</option><option>GC</option><option>SI</option><option>CL</option></select>
+                  </div>
+                  <div class="jf-field"><label>Dirección</label>
+                    <select id="jfDir"><option value="LONG">Long</option><option value="SHORT">Short</option></select>
+                  </div>
+                </div>
+                <div class="jf-field"><label>Estrategia</label>
+                  <select id="jfStrat">
+                    <option>ASRS 5min</option><option>ASRS 1min</option>
+                    <option>CL-BR 5min</option><option>CL-BR 1min</option><option>Manual</option>
+                  </select>
+                </div>
+                <div class="jf-row">
+                  <div class="jf-field"><label>Entrada</label><input type="number" id="jfEntry" step="0.01" oninput="JN.calcPnl()"></div>
+                  <div class="jf-field"><label>Salida</label><input type="number" id="jfExit" step="0.01" oninput="JN.calcPnl()"></div>
+                </div>
+                <div class="jf-row">
+                  <div class="jf-field"><label>Stop Loss</label><input type="number" id="jfSL" step="0.01" oninput="JN.calcPnl()"></div>
+                  <div class="jf-field"><label>Take Profit</label><input type="number" id="jfTP" step="0.01"></div>
+                </div>
+                <div class="jf-row">
+                  <div class="jf-field"><label>Contratos</label><input type="number" id="jfCtrs" value="1" min="1" step="1" oninput="JN.calcPnl()"></div>
+                  <div class="jf-field"><label>Valor punto</label><input type="number" id="jfPtVal" value="2" step="0.5" oninput="JN.calcPnl()"></div>
+                </div>
+                <div class="jf-calc">
+                  <div class="jf-calc-box"><div class="jf-calc-lbl">P&amp;L USD</div><div class="jf-calc-val" id="jfCalcPnl">—</div></div>
+                  <div class="jf-calc-box"><div class="jf-calc-lbl">Resultado R</div><div class="jf-calc-val" id="jfCalcR">—</div></div>
+                </div>
+                <div class="jf-field"><label>Notas</label><textarea id="jfNotes" rows="2" placeholder="Contexto, observaciones..."></textarea></div>
+              </div>
+              <div class="jn-form-footer">
+                <button class="btn-jn-add" onclick="JN.add()">+ Registrar</button>
+                <button class="btn-jn-clear" onclick="JN.clearForm()">Limpiar</button>
+              </div>
+            </div>
+
+            <!-- Tabla -->
+            <div class="jn-table-wrap">
+              <div class="jn-table-toolbar">
+                <input class="jn-search" id="jnSearch" type="text" placeholder="Filtrar por activo, estrategia, dirección..." oninput="JN.render()">
+                <button class="btn-csv" onclick="JN.exportCSV()">⬇ CSV</button>
+              </div>
+              <div class="jn-table-scroll">
+                <table class="jn-tbl">
+                  <thead><tr>
+                    <th onclick="JN.sort('date')">Fecha</th>
+                    <th onclick="JN.sort('sym')">Activo</th>
+                    <th onclick="JN.sort('strat')">Estrategia</th>
+                    <th onclick="JN.sort('dir')">Dir</th>
+                    <th onclick="JN.sort('entry')">Entrada</th>
+                    <th onclick="JN.sort('exit')">Salida</th>
+                    <th onclick="JN.sort('pnl')">P&amp;L USD</th>
+                    <th onclick="JN.sort('r')">R</th>
+                    <th>Notas</th>
+                    <th></th>
+                  </tr></thead>
+                  <tbody id="jnTbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="tab-pane" id="tab-backtester" style="padding:0">
@@ -696,10 +819,170 @@ const ER = {
     this.clock.init();
     this.ticker.build();
     this.ov.init();
+    JN.init();
     document.addEventListener('keydown',e=>{
       if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();this.cmd.open();}
       if(e.key==='Escape'&&document.getElementById('cmdOverlay').classList.contains('open')) this.cmd.close();
     });
+  }
+};
+
+/* ═══ JOURNAL ═══════════════════════════════════════════ */
+const JN = {
+  LS_KEY: 'er_journal_v1',
+  trades: [],
+  sortKey: 'date',
+  sortDir: -1,
+
+  load(){
+    try{ this.trades=JSON.parse(localStorage.getItem(this.LS_KEY)||'[]'); }catch(e){ this.trades=[]; }
+  },
+  save(){ localStorage.setItem(this.LS_KEY, JSON.stringify(this.trades)); },
+
+  calcPnl(){
+    const entry=parseFloat(document.getElementById('jfEntry').value)||0;
+    const exit=parseFloat(document.getElementById('jfExit').value)||0;
+    const sl=parseFloat(document.getElementById('jfSL').value)||0;
+    const ctrs=parseInt(document.getElementById('jfCtrs').value)||1;
+    const pv=parseFloat(document.getElementById('jfPtVal').value)||2;
+    const dir=document.getElementById('jfDir').value;
+    const pEl=document.getElementById('jfCalcPnl');
+    const rEl=document.getElementById('jfCalcR');
+    if(!entry||!exit){pEl.textContent='—';pEl.className='jf-calc-val dim';rEl.textContent='—';rEl.className='jf-calc-val dim';return;}
+    const pnl=(dir==='LONG'?exit-entry:entry-exit)*ctrs*pv;
+    const dist=sl&&entry?Math.abs(entry-sl):0;
+    const r=dist>0?(dir==='LONG'?exit-entry:entry-exit)/dist:null;
+    const c=pnl>=0?'pos':'neg';
+    pEl.textContent=(pnl>=0?'+':'')+'$'+Math.round(pnl).toLocaleString('en-US');
+    pEl.className=`jf-calc-val ${c}`;
+    rEl.textContent=r!==null?((r>=0?'+':'')+r.toFixed(2)+'R'):'—';
+    rEl.className=`jf-calc-val ${r!==null&&r>=0?'pos':'neg'}`;
+  },
+
+  add(){
+    const entry=parseFloat(document.getElementById('jfEntry').value);
+    const exit=parseFloat(document.getElementById('jfExit').value);
+    if(!entry||!exit){alert('Precio de entrada y salida son obligatorios.');return;}
+    const dir=document.getElementById('jfDir').value;
+    const ctrs=parseInt(document.getElementById('jfCtrs').value)||1;
+    const pv=parseFloat(document.getElementById('jfPtVal').value)||2;
+    const sl=parseFloat(document.getElementById('jfSL').value)||0;
+    const tp=parseFloat(document.getElementById('jfTP').value)||0;
+    const pnl=(dir==='LONG'?exit-entry:entry-exit)*ctrs*pv;
+    const dist=sl&&entry?Math.abs(entry-sl):0;
+    const r=dist>0?(dir==='LONG'?exit-entry:entry-exit)/dist:null;
+    const date=document.getElementById('jfDate').value||new Date().toISOString().split('T')[0];
+    this.trades.unshift({
+      id:Date.now(),
+      date, time:document.getElementById('jfTime').value,
+      sym:document.getElementById('jfSym').value,
+      dir, strat:document.getElementById('jfStrat').value,
+      entry, exit, sl, tp, ctrs, pv,
+      pnl:Math.round(pnl*100)/100,
+      r:r!==null?Math.round(r*100)/100:null,
+      notes:document.getElementById('jfNotes').value.trim()
+    });
+    this.save();this.render();this.renderKPIs();this.clearForm();
+  },
+
+  del(id){
+    this.trades=this.trades.filter(t=>t.id!==id);
+    this.save();this.render();this.renderKPIs();
+  },
+
+  clearForm(){
+    ['jfEntry','jfExit','jfSL','jfTP','jfNotes'].forEach(id=>{
+      const el=document.getElementById(id);if(el) el.value='';
+    });
+    document.getElementById('jfCtrs').value='1';
+    document.getElementById('jfCalcPnl').textContent='—';
+    document.getElementById('jfCalcR').textContent='—';
+  },
+
+  sort(key){
+    if(this.sortKey===key) this.sortDir*=-1;
+    else{this.sortKey=key;this.sortDir=-1;}
+    this.render();
+  },
+
+  render(){
+    const q=(document.getElementById('jnSearch')?.value||'').toLowerCase();
+    let list=[...this.trades];
+    if(q) list=list.filter(t=>[t.sym,t.strat,t.dir,t.notes,t.date].join(' ').toLowerCase().includes(q));
+    list.sort((a,b)=>{
+      const va=a[this.sortKey]??'',vb=b[this.sortKey]??'';
+      return(typeof va==='number'?va-vb:String(va).localeCompare(String(vb)))*this.sortDir;
+    });
+    const tbody=document.getElementById('jnTbody');if(!tbody)return;
+    if(!list.length){
+      tbody.innerHTML=`<tr><td colspan="10" class="jn-empty">Sin operaciones registradas</td></tr>`;return;
+    }
+    tbody.innerHTML=list.map(t=>{
+      const pc=t.pnl>=0?'pos':'neg',rc=t.r!=null&&t.r>=0?'pos':'neg';
+      const sg=t.pnl>=0?'+':'';
+      return`<tr>
+        <td>${t.date} ${t.time||''}</td>
+        <td style="font-family:var(--font-display);font-size:13px;letter-spacing:1px">${t.sym}</td>
+        <td class="dim">${t.strat}</td>
+        <td class="${t.dir==='LONG'?'jn-dir-long':'jn-dir-short'}">${t.dir}</td>
+        <td>${t.entry?.toLocaleString('en-US',{minimumFractionDigits:2})}</td>
+        <td>${t.exit?.toLocaleString('en-US',{minimumFractionDigits:2})}</td>
+        <td class="${pc}">${sg}$${Math.abs(t.pnl).toLocaleString('en-US')}</td>
+        <td class="${rc}">${t.r!=null?(t.r>=0?'+':'')+t.r+'R':'—'}</td>
+        <td class="dim" style="max-width:140px;overflow:hidden;text-overflow:ellipsis" title="${t.notes||''}">${t.notes||'—'}</td>
+        <td><button class="btn-del" onclick="JN.del(${t.id})" title="Eliminar">✕</button></td>
+      </tr>`;
+    }).join('');
+  },
+
+  renderKPIs(){
+    const t=this.trades;
+    const wins=t.filter(x=>x.pnl>0),losses=t.filter(x=>x.pnl<=0);
+    const wr=t.length?Math.round(wins.length/t.length*100):null;
+    const sumW=wins.reduce((s,x)=>s+x.pnl,0);
+    const sumL=Math.abs(losses.reduce((s,x)=>s+x.pnl,0));
+    const pf=sumL>0?sumW/sumL:wins.length>0?Infinity:null;
+    const pnl=t.reduce((s,x)=>s+x.pnl,0);
+    /* Racha actual */
+    let streak=0,streakType='';
+    for(const x of t){if(x.pnl>0){if(streakType==='W')streak++;else{streakType='W';streak=1;}}else{if(streakType==='L')streak++;else{streakType='L';streak=1;}} break;}
+    for(const x of t){if(streakType==='W'&&x.pnl>0)streak++;else if(streakType==='L'&&x.pnl<=0)streak++;else break;}
+
+    const wrEl=document.getElementById('jkWR');
+    if(wrEl) wrEl.textContent=wr!==null?`${wr}%`:'—';
+    if(wrEl) wrEl.className=`jn-kpi-val ${wr>=50?'pos':wr!==null?'neg':''}`;
+    const wrSub=document.getElementById('jkWRsub');
+    if(wrSub) wrSub.textContent=`${wins.length}W · ${losses.length}L · ${t.length} ops`;
+    const pfEl=document.getElementById('jkPF');
+    if(pfEl) pfEl.textContent=pf===null?'—':pf===Infinity?'∞':pf.toFixed(2);
+    if(pfEl) pfEl.className=`jn-kpi-val ${pf>=1?'pos':pf!==null?'neg':''}`;
+    const pfSub=document.getElementById('jkPFsub');
+    if(pfSub) pfSub.textContent=pf!==null?`$${Math.round(sumW).toLocaleString()} / $${Math.round(sumL).toLocaleString()}`:'—';
+    const pnlEl=document.getElementById('jkPNL');
+    if(pnlEl){pnlEl.textContent=(pnl>=0?'+':'')+'$'+Math.abs(Math.round(pnl)).toLocaleString('en-US');pnlEl.className=`jn-kpi-val ${pnl>=0?'pos':'neg'}`;}
+    const racEl=document.getElementById('jkRAC');
+    if(racEl){racEl.textContent=streak?`${streak} ${streakType==='W'?'W':'L'}`:'—';racEl.className=`jn-kpi-val ${streakType==='W'?'pos':streakType?'neg':''}`;}
+    const racSub=document.getElementById('jkRACsub');
+    if(racSub) racSub.textContent=streakType==='W'?'racha ganadora':streakType==='L'?'racha perdedora':'sin datos';
+  },
+
+  exportCSV(){
+    if(!this.trades.length){alert('No hay operaciones para exportar.');return;}
+    const headers=['ID','Fecha','Hora','Activo','Dir','Estrategia','Entrada','Salida','SL','TP','Contratos','ValPunto','PnL USD','R','Notas'];
+    const rows=this.trades.map(t=>[t.id,t.date,t.time||'',t.sym,t.dir,t.strat,t.entry,t.exit,t.sl||'',t.tp||'',t.ctrs,t.pv,t.pnl,t.r??'',`"${(t.notes||'').replace(/"/g,'""')}"`]);
+    const csv=[headers.join(','),...rows.map(r=>r.join(','))].join('\n');
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+    a.download=`eriphel-journal-${new Date().toISOString().split('T')[0]}.csv`;
+    a.click();
+  },
+
+  init(){
+    this.load();
+    /* Fecha por defecto: hoy */
+    const d=document.getElementById('jfDate');
+    if(d) d.value=new Date().toISOString().split('T')[0];
+    this.render();this.renderKPIs();
   }
 };
 
