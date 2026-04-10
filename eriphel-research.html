@@ -236,6 +236,53 @@ html,body{background:var(--bg);color:var(--text)}
 .jn-empty{text-align:center;padding:40px;color:var(--text-dim);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;opacity:.5}
 .btn-del{background:transparent;border:none;color:var(--text-dim);cursor:pointer;font-size:10px;padding:2px 5px;transition:color .15s}
 .btn-del:hover{color:var(--neg)}
+/* ═══ TAB CALENDARIO ════════════════════════════════════ */
+.cal-wrap{padding:14px;display:flex;flex-direction:column;gap:12px;height:100%;overflow-y:auto}
+.cal-header{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.cal-week-lbl{font-family:var(--font-display);font-size:14px;letter-spacing:3px;color:var(--text-mid)}
+.cal-filters{display:flex;align-items:center;gap:6px;margin-left:auto;flex-wrap:wrap}
+.cal-filter-lbl{font-size:8px;letter-spacing:1.5px;color:var(--text-dim);text-transform:uppercase}
+.cal-filter-btn{background:transparent;border:1px solid var(--border);color:var(--text-dim);font-family:var(--font-mono);font-size:8px;padding:3px 9px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;transition:all .15s}
+.cal-filter-btn:hover{border-color:var(--text-mid);color:var(--text-mid)}
+.cal-filter-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(0,168,130,0.06)}
+.cal-days{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border2)}
+.cal-day-tab{background:var(--surface);padding:10px 8px;cursor:pointer;text-align:center;transition:background .15s;border-bottom:2px solid transparent;user-select:none}
+.cal-day-tab:hover{background:var(--surface2)}
+.cal-day-tab.active{background:var(--surface2);border-bottom-color:var(--accent)}
+.cal-day-name{font-size:8px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase;margin-bottom:3px}
+.cal-day-tab.active .cal-day-name{color:var(--accent)}
+.cal-day-date{font-family:var(--font-mono);font-size:11px;color:var(--text-mid)}
+.cal-day-tab.active .cal-day-date,.cal-day-tab.today .cal-day-date{color:var(--accent);font-weight:700}
+.cal-day-count{display:inline-block;font-size:7px;margin-top:3px;padding:1px 5px;letter-spacing:.5px}
+.cal-day-count.has-high{background:rgba(224,48,85,0.15);color:var(--neg)}
+.cal-day-count.has-med{background:rgba(200,144,48,0.12);color:var(--amber)}
+.cal-day-count.has-low{background:rgba(90,122,150,0.15);color:var(--text-dim)}
+.cal-events{display:flex;flex-direction:column;gap:6px;flex:1}
+.cal-no-events{text-align:center;padding:40px;color:var(--text-dim);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;opacity:.4}
+.cal-event{background:var(--surface);border:1px solid var(--border2);border-left:3px solid transparent;padding:10px 14px;display:grid;grid-template-columns:76px 1fr auto;gap:12px;align-items:start;transition:background .12s}
+.cal-event:hover{background:var(--surface2)}
+.cal-event.high{border-left-color:var(--neg)}
+.cal-event.med{border-left-color:var(--amber)}
+.cal-event.low{border-left-color:var(--border)}
+.cal-event.asrs-window{border-left-color:var(--accent);background:rgba(0,168,130,0.03)}
+.cal-event.eia-special{border-left-color:#f0a500;background:rgba(240,165,0,0.03)}
+.ev-time-col{display:flex;flex-direction:column;gap:3px}
+.ev-time{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--text-mid)}
+.ev-asrs-badge{font-size:7px;letter-spacing:1px;padding:2px 5px;background:rgba(0,168,130,0.12);color:var(--accent);text-transform:uppercase;white-space:nowrap}
+.ev-eia-badge{font-size:7px;letter-spacing:1px;padding:2px 5px;background:rgba(240,165,0,0.15);color:#f0a500;text-transform:uppercase;white-space:nowrap}
+.ev-body{min-width:0}
+.ev-name{font-size:11px;font-weight:600;color:var(--text);margin-bottom:3px}
+.ev-country{font-size:8px;color:var(--text-dim);letter-spacing:1px;margin-bottom:5px;text-transform:uppercase}
+.ev-values{display:flex;gap:12px;font-size:8px;color:var(--text-dim)}
+.ev-val-item b{color:var(--text-mid)}
+.ev-assets-col{display:flex;flex-direction:column;gap:4px;align-items:flex-end}
+.ev-impact{font-size:7px;letter-spacing:1.5px;padding:2px 6px;text-transform:uppercase;white-space:nowrap}
+.ev-impact.high{background:rgba(224,48,85,0.15);color:var(--neg)}
+.ev-impact.med{background:rgba(200,144,48,0.12);color:var(--amber)}
+.ev-impact.low{background:rgba(90,122,150,0.12);color:var(--text-dim)}
+.ev-tags{display:flex;gap:3px;flex-wrap:wrap;justify-content:flex-end}
+.ev-tag{font-size:7px;padding:1px 5px;border:1px solid var(--border2);color:var(--text-dim)}
+/* ═══════════════════════════════════════════════════════ */
 .pos{color:var(--pos)}.neg{color:var(--neg)}.amb{color:var(--amber)}.dim{color:var(--text-dim)}.mid{color:var(--text-mid)}
 </style>
 </head>
@@ -390,10 +437,22 @@ html,body{background:var(--bg);color:var(--text)}
         </div>
       </div>
       <div class="tab-pane" id="tab-calendario">
-        <div class="tab-placeholder">
-          <div class="tab-ph-icon">▦</div>
-          <div class="tab-ph-title">Calendario</div>
-          <div class="tab-ph-sub">Eventos Económicos · Ventana ASRS · EIA — En construcción</div>
+        <div class="cal-wrap">
+          <!-- Header: semana + filtros -->
+          <div class="cal-header">
+            <span class="cal-week-lbl" id="calWeekLbl">—</span>
+            <div class="cal-filters">
+              <span class="cal-filter-lbl">Impacto:</span>
+              <button class="cal-filter-btn active" data-impact="all" onclick="CAL.setImpact('all')">Todos</button>
+              <button class="cal-filter-btn" data-impact="high" onclick="CAL.setImpact('high')">Alto</button>
+              <button class="cal-filter-btn" data-impact="med" onclick="CAL.setImpact('med')">Medio</button>
+              <button class="cal-filter-btn" data-impact="low" onclick="CAL.setImpact('low')">Bajo</button>
+            </div>
+          </div>
+          <!-- Tabs de días -->
+          <div class="cal-days" id="calDayTabs"></div>
+          <!-- Lista de eventos -->
+          <div class="cal-events" id="calEventsList"></div>
         </div>
       </div>
       <div class="tab-pane" id="tab-journal">
@@ -820,6 +879,7 @@ const ER = {
     this.ticker.build();
     this.ov.init();
     JN.init();
+    CAL.init();
     document.addEventListener('keydown',e=>{
       if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();this.cmd.open();}
       if(e.key==='Escape'&&document.getElementById('cmdOverlay').classList.contains('open')) this.cmd.close();
@@ -983,6 +1043,137 @@ const JN = {
     const d=document.getElementById('jfDate');
     if(d) d.value=new Date().toISOString().split('T')[0];
     this.render();this.renderKPIs();
+  }
+};
+
+/* ═══ CALENDARIO ════════════════════════════════════════ */
+const CAL = {
+  activeDay: 0,
+  impactFilter: 'all',
+
+  /* Mock data — semana actual (se genera al init) */
+  weeks: {
+    'Apr 07': [
+      {time:'08:30',name:'Fed Waller — Discurso',impact:'high',country:'US',prev:'—',consensus:'—',assets:['NQ','ES','DXY'],note:'Posible señal de política monetaria'},
+      {time:'10:00',name:'Wholesale Inventories',impact:'low',country:'US',prev:'0.3%',consensus:'0.4%',assets:['NQ','ES']},
+      {time:'15:00',name:'Consumer Credit',impact:'med',country:'US',prev:'$15.7B',consensus:'$14.9B',assets:['ES','YM']}
+    ],
+    'Apr 08': [
+      {time:'06:00',name:'NFIB Small Business Index',impact:'med',country:'US',prev:'100.7',consensus:'100.2',assets:['NQ','ES','YM']},
+      {time:'10:00',name:'JOLTS Job Openings',impact:'high',country:'US',prev:'7.74M',consensus:'7.65M',assets:['NQ','ES','DXY']},
+      {time:'13:00',name:'3-Year Note Auction',impact:'med',country:'US',prev:'4.18%',consensus:'—',assets:['US10Y','DXY']}
+    ],
+    'Apr 09': [
+      {time:'07:00',name:'MBA Mortgage Applications',impact:'low',country:'US',prev:'-1.6%',consensus:'—',assets:['YM']},
+      {time:'08:30',name:'CPI (YoY)',impact:'high',country:'US',prev:'2.8%',consensus:'2.6%',assets:['NQ','ES','YM','GC','DXY']},
+      {time:'08:30',name:'CPI Core (YoY)',impact:'high',country:'US',prev:'3.1%',consensus:'3.0%',assets:['NQ','ES','YM','DXY']},
+      {time:'10:30',name:'EIA Crude Oil Inventories',impact:'high',country:'US',prev:'-3.3M',consensus:'-1.8M',assets:['CL','GC'],eia:true},
+      {time:'13:00',name:'10-Year Note Auction',impact:'med',country:'US',prev:'4.31%',consensus:'—',assets:['US10Y','DXY','GC']}
+    ],
+    'Apr 10': [
+      {time:'08:30',name:'Initial Jobless Claims',impact:'high',country:'US',prev:'219K',consensus:'223K',assets:['NQ','ES','YM','DXY']},
+      {time:'08:30',name:'PPI (YoY)',impact:'high',country:'US',prev:'3.2%',consensus:'3.3%',assets:['NQ','ES','GC','DXY']},
+      {time:'08:30',name:'PPI Core (YoY)',impact:'med',country:'US',prev:'3.4%',consensus:'3.5%',assets:['NQ','ES']},
+      {time:'10:00',name:'Michigan Consumer Sentiment (prel)',impact:'med',country:'US',prev:'57.0',consensus:'55.0',assets:['NQ','ES','YM']},
+      {time:'13:00',name:'30-Year Bond Auction',impact:'med',country:'US',prev:'4.63%',consensus:'—',assets:['US10Y','DXY','GC']}
+    ],
+    'Apr 11': [
+      {time:'08:30',name:'Import Price Index (MoM)',impact:'low',country:'US',prev:'-0.4%',consensus:'0.1%',assets:['DXY']},
+      {time:'10:00',name:'Michigan Inflation Expectations (prel)',impact:'med',country:'US',prev:'5.0%',consensus:'5.2%',assets:['GC','NQ','DXY']},
+      {time:'14:00',name:'Fed Williams — Discurso',impact:'med',country:'US',prev:'—',consensus:'—',assets:['NQ','ES','DXY']}
+    ]
+  },
+
+  dayNames:['LUN','MAR','MIÉ','JUE','VIE'],
+  dayKeys:['Apr 07','Apr 08','Apr 09','Apr 10','Apr 11'],
+  dayDates:['Abr 7','Abr 8','Abr 9','Abr 10','Abr 11'],
+
+  isAsrsWindow(time){
+    const [h,m]=time.split(':').map(Number);
+    const t=h*60+m;
+    return t>=585&&t<720; /* 9:45 (585) a 12:00 (720) */
+  },
+
+  setImpact(v){
+    this.impactFilter=v;
+    document.querySelectorAll('.cal-filter-btn').forEach(b=>{
+      b.classList.toggle('active',b.dataset.impact===v);
+    });
+    this.renderEvents();
+  },
+
+  renderDayTabs(){
+    const todayNY=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'short',day:'2-digit'}).format(new Date()).replace(',','');
+    const container=document.getElementById('calDayTabs');if(!container)return;
+    container.innerHTML=this.dayKeys.map((key,i)=>{
+      const events=this.weeks[key]||[];
+      const highCount=events.filter(e=>e.impact==='high').length;
+      const medCount=events.filter(e=>e.impact==='med').length;
+      const countCls=highCount?'has-high':medCount?'has-med':'has-low';
+      const countTxt=highCount?`${highCount} alto`:`${events.length} ev.`;
+      const isToday=todayNY.includes(key.split(' ')[1]);
+      return`<div class="cal-day-tab${i===this.activeDay?' active':''}${isToday?' today':''}" onclick="CAL.setDay(${i})">
+        <div class="cal-day-name">${this.dayNames[i]}</div>
+        <div class="cal-day-date">${this.dayDates[i]}</div>
+        ${events.length?`<div class="cal-day-count ${countCls}">${countTxt}</div>`:'<div class="cal-day-count">—</div>'}
+      </div>`;
+    }).join('');
+  },
+
+  renderEvents(){
+    const key=this.dayKeys[this.activeDay];
+    let events=(this.weeks[key]||[]).slice();
+    if(this.impactFilter!=='all') events=events.filter(e=>e.impact===this.impactFilter);
+    events.sort((a,b)=>a.time.localeCompare(b.time));
+    const container=document.getElementById('calEventsList');if(!container)return;
+    if(!events.length){
+      container.innerHTML=`<div class="cal-no-events">Sin eventos para este día${this.impactFilter!=='all'?' con este filtro':''}</div>`;
+      return;
+    }
+    container.innerHTML=events.map(ev=>{
+      const asrs=this.isAsrsWindow(ev.time);
+      const eia=ev.eia||false;
+      let cls=`cal-event ${ev.impact}`;
+      if(eia) cls='cal-event eia-special';
+      else if(asrs) cls='cal-event asrs-window';
+      const badge=eia?'<span class="ev-eia-badge">⚡ EIA CRUDE OIL</span>':asrs?'<span class="ev-asrs-badge">⚠ VENTANA ASRS</span>':'';
+      const tags=ev.assets.map(a=>`<span class="ev-tag">${a}</span>`).join('');
+      const impactLabel=ev.impact==='high'?'ALTO':ev.impact==='med'?'MEDIO':'BAJO';
+      return`<div class="${cls}">
+        <div class="ev-time-col">
+          <div class="ev-time">${ev.time} ET</div>
+          ${badge}
+        </div>
+        <div class="ev-body">
+          <div class="ev-name">${ev.name}</div>
+          <div class="ev-country">${ev.country}${ev.note?` · ${ev.note}`:''}</div>
+          <div class="ev-values">
+            ${ev.prev!=='—'?`<span class="ev-val-item">Anterior: <b>${ev.prev}</b></span>`:''}
+            ${ev.consensus!=='—'?`<span class="ev-val-item">Estimado: <b>${ev.consensus}</b></span>`:''}
+          </div>
+        </div>
+        <div class="ev-assets-col">
+          <span class="ev-impact ${ev.impact}">${impactLabel}</span>
+          <div class="ev-tags">${tags}</div>
+        </div>
+      </div>`;
+    }).join('');
+  },
+
+  setDay(i){
+    this.activeDay=i;
+    this.renderDayTabs();
+    this.renderEvents();
+  },
+
+  init(){
+    /* Auto-seleccionar día actual si es día de semana */
+    const dow=new Date().getDay(); /* 0=dom, 1=lun ... 5=vie */
+    if(dow>=1&&dow<=5) this.activeDay=dow-1;
+    else this.activeDay=3; /* Por defecto: jueves si es fin de semana */
+    document.getElementById('calWeekLbl').textContent='Semana · Abr 7–11, 2026';
+    this.renderDayTabs();
+    this.renderEvents();
   }
 };
 
