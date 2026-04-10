@@ -140,6 +140,55 @@ html,body{background:var(--bg);color:var(--text)}
 .cmd-footer{padding:7px 16px;border-top:1px solid var(--border2)}
 .cmd-footer-hint{font-size:8px;color:var(--text-dim);opacity:.35;letter-spacing:.5px}
 
+/* ═══ TAB OVERVIEW ═══════════════════════════════════════ */
+.ov-wrap{padding:14px;display:flex;flex-direction:column;gap:12px;height:100%;overflow-y:auto}
+.ov-row2{display:grid;grid-template-columns:1.8fr 1.2fr 1fr;gap:12px;min-height:0}
+/* Panel box */
+.pb{background:var(--surface);border:1px solid var(--border2)}
+.pb-ttl{font-size:8px;font-weight:600;letter-spacing:2.5px;color:var(--accent);text-transform:uppercase;padding:10px 14px 0;display:flex;align-items:center;gap:8px}
+.pb-ttl::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(0,255,170,0.2),transparent)}
+/* Assets table */
+.ov-assets-tbl{width:100%;border-collapse:collapse;font-size:10px}
+.ov-assets-tbl thead th{font-size:8px;font-weight:600;letter-spacing:1.5px;color:var(--text-dim);text-transform:uppercase;padding:7px 12px;text-align:right;border-bottom:1px solid var(--border2);white-space:nowrap}
+.ov-assets-tbl thead th:first-child{text-align:left}
+.ov-assets-tbl tbody tr{border-bottom:1px solid var(--border3);transition:background 120ms;cursor:default}
+.ov-assets-tbl tbody tr:hover{background:rgba(255,255,255,0.025)}
+.ov-assets-tbl tbody tr:last-child{border-bottom:none}
+.ov-assets-tbl td{padding:8px 12px;text-align:right;vertical-align:middle}
+.ov-assets-tbl td:first-child{text-align:left}
+.asset-sym{font-family:var(--font-display);font-size:16px;letter-spacing:2px;color:var(--text)}
+.asset-name{font-size:8px;color:var(--text-dim);letter-spacing:1px;margin-top:1px}
+.asset-price{font-size:12px;font-weight:600;color:var(--text)}
+.asset-chg-pos{color:var(--pos)}.asset-chg-neg{color:var(--neg)}
+/* Sparkline canvas */
+.spark{display:block}
+/* ATR bar */
+.atr-wrap{display:flex;align-items:center;gap:6px;justify-content:flex-end}
+.atr-bar-track{width:60px;height:4px;background:var(--border2);position:relative;flex-shrink:0}
+.atr-bar-fill{height:4px;position:absolute;left:0;top:0;transition:width .4s}
+.atr-val{font-size:9px;min-width:28px;text-align:right}
+/* Heatmap */
+.heatmap-grid{display:grid;grid-template-columns:80px repeat(3,1fr);gap:1px;background:var(--border3);padding:1px}
+.hm-cell{padding:8px 6px;text-align:center;font-size:9px;font-weight:600;font-variant-numeric:tabular-nums;transition:opacity .2s}
+.hm-cell:hover{opacity:.8}
+.hm-hdr{background:var(--surface2);font-size:8px;letter-spacing:1.5px;color:var(--text-dim);text-transform:uppercase}
+.hm-sym{background:var(--surface2);font-family:var(--font-display);font-size:13px;letter-spacing:2px;color:var(--text-mid);text-align:left;padding-left:10px}
+/* Macro KPIs */
+.macro-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 14px 14px}
+.mkpi{background:var(--surface2);border:1px solid var(--border3);padding:10px}
+.mkpi-lbl{font-size:7px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase;margin-bottom:4px}
+.mkpi-val{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.mkpi-sub{font-size:8px;margin-top:2px}
+/* Event card */
+.event-card{margin:0 14px 14px;padding:10px;border:1px solid rgba(224,48,85,0.2);background:rgba(224,48,85,0.04)}
+.event-impact{display:inline-block;font-size:7px;letter-spacing:1.5px;padding:2px 6px;text-transform:uppercase;margin-bottom:6px}
+.event-impact.high{background:rgba(224,48,85,0.15);color:var(--neg)}
+.event-impact.med{background:rgba(200,144,48,0.15);color:var(--amber)}
+.event-name{font-size:11px;font-weight:600;color:var(--text);margin-bottom:4px}
+.event-meta{font-size:8px;color:var(--text-dim);line-height:1.8;letter-spacing:.5px}
+.event-assets{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
+.event-asset-tag{font-size:8px;padding:2px 6px;border:1px solid var(--border);color:var(--text-mid)}
+
 /* ═══ UTILIDADES ══════════════════════════════════════════ */
 .pos{color:var(--pos)}.neg{color:var(--neg)}.amb{color:var(--amber)}.dim{color:var(--text-dim)}.mid{color:var(--text-mid)}
 </style>
@@ -214,10 +263,63 @@ html,body{background:var(--bg);color:var(--text)}
     <!-- CONTENT -->
     <main class="content-area">
       <div class="tab-pane active" id="tab-overview">
-        <div class="tab-placeholder">
-          <div class="tab-ph-icon">◫◫◫◫</div>
-          <div class="tab-ph-title">Overview</div>
-          <div class="tab-ph-sub">NQ · ES · YM · GC · SI · CL — En construcción</div>
+        <div class="ov-wrap">
+          <!-- SECCIÓN A: Activos principales -->
+          <div class="pb">
+            <div class="pb-ttl">Activos Principales</div>
+            <table class="ov-assets-tbl">
+              <thead>
+                <tr>
+                  <th style="width:130px">Activo</th>
+                  <th>Precio</th>
+                  <th>Cambio</th>
+                  <th>Cambio %</th>
+                  <th>ATR Consumido</th>
+                  <th>Tendencia 20D</th>
+                </tr>
+              </thead>
+              <tbody id="ovAssetsBody"></tbody>
+            </table>
+          </div>
+
+          <!-- SECCIÓN B/C/D/E: grid 3 columnas -->
+          <div class="ov-row2">
+            <!-- Heatmap rendimiento -->
+            <div class="pb">
+              <div class="pb-ttl">Heatmap de Rendimiento</div>
+              <div style="padding:8px 14px 14px">
+                <div class="heatmap-grid" id="ovHeatmap"></div>
+              </div>
+            </div>
+
+            <!-- Contexto macro -->
+            <div class="pb">
+              <div class="pb-ttl">Contexto Macro</div>
+              <div class="macro-grid" id="ovMacroGrid"></div>
+              <!-- Próximo evento -->
+              <div class="pb-ttl" style="margin-top:4px">Próximo Evento</div>
+              <div class="event-card" id="ovEventCard"></div>
+            </div>
+
+            <!-- Performance comparativa -->
+            <div class="pb">
+              <div class="pb-ttl">Performance</div>
+              <div style="padding:8px 14px 14px;overflow-x:auto">
+                <table class="ov-assets-tbl" id="ovPerfTable">
+                  <thead>
+                    <tr>
+                      <th style="text-align:left">Activo</th>
+                      <th style="cursor:pointer" onclick="OV.sortPerf('d1')" title="Ordenar">1D ↕</th>
+                      <th style="cursor:pointer" onclick="OV.sortPerf('w1')" title="Ordenar">1W ↕</th>
+                      <th style="cursor:pointer" onclick="OV.sortPerf('m1')" title="Ordenar">1M ↕</th>
+                      <th style="cursor:pointer" onclick="OV.sortPerf('m3')" title="Ordenar">3M ↕</th>
+                    </tr>
+                  </thead>
+                  <tbody id="ovPerfBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="tab-pane" id="tab-map">
@@ -297,13 +399,22 @@ const ER = {
       FED:   { label:'HAWKISH', cls:'fed-hawk' }
     },
     assets:[
-      {sym:'NQ', price:19847.50, chg:+61.25,  pct:+0.31},
-      {sym:'ES', price:5541.25,  chg:+15.50,  pct:+0.28},
-      {sym:'YM', price:41220.00, chg:+78.00,  pct:+0.19},
-      {sym:'GC', price:3218.40,  chg:+26.30,  pct:+0.82},
-      {sym:'SI', price:32.84,    chg:+0.38,   pct:+1.15},
-      {sym:'CL', price:68.72,    chg:-0.86,   pct:-1.24}
-    ]
+      {sym:'NQ', name:'Nasdaq-100',  price:19847.50, chg:+61.25,  pct:+0.31, atr:289.40, atrPct:57, perf:{d1:+0.31,w1:+1.82,m1:+3.14,m3:-2.18}, spark:[19420,19380,19510,19490,19650,19720,19680,19590,19710,19830,19780,19840,19760,19890,19920,19870,19950,19800,19786,19848]},
+      {sym:'ES', name:'S&P 500',     price:5541.25,  chg:+15.50,  pct:+0.28, atr:72.30,  atrPct:44, perf:{d1:+0.28,w1:+1.54,m1:+2.88,m3:-1.74}, spark:[5430,5410,5460,5445,5490,5520,5505,5480,5510,5535,5518,5540,5525,5555,5562,5548,5570,5528,5525,5541]},
+      {sym:'YM', name:'Dow Jones',   price:41220.00, chg:+78.00,  pct:+0.19, atr:380.00, atrPct:38, perf:{d1:+0.19,w1:+0.92,m1:+1.64,m3:-0.88}, spark:[40620,40580,40720,40690,40840,40900,40870,40800,40880,40980,40950,41020,40980,41080,41100,41060,41130,41040,41142,41220]},
+      {sym:'GC', name:'Oro',         price:3218.40,  chg:+26.30,  pct:+0.82, atr:42.80,  atrPct:68, perf:{d1:+0.82,w1:+2.94,m1:+6.42,m3:+14.80}, spark:[2980,2995,3020,3008,3042,3065,3058,3080,3102,3118,3095,3130,3148,3162,3155,3180,3192,3204,3192,3218]},
+      {sym:'SI', name:'Plata',       price:32.84,    chg:+0.38,   pct:+1.15, atr:0.78,   atrPct:72, perf:{d1:+1.15,w1:+3.60,m1:+8.20,m3:+18.40}, spark:[29.8,30.1,30.4,30.2,30.8,31.1,30.9,31.4,31.8,32.0,31.7,32.2,32.4,32.5,32.3,32.6,32.8,32.5,32.46,32.84]},
+      {sym:'CL', name:'Crudo WTI',   price:68.72,    chg:-0.86,   pct:-1.24, atr:1.92,   atrPct:48, perf:{d1:-1.24,w1:-2.80,m1:-4.60,m3:-12.30}, spark:[74.2,73.8,74.5,73.2,72.8,73.4,72.6,71.8,72.4,71.2,70.8,71.4,70.6,70.2,70.8,69.8,69.4,69.0,69.58,68.72]}
+    ],
+    event:{
+      name:'ISM Manufacturing PMI',
+      time:'10:00 AM ET',
+      impact:'high',
+      prev:'50.3',
+      consensus:'50.8',
+      assets:['NQ','ES','YM','DXY'],
+      note:'Lectura >50 = expansión. Impacto directo en equity y dólar.'
+    }
   },
 
   tabs:[
@@ -438,6 +549,143 @@ const ER = {
     }
   },
 
+  /* ── Overview renderer ─────────────────────────── */
+  ov:{
+    sortKey:'d1', sortDir:-1,
+
+    heatColor(pct){
+      const c=Math.max(-6,Math.min(6,pct));
+      if(c>=0){const i=c/6;return`rgba(0,168,122,${(0.08+i*0.55).toFixed(2)})`;}
+      const i=-c/6;return`rgba(224,48,85,${(0.08+i*0.55).toFixed(2)})`;
+    },
+
+    pctHtml(v){
+      const s=v>=0?'+':'',c=v>=0?'asset-chg-pos':'asset-chg-neg';
+      return`<span class="${c}">${s}${v.toFixed(2)}%</span>`;
+    },
+
+    drawSpark(canvas,data){
+      const ctx=canvas.getContext('2d');
+      const w=canvas.width,h=canvas.height;
+      ctx.clearRect(0,0,w,h);
+      const mn=Math.min(...data),mx=Math.max(...data),rng=mx-mn||1;
+      const last=data[data.length-1],first=data[0];
+      const col=last>=first?'#00a87a':'#e03055';
+      ctx.strokeStyle=col;ctx.lineWidth=1.5;ctx.lineJoin='round';
+      ctx.beginPath();
+      data.forEach((v,i)=>{
+        const x=(i/(data.length-1))*w;
+        const y=h-((v-mn)/rng)*(h-4)-2;
+        i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+      });
+      ctx.stroke();
+      /* área de relleno */
+      ctx.strokeStyle='transparent';
+      ctx.fillStyle=last>=first?'rgba(0,168,122,0.08)':'rgba(224,48,85,0.08)';
+      ctx.lineTo(w,h);ctx.lineTo(0,h);ctx.closePath();ctx.fill();
+    },
+
+    renderAssets(){
+      const tbody=document.getElementById('ovAssetsBody');if(!tbody)return;
+      let html='';
+      for(const a of ER.data.assets){
+        const chgCls=a.chg>=0?'asset-chg-pos':'asset-chg-neg';
+        const atrCol=a.atrPct>=80?'var(--neg)':a.atrPct>=60?'var(--amber)':'var(--pos)';
+        const sg=a.chg>=0?'+':'';
+        html+=`<tr>
+          <td><div class="asset-sym">${a.sym}</div><div class="asset-name">${a.name}</div></td>
+          <td class="asset-price">${a.price.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}</td>
+          <td><span class="${chgCls}">${sg}${a.chg.toFixed(2)}</span></td>
+          <td>${this.pctHtml(a.pct)}</td>
+          <td><div class="atr-wrap">
+            <div class="atr-bar-track"><div class="atr-bar-fill" style="width:${a.atrPct}%;background:${atrCol}"></div></div>
+            <span class="atr-val" style="color:${atrCol}">${a.atrPct}%</span>
+          </div></td>
+          <td><canvas class="spark" id="spark-${a.sym}" width="80" height="24"></canvas></td>
+        </tr>`;
+      }
+      tbody.innerHTML=html;
+      /* Dibujar sparklines */
+      for(const a of ER.data.assets){
+        const c=document.getElementById(`spark-${a.sym}`);
+        if(c) this.drawSpark(c,a.spark);
+      }
+    },
+
+    renderHeatmap(){
+      const el=document.getElementById('ovHeatmap');if(!el)return;
+      const periods=['1D','1W','1M'],keys=['d1','w1','m1'];
+      let h=`<div class="hm-cell hm-hdr"></div>`;
+      for(const p of periods) h+=`<div class="hm-cell hm-hdr">${p}</div>`;
+      for(const a of ER.data.assets){
+        h+=`<div class="hm-cell hm-sym">${a.sym}</div>`;
+        for(const k of keys){
+          const v=a.perf[k];
+          const bg=this.heatColor(v);
+          const tc=v>=0?'#00d898':'#ff5577';
+          const sg=v>=0?'+':'';
+          h+=`<div class="hm-cell" style="background:${bg};color:${tc}">${sg}${v.toFixed(2)}%</div>`;
+        }
+      }
+      el.innerHTML=h;
+    },
+
+    renderMacro(){
+      const m=ER.data.macro;
+      const el=document.getElementById('ovMacroGrid');if(!el)return;
+      const vixChgCls=m.VIX.chg<0?'pos':'neg';
+      el.innerHTML=`
+        <div class="mkpi"><div class="mkpi-lbl">VIX</div><div class="mkpi-val ${vixChgCls}">${m.VIX.v.toFixed(2)}</div><div class="mkpi-sub ${vixChgCls}">${m.VIX.chg<0?'▼':'▲'} ${Math.abs(m.VIX.pct).toFixed(2)}%</div></div>
+        <div class="mkpi"><div class="mkpi-lbl">DXY</div><div class="mkpi-val amb">${m.DXY.v.toFixed(2)}</div><div class="mkpi-sub amb">▲ ${m.DXY.pct.toFixed(2)}%</div></div>
+        <div class="mkpi"><div class="mkpi-lbl">US 10Y</div><div class="mkpi-val amb">${m.US10Y.v.toFixed(2)}%</div><div class="mkpi-sub amb">▲ ${m.US10Y.chg.toFixed(2)} bp</div></div>
+        <div class="mkpi"><div class="mkpi-lbl">Fed Sesgo</div><div class="mkpi-val fed-hawk" style="font-size:11px;letter-spacing:1px">${m.FED.label}</div><div class="mkpi-sub dim">Próx. FOMC: May 7</div></div>`;
+    },
+
+    renderEvent(){
+      const ev=ER.data.event;
+      const el=document.getElementById('ovEventCard');if(!el)return;
+      const tags=ev.assets.map(a=>`<span class="event-asset-tag">${a}</span>`).join('');
+      el.innerHTML=`
+        <span class="event-impact ${ev.impact}">${ev.impact==='high'?'ALTO IMPACTO':'MEDIO IMPACTO'}</span>
+        <div class="event-name">${ev.name}</div>
+        <div class="event-meta">
+          🕙 ${ev.time} &nbsp;·&nbsp; Prev: <b>${ev.prev}</b> &nbsp;·&nbsp; Est: <b>${ev.consensus}</b><br>
+          ${ev.note}
+        </div>
+        <div class="event-assets">${tags}</div>`;
+    },
+
+    renderPerf(){
+      const tbody=document.getElementById('ovPerfBody');if(!tbody)return;
+      const sorted=[...ER.data.assets].sort((a,b)=>(b.perf[this.sortKey]-a.perf[this.sortKey])*this.sortDir);
+      let h='';
+      for(const a of sorted){
+        h+=`<tr>
+          <td><span class="asset-sym" style="font-size:12px">${a.sym}</span></td>
+          <td>${this.pctHtml(a.perf.d1)}</td>
+          <td>${this.pctHtml(a.perf.w1)}</td>
+          <td>${this.pctHtml(a.perf.m1)}</td>
+          <td>${this.pctHtml(a.perf.m3)}</td>
+        </tr>`;
+      }
+      tbody.innerHTML=h;
+    },
+
+    sortPerf(key){
+      if(this.sortKey===key) this.sortDir*=-1;
+      else{this.sortKey=key;this.sortDir=-1;}
+      this.renderPerf();
+    },
+
+    init(){
+      this.renderAssets();
+      this.renderHeatmap();
+      this.renderMacro();
+      this.renderEvent();
+      this.renderPerf();
+    }
+  },
+
   /* ── Init ───────────────────────────────────────── */
   init(){
     document.querySelectorAll('.nav-item').forEach(el=>{
@@ -447,6 +695,7 @@ const ER = {
     if(hash&&this.tabs.find(t=>t.id===hash)) this.navigate(hash);
     this.clock.init();
     this.ticker.build();
+    this.ov.init();
     document.addEventListener('keydown',e=>{
       if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();this.cmd.open();}
       if(e.key==='Escape'&&document.getElementById('cmdOverlay').classList.contains('open')) this.cmd.close();
