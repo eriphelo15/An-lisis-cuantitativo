@@ -9,13 +9,457 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <style>
-PLACEHOLDER_STYLE
+/* ═══ RESET + TOKENS ═══════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'IBM Plex Mono',monospace;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+[data-theme="dark"]{
+  --bg:#070b12;--surface:#0b1120;--surface2:#0f1628;--surface3:#131d30;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.04);--border3:rgba(255,255,255,0.02);
+  --accent:#00a882;--accent2:#0096cc;--red:#e03055;--amber:#c89030;
+  --text:#c8d8e8;--text-dim:#5a7a96;--text-mid:#8aaac8;--pos:#00a87a;--neg:#e03055;
+  --font-mono:'IBM Plex Mono',monospace;--font-display:'Bebas Neue',sans-serif}
+[data-theme="light"]{
+  --bg:#f2f5fa;--surface:#ffffff;--surface2:#f5f8fc;--surface3:#eaeff7;
+  --border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.04);--border3:rgba(0,0,0,0.02);
+  --accent:#009970;--accent2:#0077cc;--red:#d42045;--amber:#c07500;
+  --text:#0f1c2e;--text-dim:#a0b8cc;--text-mid:#5a7088;--pos:#009970;--neg:#d42045;
+  --font-mono:'IBM Plex Mono',monospace;--font-display:'Bebas Neue',sans-serif}
+html,body{background:var(--bg);color:var(--text)}
+::-webkit-scrollbar{width:2px;height:2px}::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(0,255,170,0.15)}
+
+/* ═══ ATMOSPHERIC BACKGROUND ════════════════════════════ */
+[data-theme="dark"] body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 70% 40% at 15% 10%,rgba(0,255,170,0.05) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 30% at 85% 85%,rgba(0,212,255,0.025) 0%,transparent 60%),
+    repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(0,255,170,0.018) 39px,rgba(0,255,170,0.018) 40px),
+    repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(0,255,170,0.01) 39px,rgba(0,255,170,0.01) 40px)}
+[data-theme="dark"] body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
+  background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(0,0,0,0.055) 1px,rgba(0,0,0,0.055) 2px)}
+
+/* ═══ APP GRID ═══════════════════════════════════════════ */
+.app{display:grid;grid-template-rows:56px 1fr 24px;height:100vh;position:relative;z-index:1}
+.body{display:grid;grid-template-columns:240px 1fr;overflow:hidden}
+
+/* ═══ HEADER ════════════════════════════════════════════ */
+.hdr{
+  display:flex;align-items:center;gap:16px;padding:0 20px;
+  background:linear-gradient(180deg,#0e1828 0%,#070b14 100%);
+  border-bottom:1px solid rgba(0,240,160,0.1);
+  font-family:var(--font-mono);font-size:11px;position:relative;overflow:hidden}
+[data-theme="light"] .hdr{background:linear-gradient(180deg,#e8edf6 0%,#dde4ef 100%);border-bottom-color:rgba(0,140,100,0.15)}
+[data-theme="dark"] .hdr::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent 0%,#00f0a0 35%,#00c8ff 65%,transparent 100%);opacity:0.6}
+.logo-wrap{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-dot{width:6px;height:6px;background:var(--accent);box-shadow:0 0 8px var(--accent);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.logo-txt{font-family:var(--font-display);font-size:16px;letter-spacing:5px;color:var(--accent);text-transform:uppercase;white-space:nowrap;text-shadow:0 0 20px rgba(0,240,160,0.18)}
+.logo-sub{font-size:7px;letter-spacing:2px;color:var(--text-dim);border-left:1px solid rgba(0,240,160,0.12);padding-left:10px;text-transform:uppercase}
+.hdr-macro{display:flex;align-items:center;gap:5px;margin-left:auto}
+.mpill{display:flex;align-items:center;gap:5px;padding:3px 9px;border:1px solid var(--border);background:rgba(255,255,255,0.02);font-size:9px;white-space:nowrap}
+.mpill-lbl{color:var(--text-dim);letter-spacing:1.5px;text-transform:uppercase}
+.mpill-val{color:var(--text);font-weight:600}
+.mpill-chg{font-size:8px}.mpill-chg.pos{color:var(--pos)}.mpill-chg.neg{color:var(--neg)}.mpill-chg.amb{color:var(--amber)}
+.fed-hawk{color:var(--neg)}.fed-neutral{color:var(--amber)}.fed-dove{color:var(--pos)}
+.hdr-r{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.phase-badge{font-size:8px;font-weight:600;letter-spacing:1.5px;padding:4px 10px;text-transform:uppercase;border:1px solid currentColor;transition:all .3s}
+.phase-badge.premarket{color:var(--amber);border-color:rgba(200,144,48,0.3);background:rgba(200,144,48,0.05)}
+.phase-badge.open{color:var(--pos);border-color:rgba(0,168,122,0.4);background:rgba(0,168,122,0.06)}
+.phase-badge.asrs{color:var(--accent);border-color:rgba(0,168,130,0.5);background:rgba(0,168,130,0.08);animation:glow 2s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 8px rgba(0,168,130,0.3)}50%{box-shadow:0 0 16px rgba(0,168,130,0.5)}}
+.phase-badge.midsession{color:var(--text-mid);border-color:var(--border);background:transparent}
+.phase-badge.close{color:var(--amber);border-color:rgba(200,144,48,0.3);background:rgba(200,144,48,0.05)}
+.phase-badge.afterhours,.phase-badge.closed{color:var(--text-dim);border-color:var(--border2);background:transparent}
+.hdr-clock{font-size:11px;color:var(--text-mid);letter-spacing:1px;min-width:76px;text-align:right}
+.btn-sm{background:transparent;border:1px solid var(--border);color:var(--text-dim);font-family:var(--font-mono);font-size:9px;padding:4px 10px;cursor:pointer;transition:all .2s;letter-spacing:1px;text-transform:uppercase}
+.btn-sm:hover{border-color:var(--accent);color:var(--accent)}
+.btn-cmd{background:transparent;border:1px solid var(--border2);color:var(--text-dim);font-family:var(--font-mono);font-size:8px;padding:3px 8px;cursor:pointer;transition:all .2s;letter-spacing:1px}
+.btn-cmd:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ═══ SIDENAV ════════════════════════════════════════════ */
+.sidenav{
+  background:linear-gradient(180deg,var(--surface2) 0%,var(--surface) 100%);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;overflow-x:hidden;position:relative}
+.sidenav::before,.sidenav::after{content:'';position:absolute;width:8px;height:8px;border-color:var(--accent);border-style:solid;pointer-events:none;z-index:2;opacity:.6}
+.sidenav::before{top:0;left:0;border-width:1px 0 0 1px}
+.sidenav::after{top:0;right:0;border-width:1px 1px 0 0}
+.sidenav-brand{padding:14px 16px 10px;border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:8px}
+.sidenav-brand-dot{width:5px;height:5px;background:var(--accent);flex-shrink:0}
+.sidenav-brand-txt{font-family:var(--font-display);font-size:12px;letter-spacing:3px;color:var(--text-dim)}
+.nav-items{flex:1;padding:8px 0}
+.nav-item{display:flex;align-items:center;gap:12px;padding:11px 16px;cursor:pointer;border-left:2px solid transparent;transition:all 140ms ease;font-family:var(--font-mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);user-select:none}
+.nav-item:hover{background:rgba(0,168,130,0.04);color:var(--text-mid);border-left-color:rgba(0,168,130,0.2)}
+.nav-item.active{border-left-color:var(--accent);color:var(--accent);background:rgba(0,168,130,0.06)}
+.nav-icon{width:16px;height:16px;flex-shrink:0;opacity:.6}
+.nav-item.active .nav-icon,.nav-item:hover .nav-icon{opacity:1}
+.nav-lbl{flex:1}
+.sidenav-footer{padding:12px 16px;border-top:1px solid var(--border2);font-size:8px;color:var(--text-dim);letter-spacing:1px;line-height:1.8}
+
+/* ═══ CONTENT + TAB SYSTEM ══════════════════════════════ */
+.content-area{overflow-y:auto;background:var(--bg);position:relative}
+.tab-pane{display:none;height:100%;flex-direction:column}
+.tab-pane.active{display:flex;animation:fadeUp .18s cubic-bezier(.4,0,.2,1)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.tab-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;gap:16px;padding:60px}
+.tab-ph-icon{font-size:36px;opacity:.05;font-family:var(--font-mono);color:var(--accent)}
+.tab-ph-title{font-family:var(--font-display);font-size:28px;letter-spacing:6px;color:var(--text-dim);opacity:.35;text-transform:uppercase}
+.tab-ph-sub{font-size:9px;color:var(--text-dim);letter-spacing:2px;opacity:.35;text-transform:uppercase}
+
+/* ═══ TICKER FOOTER ══════════════════════════════════════ */
+.ticker-bar{background:var(--surface);border-top:1px solid var(--border);overflow:hidden;display:flex;align-items:center;position:relative}
+.ticker-bar::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,240,160,0.15),transparent)}
+.ticker-track{display:flex;white-space:nowrap;animation:tickerScroll 32s linear infinite;will-change:transform}
+.ticker-bar:hover .ticker-track{animation-play-state:paused}
+@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{display:inline-flex;align-items:center;gap:6px;padding:0 14px;font-family:var(--font-mono);font-size:9px;border-right:1px solid var(--border2);white-space:nowrap}
+.ticker-sym{color:var(--text-mid);font-weight:600;letter-spacing:1px}
+.ticker-price{color:var(--text)}
+.ticker-chg{font-size:8px}.ticker-chg.pos{color:var(--pos)}.ticker-chg.neg{color:var(--neg)}
+
+/* ═══ COMMAND PALETTE ════════════════════════════════════ */
+.cmd-overlay{position:fixed;inset:0;z-index:10000;background:rgba(7,11,18,0.88);backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;padding-top:100px}
+.cmd-overlay.open{display:flex}
+.cmd-modal{width:520px;max-width:92vw;background:var(--surface);border:1px solid rgba(0,240,160,0.15);box-shadow:0 24px 80px rgba(0,0,0,0.7)}
+.cmd-input-wrap{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border2)}
+.cmd-icon{color:var(--text-dim);opacity:.5;font-size:12px}
+.cmd-input{flex:1;background:transparent;border:none;outline:none;color:var(--text);font-family:var(--font-mono);font-size:12px;letter-spacing:.5px}
+.cmd-input::placeholder{color:var(--text-dim);opacity:.5}
+.cmd-hint{font-size:8px;color:var(--text-dim);opacity:.4;letter-spacing:1px}
+.cmd-results{max-height:280px;overflow-y:auto}
+.cmd-section-lbl{font-size:8px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase;padding:8px 16px 4px}
+.cmd-item{display:flex;align-items:center;gap:12px;padding:10px 16px;cursor:pointer;transition:background 100ms;font-family:var(--font-mono);font-size:10px;color:var(--text-mid)}
+.cmd-item:hover,.cmd-item.sel{background:rgba(0,168,130,0.08);color:var(--text)}
+.cmd-item-icon{width:14px;font-size:12px;opacity:.5;flex-shrink:0;text-align:center}
+.cmd-item:hover .cmd-item-icon,.cmd-item.sel .cmd-item-icon{opacity:.9}
+.cmd-item-lbl{flex:1}
+.cmd-footer{padding:7px 16px;border-top:1px solid var(--border2)}
+.cmd-footer-hint{font-size:8px;color:var(--text-dim);opacity:.35;letter-spacing:.5px}
+
+/* ═══ UTILIDADES ══════════════════════════════════════════ */
+.pos{color:var(--pos)}.neg{color:var(--neg)}.amb{color:var(--amber)}.dim{color:var(--text-dim)}.mid{color:var(--text-mid)}
 </style>
 </head>
 <body>
-PLACEHOLDER_BODY
+<div class="app">
+  <!-- HEADER -->
+  <header class="hdr">
+    <div class="logo-wrap">
+      <div class="logo-dot"></div>
+      <span class="logo-txt">Eriphel Research</span>
+      <span class="logo-sub">Market Intelligence</span>
+    </div>
+    <div class="hdr-macro" id="hdrMacro">
+      <div class="mpill"><span class="mpill-lbl">VIX</span><span class="mpill-val" id="mVIX">18.42</span><span class="mpill-chg pos" id="mVIXchg">▼ 4.41%</span></div>
+      <div class="mpill"><span class="mpill-lbl">DXY</span><span class="mpill-val" id="mDXY">104.18</span><span class="mpill-chg amb" id="mDXYchg">▲ 0.22%</span></div>
+      <div class="mpill"><span class="mpill-lbl">US10Y</span><span class="mpill-val" id="mUS10Y">4.38%</span><span class="mpill-chg amb" id="mUS10Ychg">▲ 0.04</span></div>
+      <div class="mpill"><span class="mpill-lbl">FED</span><span class="mpill-val fed-hawk" id="mFED">HAWKISH</span></div>
+    </div>
+    <div class="hdr-r">
+      <span class="phase-badge closed" id="phaseBadge">--</span>
+      <span class="hdr-clock" id="hdrClock">--:--:-- ET</span>
+      <button class="btn-cmd" onclick="ER.cmd.open()" title="Cmd+K">⌘K</button>
+      <button class="btn-sm" onclick="toggleTheme()">TEMA</button>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+    <!-- SIDENAV -->
+    <nav class="sidenav">
+      <div class="sidenav-brand">
+        <div class="sidenav-brand-dot"></div>
+        <span class="sidenav-brand-txt">ERIPHEL</span>
+      </div>
+      <div class="nav-items" id="navItems">
+        <div class="nav-item active" data-tab="overview">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="6" height="6"/><rect x="9" y="1" width="6" height="6"/><rect x="1" y="9" width="6" height="6"/><rect x="9" y="9" width="6" height="6"/></svg>
+          <span class="nav-lbl">Overview</span>
+        </div>
+        <div class="nav-item" data-tab="map">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><ellipse cx="8" cy="8" rx="3" ry="6.5"/><line x1="1.5" y1="8" x2="14.5" y2="8"/></svg>
+          <span class="nav-lbl">Mapa Global</span>
+        </div>
+        <div class="nav-item" data-tab="scanner">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6.5" cy="6.5" r="4.5"/><line x1="10" y1="10" x2="14.5" y2="14.5"/><line x1="4" y1="6.5" x2="9" y2="6.5"/><line x1="6.5" y1="4" x2="6.5" y2="9"/></svg>
+          <span class="nav-lbl">Scanner</span>
+        </div>
+        <div class="nav-item" data-tab="analisis">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="10" width="3" height="5"/><rect x="6" y="6" width="3" height="9"/><rect x="11" y="2" width="3" height="13"/></svg>
+          <span class="nav-lbl">Análisis</span>
+        </div>
+        <div class="nav-item" data-tab="calendario">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="14" height="12"/><line x1="1" y1="7" x2="15" y2="7"/><line x1="5" y1="1" x2="5" y2="5"/><line x1="11" y1="1" x2="11" y2="5"/></svg>
+          <span class="nav-lbl">Calendario</span>
+        </div>
+        <div class="nav-item" data-tab="journal">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="1" width="12" height="14"/><line x1="5" y1="5" x2="11" y2="5"/><line x1="5" y1="8" x2="11" y2="8"/><line x1="5" y1="11" x2="9" y2="11"/></svg>
+          <span class="nav-lbl">Journal</span>
+        </div>
+        <div class="nav-item" data-tab="backtester">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="2" width="14" height="12"/><polyline points="4,6 7,9 4,12"/><line x1="9" y1="12" x2="13" y2="12"/></svg>
+          <span class="nav-lbl">Backtester</span>
+        </div>
+      </div>
+      <div class="sidenav-footer">
+        <div>ERIPHEL RESEARCH v1.0</div>
+        <div style="opacity:.5;margin-top:2px">Datos con retraso · Solo investigación</div>
+      </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <main class="content-area">
+      <div class="tab-pane active" id="tab-overview">
+        <div class="tab-placeholder">
+          <div class="tab-ph-icon">◫◫◫◫</div>
+          <div class="tab-ph-title">Overview</div>
+          <div class="tab-ph-sub">NQ · ES · YM · GC · SI · CL — En construcción</div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tab-map">
+        <div class="tab-placeholder">
+          <div class="tab-ph-icon">⊕</div>
+          <div class="tab-ph-title">Mapa Global</div>
+          <div class="tab-ph-sub">Inteligencia Geopolítica · D3.js — En construcción</div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tab-scanner">
+        <div class="tab-placeholder">
+          <div class="tab-ph-icon">⊙</div>
+          <div class="tab-ph-title">Scanner</div>
+          <div class="tab-ph-sub">Screener Pre-Apertura · Futuros — En construcción</div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tab-analisis">
+        <div class="tab-placeholder">
+          <div class="tab-ph-icon">▐▌▐▌</div>
+          <div class="tab-ph-title">Análisis</div>
+          <div class="tab-ph-sub">Estadísticas Históricas · Por Activo y Estrategia — En construcción</div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tab-calendario">
+        <div class="tab-placeholder">
+          <div class="tab-ph-icon">▦</div>
+          <div class="tab-ph-title">Calendario</div>
+          <div class="tab-ph-sub">Eventos Económicos · Ventana ASRS · EIA — En construcción</div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tab-journal">
+        <div class="tab-placeholder">
+          <div class="tab-ph-icon">▤</div>
+          <div class="tab-ph-title">Journal</div>
+          <div class="tab-ph-sub">Registro Personal de Operaciones — En construcción</div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tab-backtester" style="padding:0">
+        <iframe id="backtesterFrame" src="" style="width:100%;height:100%;border:none;display:none" title="ARES QUANT"></iframe>
+        <div class="tab-placeholder" id="btPH">
+          <div class="tab-ph-icon">▶_</div>
+          <div class="tab-ph-title">Backtester</div>
+          <div class="tab-ph-sub">ARES QUANT — Click para cargar</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- TICKER FOOTER -->
+  <footer class="ticker-bar"><div class="ticker-track" id="tickerTrack"></div></footer>
+</div>
+
+<!-- COMMAND PALETTE -->
+<div class="cmd-overlay" id="cmdOverlay" onclick="if(event.target===this)ER.cmd.close()">
+  <div class="cmd-modal">
+    <div class="cmd-input-wrap">
+      <span class="cmd-icon">⌘</span>
+      <input id="cmdInput" class="cmd-input" type="text" placeholder="Buscar tabs, activos, funciones..." autocomplete="off" oninput="ER.cmd.filter(this.value)" onkeydown="ER.cmd.keydown(event)">
+      <span class="cmd-hint">ESC para cerrar</span>
+    </div>
+    <div class="cmd-results" id="cmdResults"></div>
+    <div class="cmd-footer"><span class="cmd-footer-hint">↑↓ navegar · Enter seleccionar · Esc cerrar</span></div>
+  </div>
+</div>
 <script>
-PLACEHOLDER_JS
+/* ═══════════════════════════════════════════════════════
+   ERIPHEL RESEARCH v1.0 — Arquitectura base
+   ═══════════════════════════════════════════════════════ */
+const ER = {
+
+  /* Datos mock globales */
+  data: {
+    macro: {
+      VIX:   { v:18.42, chg:-0.85, pct:-4.41 },
+      DXY:   { v:104.18, chg:+0.23, pct:+0.22 },
+      US10Y: { v:4.38,  chg:+0.04, pct:+0.92 },
+      FED:   { label:'HAWKISH', cls:'fed-hawk' }
+    },
+    assets:[
+      {sym:'NQ', price:19847.50, chg:+61.25,  pct:+0.31},
+      {sym:'ES', price:5541.25,  chg:+15.50,  pct:+0.28},
+      {sym:'YM', price:41220.00, chg:+78.00,  pct:+0.19},
+      {sym:'GC', price:3218.40,  chg:+26.30,  pct:+0.82},
+      {sym:'SI', price:32.84,    chg:+0.38,   pct:+1.15},
+      {sym:'CL', price:68.72,    chg:-0.86,   pct:-1.24}
+    ]
+  },
+
+  tabs:[
+    {id:'overview',   label:'Overview'},
+    {id:'map',        label:'Mapa Global'},
+    {id:'scanner',    label:'Scanner'},
+    {id:'analisis',   label:'Análisis'},
+    {id:'calendario', label:'Calendario'},
+    {id:'journal',    label:'Journal'},
+    {id:'backtester', label:'Backtester'}
+  ],
+
+  /* ── Router ─────────────────────────────────────── */
+  navigate(id){
+    document.querySelectorAll('.nav-item').forEach(el=>el.classList.toggle('active',el.dataset.tab===id));
+    document.querySelectorAll('.tab-pane').forEach(el=>el.classList.toggle('active',el.id===`tab-${id}`));
+    if(id==='backtester') this._loadBT();
+    history.replaceState(null,'',`#${id}`);
+  },
+
+  _loadBT(){
+    const f=document.getElementById('backtesterFrame');
+    const ph=document.getElementById('btPH');
+    if(!f.src){
+      f.src='./index.html';
+      f.style.display='block';
+      if(ph) ph.style.display='none';
+    }
+  },
+
+  /* ── Reloj NY + Fases del mercado ───────────────── */
+  clock:{
+    phases:[
+      {from:[0,0],  to:[4,0],   id:'closed',     label:'MERCADO CERRADO'},
+      {from:[4,0],  to:[9,30],  id:'premarket',   label:'PRE-MARKET'},
+      {from:[9,30], to:[9,45],  id:'open',        label:'APERTURA RTH'},
+      {from:[9,45], to:[12,0],  id:'asrs',        label:'VENTANA ASRS'},
+      {from:[12,0], to:[15,30], id:'midsession',  label:'MID-SESSION'},
+      {from:[15,30],to:[16,0],  id:'close',       label:'CIERRE RTH'},
+      {from:[16,0], to:[24,0],  id:'afterhours',  label:'AFTER-HOURS'}
+    ],
+    getPhase(h,m,dow){
+      if(dow===0||dow===6) return{id:'closed',label:'FIN DE SEMANA'};
+      const cur=h*60+m;
+      for(const p of this.phases){
+        if(cur>=p.from[0]*60+p.from[1]&&cur<p.to[0]*60+p.to[1]) return p;
+      }
+      return this.phases[0];
+    },
+    tick(){
+      const ny=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date());
+      const [h,m]=ny.split(':').map(Number);
+      const dow=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(
+        new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short'}).format(new Date()));
+      const cl=document.getElementById('hdrClock');
+      if(cl) cl.textContent=`${ny} ET`;
+      const phase=this.getPhase(h,m,dow);
+      const b=document.getElementById('phaseBadge');
+      if(b){b.textContent=phase.label;b.className=`phase-badge ${phase.id}`;}
+    },
+    init(){this.tick();setInterval(()=>this.tick(),1000);}
+  },
+
+  /* ── Ticker footer ──────────────────────────────── */
+  ticker:{
+    build(){
+      const a=ER.data.assets,m=ER.data.macro;
+      let h='';
+      for(const x of a){
+        const c=x.chg>=0?'pos':'neg',ar=x.chg>=0?'▲':'▼',sg=x.chg>=0?'+':'';
+        h+=`<span class="ticker-item"><span class="ticker-sym">${x.sym}</span><span class="ticker-price">${x.price.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}</span><span class="ticker-chg ${c}">${ar} ${sg}${x.pct.toFixed(2)}%</span></span>`;
+      }
+      const vc=m.VIX.chg<0?'pos':'neg',var_=m.VIX.chg<0?'▼':'▲';
+      h+=`<span class="ticker-item"><span class="ticker-sym">VIX</span><span class="ticker-price">${m.VIX.v.toFixed(2)}</span><span class="ticker-chg ${vc}">${var_} ${Math.abs(m.VIX.pct).toFixed(2)}%</span></span>`;
+      h+=`<span class="ticker-item"><span class="ticker-sym">DXY</span><span class="ticker-price">${m.DXY.v.toFixed(2)}</span><span class="ticker-chg amb">▲ ${m.DXY.pct.toFixed(2)}%</span></span>`;
+      h+=`<span class="ticker-item"><span class="ticker-sym">US10Y</span><span class="ticker-price">${m.US10Y.v.toFixed(2)}%</span><span class="ticker-chg amb">▲ ${m.US10Y.chg.toFixed(2)}</span></span>`;
+      h+=`<span class="ticker-item"><span class="ticker-sym">FED</span><span class="ticker-price fed-hawk">${m.FED.label}</span></span>`;
+      const t=document.getElementById('tickerTrack');
+      if(t) t.innerHTML=h+h; /* duplicar para loop continuo */
+    }
+  },
+
+  /* ── Command palette ────────────────────────────── */
+  cmd:{
+    sel:0, items:[],
+    all(){
+      return[
+        ...ER.tabs.map(t=>({type:'nav',label:t.label,id:t.id,action:()=>ER.navigate(t.id)})),
+        {type:'action',label:'Cambiar tema',action:()=>toggleTheme()},
+        {type:'action',label:'Abrir ARES QUANT en nueva pestaña',action:()=>window.open('./index.html','_blank')}
+      ];
+    },
+    open(){
+      document.getElementById('cmdOverlay').classList.add('open');
+      const inp=document.getElementById('cmdInput');
+      inp.value='';this.filter('');
+      setTimeout(()=>inp.focus(),50);
+    },
+    close(){document.getElementById('cmdOverlay').classList.remove('open');},
+    filter(q){
+      const all=this.all();
+      this.items=q?all.filter(i=>i.label.toLowerCase().includes(q.toLowerCase())):all;
+      this.sel=0;this.render();
+    },
+    render(){
+      const c=document.getElementById('cmdResults');if(!c) return;
+      const nav=this.items.filter(i=>i.type==='nav');
+      const act=this.items.filter(i=>i.type==='action');
+      let h='',idx=0;
+      if(nav.length){
+        h+=`<div class="cmd-section-lbl">NAVEGACIÓN</div>`;
+        for(const item of nav){
+          h+=`<div class="cmd-item${idx===this.sel?' sel':''}" data-idx="${idx}"><span class="cmd-item-icon">◫</span><span class="cmd-item-lbl">${item.label}</span></div>`;idx++;
+        }
+      }
+      if(act.length){
+        h+=`<div class="cmd-section-lbl">ACCIONES</div>`;
+        for(const item of act){
+          h+=`<div class="cmd-item${idx===this.sel?' sel':''}" data-idx="${idx}"><span class="cmd-item-icon">◈</span><span class="cmd-item-lbl">${item.label}</span></div>`;idx++;
+        }
+      }
+      c.innerHTML=h||`<div class="dim" style="padding:16px;font-size:9px;text-align:center;letter-spacing:1px">SIN RESULTADOS</div>`;
+      c.querySelectorAll('.cmd-item').forEach(el=>{
+        el.addEventListener('click',()=>{this.items[+el.dataset.idx]?.action();this.close();});
+      });
+    },
+    keydown(e){
+      if(e.key==='Escape'){this.close();return;}
+      if(e.key==='ArrowDown'){e.preventDefault();this.sel=Math.min(this.sel+1,this.items.length-1);this.render();}
+      if(e.key==='ArrowUp'){e.preventDefault();this.sel=Math.max(this.sel-1,0);this.render();}
+      if(e.key==='Enter'){this.items[this.sel]?.action();this.close();}
+    }
+  },
+
+  /* ── Init ───────────────────────────────────────── */
+  init(){
+    document.querySelectorAll('.nav-item').forEach(el=>{
+      el.addEventListener('click',()=>this.navigate(el.dataset.tab));
+    });
+    const hash=location.hash.replace('#','');
+    if(hash&&this.tabs.find(t=>t.id===hash)) this.navigate(hash);
+    this.clock.init();
+    this.ticker.build();
+    document.addEventListener('keydown',e=>{
+      if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();this.cmd.open();}
+      if(e.key==='Escape'&&document.getElementById('cmdOverlay').classList.contains('open')) this.cmd.close();
+    });
+  }
+};
+
+function toggleTheme(){
+  const h=document.documentElement;
+  h.setAttribute('data-theme',h.getAttribute('data-theme')==='dark'?'light':'dark');
+}
+
+document.addEventListener('DOMContentLoaded',()=>ER.init());
 </script>
 </body>
 </html>
