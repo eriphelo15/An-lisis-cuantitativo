@@ -282,6 +282,59 @@ html,body{background:var(--bg);color:var(--text)}
 .ev-impact.low{background:rgba(90,122,150,0.12);color:var(--text-dim)}
 .ev-tags{display:flex;gap:3px;flex-wrap:wrap;justify-content:flex-end}
 .ev-tag{font-size:7px;padding:1px 5px;border:1px solid var(--border2);color:var(--text-dim)}
+/* ═══ TAB SCANNER ════════════════════════════════════════ */
+.sc-wrap{padding:14px;display:flex;flex-direction:column;gap:12px;height:100%;overflow-y:auto}
+.sc-presets{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.sc-preset-lbl{font-size:8px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase;margin-right:4px}
+.sc-preset-btn{background:transparent;border:1px solid var(--border);color:var(--text-dim);font-family:var(--font-mono);font-size:8px;padding:4px 12px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;transition:all .15s}
+.sc-preset-btn:hover{border-color:var(--text-mid);color:var(--text-mid)}
+.sc-preset-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(0,168,130,0.06)}
+.sc-body{display:grid;grid-template-columns:220px 1fr;gap:12px;flex:1;min-height:0}
+/* Panel filtros */
+.sc-filters{background:var(--surface);border:1px solid var(--border2);display:flex;flex-direction:column;overflow-y:auto}
+.sc-filter-group{padding:8px 12px;border-bottom:1px solid var(--border3)}
+.sc-filter-group:last-of-type{border-bottom:none}
+.sc-fg-ttl{font-size:7px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:7px;display:flex;align-items:center;gap:6px}
+.sc-fg-ttl::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(0,255,170,0.15),transparent)}
+.sc-fld{display:flex;flex-direction:column;gap:2px;margin-bottom:6px}
+.sc-fld:last-child{margin-bottom:0}
+.sc-fld label{font-size:7px;letter-spacing:1.2px;color:var(--text-dim);text-transform:uppercase}
+.sc-fld input,.sc-fld select{background:rgba(5,8,16,0.7);border:1px solid var(--border2);color:var(--text);font-family:var(--font-mono);font-size:10px;padding:4px 7px;outline:none;width:100%;transition:border-color .2s}
+.sc-fld input:focus,.sc-fld select:focus{border-color:var(--accent)}
+.sc-fld select option{background:var(--surface)}
+.sc-frow{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.sc-trow{display:flex;align-items:center;justify-content:space-between;padding:2px 0}
+.sc-trow label{font-size:8px;color:var(--text-dim);letter-spacing:.8px}
+.sc-filters-footer{padding:10px 12px;border-top:1px solid var(--border2)}
+.btn-sc-run{width:100%;background:transparent;color:var(--accent);border:1px solid var(--accent);font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:2px;padding:7px;cursor:pointer;text-transform:uppercase;transition:all .2s}
+.btn-sc-run:hover{background:var(--accent);color:#000}
+.btn-sc-save{width:100%;margin-top:5px;background:transparent;color:var(--text-dim);border:1px solid var(--border);font-family:var(--font-mono);font-size:8px;letter-spacing:1px;padding:5px;cursor:pointer;text-transform:uppercase;transition:all .2s}
+.btn-sc-save:hover{border-color:var(--accent2);color:var(--accent2)}
+/* Resultados */
+.sc-results{background:var(--surface);border:1px solid var(--border2);display:flex;flex-direction:column;overflow:hidden}
+.sc-results-hdr{padding:8px 14px;border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:8px}
+.sc-count{font-size:9px;color:var(--text-dim);letter-spacing:1px}
+.sc-count b{color:var(--text)}
+.sc-results-scroll{flex:1;overflow-y:auto}
+.sc-tbl{width:100%;border-collapse:collapse;font-size:10px}
+.sc-tbl thead th{font-size:8px;letter-spacing:1px;color:var(--text-dim);text-transform:uppercase;padding:7px 12px;text-align:right;border-bottom:1px solid var(--border2);white-space:nowrap;cursor:pointer;user-select:none}
+.sc-tbl thead th:first-child,.sc-tbl thead th:nth-child(2){text-align:left}
+.sc-tbl thead th:hover{color:var(--text-mid)}
+.sc-tbl tbody tr{border-bottom:1px solid var(--border3);transition:background 120ms;cursor:default}
+.sc-tbl tbody tr:hover{background:rgba(255,255,255,0.02)}
+.sc-tbl td{padding:8px 12px;text-align:right;vertical-align:middle}
+.sc-tbl td:first-child,.sc-tbl td:nth-child(2){text-align:left}
+/* Semáforo */
+.semaforo{display:inline-flex;align-items:center;gap:5px;font-size:8px;font-weight:600;letter-spacing:1px;padding:3px 8px;text-transform:uppercase}
+.semaforo.verde{background:rgba(0,168,122,0.12);color:var(--pos);border:1px solid rgba(0,168,122,0.25)}
+.semaforo.amarillo{background:rgba(200,144,48,0.12);color:var(--amber);border:1px solid rgba(200,144,48,0.25)}
+.semaforo.rojo{background:rgba(224,48,85,0.12);color:var(--neg);border:1px solid rgba(224,48,85,0.25)}
+.semaforo::before{content:'';width:6px;height:6px;border-radius:50%}
+.semaforo.verde::before{background:var(--pos);box-shadow:0 0 6px var(--pos)}
+.semaforo.amarillo::before{background:var(--amber);box-shadow:0 0 6px var(--amber)}
+.semaforo.rojo::before{background:var(--neg);box-shadow:0 0 6px var(--neg)}
+.sc-empty{text-align:center;padding:40px;color:var(--text-dim);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;opacity:.4}
+.sc-reason{font-size:8px;color:var(--text-dim);margin-top:2px;max-width:160px;text-align:right;white-space:normal;line-height:1.4}
 /* ═══════════════════════════════════════════════════════ */
 .pos{color:var(--pos)}.neg{color:var(--neg)}.amb{color:var(--amber)}.dim{color:var(--text-dim)}.mid{color:var(--text-mid)}
 </style>
@@ -423,10 +476,90 @@ html,body{background:var(--bg);color:var(--text)}
         </div>
       </div>
       <div class="tab-pane" id="tab-scanner">
-        <div class="tab-placeholder">
-          <div class="tab-ph-icon">⊙</div>
-          <div class="tab-ph-title">Scanner</div>
-          <div class="tab-ph-sub">Screener Pre-Apertura · Futuros — En construcción</div>
+        <div class="sc-wrap">
+          <!-- Presets -->
+          <div class="sc-presets">
+            <span class="sc-preset-lbl">Preset:</span>
+            <button class="sc-preset-btn active" data-preset="futuros" onclick="SCAN.loadPreset('futuros')">Futuros RTH</button>
+            <button class="sc-preset-btn" data-preset="equity" onclick="SCAN.loadPreset('equity')">Equity Large Cap</button>
+            <button class="sc-preset-btn" data-preset="smallcap" onclick="SCAN.loadPreset('smallcap')">Small Cap</button>
+            <button class="sc-preset-btn" data-preset="crypto" onclick="SCAN.loadPreset('crypto')">Cripto</button>
+          </div>
+
+          <div class="sc-body">
+            <!-- Filtros -->
+            <div class="sc-filters">
+              <div class="pb-ttl" style="padding:10px 12px 0">Filtros</div>
+
+              <div class="sc-filter-group">
+                <div class="sc-fg-ttl">Precio y Volatilidad</div>
+                <div class="sc-fld sc-frow">
+                  <div><label>ATR% mín</label><input type="number" id="sfAtrMin" value="0" step="5" min="0" max="100"></div>
+                  <div><label>ATR% máx</label><input type="number" id="sfAtrMax" value="100" step="5" min="0" max="100"></div>
+                </div>
+                <div class="sc-fld sc-frow">
+                  <div><label>PreMkt% mín</label><input type="number" id="sfPmMin" value="-10" step="0.1"></div>
+                  <div><label>PreMkt% máx</label><input type="number" id="sfPmMax" value="10" step="0.1"></div>
+                </div>
+              </div>
+
+              <div class="sc-filter-group">
+                <div class="sc-fg-ttl">Volumen y Momentum</div>
+                <div class="sc-fld">
+                  <label>Vol ratio mín (vs promedio)</label>
+                  <input type="number" id="sfVolRatio" value="0.5" step="0.1" min="0">
+                </div>
+                <div class="sc-fld">
+                  <label>Momentum ROC mín (%)</label>
+                  <input type="number" id="sfMom" value="-5" step="0.1">
+                </div>
+              </div>
+
+              <div class="sc-filter-group">
+                <div class="sc-fg-ttl">Condiciones de Mercado</div>
+                <div class="sc-fld">
+                  <label>VIX máximo permitido</label>
+                  <input type="number" id="sfVix" value="40" step="1" min="0">
+                </div>
+                <div class="sc-trow">
+                  <label>Excluir evento macro hoy</label>
+                  <input type="checkbox" id="sfExcludeEvent">
+                </div>
+                <div class="sc-trow">
+                  <label>Solo semáforo VERDE</label>
+                  <input type="checkbox" id="sfOnlyGreen">
+                </div>
+              </div>
+
+              <div class="sc-filters-footer">
+                <button class="btn-sc-run" onclick="SCAN.run()">▶ Ejecutar Scanner</button>
+                <button class="btn-sc-save" onclick="SCAN.savePreset()">Guardar como preset</button>
+              </div>
+            </div>
+
+            <!-- Resultados -->
+            <div class="sc-results">
+              <div class="sc-results-hdr">
+                <span class="sc-count" id="scCount"><b>—</b> resultados</span>
+                <span class="dim" style="font-size:8px;margin-left:auto;letter-spacing:1px" id="scTimestamp">Sin ejecutar</span>
+              </div>
+              <div class="sc-results-scroll">
+                <table class="sc-tbl">
+                  <thead><tr>
+                    <th onclick="SCAN.sort('sym')">Activo</th>
+                    <th onclick="SCAN.sort('name')">Nombre</th>
+                    <th onclick="SCAN.sort('price')">Precio</th>
+                    <th onclick="SCAN.sort('pmPct')">PreMkt%</th>
+                    <th onclick="SCAN.sort('atrPct')">ATR Cons.</th>
+                    <th onclick="SCAN.sort('volRatio')">Vol Ratio</th>
+                    <th onclick="SCAN.sort('momentum')">Momentum</th>
+                    <th onclick="SCAN.sort('signal')">Semáforo</th>
+                  </tr></thead>
+                  <tbody id="scTbody"><tr><td colspan="8" class="sc-empty">Configura filtros y ejecuta el scanner</td></tr></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="tab-pane" id="tab-analisis">
@@ -880,6 +1013,7 @@ const ER = {
     this.ov.init();
     JN.init();
     CAL.init();
+    SCAN.init();
     document.addEventListener('keydown',e=>{
       if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();this.cmd.open();}
       if(e.key==='Escape'&&document.getElementById('cmdOverlay').classList.contains('open')) this.cmd.close();
@@ -1044,6 +1178,170 @@ const JN = {
     if(d) d.value=new Date().toISOString().split('T')[0];
     this.render();this.renderKPIs();
   }
+};
+
+/* ═══ SCANNER ═══════════════════════════════════════════ */
+const SCAN = {
+  sortKey:'signal', sortDir:1,
+  results:[],
+
+  /* Mock universe — futuros + equity + cripto */
+  universe:{
+    futuros:[
+      {sym:'NQ', name:'Nasdaq-100',  price:19847.50, pmPct:+0.42, atrPct:57, volRatio:1.8, momentum:+0.31, hasHighEvt:false, hasMedEvt:true,  vix:18.42},
+      {sym:'ES', name:'S&P 500',     price:5541.25,  pmPct:+0.28, atrPct:44, volRatio:1.4, momentum:+0.28, hasHighEvt:false, hasMedEvt:true,  vix:18.42},
+      {sym:'YM', name:'Dow Jones',   price:41220.00, pmPct:+0.18, atrPct:38, volRatio:1.1, momentum:+0.19, hasHighEvt:false, hasMedEvt:true,  vix:18.42},
+      {sym:'GC', name:'Oro',         price:3218.40,  pmPct:+0.75, atrPct:68, volRatio:2.2, momentum:+0.82, hasHighEvt:false, hasMedEvt:false, vix:18.42},
+      {sym:'SI', name:'Plata',       price:32.84,    pmPct:+1.10, atrPct:72, volRatio:2.6, momentum:+1.15, hasHighEvt:false, hasMedEvt:false, vix:18.42},
+      {sym:'CL', name:'Crudo WTI',   price:68.72,    pmPct:-1.18, atrPct:48, volRatio:1.9, momentum:-1.24, hasHighEvt:true,  hasMedEvt:false, vix:18.42}
+    ],
+    equity:[
+      {sym:'QQQ', name:'Invesco QQQ', price:482.35, pmPct:+0.38, atrPct:52, volRatio:1.6, momentum:+0.38, hasHighEvt:false, hasMedEvt:true, vix:18.42},
+      {sym:'SPY', name:'SPDR S&P 500',price:554.10, pmPct:+0.24, atrPct:42, volRatio:1.3, momentum:+0.24, hasHighEvt:false, hasMedEvt:true, vix:18.42},
+      {sym:'NVDA',name:'Nvidia',      price:875.40, pmPct:+1.82, atrPct:78, volRatio:3.4, momentum:+1.82, hasHighEvt:false, hasMedEvt:false,vix:18.42},
+      {sym:'AAPL',name:'Apple',       price:202.80, pmPct:-0.14, atrPct:35, volRatio:0.9, momentum:-0.14, hasHighEvt:false, hasMedEvt:false,vix:18.42},
+      {sym:'MSFT',name:'Microsoft',   price:414.60, pmPct:+0.52, atrPct:44, volRatio:1.2, momentum:+0.52, hasHighEvt:false, hasMedEvt:false,vix:18.42},
+      {sym:'TSLA',name:'Tesla',       price:248.50, pmPct:-2.40, atrPct:85, volRatio:4.1, momentum:-2.40, hasHighEvt:false, hasMedEvt:false,vix:18.42}
+    ],
+    smallcap:[
+      {sym:'IWM', name:'Russell 2000',price:198.40, pmPct:+0.68, atrPct:61, volRatio:2.1, momentum:+0.68, hasHighEvt:false, hasMedEvt:true, vix:18.42},
+      {sym:'GME', name:'GameStop',    price:24.80,  pmPct:+8.40, atrPct:92, volRatio:8.6, momentum:+8.40, hasHighEvt:false, hasMedEvt:false,vix:18.42},
+      {sym:'AMC', name:'AMC Entmt.',  price:3.82,   pmPct:+4.20, atrPct:88, volRatio:5.8, momentum:+4.20, hasHighEvt:false, hasMedEvt:false,vix:18.42},
+      {sym:'SOUN',name:'SoundHound',  price:8.64,   pmPct:+3.10, atrPct:74, volRatio:3.2, momentum:+3.10, hasHighEvt:false, hasMedEvt:false,vix:18.42}
+    ],
+    crypto:[
+      {sym:'BTC', name:'Bitcoin',     price:83240.0, pmPct:+1.84, atrPct:62, volRatio:1.4, momentum:+1.84, hasHighEvt:false, hasMedEvt:false,vix:18.42},
+      {sym:'ETH', name:'Ethereum',    price:1982.40, pmPct:+2.14, atrPct:68, volRatio:1.6, momentum:+2.14, hasHighEvt:false, hasMedEvt:false,vix:18.42},
+      {sym:'SOL', name:'Solana',      price:128.60,  pmPct:+3.40, atrPct:75, volRatio:2.0, momentum:+3.40, hasHighEvt:false, hasMedEvt:false,vix:18.42}
+    ]
+  },
+
+  presets:{
+    futuros:{atrMin:0,atrMax:100,pmMin:-5,pmMax:5,volRatio:0.8,mom:-5,vix:40,excludeEvt:false,onlyGreen:false},
+    equity: {atrMin:0,atrMax:80, pmMin:-3,pmMax:8, volRatio:1.0,mom:-3,vix:30,excludeEvt:false,onlyGreen:false},
+    smallcap:{atrMin:40,atrMax:100,pmMin:3,pmMax:20,volRatio:2.5,mom:2,vix:40,excludeEvt:false,onlyGreen:false},
+    crypto: {atrMin:30,atrMax:100,pmMin:-8,pmMax:10,volRatio:0.5,mom:-5,vix:40,excludeEvt:false,onlyGreen:false}
+  },
+
+  activePreset:'futuros',
+
+  getSignal(a){
+    const reasons=[];
+    if(a.vix>25) reasons.push(`VIX ${a.vix.toFixed(1)}`);
+    if(a.atrPct>=80) reasons.push(`ATR ${a.atrPct}%`);
+    if(a.hasHighEvt) reasons.push('Evento alto hoy');
+    if(reasons.length) return{signal:'rojo',label:'NO OPERAR',reasons};
+    const warns=[];
+    if(a.vix>20) warns.push(`VIX ${a.vix.toFixed(1)}`);
+    if(a.atrPct>=60) warns.push(`ATR ${a.atrPct}%`);
+    if(a.hasMedEvt) warns.push('Evento medio');
+    if(warns.length) return{signal:'amarillo',label:'PRECAUCIÓN',reasons:warns};
+    return{signal:'verde',label:'OPERABLE',reasons:[]};
+  },
+
+  loadPreset(name){
+    this.activePreset=name;
+    document.querySelectorAll('.sc-preset-btn').forEach(b=>b.classList.toggle('active',b.dataset.preset===name));
+    const p=this.presets[name]||this.presets.futuros;
+    document.getElementById('sfAtrMin').value=p.atrMin;
+    document.getElementById('sfAtrMax').value=p.atrMax;
+    document.getElementById('sfPmMin').value=p.pmMin;
+    document.getElementById('sfPmMax').value=p.pmMax;
+    document.getElementById('sfVolRatio').value=p.volRatio;
+    document.getElementById('sfMom').value=p.mom;
+    document.getElementById('sfVix').value=p.vix;
+    document.getElementById('sfExcludeEvent').checked=p.excludeEvt;
+    document.getElementById('sfOnlyGreen').checked=p.onlyGreen;
+    this.run();
+  },
+
+  savePreset(){
+    const name=prompt('Nombre del preset:');
+    if(!name) return;
+    const saved=JSON.parse(localStorage.getItem('er_scan_presets')||'{}');
+    saved[name]={
+      atrMin:+document.getElementById('sfAtrMin').value,
+      atrMax:+document.getElementById('sfAtrMax').value,
+      pmMin:+document.getElementById('sfPmMin').value,
+      pmMax:+document.getElementById('sfPmMax').value,
+      volRatio:+document.getElementById('sfVolRatio').value,
+      mom:+document.getElementById('sfMom').value,
+      vix:+document.getElementById('sfVix').value,
+      excludeEvt:document.getElementById('sfExcludeEvent').checked,
+      onlyGreen:document.getElementById('sfOnlyGreen').checked
+    };
+    localStorage.setItem('er_scan_presets',JSON.stringify(saved));
+    alert(`Preset "${name}" guardado.`);
+  },
+
+  run(){
+    const atrMin=+document.getElementById('sfAtrMin').value;
+    const atrMax=+document.getElementById('sfAtrMax').value;
+    const pmMin=+document.getElementById('sfPmMin').value;
+    const pmMax=+document.getElementById('sfPmMax').value;
+    const volRatio=+document.getElementById('sfVolRatio').value;
+    const mom=+document.getElementById('sfMom').value;
+    const vix=+document.getElementById('sfVix').value;
+    const excludeEvt=document.getElementById('sfExcludeEvent').checked;
+    const onlyGreen=document.getElementById('sfOnlyGreen').checked;
+    const src=this.universe[this.activePreset]||this.universe.futuros;
+    this.results=src
+      .filter(a=>{
+        if(a.atrPct<atrMin||a.atrPct>atrMax) return false;
+        if(a.pmPct<pmMin||a.pmPct>pmMax) return false;
+        if(a.volRatio<volRatio) return false;
+        if(a.momentum<mom) return false;
+        if(a.vix>vix) return false;
+        if(excludeEvt&&(a.hasHighEvt||a.hasMedEvt)) return false;
+        const sig=this.getSignal(a).signal;
+        if(onlyGreen&&sig!=='verde') return false;
+        return true;
+      })
+      .map(a=>({...a,...this.getSignal(a)}));
+    this.sortKey='signal';this.sortDir=1;
+    this.render();
+    const ts=new Intl.DateTimeFormat('es',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date());
+    document.getElementById('scTimestamp').textContent=`Actualizado ${ts}`;
+  },
+
+  sort(key){
+    if(this.sortKey===key) this.sortDir*=-1;
+    else{this.sortKey=key;this.sortDir=-1;}
+    this.render();
+  },
+
+  render(){
+    const tbody=document.getElementById('scTbody');if(!tbody)return;
+    const countEl=document.getElementById('scCount');
+    if(countEl) countEl.innerHTML=`<b>${this.results.length}</b> resultado${this.results.length!==1?'s':''}`;
+    if(!this.results.length){
+      tbody.innerHTML=`<tr><td colspan="8" class="sc-empty">Sin resultados con los filtros actuales</td></tr>`;return;
+    }
+    const order={'verde':0,'amarillo':1,'rojo':2};
+    const sorted=[...this.results].sort((a,b)=>{
+      if(this.sortKey==='signal') return(order[a.signal]-order[b.signal])*this.sortDir;
+      const va=a[this.sortKey],vb=b[this.sortKey];
+      return(typeof va==='number'?va-vb:String(va).localeCompare(String(vb)))*this.sortDir;
+    });
+    tbody.innerHTML=sorted.map(a=>{
+      const pc=a.pmPct>=0?'pos':'neg',sg=a.pmPct>=0?'+':'';
+      const mc=a.momentum>=0?'pos':'neg',ms=a.momentum>=0?'+':'';
+      const atrCol=a.atrPct>=80?'neg':a.atrPct>=60?'amb':'pos';
+      const reasonTxt=a.reasons.length?a.reasons.join(' · '):'';
+      return`<tr>
+        <td style="font-family:var(--font-display);font-size:14px;letter-spacing:1px">${a.sym}</td>
+        <td class="dim" style="font-size:9px">${a.name}</td>
+        <td>${a.price.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}</td>
+        <td class="${pc}">${sg}${a.pmPct.toFixed(2)}%</td>
+        <td class="${atrCol}">${a.atrPct}%</td>
+        <td>${a.volRatio.toFixed(1)}x</td>
+        <td class="${mc}">${ms}${a.momentum.toFixed(2)}%</td>
+        <td><div><span class="semaforo ${a.signal}">${a.label}</span>${reasonTxt?`<div class="sc-reason">${reasonTxt}</div>`:''}</div></td>
+      </tr>`;
+    }).join('');
+  },
+
+  init(){ this.loadPreset('futuros'); }
 };
 
 /* ═══ CALENDARIO ════════════════════════════════════════ */
