@@ -282,7 +282,48 @@ html,body{background:var(--bg);color:var(--text)}
 .ev-impact.low{background:rgba(90,122,150,0.12);color:var(--text-dim)}
 .ev-tags{display:flex;gap:3px;flex-wrap:wrap;justify-content:flex-end}
 .ev-tag{font-size:7px;padding:1px 5px;border:1px solid var(--border2);color:var(--text-dim)}
-/* ═══ TAB SCANNER ════════════════════════════════════════ */
+/* ═══ TAB ANÁLISIS ═══════════════════════════════════════ */
+.an-wrap{padding:14px;display:flex;flex-direction:column;gap:12px;height:100%;overflow-y:auto}
+.an-subtabs{display:flex;gap:1px;background:var(--border2)}
+.an-subtab{flex:1;padding:9px 16px;text-align:center;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);cursor:pointer;background:var(--surface);transition:all .15s;border-bottom:2px solid transparent;user-select:none}
+.an-subtab:hover{color:var(--text-mid)}
+.an-subtab.active{color:var(--accent);border-bottom-color:var(--accent);background:var(--surface2)}
+.an-section{display:none;flex-direction:column;gap:12px}
+.an-section.active{display:flex}
+.an-selector-row{display:flex;align-items:center;gap:10px}
+.an-sel-lbl{font-size:8px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase}
+.an-sel{background:rgba(5,8,16,0.7);border:1px solid var(--border2);color:var(--text);font-family:var(--font-mono);font-size:11px;padding:5px 10px;outline:none;cursor:pointer;transition:border-color .2s;min-width:180px}
+.an-sel:focus{border-color:var(--accent)}
+.an-sel option{background:var(--surface)}
+.an-grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.an-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.an-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+/* KPI cards para estrategia */
+.an-kpi{background:var(--surface);border:1px solid var(--border2);padding:12px 14px}
+.an-kpi-lbl{font-size:7px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase;margin-bottom:4px}
+.an-kpi-val{font-size:18px;font-weight:600;font-variant-numeric:tabular-nums}
+.an-kpi-sub{font-size:8px;color:var(--text-dim);margin-top:2px}
+/* Chart containers */
+.an-chart-wrap{background:var(--surface);border:1px solid var(--border2);padding:12px}
+.an-chart-ttl{font-size:8px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.an-chart-ttl::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(0,255,170,0.2),transparent)}
+.an-canvas-wrap{position:relative;height:160px}
+/* Correlaciones */
+.corr-grid{display:flex;flex-direction:column;gap:6px;padding-top:4px}
+.corr-row{display:flex;align-items:center;gap:10px}
+.corr-lbl{font-size:8px;letter-spacing:1px;color:var(--text-dim);text-transform:uppercase;width:50px;flex-shrink:0}
+.corr-bar-track{flex:1;height:6px;background:var(--border2);position:relative}
+.corr-bar-pos{height:6px;position:absolute;left:50%;top:0;background:var(--pos)}
+.corr-bar-neg{height:6px;position:absolute;right:50%;top:0;background:var(--neg)}
+.corr-val{font-size:10px;font-weight:600;font-variant-numeric:tabular-nums;width:42px;text-align:right;flex-shrink:0}
+/* Tabla días/horas */
+.an-stat-tbl{width:100%;border-collapse:collapse;font-size:9px}
+.an-stat-tbl th{font-size:7px;letter-spacing:1.5px;color:var(--text-dim);text-transform:uppercase;padding:5px 8px;border-bottom:1px solid var(--border2);text-align:left}
+.an-stat-tbl td{padding:5px 8px;border-bottom:1px solid var(--border3);font-variant-numeric:tabular-nums}
+.an-stat-tbl tr:last-child td{border-bottom:none}
+.day-best{color:var(--pos)}.day-worst{color:var(--neg)}
+/* ═══════════════════════════════════════════════════════ */
+.sc-empty{text-align:center;padding:40px;color:var(--text-dim);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;opacity:.4}
 .sc-wrap{padding:14px;display:flex;flex-direction:column;gap:12px;height:100%;overflow-y:auto}
 .sc-presets{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .sc-preset-lbl{font-size:8px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase;margin-right:4px}
@@ -563,10 +604,93 @@ html,body{background:var(--bg);color:var(--text)}
         </div>
       </div>
       <div class="tab-pane" id="tab-analisis">
-        <div class="tab-placeholder">
-          <div class="tab-ph-icon">▐▌▐▌</div>
-          <div class="tab-ph-title">Análisis</div>
-          <div class="tab-ph-sub">Estadísticas Históricas · Por Activo y Estrategia — En construcción</div>
+        <div class="an-wrap">
+          <!-- Sub-tabs -->
+          <div class="an-subtabs">
+            <div class="an-subtab active" onclick="AN.subtab('rendimiento')">Rendimiento</div>
+            <div class="an-subtab" onclick="AN.subtab('activos')">Por Activo</div>
+            <div class="an-subtab" onclick="AN.subtab('temporal')">Temporal</div>
+          </div>
+
+          <!-- SECTION: Rendimiento -->
+          <div class="an-section active" id="an-rendimiento">
+            <div class="an-selector-row">
+              <span class="an-sel-lbl">Estrategia:</span>
+              <select class="an-sel" id="anStratSel" onchange="AN.renderRendimiento()">
+                <option value="all">Todas las estrategias</option>
+                <option>ASRS 5min</option>
+                <option>ASRS 1min</option>
+                <option>CL-BR 5min</option>
+                <option>CL-BR 1min</option>
+                <option>Manual</option>
+              </select>
+              <span class="an-sel-lbl" style="margin-left:12px">Activo:</span>
+              <select class="an-sel" id="anSymSel" onchange="AN.renderRendimiento()">
+                <option value="all">Todos los activos</option>
+                <option>NQ</option><option>ES</option><option>YM</option>
+                <option>GC</option><option>SI</option><option>CL</option>
+              </select>
+            </div>
+            <div class="an-grid4" id="anKpis">
+              <div class="an-kpi"><div class="an-kpi-lbl">Win Rate</div><div class="an-kpi-val" id="anKpWR">—</div><div class="an-kpi-sub" id="anKpWRsub">sin datos</div></div>
+              <div class="an-kpi"><div class="an-kpi-lbl">Profit Factor</div><div class="an-kpi-val" id="anKpPF">—</div><div class="an-kpi-sub" id="anKpPFsub">—</div></div>
+              <div class="an-kpi"><div class="an-kpi-lbl">P&amp;L Neto</div><div class="an-kpi-val" id="anKpPNL">$0</div><div class="an-kpi-sub" id="anKpPNLsub">—</div></div>
+              <div class="an-kpi"><div class="an-kpi-lbl">R Promedio</div><div class="an-kpi-val" id="anKpR">—</div><div class="an-kpi-sub" id="anKpRsub">por operación</div></div>
+            </div>
+            <div class="an-grid2">
+              <div class="an-chart-wrap">
+                <div class="an-chart-ttl">Curva de Equity</div>
+                <div class="an-canvas-wrap"><canvas id="anEquityChart"></canvas></div>
+              </div>
+              <div class="an-chart-wrap">
+                <div class="an-chart-ttl">Distribución P&amp;L por Op.</div>
+                <div class="an-canvas-wrap"><canvas id="anDistChart"></canvas></div>
+              </div>
+            </div>
+            <div class="an-chart-wrap">
+              <div class="an-chart-ttl">P&amp;L Mensual Acumulado</div>
+              <div class="an-canvas-wrap"><canvas id="anMonthChart"></canvas></div>
+            </div>
+          </div>
+
+          <!-- SECTION: Por Activo -->
+          <div class="an-section" id="an-activos">
+            <div class="an-chart-wrap">
+              <div class="an-chart-ttl">Stats por Instrumento</div>
+              <table class="an-stat-tbl" id="anAssetTbl">
+                <thead><tr>
+                  <th>Activo</th><th>Ops</th><th>W%</th>
+                  <th>PF</th><th>P&amp;L USD</th><th>R Prom</th><th>Max DD</th>
+                </tr></thead>
+                <tbody id="anAssetBody"><tr><td colspan="7" class="sc-empty">Sin datos</td></tr></tbody>
+              </table>
+            </div>
+            <div class="an-chart-wrap">
+              <div class="an-chart-ttl">P&amp;L Neto por Activo</div>
+              <div class="corr-grid" id="anCorrGrid"></div>
+            </div>
+          </div>
+
+          <!-- SECTION: Temporal -->
+          <div class="an-section" id="an-temporal">
+            <div class="an-grid2">
+              <div class="an-chart-wrap">
+                <div class="an-chart-ttl">Rendimiento por Día de Semana</div>
+                <table class="an-stat-tbl" id="anDayTbl">
+                  <thead><tr><th>Día</th><th>Ops</th><th>W%</th><th>P&amp;L USD</th></tr></thead>
+                  <tbody id="anDayBody"><tr><td colspan="4" class="sc-empty">Sin datos</td></tr></tbody>
+                </table>
+              </div>
+              <div class="an-chart-wrap">
+                <div class="an-chart-ttl">P&amp;L por Hora ET</div>
+                <div class="an-canvas-wrap"><canvas id="anHourChart"></canvas></div>
+              </div>
+            </div>
+            <div class="an-chart-wrap">
+              <div class="an-chart-ttl">Rendimiento por Estrategia</div>
+              <div class="corr-grid" id="anStratGrid"></div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="tab-pane" id="tab-calendario">
@@ -747,6 +871,7 @@ const ER = {
     document.querySelectorAll('.nav-item').forEach(el=>el.classList.toggle('active',el.dataset.tab===id));
     document.querySelectorAll('.tab-pane').forEach(el=>el.classList.toggle('active',el.id===`tab-${id}`));
     if(id==='backtester') this._loadBT();
+    if(id==='analisis') AN.refresh();
     history.replaceState(null,'',`#${id}`);
   },
 
@@ -1012,6 +1137,7 @@ const ER = {
     this.ticker.build();
     this.ov.init();
     JN.init();
+    AN.init();
     CAL.init();
     SCAN.init();
     document.addEventListener('keydown',e=>{
@@ -1472,6 +1598,301 @@ const CAL = {
     document.getElementById('calWeekLbl').textContent='Semana · Abr 7–11, 2026';
     this.renderDayTabs();
     this.renderEvents();
+  }
+};
+
+/* ═══ ANÁLISIS ══════════════════════════════════════════ */
+const AN = {
+  charts:{},
+  activeSection:'rendimiento',
+
+  /* ── Helpers de cómputo ─────────────────────────────── */
+  _stats(trades){
+    if(!trades.length) return null;
+    const wins=trades.filter(t=>t.pnl>0);
+    const losses=trades.filter(t=>t.pnl<=0);
+    const sumW=wins.reduce((s,t)=>s+t.pnl,0);
+    const sumL=Math.abs(losses.reduce((s,t)=>s+t.pnl,0));
+    const pnl=trades.reduce((s,t)=>s+t.pnl,0);
+    const wr=trades.length?wins.length/trades.length*100:0;
+    const pf=sumL>0?sumW/sumL:wins.length>0?Infinity:null;
+    const rValues=trades.filter(t=>t.r!=null).map(t=>t.r);
+    const avgR=rValues.length?rValues.reduce((s,r)=>s+r,0)/rValues.length:null;
+    /* Max drawdown sobre equity curve */
+    let peak=0,maxDD=0,eq=0;
+    [...trades].reverse().forEach(t=>{eq+=t.pnl;if(eq>peak)peak=eq;const dd=peak-eq;if(dd>maxDD)maxDD=dd;});
+    return{count:trades.length,wins:wins.length,losses:losses.length,wr,pf,pnl,sumW,sumL,avgR,maxDD};
+  },
+
+  _filtered(){
+    const strat=document.getElementById('anStratSel')?.value||'all';
+    const sym=document.getElementById('anSymSel')?.value||'all';
+    let t=[...JN.trades];
+    if(strat!=='all') t=t.filter(x=>x.strat===strat);
+    if(sym!=='all') t=t.filter(x=>x.sym===sym);
+    return t;
+  },
+
+  _destroyChart(id){
+    if(this.charts[id]){try{this.charts[id].destroy();}catch(e){}delete this.charts[id];}
+  },
+
+  _chartDefaults(){
+    return{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{
+        backgroundColor:'rgba(7,11,18,0.92)',
+        borderColor:'rgba(0,255,170,0.15)',borderWidth:1,
+        titleColor:'#5a7a96',bodyColor:'#c8d8e8',
+        titleFont:{family:"'IBM Plex Mono',monospace",size:9},
+        bodyFont:{family:"'IBM Plex Mono',monospace",size:10}
+      }},
+      scales:{
+        x:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{color:'#5a7a96',font:{family:"'IBM Plex Mono',monospace",size:8}}},
+        y:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{color:'#5a7a96',font:{family:"'IBM Plex Mono',monospace",size:8}}}
+      }
+    };
+  },
+
+  /* ── Sub-tab navigation ─────────────────────────────── */
+  subtab(id){
+    this.activeSection=id;
+    document.querySelectorAll('.an-subtab').forEach((el,i)=>{
+      const ids=['rendimiento','activos','temporal'];
+      el.classList.toggle('active',ids[i]===id);
+    });
+    document.querySelectorAll('.an-section').forEach(el=>{
+      el.classList.toggle('active',el.id===`an-${id}`);
+    });
+    if(id==='rendimiento') this.renderRendimiento();
+    if(id==='activos') this.renderActivos();
+    if(id==='temporal') this.renderTemporal();
+  },
+
+  /* ── RENDIMIENTO ────────────────────────────────────── */
+  renderRendimiento(){
+    const trades=this._filtered();
+    const s=this._stats(trades);
+    /* KPIs */
+    const fmt=(v,dec=0)=>v==null?'—':(v>=0?'':'')+v.toFixed(dec);
+    const fmtUSD=v=>(v>=0?'+':'')+'$'+Math.abs(Math.round(v)).toLocaleString('en-US');
+
+    const wr=s?s.wr:null,pf=s?s.pf:null,pnl=s?s.pnl:null,r=s?s.avgR:null;
+    const set=(id,val,cls)=>{const el=document.getElementById(id);if(el){el.textContent=val;if(cls)el.className=`an-kpi-val ${cls}`;}};
+    set('anKpWR', wr!=null?`${Math.round(wr)}%`:'—', wr>=50?'pos':wr!=null?'neg':'');
+    document.getElementById('anKpWRsub').textContent=s?`${s.wins}W · ${s.losses}L · ${s.count} ops`:'sin datos';
+    set('anKpPF', pf==null?'—':pf===Infinity?'∞':pf.toFixed(2), pf>=1?'pos':pf!=null?'neg':'');
+    document.getElementById('anKpPFsub').textContent=s?`$${Math.round(s.sumW).toLocaleString()} / $${Math.round(s.sumL).toLocaleString()}`:'—';
+    set('anKpPNL', pnl!=null?fmtUSD(pnl):'$0', pnl>=0?'pos':'neg');
+    document.getElementById('anKpPNLsub').textContent=s?`${s.count} operaciones`:'—';
+    set('anKpR', r!=null?(r>=0?'+':'')+r.toFixed(2)+'R':'—', r>=0?'pos':r!=null?'neg':'');
+    document.getElementById('anKpRsub').textContent=s&&s.count?`de ${s.count} ops`:'por operación';
+
+    /* Equity curve */
+    this._destroyChart('equity');
+    const eqCtx=document.getElementById('anEquityChart');
+    if(eqCtx&&s){
+      const sorted=[...trades].reverse();
+      let cum=0;
+      const labels=sorted.map((_,i)=>`#${i+1}`);
+      const data=sorted.map(t=>{cum+=t.pnl;return Math.round(cum*100)/100;});
+      this.charts.equity=new Chart(eqCtx,{
+        type:'line',
+        data:{labels,datasets:[{
+          data,fill:true,tension:.3,pointRadius:data.length>40?0:2,
+          borderColor:'#00a882',borderWidth:1.5,
+          backgroundColor:'rgba(0,168,130,0.06)',
+          pointBackgroundColor:'#00a882'
+        }]},
+        options:{...this._chartDefaults(),plugins:{...this._chartDefaults().plugins,
+          tooltip:{...this._chartDefaults().plugins.tooltip,callbacks:{
+            label:ctx=>`P&L acum: ${ctx.raw>=0?'+':''}$${Math.abs(ctx.raw).toLocaleString('en-US')}`
+          }}
+        }}
+      });
+    } else if(eqCtx) this._emptyChart('equity','anEquityChart','Curva de Equity');
+
+    /* Distribución P&L */
+    this._destroyChart('dist');
+    const distCtx=document.getElementById('anDistChart');
+    if(distCtx&&s&&trades.length){
+      const bins=[-500,-300,-200,-100,-50,0,50,100,200,300,500];
+      const counts=new Array(bins.length).fill(0);
+      trades.forEach(t=>{
+        let placed=false;
+        for(let i=0;i<bins.length-1;i++){if(t.pnl>=bins[i]&&t.pnl<bins[i+1]){counts[i]++;placed=true;break;}}
+        if(!placed) counts[bins.length-1]++;
+      });
+      const labels=bins.map((b,i)=>i<bins.length-1?`${b}→${bins[i+1]}`:`>${bins[i-1]}`);
+      const colors=bins.map(b=>b<0?'rgba(224,48,85,0.7)':'rgba(0,168,130,0.7)');
+      this.charts.dist=new Chart(distCtx,{
+        type:'bar',
+        data:{labels,datasets:[{data:counts,backgroundColor:colors,borderWidth:0}]},
+        options:this._chartDefaults()
+      });
+    }
+
+    /* P&L Mensual */
+    this._destroyChart('month');
+    const monthCtx=document.getElementById('anMonthChart');
+    if(monthCtx&&trades.length){
+      const byMonth={};
+      trades.forEach(t=>{
+        const m=t.date?t.date.substring(0,7):'—';
+        byMonth[m]=(byMonth[m]||0)+t.pnl;
+      });
+      const months=Object.keys(byMonth).sort();
+      const vals=months.map(m=>Math.round(byMonth[m]*100)/100);
+      this.charts.month=new Chart(monthCtx,{
+        type:'bar',
+        data:{labels:months,datasets:[{
+          data:vals,
+          backgroundColor:vals.map(v=>v>=0?'rgba(0,168,130,0.7)':'rgba(224,48,85,0.7)'),
+          borderWidth:0
+        }]},
+        options:this._chartDefaults()
+      });
+    }
+  },
+
+  _emptyChart(key,canvasId){
+    /* noop — canvas stays blank */
+  },
+
+  /* ── POR ACTIVO ─────────────────────────────────────── */
+  renderActivos(){
+    const trades=JN.trades;
+    const syms=[...new Set(trades.map(t=>t.sym))].sort();
+    const tbody=document.getElementById('anAssetBody');
+    if(!trades.length){
+      if(tbody) tbody.innerHTML=`<tr><td colspan="7" class="sc-empty">Sin operaciones en el journal</td></tr>`;
+      document.getElementById('anCorrGrid').innerHTML='<div class="sc-empty">Sin datos</div>';
+      return;
+    }
+    const rows=syms.map(sym=>{
+      const t=trades.filter(x=>x.sym===sym);
+      const s=this._stats(t);
+      const wrCls=s.wr>=50?'day-best':'day-worst';
+      const pnlCls=s.pnl>=0?'day-best':'day-worst';
+      const pf=s.pf==null?'—':s.pf===Infinity?'∞':s.pf.toFixed(2);
+      const r=s.avgR!=null?(s.avgR>=0?'+':'')+s.avgR.toFixed(2)+'R':'—';
+      return`<tr>
+        <td style="font-family:var(--font-display);font-size:13px;letter-spacing:1px">${sym}</td>
+        <td>${s.count}</td>
+        <td class="${wrCls}">${Math.round(s.wr)}%</td>
+        <td class="${s.pf>=1?'day-best':s.pf!=null?'day-worst':''}">${pf}</td>
+        <td class="${pnlCls}">${s.pnl>=0?'+':''}$${Math.abs(Math.round(s.pnl)).toLocaleString('en-US')}</td>
+        <td>${r}</td>
+        <td class="day-worst">$${Math.round(s.maxDD).toLocaleString('en-US')}</td>
+      </tr>`;
+    }).join('');
+    if(tbody) tbody.innerHTML=rows||`<tr><td colspan="7" class="sc-empty">Sin datos</td></tr>`;
+
+    /* Barras de P&L por activo */
+    const corrGrid=document.getElementById('anCorrGrid');
+    if(!corrGrid) return;
+    const pnlBySym=syms.map(sym=>({sym,pnl:trades.filter(x=>x.sym===sym).reduce((s,t)=>s+t.pnl,0)}));
+    const maxAbs=Math.max(...pnlBySym.map(x=>Math.abs(x.pnl)),1);
+    corrGrid.innerHTML=pnlBySym.map(({sym,pnl})=>{
+      const pct=Math.abs(pnl)/maxAbs*45;
+      const pos=pnl>=0;
+      const bar=pos
+        ?`<div class="corr-bar-pos" style="width:${pct}%"></div>`
+        :`<div class="corr-bar-neg" style="width:${pct}%"></div>`;
+      const cls=pos?'day-best':'day-worst';
+      return`<div class="corr-row">
+        <span class="corr-lbl">${sym}</span>
+        <div class="corr-bar-track">${bar}</div>
+        <span class="corr-val ${cls}">${pnl>=0?'+':''}$${Math.abs(Math.round(pnl)).toLocaleString('en-US')}</span>
+      </div>`;
+    }).join('');
+  },
+
+  /* ── TEMPORAL ───────────────────────────────────────── */
+  renderTemporal(){
+    const trades=JN.trades;
+    const dayNames=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+    /* Agrupar por día de semana (usando date string) */
+    const byDay={};
+    trades.forEach(t=>{
+      if(!t.date) return;
+      const d=new Date(t.date+'T12:00:00');
+      const dow=d.getDay(); /* 0=dom */
+      const key=dow;
+      if(!byDay[key]) byDay[key]=[];
+      byDay[key].push(t);
+    });
+    const tbody=document.getElementById('anDayBody');
+    const daysOrder=[1,2,3,4,5]; /* lun-vie */
+    if(!trades.length){
+      if(tbody) tbody.innerHTML=`<tr><td colspan="4" class="sc-empty">Sin datos</td></tr>`;
+    } else {
+      const rows=daysOrder.map(dow=>{
+        const t=byDay[dow]||[];
+        if(!t.length) return`<tr><td>${dayNames[dow-1]}</td><td>0</td><td>—</td><td>—</td></tr>`;
+        const s=this._stats(t);
+        const wrCls=s.wr>=50?'day-best':'day-worst';
+        const pCls=s.pnl>=0?'day-best':'day-worst';
+        return`<tr>
+          <td>${dayNames[dow-1]}</td>
+          <td>${t.length}</td>
+          <td class="${wrCls}">${Math.round(s.wr)}%</td>
+          <td class="${pCls}">${s.pnl>=0?'+':''}$${Math.abs(Math.round(s.pnl)).toLocaleString('en-US')}</td>
+        </tr>`;
+      }).join('');
+      if(tbody) tbody.innerHTML=rows;
+    }
+
+    /* Chart por hora */
+    this._destroyChart('hour');
+    const hourCtx=document.getElementById('anHourChart');
+    if(hourCtx&&trades.length){
+      const byHour={};
+      trades.forEach(t=>{
+        if(!t.time) return;
+        const h=parseInt(t.time.split(':')[0]);
+        byHour[h]=(byHour[h]||0)+t.pnl;
+      });
+      const hours=Object.keys(byHour).map(Number).sort((a,b)=>a-b);
+      const vals=hours.map(h=>Math.round(byHour[h]*100)/100);
+      this.charts.hour=new Chart(hourCtx,{
+        type:'bar',
+        data:{labels:hours.map(h=>`${h}:00`),datasets:[{
+          data:vals,
+          backgroundColor:vals.map(v=>v>=0?'rgba(0,168,130,0.7)':'rgba(224,48,85,0.7)'),
+          borderWidth:0
+        }]},
+        options:this._chartDefaults()
+      });
+    }
+
+    /* Barras por estrategia */
+    const stratGrid=document.getElementById('anStratGrid');
+    if(!stratGrid||!trades.length){if(stratGrid)stratGrid.innerHTML='<div class="sc-empty">Sin datos</div>';return;}
+    const strats=[...new Set(trades.map(t=>t.strat))].sort();
+    const pnlByStrat=strats.map(st=>({st,pnl:trades.filter(x=>x.strat===st).reduce((s,t)=>s+t.pnl,0)}));
+    const maxAbs=Math.max(...pnlByStrat.map(x=>Math.abs(x.pnl)),1);
+    stratGrid.innerHTML=pnlByStrat.map(({st,pnl})=>{
+      const pct=Math.abs(pnl)/maxAbs*45;
+      const pos=pnl>=0;
+      const bar=pos?`<div class="corr-bar-pos" style="width:${pct}%"></div>`:`<div class="corr-bar-neg" style="width:${pct}%"></div>`;
+      const cls=pos?'day-best':'day-worst';
+      return`<div class="corr-row">
+        <span class="corr-lbl" style="width:80px;font-size:7px">${st}</span>
+        <div class="corr-bar-track">${bar}</div>
+        <span class="corr-val ${cls}">${pnl>=0?'+':''}$${Math.abs(Math.round(pnl)).toLocaleString('en-US')}</span>
+      </div>`;
+    }).join('');
+  },
+
+  refresh(){
+    if(this.activeSection==='rendimiento') this.renderRendimiento();
+    else if(this.activeSection==='activos') this.renderActivos();
+    else if(this.activeSection==='temporal') this.renderTemporal();
+  },
+
+  init(){
+    /* render on demand when tab is visited */
   }
 };
 
