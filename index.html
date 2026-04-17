@@ -745,6 +745,12 @@ tbody td{padding:8px 12px}
 [data-theme="light"] .field input,[data-theme="light"] .field select{background:var(--surface3)}
 [data-theme="light"] tbody tr:hover{background:rgba(0,153,112,0.04);transform:none}
 [data-theme="light"] .hdr-badge::before{background:var(--pos)}
+/* ── Modo de Ejecución ───────────────────────────────────── */
+.mode-toggle{display:flex;gap:1px;background:var(--border2);padding:1px}
+.mode-opt{flex:1;padding:7px 8px;font-family:var(--font-mono);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;text-align:center;cursor:pointer;border:none;border-bottom:2px solid transparent;background:var(--surface);color:var(--text-dim);transition:all .15s;user-select:none}
+.mode-opt:hover:not(.active){color:var(--text-mid);background:var(--surface2)}
+.mode-opt.active{background:var(--surface2);color:var(--accent);border-bottom-color:var(--accent)}
+.mode-desc{font-size:8px;color:var(--text-dim);letter-spacing:.4px;line-height:1.7;margin-top:7px;padding:6px 8px;border-left:2px solid var(--border2)}
 </style>
 </head>
 <body>
@@ -856,7 +862,17 @@ tbody td{padding:8px 12px}
         </div>
       </div>
 
-      <div class="sec">
+      <!-- MODO DE EJECUCIÓN -->
+      <div class="sec" id="secModo">
+        <div class="sec-ttl">Modo de Ejecución</div>
+        <div class="mode-toggle">
+          <button class="mode-opt active" id="modeAuto" onclick="setMode('auto')">● Automático</button>
+          <button class="mode-opt" id="modeManual" onclick="setMode('manual')">Manual</button>
+        </div>
+        <div class="mode-desc" id="modeDesc">El algoritmo opera según la estrategia seleccionada.</div>
+      </div>
+
+      <div class="sec" id="secEstrategia">
         <div class="sec-ttl">Parámetros Estrategia</div>
         <div class="field">
           <label>Estrategia</label>
@@ -3994,8 +4010,35 @@ function clearPriceLines(){
   try{if(lwSeries._pl){lwSeries._pl.forEach(pl=>{try{lwSeries.removePriceLine(pl);}catch(e){}});lwSeries._pl=[];}}catch(e){}
 }
 
+// ── MODO MANUAL ───────────────────────────────────────────
+let modoEjecucion='auto';
+
+function setMode(modo){
+  modoEjecucion=modo;
+  document.getElementById('modeAuto').classList.toggle('active',modo==='auto');
+  document.getElementById('modeManual').classList.toggle('active',modo==='manual');
+  const desc=document.getElementById('modeDesc');
+  const secEst=document.getElementById('secEstrategia');
+  if(modo==='manual'){
+    desc.textContent='Tú decides cada entrada y salida. El sistema registra y evalúa tus decisiones.';
+    secEst.style.display='none';
+    document.getElementById('btnRun').textContent='Iniciar Chart Replay';
+  } else {
+    desc.textContent='El algoritmo opera según la estrategia seleccionada.';
+    secEst.style.display='';
+    document.getElementById('btnRun').textContent='Ejecutar Backtest';
+  }
+}
+
+function startManualReplay(){
+  /* Paso 2 — motor de replay (pendiente) */
+  alert('Chart Replay — motor en construcción (Paso 2)');
+}
+
 // ── MAIN ──────────────────────────────────────────────────
 async function startBacktest(){
+  if(modoEjecucion==='manual'){startManualReplay();return;}
+
   const src=document.getElementById('dataSource').value;
 
   // Validate
