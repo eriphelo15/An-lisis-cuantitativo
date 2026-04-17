@@ -745,6 +745,31 @@ tbody td{padding:8px 12px}
 [data-theme="light"] .field input,[data-theme="light"] .field select{background:var(--surface3)}
 [data-theme="light"] tbody tr:hover{background:rgba(0,153,112,0.04);transform:none}
 [data-theme="light"] .hdr-badge::before{background:var(--pos)}
+/* ── Chart Replay ────────────────────────────────────────── */
+#replaySection{display:none;height:100%;flex-direction:column;overflow:hidden}
+.rpl-header{display:flex;align-items:center;gap:10px;padding:7px 14px;border-bottom:1px solid var(--border2);flex-shrink:0;background:var(--surface2)}
+.rpl-badge{font-size:8px;font-weight:700;letter-spacing:2px;padding:3px 8px;border:1px solid var(--accent);color:var(--accent);text-transform:uppercase;flex-shrink:0}
+.rpl-title{font-family:var(--font-display);font-size:15px;letter-spacing:3px;color:var(--text-mid);flex-shrink:0}
+.rpl-sym{font-size:9px;color:var(--text-dim);letter-spacing:1px}
+.rpl-barnum{font-size:10px;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums;margin-left:auto}
+.rpl-date{font-size:9px;color:var(--text-dim);letter-spacing:.5px;white-space:nowrap}
+.rpl-fin{margin-left:8px;background:transparent;border:1px solid var(--border);color:var(--text-dim);font-family:var(--font-mono);font-size:8px;padding:4px 10px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;transition:all .2s;flex-shrink:0}
+.rpl-fin:hover{border-color:var(--neg);color:var(--neg)}
+.rpl-prog-track{height:2px;background:var(--border2);flex-shrink:0}
+.rpl-prog-fill{height:2px;background:var(--accent);transition:width .1s;width:0%}
+.rpl-canvas-wrap{flex:1;position:relative;min-height:0;background:var(--surface)}
+#replayCanvas{position:absolute;inset:0;width:100%;height:100%}
+.rpl-controls{display:flex;align-items:center;gap:16px;padding:7px 14px;border-top:1px solid var(--border2);background:var(--surface2);flex-shrink:0;flex-wrap:wrap}
+.rpl-ctrl-group{display:flex;gap:3px}
+.rpl-btn{background:transparent;border:1px solid var(--border);color:var(--text-mid);font-family:var(--font-mono);font-size:10px;padding:5px 11px;cursor:pointer;transition:all .15s;letter-spacing:.5px}
+.rpl-btn:hover{border-color:var(--accent);color:var(--accent)}
+.rpl-btn.rpl-auto{border-color:var(--border2);color:var(--text-dim);min-width:70px}
+.rpl-btn.rpl-auto.active{border-color:var(--accent);color:var(--accent);background:rgba(0,168,130,0.06)}
+.rpl-speed-group{display:flex;align-items:center;gap:4px}
+.rpl-lbl{font-size:8px;letter-spacing:1.5px;color:var(--text-dim);text-transform:uppercase}
+.rpl-spd{background:transparent;border:1px solid var(--border2);color:var(--text-dim);font-family:var(--font-mono);font-size:8px;padding:4px 9px;cursor:pointer;transition:all .15s;letter-spacing:.5px}
+.rpl-spd:hover{color:var(--text-mid);border-color:var(--border)}
+.rpl-spd.active{border-color:var(--accent);color:var(--accent);background:rgba(0,168,130,0.06)}
 /* ── Modo de Ejecución ───────────────────────────────────── */
 .mode-toggle{display:flex;gap:1px;background:var(--border2);padding:1px}
 .mode-opt{flex:1;padding:7px 8px;font-family:var(--font-mono);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;text-align:center;cursor:pointer;border:none;border-bottom:2px solid transparent;background:var(--surface);color:var(--text-dim);transition:all .15s;user-select:none}
@@ -998,6 +1023,37 @@ tbody td{padding:8px 12px}
         <div class="ph-glyph">◈</div>
         <div class="ph-ttl">ASRS · 9:45 SIGNAL · 5MIN</div>
         <div class="ph-sub">Configura parámetros y ejecuta<br>Aggressive School Run Strategy<br><span style="opacity:.5">Polygon.io · Databento CSV · 1min / 5min</span></div>
+      </div>
+
+      <!-- REPLAY MANUAL -->
+      <div id="replaySection">
+        <div class="rpl-header">
+          <span class="rpl-badge">Modo Manual</span>
+          <span class="rpl-title">Chart Replay</span>
+          <span class="rpl-sym" id="rplSym"></span>
+          <span class="rpl-barnum" id="rplBarNum">Barra: 0 / 0</span>
+          <span class="rpl-date" id="rplDate">—</span>
+          <button class="rpl-fin" onclick="REPLAY.finish()">✕ Finalizar Sesión</button>
+        </div>
+        <div class="rpl-prog-track"><div class="rpl-prog-fill" id="rplProg"></div></div>
+        <div class="rpl-canvas-wrap" id="replayCanvasWrap">
+          <canvas id="replayCanvas"></canvas>
+        </div>
+        <div class="rpl-controls">
+          <div class="rpl-ctrl-group">
+            <button class="rpl-btn" onclick="REPLAY.advance(-10)" title="Retroceder 10 barras">◀◀ −10</button>
+            <button class="rpl-btn" onclick="REPLAY.advance(-1)"  title="Retroceder 1 barra">◀ −1</button>
+            <button class="rpl-btn" onclick="REPLAY.advance(1)"   title="Avanzar 1 barra">+1 ▶</button>
+            <button class="rpl-btn" onclick="REPLAY.advance(10)"  title="Avanzar 10 barras">+10 ▶▶</button>
+            <button class="rpl-btn rpl-auto" id="rplAutoBtn" onclick="REPLAY.toggleAuto()">▷ Auto</button>
+          </div>
+          <div class="rpl-speed-group">
+            <span class="rpl-lbl">Vel:</span>
+            <button class="rpl-spd active" id="rplSpdS" onclick="REPLAY.setSpeed(600,this)">Lento</button>
+            <button class="rpl-spd"        id="rplSpdN" onclick="REPLAY.setSpeed(250,this)">Normal</button>
+            <button class="rpl-spd"        id="rplSpdF" onclick="REPLAY.setSpeed(60,this)">Rápido</button>
+          </div>
+        </div>
       </div>
 
       <div id="statsSection" style="display:none;height:100%;flex-direction:column;overflow:hidden">
@@ -4030,9 +4086,284 @@ function setMode(modo){
   }
 }
 
-function startManualReplay(){
-  /* Paso 2 — motor de replay (pendiente) */
-  alert('Chart Replay — motor en construcción (Paso 2)');
+/* ── MOTOR DE CHART REPLAY ───────────────────────────────── */
+const REPLAY = {
+  bars: [],
+  idx: 0,
+  autoTimer: null,
+  autoSpeed: 600,
+  tradeMarkers: [],  // { barIdx, price, type:'entry'|'exit', dir:'LONG'|'SHORT' }
+  openPos: null,     // { dir, entry, sl, tp, entryBarIdx, ctrs }
+  closedTrades: [],  // resultados para Paso 4
+
+  // Dimensiones canvas
+  CW: 9, CGAP: 2,
+  PL: 60, PR: 16, PT: 14, PB: 28,
+
+  init(bars, symLabel) {
+    this.bars = bars;
+    this.idx = 0;
+    this.tradeMarkers = [];
+    this.openPos = null;
+    this.closedTrades = [];
+    document.getElementById('rplSym').textContent = symLabel || '';
+    this.resize();
+    this.updateHUD();
+  },
+
+  advance(n) {
+    if (n < 0 && this.openPos) return; // no retroceder con posición abierta
+    const next = Math.max(0, Math.min(this.bars.length - 1, this.idx + n));
+    if (next === this.idx) return;
+    this.idx = next;
+    this._checkSLTP(); // Paso 3 hook
+    this.draw();
+    this.updateHUD();
+  },
+
+  toggleAuto() {
+    if (this.autoTimer) {
+      this.stopAuto();
+    } else {
+      const btn = document.getElementById('rplAutoBtn');
+      if (btn) { btn.textContent = '■ Stop'; btn.classList.add('active'); }
+      this.autoTimer = setInterval(() => {
+        if (this.idx >= this.bars.length - 1) { this.stopAuto(); return; }
+        this.advance(1);
+      }, this.autoSpeed);
+    }
+  },
+
+  stopAuto() {
+    if (this.autoTimer) { clearInterval(this.autoTimer); this.autoTimer = null; }
+    const btn = document.getElementById('rplAutoBtn');
+    if (btn) { btn.textContent = '▷ Auto'; btn.classList.remove('active'); }
+  },
+
+  setSpeed(ms, el) {
+    this.autoSpeed = ms;
+    document.querySelectorAll('.rpl-spd').forEach(b => b.classList.remove('active'));
+    if (el) el.classList.add('active');
+    if (this.autoTimer) { this.stopAuto(); this.toggleAuto(); }
+  },
+
+  _checkSLTP() { /* hook para Paso 3 */ },
+
+  draw() {
+    const canvas = document.getElementById('replayCanvas');
+    if (!canvas || !this.bars.length) return;
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    const {PL, PR, PT, PB, CW, CGAP} = this;
+    const chartW = W - PL - PR, chartH = H - PT - PB;
+
+    // Fondo
+    ctx.clearRect(0, 0, W, H);
+    const bg = getComputedStyle(document.documentElement).getPropertyValue('--surface').trim() || '#0b1120';
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+
+    // Rango visible
+    const slot = CW + CGAP;
+    const maxVis = Math.max(1, Math.floor(chartW / slot));
+    const end = this.idx;
+    const start = Math.max(0, end - maxVis + 1);
+    const vis = this.bars.slice(start, end + 1);
+    if (!vis.length) return;
+
+    // Escala de precios
+    let lo = Infinity, hi = -Infinity;
+    vis.forEach(b => { if (b.l < lo) lo = b.l; if (b.h > hi) hi = b.h; });
+    if (this.openPos) { lo = Math.min(lo, this.openPos.entry); hi = Math.max(hi, this.openPos.entry); }
+    const rng = hi - lo || 1;
+    const pad = rng * 0.1;
+    lo -= pad; hi += pad;
+    const toY = p => PT + chartH - ((p - lo) / (hi - lo)) * chartH;
+    const toX = i => PL + i * slot + CW / 2;
+
+    // Grid horizontal
+    ctx.strokeStyle = 'rgba(255,255,255,0.03)'; ctx.lineWidth = 1;
+    const NY = 5;
+    for (let i = 0; i <= NY; i++) {
+      const y = PT + (chartH / NY) * i;
+      ctx.beginPath(); ctx.moveTo(PL, y); ctx.lineTo(W - PR, y); ctx.stroke();
+    }
+
+    // Etiquetas Y
+    const mono = getComputedStyle(document.documentElement).getPropertyValue('--font-mono') || 'monospace';
+    const tdim = getComputedStyle(document.documentElement).getPropertyValue('--text-dim').trim() || '#5a7a96';
+    ctx.fillStyle = tdim; ctx.font = `9px ${mono}`; ctx.textAlign = 'right';
+    for (let i = 0; i <= NY; i++) {
+      const p = hi - ((hi - lo) / NY) * i;
+      ctx.fillText(p.toFixed(1), PL - 4, PT + (chartH / NY) * i + 3);
+    }
+
+    // Velas
+    vis.forEach((bar, i) => {
+      const x = toX(i);
+      const bull = bar.c >= bar.o;
+      const color = bull ? '#00e5a0' : '#fb4d6b';
+      ctx.strokeStyle = color; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(x, toY(bar.h)); ctx.lineTo(x, toY(bar.l)); ctx.stroke();
+      const bTop = Math.min(toY(bar.o), toY(bar.c));
+      const bH = Math.max(Math.abs(toY(bar.c) - toY(bar.o)), 1);
+      ctx.fillStyle = color; ctx.fillRect(x - CW / 2, bTop, CW, bH);
+    });
+
+    // Línea entrada posición abierta
+    if (this.openPos) {
+      const ey = toY(this.openPos.entry);
+      const ec = this.openPos.dir === 'LONG' ? '#00e5a0' : '#fb4d6b';
+      ctx.strokeStyle = ec; ctx.lineWidth = 1; ctx.setLineDash([4, 3]);
+      ctx.beginPath(); ctx.moveTo(PL, ey); ctx.lineTo(W - PR, ey); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = ec; ctx.font = `8px ${mono}`; ctx.textAlign = 'right';
+      ctx.fillText(`${this.openPos.dir} @ ${this.openPos.entry.toFixed(2)}`, W - PR - 2, ey - 3);
+      // SL / TP
+      if (this.openPos.sl) {
+        ctx.strokeStyle = '#fb4d6b'; ctx.lineWidth = 1; ctx.setLineDash([2, 4]);
+        ctx.beginPath(); ctx.moveTo(PL, toY(this.openPos.sl)); ctx.lineTo(W - PR, toY(this.openPos.sl)); ctx.stroke();
+        ctx.setLineDash([]);
+      }
+      if (this.openPos.tp) {
+        ctx.strokeStyle = '#00e5a0'; ctx.lineWidth = 1; ctx.setLineDash([2, 4]);
+        ctx.beginPath(); ctx.moveTo(PL, toY(this.openPos.tp)); ctx.lineTo(W - PR, toY(this.openPos.tp)); ctx.stroke();
+        ctx.setLineDash([]);
+      }
+    }
+
+    // Marcadores de trades
+    this.tradeMarkers.forEach(m => {
+      if (m.barIdx < start || m.barIdx > end) return;
+      this._marker(ctx, toX(m.barIdx - start), toY(m.price), m.type, m.dir);
+    });
+
+    // Etiqueta precio actual (lado izquierdo)
+    const last = this.bars[this.idx];
+    if (last) {
+      const cy = toY(last.c);
+      const lc = last.c >= last.o ? '#00e5a0' : '#fb4d6b';
+      ctx.fillStyle = lc; ctx.fillRect(0, cy - 9, PL - 5, 18);
+      ctx.fillStyle = '#000'; ctx.font = `bold 8px monospace`; ctx.textAlign = 'center';
+      ctx.fillText(last.c.toFixed(1), (PL - 5) / 2, cy + 4);
+    }
+
+    // Etiquetas X (tiempo, cada ~10 barras)
+    ctx.fillStyle = tdim; ctx.font = `8px monospace`; ctx.textAlign = 'center';
+    vis.forEach((bar, i) => {
+      if (i % 10 === 0) ctx.fillText(bar.timeStr || '', toX(i), H - 4);
+    });
+  },
+
+  _marker(ctx, x, y, type, dir) {
+    const s = 7;
+    if (type === 'entry') {
+      ctx.fillStyle = dir === 'LONG' ? '#00e5a0' : '#fb4d6b';
+      ctx.beginPath();
+      if (dir === 'LONG') { ctx.moveTo(x, y + s * 2); ctx.lineTo(x - s, y + s); ctx.lineTo(x + s, y + s); }
+      else                { ctx.moveTo(x, y - s * 2); ctx.lineTo(x - s, y - s); ctx.lineTo(x + s, y - s); }
+      ctx.closePath(); ctx.fill();
+    } else {
+      ctx.strokeStyle = '#c8d8e8'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(x - s, y - s); ctx.lineTo(x + s, y + s); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x + s, y - s); ctx.lineTo(x - s, y + s); ctx.stroke();
+    }
+  },
+
+  updateHUD() {
+    const bar = this.bars[this.idx];
+    if (!bar) return;
+    const bn = document.getElementById('rplBarNum');
+    if (bn) bn.textContent = `Barra: ${this.idx + 1} / ${this.bars.length}`;
+    const de = document.getElementById('rplDate');
+    if (de) de.textContent = `${bar.dateStr || ''}  ${bar.timeStr || ''} ET`;
+    const pg = document.getElementById('rplProg');
+    if (pg) pg.style.width = `${((this.idx + 1) / this.bars.length * 100).toFixed(1)}%`;
+  },
+
+  resize() {
+    const canvas = document.getElementById('replayCanvas');
+    const wrap = document.getElementById('replayCanvasWrap');
+    if (!canvas || !wrap) return;
+    const r = wrap.getBoundingClientRect();
+    canvas.width = Math.floor(r.width);
+    canvas.height = Math.floor(r.height);
+    this.draw();
+  },
+
+  finish() {
+    this.stopAuto();
+    // Paso 4: si hay trades → renderResults; por ahora vuelve al inicio
+    document.getElementById('replaySection').style.display = 'none';
+    document.getElementById('placeholder').style.display = 'flex';
+    const btn = document.getElementById('btnRun');
+    if (btn) { btn.disabled = false; btn.textContent = 'Iniciar Chart Replay'; }
+  }
+};
+
+async function startManualReplay() {
+  const src = document.getElementById('dataSource').value;
+  if (src === 'polygon') {
+    const key = document.getElementById('apiKey').value.trim();
+    if (!key) { alert('Ingresa tu Polygon.io API Key'); return; }
+    localStorage.setItem('tq_polygon_key', key);
+  } else {
+    if (!csvBars || !csvBars.length) { alert('Carga un archivo CSV primero'); return; }
+  }
+
+  const btn = document.getElementById('btnRun');
+  btn.disabled = true; btn.textContent = '⏳ Cargando...';
+  document.getElementById('progressWrap').style.display = 'block';
+
+  try {
+    let bars;
+    if (src === 'csv') {
+      setProgress(80, 'Procesando CSV...');
+      await delay(30);
+      bars = csvBars;
+    } else {
+      const key = document.getElementById('apiKey').value.trim();
+      const sym = document.getElementById('symbol').value;
+      setProgress(5, `Descargando ${sym}...`);
+      bars = await fetchTwoYears(sym, key);
+      if (!bars.length) throw new Error(`Sin datos para ${sym}`);
+    }
+
+    // Filtro de fechas
+    const dFrom = document.getElementById('date_from').value || '';
+    const dTo   = document.getElementById('date_to').value   || '';
+    if (dFrom) bars = bars.filter(b => b.dateStr >= dFrom);
+    if (dTo)   bars = bars.filter(b => b.dateStr <= dTo);
+
+    // Filtro timeframe
+    const tf = parseInt(document.getElementById('btTimeframe')?.value || 5);
+    if (tf === 5) bars = bars.filter(b => b.hm % 100 === 0 || b.hm % 5 === 0); // solo barras de 5min
+
+    if (!bars.length) { alert('Sin barras en el rango seleccionado.'); return; }
+
+    setProgress(100, `${bars.length.toLocaleString()} velas listas`);
+    await delay(200);
+
+    // Ocultar placeholder, mostrar replay
+    document.getElementById('placeholder').style.display = 'none';
+    document.getElementById('statsSection').style.display = 'none';
+    const sec = document.getElementById('replaySection');
+    sec.style.display = 'flex';
+    document.getElementById('progressWrap').style.display = 'none';
+
+    const sym = src === 'csv'
+      ? document.getElementById('csvInstrument')?.value || 'CSV'
+      : document.getElementById('symbol').value;
+    REPLAY.init(bars, `${sym} · ${tf}min`);
+
+    // Redimensionar canvas al mostrarse
+    requestAnimationFrame(() => { REPLAY.resize(); });
+    window.addEventListener('resize', () => REPLAY.resize());
+
+  } catch(e) {
+    alert('Error: ' + e.message);
+    btn.disabled = false; btn.textContent = 'Iniciar Chart Replay';
+    document.getElementById('progressWrap').style.display = 'none';
+  }
 }
 
 // ── MAIN ──────────────────────────────────────────────────
