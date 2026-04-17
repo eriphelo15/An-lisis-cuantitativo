@@ -758,7 +758,40 @@ tbody td{padding:8px 12px}
 .rpl-prog-track{height:2px;background:var(--border2);flex-shrink:0}
 .rpl-prog-fill{height:2px;background:var(--accent);transition:width .1s;width:0%}
 .rpl-lw-wrap{flex:1;min-height:0;position:relative}
-.rpl-lw-wrap>div{width:100%;height:100%}
+.rpl-lw-wrap>div:first-child{width:100%;height:100%}
+/* ── Overlay de órdenes ── */
+.rpl-overlay{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);z-index:10;pointer-events:none;display:flex;flex-direction:column;align-items:center;gap:6px;width:calc(100% - 24px)}
+.rpl-entry-panel,.rpl-pos-panel{pointer-events:auto;background:rgba(7,11,18,0.88);border:1px solid rgba(0,255,170,0.18);backdrop-filter:blur(8px);padding:8px 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;max-width:680px;width:100%}
+.rpl-long{background:rgba(0,255,170,0.1);border:1px solid #00ffaa;color:#00ffaa;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:2px;padding:7px 18px;cursor:pointer;transition:all .15s}
+.rpl-long:hover{background:#00ffaa;color:#000}
+.rpl-short{background:rgba(255,51,102,0.1);border:1px solid #ff3366;color:#ff3366;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:2px;padding:7px 18px;cursor:pointer;transition:all .15s}
+.rpl-short:hover{background:#ff3366;color:#fff}
+.rpl-entry-fields{display:flex;align-items:center;gap:6px;flex:1}
+.rpl-fl{font-size:8px;letter-spacing:1.5px;color:var(--text-dim);text-transform:uppercase}
+.rpl-entry-fields input{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--text);font-family:var(--font-mono);font-size:10px;padding:4px 7px;width:68px;outline:none}
+.rpl-entry-fields input:focus{border-color:var(--accent)}
+.rpl-entry-hint{font-size:8px;color:var(--text-dim);letter-spacing:.5px;opacity:.6;white-space:nowrap}
+/* Panel posición abierta */
+.rpl-pos-panel{border-color:rgba(0,255,170,0.3);flex-direction:column;gap:5px}
+.rpl-pos-top{display:flex;align-items:center;gap:10px;width:100%}
+.rpl-pos-dir{font-size:9px;font-weight:700;letter-spacing:2px;padding:2px 8px;border:1px solid currentColor}
+.rpl-pos-dir.long{color:#00ffaa;border-color:rgba(0,255,170,0.4)}
+.rpl-pos-dir.short{color:#ff3366;border-color:rgba(255,51,102,0.4)}
+.rpl-pos-entry{font-size:10px;color:var(--text-mid);font-variant-numeric:tabular-nums}
+.rpl-pos-pnl{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums;margin-left:auto}
+.rpl-pos-pnl.pos{color:#00ffaa}.rpl-pos-pnl.neg{color:#ff3366}
+.rpl-pos-r{font-size:11px;font-weight:600;font-variant-numeric:tabular-nums}
+.rpl-pos-r.pos{color:#00ffaa}.rpl-pos-r.neg{color:#ff3366}
+.rpl-pos-bot{display:flex;align-items:center;gap:10px;width:100%;flex-wrap:wrap}
+.rpl-pm{display:flex;align-items:center;gap:4px;font-size:8px;letter-spacing:1px;color:var(--text-dim);text-transform:uppercase}
+.rpl-pm b{font-size:10px;font-variant-numeric:tabular-nums}
+.rpl-pm b.pos{color:#00ffaa}.rpl-pm b.neg{color:#ff3366}
+.rpl-pm input{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--text);font-family:var(--font-mono);font-size:9px;padding:3px 6px;width:72px;outline:none}
+.rpl-pm input:focus{border-color:var(--accent)}
+.rpl-close-btn{margin-left:auto;background:rgba(255,51,102,0.1);border:1px solid #ff3366;color:#ff3366;font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:1.5px;padding:5px 14px;cursor:pointer;transition:all .15s}
+.rpl-close-btn:hover{background:#ff3366;color:#fff}
+/* Toast de cierre */
+.rpl-toast{position:absolute;top:12px;left:50%;transform:translateX(-50%);background:rgba(7,11,18,0.92);border:1px solid var(--accent);color:var(--text);font-family:var(--font-mono);font-size:10px;padding:7px 18px;letter-spacing:.5px;pointer-events:none;opacity:0;transition:opacity .3s}
 .rpl-controls{display:flex;align-items:center;gap:16px;padding:7px 14px;border-top:1px solid var(--border2);background:var(--surface2);flex-shrink:0;flex-wrap:wrap}
 .rpl-ctrl-group{display:flex;gap:3px}
 .rpl-btn{background:transparent;border:1px solid var(--border);color:var(--text-mid);font-family:var(--font-mono);font-size:10px;padding:5px 11px;cursor:pointer;transition:all .15s;letter-spacing:.5px}
@@ -1038,6 +1071,36 @@ tbody td{padding:8px 12px}
         <div class="rpl-prog-track"><div class="rpl-prog-fill" id="rplProg"></div></div>
         <div class="rpl-lw-wrap" id="replayChartWrap">
           <div id="lwReplayChart"></div>
+          <div class="rpl-overlay">
+            <!-- Sin posición -->
+            <div class="rpl-entry-panel" id="rplEntryPanel">
+              <button class="rpl-long"  onclick="REPLAY.openPosition('LONG')">▲ LONG</button>
+              <button class="rpl-short" onclick="REPLAY.openPosition('SHORT')">▼ SHORT</button>
+              <div class="rpl-entry-fields">
+                <span class="rpl-fl">SL</span><input id="rplSL" type="number" step="0.25" placeholder="—">
+                <span class="rpl-fl">TP</span><input id="rplTP" type="number" step="0.25" placeholder="—">
+                <span class="rpl-fl">Ctrs</span><input id="rplCtrs" type="number" value="1" min="1" step="1" style="width:44px">
+              </div>
+              <span class="rpl-entry-hint">Espacio = +1 barra</span>
+            </div>
+            <!-- Posición abierta -->
+            <div class="rpl-pos-panel" id="rplPosPanel" style="display:none">
+              <div class="rpl-pos-top">
+                <span class="rpl-pos-dir" id="rplPosDir">LONG</span>
+                <span class="rpl-pos-entry" id="rplPosEntry">@ —</span>
+                <span class="rpl-pos-pnl" id="rplPosPnl">$0</span>
+                <span class="rpl-pos-r" id="rplPosR"></span>
+              </div>
+              <div class="rpl-pos-bot">
+                <span class="rpl-pm">MAE <b id="rplMAE">—</b></span>
+                <span class="rpl-pm">MFE <b id="rplMFE">—</b></span>
+                <span class="rpl-pm">SL <input id="rplSLPos" type="number" step="0.25" oninput="REPLAY.updateSL(this.value)"></span>
+                <span class="rpl-pm">TP <input id="rplTPPos" type="number" step="0.25" oninput="REPLAY.updateTP(this.value)"></span>
+                <button class="rpl-close-btn" onclick="REPLAY.closePosition(null,'manual')">CERRAR ✕</button>
+              </div>
+            </div>
+            <div class="rpl-toast" id="rplToast"></div>
+          </div>
         </div>
         <div class="rpl-controls">
           <div class="rpl-ctrl-group">
@@ -4137,6 +4200,16 @@ const REPLAY = {
 
     this._series.setData([this._toBar(bars[0])]);
     this.updateHUD();
+    this._updatePosPanel();
+    // Atajo teclado: espacio = +1 barra
+    if (!this._keyHandler) {
+      this._keyHandler = e => {
+        if (e.code==='Space' && document.getElementById('replaySection')?.style.display!=='none') {
+          e.preventDefault(); this.advance(1);
+        }
+      };
+      document.addEventListener('keydown', this._keyHandler);
+    }
   },
 
   advance(n) {
@@ -4147,6 +4220,7 @@ const REPLAY = {
     this._checkSLTP();
     this._update();
     this.updateHUD();
+    if (this.openPos) this._updatePosPanel();
   },
 
   _update() {
@@ -4182,7 +4256,134 @@ const REPLAY = {
     this._series.setMarkers(markers);
   },
 
-  _checkSLTP() { /* hook Paso 3 */ },
+  // ── Órdenes ────────────────────────────────────────────
+  openPosition(dir) {
+    if (this.openPos) return;
+    if (this.idx >= this.bars.length - 1) return;
+    // Entrada en la apertura de la siguiente vela
+    this.idx++;
+    const bar = this.bars[this.idx];
+    const sl  = parseFloat(document.getElementById('rplSL').value)   || null;
+    const tp  = parseFloat(document.getElementById('rplTP').value)    || null;
+    const ctrs= parseInt(document.getElementById('rplCtrs').value)    || 1;
+    const pv  = parseFloat(document.getElementById('point_value')?.value) || 20;
+    this.openPos = {dir, entry:bar.o, sl, tp, ctrs, pv, entryBarIdx:this.idx, mae:0, mfe:0};
+    this.tradeMarkers.push({barIdx:this.idx, price:bar.o, type:'entry', dir});
+    this._update();
+    this.updateHUD();
+    this._updatePosPanel();
+  },
+
+  closePosition(price, reason) {
+    if (!this.openPos) return;
+    let closePrice = price;
+    if (reason === 'manual') {
+      // Cierre manual: siguiente barra apertura
+      if (this.idx < this.bars.length - 1) {
+        this.idx++;
+        closePrice = this.bars[this.idx].o;
+      } else { closePrice = this.bars[this.idx].c; }
+    }
+    const {dir, entry, ctrs, pv, sl} = this.openPos;
+    const pnl = (dir==='LONG' ? closePrice-entry : entry-closePrice) * ctrs * pv;
+    const risk = sl ? Math.abs(entry - sl) * ctrs * pv : null;
+    const r    = risk ? pnl / risk : null;
+    this.closedTrades.push({
+      id:Date.now(), dir, entry, exit:closePrice,
+      sl:this.openPos.sl, tp:this.openPos.tp, ctrs, pv,
+      pnl:Math.round(pnl*100)/100, r:r!=null?Math.round(r*100)/100:null,
+      reason, mae:Math.round(this.openPos.mae*100)/100, mfe:Math.round(this.openPos.mfe*100)/100,
+      date:this.bars[this.openPos.entryBarIdx].dateStr, exitDate:this.bars[this.idx].dateStr
+    });
+    this.tradeMarkers.push({barIdx:this.idx, price:closePrice, type:'exit', dir});
+    this._showToast(pnl, r, reason);
+    this.openPos = null;
+    this._update();
+    this.updateHUD();
+    this._updatePosPanel();
+  },
+
+  updateSL(v) {
+    if (!this.openPos) return;
+    this.openPos.sl = parseFloat(v) || null;
+    this._updatePriceLines();
+  },
+
+  updateTP(v) {
+    if (!this.openPos) return;
+    this.openPos.tp = parseFloat(v) || null;
+    this._updatePriceLines();
+  },
+
+  _checkSLTP() {
+    if (!this.openPos) return;
+    const bar = this.bars[this.idx];
+    const {dir, entry, sl, tp, ctrs, pv} = this.openPos;
+    // Actualizar MAE / MFE
+    const favMove = dir==='LONG' ? bar.h - entry : entry - bar.l;
+    const advMove = dir==='LONG' ? bar.l - entry : entry - bar.h;
+    if (favMove * ctrs * pv > this.openPos.mfe) this.openPos.mfe = favMove * ctrs * pv;
+    if (advMove * ctrs * pv < this.openPos.mae) this.openPos.mae = advMove * ctrs * pv;
+    // SL / TP usando high y low de la vela revelada
+    let exitP = null, exitR = null;
+    if (sl) {
+      if (dir==='LONG'  && bar.l <= sl) { exitP=sl; exitR='SL'; }
+      if (dir==='SHORT' && bar.h >= sl) { exitP=sl; exitR='SL'; }
+    }
+    if (tp && !exitP) {
+      if (dir==='LONG'  && bar.h >= tp) { exitP=tp; exitR='TP'; }
+      if (dir==='SHORT' && bar.l <= tp) { exitP=tp; exitR='TP'; }
+    }
+    if (exitP) this.closePosition(exitP, exitR);
+  },
+
+  _updatePosPanel() {
+    const ep = document.getElementById('rplEntryPanel');
+    const pp = document.getElementById('rplPosPanel');
+    if (!ep || !pp) return;
+    if (!this.openPos) {
+      ep.style.display = 'flex'; pp.style.display = 'none'; return;
+    }
+    ep.style.display = 'none'; pp.style.display = 'flex';
+    const {dir, entry, sl, tp, ctrs, pv, mae, mfe} = this.openPos;
+    const bar = this.bars[this.idx];
+    const pnl = (dir==='LONG' ? bar.c-entry : entry-bar.c) * ctrs * pv;
+    const risk = sl ? Math.abs(entry - sl) * ctrs * pv : null;
+    const r    = risk ? pnl / risk : null;
+    const dirEl = document.getElementById('rplPosDir');
+    dirEl.textContent = dir; dirEl.className = `rpl-pos-dir ${dir==='LONG'?'long':'short'}`;
+    document.getElementById('rplPosEntry').textContent = `@ ${entry.toFixed(2)}  ·  ${ctrs} ctr${ctrs>1?'s':''}`;
+    const pnlEl = document.getElementById('rplPosPnl');
+    pnlEl.textContent = (pnl>=0?'+':'') + '$' + Math.abs(Math.round(pnl)).toLocaleString('en-US');
+    pnlEl.className = `rpl-pos-pnl ${pnl>=0?'pos':'neg'}`;
+    const rEl = document.getElementById('rplPosR');
+    if (r!=null) { rEl.textContent = (r>=0?'+':'')+r.toFixed(2)+'R'; rEl.className = `rpl-pos-r ${r>=0?'pos':'neg'}`; }
+    else rEl.textContent = '';
+    const maeEl = document.getElementById('rplMAE');
+    maeEl.textContent = mae!==0 ? '$'+Math.abs(Math.round(mae)).toLocaleString('en-US') : '—';
+    maeEl.className   = mae < 0 ? 'neg' : '';
+    const mfeEl = document.getElementById('rplMFE');
+    mfeEl.textContent = mfe!==0 ? '+$'+Math.round(mfe).toLocaleString('en-US') : '—';
+    mfeEl.className   = mfe > 0 ? 'pos' : '';
+    // Llenar inputs de SL/TP si están vacíos
+    const slEl = document.getElementById('rplSLPos');
+    const tpEl = document.getElementById('rplTPPos');
+    if (slEl && sl && !slEl.value) slEl.value = sl;
+    if (tpEl && tp && !tpEl.value) tpEl.value = tp;
+  },
+
+  _showToast(pnl, r, reason) {
+    const el = document.getElementById('rplToast');
+    if (!el) return;
+    const sign = pnl >= 0 ? '+' : '';
+    const rTxt = r!=null ? ` (${r>=0?'+':''}${r.toFixed(2)}R)` : '';
+    el.textContent = `${sign}$${Math.abs(Math.round(pnl)).toLocaleString('en-US')}${rTxt} — ${reason}`;
+    el.style.color = pnl >= 0 ? '#00ffaa' : '#ff3366';
+    el.style.borderColor = pnl >= 0 ? 'rgba(0,255,170,0.4)' : 'rgba(255,51,102,0.4)';
+    el.style.opacity = '1';
+    clearTimeout(this._toastTimer);
+    this._toastTimer = setTimeout(() => { el.style.opacity = '0'; }, 2800);
+  },
 
   toggleAuto() {
     if (this.autoTimer) {
@@ -4233,6 +4434,10 @@ const REPLAY = {
     this.stopAuto();
     if (this._ro) { try { this._ro.disconnect(); } catch(e) {} this._ro = null; }
     if (this._chart) { try { this._chart.remove(); } catch(e) {} this._chart = null; }
+    this.openPos = null;
+    this._updatePosPanel();
+    // Limpiar inputs de la sesión
+    ['rplSL','rplTP','rplSLPos','rplTPPos'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
     document.getElementById('replaySection').style.display = 'none';
     document.getElementById('placeholder').style.display = 'flex';
     const btn = document.getElementById('btnRun');
