@@ -757,8 +757,8 @@ tbody td{padding:8px 12px}
 .rpl-fin:hover{border-color:var(--neg);color:var(--neg)}
 .rpl-prog-track{height:2px;background:var(--border2);flex-shrink:0}
 .rpl-prog-fill{height:2px;background:var(--accent);transition:width .1s;width:0%}
-.rpl-canvas-wrap{flex:1;position:relative;min-height:0;background:var(--surface)}
-#replayCanvas{position:absolute;inset:0;width:100%;height:100%}
+.rpl-lw-wrap{flex:1;min-height:0;position:relative}
+.rpl-lw-wrap>div{width:100%;height:100%}
 .rpl-controls{display:flex;align-items:center;gap:16px;padding:7px 14px;border-top:1px solid var(--border2);background:var(--surface2);flex-shrink:0;flex-wrap:wrap}
 .rpl-ctrl-group{display:flex;gap:3px}
 .rpl-btn{background:transparent;border:1px solid var(--border);color:var(--text-mid);font-family:var(--font-mono);font-size:10px;padding:5px 11px;cursor:pointer;transition:all .15s;letter-spacing:.5px}
@@ -1036,8 +1036,8 @@ tbody td{padding:8px 12px}
           <button class="rpl-fin" onclick="REPLAY.finish()">✕ Finalizar Sesión</button>
         </div>
         <div class="rpl-prog-track"><div class="rpl-prog-fill" id="rplProg"></div></div>
-        <div class="rpl-canvas-wrap" id="replayCanvasWrap">
-          <canvas id="replayCanvas"></canvas>
+        <div class="rpl-lw-wrap" id="replayChartWrap">
+          <div id="lwReplayChart"></div>
         </div>
         <div class="rpl-controls">
           <div class="rpl-ctrl-group">
@@ -4086,7 +4086,7 @@ function setMode(modo){
   }
 }
 
-/* ── MOTOR DE CHART REPLAY ───────────────────────────────── */
+/* ── MOTOR DE CHART REPLAY (Lightweight Charts) ─────────── */
 const REPLAY = {
   bars: [],
   idx: 0,
@@ -4095,10 +4095,12 @@ const REPLAY = {
   tradeMarkers: [],  // { barIdx, price, type:'entry'|'exit', dir:'LONG'|'SHORT' }
   openPos: null,     // { dir, entry, sl, tp, entryBarIdx, ctrs }
   closedTrades: [],  // resultados para Paso 4
+  _chart: null,
+  _series: null,
+  _entryLine: null, _slLine: null, _tpLine: null,
+  _ro: null,
 
-  // Dimensiones canvas
-  CW: 9, CGAP: 2,
-  PL: 60, PR: 16, PT: 14, PB: 28,
+  _toBar: b => ({time: b.tsSec, open: b.o, high: b.h, low: b.l, close: b.c}),
 
   init(bars, symLabel) {
     this.bars = bars;
@@ -4106,20 +4108,81 @@ const REPLAY = {
     this.tradeMarkers = [];
     this.openPos = null;
     this.closedTrades = [];
+    this._entryLine = this._slLine = this._tpLine = null;
     document.getElementById('rplSym').textContent = symLabel || '';
-    this.resize();
+
+    // Crear / recrear chart
+    if (this._ro) { try { this._ro.disconnect(); } catch(e) {} }
+    if (this._chart) { try { this._chart.remove(); } catch(e) {} }
+    const container = document.getElementById('lwReplayChart');
+    container.innerHTML = '';
+    const wrap = document.getElementById('replayChartWrap');
+    const c = getCC();
+    this._chart = LightweightCharts.createChart(container, {
+      width: wrap.clientWidth || 800,
+      height: wrap.clientHeight || 400,
+      layout: {background:{type:'solid',color:c.bg}, textColor:c.text, fontSize:11, fontFamily:"'JetBrains Mono',monospace"},
+      grid: {vertLines:{color:c.grid}, horzLines:{color:c.grid}},
+      crosshair: {mode: LightweightCharts.CrosshairMode.Normal},
+      rightPriceScale: {borderColor: c.border},
+      timeScale: {borderColor:c.border, timeVisible:true, secondsVisible:false, rightOffset:5},
+    });
+    this._series = this._chart.addCandlestickSeries({
+      upColor:c.up, downColor:c.down,
+      borderUpColor:c.up, borderDownColor:c.down,
+      wickUpColor:c.up, wickDownColor:c.down,
+    });
+    this._ro = new ResizeObserver(() => this.resize());
+    this._ro.observe(wrap);
+
+    this._series.setData([this._toBar(bars[0])]);
     this.updateHUD();
   },
 
   advance(n) {
-    if (n < 0 && this.openPos) return; // no retroceder con posición abierta
+    if (n < 0 && this.openPos) return;
     const next = Math.max(0, Math.min(this.bars.length - 1, this.idx + n));
     if (next === this.idx) return;
     this.idx = next;
-    this._checkSLTP(); // Paso 3 hook
-    this.draw();
+    this._checkSLTP();
+    this._update();
     this.updateHUD();
   },
+
+  _update() {
+    if (!this._series) return;
+    this._series.setData(this.bars.slice(0, this.idx + 1).map(this._toBar));
+    // Mantener últimas ~100 velas visibles con 5 barras de margen derecho
+    this._chart.timeScale().setVisibleLogicalRange({from: Math.max(0, this.idx - 99), to: this.idx + 5});
+    this._updatePriceLines();
+    this._updateMarkers();
+  },
+
+  _updatePriceLines() {
+    ['_entryLine','_slLine','_tpLine'].forEach(k => {
+      if (this[k]) { try { this._series.removePriceLine(this[k]); } catch(e) {} this[k] = null; }
+    });
+    if (!this.openPos) return;
+    const long = this.openPos.dir === 'LONG';
+    this._entryLine = this._series.createPriceLine({price:this.openPos.entry, color:long?'#00ffaa':'#ff3366', lineWidth:1, lineStyle:0, axisLabelVisible:true, title:this.openPos.dir});
+    if (this.openPos.sl) this._slLine  = this._series.createPriceLine({price:this.openPos.sl, color:'#ff3366', lineWidth:1, lineStyle:2, axisLabelVisible:true, title:'SL'});
+    if (this.openPos.tp) this._tpLine  = this._series.createPriceLine({price:this.openPos.tp, color:'#00ffaa', lineWidth:1, lineStyle:2, axisLabelVisible:true, title:'TP'});
+  },
+
+  _updateMarkers() {
+    const markers = this.tradeMarkers
+      .filter(m => m.barIdx <= this.idx)
+      .map(m => ({
+        time: this.bars[m.barIdx].tsSec,
+        position: m.type==='entry' ? (m.dir==='LONG'?'belowBar':'aboveBar') : 'inBar',
+        color: m.type==='entry' ? (m.dir==='LONG'?'#00ffaa':'#ff3366') : '#c8d8e8',
+        shape: m.type==='entry' ? (m.dir==='LONG'?'arrowUp':'arrowDown') : 'circle',
+        text: m.type==='entry' ? m.dir[0] : '✕', size: 1
+      }));
+    this._series.setMarkers(markers);
+  },
+
+  _checkSLTP() { /* hook Paso 3 */ },
 
   toggleAuto() {
     if (this.autoTimer) {
@@ -4147,128 +4210,6 @@ const REPLAY = {
     if (this.autoTimer) { this.stopAuto(); this.toggleAuto(); }
   },
 
-  _checkSLTP() { /* hook para Paso 3 */ },
-
-  draw() {
-    const canvas = document.getElementById('replayCanvas');
-    if (!canvas || !this.bars.length) return;
-    const ctx = canvas.getContext('2d');
-    const W = canvas.width, H = canvas.height;
-    const {PL, PR, PT, PB, CW, CGAP} = this;
-    const chartW = W - PL - PR, chartH = H - PT - PB;
-
-    // Fondo
-    ctx.clearRect(0, 0, W, H);
-    const bg = getComputedStyle(document.documentElement).getPropertyValue('--surface').trim() || '#0b1120';
-    ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
-
-    // Rango visible
-    const slot = CW + CGAP;
-    const maxVis = Math.max(1, Math.floor(chartW / slot));
-    const end = this.idx;
-    const start = Math.max(0, end - maxVis + 1);
-    const vis = this.bars.slice(start, end + 1);
-    if (!vis.length) return;
-
-    // Escala de precios
-    let lo = Infinity, hi = -Infinity;
-    vis.forEach(b => { if (b.l < lo) lo = b.l; if (b.h > hi) hi = b.h; });
-    if (this.openPos) { lo = Math.min(lo, this.openPos.entry); hi = Math.max(hi, this.openPos.entry); }
-    const rng = hi - lo || 1;
-    const pad = rng * 0.1;
-    lo -= pad; hi += pad;
-    const toY = p => PT + chartH - ((p - lo) / (hi - lo)) * chartH;
-    const toX = i => PL + i * slot + CW / 2;
-
-    // Grid horizontal
-    ctx.strokeStyle = 'rgba(255,255,255,0.03)'; ctx.lineWidth = 1;
-    const NY = 5;
-    for (let i = 0; i <= NY; i++) {
-      const y = PT + (chartH / NY) * i;
-      ctx.beginPath(); ctx.moveTo(PL, y); ctx.lineTo(W - PR, y); ctx.stroke();
-    }
-
-    // Etiquetas Y
-    const mono = getComputedStyle(document.documentElement).getPropertyValue('--font-mono') || 'monospace';
-    const tdim = getComputedStyle(document.documentElement).getPropertyValue('--text-dim').trim() || '#5a7a96';
-    ctx.fillStyle = tdim; ctx.font = `9px ${mono}`; ctx.textAlign = 'right';
-    for (let i = 0; i <= NY; i++) {
-      const p = hi - ((hi - lo) / NY) * i;
-      ctx.fillText(p.toFixed(1), PL - 4, PT + (chartH / NY) * i + 3);
-    }
-
-    // Velas
-    vis.forEach((bar, i) => {
-      const x = toX(i);
-      const bull = bar.c >= bar.o;
-      const color = bull ? '#00e5a0' : '#fb4d6b';
-      ctx.strokeStyle = color; ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(x, toY(bar.h)); ctx.lineTo(x, toY(bar.l)); ctx.stroke();
-      const bTop = Math.min(toY(bar.o), toY(bar.c));
-      const bH = Math.max(Math.abs(toY(bar.c) - toY(bar.o)), 1);
-      ctx.fillStyle = color; ctx.fillRect(x - CW / 2, bTop, CW, bH);
-    });
-
-    // Línea entrada posición abierta
-    if (this.openPos) {
-      const ey = toY(this.openPos.entry);
-      const ec = this.openPos.dir === 'LONG' ? '#00e5a0' : '#fb4d6b';
-      ctx.strokeStyle = ec; ctx.lineWidth = 1; ctx.setLineDash([4, 3]);
-      ctx.beginPath(); ctx.moveTo(PL, ey); ctx.lineTo(W - PR, ey); ctx.stroke();
-      ctx.setLineDash([]);
-      ctx.fillStyle = ec; ctx.font = `8px ${mono}`; ctx.textAlign = 'right';
-      ctx.fillText(`${this.openPos.dir} @ ${this.openPos.entry.toFixed(2)}`, W - PR - 2, ey - 3);
-      // SL / TP
-      if (this.openPos.sl) {
-        ctx.strokeStyle = '#fb4d6b'; ctx.lineWidth = 1; ctx.setLineDash([2, 4]);
-        ctx.beginPath(); ctx.moveTo(PL, toY(this.openPos.sl)); ctx.lineTo(W - PR, toY(this.openPos.sl)); ctx.stroke();
-        ctx.setLineDash([]);
-      }
-      if (this.openPos.tp) {
-        ctx.strokeStyle = '#00e5a0'; ctx.lineWidth = 1; ctx.setLineDash([2, 4]);
-        ctx.beginPath(); ctx.moveTo(PL, toY(this.openPos.tp)); ctx.lineTo(W - PR, toY(this.openPos.tp)); ctx.stroke();
-        ctx.setLineDash([]);
-      }
-    }
-
-    // Marcadores de trades
-    this.tradeMarkers.forEach(m => {
-      if (m.barIdx < start || m.barIdx > end) return;
-      this._marker(ctx, toX(m.barIdx - start), toY(m.price), m.type, m.dir);
-    });
-
-    // Etiqueta precio actual (lado izquierdo)
-    const last = this.bars[this.idx];
-    if (last) {
-      const cy = toY(last.c);
-      const lc = last.c >= last.o ? '#00e5a0' : '#fb4d6b';
-      ctx.fillStyle = lc; ctx.fillRect(0, cy - 9, PL - 5, 18);
-      ctx.fillStyle = '#000'; ctx.font = `bold 8px monospace`; ctx.textAlign = 'center';
-      ctx.fillText(last.c.toFixed(1), (PL - 5) / 2, cy + 4);
-    }
-
-    // Etiquetas X (tiempo, cada ~10 barras)
-    ctx.fillStyle = tdim; ctx.font = `8px monospace`; ctx.textAlign = 'center';
-    vis.forEach((bar, i) => {
-      if (i % 10 === 0) ctx.fillText(bar.timeStr || '', toX(i), H - 4);
-    });
-  },
-
-  _marker(ctx, x, y, type, dir) {
-    const s = 7;
-    if (type === 'entry') {
-      ctx.fillStyle = dir === 'LONG' ? '#00e5a0' : '#fb4d6b';
-      ctx.beginPath();
-      if (dir === 'LONG') { ctx.moveTo(x, y + s * 2); ctx.lineTo(x - s, y + s); ctx.lineTo(x + s, y + s); }
-      else                { ctx.moveTo(x, y - s * 2); ctx.lineTo(x - s, y - s); ctx.lineTo(x + s, y - s); }
-      ctx.closePath(); ctx.fill();
-    } else {
-      ctx.strokeStyle = '#c8d8e8'; ctx.lineWidth = 1.5;
-      ctx.beginPath(); ctx.moveTo(x - s, y - s); ctx.lineTo(x + s, y + s); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(x + s, y - s); ctx.lineTo(x - s, y + s); ctx.stroke();
-    }
-  },
-
   updateHUD() {
     const bar = this.bars[this.idx];
     if (!bar) return;
@@ -4281,18 +4222,17 @@ const REPLAY = {
   },
 
   resize() {
-    const canvas = document.getElementById('replayCanvas');
-    const wrap = document.getElementById('replayCanvasWrap');
-    if (!canvas || !wrap) return;
-    const r = wrap.getBoundingClientRect();
-    canvas.width = Math.floor(r.width);
-    canvas.height = Math.floor(r.height);
-    this.draw();
+    if (!this._chart) return;
+    const wrap = document.getElementById('replayChartWrap');
+    if (!wrap) return;
+    const w = wrap.clientWidth, h = wrap.clientHeight;
+    if (w > 0 && h > 0) this._chart.applyOptions({width: w, height: h});
   },
 
   finish() {
     this.stopAuto();
-    // Paso 4: si hay trades → renderResults; por ahora vuelve al inicio
+    if (this._ro) { try { this._ro.disconnect(); } catch(e) {} this._ro = null; }
+    if (this._chart) { try { this._chart.remove(); } catch(e) {} this._chart = null; }
     document.getElementById('replaySection').style.display = 'none';
     document.getElementById('placeholder').style.display = 'flex';
     const btn = document.getElementById('btnRun');
