@@ -955,6 +955,7 @@ tbody td{padding:8px 12px}
             <option value="asrs1">ASRS 1min — entrada más temprana</option>
             <option value="clbr5">CL-BR 5min — mejor rango 9:45 vs 9:50</option>
             <option value="clbr1">CL-BR 1min — mejor rango 9:40-9:45, eval. inmediata</option>
+            <option value="eao1">Reversal EAO 1min — engulfing + rango near/long</option>
           </select>
         </div>
         <div class="frow">
@@ -1008,6 +1009,25 @@ tbody td{padding:8px 12px}
         </div>
         <div class="note" id="ema-note">
           <b>EMA 1D:</b> Tendencia sobre cierres diarios. Umbral 0.02% muy permisivo en daily.
+        </div>
+
+        <!-- ── EAO PARAMS (visible solo cuando estrategia = EAO) ── -->
+        <div id="eaoParams" style="display:none">
+          <div class="sec-ttl" style="margin-top:4px;color:var(--accent)">Parámetros Reversal EAO</div>
+          <div class="frow">
+            <div class="field"><label>Near Term (barras)</label><input type="number" id="eao_near" value="2" min="1" max="20"></div>
+            <div class="field"><label>Long Term (barras)</label><input type="number" id="eao_long" value="100" min="10" max="500"></div>
+          </div>
+          <div class="frow">
+            <div class="field"><label>Body % mínimo</label><input type="number" id="eao_body" value="50" min="0" max="100"></div>
+            <div class="field"><label>Fin sesión (hora ET)</label><input type="number" id="eao_sess_end" value="11" min="9" max="16" step="1"></div>
+          </div>
+          <div class="frow">
+            <div class="field"><label>SL × ATR</label><input type="number" id="eao_sl_atr" value="1.5" step="0.25" min="0.5"></div>
+            <div class="field"><label>Max trades/día</label><input type="number" id="eao_max_day" value="2" min="1" max="5"></div>
+          </div>
+          <div class="trow"><label>Solo LONG (Long Bias)</label><input type="checkbox" id="eao_long_only"></div>
+          <div class="note"><b>EAO:</b> Señal al cierre de vela 1min. SL = ATR × mult. TP = SL × R:R.</div>
         </div>
       </div>
 
@@ -1582,7 +1602,7 @@ function updateHdrStats(){
   const instEl=document.getElementById('hdrInstrument');
   if(stratEl){
     const s=document.getElementById('btStrategy')?.value||'asrs5';
-    const names={asrs5:'ASRS 5MIN',asrs1:'ASRS 1MIN',clbr5:'CL-BR 5MIN',clbr1:'CL-BR 1MIN'};
+    const names={asrs5:'ASRS 5MIN',asrs1:'ASRS 1MIN',clbr5:'CL-BR 5MIN',clbr1:'CL-BR 1MIN',eao1:'REVERSAL EAO'};
     stratEl.textContent=names[s]||'ASRS 5MIN';
   }
   if(instEl){
@@ -1600,7 +1620,10 @@ function updateHdrStats(){
 function onStrategyChange(){
   const s=document.getElementById('btStrategy')?.value||'asrs5';
   const tf=document.getElementById('btTimeframe');
-  if(tf) tf.value=(s==='asrs1'||s==='clbr1')?'1':'5';
+  const isEAO=s==='eao1';
+  if(tf) tf.value=(s==='asrs1'||s==='clbr1'||isEAO)?'1':'5';
+  const eaoEl=document.getElementById('eaoParams');
+  if(eaoEl) eaoEl.style.display=isEAO?'':'none';
   updateHdrStats();
 }
 
@@ -2018,6 +2041,7 @@ function aggregateTo5m(bars1m){
 
 function runBacktest(c5raw,p){
   const strategy=p.strategy||'asrs5';
+  if(strategy==='eao1') return runEAOBacktest(c5raw,p);
   const need5min=strategy==='asrs5'||strategy==='clbr5';
   const c5=need5min&&c5raw.length>0&&c5raw[0].hm!==undefined?aggregateTo5m(c5raw):c5raw;
   const daily=buildDailyBars(c5);
@@ -2212,6 +2236,122 @@ function runBacktest(c5raw,p){
       eqCurve.push(Math.round(equity*100)/100);eqDates.push(dateStr);
     }
   }
+  return{trades,eqCurve,eqDates,finalEquity:equity};
+}
+
+// ── REVERSAL EAO BACKTEST ─────────────────────────────────
+function runEAOBacktest(bars1m,p){
+  const near=p.eao_near||2, long_=p.eao_long||100, bodyPct=p.eao_body||50;
+  const sessEndH=p.eao_sess_end||11, longOnly=p.eao_long_only||false;
+  const maxDay=p.eao_max_day||2;
+  const slM=p.eao_sl_atr||1.5, rr=p.rr||2.0;
+  const pv=p.point_value||2, commRT=p.commission||1.74;
+  const ic=p.initial_capital||50000;
+
+  // Session window: RTH 9:30 → sessEnd:00
+  const sS=930, sE=sessEndH*100;
+  const df=p.date_from||'', dt=p.date_to||'';
+  const rtb=bars1m.filter(b=>{
+    if(b.hm<sS||b.hm>=sE) return false;
+    if(df&&b.dateStr<df) return false;
+    if(dt&&b.dateStr>dt) return false;
+    return true;
+  });
+
+  const n=rtb.length;
+  if(!n) return{trades:[],eqCurve:[ic],eqDates:['Inicio'],finalEquity:ic};
+
+  // Rolling min/max (O(n) deque)
+  function rolMin(arr,k){const res=new Float64Array(arr.length).fill(NaN),dq=[];for(let i=0;i<arr.length;i++){while(dq.length&&dq[0]<i-k+1)dq.shift();while(dq.length&&arr[dq[dq.length-1]]>=arr[i])dq.pop();dq.push(i);if(i>=k-1)res[i]=arr[dq[0]];}return res;}
+  function rolMax(arr,k){const res=new Float64Array(arr.length).fill(NaN),dq=[];for(let i=0;i<arr.length;i++){while(dq.length&&dq[0]<i-k+1)dq.shift();while(dq.length&&arr[dq[dq.length-1]]<=arr[i])dq.pop();dq.push(i);if(i>=k-1)res[i]=arr[dq[0]];}return res;}
+
+  const lows=rtb.map(b=>b.l), highs=rtb.map(b=>b.h);
+  const opens=rtb.map(b=>b.o), closes=rtb.map(b=>b.c);
+  const nearLow=rolMin(lows,near), nearHigh=rolMax(highs,near);
+  const longLow=rolMin(lows,long_), longHigh=rolMax(highs,long_);
+
+  // Daily ATR via Wilder (computed over full 1m data)
+  const daily=buildDailyBars(bars1m);
+  const atrMap=computeWilderATR(daily,14);
+
+  // Signal arrays
+  const buySig=new Uint8Array(n), sellSig=new Uint8Array(n);
+  const minI=Math.max(near,long_,5);
+  for(let i=minI;i<n;i++){
+    const o0=opens[i],h0=highs[i],l0=lows[i],c0=closes[i],o1=opens[i-1],c1=closes[i-1];
+    // Bull engulf conditions
+    const bc1=(c1<o1)&&(c0>o0), bc2=c0>o1;
+    let bc3=false;
+    for(let k=1;k<=4;k++){if(i-k>=0&&!isNaN(longLow[i-k])&&longLow[i-k]>nearLow[i]){bc3=true;break;}}
+    const bL=c0-o0,dL=(bL+(h0-c0));const strL=bL>0&&dL>0?bL/dL*100:0;
+    if(bc1&&bc2&&bc3&&strL>=bodyPct) buySig[i]=1;
+    // Bear engulf conditions
+    const sc1=(c1>o1)&&(c0<o0), sc2=c0<o1;
+    let sc3=false;
+    for(let k=1;k<=4;k++){if(i-k>=0&&!isNaN(longHigh[i-k])&&longHigh[i-k]<nearHigh[i]){sc3=true;break;}}
+    const bS=o0-c0,dS=(bS+(c0-l0));const strS=bS>0&&dS>0?bS/dS*100:0;
+    if(sc1&&sc2&&sc3&&!longOnly&&strS>=bodyPct) sellSig[i]=1;
+  }
+
+  // Process trade loop
+  const trades=[]; const eqCurve=[ic],eqDates=['Inicio'];
+  let equity=ic;
+  let inTrade=false,tDir=0,entry=0,sl=0,tp=0,ctrs=1;
+  let entryDate='',entryTime='',entryTsSec=0,tradeMAE=0,tradeMFE=0;
+  let prevDate=null,dayCount=0;
+
+  function pushTrade(exitP,reason,b){
+    const pnlPts=tDir===1?exitP-entry:entry-exitP;
+    const commVal=ctrs*commRT,pnlG=pnlPts*pv*ctrs,pnlN=pnlG-commVal;
+    equity+=pnlN;
+    trades.push({date:entryDate,entryTime,exitTime:b.timeStr||'—',
+      entryTsSec,exitTsSec:b.tsSec||0,
+      dir:tDir===1?'LONG':'SHORT',signalBar:'EAO',isWeak:false,
+      entry,sl,tp,exit:exitP,reason,contracts:ctrs,
+      mae:Math.round(tradeMAE*100)/100,mfe:Math.round(tradeMFE*100)/100,
+      commission:Math.round(commVal*100)/100,
+      pnlGross:Math.round(pnlG*100)/100,pnl:Math.round(pnlN*100)/100,
+      equity:Math.round(equity*100)/100});
+    eqCurve.push(Math.round(equity*100)/100);eqDates.push(entryDate);
+    inTrade=false;
+  }
+
+  for(let i=0;i<n;i++){
+    const b=rtb[i],ds=b.dateStr;
+    // Day boundary
+    if(prevDate!==null&&ds!==prevDate){
+      if(inTrade) pushTrade(rtb[i-1].c,'EOD',rtb[i-1]);
+      prevDate=ds;dayCount=0;
+    } else if(prevDate===null){prevDate=ds;dayCount=0;}
+
+    if(inTrade){
+      if(tDir===1){tradeMAE=Math.max(tradeMAE,entry-b.l);tradeMFE=Math.max(tradeMFE,b.h-entry);}
+      else{tradeMAE=Math.max(tradeMAE,b.h-entry);tradeMFE=Math.max(tradeMFE,entry-b.l);}
+      const slHit=tDir===1?b.l<=sl:b.h>=sl;
+      const tpHit=tp>0&&(tDir===1?b.h>=tp:b.l<=tp);
+      if(slHit&&tpHit){const ds=Math.abs(b.o-sl),dt2=Math.abs(b.o-tp);pushTrade(ds<=dt2?sl:tp,ds<=dt2?'SL':'TP',b);}
+      else if(slHit) pushTrade(sl,'SL',b);
+      else if(tpHit) pushTrade(tp,'TP',b);
+    } else if(dayCount<maxDay&&i>0){
+      const atr=atrMap[ds]||0;
+      if(atr>0){
+        const slPts=slM*atr;
+        ctrs=p.risk_mode==='usd'&&slPts>0&&pv>0?Math.max(1,Math.round(p.risk_usd/(slPts*pv))):1;
+        if(buySig[i]){
+          entry=b.c;sl=+(entry-slPts).toFixed(2);
+          const risk=Math.abs(entry-sl);tp=risk>0?+(entry+rr*risk).toFixed(2):0;
+          tDir=1;inTrade=true;entryDate=ds;entryTime=b.timeStr||'—';
+          entryTsSec=b.tsSec||0;tradeMAE=0;tradeMFE=0;dayCount++;
+        } else if(!longOnly&&sellSig[i]){
+          entry=b.c;sl=+(entry+slPts).toFixed(2);
+          const risk=Math.abs(entry-sl);tp=risk>0?+(entry-rr*risk).toFixed(2):0;
+          tDir=-1;inTrade=true;entryDate=ds;entryTime=b.timeStr||'—';
+          entryTsSec=b.tsSec||0;tradeMAE=0;tradeMFE=0;dayCount++;
+        }
+      }
+    }
+  }
+  if(inTrade&&n>0) pushTrade(rtb[n-1].c,'EOD',rtb[n-1]);
   return{trades,eqCurve,eqDates,finalEquity:equity};
 }
 
@@ -4669,7 +4809,14 @@ async function startBacktest(){
     point_value:parseFloat(document.getElementById('point_value').value),
     commission:parseFloat(document.getElementById('commission').value),
     initial_capital:parseFloat(document.getElementById('initial_capital').value),
-    rr
+    rr,
+    eao_near:parseInt(document.getElementById('eao_near')?.value||2),
+    eao_long:parseInt(document.getElementById('eao_long')?.value||100),
+    eao_body:parseInt(document.getElementById('eao_body')?.value||50),
+    eao_sess_end:parseInt(document.getElementById('eao_sess_end')?.value||11),
+    eao_sl_atr:parseFloat(document.getElementById('eao_sl_atr')?.value||1.5),
+    eao_max_day:parseInt(document.getElementById('eao_max_day')?.value||2),
+    eao_long_only:document.getElementById('eao_long_only')?.checked||false
   };
   p_global=params;
   const btn=document.getElementById('btnRun');
