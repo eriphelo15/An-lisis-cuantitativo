@@ -51,13 +51,14 @@ class Backtester:
         reglas: ReglasCompania,
         config: ConfigBot = BOT_CONFIG,
         ventana_datos: int = 100,
+        estrategia: str = "todas",
     ):
         self.reglas = reglas
         self.config = config
         self.ventana = ventana_datos
 
         self.gestor_riesgo = GestorRiesgo(reglas, config)
-        self.estrategias = self._inicializar_estrategias()
+        self.estrategias = self._inicializar_estrategias(estrategia)
 
         self.trades: List[Trade] = []
         self._trade_abierto: Optional[Trade] = None
@@ -117,9 +118,6 @@ class Backtester:
 
             # Buscar señal en cada estrategia activa
             for estrategia in self.estrategias:
-                if estrategia.nombre not in self.config.estrategias_activas:
-                    continue
-
                 senal = estrategia.calcular_senal(ventana)
                 if senal:
                     self._abrir_trade(senal, ts)
@@ -226,11 +224,19 @@ class Backtester:
               f"{datos_raw.index[0].date()} → {datos_raw.index[-1].date()}")
         return datos_raw
 
-    def _inicializar_estrategias(self):
-        return [
-            EstrategiaORB(multiplicador_tp=2.0, min_rango_puntos=5, max_rango_puntos=150),
-            EstrategiaVWAP(sd_entrada=2.0, rsi_sobrecompra=70, rsi_sobreventa=30),
-        ]
+    def _inicializar_estrategias(self, estrategia: str = "todas"):
+        from .estrategias.reversal_eao import EstrategiaReversalEAO
+        opciones = {
+            "orb":      [EstrategiaORB(multiplicador_tp=2.0, min_rango_puntos=5, max_rango_puntos=150)],
+            "vwap":     [EstrategiaVWAP(sd_entrada=2.0, rsi_sobrecompra=70, rsi_sobreventa=30)],
+            "reversal": [EstrategiaReversalEAO()],
+            "todas":    [
+                EstrategiaORB(multiplicador_tp=2.0, min_rango_puntos=5, max_rango_puntos=150),
+                EstrategiaVWAP(sd_entrada=2.0, rsi_sobrecompra=70, rsi_sobreventa=30),
+                EstrategiaReversalEAO(),
+            ],
+        }
+        return opciones.get(estrategia, opciones["todas"])
 
 
 @dataclass
