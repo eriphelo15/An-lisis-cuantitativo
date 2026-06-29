@@ -260,7 +260,11 @@ details.rp-sec[open]>summary::after{transform:rotate(-90deg)}
 .stat-card{background:#2a2e39;border-radius:4px;padding:8px;text-align:center}
 .stat-lbl{font-size:8px;color:var(--dim);text-transform:uppercase;letter-spacing:.8px;margin-bottom:3px}
 .stat-val{font-size:15px;font-weight:700}
-.stats-tbl{overflow:auto;max-height:180px;margin-bottom:10px}
+.stats-tbl{overflow:auto;max-height:160px;margin-bottom:8px}
+#eqCanvas{display:block;width:100%;height:70px;margin:0 0 8px;border-radius:4px;background:#1a1d27}
+.auto-badge{font-size:9px;background:rgba(41,98,255,.15);color:var(--acc);border:1px solid rgba(41,98,255,.3);border-radius:3px;padding:1px 5px;font-weight:700;letter-spacing:.5px;margin-left:4px}
+.run-btn{background:rgba(41,98,255,.15);color:var(--acc);border:1px solid rgba(41,98,255,.3);border-radius:3px;padding:3px 10px;font-weight:700;font-size:11px}
+.run-btn:hover{background:rgba(41,98,255,.25)}
 .stats-tbl table{width:100%;border-collapse:collapse;font-size:10px}
 .stats-tbl th{color:var(--dim);text-align:left;padding:3px 5px;border-bottom:1px solid var(--bdr)}
 .stats-tbl td{padding:3px 5px;border-bottom:1px solid var(--bdr2)}
@@ -295,8 +299,9 @@ details.rp-sec[open]>summary::after{transform:rotate(-90deg)}
 <!-- ═══ STATS ═══ -->
 <div id="statsPanel">
   <div class="stats-box">
-    <div class="stats-ttl">Resumen de Sesión</div>
+    <div class="stats-ttl" id="statsTtl">Resumen de Sesión</div>
     <div class="stats-grid" id="statsGrid"></div>
+    <canvas id="eqCanvas" height="70"></canvas>
     <div class="stats-tbl"><table>
       <thead><tr><th>#</th><th>Dir</th><th>Entrada</th><th>Salida</th><th>P&amp;L</th><th>R</th><th>MAE</th><th>MFE</th></tr></thead>
       <tbody id="statsBody"></tbody>
@@ -517,6 +522,16 @@ details.rp-sec[open]>summary::after{transform:rotate(-90deg)}
             <div class="cfg-item"><label>Sesión fin (h)</label><input type="number" id="revSessEnd" value="11" min="9" max="16"></div>
           </div>
           <label class="cb-row"><input type="checkbox" id="revLongOnly"> Long Bias</label>
+          <div class="ind-sep" style="margin:6px 0"></div>
+          <label class="cb-row"><input type="checkbox" id="cfgAutoExec" onchange="toggleAutoOpts(this)"> Auto-ejecutar señales <span class="auto-badge" id="autoBadge" style="display:none">ACTIVO</span></label>
+          <div id="autoExecOpts" style="display:none;margin-top:6px">
+            <div class="cfg-grid">
+              <div class="cfg-item"><label>Max trades/día</label><input type="number" id="cfgMaxDay" value="2" min="1" max="5"></div>
+              <div class="cfg-item"><label>Dirección</label>
+                <select id="cfgDir"><option value="both">Ambas</option><option value="long">Solo LONG</option><option value="short">Solo SHORT</option></select>
+              </div>
+            </div>
+          </div>
         </div>
       </details>
 
@@ -567,6 +582,7 @@ details.rp-sec[open]>summary::after{transform:rotate(-90deg)}
     <div class="bar-num" id="barNum">—</div>
     <div class="ft-sep"></div>
     <button class="sig-toggle on" id="sigToggle" onclick="toggleSignals()">EAO ◉</button>
+    <button class="run-btn" id="btnRunAll" onclick="runFullBacktest()">⚡ RUN ALL</button>
     <button class="ctrl-btn" onclick="showStats()">📊 Stats</button>
     <button class="ctrl-btn" onclick="location.reload()">⊕ Nuevo</button>
   </div>
@@ -691,6 +707,7 @@ let entryLine=null,slLine=null,tpLine=null;
 let autoTimer=null,autoSpeed=700;
 let currentPos=null,closedTrades=[],totalPnL=0,peakCapital=50000,maxDD=0;
 let showSignals=true,showVol=true,showVwap=true,showEma20=true,showEma50=true,showSess=true;
+let _batchRun=false;
 const dayNotes={};
 
 // ═══════════════════════════════════════════════════════════════════════
@@ -1047,7 +1064,19 @@ function stepReplay(n){
   if(n<0&&currentPos) return;
   const next=Math.max(0,Math.min(replayBars.length-1,curIdx+n));
   if(next===curIdx){if(curIdx===replayBars.length-1){toast('Fin de sesión','info');stopPlay();}return;}
-  curIdx=next;checkSLTP();render();updateHUD();updateSuggestSLTP();
+  curIdx=next;checkSLTP();
+  // Auto-execute EAO strategy in manual replay mode
+  if(!currentPos&&document.getElementById('cfgAutoExec')?.checked){
+    const b=replayBars[curIdx];
+    const maxD=parseInt(document.getElementById('cfgMaxDay').value)||2;
+    const dayT=closedTrades.filter(t=>t.date===b.dateStr).length;
+    const dir=document.getElementById('cfgDir').value;
+    if(dayT<maxD){
+      if(b._buy&&dir!=='short') openPos('LONG');
+      else if(b._sell&&dir!=='long') openPos('SHORT');
+    }
+  }
+  render();updateHUD();updateSuggestSLTP();
   if(currentPos) updatePosPanel();
   updatePropLimits();
 }
@@ -1239,6 +1268,90 @@ function setSpeed(ms,el){
   autoSpeed=ms;document.querySelectorAll('.spd-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');
   if(autoTimer){stopPlay();togglePlay();}
 }
+function toggleAutoOpts(cb){
+  document.getElementById('autoExecOpts').style.display=cb.checked?'':'none';
+  document.getElementById('autoBadge').style.display=cb.checked?'':'none';
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// FULL BACKTEST (instant run, EAO strategy)
+// ═══════════════════════════════════════════════════════════════════════
+function runFullBacktest(){
+  if(!replayBars.length){toast('Carga un CSV primero','info');return;}
+  if(!document.getElementById('cfgAutoExec')?.checked){
+    toast('Activa "Auto-ejecutar señales" antes','info');return;
+  }
+  _batchRun=true;
+  // Reset
+  closedTrades=[];totalPnL=0;
+  const cap0=parseFloat(document.getElementById('cfgCapital').value)||50000;
+  peakCapital=cap0;maxDD=0;currentPos=null;
+  document.getElementById('tlogWrap').innerHTML='';
+  clearLines();
+
+  const maxDay=parseInt(document.getElementById('cfgMaxDay').value)||2;
+  const dirCfg=document.getElementById('cfgDir').value;
+  const slM=parseFloat(document.getElementById('cfgSL').value)||1.5;
+  const tpM=parseFloat(document.getElementById('cfgTP').value)||2.0;
+  const ctrs=parseInt(document.getElementById('cfgCtrs').value)||1;
+  const pv=PV[document.getElementById('cfgInst').value]||2;
+  const comm=parseFloat(document.getElementById('cfgComm').value)||0.62;
+
+  for(let i=1;i<replayBars.length;i++){
+    const b=replayBars[i],prev=replayBars[i-1];
+    // Day-end close
+    if(currentPos&&prev.dateStr!==b.dateStr) _closeSilent(prev.c,'day_end',prev);
+    // SL/TP check
+    if(currentPos){
+      const long=currentPos.dir==='LONG';
+      currentPos.bars++;
+      currentPos.mae=Math.min(currentPos.mae,long?b.l-currentPos.entry:currentPos.entry-b.h);
+      currentPos.mfe=Math.max(currentPos.mfe,long?b.h-currentPos.entry:currentPos.entry-b.l);
+      if(currentPos.sl&&(long?b.l<=currentPos.sl:b.h>=currentPos.sl)){_closeSilent(currentPos.sl,'sl',b);continue;}
+      if(currentPos.tp&&(long?b.h>=currentPos.tp:b.l<=currentPos.tp)){_closeSilent(currentPos.tp,'tp',b);continue;}
+    }
+    // Auto entry
+    if(!currentPos&&b._atr>0){
+      const dayT=closedTrades.filter(t=>t.date===b.dateStr).length;
+      if(dayT<maxDay){
+        if(b._buy&&dirCfg!=='short'){
+          const sl=+(b.c-slM*b._atr).toFixed(2),risk=Math.abs(b.c-sl);
+          const tp=risk>0?+(b.c+tpM*risk).toFixed(2):0;
+          currentPos={dir:'LONG',entry:b.c,sl,tp,ctrs,mae:0,mfe:0,bars:0,date:b.dateStr};
+        } else if(b._sell&&dirCfg!=='long'){
+          const sl=+(b.c+slM*b._atr).toFixed(2),risk=Math.abs(b.c-sl);
+          const tp=risk>0?+(b.c-tpM*risk).toFixed(2):0;
+          currentPos={dir:'SHORT',entry:b.c,sl,tp,ctrs,mae:0,mfe:0,bars:0,date:b.dateStr};
+        }
+      }
+    }
+  }
+  // Close last position
+  if(currentPos){const last=replayBars[replayBars.length-1];_closeSilent(last.c,'day_end',last);}
+
+  _batchRun=false;
+  closedTrades.forEach(t=>addTradeLog(t));
+  curIdx=replayBars.length-1;render();updateHUD();updatePropLimits();
+  showStats('Reversal EAO · Backtest Completo');
+}
+
+function _closeSilent(exitPrice,reason,b){
+  if(!currentPos) return;
+  const long=currentPos.dir==='LONG';
+  const pv=PV[document.getElementById('cfgInst').value]||2;
+  const comm=parseFloat(document.getElementById('cfgComm').value)||0.62;
+  const pnlPts=long?(exitPrice-currentPos.entry):(currentPos.entry-exitPrice);
+  const pnl=pnlPts*pv*currentPos.ctrs-comm*currentPos.ctrs;
+  const risk=Math.abs(currentPos.entry-(currentPos.sl||currentPos.entry));
+  const R=risk>0?(pnlPts/risk).toFixed(2):'—';
+  totalPnL+=pnl;
+  const cap=parseFloat(document.getElementById('cfgCapital').value)||50000;
+  peakCapital=Math.max(peakCapital,cap+totalPnL);
+  maxDD=Math.max(maxDD,peakCapital-(cap+totalPnL));
+  closedTrades.push({n:closedTrades.length+1,dir:currentPos.dir,entry:currentPos.entry,exit:exitPrice,pnl,R,mae:currentPos.mae,mfe:currentPos.mfe,bars:currentPos.bars,reason,date:currentPos.date});
+  currentPos=null;
+}
+
 function toggleSignals(){
   showSignals=!showSignals;IND_STATE.eao=showSignals;
   const bt=document.getElementById('sigToggle');bt.textContent=showSignals?'EAO ◉':'EAO ○';bt.classList.toggle('on',showSignals);
@@ -1256,8 +1369,9 @@ function addTradeLog(t){
   wrap.appendChild(row);wrap.scrollTop=wrap.scrollHeight;
 }
 
-function showStats(){
+function showStats(title){
   if(!closedTrades.length){toast('Sin trades aún','info');return;}
+  document.getElementById('statsTtl').textContent=title||'Resumen de Sesión';
   const tot=closedTrades.length,wins=closedTrades.filter(t=>t.pnl>0).length;
   const wr=(wins/tot*100).toFixed(1);
   const gW=closedTrades.filter(t=>t.pnl>0).reduce((s,t)=>s+t.pnl,0);
@@ -1278,6 +1392,40 @@ function showStats(){
   `;
   document.getElementById('statsBody').innerHTML=closedTrades.map(t=>`<tr><td>${t.n}</td><td style="color:${t.dir==='LONG'?'var(--green)':'var(--red)'}">${t.dir[0]}</td><td>${t.entry.toFixed(2)}</td><td>${t.exit.toFixed(2)}</td><td style="color:${t.pnl>=0?'var(--green)':'var(--red)'}">${t.pnl>=0?'+':''}$${t.pnl.toFixed(0)}</td><td>${t.R}R</td><td>${t.mae.toFixed(1)}</td><td>${t.mfe.toFixed(1)}</td></tr>`).join('');
   document.getElementById('statsPanel').style.display='flex';
+  // Draw equity curve
+  requestAnimationFrame(()=>{
+    const cv=document.getElementById('eqCanvas');
+    if(!cv||!closedTrades.length) return;
+    cv.width=cv.offsetWidth||520;
+    const ctx=cv.getContext('2d');
+    const cap=parseFloat(document.getElementById('cfgCapital').value)||50000;
+    let run=cap;
+    const pts=[cap,...closedTrades.map(t=>{run+=t.pnl;return run;})];
+    const mn=Math.min(...pts),mx=Math.max(...pts),rng=mx-mn||1;
+    const W=cv.width,H=cv.height,pad=4;
+    ctx.clearRect(0,0,W,H);
+    ctx.beginPath();
+    pts.forEach((v,i)=>{
+      const x=pad+(i/(pts.length-1||1))*(W-2*pad);
+      const y=H-pad-((v-mn)/rng)*(H-2*pad);
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    });
+    const lastPnl=pts[pts.length-1]-cap;
+    const lc=lastPnl>=0?'#26a69a':'#ef5350';
+    ctx.strokeStyle=lc;ctx.lineWidth=1.5;ctx.stroke();
+    // Fill
+    ctx.lineTo(W-pad,H-pad);ctx.lineTo(pad,H-pad);ctx.closePath();
+    const g=ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0,lastPnl>=0?'rgba(38,166,154,.25)':'rgba(239,83,80,.25)');
+    g.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=g;ctx.fill();
+    // Zero line (if PnL crosses zero)
+    if(mn<cap&&mx>cap){
+      const zy=H-pad-((cap-mn)/rng)*(H-2*pad);
+      ctx.save();ctx.beginPath();ctx.moveTo(pad,zy);ctx.lineTo(W-pad,zy);
+      ctx.strokeStyle='rgba(120,123,134,.5)';ctx.lineWidth=1;ctx.setLineDash([3,3]);ctx.stroke();ctx.restore();
+    }
+  });
 }
 function closeStats(){document.getElementById('statsPanel').style.display='none';}
 
@@ -1285,7 +1433,10 @@ function closeStats(){document.getElementById('statsPanel').style.display='none'
 // TOAST + KEYBOARD
 // ═══════════════════════════════════════════════════════════════════════
 let _tt=null;
-function toast(msg,type='info'){const el=document.getElementById('toast');el.textContent=msg;el.className=`toast ${type} show`;clearTimeout(_tt);_tt=setTimeout(()=>el.classList.remove('show'),2800);}
+function toast(msg,type='info'){
+  if(_batchRun) return;
+  const el=document.getElementById('toast');el.textContent=msg;el.className=`toast ${type} show`;clearTimeout(_tt);_tt=setTimeout(()=>el.classList.remove('show'),2800);
+}
 
 document.addEventListener('keydown',e=>{
   if(['INPUT','SELECT','TEXTAREA'].includes(e.target.tagName)) return;
