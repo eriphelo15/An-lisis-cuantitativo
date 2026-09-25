@@ -3,3 +3,5 @@ __pycache__/
 *.egg-info/
 hermes/.env
 hermes/datos/
+maestros/.env
+maestros/datos/
