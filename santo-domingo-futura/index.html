@@ -1,0 +1,831 @@
+<title>Santo Domingo Futura</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0B111C; --panel:#111A29; --panel2:#16213343; --line:#22304A; --ink:#E7ECF4; --muted:#8C99AF;
+  --sea:#35D0C0; --warm:#FFB45E; --alert:#FF5A5F; --water:#4AA8FF; --ok:#4AD07A; --amber:#F5B842;
+  --display:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;
+  --body:'Instrument Sans','Segoe UI',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--body);padding-inline:16px;padding-block:22px 48px}
+.wrap{max-width:1440px;margin:0 auto;display:grid;gap:16px}
+header{display:flex;flex-wrap:wrap;gap:10px 32px;align-items:end;justify-content:space-between}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin-bottom:8px}
+h1{font:900 clamp(44px,8vw,92px)/.85 var(--display);letter-spacing:.01em;margin:0;text-transform:uppercase}
+h1 span{color:var(--sea)}
+header p{margin:0;color:var(--muted);max-width:60ch}
+
+.controls{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:end;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.grp{display:grid;gap:7px}
+.grp>span{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.seg{display:flex;flex-wrap:wrap;gap:4px}
+button{font:600 13px/1 var(--body);padding:10px 13px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;border-radius:3px}
+button:hover{color:var(--ink);border-color:var(--muted)}
+button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.mode button{font:800 18px/1 var(--display);letter-spacing:.06em;text-transform:uppercase;padding:9px 16px}
+.mode button[data-m="hoy"][aria-pressed="true"]{background:var(--warm);border-color:var(--warm);color:#1b1206}
+.mode button[data-m="futura"][aria-pressed="true"]{background:var(--sea);border-color:var(--sea);color:#04201c}
+.ev button{border-color:#33415e;color:var(--ink)}
+.ev button.run{border-color:var(--sea);color:var(--sea)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--sea);outline-offset:2px}
+.sl{display:flex;align-items:center;gap:8px}
+.sl input{width:120px;accent-color:var(--sea)}
+.sl output{font:500 13px/1 var(--mono);min-width:62px;font-variant-numeric:tabular-nums}
+.chk{display:flex;gap:4px;flex-wrap:wrap}
+
+.main{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;align-items:start}
+@media (max-width:980px){.main{grid-template-columns:1fr}}
+.stage{position:relative;height:clamp(460px,74vh,860px);background:#0d1626;border:1px solid var(--line);overflow:hidden;touch-action:none}
+.stage canvas{display:block;width:100%!important;height:100%!important}
+#labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.lb{position:absolute;left:0;top:0;transform:translate(-50%,-100%);white-space:nowrap;font:500 11px/1.2 var(--mono);letter-spacing:.04em;color:#dfe7f2;text-shadow:0 1px 3px #000,0 0 8px #000;padding-bottom:4px}
+.lb.big{font:800 15px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:#c6d3e6}
+.lb.geo{font:600 12px/1 var(--mono);letter-spacing:.3em;text-transform:uppercase;color:#6fa3c8}
+.lb.sub{background:#0b111ccc;border:1px solid var(--line);padding:3px 6px;border-radius:3px;transform:translate(-50%,-130%);text-shadow:none}
+.lb.sub b{font-weight:600}
+.lb.sub.warn{border-color:var(--amber);color:var(--amber)}
+.lb.sub.trip{border-color:var(--alert);color:var(--alert)}
+.lb.sub.isla{border-color:var(--sea);color:var(--sea)}
+.lb.flood{color:#9fd0ff}
+.hint{position:absolute;left:10px;bottom:10px;font:500 11px/1.3 var(--mono);color:#c8d3e3;background:#0b111cd9;border:1px solid var(--line);padding:6px 9px;max-width:calc(100% - 20px)}
+.clock{position:absolute;right:10px;top:10px;font:600 13px/1 var(--mono);background:#0b111cd9;border:1px solid var(--line);padding:7px 10px;font-variant-numeric:tabular-nums}
+.clock i{font-style:normal;color:var(--muted);margin-right:6px}
+.views{position:absolute;left:10px;top:10px;display:flex;flex-wrap:wrap;gap:4px;max-width:calc(100% - 150px)}
+.views button{background:#0b111cd9;font-size:12px;padding:7px 9px}
+.fallback{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px;color:var(--muted)}
+
+aside{display:grid;gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);padding:14px}
+.card h2{font:800 20px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;margin:0 0 10px;display:flex;justify-content:space-between;align-items:center}
+.card h2 small{font:500 11px/1 var(--mono);letter-spacing:.08em;color:var(--muted)}
+.row{display:flex;justify-content:space-between;gap:10px;padding:4px 0;font-size:14px}
+.row span:first-child{color:var(--muted)}
+.row b{font:600 14px/1.3 var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.bar{height:8px;background:#1d2a40;border-radius:2px;overflow:hidden;margin:6px 0 4px}
+.bar i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s,background .3s}
+.pill{font:600 11px/1 var(--mono);padding:4px 7px;border-radius:2px;letter-spacing:.06em}
+.pill.ok{background:#173a28;color:var(--ok)} .pill.warn{background:#3d3012;color:var(--amber)} .pill.bad{background:#3f1618;color:var(--alert)}
+#log{list-style:none;margin:0;padding:0;display:grid;gap:0;max-height:300px;overflow:auto}
+#log li{display:grid;grid-template-columns:44px 1fr;gap:8px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13px;line-height:1.35}
+#log li time{font:500 11px/1.5 var(--mono);color:var(--muted)}
+#log li.bad{color:#ffb3b5} #log li.good{color:#9ff0e6} #log li.water{color:#b8dcff}
+
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px 32px;border-top:1px solid var(--line);padding-top:20px}
+.notes h3{font:800 20px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+.notes p,.notes li{color:var(--muted);font-size:14px;max-width:62ch}
+.notes ul{margin:0;padding-left:18px;display:grid;gap:5px}
+.notes b{color:var(--ink);font-weight:600}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Distrito Nacional · República Dominicana · simulación 3D</div>
+      <h1>Santo Domingo <span>Futura</span></h1>
+    </div>
+    <p>Nuestra versión de la capital: la misma geografía, con el Malecón, el Ozama y la Zona Colonial, pero con una red eléctrica, un drenaje y un transporte hechos para el calor, las tormentas y el tráfico. Provoca un evento y compara cómo reacciona la ciudad de hoy contra la ciudad futura.</p>
+  </header>
+
+  <div class="controls">
+    <div class="grp"><span>Ciudad</span>
+      <div class="seg mode" id="mode">
+        <button id="m-hoy" data-m="hoy" aria-pressed="true">Hoy</button>
+        <button id="m-futura" data-m="futura" aria-pressed="false">Futura</button>
+      </div>
+    </div>
+    <div class="grp"><span>Provocar un evento</span>
+      <div class="seg ev" id="events">
+        <button id="e-heat" data-e="heat">Ola de calor</button>
+        <button id="e-storm" data-e="storm">Tormenta tropical</button>
+        <button id="e-rush" data-e="rush">Hora pico + juego en el Quisqueya</button>
+        <button id="e-reset" data-e="reset">Restablecer</button>
+      </div>
+    </div>
+    <div class="grp"><span>Condiciones</span>
+      <div class="seg">
+        <label class="sl">Temp. <input type="range" id="sT" min="28" max="40" step="0.5" value="31"><output id="oT">31 °C</output></label>
+        <label class="sl">Lluvia <input type="range" id="sR" min="0" max="120" step="1" value="0"><output id="oR">0 mm/h</output></label>
+        <label class="sl">Tráfico <input type="range" id="sK" min="50" max="150" step="5" value="100"><output id="oK">100 %</output></label>
+      </div>
+    </div>
+    <div class="grp"><span>Capas</span>
+      <div class="chk" id="layers">
+        <button id="ly-e" data-l="e" aria-pressed="true">Electricidad</button>
+        <button id="ly-w" data-l="w" aria-pressed="true">Agua</button>
+        <button id="ly-t" data-l="t" aria-pressed="true">Tráfico</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="stage" id="stage">
+      <div id="labels"></div>
+      <div class="views" id="views">
+        <button data-v="general">General</button>
+        <button data-v="colonial">Zona Colonial</button>
+        <button data-v="poligono">Polígono Central</button>
+        <button data-v="norte">Norte y ríos</button>
+        <button data-v="mar">Desde el mar</button>
+      </div>
+      <div class="clock"><i>hora simulada</i><span id="clock">17:00</span></div>
+      <div class="hint" id="hint">Haz clic en una subestación para sobrecargarla · arrastra para girar · rueda para acercar</div>
+    </div>
+
+    <aside>
+      <div class="card">
+        <h2>Electricidad <span class="pill ok" id="p-e">normal</span></h2>
+        <div class="row"><span>Demanda / capacidad</span><b id="m-mw">— MW</b></div>
+        <div class="bar"><i id="b-mw"></i></div>
+        <div class="row"><span>Subestaciones en servicio</span><b id="m-subs">7 de 7</b></div>
+        <div class="row"><span>Personas sin luz</span><b id="m-dark">0</b></div>
+        <div class="row" id="r-bat" hidden><span>Baterías</span><b id="m-bat">100 %</b></div>
+      </div>
+      <div class="card">
+        <h2>Agua <span class="pill ok" id="p-w">normal</span></h2>
+        <div class="row"><span>Lluvia</span><b id="m-rain">0 mm/h</b></div>
+        <div class="row"><span>Drenaje más cargado</span><b id="m-drain">0 %</b></div>
+        <div class="bar"><i id="b-drain"></i></div>
+        <div class="row"><span>Puntos inundados</span><b id="m-flood">0</b></div>
+        <div class="row"><span>Personas sin presión de agua</span><b id="m-nowater">0</b></div>
+      </div>
+      <div class="card">
+        <h2>Tráfico <span class="pill ok" id="p-t">fluido</span></h2>
+        <div class="row"><span>Velocidad promedio</span><b id="m-speed">— km/h</b></div>
+        <div class="bar"><i id="b-speed"></i></div>
+        <div class="row"><span>Piantini → Zona Colonial</span><b id="m-trip">— min</b></div>
+        <div class="row"><span>Vehículos en la calle</span><b id="m-cars">—</b></div>
+      </div>
+      <div class="card">
+        <h2>Qué está pasando <small id="modeTag">HOY</small></h2>
+        <ul id="log"></ul>
+      </div>
+    </aside>
+  </div>
+
+  <section class="notes">
+    <div>
+      <h3>Qué cambia en la Futura</h3>
+      <ul>
+        <li><b>Energía:</b> paneles solares en los techos, baterías en cada subestación y un parque eólico frente al Malecón. Cada sector funciona como microrred: si falla, se aísla en vez de pasarle la carga al vecino.</li>
+        <li><b>Agua:</b> drenaje con más capacidad, parques esponja en las cañadas y un túnel de drenaje bajo la 27 de Febrero que desagua en el Ozama. Las bombas de agua tienen respaldo.</li>
+        <li><b>Movilidad:</b> Metro Línea 3 por la 27 de Febrero, tranvía del Malecón, BRT en la Churchill y semáforos con batería.</li>
+        <li><b>Ciudad:</b> torres de uso mixto en el Polígono Central y el Malecón, techos verdes y vivienda renovada en los barrios del norte.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Qué es real y qué es estimado</h3>
+      <p>La geografía es real pero simplificada: la costa, los ríos Ozama e Isabela, los sectores, las grandes avenidas, el Metro L1 y L2 y el Teleférico están donde van. Los edificios son volúmenes generados, no los reales, y su altura está exagerada tres veces para que se lean.</p>
+      <p>Las cifras (megavatios, capacidad del drenaje, número de vehículos) son estimaciones ilustrativas para una ciudad de aproximadamente un millón de habitantes, no datos oficiales. Sirven para comparar los dos modelos de ciudad, no para planificar obras.</p>
+    </div>
+    <div>
+      <h3>Cómo usarla</h3>
+      <ul>
+        <li>Elige <b>Hoy</b> o <b>Futura</b> y provoca un evento. Luego repítelo en la otra ciudad.</li>
+        <li>Haz clic en una subestación para sobrecargarla y mira cómo se propaga el apagón calle por calle.</li>
+        <li>Sube la lluvia y mira qué pasos a desnivel se inundan y cómo se frena el tráfico.</li>
+        <li>Apaga capas para ver cada sistema por separado.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+const stage=document.getElementById('stage');
+if(!window.THREE||!THREE.OrbitControls){
+  stage.insertAdjacentHTML('beforeend','<div class="fallback">No se pudo cargar el visor 3D. Revisa tu conexión y recarga la página.</div>');
+  return;
+}
+const W=THREE, $=id=>document.getElementById(id);
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const rnd=(()=>{let s=20260925;return()=>{s=(s*1664525+1013904223)>>>0;return s/4294967296;};})();
+const lerp=(a,b,t)=>a+(b-a)*t, clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const fmtN=n=>Math.round(n).toLocaleString('es-DO');
+
+// ================= DATOS (1 unidad = 100 m; x = este, z = sur, costa en z≈0) =================
+const DIST=[
+ {n:'Zona Colonial',pop:10000,mw:12,rects:[[29,36.5,-7,-0.9]],h:[0.22,0.45],tall:0,dr:30,sub:0,c:[33,-4]},
+ {n:'Gazcue',pop:35000,mw:30,rects:[[17,29,-9,-0.9]],h:[0.3,0.9],tall:.04,tallH:[1.4,2.2],dr:30,sub:0,c:[23,-5]},
+ {n:'Malecón',pop:40000,mw:55,rects:[[-40,17,-4,-0.9]],h:[0.4,1.1],tall:.3,tallH:[2,4],dr:35,sub:1,c:[-10,-2.5]},
+ {n:'La Esperilla y Centro',pop:70000,mw:60,rects:[[5,17,-18,-4]],h:[0.3,1.0],tall:.1,tallH:[1.5,3],dr:25,sub:1,c:[11,-12]},
+ {n:'Piantini y Naco',pop:90000,mw:140,rects:[[-14,5,-26,-4],[-14,0,-30,-26]],h:[0.5,1.4],tall:.35,tallH:[2.4,5],dr:25,sub:2,c:[-5,-15]},
+ {n:'Bella Vista y El Millón',pop:170000,mw:110,rects:[[-40,-14,-30,-4]],h:[0.3,1.0],tall:.1,tallH:[1.8,3.4],dr:30,sub:3,c:[-27,-20]},
+ {n:'Herrera y Los Prados',pop:180000,mw:95,rects:[[-72,-40,-40,-0.9]],h:[0.2,0.6],tall:.02,tallH:[1,1.6],dr:20,sub:4,c:[-56,-20]},
+ {n:'Arroyo Hondo',pop:90000,mw:70,rects:[[-40,0,-52,-30]],h:[0.25,0.7],tall:.03,tallH:[1.2,2],dr:35,sub:5,c:[-28,-40]},
+ {n:'Cristo Rey y Gualey',pop:220000,mw:90,rects:[[0,27,-46,-26]],h:[0.2,0.55],tall:0,dr:18,sub:6,c:[13,-36]},
+ {n:'Villa Consuelo y La Fe',pop:125000,mw:78,rects:[[17,31,-26,-9],[5,17,-26,-18]],h:[0.2,0.6],tall:.02,tallH:[1,1.6],dr:20,sub:6,c:[22,-18]},
+ {n:'Santo Domingo Este',pop:0,mw:0,rects:[[39,74,-42,-0.9]],h:[0.2,0.55],tall:.02,tallH:[1,1.8],dr:30,sub:-1,c:[58,-25],ctx:1},
+];
+const SUB=[
+ {n:'Gazcue',p:[25.5,-7.2],cap:60,nb:[1]},
+ {n:'Malecón',p:[4,-6.6],cap:135,nb:[0,2]},
+ {n:'Naco',p:[-5.5,-17.8],cap:155,nb:[1,3,6]},
+ {n:'Bella Vista',p:[-27,-17],cap:125,nb:[2,4,5]},
+ {n:'Herrera',p:[-55,-17],cap:110,nb:[3]},
+ {n:'Arroyo Hondo',p:[-26,-46],cap:85,nb:[3,6]},
+ {n:'Isabela',p:[20,-44.5],cap:180,nb:[2,5],floodD:8},
+];
+SUB.forEach((s,i)=>{s.ds=DIST.map((d,j)=>d.sub===i?j:-1).filter(j=>j>=0);});
+const PLANTS=[{n:'Planta Haina',p:[-86,-3]},{n:'Planta Los Mina',p:[55,-27]}];
+const TLINES=[[['P',0],['S',4]],[['P',0],['S',3]],[['P',0],['S',1]],[['P',1],['S',6]],[['P',1],['S',0]],[['S',3],['S',2]],[['S',2],['S',5]],[['S',1],['S',2]]];
+
+const ROADS=[
+ {n:'Malecón',w:.75,pts:[[-74,-1.3],[-40,-1.5],[0,-1.2],[18,-1.1],[30,-1.0],[37,-1.0],[42,-0.9],[60,-1.4],[76,-2]]},
+ {n:'Av. Independencia',w:.5,pts:[[-40,-4.4],[-10,-4.5],[17,-4.4],[29,-4.3]]},
+ {n:'Av. 27 de Febrero',w:.95,pts:[[-74,-13],[-40,-13.5],[-14,-14],[5,-14],[17,-14],[29,-13.6],[36,-13.2],[46,-13]],main:1},
+ {n:'Av. John F. Kennedy',w:.95,pts:[[-74,-22],[-40,-22.5],[-14,-22],[5,-22],[17,-21.6],[30,-21.2],[36,-21.2],[46,-21.5]],main:1},
+ {n:'Av. Máximo Gómez',w:.62,pts:[[12,-1.2],[12,-14],[12,-22],[12,-35],[12,-47]]},
+ {n:'Av. Winston Churchill',w:.72,pts:[[-8,-1.3],[-8,-14],[-8,-22],[-8,-41]]},
+ {n:'Av. Abraham Lincoln',w:.62,pts:[[-2,-1.2],[-2,-14],[-2,-22],[-2,-30]]},
+ {n:'Av. Tiradentes',w:.5,pts:[[3,-14],[3,-22],[3,-28]]},
+ {n:'Av. Núñez de Cáceres',w:.5,pts:[[-18,-1.4],[-18,-14],[-18,-22],[-18,-35]]},
+ {n:'Av. Luperón',w:.6,pts:[[-40,-1.5],[-40,-13.5],[-40,-22.5],[-40,-42]]},
+ {n:'Av. República de Colombia',w:.6,pts:[[-62,-37],[-30,-38.5],[-8,-41],[12,-43],[22,-44]]},
+ {n:'Av. Duarte',w:.5,pts:[[27,-4.3],[25,-14],[23,-30],[21,-40]]},
+ {n:'Av. Venezuela',w:.5,pts:[[48,-1],[48,-13],[48,-21.5],[48,-38]]},
+];
+const RIVERS=[
+ {n:'Río Ozama',w:2.6,pts:[[40,3],[38.6,-3],[36.6,-9],[34.6,-15],[32,-22],[30,-30],[28.4,-38],[26.5,-46],[24,-54],[21,-64]]},
+ {n:'Río Isabela',w:1.6,pts:[[-44,-60],[-24,-56],[-4,-51],[14,-48.5],[27.3,-42]]},
+];
+const PARKS=[
+ {n:'Parque Mirador Sur',r:[-38,-19,-9.5,-5.6]},
+ {n:'Jardín Botánico',r:[-24,-12,-45,-34]},
+ {n:'Centro Olímpico',r:[1,8,-17.6,-14.8]},
+ {n:'Plaza de la Cultura',r:[9.4,13.6,-12.2,-9.4]},
+ {n:'Palacio Nacional',r:[21.2,24.6,-7.8,-5]},
+ {n:'Faro a Colón',r:[45,55,-16,-8.5]},
+ {n:'Parque del Este',r:[40,60,-7.5,-3.2]},
+ {n:'Estadio Quisqueya',r:[0.2,4.4,-21.2,-17.8]},
+ {n:'Catedral',r:[32,34,-4,-2.2]},{n:'Fortaleza',r:[35,36.8,-3.3,-1.4]},{n:'Alcázar',r:[34.6,36.4,-6.1,-4.4]},
+];
+const LOWS=[
+ {n:'el túnel de la 27 con Máximo Gómez',p:[12,-14],d:3},
+ {n:'el paso a desnivel de la 27 con Churchill',p:[-8,-14],d:4},
+ {n:'la Kennedy con Máximo Gómez',p:[12,-22],d:9},
+ {n:'la Kennedy con Tiradentes',p:[3,-22],d:4},
+ {n:'la cañada de Gualey',p:[26,-31],d:8},
+ {n:'la cañada de Guachupita',p:[27,-37],d:8},
+ {n:'la ribera del Isabela',p:[8,-45.4],d:8},
+ {n:'Herrera sur',p:[-55,-9],d:6},
+ {n:'Villa Consuelo',p:[20,-16],d:9},
+ {n:'la Luperón con Colombia',p:[-41,-36],d:6},
+];
+const METRO=[
+ {n:'Metro L1',c:0x4aa8ff,pts:[[6,-1.8],[11.4,-6],[11.4,-47],[11.4,-60]],f:0},
+ {n:'Metro L2',c:0xff7a45,pts:[[-44,-21.3],[-14,-21.3],[5,-21.3],[17,-21],[30,-20.6],[36,-20.6],[48,-20.8],[62,-21]],f:0},
+ {n:'Metro L3 · 27 de Febrero',c:0x35d0c0,pts:[[-60,-12.4],[-40,-12.8],[-14,-13.3],[5,-13.3],[17,-13.3],[29,-12.9],[36,-12.6],[48,-12.4]],f:1},
+ {n:'Tranvía del Malecón',c:0xb58cff,pts:[[-40,-2.1],[0,-1.8],[18,-1.7],[30,-1.6],[37,-1.6]],f:1},
+ {n:'BRT Churchill',c:0xf5d547,pts:[[-7.4,-2],[-7.4,-14],[-7.4,-22],[-7.4,-40]],f:1},
+];
+const CABLE=[[17,-33],[24,-37],[33,-40],[42,-41]];
+
+// ================= GEOMETRÍA AUXILIAR =================
+function path(pts){ const cum=[0]; for(let i=1;i<pts.length;i++) cum.push(cum[i-1]+Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1])); return {pts,cum,len:cum[cum.length-1]}; }
+function at(P,s){ s=clamp(s,0,P.len); let i=1; while(i<P.cum.length-1&&P.cum[i]<s) i++;
+  const a=P.pts[i-1], b=P.pts[i], L=P.cum[i]-P.cum[i-1]||1, t=(s-P.cum[i-1])/L, tx=(b[0]-a[0])/L, tz=(b[1]-a[1])/L;
+  return [a[0]+(b[0]-a[0])*t, a[1]+(b[1]-a[1])*t, tx, tz]; }
+function distSeg(px,pz,a,b){ const dx=b[0]-a[0],dz=b[1]-a[1],L=dx*dx+dz*dz||1; const t=clamp(((px-a[0])*dx+(pz-a[1])*dz)/L,0,1); return Math.hypot(px-a[0]-dx*t,pz-a[1]-dz*t); }
+function distPoly(px,pz,pts){ let m=1e9; for(let i=1;i<pts.length;i++) m=Math.min(m,distSeg(px,pz,pts[i-1],pts[i])); return m; }
+function ribbon(pts,w,y,mat){
+  const pos=[],idx=[];
+  for(let i=0;i<pts.length;i++){
+    const a=pts[Math.max(0,i-1)], b=pts[Math.min(pts.length-1,i+1)];
+    let tx=b[0]-a[0], tz=b[1]-a[1]; const L=Math.hypot(tx,tz)||1; tx/=L; tz/=L;
+    const nx=-tz*w/2, nz=tx*w/2;
+    pos.push(pts[i][0]+nx,y,pts[i][1]+nz, pts[i][0]-nx,y,pts[i][1]-nz);
+    if(i<pts.length-1){ const k=i*2; idx.push(k,k+2,k+1,k+1,k+2,k+3); }
+  }
+  const g=new W.BufferGeometry(); g.setAttribute('position',new W.Float32BufferAttribute(pos,3)); g.setIndex(idx); g.computeVertexNormals();
+  return new W.Mesh(g,mat);
+}
+function districtAt(x,z){ for(let i=0;i<DIST.length;i++) for(const r of DIST[i].rects) if(x>=r[0]&&x<=r[1]&&z>=r[2]&&z<=r[3]) return i; return -1; }
+const inRect=(x,z,r,m=0)=>x>=r[0]-m&&x<=r[1]+m&&z>=r[2]-m&&z<=r[3]+m;
+
+// ================= ESCENA =================
+const renderer=new W.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+renderer.outputEncoding=W.sRGBEncoding; renderer.toneMapping=W.ACESFilmicToneMapping; renderer.toneMappingExposure=1.1;
+stage.prepend(renderer.domElement);
+const scene=new W.Scene();
+{ const c=document.createElement('canvas'); c.width=4; c.height=256; const g=c.getContext('2d'); const gr=g.createLinearGradient(0,0,0,256);
+  gr.addColorStop(0,'#0a1426'); gr.addColorStop(.55,'#1d2b4a'); gr.addColorStop(.8,'#5a4a63'); gr.addColorStop(1,'#c77d5a'); g.fillStyle=gr; g.fillRect(0,0,4,256);
+  const t=new W.CanvasTexture(c); t.encoding=W.sRGBEncoding; scene.background=t; }
+scene.fog=new W.Fog(0x1a2238,110,290);
+const camera=new W.PerspectiveCamera(42,1,0.5,900);
+const controls=new W.OrbitControls(camera,renderer.domElement);
+controls.enableDamping=true; controls.dampingFactor=.08; controls.maxPolarAngle=Math.PI*.47; controls.minDistance=6; controls.maxDistance=260;
+scene.add(new W.HemisphereLight(0x8fa6d0,0x1b1c24,.75));
+const sunL=new W.DirectionalLight(0xffae78,.75); sunL.position.set(-120,45,70); scene.add(sunL);
+const fill=new W.DirectionalLight(0x6f8fc0,.25); fill.position.set(80,60,-40); scene.add(fill);
+
+const G={base:new W.Group(),e:new W.Group(),w:new W.Group(),t:new W.Group(),fut:new W.Group()};
+Object.values(G).forEach(g=>scene.add(g));
+const mat=(c,o={})=>new W.MeshLambertMaterial(Object.assign({color:c},o));
+const basic=(c,o={})=>new W.MeshBasicMaterial(Object.assign({color:c},o));
+
+// suelo, mar, ríos
+const land=new W.Mesh(new W.PlaneGeometry(420,200),mat(0x1f262e)); land.rotation.x=-Math.PI/2; land.position.set(0,0,-100); G.base.add(land);
+const sea=new W.Mesh(new W.PlaneGeometry(700,320),new W.MeshStandardMaterial({color:0x10304a,roughness:.25,metalness:.35})); sea.rotation.x=-Math.PI/2; sea.position.set(0,-0.03,160); G.base.add(sea);
+const beach=new W.Mesh(new W.PlaneGeometry(260,0.6),mat(0x5b5a52)); beach.rotation.x=-Math.PI/2; beach.position.set(0,0.005,-0.3); G.base.add(beach);
+const riverMat=new W.MeshStandardMaterial({color:0x15415a,roughness:.3,metalness:.3,side:W.DoubleSide});
+RIVERS.forEach(r=>G.base.add(ribbon(r.pts,r.w,0.02,riverMat)));
+PARKS.slice(0,7).forEach(p=>{ const r=p.r; const m=new W.Mesh(new W.PlaneGeometry(r[1]-r[0],r[3]-r[2]),mat(p.n==='Faro a Colón'||p.n==='Palacio Nacional'||p.n==='Plaza de la Cultura'?0x3a3f47:0x2c4a33)); m.rotation.x=-Math.PI/2; m.position.set((r[0]+r[1])/2,0.012,(r[2]+r[3])/2); G.base.add(m); });
+// árboles en parques
+{ const tg=new W.ConeGeometry(0.35,0.9,6); tg.translate(0,0.45,0);
+  const pts=[]; [PARKS[0],PARKS[1],PARKS[6]].forEach(p=>{ const r=p.r; for(let i=0;i<(r[1]-r[0])*(r[3]-r[2])*0.7;i++) pts.push([lerp(r[0]+.4,r[1]-.4,rnd()),lerp(r[2]+.4,r[3]-.4,rnd()),0.6+rnd()*0.8]); });
+  const im=new W.InstancedMesh(tg,mat(0x3e6b45),pts.length); const d=new W.Object3D();
+  pts.forEach((p,i)=>{d.position.set(p[0],0,p[1]); d.scale.setScalar(p[2]); d.updateMatrix(); im.setMatrixAt(i,d.matrix);}); G.base.add(im); }
+// calles
+const roadMat=basic(0x4a4336,{side:W.DoubleSide}), roadMain=basic(0x5e5238,{side:W.DoubleSide});
+ROADS.forEach(r=>{ r.P=path(r.pts); G.base.add(ribbon(r.pts,r.w,0.03,r.main?roadMain:roadMat)); });
+// puentes sobre el Ozama
+[[35.5,-13.3],[33.4,-21.3],[38.9,-0.95]].forEach(([x,z])=>{ const b=new W.Mesh(new W.BoxGeometry(4.2,0.12,1.1),mat(0x6d6a63)); b.position.set(x,0.12,z); G.base.add(b); });
+
+// ================= EDIFICIOS =================
+const B=[];
+const obstacles=[...ROADS.map(r=>({pts:r.pts,m:r.w/2+.3})),...RIVERS.map(r=>({pts:r.pts,m:r.w/2+.55}))];
+function freeAt(x,z,s){
+  if(z>-0.9) return false;
+  for(const p of PARKS) if(inRect(x,z,p.r,s*.5)) return false;
+  for(const o of obstacles) if(distPoly(x,z,o.pts)<o.m+s*.5) return false;
+  for(const s2 of SUB) if(Math.hypot(x-s2.p[0],z-s2.p[1])<1.6) return false;
+  return true;
+}
+const facades=[0xb9ab97,0xa8b4b8,0xc3a79b,0xb7b28f,0x9fadbf,0xc2b6a3,0xa9a0b3];
+DIST.forEach((d,di)=>d.rects.forEach(r=>{
+  for(let x=r[0]+0.65;x<r[1]-0.3;x+=1.3) for(let z=r[2]+0.65;z<r[3]-0.2;z+=1.3){
+    const parts=rnd()<0.45?2:1;
+    for(let k=0;k<parts;k++){
+      const w=parts===2?0.45+rnd()*0.15:0.6+rnd()*0.45, dd=0.5+rnd()*0.5;
+      const bx=x+(parts===2?(k?0.3:-0.3):(rnd()-.5)*.3), bz=z+(rnd()-.5)*.3;
+      if(!freeAt(bx,bz,Math.max(w,dd))) continue;
+      let h=lerp(d.h[0],d.h[1],rnd()); let tall=false;
+      if(rnd()<d.tall){ h=lerp(d.tallH[0],d.tallH[1],rnd()); tall=true; }
+      let hf=h*1.08;
+      if((di===2||di===3||di===4)&&rnd()<0.22){ hf=Math.max(h,lerp(3,7.2,rnd())); }
+      if(di===8) hf=h*1.45+0.15;
+      const rr=rnd(); const roof=hf>1.4?(rr<.55?1:2):(rr<.45?1:rr<.8?2:0);
+      B.push({x:bx,z:bz,w,d:dd,h0:h,h1:hf,di,seed:rnd(),roof,tall:tall||hf>2.5,col:facades[Math.floor(rnd()*facades.length)],lit:1,shown:1});
+    }
+  }
+}));
+const NB=B.length;
+const boxG=new W.BoxGeometry(1,1,1); boxG.translate(0,0.5,0);
+const bMesh=new W.InstancedMesh(boxG,mat(0xffffff),NB);
+const winG=boxG.clone();
+const aLit=new W.InstancedBufferAttribute(new Float32Array(NB),1), aSeed=new W.InstancedBufferAttribute(new Float32Array(NB),1);
+winG.setAttribute('aLit',aLit); winG.setAttribute('aSeed',aSeed);
+const winMat=new W.ShaderMaterial({
+  uniforms:{uFog:{value:new W.Color(0x1a2238)}},
+  vertexShader:`attribute float aLit; attribute float aSeed; varying vec3 vW; varying vec3 vN; varying float vLit; varying float vSeed;
+    void main(){ vec4 wp=modelMatrix*instanceMatrix*vec4(position,1.0); vW=wp.xyz; vN=normal; vLit=aLit; vSeed=aSeed; gl_Position=projectionMatrix*viewMatrix*wp; }`,
+  fragmentShader:`uniform vec3 uFog; varying vec3 vW; varying vec3 vN; varying float vLit; varying float vSeed;
+    float h(vec2 p){ return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453); }
+    void main(){
+      if(abs(vN.y)>0.5) discard;
+      vec2 uv=vec2(abs(vN.x)>0.5?vW.z:vW.x, vW.y);
+      vec2 g=uv/vec2(0.085,0.12); vec2 c=floor(g); vec2 f=fract(g);
+      float win=step(0.22,f.x)*step(f.x,0.78)*step(0.28,f.y)*step(f.y,0.72);
+      float on=step(h(c+vSeed*31.0),vLit*0.62);
+      if(win*on<0.5) discard;
+      vec3 col=mix(vec3(1.0,0.74,0.42),vec3(0.82,0.9,1.0),step(0.72,h(c*1.7+vSeed)));
+      float fd=clamp((length(vW-cameraPosition)-90.0)/220.0,0.0,1.0);
+      gl_FragColor=vec4(mix(col*1.15,uFog,fd*0.85),1.0);
+    }`,
+  polygonOffset:true, polygonOffsetFactor:-2, polygonOffsetUnits:-2
+});
+const wMesh=new W.InstancedMesh(winG,winMat,NB);
+const roofMesh=new W.InstancedMesh(boxG,mat(0xffffff),NB);
+G.base.add(bMesh,wMesh,roofMesh);
+const dmy=new W.Object3D(), tmpC=new W.Color();
+function setBuildingMatrices(t){
+  for(let i=0;i<NB;i++){ const b=B[i], h=lerp(b.h0,b.h1,t);
+    dmy.position.set(b.x,0,b.z); dmy.scale.set(b.w,h,b.d); dmy.rotation.set(0,0,0); dmy.updateMatrix();
+    bMesh.setMatrixAt(i,dmy.matrix); wMesh.setMatrixAt(i,dmy.matrix);
+    dmy.position.set(b.x,h,b.z); dmy.scale.set(b.w*.86,.035,b.d*.86); dmy.updateMatrix(); roofMesh.setMatrixAt(i,dmy.matrix);
+  }
+  bMesh.instanceMatrix.needsUpdate=wMesh.instanceMatrix.needsUpdate=roofMesh.instanceMatrix.needsUpdate=true;
+}
+function setBuildingColors(fut){
+  for(let i=0;i<NB;i++){ const b=B[i];
+    if(fut&&b.tall&&b.h1>2.4) tmpC.setHex(0x6f8fae); else if(fut&&b.di===8) tmpC.setHex(0xc9c2b0); else tmpC.setHex(b.col);
+    tmpC.multiplyScalar(0.4); bMesh.setColorAt(i,tmpC);
+    tmpC.setHex(fut?[0x9aa3a6,0x1f3a6a,0x4f8a4a][b.roof]:0x6f6a64); roofMesh.setColorAt(i,tmpC);
+  }
+  bMesh.instanceColor.needsUpdate=roofMesh.instanceColor.needsUpdate=true;
+}
+for(let i=0;i<NB;i++){ aSeed.array[i]=B[i].seed; aLit.array[i]=B[i].di===10?0.7:1; }
+aSeed.needsUpdate=aLit.needsUpdate=true;
+
+// ================= HITOS =================
+function lm(geo,m,x,y,z,g=G.base){ const me=new W.Mesh(geo,m); me.position.set(x,y,z); g.add(me); return me; }
+const stone=mat(0xbfae8f), whiteM=mat(0xd9d6cc);
+lm(new W.BoxGeometry(1.6,0.55,1.1),stone,33,0.27,-3.1); lm(new W.BoxGeometry(0.45,1.1,0.45),stone,32.3,0.55,-2.7);
+lm(new W.BoxGeometry(0.9,1.3,0.9),stone,35.9,0.65,-2.3); lm(new W.BoxGeometry(1.5,0.6,0.8),stone,35.5,0.3,-5.2);
+lm(new W.BoxGeometry(2.8,0.8,1.8),whiteM,22.9,0.4,-6.4); lm(new W.SphereGeometry(0.55,16,10,0,Math.PI*2,0,Math.PI/2),whiteM,22.9,0.8,-6.4);
+lm(new W.CylinderGeometry(0.08,0.2,3.2,4),whiteM,18.5,1.6,-0.55);
+const faro=lm(new W.BoxGeometry(8,1.2,1.6),mat(0x8c8272),50,0.6,-12.2); lm(new W.BoxGeometry(1.6,1.2,5.5),mat(0x8c8272),50,0.6,-12.2);
+const beamM=new W.MeshBasicMaterial({color:0xfff2c8,transparent:true,opacity:.12,depthWrite:false,blending:W.AdditiveBlending});
+const beam1=lm(new W.CylinderGeometry(0.5,0.9,60,12,1,true),beamM,50,31,-12.2);
+const beamH=lm(new W.BoxGeometry(24,0.5,0.5),beamM,50,62,-12.2);
+const stadium=lm(new W.CylinderGeometry(1.9,1.7,0.8,24,1,true),mat(0x9a9a9a,{side:W.DoubleSide}),2.3,0.4,-19.5);
+lm(new W.CircleGeometry(1.7,24).rotateX(-Math.PI/2),mat(0x3f7a3f),2.3,0.05,-19.5);
+const stadiumLights=[];
+[[0.6,-18],[4,-18],[0.6,-21],[4,-21]].forEach(([x,z])=>{ lm(new W.CylinderGeometry(0.05,0.05,1.8,4),whiteM,x,0.9,z); stadiumLights.push(lm(new W.BoxGeometry(0.4,0.18,0.1),basic(0x444444),x,1.85,z)); });
+lm(new W.BoxGeometry(3.4,0.7,2.2),mat(0x8d8f93),11.5,0.35,-10.8);
+// barco en Don Diego
+lm(new W.BoxGeometry(1.1,0.9,5),whiteM,38.2,0.45,-6.3);
+
+// ================= ELECTRICIDAD =================
+const subMeshes=[];
+const subBox=new W.BoxGeometry(1.4,0.5,1.4);
+SUB.forEach((s,i)=>{
+  const m=lm(subBox,mat(0x59616e),s.p[0],0.25,s.p[1]); m.userData.sub=i; subMeshes.push(m);
+  const ring=lm(new W.TorusGeometry(1.25,0.07,8,32).rotateX(-Math.PI/2),basic(0x4ad07a),s.p[0],0.08,s.p[1]); s.ring=ring;
+  const bat=lm(new W.BoxGeometry(0.9,0.55,0.6),basic(0x35d0c0),s.p[0]+1.2,0.28,s.p[1]+0.9,G.fut); s.bat=bat;
+  Object.assign(s,{load:0,transfer:0,manual:0,manualT:0,stress:0,trip:false,tripAt:-99,isla:false,soc:1,warned:false,cause:''});
+});
+PLANTS.forEach(p=>{ lm(new W.BoxGeometry(3,1.2,2),mat(0x5b606a),p.p[0],0.6,p.p[1],G.e); lm(new W.CylinderGeometry(0.25,0.3,3.2,8),mat(0x7a7f88),p.p[0]+0.8,1.6,p.p[1],G.e); });
+const posOf=([k,i])=>k==='P'?PLANTS[i].p:SUB[i].p;
+const lineMat=new W.LineBasicMaterial({color:0xffb45e,transparent:true,opacity:.55});
+const flows=[];
+TLINES.forEach(L=>{ const a=posOf(L[0]), b=posOf(L[1]); const g=new W.BufferGeometry().setFromPoints([new W.Vector3(a[0],2.2,a[1]),new W.Vector3(b[0],2.2,b[1])]); G.e.add(new W.Line(g,lineMat)); flows.push({a,b,to:L[1][0]==='S'?L[1][1]:-1,from:L[0][0]==='S'?L[0][1]:-1,len:Math.hypot(b[0]-a[0],b[1]-a[1])}); });
+// parque eólico (Futura)
+const turbines=[];
+for(let i=0;i<14;i++){ const x=-44+i*6.5+(i%2)*2, z=34+(i%2)*6;
+  lm(new W.CylinderGeometry(0.08,0.14,5,6),whiteM,x,2.5,z,G.fut);
+  const hub=new W.Group(); hub.position.set(x,5,z-0.1);
+  for(let k=0;k<3;k++){ const bl=new W.Mesh(new W.BoxGeometry(0.12,2.4,0.04),whiteM); bl.position.y=1.2; const p=new W.Group(); p.rotation.z=k*Math.PI*2/3; p.add(bl); hub.add(p); }
+  G.fut.add(hub); turbines.push(hub); }
+{ const g=new W.BufferGeometry().setFromPoints([new W.Vector3(-8,0.1,34),new W.Vector3(4,0.1,0),new W.Vector3(4,0.3,-6.6)]); G.fut.add(new W.Line(g,new W.LineBasicMaterial({color:0x35d0c0,transparent:true,opacity:.7}))); }
+const flowPts=new Float32Array(flows.length*8*3);
+const flowGeo=new W.BufferGeometry(); flowGeo.setAttribute('position',new W.BufferAttribute(flowPts,3));
+G.e.add(new W.Points(flowGeo,new W.PointsMaterial({color:0xffd08a,size:0.55,sizeAttenuation:true,transparent:true,opacity:.95,depthWrite:false})));
+
+// ================= AGUA =================
+const PLANT_W=[-6,-53];
+lm(new W.CylinderGeometry(1.6,1.6,0.6,20),mat(0x4f6b86),PLANT_W[0],0.3,PLANT_W[1],G.w);
+const mains=[], drains=[];
+DIST.forEach((d,i)=>{ if(d.ctx) return;
+  mains.push({a:PLANT_W,b:d.c,d:i});
+  const out=[[37.5,-2],[22,-0.2],[-10,-0.2],[12,-0.2],[-2,-0.2],[-25,-0.2],[-55,-0.2],[-12,-50.5],[29.5,-35],[33.5,-18]][i];
+  drains.push({a:d.c,b:out,d:i});
+});
+const mainMat=new W.LineBasicMaterial({color:0x4aa8ff,transparent:true,opacity:.45});
+const drainMat=new W.LineBasicMaterial({color:0x2a6f9a,transparent:true,opacity:.6});
+mains.forEach(m=>G.w.add(new W.Line(new W.BufferGeometry().setFromPoints([new W.Vector3(m.a[0],0.25,m.a[1]),new W.Vector3(m.b[0],0.25,m.b[1])]),mainMat)));
+drains.forEach(m=>G.w.add(new W.Line(new W.BufferGeometry().setFromPoints([new W.Vector3(m.a[0],0.1,m.a[1]),new W.Vector3(m.b[0],0.1,m.b[1])]),drainMat)));
+const tunnel=ribbon([[-20,-14.6],[-8,-14.6],[5,-14.6],[17,-14.6],[29,-14.2],[34.4,-14]],0.5,0.06,basic(0x2a8fd0,{transparent:true,opacity:.55,side:W.DoubleSide}));
+G.fut.add(tunnel);
+const waterPts=new Float32Array((mains.length+drains.length)*6*3);
+const waterGeo=new W.BufferGeometry(); waterGeo.setAttribute('position',new W.BufferAttribute(waterPts,3));
+G.w.add(new W.Points(waterGeo,new W.PointsMaterial({color:0x7cc4ff,size:0.45,transparent:true,opacity:.9,depthWrite:false})));
+// puntos bajos / inundación
+const floodMat=new W.MeshBasicMaterial({color:0x3a8fe0,transparent:true,opacity:0,depthWrite:false});
+LOWS.forEach(l=>{ l.m=lm(new W.CircleGeometry(1,28).rotateX(-Math.PI/2),floodMat.clone(),l.p[0],0.07,l.p[1]); l.F=0; l.flagged=false;
+  l.sponge=lm(new W.CircleGeometry(1.5,24).rotateX(-Math.PI/2),basic(0x2f6b4a),l.p[0]+1.8,0.035,l.p[1]+1.6,G.fut); });
+// lluvia
+const RN=6000, rainPos=new Float32Array(RN*3);
+for(let i=0;i<RN;i++){ rainPos[i*3]=lerp(-80,70,rnd()); rainPos[i*3+1]=rnd()*40; rainPos[i*3+2]=lerp(-60,30,rnd()); }
+const rainGeo=new W.BufferGeometry(); rainGeo.setAttribute('position',new W.BufferAttribute(rainPos,3));
+const rainMat=new W.PointsMaterial({color:0xa8c8ec,size:0.18,transparent:true,opacity:0,depthWrite:false});
+const rain=new W.Points(rainGeo,rainMat); scene.add(rain);
+
+// ================= MOVILIDAD =================
+const trains=[];
+METRO.forEach(l=>{ l.P=path(l.pts); const g=l.f?G.fut:G.t;
+  g.add(ribbon(l.pts,0.22,0.09,basic(l.c,{transparent:true,opacity:.75,side:W.DoubleSide})));
+  const n=Math.max(2,Math.round(l.P.len/28));
+  for(let k=0;k<n;k++){ const m=new W.Mesh(new W.BoxGeometry(1.6,0.28,0.32),basic(l.c)); g.add(m); trains.push({m,l,s:k*l.P.len/n,dir:k%2?1:-1}); }
+});
+{ const CP=path(CABLE); G.t.add(new W.Line(new W.BufferGeometry().setFromPoints(CABLE.map(p=>new W.Vector3(p[0],2.4,p[1]))),new W.LineBasicMaterial({color:0xcfd8e6,transparent:true,opacity:.6})));
+  CABLE.forEach(p=>lm(new W.CylinderGeometry(0.08,0.12,2.4,6),whiteM,p[0],1.2,p[1],G.t));
+  for(let k=0;k<6;k++){ const m=new W.Mesh(new W.BoxGeometry(0.35,0.3,0.35),basic(0xff5a5f)); G.t.add(m); trains.push({m,l:{P:CP},s:k*CP.len/6,dir:1,cable:1}); } }
+const NCAR=1500;
+const carG=new W.BoxGeometry(0.34,0.13,0.17);
+const cars=new W.InstancedMesh(carG,basic(0xffffff),NCAR); G.t.add(cars);
+const roadW=ROADS.map(r=>r.P.len*r.w*(r.main?2.2:1));
+const roadWsum=roadW.reduce((a,b)=>a+b,0);
+function pickRoad(){ let x=rnd()*roadWsum; for(let i=0;i<ROADS.length;i++){ x-=roadW[i]; if(x<=0) return i; } return 0; }
+const C=[];
+for(let i=0;i<NCAR;i++){ const r=pickRoad(); C.push({r,s:rnd()*ROADS[r].P.len,dir:rnd()<.5?1:-1,v:1.5,stadium:false}); }
+ROADS.forEach(r=>{ r.lanes=r.w>.9?3:r.w>.7?2.3:r.w>.55?2:1.6; r.count=0; });
+const stadiumRoads=[2,3,6,7].map(i=>i);
+
+// ================= ETIQUETAS =================
+const labelsEl=$('labels'), LABELS=[];
+function addLabel(text,x,y,z,cls='',group=null){ const el=document.createElement('div'); el.className='lb '+cls; el.innerHTML=text; labelsEl.appendChild(el); const L={el,v:new W.Vector3(x,y,z),group}; LABELS.push(L); return L; }
+addLabel('Mar Caribe',-10,0.5,22,'geo'); addLabel('Río Ozama',30.6,0.5,-28,'geo'); addLabel('Río Isabela',-12,0.5,-52.5,'geo');
+DIST.forEach(d=>{ if(!d.ctx) addLabel(d.n,d.c[0],3.5,d.c[1],'big'); });
+addLabel('Santo Domingo Este',58,2.5,-30,'big');
+[['Zona Colonial · Catedral Primada',33,1.6,-3],['Palacio Nacional',22.9,1.8,-6.4],['Faro a Colón',50,2,-12.2],['Estadio Quisqueya',2.3,2.4,-19.5],['Parque Mirador Sur',-28,1,-7.5],['Jardín Botánico',-18,1.2,-39.5],['Obelisco',18.5,3.6,-0.55],['Puerto Don Diego',38.2,1.4,-6.3],['Plaza de la Cultura',11.5,1.2,-10.8]]
+ .forEach(a=>addLabel(a[0],a[1],a[2],a[3]));
+const subLabels=SUB.map(s=>addLabel('',s.p[0],1.2,s.p[1],'sub',G.e));
+PLANTS.forEach(p=>addLabel(p.n,p.p[0],3.6,p.p[1],'',G.e));
+addLabel('Planta potabilizadora',PLANT_W[0],1.4,PLANT_W[1],'',G.w);
+const futLabels=[addLabel('Parque eólico marino',-2,6.5,37,'',G.fut),addLabel('Metro L3 · 27 de Febrero',-30,1,-12.6,'',G.fut),addLabel('Tranvía del Malecón',-30,1,-2,'',G.fut),addLabel('Túnel de drenaje',-16,1,-14.6,'',G.fut)];
+[addLabel('Metro L1',11.4,1,-40,'',G.t),addLabel('Metro L2',-34,1,-21.3,'',G.t),addLabel('Teleférico',30,3.2,-39.5,'',G.t)];
+const floodLabels=LOWS.map(l=>addLabel('',l.p[0],1,l.p[1],'flood'));
+
+// ================= ESTADO =================
+const S={lastRestore:-99,semLog:false,aguaLog:false,mode:'hoy',T:31,R:0,K:1,morph:0,morphTarget:0,sim:0,clock:17*60,stadium:0,layers:{e:true,w:true,t:true}};
+const D=DIST.map(()=>({dark:false,darkAt:0,isla:false,F:0,supply:1}));
+const logEl=$('log');
+function log(msg,cls=''){ const li=document.createElement('li'); li.className=cls; const h=Math.floor(S.clock/60)%24, m=Math.floor(S.clock%60);
+  li.innerHTML=`<time>${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}</time><span>${msg}</span>`; logEl.prepend(li); while(logEl.children.length>40) logEl.lastChild.remove(); }
+const fut=()=>S.mode==='futura';
+const names=ids=>ids.map(i=>DIST[i].n).join(' y ');
+
+// ---- electricidad ----
+function stepPower(dt){
+  const heat=1+0.035*Math.max(0,S.T-30);
+  if(fut()&&S.T>=37&&!S.futHeat){ S.futHeat=true; setTimeout(()=>log(`${Math.round(S.T)} °C y ninguna subestación se dispara: los techos solares, el aire acondicionado eficiente y las baterías absorben el pico.`,'good'),2500); }
+  if(S.T<33) S.futHeat=false;
+  SUB.forEach((s,i)=>{
+    const extra=(S.stadium&&i===2)?10:0;
+    s.load=s.ds.reduce((a,j)=>a+DIST[j].mw,0)*heat*(fut()?0.9:1)+extra;
+    if(s.manualT>0){ s.manualT-=dt; if(s.manualT<=0){ s.manual=0; } }
+  });
+  SUB.forEach((s,i)=>{
+    const cap=s.cap*(fut()?1.15:1);
+    let net=s.load+s.transfer+s.manual;
+    s.batOut=0;
+    if(fut()){
+      if(net>cap*0.95&&s.soc>0){ s.batOut=Math.min(net-cap*0.9,cap*0.3); s.soc=Math.max(0,s.soc-dt*0.012*(s.batOut/(cap*0.3)+0.2)); if(!s.batLog){ s.batLog=true; log(`Las baterías de la subestación ${s.n} entregan ${Math.round(s.batOut)} MW para cubrir el pico.`,'good'); } }
+      else { s.soc=Math.min(1,s.soc+dt*0.006); if(net<cap*0.85) s.batLog=false; }
+      net-=s.batOut;
+    }
+    s.ratio=net/cap;
+    if(s.trip||s.isla){
+      const ok=s.ratio<(fut()?0.92:0.95)&&s.manual===0&&S.sim-s.tripAt>14&&S.sim-S.lastRestore>5&&!(s.cause==='agua'&&D[s.floodD].F>0.3);
+      if(ok){ S.lastRestore=S.sim; restore(i); }
+      return;
+    }
+    if(s.ratio>0.9&&!s.warned){ s.warned=true; log(`Subestación ${s.n} al ${Math.round(s.ratio*100)} % de su capacidad.`); }
+    if(s.ratio<0.85) s.warned=false;
+    if(s.ratio>1) s.stress+=(s.ratio-1)*dt*2.2+dt*0.12; else s.stress=Math.max(0,s.stress-dt*0.6);
+    if(!fut()&&s.floodD!=null&&D[s.floodD].F>0.65){ trip(i,'agua'); return; }
+    if(s.stress>1.2) trip(i,'carga');
+  });
+}
+function trip(i,cause){
+  const s=SUB[i]; s.stress=0; s.tripAt=S.sim; s.cause=cause; s.transfer=0;
+  const pop=s.ds.reduce((a,j)=>a+DIST[j].pop,0);
+  if(fut()){
+    s.isla=true;
+    s.ds.forEach(j=>{ D[j].isla=true; D[j].darkAt=S.sim; });
+    log(`${names(s.ds)} se aísla como microrred. Hospitales, bombas de agua y semáforos siguen con luz; el resto baja su consumo.`,'good');
+    return;
+  }
+  s.trip=true;
+  s.ds.forEach(j=>{ D[j].dark=true; D[j].darkAt=S.sim; });
+  log(cause==='agua'?`El agua entra a la subestación ${s.n} y se apaga por seguridad. Sin luz: ${names(s.ds)} (≈${fmtN(pop)} personas).`
+    :`Se dispara la protección de la subestación ${s.n} al ${Math.round(s.ratio*100)} %. Sin luz: ${names(s.ds)} (≈${fmtN(pop)} personas).`,'bad');
+  const live=s.nb.filter(k=>!SUB[k].trip);
+  if(live.length){ const share=s.load*0.55/live.length; live.forEach(k=>SUB[k].transfer+=share); s.pushed={to:live,share};
+    log(`La red le pasa ${Math.round(s.load*0.55)} MW a ${live.map(k=>SUB[k].n).join(' y ')}.`,'bad'); }
+  if(!S.semLog){ S.semLog=true; setTimeout(()=>{ if(s.trip) log(`Semáforos apagados en ${names(s.ds)}: el tráfico se frena y se bloquean las intersecciones.`,'bad'); },1500); }
+  if(!S.aguaLog){ S.aguaLog=true; setTimeout(()=>{ if(s.trip) log(`Sin bombeo de agua en ${names(s.ds)}: baja la presión en las casas. Lo mismo pasa en cada sector que se queda sin luz.`,'water'); },3000); }
+}
+function restore(i){
+  const s=SUB[i];
+  if(s.trip){ s.trip=false; if(s.pushed){ s.pushed.to.forEach(k=>SUB[k].transfer=Math.max(0,SUB[k].transfer-s.pushed.share)); s.pushed=null; } s.ds.forEach(j=>D[j].dark=false); log(`Vuelve la luz en ${names(s.ds)}.`,'good'); }
+  if(s.isla){ s.isla=false; s.ds.forEach(j=>D[j].isla=false); log(`${names(s.ds)} se reconecta a la red.`,'good'); }
+  s.stress=0; s.cause='';
+  if(!SUB.some(x=>x.trip)){ S.semLog=false; S.aguaLog=false; if(!fut()) log('Toda la ciudad tiene luz otra vez.','good'); }
+}
+// ---- agua ----
+function stepWater(dt){
+  DIST.forEach((d,i)=>{ if(d.ctx) return;
+    const cap=d.dr+(fut()?80:0);
+    const st=D[i];
+    if(S.R>cap) st.F=Math.min(1,st.F+(S.R-cap)/100*dt*(fut()?0.15:0.3)); else st.F=Math.max(0,st.F-dt*0.05);
+    st.supply=(st.dark&&!fut())?0.25:1;
+  });
+  LOWS.forEach(l=>{ const F=D[l.d].F; l.F=lerp(l.F,F,Math.min(1,dt*2));
+    if(l.F>0.5&&!l.flagged){ l.flagged=true; log(`Se inunda ${l.n}: los carros no pasan.`,'water'); }
+    if(l.F<0.2) l.flagged=false; });
+}
+// ---- tráfico ----
+let avgSpeed=0, routeSpeed=0;
+function stepTraffic(dt){
+  const active=Math.round(NCAR*0.66*S.K*(fut()?0.62:1));
+  cars.count=Math.min(NCAR,active+(S.stadium?140:0));
+  ROADS.forEach(r=>r.count=0);
+  for(let i=0;i<cars.count;i++) ROADS[C[i].r].count++;
+  let sum=0, rsum=0, rn=0;
+  for(let i=0;i<cars.count;i++){
+    const c=C[i], r=ROADS[c.r];
+    if(i>=active&&!c.stadium){ c.r=stadiumRoads[i%stadiumRoads.length]; c.stadium=true; c.s=rnd()*ROADS[c.r].P.len; }
+    if(i<active&&c.stadium){ c.stadium=false; }
+    const cong=r.count/(r.P.len*r.lanes*0.55)*(fut()?0.85:1);
+    let f=1/(1+Math.pow(cong,3));
+    const p=at(r.P,c.s);
+    const di=districtAt(p[0],p[1]);
+    if(di>=0&&D[di].dark) f*=0.4;
+    for(const l of LOWS){ if(l.F>0.35&&Math.abs(p[0]-l.p[0])<2.4&&Math.abs(p[1]-l.p[1])<2.4){ f*=Math.max(0.03,1-l.F*1.1); break; } }
+    if(S.stadium&&Math.hypot(p[0]-2.3,p[1]+19.5)<9) f*=0.45;
+    c.v=lerp(c.v,2.4*f,Math.min(1,dt*2));
+    c.s+=c.v*dt*c.dir;
+    if(c.s>r.P.len||c.s<0){ if(rnd()<0.5){ c.dir*=-1; c.s=clamp(c.s,0,r.P.len); } else { c.r=c.stadium?stadiumRoads[Math.floor(rnd()*4)]:pickRoad(); c.s=rnd()*ROADS[c.r].P.len; } }
+    sum+=c.v; if(c.r===2||c.r===1){ rsum+=c.v; rn++; }
+    const q=at(ROADS[c.r].P,c.s), off=c.dir*ROADS[c.r].w*0.22;
+    dmy.position.set(q[0]-q[3]*off,0.1,q[1]+q[2]*off); dmy.rotation.set(0,-Math.atan2(q[3],q[2]),0); dmy.scale.set(1,1,1); dmy.updateMatrix(); cars.setMatrixAt(i,dmy.matrix);
+    const k=c.v/2.4; tmpC.setHex(k>0.62?0x4ad07a:k>0.35?0xf5b842:0xff5a5f); cars.setColorAt(i,tmpC);
+  }
+  cars.instanceMatrix.needsUpdate=true; if(cars.instanceColor) cars.instanceColor.needsUpdate=true;
+  avgSpeed=cars.count?sum/cars.count/2.4*52:0; routeSpeed=rn?rsum/rn/2.4*52:avgSpeed;
+}
+// ---- luces de edificios (el apagón avanza calle por calle) ----
+let litDirty=true;
+function stepLights(){
+  let changed=false;
+  for(let i=0;i<NB;i++){ const b=B[i]; if(b.di===10) continue;
+    const st=D[b.di], s=SUB[DIST[b.di].sub];
+    let target=1;
+    if(st.dark||st.isla){ const dist=Math.hypot(b.x-s.p[0],b.z-s.p[1]); if(S.sim-st.darkAt>dist*0.09) target=st.dark?0.0:0.4; }
+    if(Math.abs(aLit.array[i]-target)>0.001){ aLit.array[i]=target; changed=true; }
+  }
+  if(changed) aLit.needsUpdate=true;
+}
+
+// ================= EVENTOS =================
+let script=null;
+const sT=$('sT'), sR=$('sR'), sK=$('sK');
+function setT(v){ S.T=v; sT.value=v; $('oT').textContent=v.toFixed(1).replace('.0','')+' °C'; }
+function setR(v){ S.R=v; sR.value=v; $('oR').textContent=Math.round(v)+' mm/h'; }
+function setK(v){ S.K=v; sK.value=Math.round(v*100); $('oK').textContent=Math.round(v*100)+' %'; }
+sT.addEventListener('input',()=>{ if(script) delete script.k.T; setT(+sT.value); });
+sR.addEventListener('input',()=>{ if(script) delete script.k.R; setR(+sR.value); });
+sK.addEventListener('input',()=>{ if(script) delete script.k.K; setK(+sK.value/100); });
+const EV={
+  heat:{name:'Ola de calor',k:{T:[[0,S.T],[18,39],[48,39],[62,31]]},msg:'Comienza una ola de calor: la ciudad llega a 39 °C y todos encienden el aire acondicionado.'},
+  storm:{name:'Tormenta tropical',k:{R:[[0,0],[10,110],[38,110],[52,0]],T:[[0,31],[10,28],[52,30]]},msg:'Entra una tormenta tropical: 110 mm de lluvia por hora.'},
+  rush:{name:'Hora pico',k:{K:[[0,1],[6,1.5],[46,1.5],[56,1]]},stadium:[4,50],msg:'Hora pico y juego de pelota en el Estadio Quisqueya: las avenidas se llenan.'},
+};
+function runEvent(id){
+  document.querySelectorAll('#events button').forEach(b=>b.classList.toggle('run',b.dataset.e===id));
+  if(id==='reset'){ script=null; resetAll(); document.querySelectorAll('#events button').forEach(b=>b.classList.remove('run')); return; }
+  const e=EV[id]; const k=JSON.parse(JSON.stringify(e.k));
+  if(k.T) k.T[0][1]=S.T; if(k.R) k.R[0][1]=S.R; if(k.K) k.K[0][1]=S.K;
+  script={id,t:0,k,stadium:e.stadium,end:Math.max(...Object.values(k).map(a=>a[a.length-1][0]))};
+  log(e.msg);
+}
+function stepScript(dt){
+  if(!script) return;
+  script.t+=dt;
+  for(const key in script.k){ const a=script.k[key]; let v=a[a.length-1][1];
+    for(let i=1;i<a.length;i++) if(script.t<=a[i][0]){ const u=(script.t-a[i-1][0])/(a[i][0]-a[i-1][0]); v=lerp(a[i-1][1],a[i][1],u); break; }
+    if(key==='T') setT(Math.round(v*2)/2); if(key==='R') setR(v); if(key==='K') setK(v); }
+  const st=script.stadium; const on=st&&script.t>=st[0]&&script.t<st[1];
+  if(on&&!S.stadium) log('Se encienden las luces del Quisqueya: miles de carros llegan por la Kennedy y la Tiradentes.');
+  S.stadium=on?1:0;
+  if(script.t>script.end){ document.querySelectorAll('#events button').forEach(b=>b.classList.remove('run')); script=null; S.stadium=0; }
+}
+function resetAll(){
+  setT(31); setR(0); setK(1); S.stadium=0;
+  SUB.forEach((s,i)=>{ s.manual=0; s.manualT=0; s.transfer=0; s.stress=0; s.soc=1; s.warned=false; s.batLog=false; if(s.trip||s.isla) restore(i); s.trip=false; s.isla=false; s.pushed=null; });
+  D.forEach(d=>{ d.dark=false; d.isla=false; d.F=0; });
+  LOWS.forEach(l=>{ l.F=0; l.flagged=false; });
+}
+document.querySelectorAll('#events button').forEach(b=>b.addEventListener('click',()=>runEvent(b.dataset.e)));
+
+// modo
+function setMode(m){
+  if(m===S.mode) return;
+  resetAll(); script=null; document.querySelectorAll('#events button').forEach(b=>b.classList.remove('run'));
+  S.mode=m; S.morphTarget=m==='futura'?1:0;
+  document.querySelectorAll('#mode button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===m?'true':'false'));
+  $('modeTag').textContent=m==='futura'?'FUTURA':'HOY';
+  $('r-bat').hidden=m!=='futura';
+  setBuildingColors(m==='futura');
+  log(m==='futura'?'Cambias a Santo Domingo Futura: solar, baterías, microrredes, drenaje ampliado y más Metro.':'Cambias a la ciudad de hoy.',m==='futura'?'good':'');
+  if(reduce){ S.morph=S.morphTarget; setBuildingMatrices(S.morph); }
+}
+document.querySelectorAll('#mode button').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.m)));
+document.querySelectorAll('#layers button').forEach(b=>b.addEventListener('click',()=>{ const k=b.dataset.l; S.layers[k]=!S.layers[k]; b.setAttribute('aria-pressed',S.layers[k]?'true':'false'); }));
+
+// clic en subestación
+const ray=new W.Raycaster(), mouse=new W.Vector2(); let down=null;
+renderer.domElement.addEventListener('pointerdown',e=>{ down=[e.clientX,e.clientY]; });
+function pick(e){ const r=renderer.domElement.getBoundingClientRect(); mouse.set(((e.clientX-r.left)/r.width)*2-1,-((e.clientY-r.top)/r.height)*2+1); ray.setFromCamera(mouse,camera);
+  const hit=ray.intersectObjects(subMeshes)[0]; return hit?hit.object.userData.sub:-1; }
+renderer.domElement.addEventListener('pointerup',e=>{ if(!down||Math.hypot(e.clientX-down[0],e.clientY-down[1])>5) return; const i=pick(e); if(i<0) return;
+  const s=SUB[i]; if(s.trip){ log(`La subestación ${s.n} ya está fuera de servicio.`); return; }
+  s.manual=s.cap*(fut()?0.75:0.45); s.manualT=25; log(`Sobrecargas la subestación ${s.n}: +${Math.round(s.manual)} MW de golpe.`); });
+renderer.domElement.addEventListener('pointermove',e=>{ renderer.domElement.style.cursor=pick(e)>=0?'pointer':'grab'; });
+
+// cámara
+const VIEWS={general:{p:[-30,50,48],t:[-4,0,-22]},colonial:{p:[50,11,12],t:[32,0,-5]},poligono:{p:[-24,16,4],t:[-4,1,-16]},norte:{p:[52,34,-18],t:[16,0,-40]},mar:{p:[-6,8,27],t:[4,2.5,-10]}};
+let tween=null;
+function go(v,instant){ const V=VIEWS[v];
+  if(instant||reduce){ camera.position.set(...V.p); controls.target.set(...V.t); controls.update(); return; }
+  tween={t0:performance.now(),p0:camera.position.clone(),q0:controls.target.clone(),p1:new W.Vector3(...V.p),q1:new W.Vector3(...V.t)}; }
+document.querySelectorAll('#views button').forEach(b=>b.addEventListener('click',()=>go(b.dataset.v)));
+controls.addEventListener('start',()=>{ tween=null; });
+
+// ================= INTERFAZ =================
+function pill(el,cls,txt){ el.className='pill '+cls; el.textContent=txt; }
+function updateUI(){
+  let dem=0,cap=0,up=0,dark=0,soc=0;
+  SUB.forEach((s,i)=>{ const c=s.cap*(fut()?1.15:1); dem+=s.load; cap+=c; if(!s.trip) up++; soc+=s.soc;
+    const L=subLabels[i]; const st=s.trip?'trip':s.isla?'isla':s.ratio>0.95?'warn':'';
+    L.el.className='lb sub '+st;
+    L.el.innerHTML=`<b>${s.n}</b> ${s.trip?'APAGADA':s.isla?'MICRORRED':Math.round(s.ratio*100)+' %'}${fut()&&s.batOut>0?' · batería':''}`;
+    s.ring.material.color.setHex(s.trip?0xff5a5f:s.isla?0x35d0c0:s.ratio>0.95?0xf5b842:0x4ad07a);
+    s.ring.visible=!(s.trip&&Math.floor(S.sim*3)%2);
+  });
+  DIST.forEach((d,i)=>{ if(D[i].dark) dark+=d.pop; });
+  $('m-mw').textContent=`${Math.round(dem)} / ${Math.round(cap)} MW`;
+  const r=dem/cap; const b=$('b-mw'); b.style.width=Math.min(100,r*100)+'%'; b.style.background=r>0.95?'var(--alert)':r>0.85?'var(--amber)':'var(--ok)';
+  $('m-subs').textContent=`${up} de ${SUB.length}`;
+  $('m-dark').textContent=fmtN(dark);
+  $('m-bat').textContent=Math.round(soc/SUB.length*100)+' %';
+  const isl=SUB.some(s=>s.isla);
+  pill($('p-e'),dark>0?'bad':isl||r>0.9?'warn':'ok',dark>0?'apagón':isl?'microrredes':r>0.9?'al límite':'normal');
+  // agua
+  let maxF=0,nFlood=0,noW=0;
+  DIST.forEach((d,i)=>{ if(d.ctx) return; const cap=d.dr+(fut()?80:0); maxF=Math.max(maxF,S.R/cap); noW+=d.pop*(1-D[i].supply); });
+  LOWS.forEach((l,i)=>{ if(l.F>0.5) nFlood++; floodLabels[i].el.textContent=l.F>0.5?'inundado':''; });
+  $('m-rain').textContent=Math.round(S.R)+' mm/h';
+  $('m-drain').textContent=Math.round(maxF*100)+' %';
+  const bd=$('b-drain'); bd.style.width=Math.min(100,maxF*100)+'%'; bd.style.background=maxF>1?'var(--alert)':maxF>0.8?'var(--amber)':'var(--water)';
+  $('m-flood').textContent=`${nFlood} de ${LOWS.length}`;
+  $('m-nowater').textContent=fmtN(noW);
+  pill($('p-w'),nFlood>2||noW>0?'bad':nFlood>0||maxF>0.8?'warn':'ok',nFlood>0?'inundaciones':noW>0?'sin presión':maxF>0.8?'al límite':'normal');
+  // tráfico
+  $('m-speed').textContent=Math.round(avgSpeed)+' km/h';
+  const bs=$('b-speed'); bs.style.width=Math.min(100,avgSpeed/50*100)+'%'; bs.style.background=avgSpeed<15?'var(--alert)':avgSpeed<25?'var(--amber)':'var(--ok)';
+  const carMin=6/Math.max(2,routeSpeed)*60;
+  $('m-trip').textContent=fut()?`${Math.round(Math.min(carMin,16))} min${carMin>16?' en Metro L3':' en carro'}`:`${Math.round(Math.min(carMin,180))} min en carro`;
+  $('m-cars').textContent='≈ '+fmtN(cars.count*160);
+  pill($('p-t'),avgSpeed<15?'bad':avgSpeed<25?'warn':'ok',avgSpeed<15?'colapsado':avgSpeed<25?'lento':'fluido');
+  const h=Math.floor(S.clock/60)%24, m=Math.floor(S.clock%60); $('clock').textContent=`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
+}
+
+// ================= CICLO =================
+function resize(){ const w=stage.clientWidth,h=stage.clientHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.fov=w<600?55:42; camera.updateProjectionMatrix(); }
+new ResizeObserver(resize).observe(stage); resize();
+setBuildingMatrices(0); setBuildingColors(false);
+go('general',true);
+log('Santo Domingo, 5:00 de la tarde. 31 °C, sin lluvia y tráfico normal. Provoca un evento para ver qué pasa.');
+const v3=new W.Vector3();
+let last=performance.now(), uiT=0, simAcc=0;
+function frame(now){
+  const dt=Math.min(0.05,(now-last)/1000); last=now;
+  S.sim+=dt; S.clock+=dt; uiT+=dt; simAcc+=dt;
+  stepScript(dt);
+  if(simAcc>0.1){ stepPower(simAcc); stepWater(simAcc); simAcc=0; }
+  stepTraffic(dt); stepLights();
+  // transformación
+  if(Math.abs(S.morph-S.morphTarget)>0.001){ S.morph+= Math.sign(S.morphTarget-S.morph)*Math.min(Math.abs(S.morphTarget-S.morph),dt/2.4); setBuildingMatrices(S.morph<0.5?2*S.morph*S.morph:1-Math.pow(-2*S.morph+2,2)/2); }
+  G.fut.visible=S.morph>0.5;
+  G.e.visible=S.layers.e; G.w.visible=S.layers.w; G.t.visible=S.layers.t;
+  // flujo eléctrico
+  flows.forEach((f,i)=>{ const dead=(f.to>=0&&SUB[f.to].trip)||(f.from>=0&&SUB[f.from].trip); const sp=dead?0:(f.to>=0?SUB[f.to].ratio||0.7:0.7);
+    for(let k=0;k<8;k++){ const t=dead?-1:((S.sim*sp*6/f.len+k/8)%1); const o=(i*8+k)*3;
+      if(t<0){ flowPts[o+1]=-5; continue; } flowPts[o]=lerp(f.a[0],f.b[0],t); flowPts[o+1]=2.2; flowPts[o+2]=lerp(f.a[1],f.b[1],t); } });
+  flowGeo.attributes.position.needsUpdate=true;
+  // flujo de agua
+  let wi=0; const put=(a,b,t,y)=>{ const o=wi*3; waterPts[o]=lerp(a[0],b[0],t); waterPts[o+1]=y; waterPts[o+2]=lerp(a[1],b[1],t); wi++; };
+  mains.forEach(m=>{ const sp=D[m.d].supply; for(let k=0;k<6;k++){ if(sp<0.5&&k>1){ put([0,0],[0,0],0,-5); continue; } put(m.a,m.b,(S.sim*sp*0.12+k/6)%1,0.25); } });
+  drains.forEach(m=>{ const cap=DIST[m.d].dr+(fut()?80:0); const q=Math.min(S.R,cap)/60; for(let k=0;k<6;k++){ if(q<0.02){ put([0,0],[0,0],0,-5); continue; } put(m.a,m.b,(S.sim*q*0.35+k/6)%1,0.12); } });
+  waterGeo.attributes.position.needsUpdate=true;
+  LOWS.forEach(l=>{ l.m.scale.setScalar(0.6+l.F*2.2); l.m.material.opacity=l.F*0.85; });
+  // lluvia
+  rainMat.opacity=Math.min(0.75,S.R/110);
+  rain.visible=S.R>1;
+  if(rain.visible){ const fall=dt*(20+S.R*0.25); for(let i=0;i<RN;i++){ rainPos[i*3+1]-=fall; rainPos[i*3]+=dt*2; if(rainPos[i*3+1]<0){ rainPos[i*3+1]=40; rainPos[i*3]=lerp(-80,70,Math.random()); } } rainGeo.attributes.position.needsUpdate=true; }
+  scene.fog.far=lerp(290,140,Math.min(1,S.R/110));
+  // trenes
+  trains.forEach(tr=>{ const P=tr.l.P; tr.s+=dt*(tr.cable?1.2:3.2)*tr.dir; if(tr.s>P.len){ tr.s=P.len; tr.dir=-1; } if(tr.s<0){ tr.s=0; tr.dir=1; }
+    const q=at(P,tr.s); tr.m.position.set(q[0],tr.cable?2.1:0.3,q[1]); tr.m.rotation.y=-Math.atan2(q[3],q[2]); });
+  turbines.forEach((t,i)=>t.rotation.z+=dt*(1.2+0.2*(i%3)));
+  stadiumLights.forEach(l=>l.material.color.setHex(S.stadium?0xfff4d0:0x444444));
+  beam1.material.opacity=0.10+0.03*Math.sin(S.sim*0.8);
+  if(tween){ const k=Math.min(1,(now-tween.t0)/1300), e=k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
+    camera.position.lerpVectors(tween.p0,tween.p1,e); controls.target.lerpVectors(tween.q0,tween.q1,e); if(k>=1) tween=null; }
+  controls.update();
+  renderer.render(scene,camera);
+  // etiquetas
+  const w=stage.clientWidth,h=stage.clientHeight;
+  LABELS.forEach(L=>{ const vis=!L.group||(L.group.visible&&(L.group!==G.fut||S.morph>0.5));
+    if(!vis){ L.el.style.display='none'; return; }
+    v3.copy(L.v).project(camera);
+    if(v3.z>1||v3.x<-1.1||v3.x>1.1||v3.y<-1.1||v3.y>1.1||!L.el.textContent){ L.el.style.display='none'; return; }
+    L.el.style.display=''; L.el.style.transform=`translate(${(v3.x*.5+.5)*w}px,${(-v3.y*.5+.5)*h}px) translate(-50%,-100%)`; });
+  if(uiT>0.2){ uiT=0; updateUI(); }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+})();
+</script>
