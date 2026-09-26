@@ -5,7 +5,7 @@ Coordenadas en metros: x = este, y = norte, z = altura. El Coliseo está centrad
 """
 import bpy, math, random, sys
 import numpy as np
-from mathutils import Vector, Matrix
+from mathutils import Vector, Matrix, Quaternion
 
 R = random.Random(192)
 OUT = sys.argv[-1] if sys.argv[-1].endswith('.blend') else '/tmp/roma192.blend'
@@ -91,7 +91,7 @@ MAT['travIn'] = principled('travertino_int', (0.6, 0.55, 0.45), 0.85, extra=lamb
 MAT['marble'] = principled('marmol', (0.9, 0.88, 0.84), 0.32, extra=lambda nt, p: noisy(nt, p, (0.72, 0.7, 0.66), (0.84, 0.82, 0.78), 0.4, 0.05))
 MAT['bronze'] = principled('bronce_dorado', (0.9, 0.62, 0.3), 0.22, 1.0)
 MAT['bronzeDark'] = principled('bronce', (0.45, 0.3, 0.16), 0.35, 1.0)
-MAT['sand'] = principled('arena', (0.78, 0.66, 0.48), 1.0, extra=lambda nt, p: noisy(nt, p, (0.72, 0.6, 0.43), (0.84, 0.73, 0.55), 0.15, 0.25, 40))
+MAT['sand'] = principled('arena', (0.78, 0.66, 0.48), 1.0, extra=lambda nt, p: noisy(nt, p, (0.42, 0.33, 0.23), (0.53, 0.42, 0.29), 0.15, 0.25, 40))
 MAT['tile'] = principled('tejas', (0.55, 0.25, 0.14), 0.75, extra=lambda nt, p: tiles(nt, p))
 MAT['goldRoof'] = principled('tejas_bronce', (0.85, 0.6, 0.3), 0.3, 1.0, extra=lambda nt, p: tiles(nt, p) or None)
 MAT['goldRoof'].node_tree.nodes['Principled BSDF'].inputs['Metallic'].default_value = 1.0
@@ -245,6 +245,108 @@ def figure(x, y, z, h=1.7, m_body=None, m_skin=None, rot=0.0, pose=0, cloak=None
 def xf(faces, M):
     return [([tuple(M @ Vector(p)) for p in pts], m) for pts, m in faces]
 
+
+# ------------------------------------------------------------------ figuras orgánicas (metaballs)
+LIB = bpy.data.collections.new('Biblioteca'); scene.collection.children.link(LIB); LIB.hide_render = True
+_fig_n = [0]
+def _meta_mesh(parts, res):
+    _fig_n[0] += 1; nm = f'mb{_fig_n[0]}x'
+    mb = bpy.data.metaballs.new(nm); mb.resolution = res; mb.render_resolution = res; mb.threshold = 0.6
+    for pr in parts:
+        if pr[0] == 'cap':
+            _, a, b, r = pr; a, b = Vector(a), Vector(b); d = b - a
+            e = mb.elements.new(type='CAPSULE'); e.co = (a + b) / 2; e.radius = r; e.size_x = max(d.length / 2, 1e-3)
+            e.rotation = Vector((1, 0, 0)).rotation_difference(d.normalized()) if d.length > 1e-4 else Quaternion()
+        elif pr[0] == 'ell':
+            _, c, sz, r = pr; e = mb.elements.new(type='ELLIPSOID'); e.co = c; e.radius = r; e.size_x, e.size_y, e.size_z = sz
+        else:
+            _, c, r = pr; e = mb.elements.new(type='BALL'); e.co = c; e.radius = r
+    ob = bpy.data.objects.new(nm, mb); scene.collection.objects.link(ob)
+    dg = bpy.context.evaluated_depsgraph_get()
+    me = bpy.data.meshes.new_from_object(ob.evaluated_get(dg))
+    bpy.data.objects.remove(ob); bpy.data.metaballs.remove(mb)
+    return me
+
+def join_meshes(name, items):
+    """items: [(mesh, material)] -> una malla con varios materiales, sombreado suave."""
+    V, F, MI, mats = [], [], [], []
+    for me, m in items:
+        if m not in mats: mats.append(m)
+        off = len(V)
+        co = np.zeros(len(me.vertices) * 3); me.vertices.foreach_get('co', co); V += list(map(tuple, co.reshape(-1, 3)))
+        for poly in me.polygons: F.append([off + v for v in poly.vertices]); MI.append(mats.index(m))
+        bpy.data.meshes.remove(me)
+    out = bpy.data.meshes.new(name); out.from_pydata(V, [], F)
+    for m in mats: out.materials.append(m)
+    out.polygons.foreach_set('material_index', MI); out.update(); out.shade_smooth()
+    return out
+
+def human(pose='stand', h=1.75, garment='tunic', seed=0, res=0.035):
+    """Partes (ropa, piel) de un cuerpo humano en metros, mirando hacia +y."""
+    rr = random.Random(seed); s = h / 1.75
+    P = lambda x, y, z: (x * s, y * s, z * s)
+    skin, cloth = [], []
+    hip = 0.95; sit = pose == 'sit'
+    if sit: hip = 0.5
+    up = hip - 0.95
+    lean = rr.uniform(-.03, .05)
+    skin += [('ell', P(0, .01 + lean, 1.63 + up), (1, .95, 1.18), .118 * s), ('cap', P(0, lean, 1.44 + up), P(0, lean, 1.56 + up), .055 * s)]
+    cloth += [('ell', P(0, lean * .7, 1.23 + up), (1, .62, 1.25), .205 * s), ('ell', P(0, 0, .96 + up), (1, .72, .8), .175 * s)]
+    # piernas
+    for sx in (-1, 1):
+        if sit:
+            skin += [('cap', P(sx * .1, .02, .5), P(sx * .11, .44, .49), .075 * s), ('cap', P(sx * .11, .44, .49), P(sx * .12, .47, .07), .058 * s),
+                     ('ell', P(sx * .12, .52, .04), (.6, 1.4, .4), .07 * s)]
+        elif pose == 'fight':
+            skin += [('cap', P(sx * .12, 0, .9), P(sx * .2, sx * .12, .5), .08 * s), ('cap', P(sx * .2, sx * .12, .5), P(sx * .24, sx * .14, .08), .062 * s),
+                     ('ell', P(sx * .24, sx * .14 + .06, .04), (.6, 1.4, .4), .07 * s)]
+        else:
+            st = rr.uniform(-.06, .06) * sx
+            skin += [('cap', P(sx * .095, 0, .9), P(sx * .1, .02 + st, .49), .077 * s), ('cap', P(sx * .1, .02 + st, .49), P(sx * .1, st, .08), .06 * s),
+                     ('ell', P(sx * .1, st + .06, .04), (.6, 1.4, .4), .07 * s)]
+    # brazos
+    arms = {'stand': [((.27, .02, 1.13), (.28, .06, .88)), ((-.27, .02, 1.13), (-.28, .06, .88))],
+            'sit': [((.26, .1, 1.13 + up), (.2, .34, 1.02 + up)), ((-.26, .1, 1.13 + up), (-.2, .34, 1.02 + up))],
+            'raise': [((.3, .02, 1.72), (.33, .05, 2.0)), ((-.27, .02, 1.13), (-.28, .06, .88))],
+            'cheer': [((.32, 0, 1.75 + up), (.36, .05, 2.02 + up)), ((-.32, 0, 1.75 + up), (-.36, .05, 2.02 + up))],
+            'fight': [((.3, .25, 1.3), (.3, .55, 1.35)), ((-.3, .2, 1.2), (-.2, .45, 1.15))]}[pose]
+    if pose == 'sit' and rr.random() < .35: arms = [((.32, 0, 1.75 + up), (.36, .05, 2.02 + up)), arms[1]]
+    for (e, w), sx in zip(arms, (1, -1)):
+        sh = P(sx * .2, 0, 1.42 + up)
+        skin += [('cap', sh, P(*e), .052 * s), ('cap', P(*e), P(*w), .045 * s), ('ball', P(w[0], w[1], w[2] - .04), .05 * s)]
+    if garment == 'tunic':
+        cloth += [('ell', P(0, .02 if not sit else .2, .74 + (0 if not sit else -.25)), (1, .85 if not sit else 1.6, 1.45 if not sit else .5), .23 * s)]
+    elif garment == 'toga':
+        cloth += [('ell', P(0, .02 if not sit else .22, .6 if not sit else .32), (1.05, .9 if not sit else 1.7, 2.3 if not sit else .7), .24 * s),
+                  ('cap', P(-.22, .02, 1.44 + up), P(.16, .06, .85 + up), .12 * s), ('ell', P(-.2, 0, 1.3 + up), (.6, .8, 1.3), .13 * s)]
+    elif garment == 'loin':
+        cloth += [('ell', P(0, .01, .88), (1.05, .8, .55), .2 * s)]
+    return cloth, skin
+
+def make_figure(name, pose, h, garment, m_cloth, m_skin, seed=0, res=0.035, extra=None):
+    cloth, skin = human(pose, h, garment, seed, res)
+    items = [(_meta_mesh(cloth, res * h / 1.75), m_cloth), (_meta_mesh(skin, res * h / 1.75), m_skin)]
+    me = join_meshes(name, items)
+    if extra:
+        b = Builder(name + '_x'); b.add(extra); ob = b.build(LIB)
+        tmp = ob.data; items2 = [(me, None)]
+        # unir accesorios (escudo, casco, espada) a la figura
+        V0 = len(me.vertices)
+        bm = __import__('bmesh').new(); bm.from_mesh(me); bm2 = __import__('bmesh').new(); bm2.from_mesh(tmp)
+        for m in tmp.materials:
+            if m.name not in me.materials: me.materials.append(m)
+        remap = {i: list(me.materials).index(m) for i, m in enumerate(tmp.materials)}
+        for f in bm2.faces: f.material_index = remap[f.material_index]
+        tmpm = bpy.data.meshes.new('t'); bm2.to_mesh(tmpm); bm2.free()
+        bm.from_mesh(tmpm); bm.to_mesh(me); bm.free()
+        bpy.data.meshes.remove(tmpm); bpy.data.objects.remove(ob); bpy.data.meshes.remove(tmp)
+    ob = bpy.data.objects.new(name, me); LIB.objects.link(ob)
+    return ob
+
+def place(lib_ob, loc, rot=0.0, scale=1.0, coll=None):
+    o = bpy.data.objects.new(lib_ob.name + '_i', lib_ob.data); (coll or scene.collection).objects.link(o)
+    o.location = loc; o.rotation_euler = (0, 0, rot); o.scale = (scale, scale, scale); return o
+
 # ------------------------------------------------------------------ elipse del Coliseo
 A, B, NB = 94.0, 78.0, 80
 ts = np.linspace(0, 2 * math.pi, 20001)
@@ -296,7 +398,6 @@ def ring1_bay(i):
             f += box(-L1 / 2 - .85, -L1 / 2 + .85, -.05, .95, p0, p1, 'trav')
             # estatua en el arco
             f += box(-.5, .5, -1.3, -.3, S['y0'], S['y0'] + .6, 'marble')
-            f += figure(0, -.8, S['y0'] + .6, 2.5, MAT['marble'], MAT['marble'], rot=0, pose=R.randint(0, 1), cloak=MAT['marble'])
     # ático
     y0, y1 = 33.9, 48.5
     if i % 2:
@@ -332,6 +433,13 @@ for i in range(NB):
     M, L, th = bay_matrix(i, 0, L1)
     b_col.add(ring1_bay(i), M)
 b_col.build(col_main)
+STATUES = [make_figure(f'estatua{k}', ['stand', 'raise', 'stand', 'raise'][k], 2.5, ['toga', 'tunic', 'tunic', 'toga'][k], MAT['marble'], MAT['marble'], seed=k) for k in range(4)]
+col_stat = bpy.data.collections.new('Estatuas'); col_main.children.link(col_stat)
+for i in range(NB):
+    M, L, th = bay_matrix(i, 0, L1)
+    for S in STO[1:]:
+        p = M @ Vector((0, -.8, S['y0'] + .6))
+        place(STATUES[(i + len(S)) % 4], p, th, 1.0, col_stat)
 
 # ---- segundo anillo, pórtico superior, cávea
 D2, T2 = 6.4, 1.9; L2 = PER * ((A - D2) / A) / NB
@@ -396,20 +504,25 @@ ba.face(ring, 'sand')
 for sx in (-1, 1):  # Porta Triumphalis / Libitinensis
     ba.add(box(-.3, .3, -2.4, 2.4, 0, 4.6, 'dark'), Matrix.Translation((sx * (aA + .05), 0, 0)))
 def pulvinar(side, w, depth, royal):
+    """Palco en el podio; su +y local mira hacia el centro de la arena y el palco se hunde hacia -y."""
     tmid = -math.pi / 2 if side < 0 else math.pi / 2
-    p = pt(tmid, DA); th = math.atan2(p[1], p[0])
-    M = Matrix.Translation((p[0], p[1], 0)) @ Matrix.Rotation(th - math.pi / 2 if side > 0 else th + math.pi / 2, 4, 'Z')
+    p = pt(tmid, DA); rot = math.atan2(p[0], -p[1])
+    M = Matrix.Translation((p[0], p[1], 0)) @ Matrix.Rotation(rot, 4, 'Z')
+    cl = 'purple' if royal else 'canvas'
     f = []
-    f += box(-w / 2, w / 2, -.5, depth, 0, 4.2, 'marble')
-    for x in (-w / 2 + .5, -w / 6, w / 6, w / 2 - .5):
-        f += cyl(x, depth - .4, .28, .25, 4.2, 8.8, 'marble', seg=10)
-    f += box(-w / 2 - .3, w / 2 + .3, -.6, depth + .2, 8.8, 9.4, 'marble')
-    f += box(-w / 2, w / 2, -.5, depth, 9.4, 9.55, 'purple' if royal else 'canvas')
-    f += box(-w / 2 + .3, w / 2 - .3, depth - .1, depth + .02, 5.8, 8.8, 'purple' if royal else 'canvas2')
-    f += box(-w / 2, w / 2, -.5, depth - .3, 4.2, 4.3, 'purple' if royal else 'wood')
+    f += box(-w / 2, w / 2, -depth, .6, 0, 4.2, 'marble')
+    f += box(-w / 2, w / 2, -depth, .6, 4.2, 4.3, cl)
+    for x in (-w / 2 + .4, -w / 6, w / 6, w / 2 - .4):
+        f += cyl(x, .2, .28, .25, 4.3, 8.9, 'marble', seg=10)
+        f += cyl(x, -depth + .3, .28, .25, 4.3, 8.9, 'marble', seg=10)
+    f += box(-w / 2 - .3, w / 2 + .3, -depth - .2, .8, 8.9, 9.5, 'marble')
+    f += [([(-w / 2 - .3, .8, 9.5), (w / 2 + .3, .8, 9.5), (w / 2 + .3, -depth / 2, 11.2), (-w / 2 - .3, -depth / 2, 11.2)], 'marble'),
+          ([(w / 2 + .3, -depth - .2, 9.5), (-w / 2 - .3, -depth - .2, 9.5), (-w / 2 - .3, -depth / 2, 11.2), (w / 2 + .3, -depth / 2, 11.2)], 'marble')]
+    f += box(-w / 2 + .3, w / 2 - .3, .5, .56, 4.3, 5.25, cl)
+    f += box(-w / 2, w / 2, .5, .62, 8.2, 8.9, cl)
     ba.add(f, M)
-    return M
-M_PULV = pulvinar(-1, 13, 4.2, True)
+    return M, rot
+M_PULV, PULV_ROT = pulvinar(-1, 13, 4.2, True)
 pulvinar(1, 10, 3.2, False)
 ba.build(col_main)
 
@@ -419,7 +532,8 @@ def ground_h(x, y):
     for cx, cy, rx, ry, hh in HILLS:
         dx, dy = (x - cx) / rx, (y - cy) / ry; d2 = dx * dx + dy * dy
         if d2 < 4: h += hh * math.exp(-d2 * 1.6)
-    return h
+    e = math.sqrt((x / 250) ** 2 + (y / 230) ** 2)
+    return h * min(1.0, max(0.0, (e - 1.0) / 0.8))
 HILLS = [(-360, -250, 190, 150, 36),   # Palatino
          (190, -330, 230, 170, 30),    # Celio
          (260, 300, 260, 200, 34),     # Esquilino / Opio
@@ -435,7 +549,7 @@ for j in range(G):
         y0, y1 = -S / 2 + S * j / G, -S / 2 + S * (j + 1) / G
         c = [(x0, y0), (x1, y0), (x1, y1), (x0, y1)]
         zs = [ground_h(a, b) - .08 for a, b in c]
-        if max(abs(x0), abs(x1)) < 240 and max(abs(y0), abs(y1)) < 220 and max(zs) < .5:
+        if max(abs(x0), abs(x1)) < 240 and max(abs(y0), abs(y1)) < 220:
             continue
         bg.face([(a, b, z) for (a, b), z in zip(c, zs)], 'ground')
 # plaza de travertino alrededor del Coliseo y del valle
@@ -452,26 +566,42 @@ for k in range(160):
     bp.add(box(-.35, .35, -.28, .28, 0, 1.75, 'trav'), Matrix.Translation((p[0], p[1], 0)) @ Matrix.Rotation(t, 4, 'Z'))
 bp.build(col_env); bg.build(col_env)
 bfar = Builder('horizonte')
-for k in range(48):
-    a0, a1 = 2 * math.pi * k / 48, 2 * math.pi * (k + 1) / 48
-    bfar.face([(1500 * math.cos(a0) * 1.42, 1500 * math.sin(a0) * 1.42, -.5), (20000 * math.cos(a0), 20000 * math.sin(a0), 60), (20000 * math.cos(a1), 20000 * math.sin(a1), 60), (1500 * math.cos(a1) * 1.42, 1500 * math.sin(a1) * 1.42, -.5)], 'ground')
+def far_h(r, az):
+    h = 25 * math.sin(az * 5 + r / 3000) + 18 * math.sin(az * 11 + 1.3) + 12 * math.sin(r / 900 + az * 3)
+    h = max(h, 0) + 10
+    def mount(az0, w, r0, r1, H):
+        da = math.atan2(math.sin(az - az0), math.cos(az - az0))
+        return H * math.exp(-(da / w) ** 2) * math.exp(-((r - (r0 + r1) / 2) / ((r1 - r0) / 2)) ** 2)
+    h += mount(math.radians(150), .28, 16000, 30000, 900)   # Colli Albani (sureste)
+    h += mount(math.radians(62), .35, 22000, 40000, 1100)   # Montes Sabinos / Tiburtinos (noreste)
+    h += mount(math.radians(290), .25, 2500, 5000, 110)     # Janículo y Monte Mario (oeste)
+    h *= min(1, (r - 2100) / 1500) if r < 3600 else 1
+    return h
+rs = [2100 * (45000 / 2100) ** (k / 40) for k in range(41)]
+na = 144
+for k in range(40):
+    for j in range(na):
+        a0, a1 = 2 * math.pi * j / na, 2 * math.pi * (j + 1) / na
+        q = []
+        for r, a in ((rs[k], a0), (rs[k], a1), (rs[k + 1], a1), (rs[k + 1], a0)):
+            q.append((r * math.sin(a), r * math.cos(a), far_h(r, a) - .5))
+        bfar.face(q, 'ground')
 bfar.face([(-1500, -1500, -.6), (1500, -1500, -.6), (1500, 1500, -.6), (-1500, 1500, -.6)], 'ground')
 bfar.build(col_env)
 
 # Coloso de Nerón / Sol (remodelado por Cómodo)
-bco = Builder('coloso')
 CX, CY = -148.0, 32.0
-bco.add(box(-8.5, 8.5, -7, 7, 0, 7.5, 'marble')); bco.add(box(-9.2, 9.2, -7.7, 7.7, 7.5, 8.2, 'marble'))
-bco.add(box(-9.2, 9.2, -7.7, 7.7, 0, .6, 'marble'))
-s = 20.0  # escala: figura de ~34 m
-fig = figure(0, 0, 8.2, 34.0, MAT['bronze'], MAT['bronze'], rot=0, pose=1, cloak=MAT['bronze'])
-bco.add(fig)
-for k in range(7):
-    a = math.pi * (0.15 + 0.7 * k / 6)
-    hx, hz = 0, 8.2 + 34 * 1.58 / 1.7
-    bco.add(cyl(0, 0, .5, .05, 0, 6.5, 'bronze', seg=5), Matrix.Translation((hx, 0, hz)) @ Matrix.Rotation(math.pi / 2 - a, 4, 'Y'))
-bco.add(cyl(-8.4, 0, .35, .35, 8.2, 8.2 + 26, 'bronze', seg=8))  # timón / cetro
+bco = Builder('coloso_base')
+bco.add(box(-8.5, 8.5, -7, 7, 0, 7.5, 'marble')); bco.add(box(-9.2, 9.2, -7.7, 7.7, 7.5, 8.2, 'marble')); bco.add(box(-9.2, 9.2, -7.7, 7.7, 0, .6, 'marble'))
+H = 34.0; hz = 8.2 + H * 1.63 / 1.75
+for k in range(9):
+    a = math.radians(-70 + 140 * k / 8)
+    bco.add(cyl(0, 0, .55, .05, 0, 6.8, 'bronze', seg=6), Matrix.Translation((0, 0, hz)) @ Matrix.Rotation(a, 4, 'Y'))
+bco.add(cyl(-.3 * H / 1.75 - .3, 1.2, .45, .45, 8.2, 8.2 + 28, 'bronze', seg=10))
+bco.add(box(-.3 * H / 1.75 - 2.6, -.3 * H / 1.75 + 2.0, 1.0, 1.4, 8.2, 8.2 + 7, 'bronze'))
 o = bco.build(col_env); o.location = (CX, CY, 0); o.rotation_euler = (0, 0, math.radians(-80))
+colf = make_figure('coloso', 'raise', H, 'toga', MAT['bronze'], MAT['bronze'], seed=7, res=0.011)
+col_o = place(colf, (CX, CY, 8.2), math.radians(-80), 1.0, col_env)
 
 # Meta Sudans
 bm = Builder('meta_sudans'); MX, MY = -118.0, -52.0
@@ -563,48 +693,91 @@ for k in range(n):
     baq.add(box(-3.76, 3.76, -1.8, 1.8, H, H + 2.2, 'brick'), M)
 baq.build(col_env)
 
-# Ciudad: ínsulas con techos de teja (evitando monumentos y el valle)
-bci = Builder('ciudad')
-excl = [(0, 0, A + 70, B + 70), (-300, 48, 95, 70), (175, 58, 80, 60), (300, 260, 150, 125), (-148, 32, 30, 30), (-118, -52, 25, 25)]
+# Ciudad: ínsulas con patio, tejados a dos aguas, tiendas y balcones
+bci = Builder('ciudad'); bcf = Builder('ciudad_lejana')
+excl = [(0, 0, A + 62, B + 62), (-300, 48, 92, 68), (175, 58, 76, 56), (300, 260, 150, 125), (-148, 32, 28, 28), (-118, -52, 24, 24), (-10, -40, 150, 70)]
 def free(x, y):
     for cx, cy, rx, ry in excl:
         if ((x - cx) / rx) ** 2 + ((y - cy) / ry) ** 2 < 1: return False
     if math.hypot((x + 360) / 190, (y + 250) / 150) < .95: return False
     return True
-placed = 0; tries = 0
-while placed < 1100 and tries < 20000:
-    tries += 1
-    r = R.uniform(150, 1300); a = R.uniform(0, 2 * math.pi); x, y = r * math.cos(a), r * math.sin(a)
-    if not free(x, y): continue
-    z = ground_h(x, y); w, d = R.uniform(14, 36), R.uniform(12, 30); h = R.uniform(9, 20)
-    rot = Matrix.Translation((x, y, z - 1.5)) @ Matrix.Rotation(math.radians(R.choice([0, 0, 5, -8, 15])), 4, 'Z')
-    m = R.choice(['plaster_ochre', 'plaster_cream', 'plaster_red', 'plaster_pink', 'brick', 'plaster_ochre'])
-    f = box(-w / 2, w / 2, -d / 2, d / 2, 0, h, m)
-    for fl in range(1, int(h / 3.2)):
-        for c in range(int(w / 3.5)):
-            xx = -w / 2 + 1.5 + c * 3.5
-            if xx + .9 < w / 2: f += box(xx, xx + .9, -d / 2 - .03, -d / 2 + .02, fl * 3.2 - 1.9, fl * 3.2 - .6, 'dark')
-    rh = min(w, d) * .28
-    f += [([(-w / 2 - .6, -d / 2 - .6, h), (w / 2 + .6, -d / 2 - .6, h), (w / 2 - rh, 0, h + rh), (-w / 2 + rh, 0, h + rh)], 'tile'),
-          ([(w / 2 + .6, d / 2 + .6, h), (-w / 2 - .6, d / 2 + .6, h), (-w / 2 + rh, 0, h + rh), (w / 2 - rh, 0, h + rh)], 'tile'),
-          ([(-w / 2 - .6, d / 2 + .6, h), (-w / 2 - .6, -d / 2 - .6, h), (-w / 2 + rh, 0, h + rh)], 'tile'),
-          ([(w / 2 + .6, -d / 2 - .6, h), (w / 2 + .6, d / 2 + .6, h), (w / 2 - rh, 0, h + rh)], 'tile')]
-    bci.add(f, rot); placed += 1
-bci.build(col_env)
-
-# Árboles: cipreses y pinos piñoneros en las colinas
-btr = Builder('arboles')
-for k in range(700):
-    x, y = R.uniform(-900, 900), R.uniform(-800, 800)
-    z = ground_h(x, y)
-    if z < 6 and math.hypot(x, y) < 700: continue
-    if not free(x, y) and R.random() < .8: continue
-    if R.random() < .55:
-        h = R.uniform(10, 18); btr.add(cyl(x, y, .25, .2, z - .5, z + 2, 'wood', seg=5)); btr.add(cyl(x, y, 1.3, .1, z + 1.5, z + h, 'leaf', seg=7))
+def gable(x0, x1, y0, y1, z, over=.7):
+    sx, sy = x1 - x0, y1 - y0
+    if sx >= sy:
+        rh = sy * .28; ym = (y0 + y1) / 2
+        return [([(x0 - over, y0 - over, z), (x1 + over, y0 - over, z), (x1 + over, ym, z + rh), (x0 - over, ym, z + rh)], 'tile'),
+                ([(x1 + over, y1 + over, z), (x0 - over, y1 + over, z), (x0 - over, ym, z + rh), (x1 + over, ym, z + rh)], 'tile'),
+                ([(x0, y0, z), (x0, ym, z + rh), (x0, y1, z)], None), ([(x1, y1, z), (x1, ym, z + rh), (x1, y0, z)], None)]
+    rh = sx * .28; xm = (x0 + x1) / 2
+    return [([(x1 + over, y0 - over, z), (x1 + over, y1 + over, z), (xm, y1 + over, z + rh), (xm, y0 - over, z + rh)], 'tile'),
+            ([(x0 - over, y1 + over, z), (x0 - over, y0 - over, z), (xm, y0 - over, z + rh), (xm, y1 + over, z + rh)], 'tile'),
+            ([(x0, y1, z), (xm, y1, z + rh), (x1, y1, z)], None), ([(x1, y0, z), (xm, y0, z + rh), (x0, y0, z)], None)]
+def facade(x0, x1, y, z0, floors, outward, rng):
+    """Ventanas y tiendas sobre una fachada paralela a x en y (outward = ±1)."""
+    f = []; yy = y + outward * .03; w = x1 - x0
+    n = max(1, int(w / 3.4))
+    for c in range(n):
+        xa = x0 + (c + .5) * w / n
+        if rng.random() < .75: f.append(([(xa - 1.1, yy, z0), (xa + 1.1, yy, z0), (xa + 1.1, yy, z0 + 2.6), (xa - 1.1, yy, z0 + 2.6)][::outward], 'dark'))
+        for fl in range(1, floors):
+            if rng.random() < .85:
+                zb = z0 + fl * 3.2 + .9
+                f.append(([(xa - .45, yy, zb), (xa + .45, yy, zb), (xa + .45, yy, zb + 1.3), (xa - .45, yy, zb + 1.3)][::outward], 'dark'))
+    if floors > 2 and rng.random() < .5:
+        f += box(x0 + 1, x1 - 1, *sorted((y, y + outward * 1.1)), z0 + 3.2, z0 + 3.4, 'wood')
+        f += box(x0 + 1, x1 - 1, *sorted((y + outward * 1.0, y + outward * 1.1)), z0 + 3.4, z0 + 4.3, 'wood')
+    return f
+def insula(bld, M, w, d, floors, court, wall, rng, detail):
+    h = floors * 3.2; f = []
+    if court:
+        g = min(w, d) * .3
+        wings = [(-w / 2, w / 2, -d / 2, -d / 2 + g), (-w / 2, w / 2, d / 2 - g, d / 2), (-w / 2, -w / 2 + g, -d / 2 + g, d / 2 - g), (w / 2 - g, w / 2, -d / 2 + g, d / 2 - g)]
     else:
-        h = R.uniform(10, 16); btr.add(cyl(x, y, .35, .25, z - .5, z + h, 'wood', seg=5))
-        for c in range(4):
-            btr.add(sphere(x + R.uniform(-3, 3), y + R.uniform(-3, 3), z + h + R.uniform(0, 1.5), R.uniform(3, 5.5), 'leaf', seg=7, rings=4, sz=.4))
+        wings = [(-w / 2, w / 2, -d / 2, d / 2)]
+    for (x0, x1, y0, y1) in wings:
+        f += box(x0, x1, y0, y1, 0, h, wall)
+        f += [(pts, m or wall) for pts, m in gable(x0, x1, y0, y1, h)]
+    if detail:
+        f += facade(-w / 2, w / 2, -d / 2, 0, floors, -1, rng)
+        f += facade(-w / 2, w / 2, d / 2, 0, floors, 1, rng)
+        Mr = Matrix.Rotation(math.pi / 2, 4, 'Z')
+        f += xf(facade(-d / 2, d / 2, w / 2, 0, floors, -1, rng), Mr)
+        f += xf(facade(-d / 2, d / 2, -w / 2, 0, floors, 1, rng), Mr)
+    bld.add(f, M)
+SP = 46.0
+walls = ['plaster_ochre', 'plaster_cream', 'plaster_red', 'plaster_pink', 'brick', 'plaster_ochre', 'plaster_white']
+count = 0
+for gx in range(-30, 31):
+    for gy in range(-30, 31):
+        x, y = gx * SP + R.uniform(-5, 5), gy * SP + R.uniform(-5, 5)
+        r = math.hypot(x, y)
+        if r < 140 or r > 1400 or not free(x, y): continue
+        if R.random() < .08: continue  # huertos y plazas
+        z = ground_h(x, y)
+        ang = .25 * math.sin(x / 420) + .22 * math.cos(y / 380) + R.uniform(-.05, .05)
+        on_hill = z > 12
+        w, d = R.uniform(26, 38), R.uniform(22, 34)
+        floors = R.choice([2, 2, 3]) if on_hill else R.choice([3, 4, 4, 5] if r < 700 else [2, 3, 3, 4])
+        M = Matrix.Translation((x, y, z - 1.2)) @ Matrix.Rotation(ang, 4, 'Z')
+        insula(bci if r < 750 else bcf, M, w, d, floors, w > 28 and R.random() < .65, R.choice(walls), R, r < 750)
+        count += 1
+bci.build(col_env); bcf.build(col_env)
+print('insulas', count)
+
+# Árboles: cipreses y pinos piñoneros en colinas, jardines y calles
+btr = Builder('arboles')
+for k in range(1400):
+    x, y = R.uniform(-1300, 1300), R.uniform(-1300, 1300)
+    z = ground_h(x, y); rr_ = math.hypot(x, y)
+    if rr_ < 125: continue
+    if z < 8 and R.random() < .6: continue
+    if R.random() < .5:
+        h = R.uniform(11, 19); btr.add(cyl(x, y, .25, .2, z - .5, z + 2, 'wood', seg=5)); btr.add(cyl(x, y, 1.2, .08, z + 1.5, z + h, 'leaf', seg=7))
+    else:
+        h = R.uniform(11, 17); lean = R.uniform(-2, 2)
+        btr.add([([(x, y, z - .5), (x + .5, y, z - .5), (x + .5 + lean, y, z + h), (x + lean, y, z + h)], 'wood')])
+        for c in range(5):
+            btr.add(sphere(x + lean + R.uniform(-3.5, 3.5), y + R.uniform(-3.5, 3.5), z + h + R.uniform(-.5, 1.2), R.uniform(3, 5.5), 'leaf', seg=8, rings=4, sz=.35))
 btr.build(col_env)
 
 # ------------------------------------------------------------------ calles con adoquín de basalto
@@ -614,6 +787,9 @@ for pts, w in (([(-94, 0), (-180, 30), (-230, 48)], 16), ([(94, 0), (230, 40), (
         dx, dy = x1 - x0, y1 - y0; L = math.hypot(dx, dy); nx_, ny_ = -dy / L * w / 2, dx / L * w / 2
         broad.face([(x0 + nx_, y0 + ny_, -.02), (x1 + nx_, y1 + ny_, -.02), (x1 - nx_, y1 - ny_, -.02), (x0 - nx_, y0 - ny_, -.02)], 'basalt')
 broad.build(col_env)
+
+if 'dia' in sys.argv:
+    exec(open(__file__.replace('build_scene.py', 'dia_espectaculo.py')).read())
 
 # ------------------------------------------------------------------ mundo y render
 world = bpy.data.worlds.new('cielo'); scene.world = world; world.use_nodes = True
