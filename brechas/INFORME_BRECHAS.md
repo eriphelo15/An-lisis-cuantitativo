@@ -113,3 +113,21 @@ El acierto sube al achicar el objetivo, pero el azar predice exactamente eso: 67
 El resultado es igual o peor que el azar, y los costes pesan más cuanto más pequeño es el objetivo.
 (Las variantes de ES con objetivo de 1 punto no se muestran como conclusión: con velas de 1 minuto no se puede saber qué se tocó antes.)
 Nota del propio Tom Hougaard (Drive, "9th Jan 2026 Al Brook.pdf"): en 90 minutos de sesión en directo, Brooks no anunció ninguna operación.
+
+---
+# Parte 5: tu VI con tu filtro discrecional (script `21_vi_filtro_usuario.py`)
+El filtro: no operar si la distancia entrada→hueco (tu TP) es pequeña frente al riesgo potencial.
+Se probaron tres formas de medir ese riesgo: distancia a la EMA20, rango de la vela VI y mecha en contra.
+También se probó una recompensa mínima absoluta (0.01-0.03 ATR, hoy ≈ 4-11 pts NQ). Todo en puntos NQ a la escala de hoy, con costes.
+
+NQ, TP en el borde del hueco:
+| | Acierto | Gan. media | Pérd. media | Resultado 2010-18 | Resultado 2019-26 |
+|---|---|---|---|---|---|
+| Sin filtro | 70% | 6.6-7.0 | −18/−19 | −$21 | −$12 |
+| Recompensa ≥ 0.5 × distancia a EMA20 | 59-61% | ~10 | −17 | −$18 | −$11 |
+| Recompensa ≥ 0.5 × rango de la vela | 57-59% | ~12 | −18/−19 | −$7 | −$17 |
+| Recompensa ≥ 0.03 ATR (≈11 pts hoy) | 56-57% | 15.5 | −21/−22 | −$1 | −$16 |
+
+El filtro hace lo que buscas: sube la ganancia media de 7 a 15 pts. Pero el acierto baja en la misma proporción (70% → 56%), así que el resultado sigue en torno a cero o negativo, igual en ES e YM.
+El problema de fondo no está en la entrada, sino en la pérdida media: sin stop, saliendo por EMA o por tiempo, se pierden ~18-22 pts.
+La misma entrada, gestionada como el pullback VI (stop en EMA50, objetivo 2R), sí es positiva (+0.10R).
