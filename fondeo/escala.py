@@ -17,7 +17,7 @@ from motor_fondeo import sim_dia, actualizar_piso
 
 
 @njit(cache=True)
-def escala(D, npaths, H, caja0, P, modo, t_ini, dia_comun, max_f, seed, max_ex=5, TV=None):
+def escala(D, npaths, H, caja0, P, modo, t_ini, dia_comun, max_f, seed, max_ex=5, TV=None, aporte=0.0):
     nplan = P.shape[0]
     caja_fin = np.zeros(npaths); gastado = np.zeros(npaths); cobrado = np.zeros(npaths)
     n_exam = np.zeros(npaths); n_fond = np.zeros(npaths)
@@ -32,6 +32,8 @@ def escala(D, npaths, H, caja0, P, modo, t_ini, dia_comun, max_f, seed, max_ex=5
         # fondeadas: [activa, p, max_eod, piso, buenos, ciclo, mejor, k]
         fo = np.zeros((nplan, max_f, 8))
         for t in range(H):
+            if t > 0 and t % 21 == 0:
+                caja += aporte
             # comprar exámenes para rellenar cupos vacíos
             for pl in range(nplan):
                 if P[pl, 26] < 0.5:
