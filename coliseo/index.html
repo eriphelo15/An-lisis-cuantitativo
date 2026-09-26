@@ -223,7 +223,7 @@ const M={
   pave:std({map:TX.pave,bumpMap:TX.paveB,bumpScale:.04,roughness:.85}),
   wood:std({map:TX.wood,roughness:.8}),
   asph:std({map:TX.asph,roughness:.95}),
-  dirt:std({color:0x6e5d48,roughness:1}),
+  dirt:std({map:TX.pave,color:0x8a7258,roughness:1,envMapIntensity:.25}),
   grass:std({color:0x5d6b3e,roughness:1}),
   bark:std({color:0x5a4636,roughness:1}),
   leaf:std({color:0x3b4f2c,roughness:.95}),
@@ -231,7 +231,7 @@ const M={
   marble:std({map:TX.trav,bumpMap:TX.travB,bumpScale:.03,color:0xf0ebe2,roughness:.7}),
   city:std({roughness:1,vertexColors:true}),
   dark:new W.MeshBasicMaterial({color:0x0c0906}),
-  glow:new W.MeshBasicMaterial({color:new W.Color(3.2,1.9,.9),side:W.DoubleSide}),
+  glow:new W.MeshBasicMaterial({color:new W.Color(2.1,1.15,.45),side:W.DoubleSide}),
 };
 M.glow.userData.hdr=true;
 ['travIn','cavea','brick','ruin','tuff','wood','dirt','marble'].forEach(k=>M[k].side=W.DoubleSide);
@@ -358,7 +358,7 @@ buttress(lastI,1); buttress(firstI,-1);
 const T2=1.9, L2=PER*((A-D2)/A)/NB*1.0;
 const R2S=[{y0:0,spring:6.4,top:10.5,w:3.7},{y0:10.5,spring:17.6,top:22.3,w:3.6},{y0:22.3,spring:29.3,top:33.9,w:3.6}];
 for(let i=0;i<NB;i++){ const {m,L}=bayM(i,D2,L2);
-  const ruinTop=INTACT[i]?48:33.9+(rnd()<.5?rnd()*4:0);
+  const ruinTop=INTACT[i]?48:32.2+rnd()*1.7;
   R2S.forEach((S,si)=>{
     const top=Math.min(S.top,ruinTop);
     const g=uWall(L2,S.w,S.y0,S.spring,top-.55,T2); bt('travIn').add(g,m);
@@ -370,7 +370,6 @@ for(let i=0;i<NB;i++){ const {m,L}=bayM(i,D2,L2);
     }
   });
   if(INTACT[i]){ bt('travIn').add(at(box(L2*1.01,48.5-33.9,T2),0,33.9+(48.5-33.9)/2,-T2/2),m); }
-  else if(rnd()<.45){ const h=1+rnd()*5; bt('travIn').add(at(box(L2*(.3+rnd()*.6),h,T2),(rnd()-.5)*2,33.9+h/2,-T2/2),m); }
 }
 
 // =================== CÁVEA, PODIO Y DEAMBULATORIO INTERNO ===================
@@ -401,7 +400,7 @@ scene.add(ringStrip([[D2+T2,-0.02],[12.4,-0.02]],M.tuff,320));
 // muros radiales en ruina que asoman sobre las gradas
 for(let i=0;i<NB;i++){ const t=TB[i]; const p0=pt(t,12.4), p1=pt(t,DA-3.4);
   const len=Math.hypot(p1[0]-p0[0],p1[1]-p0[1]), th=Math.atan2(p1[1]-p0[1],p1[0]-p0[0]);
-  const s=new W.Shape(); const hAt=f=>lerp(33,5.4,f); s.moveTo(0,hAt(0)-3);
+  const s=new W.Shape(); const hAt=f=>lerp(29.5,4.6,f); s.moveTo(0,hAt(0)-3);
   const n=10; for(let k=0;k<=n;k++){ const f=k/n; s.lineTo(f*len,hAt(f)+ .6+rnd()*1.6-(bayDmg[i]*(1-f))*.9); }
   s.lineTo(len,hAt(1)-2); s.lineTo(0,hAt(0)-3);
   const g=new W.ExtrudeGeometry(s,{depth:1.0,bevelEnabled:false}); g.translate(0,0,-.5);
