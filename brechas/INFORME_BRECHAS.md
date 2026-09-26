@@ -76,3 +76,21 @@ Lección: casi toda anomalía publicada se desvanece después de publicarse. La 
 ## Macro (datos oficiales: fechas de publicación de ALFRED/FRED, VIX de CBOE, tipos y dólar de FRED)
 - NFP y CPI: ni la deriva previa, ni la reacción, ni la continuación son consistentes entre periodos.
 - VIX (nivel, estructura 9D/3M, cambios), tipos 2 y 10 años, dólar: **predicen la volatilidad, no la dirección**. Sirven para ajustar el tamaño, no para elegir el lado.
+
+---
+# Parte 3: modelos ICT (script `19_ict.py`)
+Reglas mecánicas en NQ, ES e YM durante 15 años, con 1 operación por modelo y día y costes a precios de hoy:
+FVG con desplazamiento (entrada en el borde, o en el 50% = CE), Silver Bullet (10:00-11:00 tras barrer el rango de 09:30-10:00),
+Judas Swing (barrido del máx/mín nocturno y cierre de vuelta dentro), Turtle Soup (barrido del máx/mín de ayer) y OTE (70.5% de un impulso ≥ 0.35 ATR).
+
+| Modelo | NQ (DEV / VAL1 / VAL2, R por operación) | ES | YM |
+|---|---|---|---|
+| FVG (borde) | +0.06 / −0.04 / +0.04 | +0.03 / +0.03 / −0.06 | −0.04 / −0.09 / −0.02 |
+| FVG 50% (CE) | −0.04 / −0.09 / −0.01 | −0.08 / −0.09 / −0.12 | −0.04 / −0.09 / −0.07 |
+| Silver Bullet | +0.09 / +0.05 / −0.07 | +0.03 / −0.02 / +0.04 | +0.16 / −0.13 / −0.06 |
+| Judas Swing | 0.00 / +0.08 / 0.00 | −0.12 / −0.23 / −0.13 | −0.11 / +0.04 / −0.10 |
+| Turtle Soup | +0.02 / +0.06 / −0.06 | −0.05 / −0.16 / −0.07 | +0.04 / −0.03 / −0.04 |
+| OTE | −0.04 / −0.08 / +0.08 | −0.16 / −0.15 / −0.18 | −0.13 / +0.18 / −0.12 |
+
+Ningún modelo ICT es positivo de forma consistente en los tres periodos, ni siquiera en un solo índice. El acierto va del 25% al 44%.
+Los barridos de liquidez (Judas, Turtle Soup) pierden en ES: el barrido tiende a continuar, como ya vimos con el mínimo de ayer en NQ.
