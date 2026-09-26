@@ -1,0 +1,131 @@
+// VI original [EAO] — marca exactamente las operaciones del estudio (brechas/21_vi_filtro_usuario.py, "TP borde del hueco").
+// NQ / MNQ, velas de 1 minuto, horas extendidas (ETH) activadas.
+//
+// 1) Tendencia: alcista = EMA20 > EMA50 y cierre por encima de ambas (bajista al revés).
+// 2) VI en contra: en tendencia alcista, vela cuyo cuerpo queda completamente POR DEBAJO del cuerpo anterior con mechas que se tocan
+//    (en bajista, cuerpo completamente POR ENCIMA del anterior).
+// 3) Entrada a favor de la tendencia al CIERRE de la vela VI, entre 09:31 y 11:29 ET.
+// 4) TP = borde del hueco (parte alta del cuerpo de la vela VI en compras / parte baja en ventas); cuenta como tocado si lo supera 1 tick.
+// 5) Salida si no llega al TP: una vela cierra al otro lado de la EMA20 -> cierre; o a los 5 minutos -> cierre. Sin stop.
+// Una operación a la vez; puede haber varias al día.
+
+//@version=5
+indicator("VI original [EAO]", overlay = true, max_labels_count = 500, max_lines_count = 500, max_boxes_count = 500)
+
+grpC = "Costes y tamaño"
+usdPt  = input.float(20.0, "USD por punto (NQ = 20, MNQ = 2)", group = grpC)
+coste  = input.float(5.76, "Comisión ida+vuelta por contrato (USD)", group = grpC)
+ticksDesl = input.int(1, "Deslizamiento en salidas a mercado (ticks por lado)", group = grpC)
+grpV = "Visual"
+verTabla = input.bool(true, "Mostrar tabla", group = grpV)
+verEMAs  = input.bool(true, "Mostrar EMAs", group = grpV)
+verEtiq  = input.bool(true, "Mostrar etiquetas de resultado", group = grpV)
+
+tz = "America/New_York"
+tick = syminfo.mintick
+ema20 = ta.ema(close, 20)
+ema50 = ta.ema(close, 50)
+plot(verEMAs ? ema20 : na, "EMA 20", color.new(#3b9ae1, 0), 2)
+plot(verEMAs ? ema50 : na, "EMA 50", color.new(#f0a030, 0), 2)
+
+enVent = not na(time(timeframe.period, "0931-1130", tz))
+
+tendAlc = ema20 > ema50 and close > ema20 and close > ema50
+tendBaj = ema20 < ema50 and close < ema20 and close < ema50
+viBaj = math.max(open, close) < math.min(open[1], close[1]) and high >= low[1]   // VI bajista (contra tendencia alcista) -> COMPRA
+viAlc = math.min(open, close) > math.max(open[1], close[1]) and low <= high[1]   // VI alcista (contra tendencia bajista) -> VENTA
+
+var int   pos = 0
+var float ent = na
+var float tp = na
+var int   barEnt = na
+var int   barSal = -1
+var line  lnE = na
+var line  lnT = na
+var int   nOps = 0
+var int   nGan = 0
+var float sumPts = 0.0
+var float sumGan = 0.0
+var float sumPer = 0.0
+var float sumUSD = 0.0
+var int   nTP = 0
+var int   nEMA = 0
+var int   n5 = 0
+
+// ---------- Gestión de la operación abierta ----------
+if barstate.isconfirmed and pos != 0 and bar_index > barEnt
+    float px = na
+    string mot = na
+    if (pos == 1 and high >= tp + tick) or (pos == -1 and low <= tp - tick)
+        px := tp
+        mot := "TP"
+    else if (pos == 1 and close < ema20) or (pos == -1 and close > ema20)
+        px := close
+        mot := "EMA20"
+    else if bar_index - barEnt >= 5
+        px := close
+        mot := "5 min"
+    if not na(px)
+        pts = pos * (px - ent)
+        desl = mot == "TP" ? ticksDesl * tick : 2 * ticksDesl * tick
+        usd = (pts - desl) * usdPt - coste
+        nOps += 1
+        sumPts += pts
+        sumUSD += usd
+        if usd > 0
+            nGan += 1
+            sumGan += usd
+        else
+            sumPer += usd
+        nTP += mot == "TP" ? 1 : 0
+        nEMA += mot == "EMA20" ? 1 : 0
+        n5 += mot == "5 min" ? 1 : 0
+        line.set_x2(lnE, bar_index)
+        line.set_x2(lnT, bar_index)
+        label.new(bar_index, px, "✖", style = label.style_none, textcolor = usd > 0 ? color.new(#2e9e4f, 0) : color.new(#b03030, 0), size = size.large)
+        if verEtiq
+            label.new(bar_index, pos == 1 ? high : low, "SALIDA: " + mot + "\n" + str.tostring(pts, "+0.00;-0.00") + " pts (" + str.tostring(usd, "+$0;-$0") + ")",
+                      style = pos == 1 ? label.style_label_down : label.style_label_up,
+                      color = usd > 0 ? color.new(#2e9e4f, 15) : color.new(#b03030, 15), textcolor = color.white, size = size.small)
+        pos := 0
+        barSal := bar_index
+    else
+        line.set_x2(lnE, bar_index)
+        line.set_x2(lnT, bar_index)
+
+// ---------- Nueva señal ----------
+senalL = barstate.isconfirmed and enVent and pos == 0 and bar_index > barSal and tendAlc and viBaj and math.abs(math.max(open, close) - close) >= tick
+senalC = barstate.isconfirmed and enVent and pos == 0 and bar_index > barSal and tendBaj and viAlc and math.abs(close - math.min(open, close)) >= tick
+
+if senalL or senalC
+    pos := senalL ? 1 : -1
+    ent := close
+    tp := senalL ? math.max(open, close) : math.min(open, close)
+    barEnt := bar_index
+    gapLo = senalL ? math.max(open, close) : math.max(open[1], close[1])
+    gapHi = senalL ? math.min(open[1], close[1]) : math.min(open, close)
+    box.new(bar_index - 1, gapHi, bar_index, gapLo, border_color = color.new(#7b2cbf, 0), bgcolor = color.new(#c77dff, 45), border_width = 1)
+    lnE := line.new(bar_index, ent, bar_index + 1, ent, color = color.new(color.gray, 0), style = line.style_dashed, width = 1)
+    lnT := line.new(bar_index, tp, bar_index + 1, tp, color = color.new(#2e9e4f, 0), style = line.style_dashed, width = 1)
+    label.new(bar_index, senalL ? low : high, senalL ? "COMPRA" : "VENTA",
+              style = senalL ? label.style_label_up : label.style_label_down,
+              color = senalL ? color.new(#2e9e4f, 0) : color.new(#b03030, 0), textcolor = color.white, size = size.small)
+
+alertcondition(senalL, "VI original - COMPRA", "VI original: COMPRA al cierre, TP en el hueco")
+alertcondition(senalC, "VI original - VENTA", "VI original: VENTA al cierre, TP en el hueco")
+
+// ---------- Tabla ----------
+var table tb = table.new(position.top_right, 2, 8, bgcolor = color.new(color.black, 20), border_width = 1)
+fila(table t, int r, string a, string b) =>
+    table.cell(t, 0, r, a, text_color = color.white, text_size = size.small, text_halign = text.align_left)
+    table.cell(t, 1, r, b, text_color = color.white, text_size = size.small, text_halign = text.align_right)
+
+if verTabla and barstate.islast
+    fila(tb, 0, "Operaciones", str.tostring(nOps))
+    fila(tb, 1, "Acierto (neto)", nOps > 0 ? str.tostring(100.0 * nGan / nOps, "#.0") + "%" : "-")
+    fila(tb, 2, "Salidas TP / EMA20 / 5 min", str.tostring(nTP) + " / " + str.tostring(nEMA) + " / " + str.tostring(n5))
+    fila(tb, 3, "Ganancia media", nGan > 0 ? str.tostring(sumGan / nGan, "$0") : "-")
+    fila(tb, 4, "Pérdida media", nOps - nGan > 0 ? str.tostring(sumPer / (nOps - nGan), "$0") : "-")
+    fila(tb, 5, "Resultado medio", nOps > 0 ? str.tostring(sumUSD / nOps, "+$0.0;-$0.0") : "-")
+    fila(tb, 6, "Resultado total", str.tostring(sumUSD, "+$0;-$0"))
+    fila(tb, 7, "Puntos totales (bruto)", str.tostring(sumPts, "+0.0;-0.0"))
