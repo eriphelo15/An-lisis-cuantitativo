@@ -8,7 +8,7 @@
 //  4) EMA20 inclinada: EMA20 - EMA20 de hace 10 velas > 0.074 x ATR
 //  5) Stop válido:    stop = EMA50 - 2 ticks; distancia entre 0.069 y 0.25 x ATR
 // Entrada al cierre de la vela, stop fijo, objetivo 2R, cierre a las 15:55. Máximo 1 operación al día.
-// ATR = media del rango RTH (09:30-16:00) de los 14 días anteriores.
+// ATR = media del rango RTH (09:30-16:00) de los 14 días anteriores (calculado con velas de 30 min).
 
 //@version=5
 indicator("Pullback VI filtrado [EAO]", overlay = true, max_labels_count = 500, max_lines_count = 500, max_bars_back = 500)
@@ -32,6 +32,7 @@ costeCto  = input.float(2.82, "Coste ida+vuelta por contrato (USD)", group = grp
 grpV = "Visual"
 verTabla = input.bool(true, "Mostrar tabla de estadísticas", group = grpV)
 verEMAs  = input.bool(true, "Mostrar EMAs", group = grpV)
+verDebug = input.bool(false, "Depuración: marcar VI en tendencia sin filtros", group = grpV)
 
 tz = "America/New_York"
 tick = syminfo.mintick
@@ -46,26 +47,30 @@ enRTH  = not na(time(timeframe.period, "0930-1600", tz))
 enVent = not na(time(timeframe.period, "0931-1130", tz))
 
 // ---------- ATR del día (rango RTH medio de 14 días anteriores) ----------
-var float   rthH = na
-var float   rthL = na
-var float[] rangos = array.new_float()
-var float   atrAuto = na
-var float   ap930 = na
-var bool    operadoHoy = false
+// Se calcula sobre velas de 30 min (request.security) para no depender de 14 días de historial de 1 min.
+atrRTH() =>
+    var float h = na
+    var float l = na
+    var float[] rs = array.new_float()
+    dentro = not na(time(timeframe.period, "0930-1600", "America/New_York"))
+    if dentro
+        h := na(h) ? high : math.max(h, high)
+        l := na(l) ? low : math.min(l, low)
+    else if not na(h)
+        array.push(rs, h - l)
+        if array.size(rs) > 14
+            array.shift(rs)
+        h := na
+        l := na
+    array.size(rs) == 14 ? array.avg(rs) : na
 
+atrAuto = request.security(syminfo.tickerid, "30", atrRTH(), lookahead = barmerge.lookahead_off)
+
+var float ap930 = na
+var bool  operadoHoy = false
 if hhmm == 930 and hhmm[1] != 930
-    if not na(rthH)
-        array.push(rangos, rthH - rthL)
-        if array.size(rangos) > 14
-            array.shift(rangos)
-    atrAuto := array.size(rangos) == 14 ? array.avg(rangos) : na
-    rthH := high
-    rthL := low
     ap930 := open
     operadoHoy := false
-else if enRTH and not na(rthH)
-    rthH := math.max(rthH, high)
-    rthL := math.min(rthL, low)
 
 atrD = atrManual > 0 ? atrManual : atrAuto
 
@@ -83,6 +88,9 @@ distC = stopC - close
 baseOK = barstate.isconfirmed and enVent and not na(atrD) and not na(ap930) and not operadoHoy
 senalL = baseOK and tendAlc and viBaj and (close - ap930) > kMov * atrD and (ema20 - ema20[10]) > kPend * atrD and distL >= math.max(kStopMin * atrD, 4 * tick) and distL <= kStopMax * atrD
 senalC = baseOK and tendBaj and viAlc and (ap930 - close) > kMov * atrD and (ema20[10] - ema20) > kPend * atrD and distC >= math.max(kStopMin * atrD, 4 * tick) and distC <= kStopMax * atrD
+
+plotshape(verDebug and barstate.isconfirmed and enVent and tendAlc and viBaj, "VI en tendencia alcista (sin filtros)", shape.circle, location.belowbar, color.new(color.teal, 40), size = size.tiny)
+plotshape(verDebug and barstate.isconfirmed and enVent and tendBaj and viAlc, "VI en tendencia bajista (sin filtros)", shape.circle, location.abovebar, color.new(color.maroon, 40), size = size.tiny)
 
 // ---------- Gestión de la operación ----------
 var int   pos = 0
@@ -173,8 +181,7 @@ f(table t, int r, string a, string b) =>
     table.cell(t, 1, r, b, text_color = color.white, text_size = size.small, text_halign = text.align_right)
 
 if verTabla and barstate.islast
-    faltan = 14 - array.size(rangos)
-    f(tb, 0, "ATR del día", na(atrD) ? ("calculando (faltan " + str.tostring(faltan) + " días)") : str.tostring(atrD, "#.0") + " pts" + (atrManual > 0 ? " (manual)" : ""))
+    f(tb, 0, "ATR del día", na(atrD) ? "calculando (pon el ATR manual)" : str.tostring(atrD, "#.0") + " pts" + (atrManual > 0 ? " (manual)" : ""))
     f(tb, 1, "Filtro día a favor", na(atrD) ? "-" : "> " + str.tostring(kMov * atrD, "#.0") + " pts")
     f(tb, 2, "Filtro pendiente EMA20", na(atrD) ? "-" : "> " + str.tostring(kPend * atrD, "#.0") + " pts")
     f(tb, 3, "Stop válido", na(atrD) ? "-" : str.tostring(kStopMin * atrD, "#.0") + " a " + str.tostring(kStopMax * atrD, "#.0") + " pts")
