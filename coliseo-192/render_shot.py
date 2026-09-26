@@ -18,7 +18,7 @@ SHOTS = {
                      haze_k=7000, exposure=-0.2, world=0.45),
     'llegada': dict(cam=(-20, -112, 2.4), look=(-4, -70, 18), lens=28, sun_az=112, sun_el=18, sun_col=(1.0, 0.8, 0.62), sun_str=6.0,
                     aerosol=1.6, haze=(0.8, 0.76, 0.72), haze_amt=0.6, haze_k=6000, exposure=-0.35, world=0.6, show=['Publico', 'Llegada']),
-    'velario': dict(cam=(70, -104, 66), look=(-25, 18, 44), lens=26, sun_az=135, sun_el=32, sun_col=(1.0, 0.9, 0.78), sun_str=6.5,
+    'velario': dict(cam=(78, -118, 92), look=(-20, 16, 40), lens=26, sun_az=135, sun_el=32, sun_col=(1.0, 0.9, 0.78), sun_str=6.5,
                     aerosol=0.7, haze=(0.78, 0.8, 0.84), haze_amt=0.6, haze_k=7000, exposure=-1.35, world=0.6, show=['Publico', 'Velario']),
     'gradas': dict(cam=(12, 47, 23.5), look=(0, -26, 7), lens=24, sun_az=160, sun_el=42, sun_col=(1.0, 0.92, 0.82), sun_str=6.5,
                    aerosol=0.7, haze=(0.8, 0.8, 0.82), haze_amt=0.5, haze_k=8000, exposure=-1.35, world=0.6, show=['Publico', 'Velario']),
