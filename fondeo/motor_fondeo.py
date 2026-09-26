@@ -34,12 +34,19 @@ def tamano(riesgo, S, max_micro):
 
 
 @njit(cache=True)
-def sim_dia(D, di, R, S, T, K, G, L, dist_piso, falta_obj, max_micro):
+def sim_dia(D, di, R, S, T, K, G, L, dist_piso, falta_obj, max_micro, modo=0, t_ini=1):
     """Simula un día con tamaño dinámico. R: riesgo USD por trade; S/T: stop/objetivo en pts.
     Devuelve (pnl_día, quiebre, n_trades)."""
     pnl = 0.0
-    j = 1
+    j = t_ini
     n = 0
+    # dirección según la regla: 0 aleatoria, 1 solo largos, 2 momentum de apertura, 3 fade de apertura
+    d0 = 1.0
+    if modo == 2 or modo == 3:
+        mov = D[di, t_ini - 1, 3] - D[di, 0, 0]
+        d0 = 1.0 if mov >= 0 else -1.0
+        if modo == 3:
+            d0 = -d0
     while n < K and j < 380:
         if pnl >= G or pnl <= -L:
             break
@@ -54,7 +61,7 @@ def sim_dia(D, di, R, S, T, K, G, L, dist_piso, falta_obj, max_micro):
             need = np.ceil(need / TICK) * TICK
             if need < t_eff:
                 t_eff = max(need, TICK)
-        d = 1.0 if np.random.random() < 0.5 else -1.0
+        d = (1.0 if np.random.random() < 0.5 else -1.0) if modo == 0 else d0
         e = D[di, j, 0]
         stop = e - d * S
         tgt = e + d * t_eff
@@ -94,7 +101,7 @@ def actualizar_piso(max_eod, dd):
 
 
 @njit(parallel=True, cache=True)
-def examen(D, nsim, target, dd, dll, consist, min_dias, R, S, T, K, G, L, max_micro, max_dias, seed):
+def examen(D, nsim, target, dd, dll, consist, min_dias, R, S, T, K, G, L, max_micro, max_dias, seed, modo=0, t_ini=1):
     """Devuelve (aprobado[nsim], dias[nsim])."""
     ok = np.zeros(nsim, np.bool_)
     dias = np.zeros(nsim, np.int32)
@@ -110,7 +117,7 @@ def examen(D, nsim, target, dd, dll, consist, min_dias, R, S, T, K, G, L, max_mi
                 Gd = min(G, consist * target * 0.95)
             falta = target - p if (consist <= 0 or best <= consist * target) else 0.0
             di = np.random.randint(nd)
-            r, q, n = sim_dia(D, di, R, S, T, K, Gd, Ld, p - piso, falta, max_micro)
+            r, q, n = sim_dia(D, di, R, S, T, K, Gd, Ld, p - piso, falta, max_micro, modo, t_ini)
             p += r
             dias[i] = dia + 1
             if q or p <= piso or p - piso < S * 2.0 + 3.0:
@@ -128,7 +135,7 @@ def examen(D, nsim, target, dd, dll, consist, min_dias, R, S, T, K, G, L, max_mi
 
 @njit(parallel=True, cache=True)
 def fondeada(D, nsim, tipo, size_k, dd, dll, dia_min, saldo_min, cons, pmin, pmax1, pmax4, frac, buffer_,
-             goal1, goal2, R, S, T, K, G, L, max_micro, reserva, horizonte, seed):
+             goal1, goal2, R, S, T, K, G, L, max_micro, reserva, horizonte, seed, modo=0, t_ini=1, colchon=-1.0):
     """tipo: 0 growth, 1 select_flex, 2 select_daily, 3 lightning.
     Devuelve (cobrado_neto[nsim], n_retiros[nsim], dias_vivos[nsim], quebrada[nsim])."""
     cobrado = np.zeros(nsim); nret = np.zeros(nsim, np.int32); vivos = np.zeros(nsim, np.int32)
@@ -147,7 +154,7 @@ def fondeada(D, nsim, tipo, size_k, dd, dll, dia_min, saldo_min, cons, pmin, pma
             if tipo == 0 and cons > 0:
                 Gd = G  # la política ya fija G bajo la consistencia
             di = np.random.randint(nd)
-            r, q, n = sim_dia(D, di, R, S, T, K, Gd, Ld, p - piso, 0.0, max_micro)
+            r, q, n = sim_dia(D, di, R, S, T, K, Gd, Ld, p - piso, 0.0, max_micro, modo, t_ini)
             p += r
             vivos[i] = dia + 1
             if q or p <= piso or p - piso < S * 2.0 + 3.0:
@@ -165,7 +172,10 @@ def fondeada(D, nsim, tipo, size_k, dd, dll, dia_min, saldo_min, cons, pmin, pma
             if tipo == 0:  # Growth
                 if buenos >= 5 and p >= saldo_min and ciclo > 0 and mejor <= cons * ciclo:
                     tope = pmax1 if k < 3 else pmax4
-                    monto = min(tope, p - 100.0 - reserva)
+                    if colchon >= 0:
+                        monto = tope if p - tope >= colchon else 0.0
+                    else:
+                        monto = min(tope, p - 100.0 - reserva)
                     if monto < pmin:
                         monto = 0.0
             elif tipo == 1:  # Select Flex
