@@ -21,7 +21,7 @@ SERIF_I = '/usr/share/fonts/truetype/freefont/FreeSerifItalic.ttf'
 
 TOMAS = [
     ('01_amanecer', 'AMANECER', 'Roma, año 192 d. C.', 'El Anfiteatro Flavio despierta junto al Coloso de Nerón, al que Cómodo le puso su propio rostro.', (1.0, 1.1, -0.02, 0.0)),
-    ('02_llegada', 'PRIMERA HORA', 'Llega el público', 'Cada entrada lleva un número tallado. La tésera de cada espectador indica su puerta, su sector y su fila.', (1.06, 1.0, 0.0, 0.02)),
+    ('02_llegada', 'PRIMERA HORA', 'Las arcadas', 'Cada arco de la planta baja es una entrada numerada. Arriba, estatuas de mármol llenan los arcos.', (1.06, 1.0, 0.0, 0.02)),
     ('03_velario', 'MEDIA MAÑANA', 'El velario', 'Marineros de la flota de Miseno despliegan el toldo gigante sobre 240 mástiles.', (1.0, 1.08, 0.03, 0.0)),
     ('04_gradas', 'LA CÁVEA', 'Cincuenta mil personas', 'Senadores en el podio, la plebe más arriba y las mujeres en lo más alto. El emperador ocupa el pulvinar.', (1.0, 1.12, 0.0, 0.03)),
     ('05_pompa', 'LA POMPA', 'El desfile de apertura', 'Músicos, gladiadores con capas de púrpura y la imagen de los dioses entran por la Porta Triumphalis.', (1.04, 1.0, -0.03, 0.0)),
