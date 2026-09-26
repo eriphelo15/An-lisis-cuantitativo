@@ -43,28 +43,29 @@ def correr(A, E20, E50, t_fin, tp_modo, n_min, tick):
             ocupado = k; n = k + 1
     return out
 
-for sym in ["NQ", "ES", "YM"]:
-    A, E20, E50, F, atr = vi.dias_con_ema(sym); I = INSTR[sym]; tick = I["tick"]
-    c_mkt = I["com"] / I["usd"] + 2 * tick; c_tp = I["com"] / I["usd"] + tick
-    atr_hoy = np.nanmean(atr[-60:])
-    for tpm, tpn in [(0, "TP borde del hueco"), (1, "TP hueco completo")]:
-        R = pd.DataFrame(correr(A, E20, E50, 120, tpm, 5, tick), columns=["di", "n", "d", "res", "mot", "rec", "r_ema", "r_vela", "r_ext"])
-        R["f"] = F[R.di.astype(int)]; R["atr"] = atr[R.di.astype(int)]; R = R[R.atr > 0]
-        esc = atr_hoy / R.atr
-        R["neto"] = R.res * esc - np.where(R.mot == 1, c_tp, c_mkt)       # puntos a la escala de hoy
-        dev = R.f <= "2018-12-31"; val = R.f >= "2019-01-01"
-        print(f"\n===== {sym} · {tpn} · señales {len(R)} ({len(R)/len(A):.1f}/día)")
-        def linea(nom, m):
-            out = []
-            for tag, p in (("2010-18", dev), ("2019-26", val)):
-                x = R.neto[m & p]; w = x[x > 0]; lo = x[x <= 0]
-                out.append(f"{tag}: n={len(x):6d} WR={100*(x>0).mean():4.1f}% gan={w.mean():5.1f} perd={lo.mean():6.1f} res={x.mean():+5.2f}pts ({x.mean()*I['usd']:+6.1f}$)")
-            print(f"  {nom:36s}", " | ".join(out))
-        linea("sin filtro", np.ones(len(R), bool))
-        for med in ["r_ema", "r_vela", "r_ext"]:
-            for q in [1.0, 0.5]:
-                m = R.rec >= q * R[med]
-                linea(f"recompensa >= {q} x {med}", m)
-        # recompensa mínima absoluta (en ATR del día)
-        for k in [0.01, 0.02, 0.03]:
-            linea(f"recompensa >= {k} ATR", R.rec >= k * R.atr)
+if __name__ == "__main__":
+    for sym in ["NQ", "ES", "YM"]:
+        A, E20, E50, F, atr = vi.dias_con_ema(sym); I = INSTR[sym]; tick = I["tick"]
+        c_mkt = I["com"] / I["usd"] + 2 * tick; c_tp = I["com"] / I["usd"] + tick
+        atr_hoy = np.nanmean(atr[-60:])
+        for tpm, tpn in [(0, "TP borde del hueco"), (1, "TP hueco completo")]:
+            R = pd.DataFrame(correr(A, E20, E50, 120, tpm, 5, tick), columns=["di", "n", "d", "res", "mot", "rec", "r_ema", "r_vela", "r_ext"])
+            R["f"] = F[R.di.astype(int)]; R["atr"] = atr[R.di.astype(int)]; R = R[R.atr > 0]
+            esc = atr_hoy / R.atr
+            R["neto"] = R.res * esc - np.where(R.mot == 1, c_tp, c_mkt)       # puntos a la escala de hoy
+            dev = R.f <= "2018-12-31"; val = R.f >= "2019-01-01"
+            print(f"\n===== {sym} · {tpn} · señales {len(R)} ({len(R)/len(A):.1f}/día)")
+            def linea(nom, m):
+                out = []
+                for tag, p in (("2010-18", dev), ("2019-26", val)):
+                    x = R.neto[m & p]; w = x[x > 0]; lo = x[x <= 0]
+                    out.append(f"{tag}: n={len(x):6d} WR={100*(x>0).mean():4.1f}% gan={w.mean():5.1f} perd={lo.mean():6.1f} res={x.mean():+5.2f}pts ({x.mean()*I['usd']:+6.1f}$)")
+                print(f"  {nom:36s}", " | ".join(out))
+            linea("sin filtro", np.ones(len(R), bool))
+            for med in ["r_ema", "r_vela", "r_ext"]:
+                for q in [1.0, 0.5]:
+                    m = R.rec >= q * R[med]
+                    linea(f"recompensa >= {q} x {med}", m)
+            # recompensa mínima absoluta (en ATR del día)
+            for k in [0.01, 0.02, 0.03]:
+                linea(f"recompensa >= {k} ATR", R.rec >= k * R.atr)
