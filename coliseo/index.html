@@ -171,11 +171,11 @@ function travertine(mode){
 function brick(mode){
   return (g,S)=>{
     seed=777; const col=mode==='c';
-    g.fillStyle=col?'#a9927a':'#606060'; g.fillRect(0,0,S,S);
+    g.fillStyle=col?'#a39784':'#606060'; g.fillRect(0,0,S,S);
     const rows=46, rh=S/rows;
     for(let r=0;r<rows;r++){ let x=-rnd()*60;
       while(x<S){ const w=40+rnd()*70; const t=rnd();
-        g.fillStyle=col?`rgb(${150+t*50|0},${82+t*35|0},${55+t*25|0})`:`rgb(${150+t*40|0},${150+t*40|0},${150+t*40|0})`;
+        g.fillStyle=col?`rgb(${128+t*34|0},${96+t*26|0},${76+t*20|0})`:`rgb(${150+t*40|0},${150+t*40|0},${150+t*40|0})`;
         g.fillRect(x+2,r*rh+rh*.38,w-4,rh*.58); x+=w; } }
     for(let i=0;i<16000;i++){ const x=rnd()*S,y=rnd()*S; g.fillStyle=col?`rgba(${rnd()<.5?'60,40,30':'220,200,170'},${.08+rnd()*.15})`:'rgba(90,90,90,.2)'; g.fillRect(x,y,1.5,1.5); }
     for(let i=0;i<40;i++){ const x=rnd()*S,y=rnd()*S,w=30+rnd()*140,h=20+rnd()*120; g.fillStyle=col?`rgba(${rnd()<.5?'70,60,50':'190,170,140'},${.08+rnd()*.12})`:'rgba(80,80,80,.15)'; g.fillRect(x,y,w,h); }
@@ -212,12 +212,13 @@ const TX={
   wood:canvasTex(512,planks,true,1/5), asph:canvasTex(512,asphalt,true,1/12),
 };
 Object.values(TX).forEach(t=>t.anisotropy=aniso);
-const std=(o)=>new W.MeshStandardMaterial(Object.assign({roughness:.92,metalness:0,envMapIntensity:.7},o));
+const std=(o)=>new W.MeshStandardMaterial(Object.assign({roughness:.92,metalness:0,envMapIntensity:.5},o));
 const M={
   trav:std({map:TX.trav,bumpMap:TX.travB,bumpScale:.06,color:0xffffff}),
-  travIn:std({map:TX.trav,bumpMap:TX.travB,bumpScale:.05,color:0xc9bba6}),
+  travIn:std({map:TX.trav,bumpMap:TX.travB,bumpScale:.05,color:0xb3a58f,envMapIntensity:.35}),
+  cavea:std({map:TX.trav,bumpMap:TX.travB,bumpScale:.07,color:0x9a8c78,envMapIntensity:.45}),
   brick:std({map:TX.brick,bumpMap:TX.brickB,bumpScale:.08}),
-  ruin:std({map:TX.brick,bumpMap:TX.brickB,bumpScale:.08,color:0xc8b6a0}),
+  ruin:std({map:TX.brick,bumpMap:TX.brickB,bumpScale:.08,color:0xb8aa96,envMapIntensity:.45}),
   tuff:std({map:TX.trav,bumpMap:TX.travB,bumpScale:.05,color:0x9c8f7c}),
   pave:std({map:TX.pave,bumpMap:TX.paveB,bumpScale:.04,roughness:.85}),
   wood:std({map:TX.wood,roughness:.8}),
@@ -233,7 +234,7 @@ const M={
   glow:new W.MeshBasicMaterial({color:new W.Color(3.2,1.9,.9),side:W.DoubleSide}),
 };
 M.glow.userData.hdr=true;
-['travIn','brick','ruin','tuff','wood','dirt','marble'].forEach(k=>M[k].side=W.DoubleSide);
+['travIn','cavea','brick','ruin','tuff','wood','dirt','marble'].forEach(k=>M[k].side=W.DoubleSide);
 
 // =================== GEOMETRÍA: LOTES CON UV EN METROS ===================
 class Batch{ constructor(){ this.p=[]; this.n=[]; this.u=[]; this.c=null; }
@@ -364,12 +365,12 @@ for(let i=0;i<NB;i++){ const {m,L}=bayM(i,D2,L2);
     bt('travIn').add(at(box(L2*1.01,.55,T2+.3),0,top-.275,(.3-T2)/2),m);
     bt('travIn').add(archivolt(S.w,S.spring,.32,.1),m);
     if(!INTACT[i]){ // restos de bóvedas y muros radiales rotos
-      if(rnd()<.8){ const len=1.2+rnd()*2.6, h=2+rnd()*(S.top-S.y0-2); bt('ruin').add(at(box(1.2,h,len),-L2/2,S.y0+h/2,len/2),m); }
+      if(rnd()<.3){ const len=.8+rnd()*1.6, h=1.5+rnd()*(S.top-S.y0-3); bt('travIn').add(at(box(1.2,h,len),-L2/2,S.y0+h/2,len/2),m); }
       bt('glow').add(at(new W.PlaneGeometry(S.w*.9,(S.spring-S.y0)+S.w/2-.3),0,S.y0+((S.spring-S.y0)+S.w/2-.3)/2,-T2-2.2),m);
     }
   });
   if(INTACT[i]){ bt('travIn').add(at(box(L2*1.01,48.5-33.9,T2),0,33.9+(48.5-33.9)/2,-T2/2),m); }
-  else if(rnd()<.45){ const h=1+rnd()*5; bt('ruin').add(at(box(L2*(.3+rnd()*.6),h,T2),(rnd()-.5)*2,33.9+h/2,-T2/2),m); }
+  else if(rnd()<.45){ const h=1+rnd()*5; bt('travIn').add(at(box(L2*(.3+rnd()*.6),h,T2),(rnd()-.5)*2,33.9+h/2,-T2/2),m); }
 }
 
 // =================== CÁVEA, PODIO Y DEAMBULATORIO INTERNO ===================
@@ -392,7 +393,7 @@ tier(DA-3.4,36,5.4,13.2,12); prof.push([36,15.8]); prof.push([34.6,15.8]);
 tier(34.6,21.5,15.8,24.8,12); prof.push([21.5,27.2]); prof.push([20.2,27.2]);
 tier(20.2,12.4,27.2,32.6,8); prof.push([12.4,33.9]);
 const bayDmg=[]; for(let i=0;i<NB;i++) bayDmg.push(INTACT[i]?rnd()*1.2:1+rnd()*3.5);
-scene.add(ringStrip(prof,M.ruin,640,(bay,j,d,h)=>h>6&&d<44?-bayDmg[bay]*clamp((h-6)/10,0,1)*(.6+.4*Math.sin(j*1.7+bay)):0));
+scene.add(ringStrip(prof,M.cavea,640,(bay,j,d,h)=>h>6&&d<44?-bayDmg[bay]*clamp((h-6)/10,0,1)*(.6+.4*Math.sin(j*1.7+bay)):0));
 // deambulatorio interno: muro del tercer anillo y techos entre anillo 2 y 3
 scene.add(ringStrip([[12.4,0],[12.4,33.9]],M.travIn,480));
 [10.5,22.3].forEach(y=>scene.add(ringStrip([[D2+T2,y],[12.4,y]],M.travIn,480)));
@@ -432,9 +433,11 @@ for(let x=-40;x<=40;x+=3.2){ for(let k=1;k<LZ.length;k++) [-1,1].forEach(sg=>{ c
 
 // =================== ENTORNO ===================
 // plaza, calles, bolardos de travertino
-{ const g=new W.PlaneGeometry(1400,1400,1,1); g.rotateX(-Math.PI/2); const uv=g.attributes.uv; for(let i=0;i<uv.count;i++) uv.setXY(i,uv.getX(i)*1400,uv.getY(i)*1400);
+{ const gs=new W.Shape(); gs.moveTo(-700,-700); gs.lineTo(700,-700); gs.lineTo(700,700); gs.lineTo(-700,700); gs.lineTo(-700,-700);
+  const gh=new W.Path(); gh.absellipse(0,0,A+47.5,B+47.5,0,Math.PI*2,true,0); gs.holes.push(gh);
+  const g=new W.ShapeGeometry(gs,96); g.rotateX(-Math.PI/2);
   const m=new W.Mesh(g,std({color:0x6c6a5c,roughness:1})); m.position.y=-.06; m.receiveShadow=true; scene.add(m);
-  const s=new W.Shape(); s.absellipse(0,0,A+48,B+48,0,Math.PI*2,false,0); const pg=new W.ShapeGeometry(s,96); pg.rotateX(-Math.PI/2);
+  const s=new W.Shape(); s.absellipse(0,0,A+48,B+48,0,Math.PI*2,false,0); const ph=new W.Path(); ph.absellipse(0,0,aA,aB,0,Math.PI*2,true,0); s.holes.push(ph); const pg=new W.ShapeGeometry(s,128); pg.rotateX(-Math.PI/2);
   const u2=pg.attributes.uv; for(let i=0;i<u2.count;i++) u2.setXY(i,pg.attributes.position.getX(i),pg.attributes.position.getZ(i));
   const pm=new W.Mesh(pg,M.pave); pm.position.y=-.02; pm.receiveShadow=true; scene.add(pm); }
 function road(pts,w){ const pos=[],uv=[],idx=[]; let acc=0;
@@ -478,7 +481,7 @@ trees.forEach(([x,z])=>{ const h=11+rnd()*6, lean=(rnd()-.5)*.25;
 { const g=new W.SphereGeometry(1,40,20,0,Math.PI*2,0,Math.PI/2); g.scale(170,30,120); const m=new W.Mesh(g,M.grass); m.position.set(-260,-8,70); m.receiveShadow=true; scene.add(m);
   for(let k=0;k<40;k++){ const a=rnd()*Math.PI*2, r=rnd()*.8; const x=-260+Math.cos(a)*170*r, z=70+Math.sin(a)*120*r; const y=-8+30*Math.sqrt(Math.max(0,1-r*r));
     const sg=new W.IcosahedronGeometry(5+rnd()*4,1); sg.scale(1,.45,1); bt(k%2?'leaf':'leaf2').add(sg,mtx(x,y+3,z)); } }
-{ const cb=new Batch(); const cols=[0xc9a27a,0xd8b48a,0xbf8f68,0xe0c9a4,0xb9a58c,0xd4a070]; const c=new W.Color();
+{ const cb=new Batch(); const cols=[0x8f7358,0x9c8060,0x86654c,0xa08a6c,0x857767,0x96704e]; const c=new W.Color();
   for(let k=0;k<700;k++){ const a=rnd()*Math.PI*2, r=330+rnd()*520; const x=Math.cos(a)*r, z=Math.sin(a)*r;
     if(x<-170&&x>-440&&z>-60&&z<200) continue;
     const w=12+rnd()*28,d=12+rnd()*28,h=10+rnd()*18; c.setHex(cols[k%cols.length]);
@@ -491,7 +494,7 @@ Object.entries(BT).forEach(([k,b])=>{ const me=b.mesh(M[k],!(k==='glow'||k==='da
 
 // =================== CIELO, LUZ, POSTPROCESO ===================
 const sky=new W.Sky(); sky.scale.setScalar(10000); scene.add(sky);
-const su=sky.material.uniforms; su.turbidity.value=6; su.rayleigh.value=1.6; su.mieCoefficient.value=.005; su.mieDirectionalG.value=.82;
+const su=sky.material.uniforms; su.turbidity.value=8; su.rayleigh.value=2.6; su.mieCoefficient.value=.007; su.mieDirectionalG.value=.86;
 const skyScene=new W.Scene(); const sky2=new W.Sky(); sky2.scale.setScalar(10000); skyScene.add(sky2);
 const pmrem=new W.PMREMGenerator(renderer); let envRT=null;
 const sun=new W.DirectionalLight(0xffffff,3); sun.castShadow=true;
@@ -502,9 +505,9 @@ const hemi=new W.HemisphereLight(0xbfd4ff,0x6b5a45,.25); scene.add(hemi);
 const flood=[]; [[-1,0],[1,0],[0,-1],[0,1]].forEach(([x,z])=>{ const l=new W.SpotLight(0xffb070,0,420,.55,.6,1.2); l.position.set(x*170,4,z*150); l.target.position.set(0,24,0); scene.add(l); scene.add(l.target); flood.push(l); });
 scene.fog=new W.FogExp2(0xc9a98a,.0011);
 const TIMES={
-  amanecer:{az:62,el:5,exp:.95,fog:0xcfb7a2,fd:.0013,sunC:0xffc79a,sunI:2.6,hemi:.3,tur:7,night:0},
-  mediodia:{az:190,el:62,exp:.62,fog:0xc5d0da,fd:.0009,sunC:0xfff4e6,sunI:3.2,hemi:.35,tur:3,night:0},
-  atardecer:{az:296,el:6.5,exp:.9,fog:0xd2a57e,fd:.0012,sunC:0xffb27a,sunI:3.0,hemi:.28,tur:8,night:0},
+  amanecer:{az:78,el:6,exp:.95,fog:0xc8b4a6,fd:.0013,sunC:0xffc08a,sunI:2.8,hemi:.18,tur:7,night:0},
+  mediodia:{az:205,el:58,exp:.6,fog:0xbfcad4,fd:.0009,sunC:0xfff1e0,sunI:3.2,hemi:.22,tur:3,night:0},
+  atardecer:{az:252,el:7,exp:.95,fog:0xc99a74,fd:.0011,sunC:0xff9e5e,sunI:3.4,hemi:.16,tur:10,night:0},
   noche:{az:240,el:-10,exp:.75,fog:0x0e1420,fd:.0016,sunC:0x9fb6ff,sunI:.25,hemi:.07,tur:2,night:1},
 };
 let cur=Object.assign({},TIMES.atardecer), goal=TIMES.atardecer, envDirty=true;
