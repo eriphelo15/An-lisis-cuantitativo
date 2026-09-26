@@ -17,7 +17,7 @@ from motor_fondeo import sim_dia, actualizar_piso
 
 
 @njit(cache=True)
-def escala(D, npaths, H, caja0, P, modo, t_ini, dia_comun, max_f, seed, max_ex=5):
+def escala(D, npaths, H, caja0, P, modo, t_ini, dia_comun, max_f, seed, max_ex=5, TV=None):
     nplan = P.shape[0]
     caja_fin = np.zeros(npaths); gastado = np.zeros(npaths); cobrado = np.zeros(npaths)
     n_exam = np.zeros(npaths); n_fond = np.zeros(npaths)
@@ -66,7 +66,7 @@ def escala(D, npaths, H, caja0, P, modo, t_ini, dia_comun, max_f, seed, max_ex=5
                     Gd = P[pl, 10]
                     falta = tgt - p if (cons <= 0 or best <= cons * tgt) else 0.0
                     di = dcom if dia_comun else np.random.randint(nd)
-                    r, q, n = sim_dia(D, di, P[pl, 6], P[pl, 7], P[pl, 8], int(P[pl, 9]), Gd, Ld, p - piso, falta, 40, modo, t_ini)
+                    r, q, n = sim_dia(D, di, P[pl, 6], P[pl, 7], P[pl, 8], int(P[pl, 9]), Gd, Ld, p - piso, falta, 40, modo, int(TV[pl, a]) if TV is not None else t_ini)
                     p += r; ex[pl, a, 5] += 1
                     if q or p <= piso or p - piso < P[pl, 7] * 2 + 3 or ex[pl, a, 5] >= 60:
                         ex[pl, a, 0] = 0.0
@@ -94,7 +94,7 @@ def escala(D, npaths, H, caja0, P, modo, t_ini, dia_comun, max_f, seed, max_ex=5
                     if P[pl, 12] > 0 and p < 3000.0:
                         Ld = P[pl, 12]
                     di = dcom if dia_comun else np.random.randint(nd)
-                    r, q, n = sim_dia(D, di, P[pl, 20], P[pl, 21], P[pl, 22], int(P[pl, 23]), P[pl, 24], Ld, p - piso, 0.0, 40, modo, t_ini)
+                    r, q, n = sim_dia(D, di, P[pl, 20], P[pl, 21], P[pl, 22], int(P[pl, 23]), P[pl, 24], Ld, p - piso, 0.0, 40, modo, int(TV[pl, b]) if TV is not None else t_ini)
                     p += r
                     if q or p <= piso or p - piso < P[pl, 21] * 2 + 3:
                         fo[pl, b, 0] = 0.0

@@ -34,7 +34,7 @@ def tamano(riesgo, S, max_micro):
 
 
 @njit(cache=True)
-def sim_dia(D, di, R, S, T, K, G, L, dist_piso, falta_obj, max_micro, modo=0, t_ini=1):
+def sim_dia(D, di, R, S, T, K, G, L, dist_piso, falta_obj, max_micro, modo=0, t_ini=1, rfrac=0.0):
     """Simula un día con tamaño dinámico. R: riesgo USD por trade; S/T: stop/objetivo en pts.
     Devuelve (pnl_día, quiebre, n_trades)."""
     pnl = 0.0
@@ -42,6 +42,10 @@ def sim_dia(D, di, R, S, T, K, G, L, dist_piso, falta_obj, max_micro, modo=0, t_
     n = 0
     # dirección según la regla: 0 aleatoria, 1 solo largos, 2 momentum de apertura, 3 fade de apertura
     d0 = 1.0
+    if modo == 4:
+        # dirección de los primeros 15 min (fija para todas las cuentas), entrada en t_ini >= 16
+        mov = D[di, 15, 3] - D[di, 0, 0]
+        d0 = 1.0 if mov >= 0 else -1.0
     if modo == 2 or modo == 3:
         mov = D[di, t_ini - 1, 3] - D[di, 0, 0]
         d0 = 1.0 if mov >= 0 else -1.0
@@ -52,6 +56,8 @@ def sim_dia(D, di, R, S, T, K, G, L, dist_piso, falta_obj, max_micro, modo=0, t_
             break
         disp = min(L + pnl, dist_piso + pnl - 1.0)
         riesgo = min(R, disp)
+        if rfrac > 0:
+            riesgo = min(riesgo, rfrac * (dist_piso + pnl))
         c, usd, cost = tamano(riesgo, S, max_micro)
         if c <= 0:
             break
@@ -135,7 +141,7 @@ def examen(D, nsim, target, dd, dll, consist, min_dias, R, S, T, K, G, L, max_mi
 
 @njit(parallel=True, cache=True)
 def fondeada(D, nsim, tipo, size_k, dd, dll, dia_min, saldo_min, cons, pmin, pmax1, pmax4, frac, buffer_,
-             goal1, goal2, R, S, T, K, G, L, max_micro, reserva, horizonte, seed, modo=0, t_ini=1, colchon=-1.0):
+             goal1, goal2, R, S, T, K, G, L, max_micro, reserva, horizonte, seed, modo=0, t_ini=1, colchon=-1.0, rfrac=0.0):
     """tipo: 0 growth, 1 select_flex, 2 select_daily, 3 lightning.
     Devuelve (cobrado_neto[nsim], n_retiros[nsim], dias_vivos[nsim], quebrada[nsim])."""
     cobrado = np.zeros(nsim); nret = np.zeros(nsim, np.int32); vivos = np.zeros(nsim, np.int32)
@@ -154,7 +160,7 @@ def fondeada(D, nsim, tipo, size_k, dd, dll, dia_min, saldo_min, cons, pmin, pma
             if tipo == 0 and cons > 0:
                 Gd = G  # la política ya fija G bajo la consistencia
             di = np.random.randint(nd)
-            r, q, n = sim_dia(D, di, R, S, T, K, Gd, Ld, p - piso, 0.0, max_micro, modo, t_ini)
+            r, q, n = sim_dia(D, di, R, S, T, K, Gd, Ld, p - piso, 0.0, max_micro, modo, t_ini, rfrac)
             p += r
             vivos[i] = dia + 1
             if q or p <= piso or p - piso < S * 2.0 + 3.0:
