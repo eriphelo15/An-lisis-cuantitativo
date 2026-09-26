@@ -3,6 +3,7 @@ import numpy as np, pandas as pd, os, sys, itertools
 from motor import Motor, hm2s
 from lib import RES_DIR, COSTO_MKT_RT_PTS, COSTO_LMT_RT_PTS
 split = sys.argv[1] if len(sys.argv) > 1 else "dev"
+TAGF = os.environ.get("TAG", split)
 M = Motor(split); D = M.D.dropna(subset=["atr"]); s = M.smin; di = M.day_id
 N = len(M.c)
 
@@ -76,7 +77,7 @@ for k in [0.15, 0.25, 0.35]:
                 exh = ((ex + 18 * 60) % 1440) // 60 * 100 + ((ex + 18 * 60) % 1440) % 60
                 M.run(f"R15_{mode}", dict(k_atr=k, stop_atr=sx, tgt_atr=tx, hold=hold), ie[m], dd, sx * atr[m], tx * atr[m], exh)
 
-R = M.guardar_registro(f"f2f_intradia_{split}.csv")
+R = M.guardar_registro(f"f2f_intradia_{TAGF}.csv")
 pd.set_option("display.width", 250); pd.set_option("display.max_colwidth", 80)
 print("configs:", len(R))
 print(R.groupby("label").agg(n_cfg=("n", "size"), exp_medio=("exp_pts", "mean"), wr_medio=("wr", "mean"), t_max=("t", "max"), t_medio=("t", "mean")).round(3).to_string())

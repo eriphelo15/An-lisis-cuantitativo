@@ -10,6 +10,7 @@ from lib import RES_DIR, COSTO_MKT_RT_PTS, COSTO_LMT_RT_PTS
 from scipy.stats import binomtest
 
 split = sys.argv[1] if len(sys.argv) > 1 else "dev"
+TAGF = os.environ.get("TAG", split)
 M = Motor(split)
 D = M.D.dropna(subset=["prev_c", "atr"]).copy()
 D = D[D.index > 0]
@@ -59,7 +60,7 @@ for name, (col, fade_dir) in niveles.items():
                     reg(f"F2_fade_{name}", prm, st, sa, ta, COSTO_LMT_RT_PTS)
 
 R = pd.DataFrame(out)
-R.to_csv(os.path.join(RES_DIR, f"f2b_barreras_{split}.csv"), index=False)
+R.to_csv(os.path.join(RES_DIR, f"f2b_barreras_{TAGF}.csv"), index=False)
 print("configuraciones probadas:", len(R))
 cols = ["fam", "params", "n", "wr_bruto", "wr_nulo", "exceso_wr", "p_binom", "wr", "exp_pts", "pf", "t", "exp_A", "exp_B"]
 pd.set_option("display.width", 250); pd.set_option("display.max_colwidth", 90)

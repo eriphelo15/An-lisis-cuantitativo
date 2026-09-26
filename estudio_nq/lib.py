@@ -20,17 +20,27 @@ COMISION_RT_PTS = 5.76 / PUNTO_USD            # 0.288 pts
 SLIP_TICKS_LADO = 1                            # órdenes a mercado / stop
 COSTO_MKT_RT_PTS = COMISION_RT_PTS + 2 * SLIP_TICKS_LADO * TICK   # 0.788 pts
 COSTO_LMT_RT_PTS = COMISION_RT_PTS + 1 * SLIP_TICKS_LADO * TICK   # entrada limit, salida mkt
+if os.environ.get("BRUTO") == "1":          # modo bruto: el costo se evalúa aparte, en % del ATR
+    COSTO_MKT_RT_PTS = COSTO_LMT_RT_PTS = 0.0
+# Periodos del estudio de 15 años (DEV explora; VAL1 nunca vista; VAL2 ya usada en el estudio de 5 años)
+PERIODOS_15Y = [("DEV", "2010-10-01", "2018-12-31"), ("VAL1", "2019-01-01", "2021-03-12"), ("VAL2", "2021-03-13", "2026-03-13")]
+
+
+ARCHIVO = os.environ.get("NQ_PARQUET", "nq_1m.parquet")   # nq15_1m.parquet para 15 años
 
 
 def load_1m(split="dev"):
-    df = pd.read_parquet(os.path.join(DATA_DIR, "nq_1m.parquet"))
+    """split: 'dev' | 'hold' | 'all' | (inicio, fin) por día de trading."""
+    df = pd.read_parquet(os.path.join(DATA_DIR, ARCHIVO))
     # día de trading CME: la sesión que abre 18:00 ET pertenece al día siguiente
     df["tday"] = (df.ts + pd.Timedelta(hours=6)).dt.normalize()
     df["hm"] = df.ts.dt.hour * 100 + df.ts.dt.minute
     df["rth"] = (df.hm >= 930) & (df.hm < 1600)
     # minuto de sesión desde las 18:00 ET (09:30 -> 930, 16:00 -> 1320, 16:59 -> 1379)
     df["smin"] = ((df.ts.dt.hour * 60 + df.ts.dt.minute) - 18 * 60) % 1440
-    if split == "dev":
+    if isinstance(split, tuple):
+        df = df[(df.tday >= pd.Timestamp(split[0])) & (df.tday <= pd.Timestamp(split[1]))]
+    elif split == "dev":
         df = df[df.tday < HOLDOUT_START]
     elif split == "hold":
         df = df[df.tday >= HOLDOUT_START]

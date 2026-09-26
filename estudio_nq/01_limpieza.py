@@ -17,7 +17,8 @@ import os, sys
 import numpy as np, pandas as pd
 
 DATA_DIR = os.environ.get("NQ_DATA_DIR", "/home/user/data")
-RAW = os.path.join(DATA_DIR, "NQ_continuous.csv")
+RAW = os.path.join(DATA_DIR, sys.argv[1] if len(sys.argv) > 1 else "NQ_continuous.csv")
+OUT = sys.argv[2] if len(sys.argv) > 2 else "nq_1m.parquet"
 
 df = pd.read_csv(RAW, usecols=["timestamp", "open", "high", "low", "close", "volume", "symbol"])
 df["ts"] = pd.to_datetime(df["timestamp"]); df = df.drop(columns="timestamp")
@@ -46,6 +47,6 @@ rolls = pd.DataFrame({"ts": df.ts.to_numpy()[roll_idx], "de": df.symbol.to_numpy
                       "a": df.symbol.to_numpy()[roll_idx], "gap_csv": gap, "spread_implicito": spread,
                       "offset_segmento_viejo": off[:-1]})
 print(rolls.to_string(index=False))
-df.to_parquet(os.path.join(DATA_DIR, "nq_1m.parquet"), index=False)
-rolls.to_csv(os.path.join(os.path.dirname(__file__), "resultados", "rolls_reconstruccion.csv"), index=False)
+df.to_parquet(os.path.join(DATA_DIR, OUT), index=False)
+rolls.to_csv(os.path.join(os.path.dirname(__file__), "resultados", OUT.replace(".parquet", "") + "_rolls.csv"), index=False)
 print("filas", len(df), "precio real primero/último:", df.close.iloc[0], df.close.iloc[-1])

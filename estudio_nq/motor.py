@@ -2,7 +2,7 @@
 (para corrección por múltiples pruebas)."""
 import os, json
 import numpy as np, pandas as pd
-from lib import load_1m, RES_DIR, COSTO_MKT_RT_PTS, COSTO_LMT_RT_PTS, stats_trades
+from lib import load_1m, RES_DIR, COSTO_MKT_RT_PTS, COSTO_LMT_RT_PTS, stats_trades, PERIODOS_15Y
 from sim import simulate, simulate_limit
 
 
@@ -98,6 +98,18 @@ class Motor:
             st[f"exp_{tag}"] = p[mm].mean() if mm.any() else np.nan
             st[f"wr_{tag}"] = (p[mm] > 0).mean() if mm.any() else np.nan
             st[f"n_{tag}"] = int(mm.sum())
+        if os.environ.get("BRUTO") == "1":
+            # métricas por periodo en % del ATR diario (comparables entre épocas de precio)
+            atr = self.D.atr.reindex(self.day_id[sig_idx[ok]]).to_numpy()
+            days = self.days[self.day_id[sig_idx[ok]]]
+            for tag, a, b in PERIODOS_15Y:
+                mm = (days >= pd.Timestamp(a)) & (days <= pd.Timestamp(b)) & ~np.isnan(atr)
+                x = p[mm] / atr[mm] * 100
+                st[f"{tag}_n"] = int(mm.sum())
+                st[f"{tag}_atr%"] = x.mean() if mm.sum() else np.nan
+                st[f"{tag}_t"] = x.mean() / (x.std(ddof=1) / np.sqrt(len(x))) if mm.sum() > 2 else np.nan
+                st[f"{tag}_wr"] = (x > 0).mean() if mm.sum() else np.nan
+                st[f"{tag}_costo%"] = np.nanmean(0.788 / atr[mm]) * 100 if mm.sum() else np.nan
         if guardar:
             self.registro.append(st)
         st["_pnl"] = p; st["_idx"] = sig_idx[ok]

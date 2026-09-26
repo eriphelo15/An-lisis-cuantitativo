@@ -6,6 +6,10 @@ from importlib import import_module
 dip = import_module("07_dip_trend")
 from motor import Motor, hm2s
 from lib import RES_DIR, COSTO_MKT_RT_PTS, HOLDOUT_START
+EVAL_START = pd.Timestamp(os.environ.get("EVAL_START", str(HOLDOUT_START.date())))
+EVAL_END = pd.Timestamp(os.environ.get("EVAL_END", "2100-01-01"))
+TAG = os.environ.get("TAG", "holdout")
+ENTRE = lambda x: (x >= EVAL_START) & (x <= EVAL_END)
 from scipy.stats import ttest_1samp
 
 CONGELADAS = {
@@ -31,11 +35,11 @@ A = dip.daily("all")
 for name, spec in CONGELADAS.items():
     if spec[0] == "dip":
         T = dip.backtest(A, 50, spec[1], 5, "connors")
-        T = T[T.entry_date >= HOLDOUT_START]; out[name] = T
+        T = T[ENTRE(T.entry_date)]; out[name] = T
         summ(name, T.pnl, dict(peor_trade=T.pnl.min(), peor_mae=T.mae.min()))
 
 M = Motor("all"); D = M.D.dropna(subset=["atr"]); s = M.smin; di = M.day_id
-hold_day = M.days >= HOLDOUT_START
+hold_day = ENTRE(M.days)
 # H3
 rth = (s >= 930) & (s < 1320)
 ie = np.flatnonzero(rth & ((s - 930) % 15 == 14)); ib = ie - 14
@@ -56,7 +60,7 @@ for name, spec in CONGELADAS.items():
         if j < len(M.c) and di[j] == di[i] and s[j] == hm2s(b): p.append(d * (M.c[j] - M.o[i]) - COSTO_MKT_RT_PTS)
     summ(name, p)
 # H5
-H = D[(M.days[D.index] >= HOLDOUT_START) & (D.dow == 0)]
+H = D[ENTRE(M.days[D.index]) & (D.dow == 0)]
 summ(list(CONGELADAS)[4], (H.rth_c - H.rth_o - COSTO_MKT_RT_PTS).to_numpy())
 # H7
 sig, dirn, rngs = [], [], []
@@ -72,7 +76,7 @@ rngs = np.array(rngs)
 st = M.run("H7", {}, np.array(sig), np.array(dirn), 0.5 * rngs, 0.5 * rngs, 1559, guardar=False)
 summ(list(CONGELADAS)[6], st["_pnl"])
 # referencia: buy & hold en el holdout
-Ah = A[A.date >= HOLDOUT_START]
+Ah = A[ENTRE(A.date)]
 R = pd.DataFrame(res)
 # Holm-Bonferroni sobre las 7 hipótesis congeladas
 R = R.sort_values("p_unilateral").reset_index(drop=True)
@@ -81,7 +85,7 @@ R["pasa_holm"] = (R.p_unilateral <= R.holm_umbral).cummin()
 pd.set_option("display.width", 250); pd.set_option("display.max_colwidth", 80)
 print(R.round(4).to_string(index=False))
 print(f"\nReferencia buy&hold holdout: {Ah.c.iloc[-1] - Ah.c.iloc[0]:.0f} pts")
-R.to_csv(os.path.join(RES_DIR, "f3_holdout.csv"), index=False)
+R.to_csv(os.path.join(RES_DIR, f"f3_{TAG}.csv"), index=False)
 for k in list(CONGELADAS)[:2]:
-    out[k].to_csv(os.path.join(RES_DIR, f"f3_holdout_trades_{k[:2]}.csv"), index=False)
+    out[k].to_csv(os.path.join(RES_DIR, f"f3_{TAG}_trades_{k[:2]}.csv"), index=False)
     print("\n", k, "\n", out[k].round(1).to_string(index=False))

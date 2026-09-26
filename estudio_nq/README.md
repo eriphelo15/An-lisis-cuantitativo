@@ -30,3 +30,19 @@ Probablemente los demás archivos (ES, YM, GC, 15y) tienen el mismo problema.
 | 10_validacion_dev.py | Permutación, bootstrap, estrés de costos, vecindad |
 | 11_holdout.py | Evaluación única del holdout (7 hipótesis congeladas, Holm) |
 | 12_resumen.py | Serie completa de candidatos + JSON para el informe |
+
+## Extensión a 15 años (`NQ_continuous_15y.csv`, 2010-10 → 2026-03)
+Mismo error de ajuste continuo (2010 aparece en 165,181). Reconstrucción: `python 01_limpieza.py NQ_15y.csv nq15_1m.parquet`
+(coincide con el archivo de 5 años en el tramo común). Los scripts usan `NQ_PARQUET=nq15_1m.parquet`; `BRUTO=1` mide en % del ATR por periodo.
+
+| Script | Qué hace |
+|---|---|
+| 11_holdout.py (con EVAL_START/EVAL_END/TAG) | Prueba ciega de las 7 hipótesis congeladas en 2010-10 → 2021-03 |
+| 14_por_año_15y.py | H1/H3/H5 por año en unidades relativas, contra su nulo |
+| 04/08 con BRUTO=1 TAG=15y | Familias de niveles e intradía por periodo DEV/VAL1/VAL2 |
+| 15_diario_calendario_15y.py | Reversión diaria, franjas de 30 min, calendario |
+| 16_overnight_15y.py | Estrategia overnight vs RTH vs buy & hold |
+| 17_secundarias_15y.py | Viernes de OPEX y momentum 15m por año |
+
+Periodos: DEV 2010-10 → 2018-12, VAL1 2019-01 → 2021-03 (nunca vista), VAL2 2021-03 → 2026-03 (usada en el estudio de 5 años).
+Resultado: las 3 candidatas de 5 años no replican; la deriva overnight es la única que pasa la regla pre-fijada.
