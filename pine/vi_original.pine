@@ -6,8 +6,8 @@
 //    (en bajista, cuerpo completamente POR ENCIMA del anterior).
 // 3) Entrada a favor de la tendencia al CIERRE de la vela VI, entre 09:31 y 11:29 ET.
 // 4) TP = borde del hueco (parte alta del cuerpo de la vela VI en compras / parte baja en ventas); cuenta como tocado si lo supera 1 tick.
-// 5) Salida si no llega al TP: una vela cierra al otro lado de la EMA20 -> cierre; o a los 5 minutos -> cierre. Sin stop.
-// Una operación a la vez; puede haber varias al día.
+// 5) Salida si no llega al TP: una vela cierra al otro lado de la EMA20 o de la EMA50 -> cierre; o a los 5 minutos de la última entrada -> cierre. Sin stop.
+// 6) Añadir: si estando dentro aparece otro VI en contra (y seguimos en tendencia), se abre otra posición al cierre y el TP de TODAS pasa al nuevo hueco.
 
 //@version=5
 indicator("VI original [EAO]", overlay = true, max_labels_count = 500, max_lines_count = 500, max_boxes_count = 500)
@@ -20,6 +20,8 @@ grpV = "Visual"
 verTabla = input.bool(true, "Mostrar tabla", group = grpV)
 verEMAs  = input.bool(true, "Mostrar EMAs", group = grpV)
 verEtiq  = input.bool(true, "Mostrar etiquetas de resultado", group = grpV)
+grpA = "Añadir posiciones"
+maxAdd = input.int(3, "Máximo de añadidos (0 = no añadir)", minval = 0, maxval = 6, group = grpA)
 
 tz = "America/New_York"
 tick = syminfo.mintick
@@ -36,7 +38,7 @@ viBaj = math.max(open, close) < math.min(open[1], close[1]) and high >= low[1]  
 viAlc = math.min(open, close) > math.max(open[1], close[1]) and low <= high[1]   // VI alcista (contra tendencia bajista) -> VENTA
 
 var int   pos = 0
-var float ent = na
+var float[] ents = array.new_float()
 var float tp = na
 var int   barEnt = na
 var int   barSal = -1
@@ -51,6 +53,7 @@ var float sumUSD = 0.0
 var int   nTP = 0
 var int   nEMA = 0
 var int   n5 = 0
+var int   nAdd = 0
 
 // ---------- Gestión de la operación abierta ----------
 if barstate.isconfirmed and pos != 0 and bar_index > barEnt
@@ -59,16 +62,19 @@ if barstate.isconfirmed and pos != 0 and bar_index > barEnt
     if (pos == 1 and high >= tp + tick) or (pos == -1 and low <= tp - tick)
         px := tp
         mot := "TP"
-    else if (pos == 1 and close < ema20) or (pos == -1 and close > ema20)
+    else if (pos == 1 and (close < ema20 or close < ema50)) or (pos == -1 and (close > ema20 or close > ema50))
         px := close
-        mot := "EMA20"
+        mot := "EMA"
     else if bar_index - barEnt >= 5
         px := close
         mot := "5 min"
     if not na(px)
-        pts = pos * (px - ent)
+        nc = array.size(ents)
+        float pts = 0.0
+        for j = 0 to nc - 1
+            pts += pos * (px - array.get(ents, j))
         desl = mot == "TP" ? ticksDesl * tick : 2 * ticksDesl * tick
-        usd = (pts - desl) * usdPt - coste
+        usd = (pts - nc * desl) * usdPt - nc * coste
         nOps += 1
         sumPts += pts
         sumUSD += usd
@@ -78,13 +84,13 @@ if barstate.isconfirmed and pos != 0 and bar_index > barEnt
         else
             sumPer += usd
         nTP += mot == "TP" ? 1 : 0
-        nEMA += mot == "EMA20" ? 1 : 0
+        nEMA += mot == "EMA" ? 1 : 0
         n5 += mot == "5 min" ? 1 : 0
         line.set_x2(lnE, bar_index)
         line.set_x2(lnT, bar_index)
         label.new(bar_index, px, "✖", style = label.style_none, textcolor = usd > 0 ? color.new(#2e9e4f, 0) : color.new(#b03030, 0), size = size.large)
         if verEtiq
-            label.new(bar_index, pos == 1 ? high : low, "SALIDA: " + mot + "\n" + str.tostring(pts, "+0.00;-0.00") + " pts (" + (usd >= 0 ? "+$" : "-$") + str.tostring(math.abs(math.round(usd))) + ")",
+            label.new(bar_index, pos == 1 ? high : low, "SALIDA: " + mot + (nc > 1 ? " (" + str.tostring(nc) + " pos.)" : "") + "\n" + str.tostring(pts, "+0.00;-0.00") + " pts (" + (usd >= 0 ? "+$" : "-$") + str.tostring(math.abs(math.round(usd))) + ")",
                       style = pos == 1 ? label.style_label_down : label.style_label_up,
                       color = usd > 0 ? color.new(#2e9e4f, 15) : color.new(#b03030, 15), textcolor = color.white, size = size.small)
         pos := 0
@@ -93,19 +99,36 @@ if barstate.isconfirmed and pos != 0 and bar_index > barEnt
         line.set_x2(lnE, bar_index)
         line.set_x2(lnT, bar_index)
 
-// ---------- Nueva señal ----------
-senalL = barstate.isconfirmed and enVent and pos == 0 and bar_index > barSal and tendAlc and viBaj and math.abs(math.max(open, close) - close) >= tick
-senalC = barstate.isconfirmed and enVent and pos == 0 and bar_index > barSal and tendBaj and viAlc and math.abs(close - math.min(open, close)) >= tick
+// ---------- Nueva señal (entrada o añadido) ----------
+viL = barstate.isconfirmed and enVent and bar_index > barSal and tendAlc and viBaj and math.abs(math.max(open, close) - close) >= tick
+viC = barstate.isconfirmed and enVent and bar_index > barSal and tendBaj and viAlc and math.abs(close - math.min(open, close)) >= tick
+senalL = viL and pos == 0
+senalC = viC and pos == 0
+anadir = pos != 0 and bar_index > barEnt and ((pos == 1 and viL) or (pos == -1 and viC)) and array.size(ents) < 1 + maxAdd
+
+if anadir
+    array.push(ents, close)
+    tp := pos == 1 ? math.max(open, close) : math.min(open, close)
+    barEnt := bar_index
+    nAdd += 1
+    gLo = pos == 1 ? math.max(open, close) : math.max(open[1], close[1])
+    gHi = pos == 1 ? math.min(open[1], close[1]) : math.min(open, close)
+    box.new(bar_index - 1, gHi, bar_index, gLo, border_color = color.new(#7b2cbf, 0), bgcolor = color.new(#c77dff, 45), border_width = 1)
+    line.set_x2(lnT, bar_index)
+    lnT := line.new(bar_index, tp, bar_index + 1, tp, color = color.new(#2e9e4f, 0), style = line.style_dashed, width = 1)
+    label.new(bar_index, pos == 1 ? low : high, "AÑADIR #" + str.tostring(array.size(ents)) + "\nTP de todas → nuevo hueco",
+              style = pos == 1 ? label.style_label_up : label.style_label_down, color = color.new(#e0a000, 0), textcolor = color.black, size = size.small)
 
 if senalL or senalC
     pos := senalL ? 1 : -1
-    ent := close
+    array.clear(ents)
+    array.push(ents, close)
     tp := senalL ? math.max(open, close) : math.min(open, close)
     barEnt := bar_index
     gapLo = senalL ? math.max(open, close) : math.max(open[1], close[1])
     gapHi = senalL ? math.min(open[1], close[1]) : math.min(open, close)
     box.new(bar_index - 1, gapHi, bar_index, gapLo, border_color = color.new(#7b2cbf, 0), bgcolor = color.new(#c77dff, 45), border_width = 1)
-    lnE := line.new(bar_index, ent, bar_index + 1, ent, color = color.new(color.gray, 0), style = line.style_dashed, width = 1)
+    lnE := line.new(bar_index, close, bar_index + 1, close, color = color.new(color.gray, 0), style = line.style_dashed, width = 1)
     lnT := line.new(bar_index, tp, bar_index + 1, tp, color = color.new(#2e9e4f, 0), style = line.style_dashed, width = 1)
     label.new(bar_index, senalL ? low : high, senalL ? "COMPRA" : "VENTA",
               style = senalL ? label.style_label_up : label.style_label_down,
@@ -113,9 +136,10 @@ if senalL or senalC
 
 alertcondition(senalL, "VI original - COMPRA", "VI original: COMPRA al cierre, TP en el hueco")
 alertcondition(senalC, "VI original - VENTA", "VI original: VENTA al cierre, TP en el hueco")
+alertcondition(anadir, "VI original - AÑADIR", "VI original: nuevo VI, añadir posición y mover TP")
 
 // ---------- Tabla ----------
-var table tb = table.new(position.top_right, 2, 8, bgcolor = color.new(color.black, 20), border_width = 1)
+var table tb = table.new(position.top_right, 2, 9, bgcolor = color.new(color.black, 20), border_width = 1)
 fila(table t, int r, string a, string b) =>
     table.cell(t, 0, r, a, text_color = color.white, text_size = size.small, text_halign = text.align_left)
     table.cell(t, 1, r, b, text_color = color.white, text_size = size.small, text_halign = text.align_right)
@@ -123,7 +147,8 @@ fila(table t, int r, string a, string b) =>
 if verTabla and barstate.islast
     fila(tb, 0, "Operaciones", str.tostring(nOps))
     fila(tb, 1, "Acierto (neto)", nOps > 0 ? str.tostring(100.0 * nGan / nOps, "#.0") + "%" : "-")
-    fila(tb, 2, "Salidas TP / EMA20 / 5 min", str.tostring(nTP) + " / " + str.tostring(nEMA) + " / " + str.tostring(n5))
+    fila(tb, 8, "Añadidos realizados", str.tostring(nAdd))
+    fila(tb, 2, "Salidas TP / EMA / 5 min", str.tostring(nTP) + " / " + str.tostring(nEMA) + " / " + str.tostring(n5))
     fila(tb, 3, "Ganancia media", nGan > 0 ? "$" + str.tostring(math.round(sumGan / nGan)) : "-")
     fila(tb, 4, "Pérdida media", nOps - nGan > 0 ? "-$" + str.tostring(math.abs(math.round(sumPer / (nOps - nGan)))) : "-")
     fila(tb, 5, "Resultado medio", nOps > 0 ? (sumUSD >= 0 ? "+$" : "-$") + str.tostring(math.abs(sumUSD / nOps), "0.0") : "-")
