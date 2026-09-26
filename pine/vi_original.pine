@@ -84,7 +84,7 @@ if barstate.isconfirmed and pos != 0 and bar_index > barEnt
         line.set_x2(lnT, bar_index)
         label.new(bar_index, px, "✖", style = label.style_none, textcolor = usd > 0 ? color.new(#2e9e4f, 0) : color.new(#b03030, 0), size = size.large)
         if verEtiq
-            label.new(bar_index, pos == 1 ? high : low, "SALIDA: " + mot + "\n" + str.tostring(pts, "+0.00;-0.00") + " pts (" + str.tostring(usd, "+$0;-$0") + ")",
+            label.new(bar_index, pos == 1 ? high : low, "SALIDA: " + mot + "\n" + str.tostring(pts, "+0.00;-0.00") + " pts (" + (usd >= 0 ? "+$" : "-$") + str.tostring(math.abs(math.round(usd))) + ")",
                       style = pos == 1 ? label.style_label_down : label.style_label_up,
                       color = usd > 0 ? color.new(#2e9e4f, 15) : color.new(#b03030, 15), textcolor = color.white, size = size.small)
         pos := 0
@@ -124,8 +124,8 @@ if verTabla and barstate.islast
     fila(tb, 0, "Operaciones", str.tostring(nOps))
     fila(tb, 1, "Acierto (neto)", nOps > 0 ? str.tostring(100.0 * nGan / nOps, "#.0") + "%" : "-")
     fila(tb, 2, "Salidas TP / EMA20 / 5 min", str.tostring(nTP) + " / " + str.tostring(nEMA) + " / " + str.tostring(n5))
-    fila(tb, 3, "Ganancia media", nGan > 0 ? str.tostring(sumGan / nGan, "$0") : "-")
-    fila(tb, 4, "Pérdida media", nOps - nGan > 0 ? str.tostring(sumPer / (nOps - nGan), "$0") : "-")
-    fila(tb, 5, "Resultado medio", nOps > 0 ? str.tostring(sumUSD / nOps, "+$0.0;-$0.0") : "-")
-    fila(tb, 6, "Resultado total", str.tostring(sumUSD, "+$0;-$0"))
+    fila(tb, 3, "Ganancia media", nGan > 0 ? "$" + str.tostring(math.round(sumGan / nGan)) : "-")
+    fila(tb, 4, "Pérdida media", nOps - nGan > 0 ? "-$" + str.tostring(math.abs(math.round(sumPer / (nOps - nGan)))) : "-")
+    fila(tb, 5, "Resultado medio", nOps > 0 ? (sumUSD >= 0 ? "+$" : "-$") + str.tostring(math.abs(sumUSD / nOps), "0.0") : "-")
+    fila(tb, 6, "Resultado total", (sumUSD >= 0 ? "+$" : "-$") + str.tostring(math.abs(math.round(sumUSD))))
     fila(tb, 7, "Puntos totales (bruto)", str.tostring(sumPts, "+0.0;-0.0"))
