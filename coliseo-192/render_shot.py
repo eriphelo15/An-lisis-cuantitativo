@@ -30,7 +30,7 @@ SHOTS = {
                      aerosol=0.7, haze=(0.76, 0.8, 0.86), haze_amt=0.65, haze_k=6500, exposure=-1.35, world=0.6, show=['Publico', 'Velario', 'Venatio']),
     'gladiadores': dict(cam=(4, -13, 3.2), look=(-6, 1.5, 1.3), lens=32, sun_az=225, sun_el=38, sun_col=(1.0, 0.88, 0.72), sun_str=6.5,
                         aerosol=0.7, haze=(0.8, 0.78, 0.76), haze_amt=0.4, haze_k=8000, exposure=-1.35, world=0.6, show=['Publico', 'Velario', 'Gladiadores']),
-    'comodo': dict(cam=(5, 9, 2.6), look=(-.5, -8, 2.2), lens=32, sun_az=245, sun_el=28, sun_col=(1.0, 0.82, 0.62), sun_str=6.5,
+    'comodo': dict(cam=(7, 21, 9.5), look=(-.5, -9, 3.2), lens=34, sun_az=245, sun_el=28, sun_col=(1.0, 0.82, 0.62), sun_str=6.5,
                    aerosol=1.6, haze=(0.82, 0.76, 0.7), haze_amt=0.4, haze_k=8000, exposure=-0.45, world=0.6, show=['Publico', 'Velario', 'ComodoArena']),
     'atardecer': dict(cam=(-226, -64, 42), look=(-40, 6, 20), lens=32, sun_az=288, sun_el=3.2, sun_col=(1.0, 0.5, 0.26), sun_str=7.0,
                       aerosol=2.6, haze=(0.86, 0.6, 0.45), haze_amt=0.75, haze_k=6000, exposure=-0.1, world=0.5, show=['Publico', 'Salida']),
