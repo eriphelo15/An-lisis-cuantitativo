@@ -42,3 +42,37 @@ En la simulación Tradeify (Select 50K → Flex):
 | A + B | 27-37% | 80-91% | $507-678 |
 
 B aún no está demostrado para el futuro. Hay que tratarlo como experimento, con tamaño pequeño o en simulación, hasta que acumule datos propios.
+
+---
+# Parte 2: Drive, literatura publicada y eventos macro
+
+## Tu Drive
+- **Reversal [EAO] (tu .pine):** programada fielmente en velas de 5 minutos con los mejores parámetros de tu grid (near 2, long 20, 09:30-10:00, SL 2 ATR, TP 2.5R).
+  En NQ da −0.01R en 2010-17 (años que tu grid no vio) y +0.01R en 2018-26. En ES y YM es negativa. **No tiene ventaja**: el PF 1.32 de tu grid es el mejor de muchas combinaciones probadas, es decir, sobreajuste.
+- **ares_grid_search.py (UASRS 1 min):** lee `NQ_continuous_15y.csv`, el archivo con el ajuste de contratos defectuoso que detectamos al principio.
+  Los filtros en % (rango mínimo, pendiente de la EMA diaria) usan niveles de precio erróneos. Además elige el mejor de ~4.200 combinaciones sin prueba ciega.
+- **Datos de oro (GC):** están en Drive, pero no se pueden descargar: no están compartidos por enlace y la conexión con Drive tiene un límite de 10 MB. Si se comparten por enlace, se pueden probar.
+
+## Lo que dice la literatura y lo que muestran nuestros datos
+| Estudio | Qué afirma | Nuestro resultado 2010-2026 |
+|---|---|---|
+| Gao, Han, Li, Zhou (JFE 2018): momentum intradía | La 1ª media hora predice la última | **Muerto.** En 2021-26 incluso se **invierte** (t≈−2 en los 3 índices) |
+| Rebalanceo de ETFs apalancados (Barbon et al.) | El movimiento del día continúa en los últimos 30 min | Funcionó en 2010-18 (t 2.3-3.5). **Desaparece desde 2019** |
+| Dim, Eraker, Vilkov (0DTE / gamma de dealers) | Con gamma positiva, reversión intradía | Coherente con la inversión que vemos en 2021-26. No se puede operar sin datos de gamma |
+| Lucca-Moench (2015), deriva pre-FOMC; Kurov et al. dicen que "desapareció" en 2016-19 | Sube antes del anuncio de la Fed | **Vive**: positiva en los 3 índices y periodos. Operación concreta abajo |
+| Knox-Londono-Samadi: prima en días CPI/NFP/FOMC | Más rentabilidad esos días | CPI y NFP: **nada consistente**. Solo FOMC |
+| Estudio MNQ 2021-25 (arXiv 2605.04004) | 14 familias de señales OHLCV: ninguna pasa | Coincide con nuestro escaneo ciego |
+
+Lección: casi toda anomalía publicada se desvanece después de publicarse. La que sobrevive (pre-FOMC) tiene explicación de prima de riesgo, no de "patrón".
+
+## Nueva operación validada: F · noche previa a la Fed (NQ)
+- **Qué hacer:** comprar NQ/MNQ a las 18:00 ET la víspera del anuncio FOMC y vender a las 08:30 ET del día del anuncio. Stop protector a 0.5 × ATR diario (hoy ≈ 180 pts).
+- **Resultado:** +0.21R / +0.28R / +0.32R (DEV/VAL1/VAL2), acierto 73% / 88% / 75%, 16 de 17 años positivos, t = 4.2. Es más fuerte con el VIX alto.
+- **Pega:** solo 8 veces al año. En la simulación de fondeo apenas cambia el neto por examen, porque es rara.
+  Es un complemento con alto acierto, no un negocio por sí sola.
+- **Fechas FOMC 2026:** 28 ene, 18 mar, 29 abr, 17 jun, 29 jul, 16 sep, 28 oct, 9 dic.
+  Se entra el día anterior a las 18:00: 27 ene, 17 mar, 28 abr, 16 jun, 28 jul, 15 sep, 27 oct, 8 dic.
+
+## Macro (datos oficiales: fechas de publicación de ALFRED/FRED, VIX de CBOE, tipos y dólar de FRED)
+- NFP y CPI: ni la deriva previa, ni la reacción, ni la continuación son consistentes entre periodos.
+- VIX (nivel, estructura 9D/3M, cambios), tipos 2 y 10 años, dólar: **predicen la volatilidad, no la dirección**. Sirven para ajustar el tamaño, no para elegir el lado.
