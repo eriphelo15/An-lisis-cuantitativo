@@ -119,10 +119,11 @@ def escala(D, npaths, H, caja0, P, modo, t_ini, dia_comun, max_f, seed, max_ex=5
                                 monto = min(tope, p - 100.0)
                             if monto < P[pl, 16]:
                                 monto = 0.0
-                    else:  # select flex
+                    else:  # select flex (P[pl,25] >= 0: retiro mínimo deseado -> esperar a poder retirar al menos eso)
                         if fo[pl, b, 4] >= 5 and p > 0:
                             monto = min(P[pl, 17], P[pl, 19] * p)
-                            if monto < 250.0:
+                            umbral = max(250.0, P[pl, 25])
+                            if monto < umbral:
                                 monto = 0.0
                     if monto > 0:
                         p -= monto; caja += 0.9 * monto; cobrado[ip] += 0.9 * monto
