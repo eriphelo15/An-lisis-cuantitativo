@@ -16,7 +16,7 @@ SHOTS = {
     'amanecer': dict(cam=(150, 190, 70), look=(-40, -30, 12), lens=30, sun_az=100, sun_el=5.5,
                      sun_col=(1.0, 0.58, 0.34), sun_str=6.5, aerosol=2.2, haze=(0.84, 0.68, 0.58), haze_amt=0.7,
                      haze_k=7000, exposure=-0.2, world=0.45),
-    'llegada': dict(cam=(-36, -127, 3.2), look=(-6, -70, 17), lens=28, sun_az=112, sun_el=18, sun_col=(1.0, 0.8, 0.62), sun_str=6.0,
+    'llegada': dict(cam=(-20, -112, 2.4), look=(-4, -70, 18), lens=28, sun_az=112, sun_el=18, sun_col=(1.0, 0.8, 0.62), sun_str=6.0,
                     aerosol=1.6, haze=(0.8, 0.76, 0.72), haze_amt=0.6, haze_k=6000, exposure=-0.35, world=0.6, show=['Publico', 'Llegada']),
     'velario': dict(cam=(70, -104, 66), look=(-25, 18, 44), lens=26, sun_az=135, sun_el=32, sun_col=(1.0, 0.9, 0.78), sun_str=6.5,
                     aerosol=0.7, haze=(0.78, 0.8, 0.84), haze_amt=0.6, haze_k=7000, exposure=-1.35, world=0.6, show=['Publico', 'Velario']),
