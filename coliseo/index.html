@@ -1,0 +1,615 @@
+<title>Coliseo Romano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0E0C0A; --panel:#171410; --line:#2B261F; --ink:#EDE6DA; --muted:#A39A8C; --gold:#D9A866;
+  --roman:'Cinzel','Trajan Pro',Georgia,serif;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --body:'Instrument Sans','Segoe UI',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--body);padding-inline:16px;padding-block:20px 48px}
+.wrap{max-width:1480px;margin:0 auto;display:grid;gap:18px}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:8px 30px}
+.eyebrow{font:500 12px/1 var(--roman);letter-spacing:.3em;color:var(--gold);margin-bottom:10px}
+h1{font:500 clamp(40px,7vw,78px)/.95 var(--roman);letter-spacing:.06em;margin:0}
+header p{margin:0;color:var(--muted);max-width:56ch}
+
+.stage{position:relative;height:clamp(440px,80vh,920px);background:#000;overflow:hidden;touch-action:none;border:1px solid var(--line)}
+.stage canvas{display:block;width:100%!important;height:100%!important}
+.bars{position:absolute;inset:0;pointer-events:none}
+.bars::before,.bars::after{content:"";position:absolute;left:0;right:0;height:0;background:#000;transition:height .8s ease}
+.bars::before{top:0} .bars::after{bottom:0}
+.cine .bars::before,.cine .bars::after{height:max(0px,calc((100% - 100vw / 2.39) / 2))}
+@supports (height:100cqh){ .stage{container-type:size} .cine .bars::before,.cine .bars::after{height:max(0px,calc((100cqh - 100cqw / 2.39) / 2))} }
+.cap{position:absolute;left:clamp(16px,5%,64px);bottom:clamp(64px,16%,150px);max-width:min(560px,80%);pointer-events:none;opacity:0;transition:opacity 1.2s ease;text-shadow:0 2px 14px rgba(0,0,0,.7)}
+.cap.on{opacity:1}
+.cap .k{font:600 clamp(11px,1.2vw,13px)/1 var(--roman);letter-spacing:.32em;color:var(--gold);margin-bottom:10px}
+.cap .t{font:500 clamp(24px,3.4vw,44px)/1.05 var(--roman);letter-spacing:.04em;color:#f6efe3}
+.cap .s{font:italic 500 clamp(16px,1.8vw,22px)/1.3 var(--serif);color:#e6dccb;margin-top:8px}
+.ui{position:absolute;left:0;right:0;bottom:0;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;padding:10px 12px;background:linear-gradient(transparent,rgba(0,0,0,.65));transition:opacity .4s}
+.stage.cine:not(:hover) .ui{opacity:.25}
+.ui .g{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.ui button{font:600 12px/1 var(--body);letter-spacing:.04em;padding:9px 12px;border:1px solid rgba(255,255,255,.22);background:rgba(10,8,6,.55);color:#e9e1d3;cursor:pointer;border-radius:2px;backdrop-filter:blur(4px)}
+.ui button:hover{border-color:rgba(255,255,255,.55)}
+.ui button[aria-pressed="true"]{background:#efe6d6;color:#17130e;border-color:#efe6d6}
+.ui button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.prog{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.1)}
+.prog i{display:block;height:100%;width:0;background:var(--gold)}
+.loading{position:absolute;inset:0;display:grid;place-items:center;background:#0b0907;font:500 14px/1.4 var(--roman);letter-spacing:.3em;color:var(--gold);transition:opacity 1s}
+.loading.done{opacity:0;pointer-events:none}
+
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px 36px;border-top:1px solid var(--line);padding-top:20px}
+.notes h2{font:500 18px/1.2 var(--roman);letter-spacing:.12em;margin:0 0 10px;color:var(--gold)}
+.notes p{margin:0 0 8px;color:var(--muted);font-size:14px;max-width:62ch}
+.facts{margin:0;display:grid}
+.facts div{display:flex;justify-content:space-between;gap:16px;padding:7px 0;border-bottom:1px solid var(--line);font-size:14px}
+.facts dt{color:var(--muted)} .facts dd{margin:0;font-variant-numeric:tabular-nums;text-align:right}
+@media (prefers-reduced-motion:reduce){.cap,.bars::before,.bars::after{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">ROMA · ANFITEATRO FLAVIO · 80 D. C.</div>
+      <h1>COLISEO ROMANO</h1>
+    </div>
+    <p>El monumento como está hoy, reconstruido en 3D con sus medidas reales: el anillo exterior que sobrevive al norte, las gradas en ruina y el hipogeo bajo la arena. Mira el recorrido o explóralo tú mismo a cualquier hora del día.</p>
+  </header>
+
+  <div class="stage cine" id="stage">
+    <div class="bars"></div>
+    <div class="cap" id="cap"><div class="k" id="capK"></div><div class="t" id="capT"></div><div class="s" id="capS"></div></div>
+    <div class="ui">
+      <div class="g">
+        <button id="b-play" aria-pressed="true">Recorrido</button>
+        <button id="b-free" aria-pressed="false">Explorar libre</button>
+        <button id="b-full">Pantalla completa</button>
+      </div>
+      <div class="g" id="times">
+        <button data-h="amanecer" aria-pressed="false">Amanecer</button>
+        <button data-h="mediodia" aria-pressed="false">Mediodía</button>
+        <button data-h="atardecer" aria-pressed="true">Atardecer</button>
+        <button data-h="noche" aria-pressed="false">Noche</button>
+      </div>
+    </div>
+    <div class="prog"><i id="prog"></i></div>
+    <div class="loading" id="loading">CONSTRUYENDO EL COLISEO…</div>
+  </div>
+
+  <section class="notes">
+    <div>
+      <h2>EL MONUMENTO</h2>
+      <dl class="facts">
+        <div><dt>Construcción</dt><dd>72–80 d. C., Vespasiano y Tito</dd></div>
+        <div><dt>Planta</dt><dd>elipse de 189 × 156 m</dd></div>
+        <div><dt>Altura</dt><dd>48 m, cuatro pisos</dd></div>
+        <div><dt>Arena</dt><dd>87 × 55 m</dd></div>
+        <div><dt>Arcos por piso</dt><dd>80</dd></div>
+        <div><dt>Órdenes</dt><dd>toscano, jónico y corintio</dd></div>
+        <div><dt>Público</dt><dd>entre 50,000 y 80,000</dd></div>
+      </dl>
+    </div>
+    <div>
+      <h2>QUÉ ESTÁS VIENDO</h2>
+      <p>El anillo exterior completo solo sobrevive en el lado norte. En sus extremos están los contrafuertes de ladrillo del siglo XIX que frenaron el derrumbe. Al sur se ve el segundo anillo, que antes quedaba escondido.</p>
+      <p>En la arena, una plataforma de madera cubre el extremo este y el resto deja ver el hipogeo: los pasillos y celdas donde esperaban los animales y los gladiadores.</p>
+    </div>
+    <div>
+      <h2>CÓMO SE HIZO</h2>
+      <p>Todo está generado con código en tu navegador: la geometría sigue las medidas reales y las texturas de travertino, ladrillo y adoquín se pintan al cargar. No usa fotos ni modelos descargados.</p>
+      <p>Es una reconstrucción aproximada: el número de arcos, los pisos y las proporciones son fieles, pero las ruinas interiores están simplificadas.</p>
+    </div>
+  </section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/objects/Sky.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+<script>
+(function(){
+const stage=document.getElementById('stage'), $=id=>document.getElementById(id);
+if(!window.THREE||!THREE.OrbitControls||!THREE.Sky||!THREE.EffectComposer||!THREE.UnrealBloomPass){
+  $('loading').textContent='NO SE PUDO CARGAR EL VISOR 3D. RECARGA LA PÁGINA.'; return;
+}
+const W=THREE;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let seed=80; const rnd=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;};
+const lerp=(a,b,t)=>a+(b-a)*t, clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+
+// =================== TEXTURAS PROCEDURALES ===================
+function canvasTex(size,draw,srgb=true,rep=1){
+  const c=document.createElement('canvas'); c.width=c.height=size; const g=c.getContext('2d'); draw(g,size);
+  const t=new W.CanvasTexture(c); t.wrapS=t.wrapT=W.RepeatWrapping; t.repeat.set(rep,rep); if(srgb) t.encoding=W.sRGBEncoding; return t;
+}
+function wrapDraw(S,x,y,f){ f(x,y); if(x<40) f(x+S,y); if(x>S-40) f(x-S,y); if(y<40) f(x,y+S); if(y>S-40) f(x,y-S); }
+// travertino: bloques en hiladas, poros horizontales, manchas de intemperie
+function travertine(mode){
+  return (g,S)=>{
+    seed=1234;
+    const col=mode==='c';
+    g.fillStyle=col?'#c8b394':'#808080'; g.fillRect(0,0,S,S);
+    const rows=11, rh=S/rows;
+    // tono por bloque
+    for(let r=0;r<rows;r++){ let x=-rnd()*S*.2; while(x<S){ const w=S*(.16+rnd()*.2);
+      const v=rnd(); g.fillStyle=col?`rgba(${v<.5?'95,80,60':'235,222,200'},${.05+rnd()*.12})`:`rgba(${v<.5?'60,60,60':'170,170,170'},${.1})`;
+      g.fillRect(x,r*rh,w,rh); if(x+w>S) g.fillRect(x-S,r*rh,w,rh);
+      // junta vertical
+      g.fillStyle=col?'rgba(70,56,40,.55)':'rgba(20,20,20,.9)'; g.fillRect(x,r*rh,S/450,rh);
+      x+=w; }
+      g.fillStyle=col?'rgba(70,56,40,.6)':'rgba(15,15,15,.95)'; g.fillRect(0,r*rh,S,S/400);
+      if(col){ g.fillStyle='rgba(255,245,225,.12)'; g.fillRect(0,r*rh+S/400,S,S/600); }
+    }
+    // grano
+    for(let i=0;i<26000;i++){ const x=rnd()*S,y=rnd()*S,r=.5+rnd()*1.6, d=rnd()<.5;
+      g.fillStyle=col?(d?`rgba(90,74,54,${.08+rnd()*.12})`:`rgba(245,235,215,${.06+rnd()*.1})`):(d?'rgba(40,40,40,.25)':'rgba(200,200,200,.2)');
+      g.fillRect(x,y,r,r); }
+    // poros alargados
+    for(let i=0;i<2600;i++){ const x=rnd()*S,y=rnd()*S,w=2+rnd()*9,h=.8+rnd()*2.2;
+      wrapDraw(S,x,y,(a,b)=>{ g.fillStyle=col?`rgba(70,58,42,${.35+rnd()*.35})`:'rgba(10,10,10,.9)'; g.beginPath(); g.ellipse(a,b,w,h,0,0,Math.PI*2); g.fill(); }); }
+    // chorreados verticales de intemperie
+    for(let i=0;i<70;i++){ const x=rnd()*S, y=rnd()*S, w=4+rnd()*26, h=S*(.15+rnd()*.5);
+      const gr=g.createLinearGradient(0,y,0,y+h); const a=col?.06+rnd()*.14:.08;
+      gr.addColorStop(0,col?`rgba(60,55,50,${a})`:`rgba(60,60,60,${a})`); gr.addColorStop(1,'rgba(60,55,50,0)');
+      g.fillStyle=gr; g.fillRect(x,y,w,h); if(y+h>S){ g.fillRect(x,y-S,w,h); } }
+    // desconchados
+    for(let i=0;i<260;i++){ const x=rnd()*S,y=rnd()*S,r=3+rnd()*12;
+      g.fillStyle=col?`rgba(${rnd()<.5?'110,92,70':'228,214,190'},${.15+rnd()*.2})`:'rgba(50,50,50,.5)';
+      g.beginPath(); g.moveTo(x,y); for(let k=0;k<6;k++){ const a=k/6*Math.PI*2; g.lineTo(x+Math.cos(a)*r*(.5+rnd()),y+Math.sin(a)*r*(.5+rnd())); } g.fill(); }
+  };
+}
+// ladrillo romano: piezas delgadas con juntas gruesas de mortero
+function brick(mode){
+  return (g,S)=>{
+    seed=777; const col=mode==='c';
+    g.fillStyle=col?'#a9927a':'#606060'; g.fillRect(0,0,S,S);
+    const rows=46, rh=S/rows;
+    for(let r=0;r<rows;r++){ let x=-rnd()*60;
+      while(x<S){ const w=40+rnd()*70; const t=rnd();
+        g.fillStyle=col?`rgb(${150+t*50|0},${82+t*35|0},${55+t*25|0})`:`rgb(${150+t*40|0},${150+t*40|0},${150+t*40|0})`;
+        g.fillRect(x+2,r*rh+rh*.38,w-4,rh*.58); x+=w; } }
+    for(let i=0;i<16000;i++){ const x=rnd()*S,y=rnd()*S; g.fillStyle=col?`rgba(${rnd()<.5?'60,40,30':'220,200,170'},${.08+rnd()*.15})`:'rgba(90,90,90,.2)'; g.fillRect(x,y,1.5,1.5); }
+    for(let i=0;i<40;i++){ const x=rnd()*S,y=rnd()*S,w=30+rnd()*140,h=20+rnd()*120; g.fillStyle=col?`rgba(${rnd()<.5?'70,60,50':'190,170,140'},${.08+rnd()*.12})`:'rgba(80,80,80,.15)'; g.fillRect(x,y,w,h); }
+  };
+}
+function paving(mode){
+  return (g,S)=>{
+    seed=31; const col=mode==='c';
+    g.fillStyle=col?'#77706a':'#303030'; g.fillRect(0,0,S,S);
+    const rows=12, rh=S/rows;
+    for(let r=0;r<rows;r++){ let x=-rnd()*80; while(x<S){ const w=rh*(1.2+rnd()*.9), t=rnd();
+      g.fillStyle=col?`rgb(${150+t*40|0},${142+t*38|0},${130+t*34|0})`:`rgb(${150+t*50|0},${150+t*50|0},${150+t*50|0})`;
+      g.fillRect(x+2,r*rh+2,w-4,rh-4); if(x+w>S) g.fillRect(x-S+2,r*rh+2,w-4,rh-4); x+=w; } }
+    for(let i=0;i<20000;i++){ const x=rnd()*S,y=rnd()*S; g.fillStyle=col?`rgba(${rnd()<.5?'50,45,40':'220,212,200'},${.08+rnd()*.14})`:'rgba(60,60,60,.25)'; g.fillRect(x,y,1.6,1.6); }
+    for(let i=0;i<30;i++){ const x=rnd()*S,y=rnd()*S,r=20+rnd()*90; const gr=g.createRadialGradient(x,y,0,x,y,r); gr.addColorStop(0,col?'rgba(40,36,32,.18)':'rgba(40,40,40,.1)'); gr.addColorStop(1,'rgba(0,0,0,0)'); g.fillStyle=gr; g.fillRect(x-r,y-r,r*2,r*2); }
+  };
+}
+function planks(g,S){ seed=5; g.fillStyle='#6d5238'; g.fillRect(0,0,S,S); const n=24, w=S/n;
+  for(let i=0;i<n;i++){ let y=-rnd()*S; while(y<S){ const L=S*(.3+rnd()*.5), t=rnd(); g.fillStyle=`rgb(${120+t*40|0},${88+t*30|0},${58+t*22|0})`; g.fillRect(i*w+1.5,y+1.5,w-3,L-3); y+=L; } }
+  for(let i=0;i<9000;i++){ g.fillStyle=`rgba(40,28,18,${.1+rnd()*.15})`; g.fillRect(rnd()*S,rnd()*S,1,4+rnd()*10); } }
+function asphalt(g,S){ seed=9; g.fillStyle='#3a3a3b'; g.fillRect(0,0,S,S); for(let i=0;i<30000;i++){ const v=rnd(); g.fillStyle=`rgba(${v<.5?'20,20,22':'120,118,115'},${.15+rnd()*.2})`; g.fillRect(rnd()*S,rnd()*S,1.5,1.5); } }
+
+const renderer=new W.WebGLRenderer({antialias:false,powerPreference:'high-performance'});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.5));
+renderer.shadowMap.enabled=true; renderer.shadowMap.type=W.PCFSoftShadowMap;
+renderer.outputEncoding=W.LinearEncoding;
+stage.prepend(renderer.domElement);
+const aniso=Math.min(8,renderer.capabilities.getMaxAnisotropy());
+
+const TX={
+  trav:canvasTex(1024,travertine('c'),true,1/6), travB:canvasTex(1024,travertine('b'),false,1/6),
+  brick:canvasTex(1024,brick('c'),true,1/3), brickB:canvasTex(1024,brick('b'),false,1/3),
+  pave:canvasTex(1024,paving('c'),true,1/9), paveB:canvasTex(1024,paving('b'),false,1/9),
+  wood:canvasTex(512,planks,true,1/5), asph:canvasTex(512,asphalt,true,1/12),
+};
+Object.values(TX).forEach(t=>t.anisotropy=aniso);
+const std=(o)=>new W.MeshStandardMaterial(Object.assign({roughness:.92,metalness:0,envMapIntensity:.7},o));
+const M={
+  trav:std({map:TX.trav,bumpMap:TX.travB,bumpScale:.06,color:0xffffff}),
+  travIn:std({map:TX.trav,bumpMap:TX.travB,bumpScale:.05,color:0xc9bba6}),
+  brick:std({map:TX.brick,bumpMap:TX.brickB,bumpScale:.08}),
+  ruin:std({map:TX.brick,bumpMap:TX.brickB,bumpScale:.08,color:0xc8b6a0}),
+  tuff:std({map:TX.trav,bumpMap:TX.travB,bumpScale:.05,color:0x9c8f7c}),
+  pave:std({map:TX.pave,bumpMap:TX.paveB,bumpScale:.04,roughness:.85}),
+  wood:std({map:TX.wood,roughness:.8}),
+  asph:std({map:TX.asph,roughness:.95}),
+  dirt:std({color:0x6e5d48,roughness:1}),
+  grass:std({color:0x5d6b3e,roughness:1}),
+  bark:std({color:0x5a4636,roughness:1}),
+  leaf:std({color:0x3b4f2c,roughness:.95}),
+  leaf2:std({color:0x4d6436,roughness:.95}),
+  marble:std({map:TX.trav,bumpMap:TX.travB,bumpScale:.03,color:0xf0ebe2,roughness:.7}),
+  city:std({roughness:1,vertexColors:true}),
+  dark:new W.MeshBasicMaterial({color:0x0c0906}),
+  glow:new W.MeshBasicMaterial({color:new W.Color(3.2,1.9,.9),side:W.DoubleSide}),
+};
+M.glow.userData.hdr=true;
+['travIn','brick','ruin','tuff','wood','dirt','marble'].forEach(k=>M[k].side=W.DoubleSide);
+
+// =================== GEOMETRÍA: LOTES CON UV EN METROS ===================
+class Batch{ constructor(){ this.p=[]; this.n=[]; this.u=[]; this.c=null; }
+  add(geo,m,color){ const g=geo.index?(geo.userData.ni||(geo.userData.ni=geo.toNonIndexed())):geo;
+    const P=g.attributes.position, N=g.attributes.normal, U=g.attributes.uv;
+    const nm=new W.Matrix3().getNormalMatrix(m), v=new W.Vector3();
+    for(let i=0;i<P.count;i++){ v.fromBufferAttribute(P,i).applyMatrix4(m); this.p.push(v.x,v.y,v.z);
+      v.fromBufferAttribute(N,i).applyMatrix3(nm).normalize(); this.n.push(v.x,v.y,v.z);
+      if(U) this.u.push(U.getX(i),U.getY(i)); else this.u.push(0,0);
+      if(color){ (this.c||(this.c=[])).push(color.r,color.g,color.b); } } }
+  mesh(mat,shadow=true){ const g=new W.BufferGeometry(); g.setAttribute('position',new W.Float32BufferAttribute(this.p,3)); g.setAttribute('normal',new W.Float32BufferAttribute(this.n,3)); g.setAttribute('uv',new W.Float32BufferAttribute(this.u,2));
+    if(this.c) g.setAttribute('color',new W.Float32BufferAttribute(this.c,3));
+    g.computeBoundingSphere(); const me=new W.Mesh(g,mat); me.castShadow=shadow; me.receiveShadow=true; return me; } }
+const BT={}; const bt=k=>BT[k]||(BT[k]=new Batch());
+function box(w,h,d){ const g=new W.BoxGeometry(w,h,d); const uv=g.attributes.uv;
+  const dims=[[d,h],[d,h],[w,d],[w,d],[w,h],[w,h]];
+  for(let f=0;f<6;f++) for(let k=0;k<4;k++){ const i=f*4+k; uv.setXY(i,uv.getX(i)*dims[f][0],uv.getY(i)*dims[f][1]); }
+  return g; }
+function cyl(rt,rb,h,seg,ts=0,tl=Math.PI*2,open=false){ const g=new W.CylinderGeometry(rt,rb,h,seg,1,open,ts,tl); const uv=g.attributes.uv; const c=Math.max(rt,rb)*tl;
+  for(let i=0;i<uv.count;i++) uv.setXY(i,uv.getX(i)*c,uv.getY(i)*h); return g; }
+const mtx=(x,y,z,ry=0,sx=1,sy=1,sz=1)=>new W.Matrix4().compose(new W.Vector3(x,y,z),new W.Quaternion().setFromEuler(new W.Euler(0,ry,0)),new W.Vector3(sx,sy,sz));
+const I4=new W.Matrix4();
+const at=(g,x,y,z)=>{ g.translate(x,y,z); return g; };
+
+// =================== ELIPSE ===================
+const A=94, B=78, NB=80;
+const tab=[]; { let s=0,px=A,pz=0; for(let i=0;i<=8000;i++){ const t=i/8000*Math.PI*2, x=A*Math.cos(t), z=B*Math.sin(t); s+=Math.hypot(x-px,z-pz); tab.push([t,s]); px=x; pz=z; } }
+const PER=tab[tab.length-1][1];
+function tAtS(s){ s=((s%PER)+PER)%PER; let lo=0,hi=tab.length-1; while(hi-lo>1){ const m=(lo+hi)>>1; if(tab[m][1]<s) lo=m; else hi=m; } const a=tab[lo],b=tab[hi]; return lerp(a[0],b[0],(s-a[1])/((b[1]-a[1])||1)); }
+const TB=[]; for(let i=0;i<=NB;i++) TB.push(tAtS(i*PER/NB+PER/NB*0.5));
+const pt=(t,d)=>[(A-d)*Math.cos(t),(B-d)*Math.sin(t)];
+function bayM(i,d,L0,extra=0){
+  const p0=pt(TB[i],d), p1=pt(TB[i+1],d); const mx=(p0[0]+p1[0])/2, mz=(p0[1]+p1[1])/2;
+  const L=Math.hypot(p1[0]-p0[0],p1[1]-p0[1]); let th=Math.atan2(p1[1]-p0[1],p1[0]-p0[0]);
+  if(-Math.sin(th)*mx+Math.cos(th)*mz<0) th+=Math.PI;
+  return {m:mtx(mx,0,mz,-th,L/L0*(1+extra),1,1),L,th,mx,mz};
+}
+const tMid=i=>(TB[i]+TB[i+1])/2;
+const deg=t=>((t*180/Math.PI)%360+360)%360;
+const INTACT=[]; for(let i=0;i<NB;i++){ const d=deg(tMid(i)); INTACT[i]=d>=198&&d<=342; }
+const firstI=INTACT.findIndex((v,i)=>v&&!INTACT[(i+NB-1)%NB]), lastI=INTACT.findIndex((v,i)=>v&&!INTACT[(i+1)%NB]);
+
+// =================== ANILLO EXTERIOR (fachada) ===================
+const T1=2.3, L1=PER/NB;
+function uWall(L,w,y0,spring,top,depth){ // muro con arco que baja hasta el piso
+  const s=new W.Shape(); const h=L/2, r=w/2;
+  s.moveTo(-h,0); s.lineTo(-r,0); s.lineTo(-r,spring-y0); s.absarc(0,spring-y0,r,Math.PI,0,true); s.lineTo(r,0); s.lineTo(h,0); s.lineTo(h,top-y0); s.lineTo(-h,top-y0); s.lineTo(-h,0);
+  const g=new W.ExtrudeGeometry(s,{depth,bevelEnabled:false,curveSegments:10}); g.translate(0,y0,-depth); return g; }
+function archivolt(w,spring,band=.42,dep=.14){ const s=new W.Shape(); const r=w/2;
+  s.absarc(0,0,r+band,0,Math.PI,false); s.lineTo(-r,0); s.absarc(0,0,r,Math.PI,0,true); s.lineTo(r+band,0);
+  const g=new W.ExtrudeGeometry(s,{depth:dep,bevelEnabled:false,curveSegments:10}); g.translate(0,spring,0); return g; }
+const halfCol=(r,h)=>cyl(r,r*1.04,h,14,-Math.PI/2,Math.PI);
+const STO=[
+  {y0:0,spring:6.6,top:9.3,ent:[9.3,10.5],w:4.2,r:.66,order:0},
+  {pod:[10.5,12.0],y0:12.0,spring:17.9,top:20.9,ent:[20.9,22.3],w:4.0,r:.58,order:1},
+  {pod:[22.3,23.8],y0:23.8,spring:29.6,top:32.5,ent:[32.5,33.9],w:4.0,r:.52,order:2},
+];
+function ringOneStory(S){
+  const parts=[];
+  parts.push(['trav',uWall(L1,S.w,S.y0,S.spring,S.ent[0],T1)]);
+  parts.push(['trav',archivolt(S.w,S.spring)]);
+  [-1,1].forEach(sg=>parts.push(['trav',at(box(.55,.32,.3),sg*(S.w/2+.28),S.spring-.16,.15)]));
+  const h=S.ent[0]-S.y0;
+  parts.push(['trav',at(halfCol(S.r,h-.9),-L1/2,S.y0+.35+(h-.9)/2,0)]);
+  parts.push(['trav',at(box(S.r*2.5,.35,S.r+.35),-L1/2,S.y0+.175,(S.r+.35)/2-.05)]);
+  const capH=S.order===2?.75:S.order===1?.5:.45;
+  parts.push(['trav',at(S.order===2?cyl(S.r*1.35,S.r*1.02,capH,14,-Math.PI/2,Math.PI):box(S.r*2.6,capH,S.r+.4),-L1/2,S.ent[0]-capH/2,S.order===2?0:(S.r+.4)/2-.05)]);
+  const eh=S.ent[1]-S.ent[0];
+  parts.push(['trav',at(box(L1*1.012,eh*.72,T1+.85),0,S.ent[0]+eh*.36,(.85-T1)/2)]);
+  parts.push(['trav',at(box(L1*1.012,eh*.28,T1+1.15),0,S.ent[0]+eh*.86,(1.15-T1)/2)]);
+  if(S.pod){ const ph=S.pod[1]-S.pod[0];
+    parts.push(['trav',at(box(L1*1.012,ph,T1+.55),0,S.pod[0]+ph/2,(.55-T1)/2)]);
+    parts.push(['trav',at(box(1.7,ph,.95),-L1/2,S.pod[0]+ph/2,.47)]); }
+  return parts;
+}
+function atticParts(win){
+  const parts=[]; const y0=33.9,y1=48.5;
+  if(win){ const s=new W.Shape(); s.moveTo(-L1/2,0); s.lineTo(L1/2,0); s.lineTo(L1/2,y1-y0-1.9); s.lineTo(-L1/2,y1-y0-1.9); s.lineTo(-L1/2,0);
+    const hole=new W.Path(); hole.moveTo(-.65,3.3); hole.lineTo(-.65,5.3); hole.lineTo(.65,5.3); hole.lineTo(.65,3.3); hole.lineTo(-.65,3.3); s.holes.push(hole);
+    const g=new W.ExtrudeGeometry(s,{depth:T1,bevelEnabled:false}); g.translate(0,y0,-T1); parts.push(['trav',g]); }
+  else parts.push(['trav',at(box(L1*1.003,y1-y0-1.9,T1),0,y0+(y1-y0-1.9)/2,-T1/2)]);
+  parts.push(['trav',at(box(L1*1.012,.6,T1+.45),0,y0+.3,(.45-T1)/2)]);
+  parts.push(['trav',at(box(1.15,11,.28),-L1/2,y0+.6+5.5,.14)]);
+  parts.push(['trav',at(box(1.4,.5,.42),-L1/2,y0+11.85,.21)]);
+  [-L1/4,0,L1/4].forEach(x=>parts.push(['trav',at(box(.5,.62,.6),x+(x===0?0:0),43.0,.3)]));
+  parts.push(['trav',at(box(L1*1.012,1.15,T1+.6),0,y1-1.9+.57,(.6-T1)/2)]);
+  parts.push(['trav',at(box(L1*1.012,.75,T1+1.0),0,y1-1.9+1.15+.37,(1.0-T1)/2)]);
+  return parts;
+}
+const storyParts=STO.map(ringOneStory), atticW=atticParts(true), atticN=atticParts(false);
+const stepParts=[['trav',at(box(L1*1.01,.35,T1+1.4),0,.175,(1.4-T1)/2)],['trav',at(box(L1*1.01,.2,T1+2.2),0,.1,(2.2-T1)/2)]];
+// bóvedas y pisos del deambulatorio exterior (entre anillo 1 y 2)
+const D2=6.4, SPAN=D2-T1;
+const vault=(()=>{ const g=cyl(SPAN/2,SPAN/2,L1*1.02,14,0,Math.PI,true); g.rotateZ(Math.PI/2); return g; })();
+const corridor=[];
+[[10.5,.8],[22.3,.8],[33.9,.8]].forEach(([y,th])=>{
+  corridor.push(['travIn',at(box(L1*1.01,th,SPAN+.1),0,y-th/2,-T1-SPAN/2)]);
+  corridor.push(['travIn',at(vault.clone(),0,y-th-SPAN/2+.2,-T1-SPAN/2)]);
+});
+for(let i=0;i<NB;i++){ if(!INTACT[i]) continue;
+  const {m}=bayM(i,0,L1);
+  stepParts.forEach(([k,g])=>bt(k).add(g,m));
+  storyParts.forEach((P,si)=>P.forEach(([k,g])=>bt(k).add(g,m)));
+  const endBay=(i===firstI||i===lastI);
+  if(!endBay) (i%2?atticW:atticN).forEach(([k,g])=>bt(k).add(g,m));
+  corridor.forEach(([k,g])=>bt(k).add(g,m));
+  // luz nocturna al fondo de cada arco
+  STO.forEach(S=>bt('glow').add(at(new W.PlaneGeometry(S.w*.9,(S.spring-S.y0)+S.w/2-.4),0,S.y0+((S.spring-S.y0)+S.w/2-.4)/2,-D2+.05),m));
+}
+// contrafuertes de ladrillo en los extremos (Stern al este, Valadier al oeste)
+function buttress(i,dir){ const {L,th,mx,mz}=bayM(i,0,L1);
+  const s=new W.Shape(); const len=dir>0?1:-1;
+  s.moveTo(0,0); s.lineTo(11,0); s.lineTo(6,14); s.lineTo(3.2,30); s.lineTo(1.2,44); s.lineTo(0,48.5); s.lineTo(0,0);
+  const g=new W.ExtrudeGeometry(s,{depth:T1+SPAN+1.2,bevelEnabled:false}); g.translate(0,0,-(T1+SPAN+.2));
+  if(dir<0) g.scale(-1,1,1);
+  const m=mtx(mx+Math.cos(th)*L/2*dir,0,mz+Math.sin(th)*L/2*dir,-th);
+  bt('brick').add(g,m); }
+buttress(lastI,1); buttress(firstI,-1);
+
+// =================== SEGUNDO ANILLO (expuesto al sur) ===================
+const T2=1.9, L2=PER*((A-D2)/A)/NB*1.0;
+const R2S=[{y0:0,spring:6.4,top:10.5,w:3.7},{y0:10.5,spring:17.6,top:22.3,w:3.6},{y0:22.3,spring:29.3,top:33.9,w:3.6}];
+for(let i=0;i<NB;i++){ const {m,L}=bayM(i,D2,L2);
+  const ruinTop=INTACT[i]?48:33.9+(rnd()<.5?rnd()*4:0);
+  R2S.forEach((S,si)=>{
+    const top=Math.min(S.top,ruinTop);
+    const g=uWall(L2,S.w,S.y0,S.spring,top-.55,T2); bt('travIn').add(g,m);
+    bt('travIn').add(at(box(L2*1.01,.55,T2+.3),0,top-.275,(.3-T2)/2),m);
+    bt('travIn').add(archivolt(S.w,S.spring,.32,.1),m);
+    if(!INTACT[i]){ // restos de bóvedas y muros radiales rotos
+      if(rnd()<.8){ const len=1.2+rnd()*2.6, h=2+rnd()*(S.top-S.y0-2); bt('ruin').add(at(box(1.2,h,len),-L2/2,S.y0+h/2,len/2),m); }
+      bt('glow').add(at(new W.PlaneGeometry(S.w*.9,(S.spring-S.y0)+S.w/2-.3),0,S.y0+((S.spring-S.y0)+S.w/2-.3)/2,-T2-2.2),m);
+    }
+  });
+  if(INTACT[i]){ bt('travIn').add(at(box(L2*1.01,48.5-33.9,T2),0,33.9+(48.5-33.9)/2,-T2/2),m); }
+  else if(rnd()<.45){ const h=1+rnd()*5; bt('ruin').add(at(box(L2*(.3+rnd()*.6),h,T2),(rnd()-.5)*2,33.9+h/2,-T2/2),m); }
+}
+
+// =================== CÁVEA, PODIO Y DEAMBULATORIO INTERNO ===================
+function ringStrip(profile,mat,tSeg=640,dmg=null){ // profile: [[d,h],...] offset d desde la fachada exterior
+  const pos=[],uv=[],idx=[]; const nP=profile.length;
+  let vs=[0]; for(let j=1;j<nP;j++) vs.push(vs[j-1]+Math.hypot(profile[j][0]-profile[j-1][0],profile[j][1]-profile[j-1][1]));
+  for(let k=0;k<=tSeg;k++){ const t=tAtS(k/tSeg*PER); const sArc=k/tSeg*PER;
+    const bay=Math.floor(k/tSeg*NB)%NB;
+    for(let j=0;j<nP;j++){ const [d,h]=profile[j]; const p=pt(t,d); const dh=dmg?dmg(bay,j,d,h):0;
+      pos.push(p[0],h+dh,p[1]); uv.push(sArc*(A-d)/A,vs[j]); } }
+  for(let k=0;k<tSeg;k++) for(let j=0;j<nP-1;j++){ const a=k*nP+j,b=a+1,c=a+nP,d=c+1; idx.push(a,c,b,b,c,d); }
+  const g=new W.BufferGeometry(); g.setAttribute('position',new W.Float32BufferAttribute(pos,3)); g.setAttribute('uv',new W.Float32BufferAttribute(uv,2)); g.setIndex(idx); g.computeVertexNormals();
+  const me=new W.Mesh(g,mat); me.castShadow=true; me.receiveShadow=true; return me; }
+const scene=new W.Scene();
+const DA=A-43.5; // offset del borde de la arena (a=43.5, b=34.5→ usamos b=B-DA=27.5)
+// perfil de la cávea: podio → tres sectores de gradas → pared del segundo anillo
+const prof=[[DA,-6],[DA,4.3],[DA-3.4,4.3],[DA-3.4,5.4]];
+function tier(d0,d1,h0,h1,n){ for(let k=1;k<=n;k++){ const d=lerp(d0,d1,k/n), h=lerp(h0,h1,k/n); const pd=prof[prof.length-1][0]; prof.push([pd,h]); prof.push([d,h]); } }
+tier(DA-3.4,36,5.4,13.2,12); prof.push([36,15.8]); prof.push([34.6,15.8]);
+tier(34.6,21.5,15.8,24.8,12); prof.push([21.5,27.2]); prof.push([20.2,27.2]);
+tier(20.2,12.4,27.2,32.6,8); prof.push([12.4,33.9]);
+const bayDmg=[]; for(let i=0;i<NB;i++) bayDmg.push(INTACT[i]?rnd()*1.2:1+rnd()*3.5);
+scene.add(ringStrip(prof,M.ruin,640,(bay,j,d,h)=>h>6&&d<44?-bayDmg[bay]*clamp((h-6)/10,0,1)*(.6+.4*Math.sin(j*1.7+bay)):0));
+// deambulatorio interno: muro del tercer anillo y techos entre anillo 2 y 3
+scene.add(ringStrip([[12.4,0],[12.4,33.9]],M.travIn,480));
+[10.5,22.3].forEach(y=>scene.add(ringStrip([[D2+T2,y],[12.4,y]],M.travIn,480)));
+scene.add(ringStrip([[D2+T2,-0.02],[12.4,-0.02]],M.tuff,320));
+// muros radiales en ruina que asoman sobre las gradas
+for(let i=0;i<NB;i++){ const t=TB[i]; const p0=pt(t,12.4), p1=pt(t,DA-3.4);
+  const len=Math.hypot(p1[0]-p0[0],p1[1]-p0[1]), th=Math.atan2(p1[1]-p0[1],p1[0]-p0[0]);
+  const s=new W.Shape(); const hAt=f=>lerp(33,5.4,f); s.moveTo(0,hAt(0)-3);
+  const n=10; for(let k=0;k<=n;k++){ const f=k/n; s.lineTo(f*len,hAt(f)+ .6+rnd()*1.6-(bayDmg[i]*(1-f))*.9); }
+  s.lineTo(len,hAt(1)-2); s.lineTo(0,hAt(0)-3);
+  const g=new W.ExtrudeGeometry(s,{depth:1.0,bevelEnabled:false}); g.translate(0,0,-.5);
+  bt('ruin').add(g,mtx(p0[0],0,p0[1],-th)); }
+// vomitorios (entradas oscuras a las gradas)
+for(let i=0;i<NB;i+=2){ const tm=tMid(i); [[35.3,13.2],[21,24.8]].forEach(([d,h])=>{ const p=pt(tm,d), q=pt(tm+.01,d); const th=Math.atan2(q[1]-p[1],q[0]-p[0]);
+  bt('dark').add(at(box(1.7,2.3,.4),0,h+1.15,0),mtx(p[0],0,p[1],-th)); }); }
+
+// =================== ARENA E HIPOGEO ===================
+const aA=43.5, aB=B-DA;
+{ const s=new W.Shape(); s.absellipse(0,0,aA,aB,0,Math.PI*2,false,0); const g=new W.ShapeGeometry(s,64); g.rotateX(-Math.PI/2); g.translate(0,-6,0);
+  const uv=g.attributes.uv; for(let i=0;i<uv.count;i++){ const p=g.attributes.position; uv.setXY(i,p.getX(i),p.getZ(i)); }
+  const m=new W.Mesh(g,M.dirt); m.receiveShadow=true; scene.add(m); }
+const inArena=(x,z,m=0)=>(x*x)/((aA-m)*(aA-m))+(z*z)/((aB-m)*(aB-m))<1;
+const hyp=bt('ruin');
+const LZ=[1.6,4.2,7.2,10.6,14.2,18,22];
+LZ.forEach(z0=>[-1,1].forEach(sg=>{ const z=z0*sg; const xm=aA*Math.sqrt(Math.max(0,1-(z*z)/(aB*aB)))-1.2; let x=-xm;
+  while(x<xm){ const L=3+rnd()*7; const x1=Math.min(xm,x+L); const h=2.2+rnd()*3.4;
+    if(x1-x>0.8) hyp.add(box(x1-x,h,.8),mtx((x+x1)/2,-6+h/2,z));
+    x=x1+(rnd()<.35?1.2:0); } }));
+for(let x=-40;x<=40;x+=3.2){ for(let k=1;k<LZ.length;k++) [-1,1].forEach(sg=>{ const z0=LZ[k-1]*sg, z1=LZ[k]*sg, zc=(z0+z1)/2;
+  if(!inArena(x,z1,1)||k<3&&rnd()<.5) return; const h=1.8+rnd()*3.6; hyp.add(box(.7,h,Math.abs(z1-z0)),mtx(x,-6+h/2,zc)); }); }
+// plataforma de madera en el extremo este
+{ const s=new W.Shape(); const x0=20; const pts=[]; for(let k=0;k<=40;k++){ const a=-Math.acos(x0/aA)+k/40*2*Math.acos(x0/aA); pts.push([aA*Math.cos(a),aB*Math.sin(a)]); }
+  s.moveTo(x0,pts[0][1]); pts.forEach(p=>s.lineTo(p[0],p[1])); s.lineTo(x0,pts[0][1]);
+  const g=new W.ExtrudeGeometry(s,{depth:.35,bevelEnabled:false}); g.rotateX(Math.PI/2); g.translate(0,.35,0);
+  const m=new W.Mesh(g,M.wood); m.castShadow=m.receiveShadow=true; scene.add(m);
+  for(let x=x0;x<aA-1;x+=4) for(let z=-aB+2;z<aB;z+=4) if(inArena(x,z,1)) bt('brick').add(box(.5,6,.5),mtx(x,-3,z)); }
+
+// =================== ENTORNO ===================
+// plaza, calles, bolardos de travertino
+{ const g=new W.PlaneGeometry(1400,1400,1,1); g.rotateX(-Math.PI/2); const uv=g.attributes.uv; for(let i=0;i<uv.count;i++) uv.setXY(i,uv.getX(i)*1400,uv.getY(i)*1400);
+  const m=new W.Mesh(g,std({color:0x6c6a5c,roughness:1})); m.position.y=-.06; m.receiveShadow=true; scene.add(m);
+  const s=new W.Shape(); s.absellipse(0,0,A+48,B+48,0,Math.PI*2,false,0); const pg=new W.ShapeGeometry(s,96); pg.rotateX(-Math.PI/2);
+  const u2=pg.attributes.uv; for(let i=0;i<u2.count;i++) u2.setXY(i,pg.attributes.position.getX(i),pg.attributes.position.getZ(i));
+  const pm=new W.Mesh(pg,M.pave); pm.position.y=-.02; pm.receiveShadow=true; scene.add(pm); }
+function road(pts,w){ const pos=[],uv=[],idx=[]; let acc=0;
+  for(let i=0;i<pts.length;i++){ const a=pts[Math.max(0,i-1)],b=pts[Math.min(pts.length-1,i+1)]; let tx=b[0]-a[0],tz=b[1]-a[1]; const L=Math.hypot(tx,tz); tx/=L; tz/=L;
+    if(i) acc+=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]);
+    pos.push(pts[i][0]-tz*w/2,0,pts[i][1]+tx*w/2, pts[i][0]+tz*w/2,0,pts[i][1]-tx*w/2); uv.push(0,acc,w,acc);
+    if(i<pts.length-1){ const k=i*2; idx.push(k,k+2,k+1,k+1,k+2,k+3); } }
+  const g=new W.BufferGeometry(); g.setAttribute('position',new W.Float32BufferAttribute(pos,3)); g.setAttribute('uv',new W.Float32BufferAttribute(uv,2)); g.setIndex(idx); g.computeVertexNormals();
+  const m=new W.Mesh(g,std({map:TX.asph,roughness:.95,side:W.DoubleSide})); m.position.y=-.01; m.receiveShadow=true; scene.add(m); }
+road([[-150,-110],[-330,-250],[-700,-520]],30);
+road([[-150,60],[-260,170],[-500,420]],24);
+road([[150,-40],[330,-90],[700,-160]],22);
+road([[40,140],[80,300],[120,700]],20);
+for(let k=0;k<180;k++){ const t=tAtS(k/180*PER); const p=pt(t,-19); bt('trav').add(box(.75,1.75,.55),mtx(p[0],.87,p[1],-t)); }
+// Arco de Constantino
+{ const AX=-118, AZ=108, AR=-0.62; const m0=mtx(AX,0,AZ,AR);
+  const s=new W.Shape(); const W2=25.9/2, H=21;
+  s.moveTo(-W2,0); s.lineTo(-9.5,0); s.lineTo(-9.5,5.7); s.absarc(-7.8,5.7,1.7,Math.PI,0,true); s.lineTo(-6.1,0);
+  s.lineTo(-3.25,0); s.lineTo(-3.25,8.3); s.absarc(0,8.3,3.25,Math.PI,0,true); s.lineTo(3.25,0);
+  s.lineTo(6.1,0); s.lineTo(6.1,5.7); s.absarc(7.8,5.7,1.7,Math.PI,0,true); s.lineTo(9.5,0);
+  s.lineTo(W2,0); s.lineTo(W2,15); s.lineTo(-W2,15); s.lineTo(-W2,0);
+  const g=new W.ExtrudeGeometry(s,{depth:7.4,bevelEnabled:false,curveSegments:12}); g.translate(0,0,-3.7); bt('marble').add(g,m0);
+  bt('marble').add(at(box(26.6,.9,8.2),0,15.2,0),m0); bt('marble').add(at(box(25.9,5.4,7.4),0,18.3,0),m0); bt('marble').add(at(box(26.4,.5,7.9),0,21.1,0),m0);
+  bt('trav').add(at(box(10.5,3.6,.2),0,18.3,3.75),m0); bt('trav').add(at(box(10.5,3.6,.2),0,18.3,-3.75),m0);
+  [-1,1].forEach(face=>[-11.3,-4.9,4.9,11.3].forEach(x=>{
+    bt('marble').add(at(box(1.9,3.7,1.9),x,1.85,face*4.5),m0);
+    bt('marble').add(at(cyl(.45,.47,8.3,16),x,3.7+4.15,face*4.5),m0);
+    bt('marble').add(at(box(1.3,.8,1.3),x,12.4,face*4.5),m0);
+    bt('marble').add(at(box(1.7,2.1,1.1),x,14.2,face*4.2),m0);
+    bt('marble').add(at(cyl(.35,.4,2.8,10),x,15.6+1.4,face*4.2),m0); })); }
+// pinos piñoneros
+const trees=[[120,-135],[140,-118],[165,-140],[150,-165],[185,-120],[110,-160],[200,-150],[95,-140],[175,-95],[210,-110],
+  [-190,40],[-205,70],[-175,85],[-215,110],[-180,140],[-230,90],[-160,175],[-240,150],[-200,195],[-150,205],
+  [60,150],[85,165],[30,175],[110,145],[140,120],[-40,190],[-75,175],[170,60],[195,30],[215,80]];
+trees.forEach(([x,z])=>{ const h=11+rnd()*6, lean=(rnd()-.5)*.25;
+  const tg=cyl(.28,.42,h,8); tg.translate(0,h/2,0); tg.rotateZ(lean); bt('bark').add(tg,mtx(x,0,z));
+  const top=[x-Math.sin(lean)*h,z]; const R=4+rnd()*3.5;
+  for(let k=0;k<7;k++){ const a=rnd()*Math.PI*2, r=rnd()*R*.6; const sg=new W.IcosahedronGeometry(R*(.45+rnd()*.35),1); sg.scale(1,.38,1);
+    bt(k%2?'leaf':'leaf2').add(sg,mtx(top[0]+Math.cos(a)*r,h+.3+rnd()*1.4,top[1]+Math.sin(a)*r)); } });
+// colina del Palatino y ciudad en la bruma
+{ const g=new W.SphereGeometry(1,40,20,0,Math.PI*2,0,Math.PI/2); g.scale(170,30,120); const m=new W.Mesh(g,M.grass); m.position.set(-260,-8,70); m.receiveShadow=true; scene.add(m);
+  for(let k=0;k<40;k++){ const a=rnd()*Math.PI*2, r=rnd()*.8; const x=-260+Math.cos(a)*170*r, z=70+Math.sin(a)*120*r; const y=-8+30*Math.sqrt(Math.max(0,1-r*r));
+    const sg=new W.IcosahedronGeometry(5+rnd()*4,1); sg.scale(1,.45,1); bt(k%2?'leaf':'leaf2').add(sg,mtx(x,y+3,z)); } }
+{ const cb=new Batch(); const cols=[0xc9a27a,0xd8b48a,0xbf8f68,0xe0c9a4,0xb9a58c,0xd4a070]; const c=new W.Color();
+  for(let k=0;k<700;k++){ const a=rnd()*Math.PI*2, r=330+rnd()*520; const x=Math.cos(a)*r, z=Math.sin(a)*r;
+    if(x<-170&&x>-440&&z>-60&&z<200) continue;
+    const w=12+rnd()*28,d=12+rnd()*28,h=10+rnd()*18; c.setHex(cols[k%cols.length]);
+    cb.add(box(w,h,d),mtx(x,h/2,z,rnd()*Math.PI),c);
+    if(rnd()<.04){ const dg=new W.SphereGeometry(8,16,8,0,Math.PI*2,0,Math.PI/2); cb.add(dg,mtx(x,h,z),new W.Color(0x9fa39a)); } }
+  const m=cb.mesh(M.city,false); scene.add(m); }
+
+// ensamblar lotes
+Object.entries(BT).forEach(([k,b])=>{ const me=b.mesh(M[k],!(k==='glow'||k==='dark')); if(k==='glow'){ me.visible=false; M.glowMesh=me; } scene.add(me); });
+
+// =================== CIELO, LUZ, POSTPROCESO ===================
+const sky=new W.Sky(); sky.scale.setScalar(10000); scene.add(sky);
+const su=sky.material.uniforms; su.turbidity.value=6; su.rayleigh.value=1.6; su.mieCoefficient.value=.005; su.mieDirectionalG.value=.82;
+const skyScene=new W.Scene(); const sky2=new W.Sky(); sky2.scale.setScalar(10000); skyScene.add(sky2);
+const pmrem=new W.PMREMGenerator(renderer); let envRT=null;
+const sun=new W.DirectionalLight(0xffffff,3); sun.castShadow=true;
+const smax=renderer.capabilities.maxTextureSize>=4096?4096:2048; sun.shadow.mapSize.set(smax,smax);
+Object.assign(sun.shadow.camera,{left:-150,right:150,top:150,bottom:-150,near:10,far:900});
+sun.shadow.bias=-.00025; sun.shadow.normalBias=.06; scene.add(sun); scene.add(sun.target);
+const hemi=new W.HemisphereLight(0xbfd4ff,0x6b5a45,.25); scene.add(hemi);
+const flood=[]; [[-1,0],[1,0],[0,-1],[0,1]].forEach(([x,z])=>{ const l=new W.SpotLight(0xffb070,0,420,.55,.6,1.2); l.position.set(x*170,4,z*150); l.target.position.set(0,24,0); scene.add(l); scene.add(l.target); flood.push(l); });
+scene.fog=new W.FogExp2(0xc9a98a,.0011);
+const TIMES={
+  amanecer:{az:62,el:5,exp:.95,fog:0xcfb7a2,fd:.0013,sunC:0xffc79a,sunI:2.6,hemi:.3,tur:7,night:0},
+  mediodia:{az:190,el:62,exp:.62,fog:0xc5d0da,fd:.0009,sunC:0xfff4e6,sunI:3.2,hemi:.35,tur:3,night:0},
+  atardecer:{az:296,el:6.5,exp:.9,fog:0xd2a57e,fd:.0012,sunC:0xffb27a,sunI:3.0,hemi:.28,tur:8,night:0},
+  noche:{az:240,el:-10,exp:.75,fog:0x0e1420,fd:.0016,sunC:0x9fb6ff,sunI:.25,hemi:.07,tur:2,night:1},
+};
+let cur=Object.assign({},TIMES.atardecer), goal=TIMES.atardecer, envDirty=true;
+const sunDir=new W.Vector3(); const fogC=new W.Color(), fogGoal=new W.Color();
+function applyTime(dt){
+  const k=reduce?1:Math.min(1,dt*1.4);
+  ['az','el','exp','fd','sunI','hemi','tur','night'].forEach(p=>{ cur[p]=lerp(cur[p],goal[p],k); });
+  fogGoal.setHex(goal.fog); scene.fog.color.lerp(fogGoal,k); scene.fog.density=cur.fd;
+  const phi=W.MathUtils.degToRad(90-cur.el), az=W.MathUtils.degToRad(cur.az);
+  sunDir.set(Math.sin(phi)*Math.sin(az),Math.cos(phi),-Math.sin(phi)*Math.cos(az));
+  su.sunPosition.value.copy(sunDir); su.turbidity.value=cur.tur;
+  const sd=cur.night>.5?new W.Vector3(-.4,.7,.5).normalize():sunDir;
+  sun.position.copy(sd).multiplyScalar(400); sun.target.position.set(0,0,0);
+  sun.color.lerp(new W.Color(goal.sunC),k); sun.intensity=cur.sunI*(cur.night>.5?1:clamp(cur.el/4,0.2,1));
+  hemi.intensity=cur.hemi;
+  flood.forEach(l=>l.intensity=cur.night*3.2);
+  if(M.glowMesh) M.glowMesh.visible=cur.night>.4;
+  bloom.strength=lerp(.18,1.1,cur.night); bloom.threshold=lerp(.92,.55,cur.night);
+  final.uniforms.uExposure.value=cur.exp;
+  if(Math.abs(cur.el-goal.el)>.05||envDirty){ sky2.material.uniforms.sunPosition.value.copy(sunDir); Object.keys(su).forEach(u=>{ if(u!=='sunPosition') sky2.material.uniforms[u].value=su[u].value; });
+    if(!cur._envT||performance.now()-cur._envT>250||envDirty){ if(envRT) envRT.dispose(); envRT=pmrem.fromScene(skyScene); scene.environment=envRT.texture; cur._envT=performance.now(); envDirty=false; } }
+}
+const camera=new W.PerspectiveCamera(38,1,.5,6000);
+const controls=new W.OrbitControls(camera,renderer.domElement);
+controls.enableDamping=true; controls.dampingFactor=.07; controls.maxPolarAngle=Math.PI*.495; controls.minDistance=4; controls.maxDistance=700; controls.enabled=false;
+const isGL2=renderer.capabilities.isWebGL2;
+const rtOpt={type:W.HalfFloatType,format:W.RGBAFormat,minFilter:W.LinearFilter,magFilter:W.LinearFilter};
+const rt=isGL2&&W.WebGLMultisampleRenderTarget?new W.WebGLMultisampleRenderTarget(4,4,rtOpt):new W.WebGLRenderTarget(4,4,rtOpt);
+if(rt.samples!==undefined) rt.samples=4;
+const composer=new W.EffectComposer(renderer,rt);
+composer.addPass(new W.RenderPass(scene,camera));
+const bloom=new W.UnrealBloomPass(new W.Vector2(256,256),.2,.55,.9); composer.addPass(bloom);
+const final=new W.ShaderPass({
+  uniforms:{tDiffuse:{value:null},uExposure:{value:.9},uTime:{value:0},uAspect:{value:1}},
+  vertexShader:'varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }',
+  fragmentShader:`uniform sampler2D tDiffuse; uniform float uExposure; uniform float uTime; uniform float uAspect; varying vec2 vUv;
+    vec3 RRT(vec3 v){ vec3 a=v*(v+0.0245786)-0.000090537; vec3 b=v*(0.983729*v+0.4329510)+0.238081; return a/b; }
+    vec3 aces(vec3 c){ const mat3 I=mat3(vec3(0.59719,0.07600,0.02840),vec3(0.35458,0.90834,0.13383),vec3(0.04823,0.01566,0.83777));
+      const mat3 O=mat3(vec3(1.60475,-0.10208,-0.00327),vec3(-0.53108,1.10813,-0.07276),vec3(-0.07367,-0.00605,1.07602));
+      c*=uExposure/0.6; c=I*c; c=RRT(c); c=O*c; return clamp(c,0.0,1.0); }
+    vec3 toSRGB(vec3 c){ return mix(c*12.92,1.055*pow(c,vec3(1.0/2.4))-0.055,step(0.0031308,c)); }
+    float h(vec2 p){ return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453); }
+    void main(){ vec3 c=texture2D(tDiffuse,vUv).rgb; c=aces(c);
+      vec2 q=vUv-0.5; q.x*=uAspect; float v=smoothstep(0.95,0.25,length(q)); c*=mix(0.72,1.0,v);
+      c=toSRGB(c); c+=(h(vUv*vec2(1917.0,1133.0)+fract(uTime))-0.5)*0.028;
+      gl_FragColor=vec4(c,1.0); }`
+});
+composer.addPass(final);
+
+// =================== RECORRIDO CINEMATOGRÁFICO ===================
+const KEYS=[
+  {p:[-300,70,-230],t:[0,18,0]},
+  {p:[-190,28,-160],t:[-10,22,-40]},
+  {p:[-70,5,-118],t:[-5,26,-78]},
+  {p:[40,7,-112],t:[40,28,-72]},
+  {p:[135,34,-80],t:[60,18,-10]},
+  {p:[150,62,35],t:[20,8,10]},
+  {p:[70,36,40],t:[0,-2,0]},
+  {p:[10,9,6],t:[-40,-3,-6]},
+  {p:[-45,22,-10],t:[20,6,10]},
+  {p:[-95,58,40],t:[0,16,0]},
+  {p:[-150,11,150],t:[-60,20,40]},
+  {p:[-260,48,55],t:[0,20,0]},
+];
+const CAPS=[
+  {at:0.00,k:'ROMA',t:'Anfiteatro Flavio',s:'Inaugurado por Tito en el año 80 d. C.'},
+  {at:0.13,k:'LA FACHADA',t:'80 arcos por piso',s:'Órdenes toscano, jónico y corintio, uno sobre otro.'},
+  {at:0.28,k:'EL CONTRAFUERTE',t:'Ladrillo del siglo XIX',s:'Frenó el derrumbe del anillo exterior.'},
+  {at:0.44,k:'EL INTERIOR',t:'Entre 50,000 y 80,000 personas',s:'Las gradas se repartían por clase social.'},
+  {at:0.58,k:'EL HIPOGEO',t:'Bajo la arena',s:'Pasillos y celdas para las fieras y los gladiadores.'},
+  {at:0.76,k:'CASI DOS MIL AÑOS',t:'189 × 156 metros',s:'Travertino de Tívoli, sin mortero entre los bloques.'},
+];
+const curP=new W.CatmullRomCurve3(KEYS.map(k=>new W.Vector3(...k.p)),true,'centripetal');
+const curT=new W.CatmullRomCurve3(KEYS.map(k=>new W.Vector3(...k.t)),true,'centripetal');
+const DUR=110; let play=true, tl=0, capIdx=-1;
+function setPlay(v){ play=v; controls.enabled=!v; stage.classList.toggle('cine',v); $('b-play').setAttribute('aria-pressed',v?'true':'false'); $('b-free').setAttribute('aria-pressed',v?'false':'true'); if(!v) $('cap').classList.remove('on'); else capIdx=-1; }
+$('b-play').addEventListener('click',()=>setPlay(true));
+$('b-free').addEventListener('click',()=>setPlay(false));
+controls.addEventListener('start',()=>{ if(play) setPlay(false); });
+renderer.domElement.addEventListener('pointerdown',()=>{ if(play){ controls.target.copy(curT.getPointAt(tl)); setPlay(false); } });
+$('b-full').addEventListener('click',()=>{ const f=stage.requestFullscreen||stage.webkitRequestFullscreen; if(f) Promise.resolve(f.call(stage)).catch(()=>{}); });
+document.querySelectorAll('#times button').forEach(b=>b.addEventListener('click',()=>{ goal=TIMES[b.dataset.h]; envDirty=true; document.querySelectorAll('#times button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false')); }));
+
+function resize(){ const w=stage.clientWidth,h=stage.clientHeight; renderer.setSize(w,h,false); composer.setSize(w,h); camera.aspect=w/h; camera.fov=w/h<1.2?55:38; camera.updateProjectionMatrix(); final.uniforms.uAspect.value=w/h; bloom.resolution.set(w/2,h/2); }
+new ResizeObserver(resize).observe(stage); resize();
+
+let last=performance.now();
+const easeIO=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2;
+function frame(now){
+  const dt=Math.min(.1,(now-last)/1000); last=now;
+  applyTime(dt);
+  if(play){ tl=(tl+dt/DUR)%1; const u=tl; camera.position.copy(curP.getPointAt(u)); const tg=curT.getPointAt(u); camera.lookAt(tg); controls.target.copy(tg);
+    let ci=-1; CAPS.forEach((c,i)=>{ if(u>=c.at) ci=i; });
+    const inWin=u-CAPS[Math.max(ci,0)].at<.085;
+    if(ci!==capIdx){ capIdx=ci; const c=CAPS[ci]; $('capK').textContent=c.k; $('capT').textContent=c.t; $('capS').textContent=c.s; }
+    $('cap').classList.toggle('on',inWin);
+    $('prog').style.width=(u*100).toFixed(2)+'%';
+  } else controls.update();
+  final.uniforms.uTime.value=now/1000;
+  composer.render(dt);
+  requestAnimationFrame(frame);
+}
+camera.position.copy(curP.getPointAt(0)); camera.lookAt(curT.getPointAt(0));
+applyTime(1); applyTime(1);
+requestAnimationFrame(t=>{ last=t; frame(t); setTimeout(()=>$('loading').classList.add('done'),300); });
+if(reduce) setPlay(false);
+})();
+</script>
