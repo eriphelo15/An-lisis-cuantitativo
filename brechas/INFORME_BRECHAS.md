@@ -94,3 +94,22 @@ Judas Swing (barrido del máx/mín nocturno y cierre de vuelta dentro), Turtle S
 
 Ningún modelo ICT es positivo de forma consistente en los tres periodos, ni siquiera en un solo índice. El acierto va del 25% al 44%.
 Los barridos de liquidez (Judas, Turtle Soup) pierden en ES: el barrido tiende a continuar, como ya vimos con el mínimo de ayer en NQ.
+
+---
+# Parte 4: scalping estilo Al Brooks (script `20_brooks_scalp.py`)
+Segunda entrada (H2/L2) a favor de la EMA20 en velas de 5 min, entrada stop 1 tick más allá de la vela señal, stop en el otro extremo.
+Objetivos de 1:1, de la mitad del riesgo y de un tercio del riesgo. Unas 12.000-14.000 señales por índice en 15 años.
+
+| | Acierto | R neto por operación | 2010-18 | 2019-26 |
+|---|---|---|---|---|
+| NQ 1:1 | 50% | −0.03 | −0.03 | −0.04 |
+| NQ objetivo = riesgo/2 | 65% | −0.05 | −0.05 | −0.05 |
+| NQ objetivo = riesgo/3 | 72% | −0.06 | −0.06 | −0.06 |
+| ES 1:1 | 48% | −0.13 | −0.14 | −0.12 |
+| ES objetivo = riesgo/2 | 62% | −0.15 | −0.15 | −0.14 |
+| ES objetivo = riesgo/3 | 70% | −0.15 | −0.16 | −0.15 |
+
+El acierto sube al achicar el objetivo, pero el azar predice exactamente eso: 67% para riesgo/2 y 75% para riesgo/3.
+El resultado es igual o peor que el azar, y los costes pesan más cuanto más pequeño es el objetivo.
+(Las variantes de ES con objetivo de 1 punto no se muestran como conclusión: con velas de 1 minuto no se puede saber qué se tocó antes.)
+Nota del propio Tom Hougaard (Drive, "9th Jan 2026 Al Brook.pdf"): en 90 minutos de sesión en directo, Brooks no anunció ninguna operación.
