@@ -1,8 +1,8 @@
 # Informe del radar de memecoins
 
-Generado: 2026-09-27 21:35 UTC
+Generado: 2026-09-27 21:43 UTC
 
-- Tokens registrados: **202** (desde 2026-09-27 18:07)
+- Tokens registrados: **216** (desde 2026-09-27 18:07)
 - Con resultado a 24 h: **0** (el primero llega 24 h después de la primera detección)
 - Pasan el filtro v1: **5**
 - Resultados en dólares por cada apuesta de $50, con 3% de costes en la entrada y en la salida:
@@ -16,7 +16,7 @@ Palabras que aparecen en muchos más tokens nuevos de lo normal: temas que se es
 
 | palabra   |   tokens_3h |   tokens_24h_previas | veces_lo_normal   | mayor    | mc_mayor   | mint_mayor                                   |
 |:----------|------------:|---------------------:|:------------------|:---------|:-----------|:---------------------------------------------|
-| vault     |          24 |                    0 | x192              | VAULT    | 447K       | 7tEsDuij7aj4b2jLUAS5oXcp6B3zWratYVmviS5zpump |
+| vault     |          25 |                    0 | x200              | VAULT    | 447K       | 7tEsDuij7aj4b2jLUAS5oXcp6B3zWratYVmviS5zpump |
 | moin      |          13 |                    0 | x104              | moin     | 1183K      | 5mdbw1mfaB7JbejXdijFwybaUbV7SUzDJcAjKmxTeSmH |
 | gacha     |           9 |                    0 | x72               | GACHA    | 422K       | E1LY7wpf89QtKee6gVzWiJxRVJh8strksQTCqPiyNErH |
 | grokler   |           5 |                    0 | x40               | Grokler  | 333K       | 5NbTiWe2L82Vd8PwYDwoRxHyJKkwThXzuX53Hq2U7c1x |
@@ -29,16 +29,15 @@ Palabras que aparecen en muchos más tokens nuevos de lo normal: temas que se es
 | narrativa    |   tokens_nuevos | lider   | mc_lider   | catalizador                                            | mint_lider                                   |
 |:-------------|----------------:|:--------|:-----------|:-------------------------------------------------------|:---------------------------------------------|
 | ia           |              12 | Claude  | 968K       |                                                        | pjHAdwFceSYWgEecSBc9wVHwYAyeKD8HFm7FajLpump  |
-| politica     |               5 | BARRON  | 1135K      | Elecciones de mitad de mandato en EE. UU. (en 37 días) | Z8x3hqaPdvWxpHgxtjykUSMd2JBW9A8SdZ8b1vrpump  |
+| politica     |               6 | BARRON  | 1135K      | Elecciones de mitad de mandato en EE. UU. (en 37 días) | Z8x3hqaPdvWxpHgxtjykUSMd2JBW9A8SdZ8b1vrpump  |
 | cripto       |               4 | 100x    | 125K       |                                                        | AGBuP12RvNQQrFicjGgH8o7SnrXJAWVm7z7uLWWNVe25 |
 | celebridades |               2 | MrBeast | 522K       |                                                        | 6FK66aZAaSrnmjvTh78y16U36kvfwf1L5A7tqofkpump |
+| elon         |               1 | SpaceX  | 514K       |                                                        | 3EpcGjzix1rVuThHgqaphCmRpeuCGjQwhboivhhppump |
 
 ## Pasan el filtro en la última hora
 
 Solo son candidatos para vigilar mientras el filtro no demuestre ventaja. Comprueba el contrato en rugcheck.xyz antes de hacer nada.
 
-| ts    | simbolo    | narrativa   | mc    | liq   |   edad_min |   compradores_h1 |   vendedores_h1 |   top10_pct |   carteras_buenas | mint                                         |
-|:------|:-----------|:------------|:------|:------|-----------:|-----------------:|----------------:|------------:|------------------:|:---------------------------------------------|
-| 20:35 | BARRON     | politica    | 1135K | 107K  |       81.8 |             1506 |             242 |     18.0942 |                 0 | Z8x3hqaPdvWxpHgxtjykUSMd2JBW9A8SdZ8b1vrpump  |
-| 20:35 | HEISENBERG |             | 507K  | 70K   |        6.9 |              325 |              88 |     25.0373 |                 0 | tUN5zAESx7r5gkRMqvM1aNJGyuyWHTTPbrN39cWpump  |
-| 20:45 | Gemini     | ia          | 378K  | 55K   |        3   |             1144 |             378 |    nan      |                 0 | 6ruZJr42TYMxZ7tfg7nbAnSdcZLJmUfr9cTM5xz1pump |
+| ts    | simbolo   | narrativa   | mc   | liq   |   edad_min |   compradores_h1 |   vendedores_h1 |   top10_pct |   carteras_buenas | mint                                         |
+|:------|:----------|:------------|:-----|:------|-----------:|-----------------:|----------------:|------------:|------------------:|:---------------------------------------------|
+| 20:45 | Gemini    | ia          | 378K | 55K   |          3 |             1144 |             378 |         nan |                 0 | 6ruZJr42TYMxZ7tfg7nbAnSdcZLJmUfr9cTM5xz1pump |
