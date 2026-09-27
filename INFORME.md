@@ -1,8 +1,8 @@
 # Informe del radar de memecoins
 
-Generado: 2026-09-27 18:18 UTC
+Generado: 2026-09-27 20:18 UTC
 
-- Tokens registrados: **38** (desde 2026-09-27 18:07)
+- Tokens registrados: **65** (desde 2026-09-27 18:07)
 - Con resultado a 24 h: **0** (el primero llega 24 h después de la primera detección)
 - Pasan el filtro v1: **1**
 - Resultados en dólares por cada apuesta de $50, con 3% de costes en la entrada y en la salida:
@@ -14,24 +14,22 @@ Generado: 2026-09-27 18:18 UTC
 
 Palabras que aparecen en muchos más tokens nuevos de lo normal: temas que se están calentando aunque no estén en la lista de narrativas.
 
-| palabra   |   tokens_3h |   tokens_24h_previas | veces_lo_normal   | mayor   | mc_mayor   | mint_mayor                                   |
-|:----------|------------:|---------------------:|:------------------|:--------|:-----------|:---------------------------------------------|
-| newscum   |           3 |                    0 | x24               | Newscum | 219K       | HCy7vxTApN2Lcv6Rw1MZazXsEofXFLxWCVbJBhF8pump |
-| ramp      |           3 |                    0 | x24               | RAMP    | 291K       | B2kipu1WYBPBDQrCX5yv9p7dhjhG1FwwnxBjUDhSkbdG |
-| bukangi   |           3 |                    0 | x24               | bukangi | 1762K      | 3iUTyNYW6xKv5kZUjtbrEDTsuJTrSVwvB3bQtxkLpump |
+| palabra   |   tokens_3h |   tokens_24h_previas | veces_lo_normal   | mayor    | mc_mayor   | mint_mayor                                   |
+|:----------|------------:|---------------------:|:------------------|:---------|:-----------|:---------------------------------------------|
+| vault     |           7 |                    0 | x56               | VAULT    | 447K       | 7tEsDuij7aj4b2jLUAS5oXcp6B3zWratYVmviS5zpump |
+| barstool  |           5 |                    0 | x40               | BARSTOOL | 263K       | FUKX4RajeVJeWBigzVBh97p7UKB86oBC8P7uqp7DtmB1 |
+| newscum   |           3 |                    0 | x24               | Newscum  | 219K       | HCy7vxTApN2Lcv6Rw1MZazXsEofXFLxWCVbJBhF8pump |
+| bukangi   |           3 |                    0 | x24               | bukangi  | 1762K      | 3iUTyNYW6xKv5kZUjtbrEDTsuJTrSVwvB3bQtxkLpump |
+| ramp      |           3 |                    0 | x24               | RAMP     | 291K       | B2kipu1WYBPBDQrCX5yv9p7dhjhG1FwwnxBjUDhSkbdG |
 
 ## Narrativas activas (últimas 2 h)
 
-| narrativa    |   tokens_nuevos | lider    | mc_lider   | catalizador                                            | mint_lider                                   |
-|:-------------|----------------:|:---------|:-----------|:-------------------------------------------------------|:---------------------------------------------|
-| politica     |               4 | Newscum  | 69K        | Elecciones de mitad de mandato en EE. UU. (en 37 días) | 9WAUA7LQqzoiYnLzEECk6zRoT8Mse7pJp1R1RHX48mQm |
-| celebridades |               1 | MRBEAST  | 2431K      |                                                        | ChQY9KmYmNMHdDCztFNmdvUmtPB2uuVt3pEVSUD1pump |
-| cripto       |               1 | SNOWMOON | 199K       |                                                        | GBNCTFPnVCh852xrnjJLi2eVpPb3LW59ZGiSkvjDEqN  |
+| narrativa   |   tokens_nuevos | lider   | mc_lider   | catalizador   | mint_lider                                  |
+|:------------|----------------:|:--------|:-----------|:--------------|:--------------------------------------------|
+| ia          |               1 | Claude  | 968K       |               | pjHAdwFceSYWgEecSBc9wVHwYAyeKD8HFm7FajLpump |
 
 ## Pasan el filtro en la última hora
 
 Solo son candidatos para vigilar mientras el filtro no demuestre ventaja. Comprueba el contrato en rugcheck.xyz antes de hacer nada.
 
-| ts    | simbolo   | narrativa   | mc   | liq   |   edad_min |   compradores_h1 |   vendedores_h1 |   top10_pct |   carteras_buenas | mint                                         |
-|:------|:----------|:------------|:-----|:------|-----------:|-----------------:|----------------:|------------:|------------------:|:---------------------------------------------|
-| 18:07 | Meta      |             | 886K | 86K   |       36.1 |             2397 |             390 |     19.5157 |                 0 | 5cg6QnabuagTDFyqt6GmYjsYaLmcPc7X4WCoeCS3pump |
+Ninguno.
