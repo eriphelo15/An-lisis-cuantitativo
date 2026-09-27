@@ -49,3 +49,18 @@ solo 6 % de 304 161 traders de memecoins en Solana tuvo ganancias. Los millonari
 - Sin datos de X/Telegram/rumores; el catalizador medible con hora exacta son los anuncios de Binance.
 - Los catalizadores útiles son de 2023-2026 (pocos años). Necesitan seguimiento en vivo antes de poner dinero serio.
 - Requieren cuenta en un exchange cripto con perpetuos (no Tradeify ni futuros CME).
+
+## Los golpes de ×100 (10 000 %) — `eco_06_ganadoras.py`
+Desde el cierre del primer día en Binance (658 monedas nuevas desde 2017-09):
+| Llegó en algún momento a | % de monedas | Siguen ahí hoy | Días medianos hasta el pico | Caída mediana que hubo que aguantar antes del pico |
+|---|---|---|---|---|
+| ×10 | 16.3 % (107) | 9 | 514 | −86 % |
+| ×100 | 2.3 % (15) | 2 | 592 | −84 % |
+- Casi todos los ×10/×100 son monedas listadas en 2019-2020 que explotaron en la euforia de 2021. Listadas 2023-2026: 2 de 304 llegaron a ×10.
+- De los que tocaron ×100, 13 de 15 devolvieron casi todo (hoy a −70 % / −100 % del pico). Para cobrarlo había que vender cerca del techo después de aguantar caídas de −80/−90 %.
+- Algunos "picos del día 0" (APT, GAL, HFT, REEF…) son mechas del primer minuto de trading, no ganancias alcanzables.
+- Hoy los ×100 ocurren ANTES de Binance, en DEX (pump.fun y similares), comprando a capitalizaciones de miles de dólares:
+  - Solidus Labs: 98.6 % de los tokens de pump.fun muestran patrón de pump & dump o rug; de 7 M lanzados, solo 97 000 conservaron más de $1 000 de liquidez.
+  - Dune: de ~44 000 tokens seguidos, 81 % nunca pasó de $500 k; 0.84 % llegó a $10-50 M; 2 superaron $1 000 M (PNUT, GOAT).
+  - Los primeros compradores son bots "snipers" e insiders con monederos pre-fondeados (87 % de sus entradas ganadoras); solo 0.25 % de los traders de memecoins ganó más de $500 en 60 días.
+- Conclusión: los ×100 son reales pero son lotería con ventaja para insiders y bots; no hay regla mecánica ni catalizador que los anticipe con los datos disponibles.
