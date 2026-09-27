@@ -18,7 +18,7 @@
 ## Estado actual
 - **Curso de short seller** en `curso_short/` (programa en `00_PROGRAMA.md`). Hechos: módulos 1 (economía de la dilución),
   1b (guía EDGAR + lecciones), 2 (mecánica del corto), 3 (leer la SEC: munición y baby shelf), 4 (anatomía del pump).
-  **Siguiente: Módulo 5 — setups de corto medidos con datos.** Pendiente del usuario: ejercicios del módulo 4 con BENF e INLF (WHLR ya hecho).
+  **Siguiente: Módulo 5 — setups de corto medidos con datos.** Ejercicios del módulo 4: WHLR (usuario) y BENF (Claude como ejemplo) hechos.
 - Herramienta de dilución hecha: `herramientas/ficha_dilucion.py TICKER` (SEC EDGAR + Yahoo; ~7 s). Fichas en `fichas/`.
 - Futuro (cuando termine la formación): construir un sistema propio tipo "Flash Research" con estadísticas propias.
   No construirlo antes de que el usuario lo pida.
@@ -41,6 +41,9 @@
 12. La dilución no siempre viene de quemar caja: WHLR (REIT que genera caja) diluye por **intercambios de preferentes por comunes** y hace **contra-splits encadenados** (1:5, 1:4, 1:9 en 2 meses = 1:180).
 13. Form 4 = informe de operaciones de insiders (directores / >10 %), no el acuerdo en sí.
 14. Verificar siempre lo que diga Gemini u otras IA: en WHLR exageró la rotación del float ("cientos de veces" vs. ~77-154).
+15. Catalizador en 8-K Item 7.01 (nota de prensa "furnished") con verbos "seeks / pursuing / proposed" = plan, no acuerdo firmado; un acuerdo firmado va en Item 1.01 (BENF 23-sep-2026).
+16. ELOC / SEPA (p. ej. Yorkville): la empresa puede vender acciones al inversor en cualquier momento, que las revende al mercado → munición continua; suele venir con notas convertibles del mismo inversor (BENF: SEPA de hasta $100 M + notas convertibles de $4 M).
+17. Los datos gratuitos de Yahoo pueden no coincidir entre velas de 5 min y cierre diario en small caps muy volátiles: usar el cierre oficial para conclusiones.
 ### Mercado y datos propios
 - Gappers >100 %: el día 1 cierra bajo su apertura el 76 %; el día 2 supera el máximo del día 1 solo el 11 %; corto apertura día 1 → cierre día 2 gana el 80 % (mediana +29 %), pero en el peor 10 % hay subidas de +117 % en contra.
 - Día típico (gap ≥50 %, velas 5 min): máximo del día antes de las 10:00 el 60 %, antes de las 11:00 el 78 %; subida mediana apertura→máximo +18 % (p90 +107 %); caída mediana desde el máximo −41 %; 72 % del volumen en la primera hora.
