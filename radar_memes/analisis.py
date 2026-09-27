@@ -26,7 +26,7 @@ def cargar(almacen):
     num = ["edad_min", "precio", "mc", "liq", "compradores_h1", "vendedores_h1",
            "vol_h1", "var_m5", "var_h1", "rc_peligros", "clones", "pasa_filtro", "puntuacion",
            "holders", "top10_pct", "gt_score", "calor_narrativa", "puesto_narrativa",
-           "calor_palabra"]
+           "calor_palabra", "lp_bloqueado"]
     for c in num:
         det[c] = pd.to_numeric(det[c], errors="coerce") if c in det else float("nan")
     for c in ["narrativa", "catalizador", "motivo_descarte", "dex", "palabra_caliente"]:
@@ -189,6 +189,9 @@ def generar(almacen):
                                                  labels=["<1.2", "1.2-3", "3-8", ">8"])
         df["volumen_vs_cap"] = pd.cut(df["vol_h1"] / df["mc"], [0, 0.5, 1, 3, 1e9],
                                       labels=["<0.5", "0.5-1", "1-3", ">3"])
+        df["liquidez_bloqueada"] = pd.cut(df["lp_bloqueado"], [-1, 0, 99.9, 100],
+                                          labels=["0%", "parcial", "100%"]).cat.add_categories(
+                                              "sin datos").fillna("sin datos")
         df["peligros_rugcheck"] = df["rc_peligros"].map(
             lambda v: "sin datos" if pd.isna(v) else ("2+" if v >= 2 else str(int(v))))
         df["narrativa_"] = df["narrativa"].replace("", "sin narrativa")
@@ -247,6 +250,7 @@ def generar(almacen):
                             ("compradores_vs_vendedores", "Compradores / vendedores (1 h)"),
                             ("volumen_vs_cap", "Volumen de 1 h / capitalización"),
                             ("peligros_rugcheck", "Peligros de RugCheck"),
+                            ("liquidez_bloqueada", "Liquidez bloqueada (RugCheck): con 0% el creador puede retirarla"),
                             ("puntuacion_q", "Puntuación (quintiles)"), ("dex", "DEX")]:
             lineas.append(_tabla(df, col, titulo))
 
