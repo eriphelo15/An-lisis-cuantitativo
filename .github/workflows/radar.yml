@@ -46,16 +46,20 @@ jobs:
           fi
 
       # Cada ciclo tiene 9 min de plazo; después se guarda y se espera hasta
-      # completar 5 min desde que empezó.
-      - name: Ciclos cada 5 minutos
+      # completar 5 min desde que empezó. El vigía corre en paralelo todo el
+      # trabajo y avisa al móvil por ntfy (secreto NTFY_TOPIC; sin él solo registra).
+      - name: Ciclos cada 5 minutos y vigía
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: |
+          python -u radar.py vigia --datos _datos --duracion $((340 * 60)) > vigia.log 2>&1 &
           fin=$((SECONDS + 340 * 60))
           while [ $SECONDS -lt $fin ]; do
             inicio=$SECONDS
             python -u radar.py ciclo --datos _datos --plazo 540 || echo "::warning::el ciclo falló"
             (
               cd _datos
-              git add -A
+              git add -A -- . ':!*.tmp'
               if ! git diff --cached --quiet; then
                 git commit -qm "radar: $(date -u +'%Y-%m-%d %H:%M') UTC"
                 for i in 1 2 3; do git push -q origin radar-datos && break; sleep $((i * 5)); done
@@ -64,6 +68,7 @@ jobs:
             espera=$((300 - (SECONDS - inicio)))
             if [ $espera -gt 0 ]; then sleep $espera; fi
           done
+          echo "--- vigía ---"; tail -n 100 vigia.log
 
       - name: Relanzar
         if: always()

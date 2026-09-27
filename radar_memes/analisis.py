@@ -19,7 +19,7 @@ CARTERA_MIN_ACIERTO = 0.5
 
 
 def cargar(almacen):
-    det = pd.DataFrame(almacen.detecciones())
+    det = pd.DataFrame(almacen.registros())
     seg = pd.DataFrame(almacen.seguimientos())
     if det.empty:
         return det
@@ -29,7 +29,7 @@ def cargar(almacen):
            "calor_palabra", "lp_bloqueado"]
     for c in num:
         det[c] = pd.to_numeric(det[c], errors="coerce") if c in det else float("nan")
-    for c in ["narrativa", "catalizador", "motivo_descarte", "dex", "palabra_caliente"]:
+    for c in ["narrativa", "catalizador", "motivo_descarte", "dex", "palabra_caliente", "origen"]:
         det[c] = det[c].fillna("") if c in det else ""
     det["ts"] = pd.to_datetime(det["ts"], utc=True)
 
@@ -279,6 +279,7 @@ def generar(almacen):
         lineas.append("## ¿Funciona el filtro?\n")
         lineas.append(_tabla(df.assign(todos="todos"), "todos", "Todos los tokens"))
         lineas.append(_tabla(df, "filtro_v1", "Filtro v1"))
+        lineas.append(_tabla(df, "origen", "Alertas tempranas del vigía (2-15 min de vida) frente al escaneo"))
         motivos = df.assign(motivo=df["motivo_descarte"].fillna("").str.split("|")).explode("motivo")
         motivos = motivos[motivos["motivo"] != ""]
         if len(motivos):
@@ -324,6 +325,19 @@ def generar(almacen):
             if len(v):
                 lineas.append(f"- {h}: {v.mean():.0%} vivos (n={len(v)})")
         lineas.append("")
+
+    lineas.append("## Últimas alertas del vigía (6 h)\n")
+    alertas = df[(df["origen"] == "vigia") & (df["ts"] >= ahora - timedelta(hours=6))]
+    if len(alertas):
+        t = alertas[["ts", "simbolo", "narrativa", "edad_min", "mc", "compradores_m5",
+                     "vendedores_m5", "mint"]].sort_values("ts", ascending=False).copy()
+        if "x_1h" in alertas:
+            t["x_1h"] = alertas["x_1h"].round(2)
+        t["ts"] = t["ts"].dt.strftime("%H:%M")
+        t["mc"] = (t["mc"] / 1e3).round().astype(int).astype(str) + "K"
+        lineas.append(t.to_markdown(index=False) + "\n")
+    else:
+        lineas.append("Ninguna.\n")
 
     lineas.append("## Señales de desplome (cuándo salir)\n")
     lineas.append(_senales_desplome(pd.DataFrame(almacen.serie()), df))

@@ -64,6 +64,28 @@ para medir con datos reales qué señales separan a los que se duplican de los q
      compradores. Son las señales que se vieron antes de los desplomes de GTA 6 Coin y
      MetaMuse; el informe dirá si se repiten.
 
+## Vigía: alertas en los primeros minutos
+
+`radar_memes/vigia.py` corre en paralelo al ciclo principal. Cada minuto lee los pools recién
+creados (GeckoTerminal los muestra a los pocos segundos) y vuelve a mirar, hasta sus 15 min
+de vida, los que ya tienen actividad. Alerta cuando un token cumple los **criterios tempranos
+v1** (hipótesis, en `TEMPRANO`):
+
+- De 2 a 15 min de vida, capitalización de $8K a $400K y liquidez de al menos $5K.
+- En los últimos 5 min: 40+ compradores, entre 1.3 y 8 compradores por vendedor, 4,000$+ de
+  volumen y un ticket medio de 25$ o más (por debajo suelen ser bots de microcompras).
+- No es un clon de un símbolo ya visto en las últimas 24 h.
+- Vetos: RugCheck con un holder dominante, top 10 concentrado, historial de rug pulls del
+  creador, autoridades activas o copia de otro token; top 10 de holders por encima del 40%.
+
+Cada alerta se guarda en `alertas.csv` y se sigue como cualquier detección, así que el informe
+compara las alertas con el escaneo normal y muestra las últimas 6 h.
+
+**Avisos al móvil:** con la app gratuita [ntfy](https://ntfy.sh) suscrita a un tema, y ese
+mismo tema guardado en el secreto `NTFY_TOPIC` del repositorio (*Settings* → *Secrets and
+variables* → *Actions*). Sin el secreto, el vigía registra las alertas pero no avisa. El tema
+debe ser secreto: quien lo conozca podría leer las alertas o publicar alertas falsas.
+
 ## Dónde verlo
 
 GitHub Actions lo ejecuta cada 5 minutos (`.github/workflows/radar.yml`) y guarda los datos

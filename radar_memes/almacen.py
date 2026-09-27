@@ -7,7 +7,7 @@ COLUMNAS_DETECCION = [
     "ts", "mint", "simbolo", "nombre", "pool", "dex", "edad_min",
     "precio", "mc", "liq",
     "compradores_m5", "vendedores_m5", "compradores_h1", "vendedores_h1",
-    "compras_h1", "ventas_h1", "vol_m5", "vol_h1",
+    "compras_h1", "ventas_h1", "vol_m5", "vol_h1", "compras_m5", "ventas_m5",
     "var_m5", "var_h1", "var_h6",
     "rc_score", "rc_peligros", "rc_avisos", "rc_riesgos", "lp_bloqueado",
     "clones", "pasa_filtro", "motivo_descarte", "puntuacion",
@@ -43,6 +43,7 @@ class Almacen:
         self.ruta_seg = os.path.join(carpeta, "seguimiento.csv")
         self.ruta_car = os.path.join(carpeta, "carteras.csv")
         self.ruta_serie = os.path.join(carpeta, "serie.csv")
+        self.ruta_alertas = os.path.join(carpeta, "alertas.csv")
 
     def _leer(self, ruta):
         if not os.path.exists(ruta):
@@ -97,3 +98,22 @@ class Almacen:
 
     def guardar_serie(self, filas):
         self._anadir(self.ruta_serie, COLUMNAS_SERIE, filas)
+
+    def alertas(self):
+        return self._leer(self.ruta_alertas)
+
+    def guardar_alerta(self, fila):
+        """Añade una alerta reescribiendo el archivo de forma atómica: el vigía
+        corre en paralelo al ciclo principal, que lee este archivo."""
+        filas = self.alertas() + [fila]
+        temporal = self.ruta_alertas + ".tmp"
+        with open(temporal, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=COLUMNAS_DETECCION, extrasaction="ignore")
+            w.writeheader()
+            w.writerows(filas)
+        os.replace(temporal, self.ruta_alertas)
+
+    def registros(self):
+        """Detecciones del escaneo y alertas del vigía juntas, con su origen."""
+        return ([dict(d, origen="escaneo") for d in self.detecciones()]
+                + [dict(a, origen="vigia") for a in self.alertas()])

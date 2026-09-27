@@ -71,6 +71,8 @@ def _fila(pool, ahora):
         "vendedores_m5": t["m5"].get("sellers") or 0,
         "compradores_h1": t["h1"].get("buyers") or 0,
         "vendedores_h1": t["h1"].get("sellers") or 0,
+        "compras_m5": t["m5"].get("buys") or 0,
+        "ventas_m5": t["m5"].get("sells") or 0,
         "compras_h1": t["h1"].get("buys") or 0,
         "ventas_h1": t["h1"].get("sells") or 0,
         "vol_m5": _f(v.get("m5")),
@@ -149,8 +151,8 @@ def escanear(almacen, con_rugcheck=True, log=print):
         if r and (r["mint"] not in filas or r["liq"] > filas[r["mint"]]["liq"]):
             filas[r["mint"]] = r
 
-    previas = almacen.detecciones()
-    vistos = {d["mint"] for d in previas}
+    previas = almacen.registros()
+    vistos = {d["mint"] for d in previas}  # incluye los que ya alertó el vigía
 
     # Clones: mismo símbolo con distinto mint, en este escaneo o en las
     # detecciones de las últimas 48 h.

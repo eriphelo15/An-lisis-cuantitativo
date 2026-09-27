@@ -1,6 +1,7 @@
 """Acceso a las APIs públicas: GeckoTerminal y RugCheck."""
 
 import json
+import os
 import time
 from collections import Counter
 import urllib.error
@@ -12,8 +13,9 @@ RUGCHECK = "https://api.rugcheck.xyz/v1/tokens"
 
 CABECERAS = {"User-Agent": "Mozilla/5.0 (radar-memes)", "Accept": "application/json"}
 
-# GeckoTerminal permite ~30 peticiones/min en su plan gratuito.
-PAUSA_GECKO = 2.2
+# GeckoTerminal permite ~30 peticiones/min en su plan gratuito. El vigía corre
+# en paralelo y usa ~5/min, así que cada proceso se queda en ~20/min.
+PAUSA_GECKO = 3.0
 # RugCheck permite 15 peticiones/min.
 PAUSA_RUGCHECK = 4.1
 
@@ -230,3 +232,25 @@ def pools_multi(pools):
             }
         _dormir(PAUSA_GECKO)
     return estado
+
+
+def notificar(titulo, texto, enlace=None, etiquetas="rocket"):
+    """Envía una notificación push por ntfy.sh al tema de NTFY_TOPIC.
+
+    Sin NTFY_TOPIC no envía nada (devuelve False). El tema va en un secreto:
+    quien lo conozca puede leer y publicar en él.
+    """
+    tema = os.environ.get("NTFY_TOPIC", "").strip()
+    if not tema:
+        return False
+    cabeceras = {"Title": titulo.encode("utf-8"), "Tags": etiquetas, "Priority": "high"}
+    if enlace:
+        cabeceras["Click"] = enlace
+    try:
+        peticion = urllib.request.Request(f"https://ntfy.sh/{tema}", data=texto.encode("utf-8"),
+                                          headers=cabeceras, method="POST")
+        urllib.request.urlopen(peticion, timeout=15).close()
+        return True
+    except Exception as e:
+        errores[f"{type(e).__name__} ntfy.sh"] += 1
+        return False

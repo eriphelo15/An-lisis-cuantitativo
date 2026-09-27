@@ -1,0 +1,161 @@
+"""Vigía: detecta tokens con tracción en sus primeros minutos y avisa al móvil.
+
+Cada minuto lee los pools recién creados (GeckoTerminal los muestra a los
+pocos segundos) y vuelve a mirar, hasta sus 15 minutos de vida, los que ya
+muestran algo de actividad. Cuando uno cumple los criterios tempranos se
+comprueba en RugCheck y en la ficha de holders; si no hay vetos, se guarda
+en alertas.csv y se envía la notificación. El ciclo principal hace después
+el seguimiento de las alertas como el de cualquier detección, así que el
+informe mide si las alertas aciertan.
+"""
+
+import time
+from datetime import datetime, timedelta, timezone
+
+from . import escaner, fuentes, narrativas
+
+EDAD_MAX_MIN = 15      # hasta qué edad se vigila un pool
+PAGINAS_NUEVOS = 2     # la página 1 cubre ~1 minuto de lanzamientos
+
+# Actividad mínima para pasar a vigilancia al verlo por primera vez.
+VIGILAR = {"compradores_m5": 8, "vol_m5": 500}
+
+# Criterios tempranos v1 (sobre los últimos 5 min): hipótesis a validar.
+TEMPRANO = {
+    "edad_min": 2, "mc_min": 8_000, "mc_max": 400_000,
+    "compradores_m5": 40, "ratio_min": 1.3, "ratio_max": 8.0,
+    "ticket_min": 25.0,   # dólares por operación: por debajo huele a bots de microcompras
+    "vol_m5": 4_000, "liq_min": 5_000,
+}
+
+# Riesgos de RugCheck que descartan la alerta.
+RIESGOS_VETO = ("Single holder ownership", "Top 10 holders high ownership",
+                "Creator history of rugged tokens", "Freeze Authority still enabled",
+                "Mint Authority still enabled", "Copycat token")
+TOP10_MAX = 40.0
+
+
+def motivos_temprano(r, clon):
+    """Lista de criterios que no cumple (vacía = candidato a alerta)."""
+    t = TEMPRANO
+    ticket = r["vol_m5"] / max(1, r["compras_m5"] + r["ventas_m5"])
+    ratio = r["compradores_m5"] / max(1, r["vendedores_m5"])
+    motivos = []
+    if r["edad_min"] < t["edad_min"]:
+        motivos.append("muy_nuevo")
+    if not t["mc_min"] <= r["mc"] <= t["mc_max"]:
+        motivos.append("mc_fuera_rango")
+    if r["compradores_m5"] < t["compradores_m5"]:
+        motivos.append("pocos_compradores")
+    if not t["ratio_min"] <= ratio <= t["ratio_max"]:
+        motivos.append("ratio_compradores")
+    if ticket < t["ticket_min"]:
+        motivos.append("microcompras")
+    if r["vol_m5"] < t["vol_m5"]:
+        motivos.append("poco_volumen")
+    if r["liq"] < t["liq_min"]:
+        motivos.append("poca_liquidez")
+    if clon:
+        motivos.append("nombre_clonado")
+    return motivos
+
+
+def vetos(r):
+    riesgos = r.get("rc_riesgos") or ""
+    v = [n for n in RIESGOS_VETO if n in riesgos]
+    if r.get("top10_pct") not in (None, "") and float(r["top10_pct"]) > TOP10_MAX:
+        v.append("holders_concentrados")
+    if "yes" in (r.get("mint_autoridad"), r.get("freeze_autoridad")):
+        v.append("autoridad_activa")
+    return v
+
+
+def _mensaje(r):
+    ratio = r["compradores_m5"] / max(1, r["vendedores_m5"])
+    ticket = r["vol_m5"] / max(1, r["compras_m5"] + r["ventas_m5"])
+    lineas = [
+        f"Cap. ${r['mc'] / 1e3:.0f}K · {r['edad_min']:.0f} min de vida · liquidez ${r['liq'] / 1e3:.0f}K",
+        f"5 min: {r['compradores_m5']} compradores / {r['vendedores_m5']} vendedores "
+        f"({ratio:.1f}x) · ticket medio ${ticket:.0f}",
+    ]
+    if r.get("top10_pct") not in (None, ""):
+        lineas.append(f"Top 10 holders: {float(r['top10_pct']):.0f}% · holders: {r.get('holders')}")
+    if r.get("narrativa") or r.get("palabra_caliente"):
+        lineas.append(f"Tema: {r.get('narrativa') or '-'} · palabra: {r.get('palabra_caliente') or '-'}")
+    lineas.append(f"Contrato: {r['mint']}")
+    lineas.append("Sin validar: comprueba en RugCheck, máximo $50 y vende la mitad a 2x.")
+    return "\n".join(lineas)
+
+
+def vigilar(almacen, duracion_s, cada_s=60, log=print):
+    fin = time.monotonic() + duracion_s
+    vigilados = {}  # pool -> fecha de creación
+    alertados = {a["mint"] for a in almacen.alertas()}
+    log(f"[vigia] en marcha {duracion_s / 60:.0f} min; alertas previas={len(alertados)}")
+    while time.monotonic() < fin:
+        inicio = time.monotonic()
+        ahora = datetime.now(timezone.utc)
+
+        # 1) Pools recién creados: los que ya se mueven pasan a vigilancia.
+        for p in range(1, PAGINAS_NUEVOS + 1):
+            datos = fuentes._get(f"{fuentes.GECKO}/new_pools?page={p}&include=dex") or {}
+            for x in datos.get("data", []):
+                a = x["attributes"]
+                t5 = a["transactions"]["m5"]
+                if ((t5.get("buyers") or 0) >= VIGILAR["compradores_m5"]
+                        or float(a["volume_usd"].get("m5") or 0) >= VIGILAR["vol_m5"]):
+                    vigilados.setdefault(a["address"], a["pool_created_at"])
+            fuentes._dormir(fuentes.PAUSA_GECKO)
+
+        # 2) Olvidar los que ya pasaron la edad de vigilancia.
+        limite = ahora - timedelta(minutes=EDAD_MAX_MIN)
+        vigilados = {p: c for p, c in vigilados.items()
+                     if datetime.fromisoformat(c.replace("Z", "+00:00")) >= limite}
+
+        # 3) Estado actual de los vigilados y evaluación.
+        filas = []
+        lista = list(vigilados)
+        for i in range(0, len(lista), 30):
+            datos = fuentes._get(f"{fuentes.GECKO}/pools/multi/{','.join(lista[i:i + 30])}?include=dex") or {}
+            for x in datos.get("data", []):
+                try:
+                    r = escaner._fila(x, ahora)
+                except (KeyError, TypeError, ValueError):
+                    continue
+                if r and r["mint"] not in alertados:
+                    filas.append(r)
+            fuentes._dormir(fuentes.PAUSA_GECKO)
+
+        registros = almacen.registros()
+        dia = ahora - timedelta(hours=24)
+        simbolos_previos = {escaner._clave(d["simbolo"]): d["mint"] for d in registros
+                            if datetime.fromisoformat(d["ts"]) >= dia}
+        for r in filas:
+            clave = escaner._clave(r["simbolo"])
+            clon = clave in simbolos_previos and simbolos_previos[clave] != r["mint"]
+            if motivos_temprano(r, clon):
+                continue
+            r.update(fuentes.rugcheck(r["mint"]) or {})
+            r.update(fuentes.info_token(r["mint"]) or {})
+            v = vetos(r)
+            if v:
+                log(f"[vigia] {r['simbolo']} vetado: {', '.join(v)}")
+                alertados.add(r["mint"])  # no volver a evaluarlo
+                continue
+            r["narrativa"] = narrativas.clasificar(r["simbolo"])
+            r["catalizador"], r["dias_catalizador"] = narrativas.proximo_catalizador(r["narrativa"], ahora.date())
+            # El filtro v1 se registra también, para comparar alertas que lo pasan y que no.
+            r["clones"] = 0
+            motivos = escaner.evaluar_filtro(r)
+            r.update({"pasa_filtro": int(not motivos), "motivo_descarte": "|".join(motivos),
+                      "puntuacion": escaner.puntuar(r)})
+            almacen.guardar_alerta(r)
+            alertados.add(r["mint"])
+            enviada = fuentes.notificar(f"Radar: {r['simbolo']} (${r['mc'] / 1e3:.0f}K)", _mensaje(r),
+                                        f"https://dexscreener.com/solana/{r['pool']}")
+            log(f"[vigia] ALERTA {r['simbolo']} {r['mint']} mc={r['mc']:.0f} notificada={enviada}")
+
+        espera = cada_s - (time.monotonic() - inicio)
+        if espera > 0:
+            time.sleep(min(espera, max(0.0, fin - time.monotonic())))
+    log("[vigia] fin")

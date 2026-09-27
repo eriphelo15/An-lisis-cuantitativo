@@ -150,7 +150,7 @@ def seguir(almacen, log=print):
     hechos = {(s["mint"], s["horizonte"]) for s in almacen.seguimientos()}
 
     pendientes = []
-    for d in almacen.detecciones():
+    for d in almacen.registros():
         det_ts = datetime.fromisoformat(d["ts"])
         for h, minutos in HORIZONTES.items():
             objetivo = det_ts + timedelta(minutes=minutos)
@@ -207,7 +207,7 @@ def fotografiar(almacen, log=print):
     for f in almacen.serie():
         ultimo_precio[f["mint"]] = float(f["precio"] or 0)
     pools = {}
-    for d in almacen.detecciones():
+    for d in almacen.registros():
         if ahora - datetime.fromisoformat(d["ts"]) > timedelta(hours=HORAS_SERIE):
             continue
         previo = ultimo_precio.get(d["mint"])
