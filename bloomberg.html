@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARES · Terminal BBG</title>
+<!--
+  Terminal estilo Bloomberg en una sola página estática.
+  Adaptado de https://github.com/feremabraz/bloomberg-terminal (MIT, Next.js/React):
+  mismas vistas (mercado, NEWS, GMOV, GVOL, RMI), listas de seguimiento y atajos,
+  pero sin servidor: los datos son simulados en el navegador.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root,[data-theme="dark"]{
+  --bg:#121212;
+  --surface:#1e1e1e;
+  --header:#000000;
+  --text:#ffffff;
+  --text-dim:#888888;
+  --accent:#ff9900;
+  --value:#f5f5b8;
+  --border:#333333;
+  --pos:#4caf50;
+  --neg:#f44336;
+  --spark:#666666;
+  --flash:#5c4d00;
+  --btn-red:#c62828;
+  --btn-green:#2e7d32;
+  --btn-accent:#f59e0b;
+  --btn-default:#4b5563;
+  --overlay:rgba(0,0,0,.7);
+}
+[data-theme="light"]{
+  --bg:#f0f0f0;
+  --surface:#e0e0e0;
+  --header:#d0d0d0;
+  --text:#000000;
+  --text-dim:#555555;
+  --accent:#c77700;
+  --value:#8b7500;
+  --border:#cccccc;
+  --pos:#2e7d32;
+  --neg:#c62828;
+  --spark:#888888;
+  --flash:#fde68a;
+  --overlay:rgba(0,0,0,.4);
+}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Mono',monospace;font-size:12px;-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer}
+input,select{font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:0;padding:2px 6px}
+a{color:var(--accent)}
+
+/* Barra superior */
+.topbar{display:flex;align-items:center;gap:8px;background:var(--header);padding:4px 8px;border-bottom:1px solid var(--border)}
+.brand{color:var(--accent);font-weight:700;letter-spacing:.08em;white-space:nowrap}
+.cmd{flex:1;min-width:0;display:flex;align-items:center;gap:4px}
+.cmd input{flex:1;min-width:0;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--accent);text-transform:uppercase;outline:none}
+.cmd .go{background:var(--btn-green);color:#fff;border:1px solid #111;padding:0 6px;height:20px}
+.clock{color:var(--text-dim);white-space:nowrap}
+.sim{color:#111;background:var(--btn-accent);padding:0 6px;font-weight:700;white-space:nowrap}
+
+/* Botones Bloomberg */
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:4px;background:var(--surface);padding:4px 8px}
+.bb{height:22px;padding:0 8px;border:1px solid #111;border-radius:0;color:#fff;background:var(--btn-default);font-size:11px;font-weight:600;white-space:nowrap}
+.bb:hover{filter:brightness(1.15)}
+.bb:disabled{opacity:.5;cursor:default}
+.bb.red{background:var(--btn-red)}
+.bb.green{background:var(--btn-green)}
+.bb.accent{background:var(--btn-accent);color:#000}
+.bar .right{margin-left:auto;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.status{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-dim)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--pos)}
+.dot.pulse{animation:pulse 1.2s infinite}
+.dot.warn{background:var(--btn-accent)}
+.dot.bad{background:var(--neg)}
+@keyframes pulse{50%{opacity:.3}}
+
+/* Barra de filtros */
+.filters{color:var(--accent);gap:10px}
+.filters label{display:flex;align-items:center;gap:4px;cursor:pointer;white-space:nowrap}
+.filters input[type=checkbox]{accent-color:var(--text-dim);width:12px;height:12px}
+.filters select{height:22px;color:var(--accent);background:var(--surface);font-weight:700}
+
+/* Tablas */
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:separate;border-spacing:0}
+th,td{padding:3px 8px;white-space:nowrap;border-bottom:1px solid var(--border);font-size:12px}
+th{background:var(--surface);color:var(--text);font-weight:600;text-align:right;position:sticky;top:0;z-index:1}
+th.l,td.l{text-align:left}
+th.c,td.c{text-align:center}
+td{text-align:right}
+td.name{position:sticky;left:0;background:var(--bg);text-align:left;min-width:150px}
+th.name{position:sticky;left:0;z-index:2;text-align:left}
+td.name .n{color:var(--text-dim);margin-right:6px}
+td.name .id{color:var(--accent)}
+.section td{background:var(--surface);color:var(--accent);font-weight:700;text-align:left;padding-top:6px}
+.section td.name{background:var(--surface)}
+.v{color:var(--value)}
+.pos{color:var(--pos)}
+.neg{color:var(--neg)}
+.dim{color:var(--text-dim)}
+.flash{animation:flash 1s ease-out}
+@keyframes flash{0%{background:var(--flash)}100%{background:transparent}}
+.rmi{color:var(--accent);cursor:pointer}
+.rmi:hover{text-decoration:underline}
+tr.mover td.name .id{background:var(--accent);color:#000;padding:0 3px}
+tr.fut td{color:var(--text-dim);font-size:11px}
+tr.fut td.name{padding-left:28px}
+svg.spark{display:block;margin:0 auto}
+.hide{display:none!important}
+
+/* Paneles */
+.panel{margin:12px 8px;border:1px solid var(--border);background:var(--surface)}
+.panel h3{font-size:12px;color:var(--accent);padding:6px 8px;border-bottom:1px solid var(--border);letter-spacing:.05em}
+.panel .body{padding:8px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin:8px}
+.stat{border:1px solid var(--border);background:var(--surface);padding:8px}
+.stat .k{color:var(--text-dim);font-size:10px;text-transform:uppercase}
+.stat .val{font-size:18px;font-weight:700;margin-top:2px}
+
+/* Vistas secundarias */
+.viewhead{display:flex;flex-wrap:wrap;align-items:center;gap:6px;background:var(--surface);padding:4px 8px}
+.viewhead .title{font-weight:700;color:var(--accent);margin-right:8px}
+.viewhead .right{margin-left:auto;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.chip{height:22px;padding:0 8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:11px}
+.chip.on{background:var(--accent);color:#000;border-color:var(--accent)}
+.news{list-style:none}
+.news li{padding:8px;border-bottom:1px solid var(--border)}
+.news .meta{color:var(--text-dim);font-size:11px;margin-bottom:2px}
+.news .hl{color:var(--accent);font-weight:600;font-size:13px}
+.news .sum{margin-top:2px;line-height:1.5}
+.tag{display:inline-block;border:1px solid var(--border);padding:0 4px;margin-right:4px;font-size:10px}
+.tag.pos{border-color:var(--pos)}
+.tag.neg{border-color:var(--neg)}
+.bar-cell{position:relative;min-width:90px}
+.bar-cell i{position:absolute;top:4px;bottom:4px;opacity:.25}
+.bar-cell span{position:relative}
+.rmi-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;padding:8px}
+.rmi-controls label{display:block;font-size:10px;color:var(--text-dim);margin-bottom:2px;text-transform:uppercase}
+.rmi-controls select{width:100%;height:24px}
+.chart-wrap{position:relative;height:340px;margin:8px}
+
+/* Modales */
+.overlay{position:fixed;inset:0;background:var(--overlay);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal{background:var(--bg);border:1px solid var(--accent);width:100%;max-width:440px;max-height:85vh;display:flex;flex-direction:column}
+.modal h2{font-size:13px;color:var(--accent);background:var(--surface);padding:6px 10px}
+.modal .mbody{padding:10px;overflow:auto;line-height:1.6}
+.modal .mfoot{display:flex;justify-content:flex-end;gap:6px;padding:8px 10px;border-top:1px solid var(--border)}
+.kbd{display:inline-block;min-width:22px;text-align:center;border:1px solid var(--border);background:var(--surface);padding:0 4px;margin-right:6px;color:var(--accent)}
+.checklist{columns:2;column-gap:12px}
+.checklist label{display:block;break-inside:avoid;cursor:pointer}
+
+.footer{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;padding:6px 8px;color:var(--text-dim);font-size:10px;border-top:1px solid var(--border);background:var(--header)}
+.ticker{overflow:hidden;white-space:nowrap;background:var(--header);border-top:1px solid var(--border);padding:3px 0}
+.ticker .track{display:inline-block;animation:scroll 80s linear infinite;padding-left:100%}
+.ticker span{margin-right:28px}
+@keyframes scroll{to{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.ticker .track{animation:none;padding-left:8px}.dot.pulse,.flash{animation:none}}
+@media (max-width:640px){
+  .topbar{flex-wrap:wrap}
+  .cmd{order:3;flex-basis:100%}
+  .hide-sm{display:none}
+  .checklist{columns:1}
+}
+@media (max-width:900px){.hide-md{display:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="brand">ARES ▸ BBG</span>
+  <form class="cmd" id="cmdForm" autocomplete="off">
+    <input id="cmd" placeholder="Comando: NEWS, GMOV, GVOL, RMI, WEI, HELP…" aria-label="Línea de comandos">
+    <button class="go" type="submit">&lt;GO&gt;</button>
+  </form>
+  <span class="sim" id="badge" title="Cargando datos…">CARGANDO…</span>
+  <span class="clock" id="clock"></span>
+</div>
+
+<div id="app"></div>
+
+<div class="ticker" aria-hidden="true"><div class="track" id="ticker"></div></div>
+<div class="footer">
+  <span>Atajos: 1-5 vistas · Alt+R refrescar · Alt+L en vivo · Alt+N lista · Alt+B reset · ? ayuda · / comando</span>
+  <span>Datos: Yahoo Finance vía mercados.py (con retraso) · Basado en feremabraz/bloomberg-terminal (MIT)</span>
+</div>
+
+<div id="modalRoot"></div>
+
+<script>
+'use strict';
+
+/* ============================================================
+   Estado y persistencia
+   ============================================================ */
+const store = {
+  get(k, d) { try { const v = localStorage.getItem('ares-bbg-' + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem('ares-bbg-' + k, JSON.stringify(v)); } catch {} },
+};
+
+const DEFAULT_FILTERS = { movers: false, volatility: false, ratios: false, futures: false, avat: true, tenD: false, ytd: false, currency: 'USD' };
+
+const state = {
+  view: 'market',
+  theme: store.get('theme', 'dark'),
+  filters: { ...DEFAULT_FILTERS, ...store.get('filters', {}) },
+  watchlists: store.get('watchlists', []),
+  activeWatchlist: store.get('activeWatchlist', null),
+  live: true,
+  lastUpdated: null,
+  flashes: new Set(),
+  movers: { type: 'all', order: 'desc', minMove: 0, regions: { americas: true, emea: true, asiaPacific: true } },
+  vol: { type: 'all', sort: 'hv', order: 'desc', regions: { americas: true, emea: true, asiaPacific: true } },
+  rmi: { region: 'americas', security: 'NASDAQ', benchmark: 'S&P 500', range: 60 },
+  mode: 'sim',            // 'real' con mercados.json cargado, 'sim' si no hay datos
+  data: null,             // JSON real (generado, fuente, noticias…)
+  dataError: '',
+  newsQuery: '',
+};
+
+const REGIONS = [
+  { key: 'americas', title: 'Américas', num: '1)' },
+  { key: 'emea', title: 'EMEA', num: '2)' },
+  { key: 'asiaPacific', title: 'Asia/Pacífico', num: '3)' },
+];
+
+/* Tipos de cambio fijos (unidades de la divisa por 1 USD) — aproximados, sólo para la conversión. */
+let FX = { USD: 1, EUR: 0.86, CAD: 1.38, MXN: 18.4 };
+
+/* Datos reales: JSON que genera mercados.py (workflow .github/workflows/mercados.yml).
+   Se prueba primero una copia local (si la página se sirve por HTTP) y después la rama mercados-datos. */
+const DATA_URLS = [
+  'mercados.json',
+  'datos_mercados/mercados.json',
+  'https://raw.githubusercontent.com/eriphelo15/An-lisis-cuantitativo/mercados-datos/mercados.json',
+];
+const REAL_REFRESH_MS = 5 * 60 * 1000;
+const FX_SYM = { USD: '$', EUR: '€', CAD: 'C$', MXN: 'MX$' };
+
+/* Índices base: [id, nivel aproximado, vol. anual %, PER, divisa local vs USD (drift de YTD de la divisa)] */
+const SEED = {
+  americas: [
+    ['DOW JONES', 46000, 15, 23.1, 0], ['S&P 500', 6600, 16, 25.4, 0], ['NASDAQ', 22400, 21, 33.8, 0],
+    ['RUSSELL 2000', 2400, 23, 19.6, 0], ['S&P/TSX Comp', 29500, 13, 17.9, 2.1], ['S&P/BMV IPC', 61000, 16, 13.2, 11.5],
+    ['IBOVESPA', 145000, 20, 8.9, 14.0],
+  ],
+  emea: [
+    ['Euro Stoxx 50', 5450, 17, 15.2, 12.8], ['FTSE 100', 9250, 14, 13.1, 7.2], ['CAC 40', 7850, 17, 15.8, 12.8],
+    ['DAX', 23600, 18, 16.9, 12.8], ['IBEX 35', 15300, 17, 12.1, 12.8], ['FTSE MIB', 42500, 19, 11.4, 12.8],
+    ['SWISS MKT', 12200, 13, 18.3, 13.5],
+  ],
+  asiaPacific: [
+    ['NIKKEI', 44800, 21, 20.2, 5.9], ['HANG SENG', 26200, 24, 11.3, 0.4], ['SHANGHAI COMP', 3850, 18, 14.5, 2.2],
+    ['S&P/ASX 200', 8800, 13, 19.7, 6.1], ['KOSPI', 3400, 20, 12.8, 6.8], ['NIFTY 50', 25000, 15, 22.6, -3.1],
+  ],
+};
+
+/* ============================================================
+   Simulación de mercado
+   ============================================================ */
+function randn() { let u = 0, v = 0; while (!u) u = Math.random(); while (!v) v = Math.random(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+
+const DAYS = 250;
+const market = {};
+let allItems = [];
+
+function buildMarket() {
+  // Factores comunes para que los índices estén correlacionados: uno global y uno por región.
+  const factor = () => Array.from({ length: DAYS }, randn);
+  const global = factor();
+  let regionIdx = 0;
+  for (const r of REGIONS) {
+    regionIdx++;
+    const regional = factor();
+    market[r.key] = SEED[r.key].map(([id, level, vol, pe, fxYtd], i) => {
+      // Historia diaria que termina en el nivel base: 45% global, 30% regional, 25% propio (en varianza).
+      const dVol = vol / 100 / Math.sqrt(252);
+      const hist = [level];
+      for (let d = DAYS - 1; d > 0; d--) {
+        const z = Math.sqrt(0.45) * global[d] + Math.sqrt(0.30) * regional[d] + Math.sqrt(0.25) * randn();
+        hist.unshift(hist[0] / Math.exp(0.0003 + dVol * z));
+      }
+      const prevClose = hist[DAYS - 2];
+      const yearOpen = hist[Math.max(0, DAYS - 1 - 190)];
+      // Intradía: puente browniano desde el cierre anterior hasta el nivel actual.
+      const N = 40, steps = [0];
+      for (let k = 1; k < N; k++) steps.push(steps[k - 1] + randn());
+      const intraday = steps.map((w, k) => prevClose * Math.exp(Math.log(level / prevClose) * k / (N - 1) + dVol * 0.25 * (w - steps[N - 1] * k / (N - 1))));
+      return {
+        id, region: r.key, num: `${regionIdx}${i + 1})`, vol, pe, fxYtd,
+        hist, prevClose, yearOpen, intraday,
+        value: level, basis: 0.001 + Math.random() * 0.004,
+        avatBase: (Math.random() - 0.4) * 40,
+        time: '', ticks: 0,
+      };
+    });
+    for (const it of market[r.key]) settle(it, true);
+  }
+  allItems = REGIONS.flatMap(r => market[r.key]);
+}
+
+function buildRealMarket(data) {
+  const fx = data.fx || {};
+  FX = { USD: 1 };
+  for (const c of ['EUR', 'CAD', 'MXN']) FX[c] = fx[c] && fx[c].usd ? fx[c].usd : ({ EUR: 0.86, CAD: 1.38, MXN: 18.4 })[c];
+  const prev = new Map(allItems.map(i => [i.id, i.value]));
+  let regionIdx = 0;
+  for (const r of REGIONS) {
+    regionIdx++;
+    market[r.key] = (data.regiones[r.key] || []).map((d, i) => {
+      const cur = d.currency === 'USD' ? null : fx[d.currency];
+      // USDxxx sube => la divisa local cae frente al dólar.
+      const fxYtd = cur && cur.usd && cur.ytdBase ? (cur.ytdBase / cur.usd - 1) * 100 : 0;
+      const hist = d.hist.filter(x => x != null);
+      const it = {
+        id: d.id, symbol: d.symbol, region: r.key, num: `${regionIdx}${i + 1})`, pe: null, fxYtd,
+        hist, prevClose: d.prevClose, yearOpen: d.yearOpen || hist[0],
+        intraday: d.intraday && d.intraday.length > 1 ? d.intraday.filter(x => x != null) : [d.prevClose, d.value],
+        value: d.value, avat: d.avat, ts: d.ts,
+        future: d.future && d.future.value ? d.future : null,
+        impliedVol: d.impliedVol && d.impliedVol.value ? d.impliedVol.value : null,
+      };
+      it.change = it.value - it.prevClose;
+      it.pctChange = it.change / it.prevClose * 100;
+      it.ytd = (it.value / it.yearOpen - 1) * 100;
+      it.ytdCur = ((1 + it.ytd / 100) * (1 + fxYtd / 100) - 1) * 100;
+      it.time = quoteTime(d.ts);
+      if (prev.has(it.id) && prev.get(it.id) !== it.value) { state.flashes.add(`${it.id}|value`); state.flashes.add(`${it.id}|pct`); }
+      return it;
+    });
+  }
+  allItems = REGIONS.flatMap(r => market[r.key]);
+}
+function quoteTime(ts) {
+  const d = new Date(ts * 1000);
+  return d.toDateString() === new Date().toDateString() ? timeHHMM(d) : d.toLocaleDateString('es', { day: '2-digit', month: '2-digit' });
+}
+
+async function loadReal() {
+  for (const url of DATA_URLS) {
+    try {
+      const full = url.startsWith('http') ? `${url}?t=${Date.now()}` : url;
+      const res = await fetch(full, { cache: 'no-store' });
+      if (!res.ok) continue;
+      const data = await res.json();
+      if (!data.regiones) continue;
+      state.data = data;
+      state.mode = 'real';
+      state.dataError = '';
+      state.lastUpdated = new Date(data.generado);
+      buildRealMarket(data);
+      updateBadge();
+      return true;
+    } catch { /* probar la siguiente fuente */ }
+  }
+  state.dataError = 'No se encontró mercados.json (ni local ni en la rama mercados-datos).';
+  updateBadge();
+  return false;
+}
+function updateBadge() {
+  const b = document.getElementById('badge');
+  if (state.mode === 'real') {
+    b.textContent = 'DATOS REALES · RETRASO';
+    b.style.background = 'var(--btn-green)'; b.style.color = '#fff';
+    b.title = `${state.data.fuente}. Generado: ${state.lastUpdated.toLocaleString('es')}. Se recarga cada 5 min con LIVE activo.`;
+  } else {
+    b.textContent = 'DATOS SIMULADOS';
+    b.style.background = ''; b.style.color = '';
+    b.title = `Los precios son una simulación, no datos reales de mercado. ${state.dataError}`;
+  }
+}
+function fmtAgo(sec) {
+  if (sec < 60) return sec + 's';
+  if (sec < 3600) return Math.floor(sec / 60) + 'min';
+  if (sec < 172800) return Math.floor(sec / 3600) + 'h';
+  return Math.floor(sec / 86400) + 'd';
+}
+
+function settle(it, first) {
+  it.change = it.value - it.prevClose;
+  it.pctChange = it.change / it.prevClose * 100;
+  it.ytd = (it.value / it.yearOpen - 1) * 100;
+  it.ytdCur = ((1 + it.ytd / 100) * (1 + it.fxYtd / 100) - 1) * 100;
+  it.avat = it.avatBase + it.ticks * 0.3 * (Math.random() - 0.5);
+  it.hist[DAYS - 1] = it.value;
+  it.time = first ? randomSessionTime() : timeHHMM(new Date());
+}
+function randomSessionTime() { const m = 540 + Math.floor(Math.random() * 400); return `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`; }
+function timeHHMM(d) { return d.toTimeString().slice(0, 5); }
+
+function tick(fraction) {
+  // Mueve una fracción de los índices; el resto no cotiza en este tick.
+  const moved = [];
+  for (const it of allItems) {
+    if (Math.random() > fraction) continue;
+    const tickVol = it.vol / 100 / Math.sqrt(252 * 390) * 3;
+    const before = { value: it.value, pct: it.pctChange };
+    it.value *= Math.exp(tickVol * randn());
+    it.ticks++;
+    it.intraday.push(it.value); if (it.intraday.length > 80) it.intraday.shift();
+    settle(it);
+    state.flashes.add(`${it.id}|value`);
+    if (Math.sign(it.pctChange) !== Math.sign(before.pct) || Math.abs(it.pctChange - before.pct) > 0.005) state.flashes.add(`${it.id}|pct`);
+    moved.push(it);
+  }
+  state.lastUpdated = new Date();
+  return moved;
+}
+
+/* ============================================================
+   Utilidades de cálculo y formato
+   ============================================================ */
+function returns(arr) { const r = []; for (let i = 1; i < arr.length; i++) r.push(Math.log(arr[i] / arr[i - 1])); return r; }
+function stdev(a) { const m = a.reduce((s, x) => s + x, 0) / a.length; return Math.sqrt(a.reduce((s, x) => s + (x - m) ** 2, 0) / (a.length - 1)); }
+function histVol(it, n = 20) { return stdev(returns(it.hist.slice(-n - 1))) * Math.sqrt(252) * 100; }
+function rsi(arr, n = 14) {
+  let g = 0, l = 0; const s = arr.slice(-n - 1);
+  for (let i = 1; i < s.length; i++) { const d = s[i] - s[i - 1]; if (d > 0) g += d; else l -= d; }
+  return l === 0 ? 100 : 100 - 100 / (1 + g / l);
+}
+function fmtNum(v, d = 2) { return v.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d }); }
+function fmtMoney(usd) { const c = state.filters.currency; return (c === 'USD' ? '' : FX_SYM[c] + ' ') + fmtNum(usd * FX[c]); }
+function signed(v, d = 2, suf = '') { return (v > 0 ? '+' : '') + fmtNum(v, d) + suf; }
+function cls(v) { return v > 0 ? 'pos' : v < 0 ? 'neg' : 'dim'; }
+function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+function flashCls(id, f) { return state.flashes.has(`${id}|${f}`) ? ' flash' : ''; }
+function regionTitle(k) { return REGIONS.find(r => r.key === k).title; }
+function findItem(id) { return allItems.find(i => i.id === id); }
+
+function sparkline(points, w = 90, h = 18, color) {
+  const min = Math.min(...points), max = Math.max(...points), rng = max - min || 1;
+  const step = w / (points.length - 1);
+  const d = points.map((p, i) => `${i ? 'L' : 'M'}${(i * step).toFixed(1)},${(h - 1 - (p - min) / rng * (h - 2)).toFixed(1)}`).join('');
+  const up = points[points.length - 1] >= points[0];
+  return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><path d="${d}" fill="none" stroke="${color || (up ? 'var(--pos)' : 'var(--neg)')}" stroke-width="1.2"/></svg>`;
+}
+function sparkFor(it) {
+  // "2Day": últimos 2 días + intradía; "10D": últimos 10 días de cierre.
+  return state.filters.tenD ? it.hist.slice(-10) : [...it.hist.slice(-3, -1), ...it.intraday];
+}
+
+/* ============================================================
+   Vistas
+   ============================================================ */
+const app = document.getElementById('app');
+
+function headerBar() {
+  const ago = state.lastUpdated ? Math.floor((Date.now() - state.lastUpdated) / 1000) : null;
+  const [fresh, stale] = state.mode === 'real' ? [20 * 60, 60 * 60] : [10, 60];
+  const dot = ago == null ? 'bad' : ago > stale ? 'bad' : ago > fresh ? 'warn' : state.live ? 'pulse' : '';
+  return `<div class="bar">
+    <button class="bb red" data-act="cancel">CANCL</button>
+    <button class="bb green" data-act="new">NEW</button>
+    <button class="bb green" data-act="blanc">BLANC</button>
+    <button class="bb green" data-view="news">NEWS</button>
+    <button class="bb green" data-view="movers">GMOV</button>
+    <button class="bb green" data-view="volatility">GVOL</button>
+    <button class="bb green" data-view="rmi">RMI</button>
+    <button class="bb accent" data-act="help">HELP</button>
+    <button class="bb accent" data-act="theme">${state.theme === 'dark' ? 'LIGHT' : 'DARK'}</button>
+    <div class="right">
+      <button class="bb accent" data-act="refresh">REFR</button>
+      <button class="bb ${state.live ? 'red' : 'green'}" data-act="live">${state.live ? 'STOP' : 'LIVE'}</button>
+      <span class="status" id="status"><span class="dot ${dot}"></span><span>${!state.live ? 'PAUSA' : state.mode === 'real' ? 'AUTO 5MIN' : 'EN VIVO'}</span>
+      <span title="Antigüedad de los datos">${ago == null ? '—' : fmtAgo(ago)}</span><span class="hide-sm">${state.lastUpdated ? state.lastUpdated.toLocaleTimeString('es') : ''}</span></span>
+    </div>
+  </div>`;
+}
+
+function filterBar() {
+  const f = state.filters;
+  const wl = [`<option value="">Estándar</option>`, ...state.watchlists.map(w => `<option value="${esc(w.name)}" ${w.name === state.activeWatchlist ? 'selected' : ''}>${esc(w.name)}</option>`)].join('');
+  const cb = (k, label) => `<label><input type="checkbox" data-filter="${k}" ${f[k] ? 'checked' : ''}>${label}</label>`;
+  return `<div class="bar filters">
+    <select data-act="watchlist" aria-label="Lista de seguimiento">${wl}</select>
+    ${cb('movers', 'Movers')}${cb('volatility', 'Volatilidad')}${state.mode === 'real' ? '' : cb('ratios', 'Ratios')}${cb('futures', 'Futuros')}${cb('avat', 'Δ AVAT')}
+    <button class="bb ${f.tenD ? 'green' : 'red'}" data-toggle="tenD">${f.tenD ? '10D' : '2D'}</button>
+    <button class="bb ${f.ytd ? 'green' : 'red'}" data-toggle="ytd">%Chg ${f.ytd ? 'YTD' : 'Diario'}</button>
+    <select data-act="currency" aria-label="Divisa">${Object.keys(FX).map(c => `<option ${c === f.currency ? 'selected' : ''}>${c}</option>`).join('')}</select>
+  </div>`;
+}
+
+function showRatios() { return state.filters.ratios && state.mode !== 'real'; }
+
+function marketRow(it) {
+  const f = state.filters;
+  const isMover = f.movers && Math.abs(it.pctChange) >= 1;
+  const chgVal = f.ytd ? it.ytd : it.change;
+  let row = `<tr class="${isMover ? 'mover' : ''}">
+    <td class="name"><span class="n">${it.num}</span><span class="id">${esc(it.id)}</span></td>
+    <td class="c"><span class="rmi" data-rmi="${esc(it.id)}" title="Abrir análisis RMI">□</span></td>
+    <td class="c">${sparkline(sparkFor(it))}</td>
+    <td class="v${flashCls(it.id, 'value')}">${fmtMoney(it.value)}</td>
+    <td class="${cls(chgVal)}${flashCls(it.id, 'value')}">${f.ytd ? signed(it.ytd, 2, '%') : signed(it.change * FX[f.currency])}</td>
+    <td class="${cls(it.pctChange)}${flashCls(it.id, 'pct')}">${signed(it.pctChange, 2, '%')}</td>
+    <td class="${it.avat == null ? 'dim' : cls(it.avat)}${f.avat ? '' : ' hide'} hide-sm">${it.avat == null ? '—' : fmtNum(it.avat) + '%'}</td>
+    ${f.volatility ? `<td class="v">${fmtNum(histVol(it), 1)}</td>` : ''}
+    ${showRatios() ? `<td class="v">${fmtNum(it.pe, 1)}</td>` : ''}
+    <td class="v hide-sm">${it.time}</td>
+    <td class="${cls(it.ytd)} hide-md">${fmtNum(it.ytd)}%</td>
+    <td class="${cls(it.ytdCur)} hide-md">${fmtNum(it.ytdCur)}%</td>
+  </tr>`;
+  const fut = state.mode === 'real' ? (it.future && it.future.value) : it.value * (1 + it.basis);
+  if (f.futures && fut) {
+    const basis = fut / it.value - 1;
+    row += `<tr class="fut"><td class="name">↳ Fut. ${esc(state.mode === 'real' ? it.future.symbol : it.id)}</td><td></td><td></td><td>${fmtMoney(fut)}</td>
+      <td>${signed(fut - it.value)}</td><td>base ${fmtNum(basis * 100)}%</td>
+      <td class="${f.avat ? '' : 'hide'} hide-sm"></td>${f.volatility ? '<td></td>' : ''}${showRatios() ? '<td></td>' : ''}
+      <td class="hide-sm"></td><td class="hide-md"></td><td class="hide-md"></td></tr>`;
+  }
+  return row;
+}
+
+function visibleIds() {
+  const wl = state.watchlists.find(w => w.name === state.activeWatchlist);
+  return wl ? new Set(wl.indices) : null;
+}
+
+function marketView() {
+  const f = state.filters;
+  const ids = visibleIds();
+  const colspan = 10 + (f.volatility ? 1 : 0) + (showRatios() ? 1 : 0);
+  let body = '';
+  for (const r of REGIONS) {
+    const items = market[r.key].filter(it => !ids || ids.has(it.id));
+    if (!items.length) continue;
+    body += `<tr class="section"><td class="name">${r.num} ${r.title}</td><td colspan="${colspan - 1}"></td></tr>`;
+    body += items.map(marketRow).join('');
+  }
+  if (!body) body = `<tr><td class="l dim" colspan="${colspan}">La lista seleccionada no tiene índices.</td></tr>`;
+  return headerBar() + filterBar() + `
+  <div class="scroll"><table>
+    <thead><tr>
+      <th class="name">Mercado</th><th class="c">RMI</th><th class="c">${f.tenD ? '10D' : '2Día'}</th>
+      <th>Valor</th><th>${f.ytd ? '%YTD' : 'Var. neta'}</th><th>%Var</th>
+      <th class="${f.avat ? '' : 'hide'} hide-sm" title="Volumen vs. media">Δ AVAT</th>
+      ${f.volatility ? '<th title="Volatilidad histórica 20d anualizada">Vol 20d</th>' : ''}
+      ${showRatios() ? '<th>PER</th>' : ''}
+      <th class="hide-sm">Hora</th><th class="hide-md">%Ytd</th><th class="hide-md" title="YTD en USD">%YtdCur</th>
+    </tr></thead>
+    <tbody>${body}</tbody>
+  </table></div>
+  ${analysisPanel()}`;
+}
+
+function analysisPanel() {
+  const ups = allItems.filter(i => i.pctChange > 0).length;
+  const avg = allItems.reduce((s, i) => s + i.pctChange, 0) / allItems.length;
+  const best = [...allItems].sort((a, b) => b.pctChange - a.pctChange)[0];
+  const worst = [...allItems].sort((a, b) => a.pctChange - b.pctChange)[0];
+  const regAvg = REGIONS.map(r => ({ r, v: market[r.key].reduce((s, i) => s + i.pctChange, 0) / market[r.key].length }));
+  const lead = [...regAvg].sort((a, b) => b.v - a.v)[0];
+  const avgVol = allItems.reduce((s, i) => s + histVol(i), 0) / allItems.length;
+  const tone = avg > 0.3 ? 'alcista' : avg < -0.3 ? 'bajista' : 'mixto';
+  return `<div class="grid">
+    <div class="stat"><div class="k">Amplitud</div><div class="val">${ups}/${allItems.length}</div><div class="dim">índices al alza</div></div>
+    <div class="stat"><div class="k">Var. media</div><div class="val ${cls(avg)}">${signed(avg, 2, '%')}</div><div class="dim">tono ${tone}</div></div>
+    ${regAvg.map(({ r, v }) => `<div class="stat"><div class="k">${r.title}</div><div class="val ${cls(v)}">${signed(v, 2, '%')}</div><div class="dim">media regional</div></div>`).join('')}
+  </div>
+  <div class="panel"><h3>ANÁLISIS GENERAL DEL MERCADO</h3><div class="body">
+    Sesión de tono <b>${tone}</b>: ${ups} de ${allItems.length} índices suben y la variación media es
+    <span class="${cls(avg)}">${signed(avg, 2, '%')}</span>. Lidera <b>${lead.r.title}</b>
+    (<span class="${cls(lead.v)}">${signed(lead.v, 2, '%')}</span>). Mejor índice: <span class="id">${esc(best.id)}</span>
+    <span class="${cls(best.pctChange)}">${signed(best.pctChange, 2, '%')}</span>; peor: <span class="id">${esc(worst.id)}</span>
+    <span class="${cls(worst.pctChange)}">${signed(worst.pctChange, 2, '%')}</span>.
+    La volatilidad histórica media a 20 días es de ${fmtNum(avgVol, 1)}%.
+    <div class="dim" style="margin-top:4px">${state.mode === 'real' ? `Resumen generado con reglas sobre datos reales (${esc(state.data.fuente)}).` : 'Resumen generado con reglas sobre los datos simulados.'} El original usa un LLM vía API.</div>
+  </div></div>`;
+}
+
+function backHead(title, extra = '') {
+  return `<div class="viewhead"><button class="bb" data-view="market">◂ BACK</button><span class="title">${title}</span>${extra}</div>`;
+}
+function regionChips(obj, ns) {
+  return REGIONS.map(r => `<label><input type="checkbox" data-region="${ns}:${r.key}" ${obj[r.key] ? 'checked' : ''}> ${r.title}</label>`).join(' ');
+}
+
+function moversView() {
+  const m = state.movers;
+  let list = allItems.filter(i => m.regions[i.region] && Math.abs(i.pctChange) >= m.minMove);
+  if (m.type === 'gainers') list = list.filter(i => i.pctChange > 0);
+  if (m.type === 'losers') list = list.filter(i => i.pctChange < 0);
+  list.sort((a, b) => m.order === 'desc' ? b.pctChange - a.pctChange : a.pctChange - b.pctChange);
+  const maxAbs = Math.max(0.01, ...list.map(i => Math.abs(i.pctChange)));
+  const chip = (t, l) => `<button class="chip ${m.type === t ? 'on' : ''}" data-mtype="${t}">${l}</button>`;
+  const rows = list.map(i => `<tr>
+    <td class="name"><span class="id">${esc(i.id)}</span></td><td class="c dim">${regionTitle(i.region)}</td>
+    <td class="c">${sparkline(sparkFor(i))}</td><td class="v">${fmtMoney(i.value)}</td>
+    <td class="${cls(i.change)}">${signed(i.change)}</td>
+    <td class="bar-cell ${cls(i.pctChange)}"><i style="right:0;width:${Math.abs(i.pctChange) / maxAbs * 100}%;background:currentColor"></i><span>${signed(i.pctChange, 2, '%')}</span></td>
+    <td class="v hide-sm">${i.time}</td><td class="${cls(i.ytd)} hide-md">${fmtNum(i.ytd)}%</td></tr>`).join('');
+  return backHead('GMOV · MOVIMIENTOS DE MERCADO', `<div class="right">
+      <button class="bb accent" data-act="refresh">REFR</button></div>`) +
+  `<div class="bar filters">${chip('all', 'Todos')}${chip('gainers', 'Alzas')}${chip('losers', 'Bajas')}
+    <button class="chip" data-act="morder">Orden ${m.order === 'desc' ? '↓' : '↑'}</button>
+    <label>Mín. |%| <input type="number" step="0.1" min="0" value="${m.minMove}" data-act="minmove" style="width:60px"></label>
+    ${regionChips(m.regions, 'movers')}</div>
+  <div class="scroll"><table><thead><tr><th class="name">Mercado</th><th class="c">Región</th><th class="c">${state.filters.tenD ? '10D' : '2Día'}</th>
+    <th>Valor</th><th>Var. neta</th><th>%Var</th><th class="hide-sm">Hora</th><th class="hide-md">%Ytd</th></tr></thead>
+  <tbody>${rows || '<tr><td class="l dim" colspan="8">Ningún índice cumple el filtro.</td></tr>'}</tbody></table></div>`;
+}
+
+function volData() {
+  return allItems.map(i => {
+    const hv = histVol(i, 20), hv60 = histVol(i, 60);
+    // Real: índice de volatilidad publicado (VIX, VXN, VXD) cuando existe. Simulado: estimación sobre la histórica.
+    const iv = state.mode === 'real' ? i.impliedVol : hv * (1.05 + 0.15 * Math.tanh(-i.ytd / 20));
+    const dayRange = Math.max(...i.intraday) / Math.min(...i.intraday) * 100 - 100 + (state.mode === 'real' ? 0 : Math.abs(i.pctChange) * 0.3);
+    const wk = i.hist.slice(-5);
+    const weekRange = (Math.max(...wk) / Math.min(...wk) - 1) * 100;
+    const L = i.hist.length;
+    const volSeries = []; for (let k = 40; k >= 0; k -= 2) volSeries.push(stdev(returns(i.hist.slice(L - 21 - k, L - k))) * Math.sqrt(252) * 100);
+    const trend = hv > hv60 * 1.05 ? 'up' : hv < hv60 * 0.95 ? 'down' : 'stable';
+    return { i, hv, iv, ratio: hv / hv60, dayRange, weekRange, volSeries, trend, rsi: rsi(i.hist) };
+  });
+}
+
+function volatilityView() {
+  const v = state.vol;
+  let list = volData().filter(d => v.regions[d.i.region]);
+  if (v.type === 'high') list = list.filter(d => d.hv >= 18);
+  if (v.type === 'low') list = list.filter(d => d.hv < 14);
+  const key = { hv: 'hv', ratio: 'ratio', range: 'dayRange' }[v.sort];
+  list.sort((a, b) => v.order === 'desc' ? b[key] - a[key] : a[key] - b[key]);
+  const volCls = x => x >= 25 ? 'neg' : x >= 18 ? 'v' : 'pos';
+  const chip = (t, l) => `<button class="chip ${v.type === t ? 'on' : ''}" data-vtype="${t}">${l}</button>`;
+  const sortChip = (t, l) => `<button class="chip ${v.sort === t ? 'on' : ''}" data-vsort="${t}">${l}${v.sort === t ? (v.order === 'desc' ? ' ↓' : ' ↑') : ''}</button>`;
+  const rows = list.map(d => `<tr>
+    <td class="name"><span class="id">${esc(d.i.id)}</span></td><td class="c dim">${regionTitle(d.i.region)}</td>
+    <td class="${volCls(d.hv)}">${fmtNum(d.hv, 1)}%</td><td class="${d.iv == null ? 'dim' : volCls(d.iv)}">${d.iv == null ? '—' : fmtNum(d.iv, 1) + '%'}</td>
+    <td class="c ${d.trend === 'up' ? 'neg' : d.trend === 'down' ? 'pos' : 'dim'}">${{ up: '▲', down: '▼', stable: '■' }[d.trend]}</td>
+    <td class="v">${fmtNum(d.ratio)}</td><td class="v">${fmtNum(d.dayRange)}%</td>
+    <td class="v hide-sm">${fmtNum(d.weekRange)}%</td>
+    <td class="c hide-md">${sparkline(d.volSeries, 90, 18, 'var(--accent)')}</td>
+    <td class="hide-md ${d.rsi > 70 ? 'neg' : d.rsi < 30 ? 'pos' : 'v'}">${fmtNum(d.rsi, 1)}</td></tr>`).join('');
+  const avg = list.length ? list.reduce((s, d) => s + d.hv, 0) / list.length : 0;
+  return backHead('GVOL · VOLATILIDAD', `<div class="right"><span class="dim">Vol. media ${fmtNum(avg, 1)}%</span></div>`) +
+  `<div class="bar filters">${chip('all', 'Todos')}${chip('high', 'Alta ≥18%')}${chip('low', 'Baja <14%')}
+    <span class="dim">Ordenar:</span>${sortChip('hv', 'Vol hist')}${sortChip('ratio', 'Ratio')}${sortChip('range', 'Rango')}
+    ${regionChips(v.regions, 'vol')}</div>
+  <div class="scroll"><table><thead><tr><th class="name">Mercado</th><th class="c">Región</th>
+    <th title="20 días, anualizada">Vol hist</th><th title="${state.mode === 'real' ? 'Índice de volatilidad publicado (VIX, VXN, VXD)' : 'Estimada'}">Vol impl</th><th class="c">Tend.</th>
+    <th title="Vol 20d / Vol 60d">Ratio</th><th>Rango día</th><th class="hide-sm">Rango sem.</th>
+    <th class="c hide-md">Vol 40d</th><th class="hide-md">RSI 14</th></tr></thead>
+  <tbody>${rows || '<tr><td class="l dim" colspan="10">Ningún índice cumple el filtro.</td></tr>'}</tbody></table></div>
+  <div class="panel"><div class="body dim">${state.mode === 'real' ? 'Vol impl = índice de volatilidad publicado (VIX para el S&amp;P 500, VXN —del Nasdaq-100— para el Nasdaq, VXD para el Dow); «—» donde no hay uno disponible.' : 'La volatilidad implícita es una estimación sobre la histórica (no hay cadena de opciones).'} Tendencia ▲ = la vol. a 20 días supera en más de un 5% a la de 60 días.</div></div>`;
+}
+
+let rmiChart = null;
+function rmiView() {
+  const s = state.rmi;
+  const secs = market[s.region];
+  if (!secs.some(i => i.id === s.security)) s.security = secs[0].id;
+  if (s.benchmark === s.security || !findItem(s.benchmark)) s.benchmark = s.security === 'S&P 500' ? 'DOW JONES' : 'S&P 500';
+  const a = findItem(s.security), b = findItem(s.benchmark);
+  const n = Math.min(s.range, a.hist.length - 1, b.hist.length - 1);
+  const ra = a.hist.slice(-n - 1), rb = b.hist.slice(-n - 1);
+  const retA = (ra[n] / ra[0] - 1) * 100, retB = (rb[n] / rb[0] - 1) * 100;
+  const la = returns(ra), lb = returns(rb);
+  const ma = la.reduce((x, y) => x + y, 0) / la.length, mb = lb.reduce((x, y) => x + y, 0) / lb.length;
+  let cov = 0, vb = 0; for (let k = 0; k < la.length; k++) { cov += (la[k] - ma) * (lb[k] - mb); vb += (lb[k] - mb) ** 2; }
+  const beta = cov / vb;
+  const corr = cov / Math.sqrt(vb * la.reduce((x, y) => x + (y - ma) ** 2, 0));
+  const opt = (arr, sel) => arr.map(i => `<option ${i.id === sel ? 'selected' : ''}>${esc(i.id)}</option>`).join('');
+  return backHead('RMI · RENDIMIENTO RELATIVO') + `
+  <div class="rmi-controls">
+    <div><label for="rmiRegion">Región</label><select id="rmiRegion" data-rmi-set="region">${REGIONS.map(r => `<option value="${r.key}" ${r.key === s.region ? 'selected' : ''}>${r.title}</option>`).join('')}</select></div>
+    <div><label for="rmiSec">Índice</label><select id="rmiSec" data-rmi-set="security">${opt(secs, s.security)}</select></div>
+    <div><label for="rmiBench">Referencia</label><select id="rmiBench" data-rmi-set="benchmark">${opt(allItems.filter(i => i.id !== s.security), s.benchmark)}</select></div>
+    <div><label for="rmiRange">Periodo</label><select id="rmiRange" data-rmi-set="range">${[[20, '1M'], [60, '3M'], [125, '6M'], [249, '1A']].map(([d, l]) => `<option value="${d}" ${d === s.range ? 'selected' : ''}>${l}</option>`).join('')}</select></div>
+  </div>
+  <div class="grid">
+    <div class="stat"><div class="k">${esc(a.id)}</div><div class="val ${cls(retA)}">${signed(retA, 2, '%')}</div></div>
+    <div class="stat"><div class="k">${esc(b.id)}</div><div class="val ${cls(retB)}">${signed(retB, 2, '%')}</div></div>
+    <div class="stat"><div class="k">Diferencial</div><div class="val ${cls(retA - retB)}">${signed(retA - retB, 2, ' pp')}</div></div>
+    <div class="stat"><div class="k">Beta / Correl.</div><div class="val v">${fmtNum(beta)} / ${fmtNum(corr)}</div></div>
+  </div>
+  <div class="chart-wrap"><canvas id="rmiCanvas" aria-label="Rendimiento acumulado de ${esc(a.id)} frente a ${esc(b.id)}"></canvas></div>`;
+}
+function drawRmi() {
+  const s = state.rmi, a = findItem(s.security), b = findItem(s.benchmark), n = Math.min(s.range, a.hist.length - 1, b.hist.length - 1);
+  const ra = a.hist.slice(-n - 1), rb = b.hist.slice(-n - 1);
+  const pa = ra.map(x => (x / ra[0] - 1) * 100), pb = rb.map(x => (x / rb[0] - 1) * 100);
+  const rel = pa.map((x, k) => x - pb[k]);
+  const css = getComputedStyle(document.documentElement);
+  const c = k => css.getPropertyValue(k).trim();
+  const labels = pa.map((_, k) => k - n === 0 ? 'hoy' : `${k - n}d`);
+  if (rmiChart) rmiChart.destroy();
+  if (typeof Chart === 'undefined') {
+    document.querySelector('.chart-wrap').innerHTML = '<div class="dim" style="padding:16px">No se pudo cargar Chart.js (sin conexión al CDN). Las cifras de arriba siguen siendo válidas.</div>';
+    return;
+  }
+  rmiChart = new Chart(document.getElementById('rmiCanvas'), {
+    type: 'line',
+    data: { labels, datasets: [
+      { label: a.id, data: pa, borderColor: c('--accent'), borderWidth: 2, pointRadius: 0, tension: .15 },
+      { label: b.id, data: pb, borderColor: c('--text-dim'), borderWidth: 1.5, pointRadius: 0, tension: .15 },
+      { label: 'Relativo (pp)', data: rel, borderColor: c('--pos'), borderWidth: 1, borderDash: [4, 3], pointRadius: 0, tension: .15 },
+    ] },
+    options: {
+      responsive: true, maintainAspectRatio: false, animation: false, interaction: { mode: 'index', intersect: false },
+      plugins: { legend: { labels: { color: c('--text'), font: { family: 'IBM Plex Mono', size: 11 } } },
+        tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${signed(ctx.parsed.y, 2, '%')}` } } },
+      scales: {
+        x: { ticks: { color: c('--text-dim'), maxTicksLimit: 8, font: { family: 'IBM Plex Mono', size: 10 } }, grid: { color: c('--border') } },
+        y: { ticks: { color: c('--text-dim'), callback: v => v + '%', font: { family: 'IBM Plex Mono', size: 10 } }, grid: { color: c('--border') } },
+      },
+    },
+  });
+}
+
+/* Noticias sintéticas derivadas de los movimientos simulados */
+const NEWS_TEMPLATES = {
+  up: ['{id} sube {pct} impulsado por compras en tecnología', '{id} avanza {pct}; los inversores descuentan recortes de tipos', 'Rebote en {region}: {id} gana {pct}'],
+  down: ['{id} cae {pct} ante la toma de beneficios', '{id} retrocede {pct} por dudas sobre el crecimiento', 'Presión vendedora en {region}: {id} pierde {pct}'],
+  vol: ['Se dispara la volatilidad en {id}: la vol. a 20 días llega al {vol}', 'Los operadores cubren riesgo en {id} con la vol. en {vol}'],
+  macro: ['Los bancos centrales mantienen el tono prudente; los mercados de {region} esperan datos de inflación',
+    'El dólar se mueve frente a sus pares y condiciona el rendimiento en divisa de {region}',
+    'Los rendimientos de la deuda a 10 años marcan el pulso de la renta variable en {region}'],
+};
+function buildNews() {
+  const now = Date.now();
+  const out = [];
+  const sorted = [...allItems].sort((a, b) => Math.abs(b.pctChange) - Math.abs(a.pctChange));
+  sorted.slice(0, 8).forEach((it, k) => {
+    const t = it.pctChange >= 0 ? NEWS_TEMPLATES.up : NEWS_TEMPLATES.down;
+    out.push({ it, kind: it.pctChange >= 0 ? 'pos' : 'neg', title: t[k % t.length], mins: 3 + k * 7 });
+  });
+  volData().filter(d => d.hv > 20).slice(0, 3).forEach((d, k) => out.push({ it: d.i, kind: 'vol', title: NEWS_TEMPLATES.vol[k % 2], vol: d.hv, mins: 11 + k * 13 }));
+  REGIONS.forEach((r, k) => out.push({ it: market[r.key][0], kind: 'macro', title: NEWS_TEMPLATES.macro[k], mins: 25 + k * 19 }));
+  return out.map(n => {
+    const txt = n.title.replace('{id}', n.it.id).replace('{pct}', fmtNum(Math.abs(n.it.pctChange)) + '%')
+      .replace('{region}', regionTitle(n.it.region)).replace('{vol}', fmtNum(n.vol || 0, 1) + '%');
+    const sum = `${n.it.id} cotiza en ${fmtNum(n.it.value)} (${signed(n.it.pctChange, 2, '%')} hoy, ${signed(n.it.ytd, 2, '%')} en el año). ` +
+      `Vol. histórica a 20 días: ${fmtNum(histVol(n.it), 1)}%.`;
+    return { ...n, txt, sum, time: new Date(now - n.mins * 60000) };
+  }).sort((a, b) => b.time - a.time);
+}
+const SYMBOL_REGION = { '^GSPC': 'americas', '^IXIC': 'americas', '^DJI': 'americas', '^STOXX50E': 'emea', '^FTSE': 'emea', '^GDAXI': 'emea', '^N225': 'asiaPacific', '^HSI': 'asiaPacific' };
+function realNewsView() {
+  const q = state.newsQuery.trim().toLowerCase();
+  const items = (state.data.noticias || []).filter(n => !q || (n.titulo + ' ' + n.resumen + ' ' + n.fuente).toLowerCase().includes(q));
+  const safeUrl = u => /^https?:\/\//.test(u || '') ? u : null;
+  return backHead('NEWS · TITULARES', `<form class="right" id="newsForm"><input id="newsQ" value="${esc(state.newsQuery)}" placeholder="Buscar…" aria-label="Buscar noticias">
+      <button class="bb green" type="submit">BUSCAR</button></form>`) +
+  `<div class="panel" style="margin-top:8px"><div class="body dim">Titulares reales vía Yahoo Finance (en inglés), actualizados con cada descarga de datos.</div></div>
+  <ul class="news">${items.map(n => {
+    const t = n.fecha ? new Date(n.fecha) : null;
+    const reg = SYMBOL_REGION[n.indice];
+    const url = safeUrl(n.url);
+    return `<li><div class="meta">${t ? t.toLocaleString('es', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }) : ''} · ${esc(n.fuente)}
+      ${reg ? `<span class="tag">${regionTitle(reg)}</span>` : ''}</div>
+      <div class="hl">${url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer" style="color:inherit">${esc(n.titulo)}</a>` : esc(n.titulo)}</div>
+      ${n.resumen ? `<div class="sum">${esc(n.resumen)}</div>` : ''}</li>`;
+  }).join('') || '<li class="dim">Sin resultados.</li>'}</ul>`;
+}
+function newsView() {
+  if (state.mode === 'real') return realNewsView();
+  const q = state.newsQuery.trim().toLowerCase();
+  const items = buildNews().filter(n => !q || (n.txt + ' ' + n.sum + ' ' + regionTitle(n.it.region)).toLowerCase().includes(q));
+  const lab = { pos: 'ALZA', neg: 'BAJA', vol: 'VOL', macro: 'MACRO' };
+  return backHead('NEWS · TITULARES', `<form class="right" id="newsForm"><input id="newsQ" value="${esc(state.newsQuery)}" placeholder="Buscar…" aria-label="Buscar noticias">
+      <button class="bb green" type="submit">BUSCAR</button></form>`) +
+  `<div class="panel" style="margin-top:8px"><div class="body dim">Titulares sintéticos generados a partir de los datos simulados; no son noticias reales.</div></div>
+  <ul class="news">${items.map(n => `<li><div class="meta">${n.time.toLocaleTimeString('es', { hour: '2-digit', minute: '2-digit' })} · ARES WIRE ·
+      <span class="tag ${n.kind === 'pos' || n.kind === 'neg' ? n.kind : ''}">${lab[n.kind]}</span><span class="tag">${regionTitle(n.it.region)}</span></div>
+      <div class="hl">${esc(n.txt)}</div><div class="sum">${esc(n.sum)}</div></li>`).join('') || '<li class="dim">Sin resultados.</li>'}</ul>`;
+}
+
+/* ============================================================
+   Render
+   ============================================================ */
+const VIEWS = { market: marketView, news: newsView, movers: moversView, volatility: volatilityView, rmi: rmiView };
+
+function render() {
+  const sx = window.scrollX, sy = window.scrollY;
+  const scrollers = [...app.querySelectorAll('.scroll')].map(el => el.scrollLeft);
+  const focusId = document.activeElement && document.activeElement.id;
+  app.innerHTML = VIEWS[state.view]();
+  app.querySelectorAll('.scroll').forEach((el, k) => { el.scrollLeft = scrollers[k] || 0; });
+  window.scrollTo(sx, sy);
+  if (focusId && focusId !== 'cmd') { const el = document.getElementById(focusId); if (el) el.focus(); }
+  if (state.view === 'rmi') drawRmi(); else if (rmiChart) { rmiChart.destroy(); rmiChart = null; }
+  state.flashes.clear();
+  renderTicker();
+}
+function renderStatus() {
+  const el = document.getElementById('status');
+  if (!el) return;
+  const bar = el.closest('.bar');
+  const tmp = document.createElement('div'); tmp.innerHTML = headerBar();
+  bar.replaceWith(tmp.firstElementChild);
+}
+function renderTicker() {
+  document.getElementById('ticker').innerHTML = allItems.map(i => `<span><span class="id" style="color:var(--accent)">${esc(i.id)}</span> ${fmtNum(i.value)} <span class="${cls(i.pctChange)}">${signed(i.pctChange, 2, '%')}</span></span>`).join('');
+}
+
+function setView(v) { state.view = v; window.scrollTo(0, 0); render(); }
+function saveFilters() { store.set('filters', state.filters); }
+
+/* ============================================================
+   Modales
+   ============================================================ */
+const modalRoot = document.getElementById('modalRoot');
+let modalOnConfirm = null;
+function openModal(title, body, foot) {
+  modalRoot.innerHTML = `<div class="overlay" data-act="closeModal"><div class="modal" role="dialog" aria-modal="true" aria-label="${esc(title)}">
+    <h2>${esc(title)}</h2><div class="mbody">${body}</div><div class="mfoot">${foot}</div></div></div>`;
+  const first = modalRoot.querySelector('input,button.green,button.red');
+  if (first) first.focus();
+}
+function closeModal() { modalRoot.innerHTML = ''; modalOnConfirm = null; }
+function isModalOpen() { return !!modalRoot.firstChild; }
+function confirmModal(title, message, onConfirm) {
+  modalOnConfirm = onConfirm;
+  openModal(title, esc(message), `<button class="bb" data-act="closeModal">CANCELAR</button><button class="bb red" data-act="confirm">CONFIRMAR</button>`);
+}
+function watchlistModal() {
+  const items = allItems.map(i => `<label><input type="checkbox" value="${esc(i.id)}"> ${esc(i.id)}</label>`).join('');
+  const existing = state.watchlists.length
+    ? `<div style="margin-top:10px" class="dim">Listas guardadas: ${state.watchlists.map(w => `<button class="chip" data-delwl="${esc(w.name)}" title="Eliminar">${esc(w.name)} ✕</button>`).join(' ')}</div>` : '';
+  openModal('NUEVA LISTA DE SEGUIMIENTO', `<label>Nombre <input id="wlName" maxlength="24" style="width:100%"></label>
+    <div style="margin:8px 0 4px" class="dim">Índices:</div><div class="checklist" id="wlItems">${items}</div>${existing}`,
+    `<button class="bb" data-act="closeModal">CANCELAR</button><button class="bb green" data-act="saveWatchlist">GUARDAR</button>`);
+}
+function helpModal() {
+  const rows = SHORTCUTS.map(s => `<div><span class="kbd">${s.label}</span>${s.desc}</div>`).join('');
+  openModal('ATAJOS DE TECLADO', rows + `<div style="margin-top:10px" class="dim">Comandos (escribe y pulsa Intro): NEWS, GMOV, GVOL, RMI, WEI/MKT, HELP, REFR, LIVE, o el nombre de un índice para abrir su RMI.</div>`,
+    `<button class="bb accent" data-act="closeModal">CERRAR</button>`);
+}
+
+/* ============================================================
+   Acciones
+   ============================================================ */
+const actions = {
+  cancel: () => confirmModal('CONFIRMAR ACCIÓN', '¿Cancelar la operación actual y volver a la vista de mercado?', () => setView('market')),
+  new: watchlistModal,
+  blanc: () => confirmModal('RESTABLECER FILTROS', '¿Restablecer todos los filtros y la lista activa a los valores por defecto?', () => {
+    state.filters = { ...DEFAULT_FILTERS }; state.activeWatchlist = null; saveFilters(); store.set('activeWatchlist', null); render();
+  }),
+  help: helpModal,
+  theme: () => { state.theme = state.theme === 'dark' ? 'light' : 'dark'; document.documentElement.dataset.theme = state.theme; store.set('theme', state.theme); render(); },
+  refresh: async () => {
+    if (state.mode === 'real') { await loadReal(); render(); return; }
+    tick(1); render();
+  },
+  live: () => { state.live = !state.live; render(); },
+  closeModal,
+  confirm: () => { const fn = modalOnConfirm; closeModal(); if (fn) fn(); },
+  saveWatchlist: () => {
+    const name = document.getElementById('wlName').value.trim();
+    const indices = [...document.querySelectorAll('#wlItems input:checked')].map(i => i.value);
+    if (!name || !indices.length) { document.getElementById('wlName').placeholder = 'Pon un nombre y marca al menos un índice'; return; }
+    state.watchlists = state.watchlists.filter(w => w.name !== name).concat({ name, indices });
+    state.activeWatchlist = name;
+    store.set('watchlists', state.watchlists); store.set('activeWatchlist', name);
+    closeModal(); setView('market');
+  },
+  morder: () => { state.movers.order = state.movers.order === 'desc' ? 'asc' : 'desc'; render(); },
+};
+
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-act],[data-view],[data-toggle],[data-rmi],[data-mtype],[data-vtype],[data-vsort],[data-delwl]');
+  if (!t) return;
+  if (t.dataset.act === 'closeModal' && t.classList.contains('overlay') && e.target !== t) return;
+  if (t.tagName === 'SELECT' || t.tagName === 'INPUT') return;
+  if (t.dataset.act && actions[t.dataset.act]) return actions[t.dataset.act]();
+  if (t.dataset.view) return setView(t.dataset.view);
+  if (t.dataset.toggle) { state.filters[t.dataset.toggle] = !state.filters[t.dataset.toggle]; saveFilters(); return render(); }
+  if (t.dataset.rmi) { const it = findItem(t.dataset.rmi); state.rmi.region = it.region; state.rmi.security = it.id; return setView('rmi'); }
+  if (t.dataset.mtype) { state.movers.type = t.dataset.mtype; return render(); }
+  if (t.dataset.vtype) { state.vol.type = t.dataset.vtype; return render(); }
+  if (t.dataset.vsort) { const v = state.vol; if (v.sort === t.dataset.vsort) v.order = v.order === 'desc' ? 'asc' : 'desc'; else { v.sort = t.dataset.vsort; v.order = 'desc'; } return render(); }
+  if (t.dataset.delwl) {
+    const name = t.dataset.delwl;
+    state.watchlists = state.watchlists.filter(w => w.name !== name);
+    if (state.activeWatchlist === name) state.activeWatchlist = null;
+    store.set('watchlists', state.watchlists); store.set('activeWatchlist', state.activeWatchlist);
+    watchlistModal(); render();
+  }
+});
+
+document.addEventListener('change', e => {
+  const t = e.target;
+  if (t.dataset.filter) { state.filters[t.dataset.filter] = t.checked; saveFilters(); return render(); }
+  if (t.dataset.act === 'watchlist') { state.activeWatchlist = t.value || null; store.set('activeWatchlist', state.activeWatchlist); return render(); }
+  if (t.dataset.act === 'currency') { state.filters.currency = t.value; saveFilters(); return render(); }
+  if (t.dataset.act === 'minmove') { state.movers.minMove = Math.max(0, parseFloat(t.value) || 0); return render(); }
+  if (t.dataset.region) { const [ns, r] = t.dataset.region.split(':'); state[ns].regions[r] = t.checked; return render(); }
+  if (t.dataset.rmiSet) { const k = t.dataset.rmiSet; state.rmi[k] = k === 'range' ? +t.value : t.value; return render(); }
+});
+
+document.addEventListener('submit', e => {
+  if (e.target.id === 'newsForm') { e.preventDefault(); state.newsQuery = document.getElementById('newsQ').value; render(); }
+});
+
+/* Línea de comandos al estilo Bloomberg (<GO>) */
+document.getElementById('cmdForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const input = document.getElementById('cmd');
+  const raw = input.value.trim().toUpperCase().replace(/<?GO>?$/, '').trim();
+  input.value = '';
+  input.blur();
+  const cmds = { NEWS: 'news', N: 'news', TOP: 'news', GMOV: 'movers', MOV: 'movers', GVOL: 'volatility', VOL: 'volatility', RMI: 'rmi', WEI: 'market', MKT: 'market', MAIN: 'market' };
+  if (cmds[raw]) return setView(cmds[raw]);
+  if (raw === 'HELP' || raw === '?') return helpModal();
+  if (raw === 'REFR') return actions.refresh();
+  if (raw === 'LIVE' || raw === 'STOP') return actions.live();
+  const it = allItems.find(i => i.id.toUpperCase() === raw) || allItems.find(i => i.id.toUpperCase().startsWith(raw) && raw.length >= 2);
+  if (it) { state.rmi.region = it.region; state.rmi.security = it.id; return setView('rmi'); }
+  input.placeholder = `Comando desconocido: ${raw || '—'} · escribe HELP`;
+});
+
+/* Atajos de teclado */
+const SHORTCUTS = [
+  { label: '1', desc: 'Vista de mercado', match: e => e.key === '1', run: () => setView('market') },
+  { label: '2', desc: 'Noticias (NEWS)', match: e => e.key === '2', run: () => setView('news') },
+  { label: '3', desc: 'Movimientos (GMOV)', match: e => e.key === '3', run: () => setView('movers') },
+  { label: '4', desc: 'Volatilidad (GVOL)', match: e => e.key === '4', run: () => setView('volatility') },
+  { label: '5', desc: 'Rendimiento relativo (RMI)', match: e => e.key === '5', run: () => setView('rmi') },
+  { label: 'Alt+R', desc: 'Refrescar datos', match: e => e.altKey && e.code === 'KeyR', run: actions.refresh },
+  { label: 'Alt+L', desc: 'Activar/pausar en vivo', match: e => e.altKey && e.code === 'KeyL', run: actions.live },
+  { label: 'Alt+N', desc: 'Nueva lista de seguimiento', match: e => e.altKey && e.code === 'KeyN', run: actions.new },
+  { label: 'Alt+B', desc: 'Restablecer filtros', match: e => e.altKey && e.code === 'KeyB', run: actions.blanc },
+  { label: 'Esc', desc: 'Cerrar ventana / cancelar', match: e => e.key === 'Escape', run: () => isModalOpen() ? closeModal() : actions.cancel() },
+  { label: '/', desc: 'Ir a la línea de comandos', match: e => e.key === '/', run: () => document.getElementById('cmd').focus() },
+  { label: '?', desc: 'Mostrar esta ayuda', match: e => e.key === '?', run: helpModal },
+];
+document.addEventListener('keydown', e => {
+  const typing = /^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName);
+  if (typing && e.key !== 'Escape') return;
+  if (typing && e.key === 'Escape') { e.target.blur(); if (isModalOpen()) closeModal(); return; }
+  if (isModalOpen() && e.key !== 'Escape') return;
+  const s = SHORTCUTS.find(x => x.match(e));
+  if (!s || (e.ctrlKey || e.metaKey)) return;
+  e.preventDefault();
+  s.run();
+});
+
+/* ============================================================
+   Arranque
+   ============================================================ */
+document.documentElement.dataset.theme = state.theme;
+buildMarket();
+state.lastUpdated = new Date();
+render();
+loadReal().then(ok => { if (ok) render(); });
+
+// Con datos reales, LIVE recarga el JSON cada 5 min (el workflow lo actualiza cada 15).
+setInterval(async () => {
+  if (state.mode !== 'real' || !state.live || document.hidden) return;
+  if (await loadReal()) safeRender();
+}, REAL_REFRESH_MS);
+
+function safeRender() {
+  // No re-renderizar mientras se escribe en un campo de la vista (buscador, filtros).
+  const a = document.activeElement;
+  if (isModalOpen() || (a && /^(INPUT|SELECT)$/.test(a.tagName) && a.id !== 'cmd')) return;
+  if (state.view === 'rmi') { renderTicker(); renderStatus(); return; } // el RMI usa cierres diarios
+  render();
+}
+
+setInterval(() => {
+  document.getElementById('clock').textContent = new Date().toLocaleString('es', { weekday: 'short', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  renderStatus();
+}, 1000);
+
+setInterval(() => {
+  if (state.mode !== 'sim' || !state.live || document.hidden) return;
+  tick(0.35);
+  safeRender();
+}, 2500);
+</script>
+</body>
+</html>
