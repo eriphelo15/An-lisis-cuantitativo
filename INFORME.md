@@ -1,8 +1,8 @@
 # Informe del radar de memecoins
 
-Generado: 2026-09-27 22:48 UTC
+Generado: 2026-09-27 22:55 UTC
 
-- Tokens registrados: **320** (desde 2026-09-27 18:07)
+- Tokens registrados: **331** (desde 2026-09-27 18:07)
 - Con resultado a 24 h: **0** (el primero llega 24 h después de la primera detección)
 - Pasan el filtro v1: **8**
 - Resultados en dólares por cada apuesta de $50, con 3% de costes en la entrada y en la salida:
@@ -17,7 +17,7 @@ Palabras que aparecen en muchos más tokens nuevos de lo normal: temas que se es
 | palabra   |   tokens_3h |   tokens_24h_previas | veces_lo_normal   | mayor    | mc_mayor   | mint_mayor                                   |
 |:----------|------------:|---------------------:|:------------------|:---------|:-----------|:---------------------------------------------|
 | vault     |          31 |                    0 | x248              | VAULT    | 447K       | 7tEsDuij7aj4b2jLUAS5oXcp6B3zWratYVmviS5zpump |
-| moin      |          21 |                    0 | x168              | moin     | 1183K      | 5mdbw1mfaB7JbejXdijFwybaUbV7SUzDJcAjKmxTeSmH |
+| moin      |          22 |                    0 | x176              | moin     | 1183K      | 5mdbw1mfaB7JbejXdijFwybaUbV7SUzDJcAjKmxTeSmH |
 | gacha     |           9 |                    0 | x72               | GACHA    | 422K       | E1LY7wpf89QtKee6gVzWiJxRVJh8strksQTCqPiyNErH |
 | barstool  |           5 |                    0 | x40               | BARSTOOL | 263K       | FUKX4RajeVJeWBigzVBh97p7UKB86oBC8P7uqp7DtmB1 |
 | grokler   |           5 |                    0 | x40               | Grokler  | 333K       | 5NbTiWe2L82Vd8PwYDwoRxHyJKkwThXzuX53Hq2U7c1x |
@@ -32,12 +32,12 @@ Palabras que aparecen en muchos más tokens nuevos de lo normal: temas que se es
 | narrativa    |   tokens_nuevos | lider      | mc_lider   | catalizador                                            | mint_lider                                   |
 |:-------------|----------------:|:-----------|:-----------|:-------------------------------------------------------|:---------------------------------------------|
 | videojuegos  |               6 | GTA 6 Coin | 1114K      | Lanzamiento de GTA 6 (previsto) (en 53 días)           | GHNJY8WowhxAFneGs3oXoFV5EpiScmNAZrnAuxN5pump |
-| cripto       |               5 | 100x       | 125K       |                                                        | AGBuP12RvNQQrFicjGgH8o7SnrXJAWVm7z7uLWWNVe25 |
 | animales     |               5 | inu        | 126K       |                                                        | 9L4xAusWTDaHxbA54ZRQGeqM5UZrHyysjx5qnTVvyApT |
-| ia           |               4 | ChatGPT    | 538K       |                                                        | 4S8creAKXGg3s9Te3KQsT9wP4ToiCk2y4pECe3pXpump |
+| cripto       |               3 | Google Gem | 467K       |                                                        | 5VKAyjJDHz9MpG7aFhbhwQjzgzPdsMdBxxAT9kR7pump |
+| ia           |               3 | ChatGPT    | 538K       |                                                        | 4S8creAKXGg3s9Te3KQsT9wP4ToiCk2y4pECe3pXpump |
+| elon         |               2 | SpaceX     | 514K       |                                                        | 3EpcGjzix1rVuThHgqaphCmRpeuCGjQwhboivhhppump |
 | politica     |               2 | TRUMP      | 118K       | Elecciones de mitad de mandato en EE. UU. (en 37 días) | 5UhTmZTvuUKop8w2cjAQj9nQz7wNM5HxRHGt8X1Uat3q |
 | celebridades |               1 | MrBeast    | 519K       |                                                        | G5MmckrvhcqqRArzW3iyU4GQJuvQNC6PVPmDhPs8pump |
-| elon         |               1 | SpaceX     | 514K       |                                                        | 3EpcGjzix1rVuThHgqaphCmRpeuCGjQwhboivhhppump |
 
 ## Pasan el filtro en la última hora
 
