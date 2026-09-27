@@ -1,8 +1,8 @@
 # Informe del radar de memecoins
 
-Generado: 2026-09-27 23:08 UTC
+Generado: 2026-09-27 23:14 UTC
 
-- Tokens registrados: **348** (desde 2026-09-27 18:07)
+- Tokens registrados: **352** (desde 2026-09-27 18:07)
 - Con resultado a 24 h: **0** (el primero llega 24 h después de la primera detección)
 - Pasan el filtro v1: **8**
 - Resultados en dólares por cada apuesta de $50, con 3% de costes en la entrada y en la salida:
@@ -14,24 +14,24 @@ Generado: 2026-09-27 23:08 UTC
 
 Palabras que aparecen en muchos más tokens nuevos de lo normal: temas que se están calentando aunque no estén en la lista de narrativas.
 
-| palabra   |   tokens_3h |   tokens_24h_previas | veces_lo_normal   | mayor    | mc_mayor   | mint_mayor                                   |
-|:----------|------------:|---------------------:|:------------------|:---------|:-----------|:---------------------------------------------|
-| vault     |          32 |                    0 | x256              | VAULT    | 447K       | 7tEsDuij7aj4b2jLUAS5oXcp6B3zWratYVmviS5zpump |
-| moin      |          23 |                    0 | x184              | moin     | 1183K      | 5mdbw1mfaB7JbejXdijFwybaUbV7SUzDJcAjKmxTeSmH |
-| gacha     |          10 |                    0 | x80               | GACHA    | 422K       | E1LY7wpf89QtKee6gVzWiJxRVJh8strksQTCqPiyNErH |
-| barstool  |           5 |                    0 | x40               | BARSTOOL | 263K       | FUKX4RajeVJeWBigzVBh97p7UKB86oBC8P7uqp7DtmB1 |
-| grokler   |           5 |                    0 | x40               | Grokler  | 333K       | 5NbTiWe2L82Vd8PwYDwoRxHyJKkwThXzuX53Hq2U7c1x |
-| vbucks    |           5 |                    0 | x40               | VBUCKS   | 132K       | G3EZu7t5T4zy9bgbdKe7YbtNfBzL3nePcMr6JeaYsw1t |
-| inu       |           5 |                    0 | x40               | inu      | 126K       | 9L4xAusWTDaHxbA54ZRQGeqM5UZrHyysjx5qnTVvyApT |
-| ocelot    |           5 |                    0 | x40               | Ocelot   | 149K       | FdjkMLM79vWtvaDYU83xkXoZAPnhdKpicZmyFQQ89RSN |
-| kaeru     |           5 |                    0 | x40               | Kaeru    | 39K        | 839S6B1bpfNA48eSRut25ytrnVJQVd2AAYCPj9Xgpump |
-| pkmn50    |           4 |                    0 | x32               | PKMN50   | 114K       | BcpRdQiNzwGRJLbtrUwKrLCWAVwm8Bm1KKbGYtUohoyG |
+| palabra   |   tokens_3h |   tokens_24h_previas | veces_lo_normal   | mayor   | mc_mayor   | mint_mayor                                   |
+|:----------|------------:|---------------------:|:------------------|:--------|:-----------|:---------------------------------------------|
+| vault     |          25 |                    7 | x29               | VAULT   | 312K       | FoE6vWnSb7HGMiYJL9b2gp6Hn3SxwCKNBkbftnKKq9Pu |
+| moin      |          23 |                    0 | x184              | moin    | 1183K      | 5mdbw1mfaB7JbejXdijFwybaUbV7SUzDJcAjKmxTeSmH |
+| gacha     |          10 |                    0 | x80               | GACHA   | 422K       | E1LY7wpf89QtKee6gVzWiJxRVJh8strksQTCqPiyNErH |
+| kaeru     |           5 |                    0 | x40               | Kaeru   | 39K        | 839S6B1bpfNA48eSRut25ytrnVJQVd2AAYCPj9Xgpump |
+| grokler   |           5 |                    0 | x40               | Grokler | 333K       | 5NbTiWe2L82Vd8PwYDwoRxHyJKkwThXzuX53Hq2U7c1x |
+| vbucks    |           5 |                    0 | x40               | VBUCKS  | 132K       | G3EZu7t5T4zy9bgbdKe7YbtNfBzL3nePcMr6JeaYsw1t |
+| inu       |           5 |                    0 | x40               | inu     | 126K       | 9L4xAusWTDaHxbA54ZRQGeqM5UZrHyysjx5qnTVvyApT |
+| ocelot    |           5 |                    0 | x40               | Ocelot  | 149K       | FdjkMLM79vWtvaDYU83xkXoZAPnhdKpicZmyFQQ89RSN |
+| pkmn50    |           4 |                    0 | x32               | PKMN50  | 114K       | BcpRdQiNzwGRJLbtrUwKrLCWAVwm8Bm1KKbGYtUohoyG |
+| beast     |           3 |                    0 | x24               | MrBeast | 522K       | 6FK66aZAaSrnmjvTh78y16U36kvfwf1L5A7tqofkpump |
 
 ## Narrativas activas (últimas 2 h)
 
 | narrativa    |   tokens_nuevos | lider      | mc_lider   | catalizador                                            | mint_lider                                   |
 |:-------------|----------------:|:-----------|:-----------|:-------------------------------------------------------|:---------------------------------------------|
-| ia           |               6 | ChatGPT    | 538K       |                                                        | 4S8creAKXGg3s9Te3KQsT9wP4ToiCk2y4pECe3pXpump |
+| ia           |               6 | Claude     | 500K       |                                                        | Bj5tXVUxSZ5BgDXa59rdiibqNmAaxE4nAPMdP42tpump |
 | videojuegos  |               6 | GTA 6 Coin | 1114K      | Lanzamiento de GTA 6 (previsto) (en 53 días)           | GHNJY8WowhxAFneGs3oXoFV5EpiScmNAZrnAuxN5pump |
 | animales     |               5 | inu        | 126K       |                                                        | 9L4xAusWTDaHxbA54ZRQGeqM5UZrHyysjx5qnTVvyApT |
 | politica     |               3 | BARRON     | 422K       | Elecciones de mitad de mandato en EE. UU. (en 37 días) | UTM3Ub28s6JKWVjcCr2Z4n5cWtdCXnGZq9H3EZ1pump  |
