@@ -1,0 +1,53 @@
+name: Radar memecoins
+
+# Cada 5 minutos (GitHub puede retrasar las ejecuciones programadas unos minutos).
+# Los datos se guardan en la rama `radar-datos` para no llenar main de commits.
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: radar-memes
+  cancel-in-progress: false
+
+jobs:
+  ciclo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pandas tabulate
+
+      - name: Preparar rama de datos
+        run: |
+          git config user.name "radar-memes"
+          git config user.email "radar-memes@users.noreply.github.com"
+          if git fetch origin radar-datos; then
+            git worktree add _datos origin/radar-datos
+            git -C _datos checkout -B radar-datos
+          else
+            git worktree add --detach _datos
+            git -C _datos checkout --orphan radar-datos
+            git -C _datos rm -rfq .
+          fi
+
+      - name: Escanear, seguir e informar
+        run: python radar.py ciclo --datos _datos
+
+      - name: Guardar datos
+        run: |
+          cd _datos
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -qm "radar: $(date -u +'%Y-%m-%d %H:%M') UTC"
+          for i in 1 2 3; do git push origin radar-datos && exit 0; sleep $((i * 5)); done
+          exit 1

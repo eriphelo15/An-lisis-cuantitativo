@@ -1,0 +1,56 @@
+"""Registro en CSV: una fila por token detectado y una por cada control posterior."""
+
+import csv
+import os
+
+COLUMNAS_DETECCION = [
+    "ts", "mint", "simbolo", "nombre", "pool", "dex", "edad_min",
+    "precio", "mc", "liq",
+    "compradores_m5", "vendedores_m5", "compradores_h1", "vendedores_h1",
+    "compras_h1", "ventas_h1", "vol_m5", "vol_h1",
+    "var_m5", "var_h1", "var_h6",
+    "rc_score", "rc_peligros", "rc_avisos", "rc_riesgos", "lp_bloqueado",
+    "clones", "pasa_filtro", "motivo_descarte", "puntuacion",
+]
+
+COLUMNAS_SEGUIMIENTO = [
+    "mint", "horizonte", "ts", "retraso_min", "precio", "mc", "liq", "vivo",
+    # Solo en el control de 24 h, calculados con velas de 5 min:
+    "max_x", "min_x", "min_hasta_max", "toco_2x", "regla_x",
+]
+
+
+class Almacen:
+    def __init__(self, carpeta):
+        self.carpeta = carpeta
+        os.makedirs(carpeta, exist_ok=True)
+        self.ruta_det = os.path.join(carpeta, "detecciones.csv")
+        self.ruta_seg = os.path.join(carpeta, "seguimiento.csv")
+
+    def _leer(self, ruta):
+        if not os.path.exists(ruta):
+            return []
+        with open(ruta, newline="", encoding="utf-8") as f:
+            return list(csv.DictReader(f))
+
+    def _anadir(self, ruta, columnas, filas):
+        if not filas:
+            return
+        nuevo = not os.path.exists(ruta)
+        with open(ruta, "a", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=columnas, extrasaction="ignore")
+            if nuevo:
+                w.writeheader()
+            w.writerows(filas)
+
+    def detecciones(self):
+        return self._leer(self.ruta_det)
+
+    def seguimientos(self):
+        return self._leer(self.ruta_seg)
+
+    def guardar_detecciones(self, filas):
+        self._anadir(self.ruta_det, COLUMNAS_DETECCION, filas)
+
+    def guardar_seguimientos(self, filas):
+        self._anadir(self.ruta_seg, COLUMNAS_SEGUIMIENTO, filas)
