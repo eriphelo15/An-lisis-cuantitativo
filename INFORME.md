@@ -1,8 +1,8 @@
 # Informe del radar de memecoins
 
-Generado: 2026-09-27 23:04 UTC
+Generado: 2026-09-27 23:08 UTC
 
-- Tokens registrados: **344** (desde 2026-09-27 18:07)
+- Tokens registrados: **348** (desde 2026-09-27 18:07)
 - Con resultado a 24 h: **0** (el primero llega 24 h después de la primera detección)
 - Pasan el filtro v1: **8**
 - Resultados en dólares por cada apuesta de $50, con 3% de costes en la entrada y en la salida:
@@ -31,9 +31,9 @@ Palabras que aparecen en muchos más tokens nuevos de lo normal: temas que se es
 
 | narrativa    |   tokens_nuevos | lider      | mc_lider   | catalizador                                            | mint_lider                                   |
 |:-------------|----------------:|:-----------|:-----------|:-------------------------------------------------------|:---------------------------------------------|
+| ia           |               6 | ChatGPT    | 538K       |                                                        | 4S8creAKXGg3s9Te3KQsT9wP4ToiCk2y4pECe3pXpump |
 | videojuegos  |               6 | GTA 6 Coin | 1114K      | Lanzamiento de GTA 6 (previsto) (en 53 días)           | GHNJY8WowhxAFneGs3oXoFV5EpiScmNAZrnAuxN5pump |
 | animales     |               5 | inu        | 126K       |                                                        | 9L4xAusWTDaHxbA54ZRQGeqM5UZrHyysjx5qnTVvyApT |
-| ia           |               4 | ChatGPT    | 538K       |                                                        | 4S8creAKXGg3s9Te3KQsT9wP4ToiCk2y4pECe3pXpump |
 | politica     |               3 | BARRON     | 422K       | Elecciones de mitad de mandato en EE. UU. (en 37 días) | UTM3Ub28s6JKWVjcCr2Z4n5cWtdCXnGZq9H3EZ1pump  |
 | cripto       |               3 | Google Gem | 467K       |                                                        | 5VKAyjJDHz9MpG7aFhbhwQjzgzPdsMdBxxAT9kR7pump |
 | elon         |               2 | SpaceX     | 514K       |                                                        | 3EpcGjzix1rVuThHgqaphCmRpeuCGjQwhboivhhppump |
