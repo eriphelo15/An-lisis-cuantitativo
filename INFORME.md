@@ -1,8 +1,8 @@
 # Informe del radar de memecoins
 
-Generado: 2026-09-27 23:35 UTC
+Generado: 2026-09-27 23:43 UTC
 
-- Tokens registrados: **383** (desde 2026-09-27 18:07)
+- Tokens registrados: **395** (desde 2026-09-27 18:07)
 - Con resultado a 24 h: **0** (el primero llega 24 h después de la primera detección)
 - Pasan el filtro v1: **9**
 - Resultados en dólares por cada apuesta de $50, con 3% de costes en la entrada y en la salida:
@@ -16,24 +16,24 @@ Palabras que aparecen en muchos más tokens nuevos de lo normal: temas que se es
 
 | palabra    |   tokens_3h |   tokens_24h_previas | veces_lo_normal   | mayor      | mc_mayor   | mint_mayor                                   |
 |:-----------|------------:|---------------------:|:------------------|:-----------|:-----------|:---------------------------------------------|
-| moin       |          26 |                    0 | x208              | moin       | 1183K      | 5mdbw1mfaB7JbejXdijFwybaUbV7SUzDJcAjKmxTeSmH |
-| vault      |          18 |                   14 | x10               | VAULT      | 175K       | DHLXeQmBYoKBzWUN2ZgNdZmdqHKLoWNUDerkRxredWx  |
+| moin       |          28 |                    0 | x224              | moin       | 1183K      | 5mdbw1mfaB7JbejXdijFwybaUbV7SUzDJcAjKmxTeSmH |
+| vault      |          14 |                   18 | x6                | VAULT      | 175K       | DHLXeQmBYoKBzWUN2ZgNdZmdqHKLoWNUDerkRxredWx  |
 | gacha      |          10 |                    0 | x80               | GACHA      | 422K       | E1LY7wpf89QtKee6gVzWiJxRVJh8strksQTCqPiyNErH |
 | claudechan |           7 |                    0 | x56               | CLAUDECHAN | 474K       | DmgujFb6P3NJfgLyFhJhcwnUBNQJ7QSBLwtNvy3vi4J9 |
-| kaeru      |           5 |                    0 | x40               | Kaeru      | 39K        | 839S6B1bpfNA48eSRut25ytrnVJQVd2AAYCPj9Xgpump |
+| buns       |           6 |                    0 | x48               | BUNS       | 499K       | 2YrzLLfojLVezr4oRx4D6VYeG2ehJHoPLs5Zbt1AATSv |
+| grokler    |           5 |                    0 | x40               | Grokler    | 333K       | 5NbTiWe2L82Vd8PwYDwoRxHyJKkwThXzuX53Hq2U7c1x |
 | inu        |           5 |                    0 | x40               | inu        | 126K       | 9L4xAusWTDaHxbA54ZRQGeqM5UZrHyysjx5qnTVvyApT |
 | ocelot     |           5 |                    0 | x40               | Ocelot     | 149K       | FdjkMLM79vWtvaDYU83xkXoZAPnhdKpicZmyFQQ89RSN |
-| grokler    |           5 |                    0 | x40               | Grokler    | 333K       | 5NbTiWe2L82Vd8PwYDwoRxHyJKkwThXzuX53Hq2U7c1x |
+| kaeru      |           5 |                    0 | x40               | Kaeru      | 39K        | 839S6B1bpfNA48eSRut25ytrnVJQVd2AAYCPj9Xgpump |
 | vbucks     |           5 |                    0 | x40               | VBUCKS     | 132K       | G3EZu7t5T4zy9bgbdKe7YbtNfBzL3nePcMr6JeaYsw1t |
-| buns       |           4 |                    0 | x32               | BUNS       | 499K       | 2YrzLLfojLVezr4oRx4D6VYeG2ehJHoPLs5Zbt1AATSv |
 
 ## Narrativas activas (últimas 2 h)
 
 | narrativa    |   tokens_nuevos | lider      | mc_lider   | catalizador                                            | mint_lider                                   |
 |:-------------|----------------:|:-----------|:-----------|:-------------------------------------------------------|:---------------------------------------------|
-| ia           |              11 | CLAUDECHAN | 114K       |                                                        | L3AkrXzxvigXwefBR5ov87BMsKVJTss76kDk8tLHihr  |
+| ia           |              12 | CLAUDECHAN | 114K       |                                                        | L3AkrXzxvigXwefBR5ov87BMsKVJTss76kDk8tLHihr  |
 | videojuegos  |               7 | GTA 6 Coin | 1114K      | Lanzamiento de GTA 6 (previsto) (en 53 días)           | GHNJY8WowhxAFneGs3oXoFV5EpiScmNAZrnAuxN5pump |
-| animales     |               5 | inu        | 126K       |                                                        | 9L4xAusWTDaHxbA54ZRQGeqM5UZrHyysjx5qnTVvyApT |
+| animales     |               6 | Bdfbull    | 122K       |                                                        | F1CZsBwru1KGc4wZHem9oAjna2xkBJ3DbS4db9QvBAGS |
 | cripto       |               4 | Google Gem | 467K       |                                                        | 5VKAyjJDHz9MpG7aFhbhwQjzgzPdsMdBxxAT9kR7pump |
 | celebridades |               1 | MrBeast    | 519K       |                                                        | G5MmckrvhcqqRArzW3iyU4GQJuvQNC6PVPmDhPs8pump |
 | elon         |               1 | Elon Coin  | 474K       |                                                        | Cfctf6xtNf96tM8jKmEZYAYmjjnpaEQH4gxeJP34pump |
