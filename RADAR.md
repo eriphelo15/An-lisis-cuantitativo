@@ -59,13 +59,14 @@ para medir con datos reales qué señales separan a los que se duplican de los q
 ## Dónde verlo
 
 GitHub Actions lo ejecuta cada 5 minutos (`.github/workflows/radar.yml`) y guarda los datos
-en la rama **`radar-datos`**:
+en la rama **`radar-datos`**. Cada ejecución dura unas 5 h 40 min, con un ciclo cada 5 minutos,
+y al terminar se relanza sola; la programación de GitHub (cada 30 min) queda de respaldo por si
+la cadena se corta. Para pararlo: *Actions* → *Radar memecoins* → *…* → *Disable workflow*.
 
 - `INFORME.md`: el informe, legible desde el móvil en GitHub.
 - `detecciones.csv` y `seguimiento.csv`: los datos en bruto.
 
-La programación solo se activa cuando el workflow está en la rama principal (`main`).
-También se puede lanzar a mano desde la pestaña *Actions* → *Radar memecoins* → *Run workflow*.
+Para arrancarlo (o reanudarlo si se cortó): *Actions* → *Radar memecoins* → *Run workflow*.
 
 ## En tu ordenador
 

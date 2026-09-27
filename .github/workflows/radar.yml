@@ -1,23 +1,28 @@
 name: Radar memecoins
 
-# Cada 5 minutos (GitHub puede retrasar las ejecuciones programadas unos minutos).
+# Un trabajo largo (~5 h 40 min) que ejecuta un ciclo cada 5 minutos y guarda
+# los datos después de cada uno; al terminar se relanza a sí mismo. La
+# programación con cron queda solo como respaldo: GitHub no garantiza lanzarla.
+#
+# Para pararlo: Actions -> Radar memecoins -> "..." -> Disable workflow.
 # Los datos se guardan en la rama `radar-datos` para no llenar main de commits.
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: radar-memes
   cancel-in-progress: false
 
 jobs:
-  ciclo:
+  ciclos:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 355
     steps:
       - uses: actions/checkout@v4
 
@@ -40,16 +45,28 @@ jobs:
             git -C _datos rm -rfq .
           fi
 
-      # El trabajo muere a los 15 min: con 9 min de plazo siempre queda tiempo para guardar.
-      - name: Escanear, seguir e informar
-        run: python -u radar.py ciclo --datos _datos --plazo 540
-
-      - name: Guardar datos
-        if: always()
+      # Cada ciclo tiene 9 min de plazo; después se guarda y se espera hasta
+      # completar 5 min desde que empezó.
+      - name: Ciclos cada 5 minutos
         run: |
-          cd _datos
-          git add -A
-          git diff --cached --quiet && exit 0
-          git commit -qm "radar: $(date -u +'%Y-%m-%d %H:%M') UTC"
-          for i in 1 2 3; do git push origin radar-datos && exit 0; sleep $((i * 5)); done
-          exit 1
+          fin=$((SECONDS + 340 * 60))
+          while [ $SECONDS -lt $fin ]; do
+            inicio=$SECONDS
+            python -u radar.py ciclo --datos _datos --plazo 540 || echo "::warning::el ciclo falló"
+            (
+              cd _datos
+              git add -A
+              if ! git diff --cached --quiet; then
+                git commit -qm "radar: $(date -u +'%Y-%m-%d %H:%M') UTC"
+                for i in 1 2 3; do git push -q origin radar-datos && break; sleep $((i * 5)); done
+              fi
+            ) || echo "::warning::no se pudieron guardar los datos"
+            espera=$((300 - (SECONDS - inicio)))
+            if [ $espera -gt 0 ]; then sleep $espera; fi
+          done
+
+      - name: Relanzar
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run radar.yml --ref main --repo "$GITHUB_REPOSITORY"
