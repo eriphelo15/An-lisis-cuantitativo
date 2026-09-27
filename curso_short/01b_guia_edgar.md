@@ -93,3 +93,16 @@ Enlaces (EDGAR):
 - 8-K fusión 17-sep-2026: https://www.sec.gov/Archives/edgar/data/882291/000168316826007206/aethlon_8k.htm
 
 Ahora te toca: **GIPR** (gap 18-sep) y **APUS** (gap 24-sep) con los mismos pasos.
+
+---
+## Lecciones de la práctica (GIPR y APUS)
+1. **El periodo manda.** En un 10-Q del 2º trimestre el flujo de caja es de 6 meses; del 3º, de 9 meses. Divide por los meses correctos.
+2. **Todos los números del flujo de caja salen de la misma tabla** (Statement of Cash Flows); no mezcles con la tabla de patrimonio (3 meses).
+3. **Caja restringida no cuenta** (`Restricted cash` … *not available for general corporate purposes*). APUS: $278 k usables → ~6 días de runway.
+4. **Pérdida neta ≠ quema de caja.** Usa *Net cash used in operating activities*; la pérdida neta incluye partidas sin salida de dinero (revalorización de cripto, acciones a asesores).
+5. **424B3 "Supplement" = anexo.** El precio de la venta original está en el 424B4/424B5; el anexo suele traer pegado un 8-K reciente (GIPR: *warrant inducement* el mismo día del gap).
+6. **Warrant inducement:** la empresa baja el precio de ejercicio y regala warrants nuevos para que el inversor ejerza YA → acciones nuevas vendidas en el pump.
+7. **Busca la tabla de "anti-dilutive securities"** (preferentes convertibles, opciones, warrants, acciones comprometidas). APUS: 15 M de acciones potenciales vs 1.5 M en circulación.
+8. **Nota convertible con número de acciones "not determinable" = precio variable (tóxica).**
+9. **Warrants: compara precio de ejercicio con precio actual.** Fuera del dinero (APUS $17.80-$50 con la acción en ~$6) no amenazan hoy; dentro del dinero (GIPR $1.05 con la acción en $1.49) se ejercen y se venden.
+10. **Catalizador sin 8-K = probablemente inmaterial.** Si un contrato fuera importante, la empresa estaría obligada a presentar un 8-K (Item 1.01). Checklist de una nota de prensa: ¿monto en dólares? ¿contraparte conocida y verificable? ¿pago en efectivo o en "tokens/créditos"? ¿plazo firme o "posible extensión"? ¿8-K presentado?
