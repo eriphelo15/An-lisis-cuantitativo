@@ -1,0 +1,196 @@
+// Pullback VI filtrado [EAO] — indicador para NQ / MNQ, gráfico de 1 minuto, horas extendidas (ETH) activadas.
+// Reglas validadas en 15 años (2010-2026). Ver fondeo/REGLAS_pullback_VI_filtrado.md
+//
+// Señal (compra; venta al revés), evaluada al CIERRE de cada vela entre 09:31 y 11:29 ET:
+//  1) Tendencia: EMA20 > EMA50 y cierre por encima de ambas
+//  2) Volume imbalance en contra: cuerpo actual por debajo del cuerpo anterior y mechas que se tocan
+//  3) Día a favor:    cierre - apertura 09:30 > 0.158 x ATR
+//  4) EMA20 inclinada: EMA20 - EMA20 de hace 10 velas > 0.074 x ATR
+//  5) Stop válido:    stop = EMA50 - 2 ticks; distancia entre 0.069 y 0.25 x ATR
+// Entrada al cierre de la vela, stop fijo, objetivo 2R, cierre a las 15:55. Máximo 1 operación al día.
+// ATR = media del rango RTH (09:30-16:00) de los 14 días anteriores (calculado con velas de 30 min).
+
+//@version=5
+indicator("Pullback VI filtrado [EAO]", overlay = true, max_labels_count = 500, max_lines_count = 500, max_bars_back = 500)
+
+grpF = "Filtros (validados, no cambiar)"
+kMov     = input.float(0.158, "Día a favor (x ATR)", step = 0.001, group = grpF)
+kPend    = input.float(0.074, "Pendiente EMA20 en 10 velas (x ATR)", step = 0.001, group = grpF)
+kStopMin = input.float(0.069, "Stop mínimo (x ATR)", step = 0.001, group = grpF)
+kStopMax = input.float(0.25,  "Stop máximo (x ATR)", step = 0.01, group = grpF)
+ticksStp = input.int(2, "Ticks más allá de la EMA50", group = grpF)
+rrObj    = input.float(2.0, "Objetivo (R)", step = 0.5, group = grpF)
+
+grpA = "ATR"
+atrManual = input.float(0.0, "ATR manual en puntos (0 = automático)", tooltip = "Úsalo si tu plan de TradingView no carga 14 días de velas de 1 min.", group = grpA)
+
+grpT = "Tamaño"
+riesgoUSD = input.float(250, "Riesgo por operación (USD)", group = grpT)
+usdPtMNQ  = input.float(2.0, "USD por punto (MNQ = 2, NQ = 20)", group = grpT)
+costeCto  = input.float(2.82, "Coste ida+vuelta por contrato (USD)", group = grpT)
+
+grpV = "Visual"
+verTabla = input.bool(true, "Mostrar tabla de estadísticas", group = grpV)
+verEMAs  = input.bool(true, "Mostrar EMAs", group = grpV)
+verDebug = input.bool(false, "Depuración: marcar VI en tendencia sin filtros", group = grpV)
+
+tz = "America/New_York"
+tick = syminfo.mintick
+
+ema20 = ta.ema(close, 20)
+ema50 = ta.ema(close, 50)
+plot(verEMAs ? ema20 : na, "EMA 20", color.new(color.aqua, 0), 1)
+plot(verEMAs ? ema50 : na, "EMA 50", color.new(color.orange, 0), 1)
+
+hhmm   = hour(time, tz) * 100 + minute(time, tz)
+enRTH  = not na(time(timeframe.period, "0930-1600", tz))
+enVent = not na(time(timeframe.period, "0931-1130", tz))
+
+// ---------- ATR del día (rango RTH medio de 14 días anteriores) ----------
+// Se calcula sobre velas de 30 min (request.security) para no depender de 14 días de historial de 1 min.
+atrRTH() =>
+    var float h = na
+    var float l = na
+    var float[] rs = array.new_float()
+    dentro = not na(time(timeframe.period, "0930-1600", "America/New_York"))
+    if dentro
+        h := na(h) ? high : math.max(h, high)
+        l := na(l) ? low : math.min(l, low)
+    else if not na(h)
+        array.push(rs, h - l)
+        if array.size(rs) > 14
+            array.shift(rs)
+        h := na
+        l := na
+    array.size(rs) == 14 ? array.avg(rs) : na
+
+atrAuto = request.security(syminfo.tickerid, "30", atrRTH(), lookahead = barmerge.lookahead_off)
+
+var float ap930 = na
+var bool  operadoHoy = false
+if hhmm == 930 and hhmm[1] != 930
+    ap930 := open
+    operadoHoy := false
+
+atrD = atrManual > 0 ? atrManual : atrAuto
+
+// ---------- Señales ----------
+viBaj = math.max(open, close) < math.min(open[1], close[1]) and high >= low[1]   // VI bajista (contra tendencia alcista)
+viAlc = math.min(open, close) > math.max(open[1], close[1]) and low <= high[1]   // VI alcista (contra tendencia bajista)
+tendAlc = ema20 > ema50 and close > ema20 and close > ema50
+tendBaj = ema20 < ema50 and close < ema20 and close < ema50
+
+stopL = ema50 - ticksStp * tick
+stopC = ema50 + ticksStp * tick
+distL = close - stopL
+distC = stopC - close
+
+baseOK = barstate.isconfirmed and enVent and not na(atrD) and not na(ap930) and not operadoHoy
+senalL = baseOK and tendAlc and viBaj and (close - ap930) > kMov * atrD and (ema20 - ema20[10]) > kPend * atrD and distL >= math.max(kStopMin * atrD, 4 * tick) and distL <= kStopMax * atrD
+senalC = baseOK and tendBaj and viAlc and (ap930 - close) > kMov * atrD and (ema20[10] - ema20) > kPend * atrD and distC >= math.max(kStopMin * atrD, 4 * tick) and distC <= kStopMax * atrD
+
+plotshape(verDebug and barstate.isconfirmed and enVent and tendAlc and viBaj, "VI en tendencia alcista (sin filtros)", shape.circle, location.belowbar, color.new(color.teal, 40), size = size.tiny)
+plotshape(verDebug and barstate.isconfirmed and enVent and tendBaj and viAlc, "VI en tendencia bajista (sin filtros)", shape.circle, location.abovebar, color.new(color.maroon, 40), size = size.tiny)
+
+// ---------- Gestión de la operación ----------
+var int   pos = 0
+var float ent = na
+var float stp = na
+var float obj = na
+var float rsg = na
+var line  lnE = na
+var line  lnS = na
+var line  lnO = na
+var int   nOps = 0
+var int   nGan = 0
+var float sumR = 0.0
+var float sumRpos = 0.0
+var float sumRneg = 0.0
+var int   racha = 0
+var int   peorRacha = 0
+var string estado = "Esperando señal"
+
+float rSalida = na
+string motSalida = na
+if pos != 0 and barstate.isconfirmed
+    if pos == 1
+        if low <= stp
+            rSalida := ((open < stp ? open : stp) - ent) / rsg
+            motSalida := "STOP"
+        else if high >= obj
+            rSalida := (obj - ent) / rsg
+            motSalida := "OBJETIVO"
+    else
+        if high >= stp
+            rSalida := (ent - (open > stp ? open : stp)) / rsg
+            motSalida := "STOP"
+        else if low <= obj
+            rSalida := (ent - obj) / rsg
+            motSalida := "OBJETIVO"
+    if na(rSalida) and hhmm >= 1555
+        rSalida := pos * (close - ent) / rsg
+        motSalida := "15:55"
+    if not na(rSalida)
+        nOps += 1
+        sumR += rSalida
+        if rSalida > 0
+            nGan += 1
+            sumRpos += rSalida
+            racha := 0
+        else
+            sumRneg += rSalida
+            racha += 1
+            peorRacha := math.max(peorRacha, racha)
+        line.set_x2(lnE, bar_index)
+        line.set_x2(lnS, bar_index)
+        line.set_x2(lnO, bar_index)
+        label.new(bar_index, pos == 1 ? high : low, motSalida + "\n" + str.tostring(rSalida, "+0.00;-0.00") + "R",
+                  style = pos == 1 ? label.style_label_down : label.style_label_up,
+                  color = rSalida > 0 ? color.new(color.green, 10) : color.new(color.red, 10), textcolor = color.white, size = size.small)
+        estado := "Cerrada: " + motSalida + " " + str.tostring(rSalida, "+0.00;-0.00") + "R"
+        pos := 0
+    else
+        line.set_x2(lnE, bar_index)
+        line.set_x2(lnS, bar_index)
+        line.set_x2(lnO, bar_index)
+
+if pos == 0 and (senalL or senalC)
+    pos := senalL ? 1 : -1
+    ent := close
+    stp := senalL ? stopL : stopC
+    rsg := math.abs(ent - stp)
+    obj := ent + pos * rrObj * rsg
+    operadoHoy := true
+    lnE := line.new(bar_index, ent, bar_index + 1, ent, color = color.gray, width = 1)
+    lnS := line.new(bar_index, stp, bar_index + 1, stp, color = color.red, width = 1)
+    lnO := line.new(bar_index, obj, bar_index + 1, obj, color = color.green, width = 1)
+    ctos = math.floor(riesgoUSD / (rsg * usdPtMNQ + costeCto))
+    label.new(bar_index, senalL ? low : high,
+              (senalL ? "COMPRA" : "VENTA") + "\nStop " + str.tostring(rsg, "#.##") + " pts\nObj " + str.tostring(rrObj * rsg, "#.##") + " pts\nContratos: " + str.tostring(ctos),
+              style = senalL ? label.style_label_up : label.style_label_down,
+              color = senalL ? color.new(color.teal, 0) : color.new(color.maroon, 0), textcolor = color.white, size = size.small)
+    estado := (senalL ? "LARGO" : "CORTO") + " abierto en " + str.tostring(ent) + " | stop " + str.tostring(stp) + " | obj " + str.tostring(obj)
+
+alertcondition(senalL, "Pullback VI - COMPRA", "Pullback VI filtrado: señal de COMPRA (stop EMA50 - 2 ticks, objetivo 2R)")
+alertcondition(senalC, "Pullback VI - VENTA", "Pullback VI filtrado: señal de VENTA (stop EMA50 + 2 ticks, objetivo 2R)")
+
+// ---------- Tabla ----------
+var table tb = table.new(position.top_right, 2, 11, bgcolor = color.new(color.black, 20), border_width = 1)
+f(table t, int r, string a, string b) =>
+    table.cell(t, 0, r, a, text_color = color.white, text_size = size.small, text_halign = text.align_left)
+    table.cell(t, 1, r, b, text_color = color.white, text_size = size.small, text_halign = text.align_right)
+
+if verTabla and barstate.islast
+    f(tb, 0, "ATR del día", na(atrD) ? "calculando (pon el ATR manual)" : str.tostring(atrD, "#.0") + " pts" + (atrManual > 0 ? " (manual)" : ""))
+    f(tb, 1, "Filtro día a favor", na(atrD) ? "-" : "> " + str.tostring(kMov * atrD, "#.0") + " pts")
+    f(tb, 2, "Filtro pendiente EMA20", na(atrD) ? "-" : "> " + str.tostring(kPend * atrD, "#.0") + " pts")
+    f(tb, 3, "Stop válido", na(atrD) ? "-" : str.tostring(kStopMin * atrD, "#.0") + " a " + str.tostring(kStopMax * atrD, "#.0") + " pts")
+    f(tb, 4, "Operaciones", str.tostring(nOps))
+    f(tb, 5, "Acierto", nOps > 0 ? str.tostring(100.0 * nGan / nOps, "#.0") + "%" : "-")
+    f(tb, 6, "R medio / total", nOps > 0 ? str.tostring(sumR / nOps, "+0.00;-0.00") + " / " + str.tostring(sumR, "+0.0;-0.0") : "-")
+    f(tb, 7, "Ganancia / pérdida media", (nGan > 0 ? str.tostring(sumRpos / nGan, "0.00") : "-") + " / " + (nOps - nGan > 0 ? str.tostring(sumRneg / (nOps - nGan), "0.00") : "-") + " R")
+    f(tb, 8, "Peor racha perdedora", str.tostring(peorRacha))
+    f(tb, 9, "Esperado (15 años)", "38% acierto, +0.10R, racha 14")
+    f(tb, 10, "Estado", estado)
+    if timeframe.period != "1"
+        table.cell(tb, 1, 10, "⚠ Usa velas de 1 minuto", text_color = color.yellow, text_size = size.small)

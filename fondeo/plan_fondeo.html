@@ -1,0 +1,184 @@
+<title>Plan Fondeo Tradeify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#10151c; --ink2:#4b5461; --muted:#7d8692; --rule:#e2e5ea; --grid:#eceef1;
+  --s1:#2a78d6; --s2:#eb6834; --ref:#9aa3ad; --band:#e9f0fa;
+  --good:#1a7f4b; --good-bg:#e5f4ec; --warn:#9a6412; --warn-bg:#fbf0dc; --bad:#b53b39; --bad-bg:#f9e6e5;
+  --disp:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --bg:#11151a; --panel:#171c22; --ink:#eef1f4; --ink2:#b6bec8; --muted:#87909b; --rule:#29313a; --grid:#222931;
+  --s1:#3987e5; --s2:#d95926; --ref:#6d7782; --band:#18222e;
+  --good:#4cc38a; --good-bg:#15291f; --warn:#e2a64a; --warn-bg:#2b2213; --bad:#ec7a77; --bad-bg:#2e1a1a;}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --bg:#11151a; --panel:#171c22; --ink:#eef1f4; --ink2:#b6bec8; --muted:#87909b; --rule:#29313a; --grid:#222931;
+  --s1:#3987e5; --s2:#d95926; --ref:#6d7782; --band:#18222e;
+  --good:#4cc38a; --good-bg:#15291f; --warn:#e2a64a; --warn-bg:#2b2213; --bad:#ec7a77; --bad-bg:#2e1a1a;}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 var(--body);padding-inline:16px;padding-block:32px 64px}
+main{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:48px}
+h1,h2,h3{font-family:var(--disp);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(30px,5vw,44px);font-weight:700;letter-spacing:-.01em}
+h2{font-size:24px;font-weight:600}
+h3{font-size:17px;font-weight:600}
+p{margin:0;max-width:68ch;color:var(--ink2)}
+p strong{color:var(--ink)}
+section{display:flex;flex-direction:column;gap:16px}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lede{font-size:17px;color:var(--ink2)}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;font:13px var(--mono);color:var(--muted)}
+.panel{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:20px}
+.verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.vcard{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.vcard .big{font:600 26px/1 var(--mono);font-variant-numeric:tabular-nums;color:var(--ink)}
+.vcard .big small{font-size:14px;color:var(--muted);font-weight:400}
+.pill{display:inline-flex;align-items:center;gap:6px;font:500 12px/1 var(--mono);padding:5px 8px;border-radius:99px;width:max-content}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.p-good{color:var(--good);background:var(--good-bg)} .p-warn{color:var(--warn);background:var(--warn-bg)} .p-bad{color:var(--bad);background:var(--bad-bg)}
+.chart{position:relative;width:100%}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{font:11px var(--mono);fill:var(--muted)}
+.chart .lbl{fill:var(--ink2);font-size:12px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font:12px var(--mono);color:var(--ink2)}
+.legend i{display:inline-block;width:14px;height:2px;vertical-align:middle;margin-right:6px;border-radius:2px}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font:12px/1.4 var(--mono);padding:6px 8px;border-radius:4px;white-space:nowrap;transform:translate(-50%,-110%);opacity:0;transition:opacity .1s}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{text-align:right;padding:8px 10px;border-bottom:1px solid var(--rule);white-space:nowrap}
+th{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+th:first-child,td:first-child{text-align:left;white-space:normal;min-width:180px}
+td.num{font-family:var(--mono)}
+.cands{display:flex;flex-direction:column;gap:20px}
+.cand{display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:20px;align-items:start}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;font-size:13px}
+.stats div span{display:block;font:11px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.stats div b{font:500 16px var(--mono);font-variant-numeric:tabular-nums}
+.rule{font:13px/1.5 var(--mono);color:var(--ink2);background:var(--bg);border:1px solid var(--rule);border-radius:4px;padding:10px 12px}
+ul{margin:0;padding-left:20px;color:var(--ink2);display:flex;flex-direction:column;gap:6px;max-width:70ch}
+code{font:13px var(--mono)}
+@media (max-width:680px){.cand{grid-template-columns:1fr}}
+</style>
+<style>
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:500 13px var(--mono);padding:8px 12px;border-radius:6px;border:1px solid var(--rule);background:var(--panel);color:var(--ink2);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.seg button:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.kpi{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.kpi span{font:11px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.kpi b{font:500 22px/1.1 var(--mono);font-variant-numeric:tabular-nums}
+.kpi small{font-size:12px;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.step{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.step h3{font-size:16px}
+.step dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:13px}
+.step dt{font:11px var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding-top:2px}
+.step dd{margin:0;font-family:var(--mono);font-variant-numeric:tabular-nums}
+td.pos{color:var(--good)} td.neg{color:var(--bad)}
+tr.hl td{background:var(--band)}
+.note{font-size:13px;color:var(--muted)}
+</style><main>
+<header style="display:flex;flex-direction:column;gap:12px">
+  <div class="eyebrow">Tradeify · Monte Carlo sobre días reales de NQ · reglas verificadas el 26-sep-2026</div>
+  <h1>Plan Fondeo Tradeify</h1>
+  <p class="lede">Sin ventaja sobre el mercado: cada trade entra en dirección aleatoria. Todo el valor sale de las reglas de la cuenta (pérdida limitada a la cuota y retiros de las rachas buenas) y de una política de apuesta optimizada para ellas.</p>
+  <div class="seg" role="group" aria-label="Escenario" id="seg">
+    <button type="button" id="b-cons" data-e="cons">Conservador · días 2011-2020</button>
+    <button type="button" id="b-opt" data-e="opt">Reciente · días 2021-2026</button>
+  </div>
+  <p class="note">La política se optimizó con días de 2021-2026 y se validó con días de 2011-2020 que no participaron. Úsalo como referencia principal: el escenario conservador.</p>
+</header>
+
+<section><div class="eyebrow">Tu cartera: $1,000 en cuotas, hasta 5 fondeadas</div>
+<h2>Resultado esperado a 12 meses con Select 50K → Flex</h2>
+<div class="kpis" id="kpis"></div>
+<div class="panel"><h3 style="margin-bottom:4px">Distribución del resultado neto de la cartera</h3><p class="note" style="margin-bottom:8px">Retiros cobrados menos cuotas pagadas, 40,000 simulaciones. Recortado a +$8,000.</p><div class="chart" id="c-hist"></div></div>
+</section>
+
+<section><div class="eyebrow">El plan de ejecución</div><h2>Tres fases, reglas fijas</h2>
+<div class="steps">
+ <div class="step"><span class="pill p-warn">Fase 1 · Examen Select 50K</span><h3>Aprobar con 2 MNQ y un solo trade al día</h3>
+  <dl><dt>Contratos</dt><dd>2 MNQ</dd><dt>Stop</dt><dd>60 pts ($240)</dd><dt>Objetivo</dt><dd>240 pts ($960)</dd><dt>Trades/día</dt><dd>1</dd>
+  <dt>Entrada</dt><dd>09:31 ET, dirección por tu regla (sin sesgo)</dd><dt>Sin tocar</dt><dd>stop ni objetivo una vez puestos</dd>
+  <dt>Salida</dt><dd>por stop, objetivo o a las 15:55 ET</dd><dt>Último trade</dt><dd>objetivo recortado a lo que falte para $3,000</dd></dl>
+  <p class="note" id="n-ex"></p></div>
+ <div class="step"><span class="pill p-good">Fase 2 · Fondeada Select Flex</span><h3>Acumular días ganadores con 1 MNQ</h3>
+  <dl><dt>Contratos</dt><dd>1 MNQ</dd><dt>Stop</dt><dd>60 pts ($120)</dd><dt>Objetivo</dt><dd>180 pts ($360)</dd><dt>Trades/día</dt><dd>1</dd>
+  <dt>Entrada</dt><dd>09:31 ET</dd><dt>Salida</dt><dd>stop, objetivo o 15:55 ET</dd><dt>Retiro</dt><dd>en cuanto haya 5 días ≥ $150: el 50% del beneficio (tope $2,500)</dd></dl>
+  <p class="note" id="n-fd"></p></div>
+ <div class="step"><span class="pill p-good">Fase 3 · Cartera</span><h3>Comprar exámenes de uno en uno</h3>
+  <dl><dt>Precio</dt><dd>$165 lista, ~$115 con 30%</dd><dt>Presupuesto</dt><dd>$1,000 ≈ 8 exámenes</dd><dt>Activos</dt><dd>1-2 exámenes a la vez</dd>
+  <dt>Al fallar</dt><dd>comprar otro, hasta agotar el presupuesto</dd><dt>Tope</dt><dd>5 fondeadas por plan</dd><dt>Nunca</dt><dd>copiar el mismo trade a varias cuentas, ni posiciones opuestas entre cuentas</dd></dl>
+  <p class="note">Operar cada cuenta con trades distintos mantiene sus resultados independientes. Copiar los trades baja la probabilidad de ganar de 65% a ~20%.</p></div>
+</div></section>
+
+<section><div class="eyebrow">Por qué funciona</div><h2>El trade no gana; la estructura sí</h2>
+<div class="grid2">
+ <div class="panel"><h3>Un día de la fondeada</h3><div class="kpis" id="kpis-dia" style="margin-top:10px"></div>
+ <p class="note" style="margin-top:10px">El resultado medio por día es casi cero. Pero cada retiro se lleva la mitad de lo ganado, y si la cuenta se quiebra solo pierdes la cuota ya pagada. Los retiros capturan las rachas buenas; las malas las absorbe la firma.</p></div>
+ <div class="panel"><h3>Retiros por cuenta fondeada (12 meses)</h3><div class="chart" id="c-ret"></div><p class="note">Probabilidad de cobrar exactamente N retiros antes de quebrar o de cumplir 250 días.</p></div>
+</div></section>
+
+<section><div class="eyebrow">Comparación de planes</div><h2>Todos los planes y tamaños, mismo presupuesto</h2>
+<div class="tbl"><table id="t-pl"><thead><tr><th>Plan</th><th>Tamaño</th><th>Cuota</th><th>Aprobar</th><th>Valor fondeada</th><th>Cobra ≥1 retiro</th><th>Valor por cuota</th><th>Cartera $1,000</th><th>P(ganar)</th><th>Mediana</th></tr></thead><tbody></tbody></table></div>
+<p class="note">Cifras conservadoras (días 2011-2020). Cuotas con 30% de descuento. Lightning no tiene examen: se paga más y se empieza fondeado.</p></section>
+
+<section><div class="eyebrow">Antes de comprar</div><h2>Qué confirmar en tu panel de Tradeify</h2>
+<ul>
+ <li><strong>Reglas de retiro de Select Flex 50K:</strong> 5 días ganadores de al menos $150, retiro de hasta el 50% del beneficio y tope de $2,500. Las fuentes secundarias dan topes distintos ($2,500 a $3,000).</li>
+ <li><strong>Si el drawdown se reduce al retirar.</strong> El modelo asume que no: el piso queda donde estaba, que es el supuesto más conservador.</li>
+ <li><strong>Hora de cierre obligatorio</strong> (16:45 o 16:59 ET). El plan cierra a las 15:55, así que cualquiera de las dos sirve.</li>
+ <li><strong>Si se puede operar a la vez en varias cuentas propias.</strong> El hedging entre cuentas está prohibido: nunca tengas una cuenta comprada y otra vendida al mismo tiempo.</li>
+ <li><strong>Cupón vigente.</strong> Con 40% de descuento, el presupuesto rinde 10 exámenes en lugar de 8.</li>
+</ul></section>
+
+<section><div class="eyebrow">Supuestos y riesgos</div><h2>Lo que puede salir distinto</h2>
+<ul>
+ <li><strong>Disciplina.</strong> El modelo ejecuta la política sin excepciones. Mover el stop, sumar un segundo trade o subir contratos tras una pérdida la destruye.</li>
+ <li><strong>Tu forma de elegir la dirección.</strong> El modelo usa dirección aleatoria, es decir, cero ventaja. Si tu criterio de entrada tiene ventaja negativa (entradas tardías, perseguir el precio), el resultado empeora.</li>
+ <li><strong>Cambio de reglas.</strong> Si Tradeify cambia las reglas de retiro o de drawdown, la política óptima cambia. Hay que volver a correr el modelo.</li>
+ <li><strong>Varianza real.</strong> Hay un 16% de probabilidad de perder casi todo el presupuesto (ninguna cuenta aprobada o ningún retiro). No inviertas dinero que no puedas perder.</li>
+ <li><strong>Costos incluidos.</strong> $1.82 de comisión por MNQ más 1 tick de deslizamiento por lado. Stops en 1 minuto; si stop y objetivo caen en la misma barra, se cuenta el stop.</li>
+</ul>
+<p class="note">Código en la rama claude/analisis-cuantitativo-45j7qe, carpeta fondeo/. Esto es un modelo estadístico, no asesoría financiera.</p></section>
+</main><script>
+const P={"panel": {"cons": {"p_aprobar": 0.2907, "dias_aprobar_med": 21.0, "dias_aprobar_p75": 30.0, "dias_fallar_med": 18.0, "fondeada_ev": 926.3936065997042, "fondeada_p_cobra": 0.698625, "cartera": {"ev": 1220.8215924581707, "p_ganar": 0.6522, "p10": -923.9999999999999, "p50": 716.6900151151199, "p90": 4021.385029056036, "peor": -923.9999999999999, "examenes": 7.965225, "fondeadas": 2.3088}, "hist": [[-1000, 6416], [-750, 2944], [-500, 2406], [-250, 2146], [0, 2130], [250, 2190], [500, 2065], [750, 1764], [1000, 1745], [1250, 1657], [1500, 1520], [1750, 1362], [2000, 1368], [2250, 1156], [2500, 1106], [2750, 1007], [3000, 862], [3250, 784], [3500, 684], [3750, 634], [4000, 526], [4250, 421], [4500, 407], [4750, 389], [5000, 324], [5250, 264], [5500, 265], [5750, 209], [6000, 219], [6250, 163], [6500, 129], [6750, 118], [7000, 86], [7250, 69], [7500, 63], [7750, 402]], "p_perder_todo": 0.160375, "p_mas_2000": 0.291375}, "opt": {"p_aprobar": 0.31655, "dias_aprobar_med": 18.0, "dias_aprobar_p75": 27.0, "dias_fallar_med": 16.0, "fondeada_ev": 1201.777023880509, "fondeada_p_cobra": 0.757875, "cartera": {"ev": 2111.0638810554615, "p_ganar": 0.755675, "p10": -923.9999999999999, "p50": 1548.6950308586943, "p90": 5727.341155367664, "peor": -923.9999999999999, "examenes": 7.94735, "fondeadas": 2.51315}, "hist": [[-1000, 4426], [-750, 1960], [-500, 1721], [-250, 1666], [0, 1668], [250, 1638], [500, 1765], [750, 1623], [1000, 1661], [1250, 1611], [1500, 1501], [1750, 1446], [2000, 1329], [2250, 1305], [2500, 1168], [2750, 1154], [3000, 1093], [3250, 1024], [3500, 942], [3750, 917], [4000, 779], [4250, 743], [4500, 717], [4750, 605], [5000, 574], [5250, 478], [5500, 533], [5750, 393], [6000, 411], [6250, 380], [6500, 300], [6750, 278], [7000, 222], [7250, 229], [7500, 213], [7750, 1527]], "p_perder_todo": 0.11065, "p_mas_2000": 0.43285}}, "det": {"opt": {"fondeada_wr_dia": 0.29515, "fondeada_dia_ganador": 316.4529332966613, "fondeada_dia_perdedor": -121.31088424719452, "fondeada_dias_buenos": 0.264225, "fondeada_exp_dia": 7.895106500874527, "examen_wr_dia": 0.254775, "examen_dia_ganador": 742.0677705456667, "examen_dia_perdedor": -241.9294811297455, "dias_a_primer_retiro_mediana": 17.0, "p_primer_retiro": 0.7548333333333334, "retiro_medio_neto": 447.6529772535167, "retiros_media": 2.691, "vida_media_dias": 84.25533333333334, "dist_retiros": {"0": 0.24516666666666667, "1": 0.16333333333333333, "2": 0.149, "3": 0.12883333333333333, "4": 0.09683333333333333, "5": 0.07266666666666667, "6": 0.053, "7": 0.0335, "8": 0.0235, "9": 0.013333333333333334, "10": 0.010666666666666666, "11": 0.004, "12": 0.0025, "13": 0.0013333333333333333, "14": 0.0013333333333333333, "15": 0.0006666666666666666, "16": 0.0003333333333333333}}, "cons": {"fondeada_wr_dia": 0.311175, "fondeada_dia_ganador": 263.4049317397316, "fondeada_dia_perdedor": -119.25870752313084, "fondeada_dias_buenos": 0.232275, "fondeada_exp_dia": -0.1833495755096249, "examen_wr_dia": 0.29375, "examen_dia_ganador": 587.0332698754772, "examen_dia_perdedor": -238.60305996853074, "dias_a_primer_retiro_mediana": 19.0, "p_primer_retiro": 0.6845, "retiro_medio_neto": 424.31929056380284, "retiros_media": 2.197, "vida_media_dias": 85.21566666666666, "dist_retiros": {"0": 0.3155, "1": 0.17683333333333334, "2": 0.14983333333333335, "3": 0.11616666666666667, "4": 0.08483333333333333, "5": 0.05433333333333333, "6": 0.0405, "7": 0.025666666666666667, "8": 0.015166666666666667, "9": 0.009666666666666667, "10": 0.0036666666666666666, "11": 0.0031666666666666666, "12": 0.0028333333333333335, "13": 0.0013333333333333333, "14": 0.0003333333333333333, "15": 0.00016666666666666666}}}, "planes": [{"plan": "select\u2192select_flex", "size": 25, "precio": 76, "pa": 0.28095, "fev": 355.3962926356395, "fpc": 0.457125, "evc": 23.548588415982906, "cev": 287.72509841720085, "cpg": 0.48025, "cp50": -53.80807929130981, "cev_o": 556.1680767391732, "cpg_o": 0.5446}, {"plan": "select\u2192select_flex", "size": 50, "precio": 115, "pa": 0.29095, "fev": 927.2538987026376, "fpc": 0.699, "evc": 154.28452182753233, "cev": 1216.8437915726968, "cpg": 0.65145, "cp50": 718.9995058007172, "cev_o": 2087.2553633203843, "cpg_o": 0.75525}, {"plan": "select\u2192select_flex", "size": 100, "precio": 186, "pa": 0.2262, "fev": 1611.9793735939547, "fpc": 0.799125, "evc": 179.12973430695257, "cev": 903.0565094325632, "cpg": 0.4929, "cp50": -37.45432092095086, "cev_o": 1668.6090971521653, "cpg_o": 0.5805}, {"plan": "select\u2192select_flex", "size": 150, "precio": 258, "pa": 0.2282, "fev": 2229.760347910517, "fpc": 0.785, "evc": 250.53131139317992, "cev": 762.4966324410647, "cpg": 0.37325, "cp50": -774.9000000000001, "cev_o": 1508.6192306256175, "cpg_o": 0.44715}, {"plan": "growth\u2192growth", "size": 25, "precio": 69, "pa": 0.37155, "fev": 276.975, "fpc": 0.19775, "evc": 33.610061250000015, "cev": 393.7904550000002, "cpg": 0.47475, "cp50": -70.1999999999997, "cev_o": 618.4255950000002, "cpg_o": 0.53565}, {"plan": "growth\u2192growth", "size": 50, "precio": 102, "pa": 0.36935, "fev": 525.9998263055875, "fpc": 0.228375, "evc": 92.77803584596872, "cev": 821.5950528826083, "cpg": 0.54035, "cp50": 436.5, "cev_o": 2253.770370986228, "cpg_o": 0.7177}, {"plan": "growth\u2192growth", "size": 100, "precio": 178, "pa": 0.34555, "fev": 1097.775, "fpc": 0.288, "evc": 200.83615125000009, "cev": 988.41, "cpg": 0.41015, "cp50": -892.5, "cev_o": 2309.97, "cpg_o": 0.51965}, {"plan": "growth\u2192growth", "size": 150, "precio": 258, "pa": 0.3462, "fev": 1791.28125, "fpc": 0.28925, "evc": 361.84156875, "cev": 1121.9625, "cpg": 0.2719, "cp50": -774.9000000000001, "cev_o": 1633.95, "cpg_o": 0.31515}, {"plan": "lightning", "size": 25, "precio": 241, "pa": 1.0, "fev": 224.1, "fpc": 0.164875, "evc": -17.399999999999977, "cev": -72.34499999999993, "cpg": 0.25495, "cp50": -65.99999999999989, "cev_o": 139.56000000000006, "cpg_o": 0.31025}, {"plan": "lightning", "size": 50, "precio": 344, "pa": 1.0, "fev": 533.25, "fpc": 0.228375, "evc": 188.85, "cev": 389.04, "cpg": 0.40605, "cp50": -688.8, "cev_o": 1128.12, "cpg_o": 0.5638}, {"plan": "lightning", "size": 100, "precio": 462, "pa": 1.0, "fev": 1201.5, "fpc": 0.24825, "evc": 739.5, "cev": 1487.6625, "cpg": 0.4379, "cp50": -924.0, "cev_o": 2104.5, "cpg_o": 0.4962}, {"plan": "lightning", "size": 150, "precio": 557, "pa": 1.0, "fev": 1366.5375, "fpc": 0.22325, "evc": 809.3375, "cev": 816.02, "cpg": 0.22495, "cp50": -557.1999999999999, "cev_o": 1227.5, "cpg_o": 0.2604}]};
+const NS="http://www.w3.org/2000/svg";
+const el=(t,a={},p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;};
+const fmt=(v,d=0)=>(v==null||isNaN(v))?"—":v.toLocaleString("es-MX",{minimumFractionDigits:d,maximumFractionDigits:d});
+const usd=v=>(v<0?"−$":"$")+fmt(Math.abs(v)), sus=v=>(v>0?"+$":v<0?"−$":"$")+fmt(Math.abs(v)), pct=(v,d=0)=>fmt(v*100,d)+"%";
+function kpi(a,b,c){return `<div class="kpi"><span>${a}</span><b>${b}</b>${c?`<small>${c}</small>`:""}</div>`;}
+function bars(host,rows,opt){host.innerHTML="";const W=860,H=opt.h||240,m={l:48,r:10,t:10,b:30};
+ const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":opt.aria});host.appendChild(svg);
+ const mx=Math.max(...rows.map(r=>r.v));const n=rows.length,bw=(W-m.l-m.r)/n;
+ const Y=v=>m.t+(1-v/mx)*(H-m.t-m.b);
+ [0,.25,.5,.75,1].forEach(f=>{const v=mx*f;el("line",{x1:m.l,x2:W-m.r,y1:Y(v),y2:Y(v),stroke:"var(--grid)"},svg);const t=el("text",{x:m.l-6,y:Y(v)+4,"text-anchor":"end"},svg);t.textContent=opt.yf(v);});
+ const tip=document.createElement("div");tip.className="tip";host.appendChild(tip);
+ rows.forEach((r,i)=>{const x=m.l+i*bw;const b=el("rect",{x:x+1,y:Y(r.v),width:Math.max(1,bw-2),height:H-m.b-Y(r.v),rx:2,fill:r.c||"var(--s1)"},svg);
+  if(r.lab!=null&&(i%opt.every===0)){const t=el("text",{x:x+bw/2,y:H-10,"text-anchor":"middle"},svg);t.textContent=r.lab;}
+  b.addEventListener("pointerenter",()=>{const R=svg.getBoundingClientRect();tip.innerHTML=r.tip;tip.style.left=((x+bw/2)/W*R.width)+"px";tip.style.top=(Y(r.v)/H*R.height)+"px";tip.style.opacity=1;});
+  b.addEventListener("pointerleave",()=>tip.style.opacity=0);});}
+let esc="cons";
+function render(){try{localStorage.setItem("fondeo-esc",esc);}catch(e){}
+ document.querySelectorAll("#seg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.e===esc));
+ const d=P.panel[esc],c=d.cartera,t=P.det[esc];
+ document.getElementById("kpis").innerHTML=[kpi("Valor esperado",sus(c.ev),"cobrado − cuotas, 12 meses"),kpi("Prob. de terminar ganando",pct(c.p_ganar)),
+  kpi("Resultado mediano",sus(c.p50),"la mitad de los casos queda por encima"),kpi("Caso bueno (percentil 90)",sus(c.p90)),
+  kpi("Prob. de ganar más de $2,000",pct(d.p_mas_2000)),kpi("Prob. de perder casi todo",pct(d.p_perder_todo),"≈ −$924: ningún retiro"),
+  kpi("Exámenes comprados",fmt(c.examenes,1),"media, con $1,000"),kpi("Cuentas fondeadas",fmt(c.fondeadas,1),"media, de un máximo de 5")].join("");
+ bars(document.getElementById("c-hist"),d.hist.map(([a,k])=>({v:k/400,lab:(a%2000===0&&a<8000)?(a===0?"$0":(a<0?"−$":"$")+fmt(Math.abs(a)/1000)+"k"):null,c:a<0?"var(--s2)":"var(--s1)",tip:`${usd(a)} a ${usd(a+250)}: ${fmt(k/400,1)}% de los casos`})),{h:240,every:1,aria:"Histograma del resultado neto",yf:v=>fmt(v,0)+"%"});
+ document.getElementById("n-ex").textContent=`Aprueba ${pct(d.p_aprobar)} de las veces. Mediana: ${fmt(d.dias_aprobar_med)} días hábiles para aprobar (75% en ≤ ${fmt(d.dias_aprobar_p75)}). Un examen fallido dura una mediana de ${fmt(d.dias_fallar_med)} días.`;
+ document.getElementById("n-fd").textContent=`Cobra al menos un retiro ${pct(d.fondeada_p_cobra)} de las veces. Primer retiro: mediana de ${fmt(t.dias_a_primer_retiro_mediana)} días hábiles. Retiro medio: ${usd(t.retiro_medio_neto)} netos. Valor esperado por cuenta fondeada: ${usd(d.fondeada_ev)}.`;
+ document.getElementById("kpis-dia").innerHTML=[kpi("Días ganadores",pct(t.fondeada_wr_dia)),kpi("Día ganador medio",sus(t.fondeada_dia_ganador)),
+  kpi("Día perdedor medio",sus(t.fondeada_dia_perdedor)),kpi("Resultado medio por día",(t.fondeada_exp_dia<0?"−$":"+$")+fmt(Math.abs(t.fondeada_exp_dia),2),"≈ cero: no hay ventaja")].join("");
+ const dr=Object.entries(t.dist_retiros).filter(([k])=>+k<=12);
+ bars(document.getElementById("c-ret"),dr.map(([k,v])=>({v:v*100,lab:k,c:+k===0?"var(--s2)":"var(--s1)",tip:`${k} retiros: ${fmt(v*100,1)}%`})),{h:220,every:1,aria:"Distribución del número de retiros",yf:v=>fmt(v,0)+"%"});
+ document.querySelector("#t-pl tbody").innerHTML=P.planes.map(r=>`<tr class="${r.plan.startsWith('select')&&r.size===50?'hl':''}"><td>${r.plan.replace('select→select_flex','Select → Flex').replace('growth→growth','Growth').replace('lightning','Lightning')}</td><td class="num">${r.size}K</td><td class="num">$${r.precio}</td><td class="num">${r.plan==='lightning'?'—':pct(r.pa)}</td><td class="num">${usd(r.fev)}</td><td class="num">${pct(r.fpc)}</td><td class="num ${r.evc>=0?'pos':'neg'}">${sus(r.evc)}</td><td class="num ${r.cev>=0?'pos':'neg'}">${sus(r.cev)}</td><td class="num">${pct(r.cpg)}</td><td class="num ${r.cp50>=0?'pos':'neg'}">${sus(r.cp50)}</td></tr>`).join("");}
+document.querySelectorAll("#seg button").forEach(b=>b.onclick=()=>{esc=b.dataset.e;render();});
+try{const s=localStorage.getItem("fondeo-esc");if(s&&P.panel[s])esc=s;}catch(e){}
+render();
+</script>
