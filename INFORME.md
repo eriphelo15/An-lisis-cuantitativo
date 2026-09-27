@@ -1,8 +1,8 @@
 # Informe del radar de memecoins
 
-Generado: 2026-09-27 21:18 UTC
+Generado: 2026-09-27 21:27 UTC
 
-- Tokens registrados: **168** (desde 2026-09-27 18:07)
+- Tokens registrados: **190** (desde 2026-09-27 18:07)
 - Con resultado a 24 h: **0** (el primero llega 24 h después de la primera detección)
 - Pasan el filtro v1: **5**
 - Resultados en dólares por cada apuesta de $50, con 3% de costes en la entrada y en la salida:
@@ -16,12 +16,12 @@ Palabras que aparecen en muchos más tokens nuevos de lo normal: temas que se es
 
 | palabra   |   tokens_3h |   tokens_24h_previas | veces_lo_normal   | mayor    | mc_mayor   | mint_mayor                                   |
 |:----------|------------:|---------------------:|:------------------|:---------|:-----------|:---------------------------------------------|
-| vault     |          23 |                    0 | x184              | VAULT    | 447K       | 7tEsDuij7aj4b2jLUAS5oXcp6B3zWratYVmviS5zpump |
-| moin      |           9 |                    0 | x72               | moin     | 464K       | GMT2cGrQfKrmHcu2U8T3JZXHLoj9L3xJGi1QqrsdCbxd |
+| vault     |          24 |                    0 | x192              | VAULT    | 447K       | 7tEsDuij7aj4b2jLUAS5oXcp6B3zWratYVmviS5zpump |
+| moin      |          11 |                    0 | x88               | moin     | 1183K      | 5mdbw1mfaB7JbejXdijFwybaUbV7SUzDJcAjKmxTeSmH |
+| gacha     |           9 |                    0 | x72               | GACHA    | 422K       | E1LY7wpf89QtKee6gVzWiJxRVJh8strksQTCqPiyNErH |
 | barstool  |           5 |                    0 | x40               | BARSTOOL | 263K       | FUKX4RajeVJeWBigzVBh97p7UKB86oBC8P7uqp7DtmB1 |
 | grokler   |           5 |                    0 | x40               | Grokler  | 333K       | 5NbTiWe2L82Vd8PwYDwoRxHyJKkwThXzuX53Hq2U7c1x |
 | lucky     |           3 |                    0 | x24               | LUCKY    | 241K       | 7ESoDXqwqKUQBWdeqygNCFZroAtemHxyK8EPcjgPV777 |
-| gacha     |           3 |                    0 | x24               | GACHA    | 25K        | FCEjmz9E9yqrGvGu4voUARtv11fwmyYm4JKuSoG2X5Gb |
 
 ## Narrativas activas (últimas 2 h)
 
