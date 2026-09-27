@@ -77,14 +77,20 @@ def simular_tendencia(entrada, velas, vivo_al_final):
 
 def _velas_combinadas(det, estado_actual, descargar, fin):
     """Velas desde la detección hasta `fin`, juntando el pool original y el
-    actual si el token migró de pool (p. ej. pump.fun -> PumpSwap)."""
+    actual si el token migró de pool (p. ej. pump.fun -> PumpSwap).
+
+    Devuelve None si alguna descarga falló, para aplazar el control.
+    """
     det_ts = datetime.fromisoformat(det["ts"]).timestamp()
     pools = [det["pool"]]
     if estado_actual and estado_actual.get("pool") and estado_actual["pool"] != det["pool"]:
         pools.append(estado_actual["pool"])
     por_ts = {}
     for pool in pools:
-        for v in descargar(pool, fin):
+        velas = descargar(pool, fin)
+        if velas is None:
+            return None
+        for v in velas:
             if det_ts <= v[0] < fin and (v[0] not in por_ts or v[5] > por_ts[v[0]][5]):
                 por_ts[v[0]] = v
     return [por_ts[t] for t in sorted(por_ts)]
@@ -94,6 +100,8 @@ def _analizar_7d(det, estado_actual):
     det_ts = datetime.fromisoformat(det["ts"]).timestamp()
     fin = det_ts + HORIZONTES["7d"] * 60
     velas = _velas_combinadas(det, estado_actual, fuentes.velas_1h, fin)
+    if velas is None:
+        return None
     entrada = float(det["precio"])
     vivo = _vivo(det, estado_actual)
     if not velas or entrada <= 0:
@@ -112,6 +120,8 @@ def _analizar_velas(det, estado_actual):
     det_ts = datetime.fromisoformat(det["ts"]).timestamp()
     fin = det_ts + HORIZONTES["24h"] * 60
     velas = _velas_combinadas(det, estado_actual, fuentes.velas_5m, fin)
+    if velas is None:
+        return None
 
     entrada = float(det["precio"])
     vivo = _vivo(det, estado_actual)
@@ -150,9 +160,12 @@ def seguir(almacen, log=print):
         log("[seguimiento] nada pendiente")
         return []
 
-    estado = fuentes.estado_tokens({d["mint"] for d, _, _ in pendientes})
+    estado, consultados = fuentes.estado_tokens({d["mint"] for d, _, _ in pendientes})
     filas, velas_usadas, aplazados = [], 0, 0
     for d, h, retraso in pendientes:
+        if d["mint"] not in consultados:
+            aplazados += 1  # la API no respondió: mejor esperar que darlo por muerto
+            continue
         e = estado.get(d["mint"])
         vivo = _vivo(d, e)
         fila = {"mint": d["mint"], "horizonte": h, "ts": ahora.isoformat(timespec="seconds"),
@@ -161,11 +174,14 @@ def seguir(almacen, log=print):
                 "mc": e["mc"] if e else 0, "liq": e["liq"] if e else 0}
 
         if h in ("24h", "7d"):
-            if velas_usadas >= MAX_VELAS_POR_RONDA:
+            if velas_usadas >= MAX_VELAS_POR_RONDA or fuentes.sin_tiempo():
                 aplazados += 1
                 continue
             velas_usadas += 1
             extra = _analizar_velas(d, e) if h == "24h" else _analizar_7d(d, e)
+            if extra is None:
+                aplazados += 1
+                continue
             precio_exacto = extra.pop("precio_24h" if h == "24h" else "precio_7d")
             if precio_exacto is not None:
                 fila["precio"] = precio_exacto  # precio al cumplirse el horizonte, no el de ahora
@@ -175,5 +191,5 @@ def seguir(almacen, log=print):
         filas.append(fila)
 
     almacen.guardar_seguimientos(filas)
-    log(f"[seguimiento] controles={len(filas)} aplazados_por_velas={aplazados}")
+    log(f"[seguimiento] controles={len(filas)} aplazados={aplazados}")
     return filas

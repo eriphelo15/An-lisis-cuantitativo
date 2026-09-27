@@ -2,6 +2,7 @@
 
 import json
 import time
+from collections import Counter
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -24,18 +25,46 @@ MINTS_BASE = {
 }
 
 
+# Plazo global: pasado este momento, las peticiones se cortan y el ciclo
+# guarda lo que tenga (en GitHub Actions el trabajo muere a los 15 min).
+_plazo = None
+# Errores por tipo y dominio, para el registro del ciclo.
+errores = Counter()
+
+
+def fijar_plazo(segundos):
+    global _plazo
+    _plazo = time.monotonic() + segundos if segundos else None
+
+
+def sin_tiempo():
+    return _plazo is not None and time.monotonic() >= _plazo
+
+
+def _dormir(segundos):
+    if _plazo is not None:
+        segundos = min(segundos, max(0.0, _plazo - time.monotonic()))
+    time.sleep(segundos)
+
+
 def _get(url, reintentos=3):
+    dominio = url.split("/")[2]
     for intento in range(reintentos):
+        if sin_tiempo():
+            errores[f"sin_tiempo {dominio}"] += 1
+            return None
         try:
             peticion = urllib.request.Request(url, headers=CABECERAS)
-            with urllib.request.urlopen(peticion, timeout=25) as r:
+            with urllib.request.urlopen(peticion, timeout=20) as r:
                 return json.load(r)
         except urllib.error.HTTPError as e:
+            errores[f"http_{e.code} {dominio}"] += 1
             if 400 <= e.code < 500 and e.code != 429:
                 return None  # error del lado de la petición: reintentar no sirve
-            time.sleep(10 * (intento + 1) if e.code == 429 else 2 * (intento + 1))
-        except Exception:
-            time.sleep(2 * (intento + 1))
+            _dormir(10 * (intento + 1) if e.code == 429 else 2 * (intento + 1))
+        except Exception as e:
+            errores[f"{type(e).__name__} {dominio}"] += 1
+            _dormir(2 * (intento + 1))
     return None
 
 
@@ -49,14 +78,14 @@ def pools_recientes(paginas_nuevos=10, paginas_trending=2):
         datos = _get(url)
         for x in (datos or {}).get("data", []):
             pools[x["id"]] = x
-        time.sleep(PAUSA_GECKO)
+        _dormir(PAUSA_GECKO)
     return list(pools.values())
 
 
 def rugcheck(mint):
     """Resumen de riesgos de RugCheck, o None si no respondió."""
     datos = _get(f"{RUGCHECK}/{mint}/report/summary")
-    time.sleep(PAUSA_RUGCHECK)
+    _dormir(PAUSA_RUGCHECK)
     if not datos or "risks" not in datos:
         return None
     riesgos = datos.get("risks") or []
@@ -70,17 +99,28 @@ def rugcheck(mint):
 
 
 def estado_tokens(mints):
+    """Devuelve (estado, consultados).
+
+    `consultados` son los mints cuyo lote respondió: si uno de ellos falta en
+    `estado`, de verdad no tiene pools; si su lote falló, no se sabe nada.
+    """
+    return _estado_tokens(list(mints))
+
+
+def _estado_tokens(mints):
     """Precio, market cap, liquidez y pool principal actuales, por lotes de 30.
 
     Usa GeckoTerminal, la misma fuente que la detección: DexScreener no indexa
     algunos pools (p. ej. ciertos de Meteora) y haría pasar por muertos a
     tokens vivos. Un mint ausente de la respuesta queda fuera del resultado.
     """
-    estado = {}
-    mints = list(mints)
+    estado, consultados = {}, set()
     for i in range(0, len(mints), 30):
         lote = mints[i:i + 30]
-        datos = _get(f"{GECKO}/tokens/multi/{','.join(lote)}?include=top_pools") or {}
+        datos = _get(f"{GECKO}/tokens/multi/{','.join(lote)}?include=top_pools")
+        if datos is None:
+            continue
+        consultados.update(lote)
         for x in datos.get("data", []):
             a = x.get("attributes", {})
             pools = ((x.get("relationships") or {}).get("top_pools") or {}).get("data") or []
@@ -90,14 +130,15 @@ def estado_tokens(mints):
                 "liq": float(a.get("total_reserve_in_usd") or 0),
                 "pool": pools[0]["id"].split("_", 1)[1] if pools else None,
             }
-        time.sleep(PAUSA_GECKO)
-    return estado
+        _dormir(PAUSA_GECKO)
+    return estado, consultados
 
 
 def velas_5m(pool, hasta_ts, limite=300):
     """Velas de 5 min en USD hasta `hasta_ts`, en orden cronológico.
 
-    Cada vela es (ts, apertura, máximo, mínimo, cierre, volumen).
+    Cada vela es (ts, apertura, máximo, mínimo, cierre, volumen). Devuelve
+    None si la API no respondió.
     """
     return _velas(pool, hasta_ts, "minute?aggregate=5", limite)
 
@@ -111,9 +152,9 @@ def _velas(pool, hasta_ts, marco, limite):
     url = (f"{GECKO}/pools/{pool}/ohlcv/{marco}&limit={limite}"
            f"&currency=usd&before_timestamp={int(hasta_ts)}")
     datos = _get(url)
-    time.sleep(PAUSA_GECKO)
-    if not datos:
-        return []
+    _dormir(PAUSA_GECKO)
+    if datos is None:
+        return None  # la API no respondió (distinto de "no hay velas")
     lista = datos.get("data", {}).get("attributes", {}).get("ohlcv_list") or []
     return sorted(tuple(v) for v in lista)
 
@@ -125,7 +166,7 @@ def info_token(mint):
     según GeckoTerminal; `holders_antig_min` indica cuán reciente es el dato.
     """
     datos = _get(f"{GECKO}/tokens/{mint}/info")
-    time.sleep(PAUSA_GECKO)
+    _dormir(PAUSA_GECKO)
     a = (datos or {}).get("data", {}).get("attributes")
     if not a:
         return None
@@ -154,7 +195,7 @@ def compradores(pool, mint, minimo_usd=100, maximo=40):
     bots de volumen).
     """
     datos = _get(f"{GECKO}/pools/{pool}/trades?trade_volume_in_usd_greater_than={minimo_usd}")
-    time.sleep(PAUSA_GECKO)
+    _dormir(PAUSA_GECKO)
     carteras = {}
     for t in (datos or {}).get("data", []):
         a = t.get("attributes", {})

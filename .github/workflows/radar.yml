@@ -40,10 +40,12 @@ jobs:
             git -C _datos rm -rfq .
           fi
 
+      # El trabajo muere a los 15 min: con 9 min de plazo siempre queda tiempo para guardar.
       - name: Escanear, seguir e informar
-        run: python radar.py ciclo --datos _datos
+        run: python -u radar.py ciclo --datos _datos --plazo 540
 
       - name: Guardar datos
+        if: always()
         run: |
           cd _datos
           git add -A
