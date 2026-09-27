@@ -61,8 +61,19 @@ Quieres shortear 1 000 acciones de APUS a $6 y el locate cuesta $0.10 por acció
 - Si una acción entra en la **Threshold List** (demasiados fallos de entrega), las reglas de cierre obligatorio se endurecen (Reg SHO, regla 204).
 
 ## 6. Margen y dinero necesario
-- **Margen inicial (Reg T):** para abrir un corto necesitas en garantía el **150 %** del valor vendido (el 100 % que recibes de la venta + un 50 % tuyo).
-- **Margen de mantenimiento (FINRA 4210) en acciones baratas:** por debajo de $5, el mayor entre **$2.50 por acción o el 100 %** del valor. Ejemplo: shortear 1 000 acciones a $2 inmoviliza al menos $2 500, no $2 000. Muchos brókers exigen **más** en HTB.
+Son **dos reglas distintas** y el bróker aplica la que exija más dinero tuyo:
+- **Regla 1 — para abrir (Reg T, 150 %):** el dinero de la venta en corto queda retenido (100 %) y además pones un **50 % tuyo**.
+- **Regla 2 — para mantener (FINRA 4210), acciones por debajo de $5:** tu dinero debe ser el **mayor** entre
+  **$2.50 × número de acciones** y el **100 % del valor en dólares de la posición** (acciones × precio).
+
+Ejemplo: 2 000 acciones a $3.50 → valor de la posición = 2 000 × $3.50 = **$7 000**.
+| Regla | Dinero tuyo que exige |
+|---|---|
+| 1 (abrir, 50 %) | $3 500 |
+| 2 (mantener): mayor entre 2 000 × $2.50 = $5 000 y 100 % × $7 000 = $7 000 | **$7 000** ← manda esta |
+En la cuenta quedan retenidos $14 000: los $7 000 de la venta + $7 000 tuyos.
+**En acciones de menos de $5, para shortear $X necesitas al menos $X de tu dinero** (y más en acciones de centavos por la regla de $2.50).
+Muchos brókers exigen **todavía más** en acciones HTB.
 - Si la acción sube, el requisito sube → te pueden pedir más dinero (*margin call*) o cerrar tu posición.
 - **Regla PDT:** eliminada. La SEC aprobó en abril de 2026 quitar el mínimo de $25 000; en vigor desde el 4 de junio de 2026, con plazo para los brókers hasta octubre de 2027. Confirma cómo lo aplica el tuyo.
 - **Liquidación T+1:** las operaciones se liquidan al día hábil siguiente.
