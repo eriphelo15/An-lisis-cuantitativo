@@ -179,7 +179,7 @@ svg.spark{display:block;margin:0 auto}
     <input id="cmd" placeholder="Comando: NEWS, GMOV, GVOL, RMI, WEI, HELP…" aria-label="Línea de comandos">
     <button class="go" type="submit">&lt;GO&gt;</button>
   </form>
-  <span class="sim" title="Los precios son una simulación, no datos reales de mercado">DATOS SIMULADOS</span>
+  <span class="sim" id="badge" title="Cargando datos…">CARGANDO…</span>
   <span class="clock" id="clock"></span>
 </div>
 
@@ -188,7 +188,7 @@ svg.spark{display:block;margin:0 auto}
 <div class="ticker" aria-hidden="true"><div class="track" id="ticker"></div></div>
 <div class="footer">
   <span>Atajos: 1-5 vistas · Alt+R refrescar · Alt+L en vivo · Alt+N lista · Alt+B reset · ? ayuda · / comando</span>
-  <span>Basado en feremabraz/bloomberg-terminal (MIT)</span>
+  <span>Datos: Yahoo Finance vía mercados.py (con retraso) · Basado en feremabraz/bloomberg-terminal (MIT)</span>
 </div>
 
 <div id="modalRoot"></div>
@@ -218,6 +218,9 @@ const state = {
   movers: { type: 'all', order: 'desc', minMove: 0, regions: { americas: true, emea: true, asiaPacific: true } },
   vol: { type: 'all', sort: 'hv', order: 'desc', regions: { americas: true, emea: true, asiaPacific: true } },
   rmi: { region: 'americas', security: 'NASDAQ', benchmark: 'S&P 500', range: 60 },
+  mode: 'sim',            // 'real' con mercados.json cargado, 'sim' si no hay datos
+  data: null,             // JSON real (generado, fuente, noticias…)
+  dataError: '',
   newsQuery: '',
 };
 
@@ -228,7 +231,16 @@ const REGIONS = [
 ];
 
 /* Tipos de cambio fijos (unidades de la divisa por 1 USD) — aproximados, sólo para la conversión. */
-const FX = { USD: 1, EUR: 0.86, CAD: 1.38, MXN: 18.4 };
+let FX = { USD: 1, EUR: 0.86, CAD: 1.38, MXN: 18.4 };
+
+/* Datos reales: JSON que genera mercados.py (workflow .github/workflows/mercados.yml).
+   Se prueba primero una copia local (si la página se sirve por HTTP) y después la rama mercados-datos. */
+const DATA_URLS = [
+  'mercados.json',
+  'datos_mercados/mercados.json',
+  'https://raw.githubusercontent.com/eriphelo15/An-lisis-cuantitativo/mercados-datos/mercados.json',
+];
+const REAL_REFRESH_MS = 5 * 60 * 1000;
 const FX_SYM = { USD: '$', EUR: '€', CAD: 'C$', MXN: 'MX$' };
 
 /* Índices base: [id, nivel aproximado, vol. anual %, PER, divisa local vs USD (drift de YTD de la divisa)] */
@@ -244,7 +256,7 @@ const SEED = {
     ['SWISS MKT', 12200, 13, 18.3, 13.5],
   ],
   asiaPacific: [
-    ['NIKKEI', 44800, 21, 20.2, 5.9], ['HANG SENG', 26200, 24, 11.3, 0.4], ['CSI 300', 4500, 20, 14.5, 2.2],
+    ['NIKKEI', 44800, 21, 20.2, 5.9], ['HANG SENG', 26200, 24, 11.3, 0.4], ['SHANGHAI COMP', 3850, 18, 14.5, 2.2],
     ['S&P/ASX 200', 8800, 13, 19.7, 6.1], ['KOSPI', 3400, 20, 12.8, 6.8], ['NIFTY 50', 25000, 15, 22.6, -3.1],
   ],
 };
@@ -291,6 +303,83 @@ function buildMarket() {
     for (const it of market[r.key]) settle(it, true);
   }
   allItems = REGIONS.flatMap(r => market[r.key]);
+}
+
+function buildRealMarket(data) {
+  const fx = data.fx || {};
+  FX = { USD: 1 };
+  for (const c of ['EUR', 'CAD', 'MXN']) FX[c] = fx[c] && fx[c].usd ? fx[c].usd : ({ EUR: 0.86, CAD: 1.38, MXN: 18.4 })[c];
+  const prev = new Map(allItems.map(i => [i.id, i.value]));
+  let regionIdx = 0;
+  for (const r of REGIONS) {
+    regionIdx++;
+    market[r.key] = (data.regiones[r.key] || []).map((d, i) => {
+      const cur = d.currency === 'USD' ? null : fx[d.currency];
+      // USDxxx sube => la divisa local cae frente al dólar.
+      const fxYtd = cur && cur.usd && cur.ytdBase ? (cur.ytdBase / cur.usd - 1) * 100 : 0;
+      const hist = d.hist.filter(x => x != null);
+      const it = {
+        id: d.id, symbol: d.symbol, region: r.key, num: `${regionIdx}${i + 1})`, pe: null, fxYtd,
+        hist, prevClose: d.prevClose, yearOpen: d.yearOpen || hist[0],
+        intraday: d.intraday && d.intraday.length > 1 ? d.intraday.filter(x => x != null) : [d.prevClose, d.value],
+        value: d.value, avat: d.avat, ts: d.ts,
+        future: d.future && d.future.value ? d.future : null,
+        impliedVol: d.impliedVol && d.impliedVol.value ? d.impliedVol.value : null,
+      };
+      it.change = it.value - it.prevClose;
+      it.pctChange = it.change / it.prevClose * 100;
+      it.ytd = (it.value / it.yearOpen - 1) * 100;
+      it.ytdCur = ((1 + it.ytd / 100) * (1 + fxYtd / 100) - 1) * 100;
+      it.time = quoteTime(d.ts);
+      if (prev.has(it.id) && prev.get(it.id) !== it.value) { state.flashes.add(`${it.id}|value`); state.flashes.add(`${it.id}|pct`); }
+      return it;
+    });
+  }
+  allItems = REGIONS.flatMap(r => market[r.key]);
+}
+function quoteTime(ts) {
+  const d = new Date(ts * 1000);
+  return d.toDateString() === new Date().toDateString() ? timeHHMM(d) : d.toLocaleDateString('es', { day: '2-digit', month: '2-digit' });
+}
+
+async function loadReal() {
+  for (const url of DATA_URLS) {
+    try {
+      const full = url.startsWith('http') ? `${url}?t=${Date.now()}` : url;
+      const res = await fetch(full, { cache: 'no-store' });
+      if (!res.ok) continue;
+      const data = await res.json();
+      if (!data.regiones) continue;
+      state.data = data;
+      state.mode = 'real';
+      state.dataError = '';
+      state.lastUpdated = new Date(data.generado);
+      buildRealMarket(data);
+      updateBadge();
+      return true;
+    } catch { /* probar la siguiente fuente */ }
+  }
+  state.dataError = 'No se encontró mercados.json (ni local ni en la rama mercados-datos).';
+  updateBadge();
+  return false;
+}
+function updateBadge() {
+  const b = document.getElementById('badge');
+  if (state.mode === 'real') {
+    b.textContent = 'DATOS REALES · RETRASO';
+    b.style.background = 'var(--btn-green)'; b.style.color = '#fff';
+    b.title = `${state.data.fuente}. Generado: ${state.lastUpdated.toLocaleString('es')}. Se recarga cada 5 min con LIVE activo.`;
+  } else {
+    b.textContent = 'DATOS SIMULADOS';
+    b.style.background = ''; b.style.color = '';
+    b.title = `Los precios son una simulación, no datos reales de mercado. ${state.dataError}`;
+  }
+}
+function fmtAgo(sec) {
+  if (sec < 60) return sec + 's';
+  if (sec < 3600) return Math.floor(sec / 60) + 'min';
+  if (sec < 172800) return Math.floor(sec / 3600) + 'h';
+  return Math.floor(sec / 86400) + 'd';
 }
 
 function settle(it, first) {
@@ -363,7 +452,8 @@ const app = document.getElementById('app');
 
 function headerBar() {
   const ago = state.lastUpdated ? Math.floor((Date.now() - state.lastUpdated) / 1000) : null;
-  const dot = ago == null ? 'bad' : ago > 60 ? 'bad' : ago > 30 ? 'warn pulse' : ago <= 10 ? 'pulse' : '';
+  const [fresh, stale] = state.mode === 'real' ? [20 * 60, 60 * 60] : [10, 60];
+  const dot = ago == null ? 'bad' : ago > stale ? 'bad' : ago > fresh ? 'warn' : state.live ? 'pulse' : '';
   return `<div class="bar">
     <button class="bb red" data-act="cancel">CANCL</button>
     <button class="bb green" data-act="new">NEW</button>
@@ -377,8 +467,8 @@ function headerBar() {
     <div class="right">
       <button class="bb accent" data-act="refresh">REFR</button>
       <button class="bb ${state.live ? 'red' : 'green'}" data-act="live">${state.live ? 'STOP' : 'LIVE'}</button>
-      <span class="status" id="status"><span class="dot ${dot}"></span><span>${state.live ? 'EN VIVO' : 'PAUSA'}</span>
-      <span>${ago == null ? '—' : ago + 's'}</span><span class="hide-sm">${state.lastUpdated ? state.lastUpdated.toLocaleTimeString('es') : ''}</span></span>
+      <span class="status" id="status"><span class="dot ${dot}"></span><span>${!state.live ? 'PAUSA' : state.mode === 'real' ? 'AUTO 5MIN' : 'EN VIVO'}</span>
+      <span title="Antigüedad de los datos">${ago == null ? '—' : fmtAgo(ago)}</span><span class="hide-sm">${state.lastUpdated ? state.lastUpdated.toLocaleTimeString('es') : ''}</span></span>
     </div>
   </div>`;
 }
@@ -389,12 +479,14 @@ function filterBar() {
   const cb = (k, label) => `<label><input type="checkbox" data-filter="${k}" ${f[k] ? 'checked' : ''}>${label}</label>`;
   return `<div class="bar filters">
     <select data-act="watchlist" aria-label="Lista de seguimiento">${wl}</select>
-    ${cb('movers', 'Movers')}${cb('volatility', 'Volatilidad')}${cb('ratios', 'Ratios')}${cb('futures', 'Futuros')}${cb('avat', 'Δ AVAT')}
+    ${cb('movers', 'Movers')}${cb('volatility', 'Volatilidad')}${state.mode === 'real' ? '' : cb('ratios', 'Ratios')}${cb('futures', 'Futuros')}${cb('avat', 'Δ AVAT')}
     <button class="bb ${f.tenD ? 'green' : 'red'}" data-toggle="tenD">${f.tenD ? '10D' : '2D'}</button>
     <button class="bb ${f.ytd ? 'green' : 'red'}" data-toggle="ytd">%Chg ${f.ytd ? 'YTD' : 'Diario'}</button>
     <select data-act="currency" aria-label="Divisa">${Object.keys(FX).map(c => `<option ${c === f.currency ? 'selected' : ''}>${c}</option>`).join('')}</select>
   </div>`;
 }
+
+function showRatios() { return state.filters.ratios && state.mode !== 'real'; }
 
 function marketRow(it) {
   const f = state.filters;
@@ -407,18 +499,19 @@ function marketRow(it) {
     <td class="v${flashCls(it.id, 'value')}">${fmtMoney(it.value)}</td>
     <td class="${cls(chgVal)}${flashCls(it.id, 'value')}">${f.ytd ? signed(it.ytd, 2, '%') : signed(it.change * FX[f.currency])}</td>
     <td class="${cls(it.pctChange)}${flashCls(it.id, 'pct')}">${signed(it.pctChange, 2, '%')}</td>
-    <td class="${cls(it.avat)}${f.avat ? '' : ' hide'} hide-sm">${fmtNum(it.avat)}%</td>
+    <td class="${it.avat == null ? 'dim' : cls(it.avat)}${f.avat ? '' : ' hide'} hide-sm">${it.avat == null ? '—' : fmtNum(it.avat) + '%'}</td>
     ${f.volatility ? `<td class="v">${fmtNum(histVol(it), 1)}</td>` : ''}
-    ${f.ratios ? `<td class="v">${fmtNum(it.pe, 1)}</td>` : ''}
+    ${showRatios() ? `<td class="v">${fmtNum(it.pe, 1)}</td>` : ''}
     <td class="v hide-sm">${it.time}</td>
     <td class="${cls(it.ytd)} hide-md">${fmtNum(it.ytd)}%</td>
     <td class="${cls(it.ytdCur)} hide-md">${fmtNum(it.ytdCur)}%</td>
   </tr>`;
-  if (f.futures) {
-    const fut = it.value * (1 + it.basis);
-    row += `<tr class="fut"><td class="name">↳ Fut. ${esc(it.id)}</td><td></td><td></td><td>${fmtMoney(fut)}</td>
-      <td>${signed(fut - it.value)}</td><td>base ${fmtNum(it.basis * 100)}%</td>
-      <td class="${f.avat ? '' : 'hide'} hide-sm"></td>${f.volatility ? '<td></td>' : ''}${f.ratios ? '<td></td>' : ''}
+  const fut = state.mode === 'real' ? (it.future && it.future.value) : it.value * (1 + it.basis);
+  if (f.futures && fut) {
+    const basis = fut / it.value - 1;
+    row += `<tr class="fut"><td class="name">↳ Fut. ${esc(state.mode === 'real' ? it.future.symbol : it.id)}</td><td></td><td></td><td>${fmtMoney(fut)}</td>
+      <td>${signed(fut - it.value)}</td><td>base ${fmtNum(basis * 100)}%</td>
+      <td class="${f.avat ? '' : 'hide'} hide-sm"></td>${f.volatility ? '<td></td>' : ''}${showRatios() ? '<td></td>' : ''}
       <td class="hide-sm"></td><td class="hide-md"></td><td class="hide-md"></td></tr>`;
   }
   return row;
@@ -432,7 +525,7 @@ function visibleIds() {
 function marketView() {
   const f = state.filters;
   const ids = visibleIds();
-  const colspan = 10 + (f.volatility ? 1 : 0) + (f.ratios ? 1 : 0);
+  const colspan = 10 + (f.volatility ? 1 : 0) + (showRatios() ? 1 : 0);
   let body = '';
   for (const r of REGIONS) {
     const items = market[r.key].filter(it => !ids || ids.has(it.id));
@@ -448,7 +541,7 @@ function marketView() {
       <th>Valor</th><th>${f.ytd ? '%YTD' : 'Var. neta'}</th><th>%Var</th>
       <th class="${f.avat ? '' : 'hide'} hide-sm" title="Volumen vs. media">Δ AVAT</th>
       ${f.volatility ? '<th title="Volatilidad histórica 20d anualizada">Vol 20d</th>' : ''}
-      ${f.ratios ? '<th>PER</th>' : ''}
+      ${showRatios() ? '<th>PER</th>' : ''}
       <th class="hide-sm">Hora</th><th class="hide-md">%Ytd</th><th class="hide-md" title="YTD en USD">%YtdCur</th>
     </tr></thead>
     <tbody>${body}</tbody>
@@ -477,7 +570,7 @@ function analysisPanel() {
     <span class="${cls(best.pctChange)}">${signed(best.pctChange, 2, '%')}</span>; peor: <span class="id">${esc(worst.id)}</span>
     <span class="${cls(worst.pctChange)}">${signed(worst.pctChange, 2, '%')}</span>.
     La volatilidad histórica media a 20 días es de ${fmtNum(avgVol, 1)}%.
-    <div class="dim" style="margin-top:4px">Resumen generado con reglas sobre los datos simulados (el original usa un LLM vía API).</div>
+    <div class="dim" style="margin-top:4px">${state.mode === 'real' ? `Resumen generado con reglas sobre datos reales (${esc(state.data.fuente)}).` : 'Resumen generado con reglas sobre los datos simulados.'} El original usa un LLM vía API.</div>
   </div></div>`;
 }
 
@@ -516,11 +609,13 @@ function moversView() {
 function volData() {
   return allItems.map(i => {
     const hv = histVol(i, 20), hv60 = histVol(i, 60);
-    const iv = hv * (1.05 + 0.15 * Math.tanh(-i.ytd / 20)); // sesgo: más IV cuando el índice cae en el año
-    const dayRange = Math.max(...i.intraday) / Math.min(...i.intraday) * 100 - 100 + Math.abs(i.pctChange) * 0.3;
+    // Real: índice de volatilidad publicado (VIX, VXN, VXD) cuando existe. Simulado: estimación sobre la histórica.
+    const iv = state.mode === 'real' ? i.impliedVol : hv * (1.05 + 0.15 * Math.tanh(-i.ytd / 20));
+    const dayRange = Math.max(...i.intraday) / Math.min(...i.intraday) * 100 - 100 + (state.mode === 'real' ? 0 : Math.abs(i.pctChange) * 0.3);
     const wk = i.hist.slice(-5);
     const weekRange = (Math.max(...wk) / Math.min(...wk) - 1) * 100;
-    const volSeries = []; for (let k = 40; k >= 0; k -= 2) volSeries.push(stdev(returns(i.hist.slice(DAYS - 21 - k, DAYS - k))) * Math.sqrt(252) * 100);
+    const L = i.hist.length;
+    const volSeries = []; for (let k = 40; k >= 0; k -= 2) volSeries.push(stdev(returns(i.hist.slice(L - 21 - k, L - k))) * Math.sqrt(252) * 100);
     const trend = hv > hv60 * 1.05 ? 'up' : hv < hv60 * 0.95 ? 'down' : 'stable';
     return { i, hv, iv, ratio: hv / hv60, dayRange, weekRange, volSeries, trend, rsi: rsi(i.hist) };
   });
@@ -538,7 +633,7 @@ function volatilityView() {
   const sortChip = (t, l) => `<button class="chip ${v.sort === t ? 'on' : ''}" data-vsort="${t}">${l}${v.sort === t ? (v.order === 'desc' ? ' ↓' : ' ↑') : ''}</button>`;
   const rows = list.map(d => `<tr>
     <td class="name"><span class="id">${esc(d.i.id)}</span></td><td class="c dim">${regionTitle(d.i.region)}</td>
-    <td class="${volCls(d.hv)}">${fmtNum(d.hv, 1)}%</td><td class="${volCls(d.iv)}">${fmtNum(d.iv, 1)}%</td>
+    <td class="${volCls(d.hv)}">${fmtNum(d.hv, 1)}%</td><td class="${d.iv == null ? 'dim' : volCls(d.iv)}">${d.iv == null ? '—' : fmtNum(d.iv, 1) + '%'}</td>
     <td class="c ${d.trend === 'up' ? 'neg' : d.trend === 'down' ? 'pos' : 'dim'}">${{ up: '▲', down: '▼', stable: '■' }[d.trend]}</td>
     <td class="v">${fmtNum(d.ratio)}</td><td class="v">${fmtNum(d.dayRange)}%</td>
     <td class="v hide-sm">${fmtNum(d.weekRange)}%</td>
@@ -550,11 +645,11 @@ function volatilityView() {
     <span class="dim">Ordenar:</span>${sortChip('hv', 'Vol hist')}${sortChip('ratio', 'Ratio')}${sortChip('range', 'Rango')}
     ${regionChips(v.regions, 'vol')}</div>
   <div class="scroll"><table><thead><tr><th class="name">Mercado</th><th class="c">Región</th>
-    <th title="20 días, anualizada">Vol hist</th><th title="Estimada">Vol impl</th><th class="c">Tend.</th>
+    <th title="20 días, anualizada">Vol hist</th><th title="${state.mode === 'real' ? 'Índice de volatilidad publicado (VIX, VXN, VXD)' : 'Estimada'}">Vol impl</th><th class="c">Tend.</th>
     <th title="Vol 20d / Vol 60d">Ratio</th><th>Rango día</th><th class="hide-sm">Rango sem.</th>
     <th class="c hide-md">Vol 40d</th><th class="hide-md">RSI 14</th></tr></thead>
   <tbody>${rows || '<tr><td class="l dim" colspan="10">Ningún índice cumple el filtro.</td></tr>'}</tbody></table></div>
-  <div class="panel"><div class="body dim">La volatilidad implícita es una estimación sobre la histórica (no hay cadena de opciones). Tendencia ▲ = la vol. a 20 días supera en más de un 5% a la de 60 días.</div></div>`;
+  <div class="panel"><div class="body dim">${state.mode === 'real' ? 'Vol impl = índice de volatilidad publicado (VIX para el S&amp;P 500, VXN —del Nasdaq-100— para el Nasdaq, VXD para el Dow); «—» donde no hay uno disponible.' : 'La volatilidad implícita es una estimación sobre la histórica (no hay cadena de opciones).'} Tendencia ▲ = la vol. a 20 días supera en más de un 5% a la de 60 días.</div></div>`;
 }
 
 let rmiChart = null;
@@ -564,7 +659,7 @@ function rmiView() {
   if (!secs.some(i => i.id === s.security)) s.security = secs[0].id;
   if (s.benchmark === s.security || !findItem(s.benchmark)) s.benchmark = s.security === 'S&P 500' ? 'DOW JONES' : 'S&P 500';
   const a = findItem(s.security), b = findItem(s.benchmark);
-  const n = s.range;
+  const n = Math.min(s.range, a.hist.length - 1, b.hist.length - 1);
   const ra = a.hist.slice(-n - 1), rb = b.hist.slice(-n - 1);
   const retA = (ra[n] / ra[0] - 1) * 100, retB = (rb[n] / rb[0] - 1) * 100;
   const la = returns(ra), lb = returns(rb);
@@ -578,7 +673,7 @@ function rmiView() {
     <div><label for="rmiRegion">Región</label><select id="rmiRegion" data-rmi-set="region">${REGIONS.map(r => `<option value="${r.key}" ${r.key === s.region ? 'selected' : ''}>${r.title}</option>`).join('')}</select></div>
     <div><label for="rmiSec">Índice</label><select id="rmiSec" data-rmi-set="security">${opt(secs, s.security)}</select></div>
     <div><label for="rmiBench">Referencia</label><select id="rmiBench" data-rmi-set="benchmark">${opt(allItems.filter(i => i.id !== s.security), s.benchmark)}</select></div>
-    <div><label for="rmiRange">Periodo</label><select id="rmiRange" data-rmi-set="range">${[[20, '1M'], [60, '3M'], [125, '6M'], [249, '1A']].map(([d, l]) => `<option value="${d}" ${d === n ? 'selected' : ''}>${l}</option>`).join('')}</select></div>
+    <div><label for="rmiRange">Periodo</label><select id="rmiRange" data-rmi-set="range">${[[20, '1M'], [60, '3M'], [125, '6M'], [249, '1A']].map(([d, l]) => `<option value="${d}" ${d === s.range ? 'selected' : ''}>${l}</option>`).join('')}</select></div>
   </div>
   <div class="grid">
     <div class="stat"><div class="k">${esc(a.id)}</div><div class="val ${cls(retA)}">${signed(retA, 2, '%')}</div></div>
@@ -589,7 +684,7 @@ function rmiView() {
   <div class="chart-wrap"><canvas id="rmiCanvas" aria-label="Rendimiento acumulado de ${esc(a.id)} frente a ${esc(b.id)}"></canvas></div>`;
 }
 function drawRmi() {
-  const s = state.rmi, a = findItem(s.security), b = findItem(s.benchmark), n = s.range;
+  const s = state.rmi, a = findItem(s.security), b = findItem(s.benchmark), n = Math.min(s.range, a.hist.length - 1, b.hist.length - 1);
   const ra = a.hist.slice(-n - 1), rb = b.hist.slice(-n - 1);
   const pa = ra.map(x => (x / ra[0] - 1) * 100), pb = rb.map(x => (x / rb[0] - 1) * 100);
   const rel = pa.map((x, k) => x - pb[k]);
@@ -647,7 +742,26 @@ function buildNews() {
     return { ...n, txt, sum, time: new Date(now - n.mins * 60000) };
   }).sort((a, b) => b.time - a.time);
 }
+const SYMBOL_REGION = { '^GSPC': 'americas', '^IXIC': 'americas', '^DJI': 'americas', '^STOXX50E': 'emea', '^FTSE': 'emea', '^GDAXI': 'emea', '^N225': 'asiaPacific', '^HSI': 'asiaPacific' };
+function realNewsView() {
+  const q = state.newsQuery.trim().toLowerCase();
+  const items = (state.data.noticias || []).filter(n => !q || (n.titulo + ' ' + n.resumen + ' ' + n.fuente).toLowerCase().includes(q));
+  const safeUrl = u => /^https?:\/\//.test(u || '') ? u : null;
+  return backHead('NEWS · TITULARES', `<form class="right" id="newsForm"><input id="newsQ" value="${esc(state.newsQuery)}" placeholder="Buscar…" aria-label="Buscar noticias">
+      <button class="bb green" type="submit">BUSCAR</button></form>`) +
+  `<div class="panel" style="margin-top:8px"><div class="body dim">Titulares reales vía Yahoo Finance (en inglés), actualizados con cada descarga de datos.</div></div>
+  <ul class="news">${items.map(n => {
+    const t = n.fecha ? new Date(n.fecha) : null;
+    const reg = SYMBOL_REGION[n.indice];
+    const url = safeUrl(n.url);
+    return `<li><div class="meta">${t ? t.toLocaleString('es', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }) : ''} · ${esc(n.fuente)}
+      ${reg ? `<span class="tag">${regionTitle(reg)}</span>` : ''}</div>
+      <div class="hl">${url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer" style="color:inherit">${esc(n.titulo)}</a>` : esc(n.titulo)}</div>
+      ${n.resumen ? `<div class="sum">${esc(n.resumen)}</div>` : ''}</li>`;
+  }).join('') || '<li class="dim">Sin resultados.</li>'}</ul>`;
+}
 function newsView() {
+  if (state.mode === 'real') return realNewsView();
   const q = state.newsQuery.trim().toLowerCase();
   const items = buildNews().filter(n => !q || (n.txt + ' ' + n.sum + ' ' + regionTitle(n.it.region)).toLowerCase().includes(q));
   const lab = { pos: 'ALZA', neg: 'BAJA', vol: 'VOL', macro: 'MACRO' };
@@ -732,7 +846,10 @@ const actions = {
   }),
   help: helpModal,
   theme: () => { state.theme = state.theme === 'dark' ? 'light' : 'dark'; document.documentElement.dataset.theme = state.theme; store.set('theme', state.theme); render(); },
-  refresh: () => { tick(1); render(); },
+  refresh: async () => {
+    if (state.mode === 'real') { await loadReal(); render(); return; }
+    tick(1); render();
+  },
   live: () => { state.live = !state.live; render(); },
   closeModal,
   confirm: () => { const fn = modalOnConfirm; closeModal(); if (fn) fn(); },
@@ -833,6 +950,21 @@ document.documentElement.dataset.theme = state.theme;
 buildMarket();
 state.lastUpdated = new Date();
 render();
+loadReal().then(ok => { if (ok) render(); });
+
+// Con datos reales, LIVE recarga el JSON cada 5 min (el workflow lo actualiza cada 15).
+setInterval(async () => {
+  if (state.mode !== 'real' || !state.live || document.hidden) return;
+  if (await loadReal()) safeRender();
+}, REAL_REFRESH_MS);
+
+function safeRender() {
+  // No re-renderizar mientras se escribe en un campo de la vista (buscador, filtros).
+  const a = document.activeElement;
+  if (isModalOpen() || (a && /^(INPUT|SELECT)$/.test(a.tagName) && a.id !== 'cmd')) return;
+  if (state.view === 'rmi') { renderTicker(); renderStatus(); return; } // el RMI usa cierres diarios
+  render();
+}
 
 setInterval(() => {
   document.getElementById('clock').textContent = new Date().toLocaleString('es', { weekday: 'short', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit' });
@@ -840,13 +972,9 @@ setInterval(() => {
 }, 1000);
 
 setInterval(() => {
-  if (!state.live || document.hidden) return;
+  if (state.mode !== 'sim' || !state.live || document.hidden) return;
   tick(0.35);
-  // No re-renderizar mientras se escribe en un campo de la vista (buscador, filtros).
-  const a = document.activeElement;
-  if (isModalOpen() || (a && /^(INPUT|SELECT)$/.test(a.tagName) && a.id !== 'cmd')) return;
-  if (state.view === 'rmi') { renderTicker(); renderStatus(); return; } // el RMI usa cierres diarios
-  render();
+  safeRender();
 }, 2500);
 </script>
 </body>

@@ -1,0 +1,44 @@
+name: Mercados (terminal BBG)
+
+# Cada 15 min de lunes a viernes (GitHub puede retrasar las ejecuciones programadas).
+# El JSON se publica en la rama `mercados-datos`, que se reescribe con un único commit
+# en cada ejecución para que no crezca: bloomberg.html la lee desde raw.githubusercontent.com.
+on:
+  schedule:
+    - cron: "*/15 * * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mercados
+  cancel-in-progress: true
+
+jobs:
+  cotizaciones:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pandas yfinance
+
+      - name: Descargar cotizaciones
+        run: python mercados.py --salida _salida
+
+      - name: Publicar en mercados-datos
+        run: |
+          cd _salida
+          git init -q -b mercados-datos
+          git config user.name "mercados-bot"
+          git config user.email "mercados-bot@users.noreply.github.com"
+          git add mercados.json
+          git commit -qm "mercados: $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          for i in 1 2 3; do git push -fq origin mercados-datos && exit 0; sleep $((i * 5)); done
+          exit 1
