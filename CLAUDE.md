@@ -18,7 +18,7 @@
 ## Estado actual
 - **Curso de short seller** en `curso_short/` (programa en `00_PROGRAMA.md`). Hechos: módulos 1 (economía de la dilución),
   1b (guía EDGAR + lecciones), 2 (mecánica del corto), 3 (leer la SEC: munición y baby shelf), 4 (anatomía del pump).
-  **Siguiente: Módulo 5 — setups de corto medidos con datos.** Ejercicios del módulo 4: WHLR (usuario) y BENF (Claude como ejemplo) hechos.
+  Módulo 5 (setups medidos) hecho. **Siguiente: Módulo 6 — ejecución (Level 2, cinta, órdenes, halts).** Ejercicios del módulo 4: WHLR (usuario) y BENF (Claude como ejemplo) hechos.
 - Herramienta de dilución hecha: `herramientas/ficha_dilucion.py TICKER` (SEC EDGAR + Yahoo; ~7 s). Fichas en `fichas/`.
 - Futuro (cuando termine la formación): construir un sistema propio tipo "Flash Research" con estadísticas propias.
   No construirlo antes de que el usuario lo pida.
@@ -50,6 +50,8 @@
 - Dilución (SEC): gappers multiplican sus acciones ×1.7 en 12 meses (×2.7 en gaps >100 %; ×2.7 en 2023-26); 40 % hacen contra-split ese año.
 - Corto en gappers >100 % (datos diarios 2015-26): +4.6 % a +7.5 % por operación con stop 30 %, pero los halts que ejecutan el stop más arriba pueden anular la ventaja.
 - Perfil de squeeze: float diminuto + sin munición activa (APUS) → la subida puede seguir días.
+- Setups mecánicos (velas 1 h, 3 518 gappers oct-2024→sep-2026; diario 2015-26): casi todos ≈ 0R. Solo el corto temprano en gaps ≥100 % con stop amplio da +0.13R, y con 5 % de deslizamiento por halts baja a +0.05R. Primera hora roja, máximo fallido, fade de tarde, día 2 y first red day ≈ 0R. Días con rotación >10× → el corto a la apertura pierde.
+- Conclusión: la ventaja debe venir de selección (catalizador + munición activa) + ejecución fina en 1-5 min + gestión del riesgo; se medirá con el diario de operaciones del usuario y, si hace falta, datos de 1 min de pago con deslistadas.
 
 ## Mapa del repositorio
 - `curso_short/` curso y glosario · `herramientas/` herramientas · `fichas/` fichas por acción
