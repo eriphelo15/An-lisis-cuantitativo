@@ -143,6 +143,70 @@ def _palabras_calientes(df, ahora):
     return pd.DataFrame(filas).sort_values("tokens_3h", ascending=False).head(10) if filas else None
 
 
+# Desplome: el precio cae a un 40% o menos del actual dentro de los 30 min siguientes.
+DESPLOME_CAIDA = 0.4
+DESPLOME_VENTANA = pd.Timedelta(minutes=30)
+
+
+def _serie_con_senales(serie, df):
+    """Serie de 5 min con las posibles señales de salida y si hubo desplome después."""
+    s = serie.copy()
+    for c in ["precio", "mc", "liq", "compras_m5", "ventas_m5", "compradores_m5",
+              "vendedores_m5", "vol_m5", "var_m5", "var_h1"]:
+        s[c] = pd.to_numeric(s[c], errors="coerce")
+    s["ts"] = pd.to_datetime(s["ts"], utc=True)
+    s = s.sort_values(["mint", "ts"])
+    s["x_desde_deteccion"] = s["precio"] / s["mint"].map(df.set_index("mint")["precio"])
+    s["liq_mc"] = s["liq"] / s["mc"]
+    s["ticket_medio"] = s["vol_m5"] / (s["compras_m5"] + s["ventas_m5"]).clip(lower=1)
+    s["ratio_cv"] = s["compradores_m5"] / s["vendedores_m5"].clip(lower=1)
+    g = s.groupby("mint")["var_m5"]
+    # Escalera: 6 fotos seguidas (30 min) subiendo, sin ningún retroceso.
+    s["escalera"] = g.transform(lambda v: v.rolling(6).min()) > 0
+    # Aceleración final: la última subida de 5 min duplica la media de las 3 anteriores.
+    previa = g.transform(lambda v: v.shift(1).rolling(3).mean())
+    s["aceleracion"] = (s["var_m5"] > 10) & (s["var_m5"] > 2 * previa.clip(lower=0))
+    desplome = []
+    for _, t in s.groupby("mint"):
+        ts, precio = list(t["ts"]), list(t["precio"])
+        for i in range(len(t)):
+            futuros = [p for j, p in enumerate(precio[i + 1:], i + 1) if ts[j] - ts[i] <= DESPLOME_VENTANA]
+            desplome.append(bool(futuros) and min(futuros) <= DESPLOME_CAIDA * precio[i])
+    s["desplome_30m"] = desplome
+    return s
+
+
+def _senales_desplome(serie, df):
+    if serie.empty:
+        return "Aún no hay serie de 5 min.\n"
+    s = _serie_con_senales(serie, df)
+    s = s[s["x_desde_deteccion"] >= 1.5]  # solo cuando el token ya ha subido: ahí se decide la salida
+    lineas = [f"Fotos de tokens que ya subían un 50% o más: **{len(s)}**; seguidas de un desplome "
+              f"(caída a un {DESPLOME_CAIDA:.0%} o menos en 30 min): **{int(s['desplome_30m'].sum())}**. "
+              "Cada fila compara cuántas veces llegó un desplome con la señal activa frente a "
+              "sin ella: si la señal lo anticipa, el primer % es mucho mayor.\n"]
+    if s["desplome_30m"].sum() < 20:
+        lineas.append("_Menos de 20 desplomes registrados: todavía no se puede concluir nada._\n")
+    senales = {
+        "Liquidez < 3% de la capitalización": s["liq_mc"] < 0.03,
+        "Ticket medio < $30 (volumen de microcompras)": s["ticket_medio"] < 30,
+        "Más de 8 compradores por vendedor (5 min)": s["ratio_cv"] > 8,
+        "Subida de más del 100% en 1 h": s["var_h1"] > 100,
+        "Escalera: 30 min subiendo sin retrocesos": s["escalera"],
+        "Aceleración final": s["aceleracion"],
+        "Más vendedores que compradores (5 min)": s["ratio_cv"] < 1,
+        "Ya multiplicó x5 o más desde la detección": s["x_desde_deteccion"] >= 5,
+    }
+    filas = []
+    for nombre, activa in senales.items():
+        con, sin = s[activa], s[~activa]
+        filas.append({"señal": nombre, "fotos_con_señal": len(con),
+                      "desplome_con_señal": f"{con['desplome_30m'].mean():.0%}" if len(con) else "-",
+                      "desplome_sin_señal": f"{sin['desplome_30m'].mean():.0%}" if len(sin) else "-"})
+    lineas.append(pd.DataFrame(filas).to_markdown(index=False) + "\n")
+    return "\n".join(lineas)
+
+
 def _tabla(df, columna, titulo):
     t = df.groupby(columna, observed=True).apply(_resumen, include_groups=False)
     return f"### {titulo}\n\n{t.to_markdown()}\n"
@@ -260,6 +324,9 @@ def generar(almacen):
             if len(v):
                 lineas.append(f"- {h}: {v.mean():.0%} vivos (n={len(v)})")
         lineas.append("")
+
+    lineas.append("## Señales de desplome (cuándo salir)\n")
+    lineas.append(_senales_desplome(pd.DataFrame(almacen.serie()), df))
 
     lineas.append("## Palabras calientes (últimas 3 h)\n")
     lineas.append("Palabras que aparecen en muchos más tokens nuevos de lo normal: temas que "

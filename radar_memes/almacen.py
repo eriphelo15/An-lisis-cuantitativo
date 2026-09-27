@@ -29,6 +29,11 @@ COLUMNAS_SEGUIMIENTO = [
 # que entran temprano en los tokens que luego suben).
 COLUMNAS_CARTERAS = ["mint", "ts_deteccion", "cartera", "usd", "primera_compra"]
 
+# Foto de cada token vivo en cada ciclo (~5 min), para estudiar qué pasa
+# justo antes de un desplome y cuándo conviene salir.
+COLUMNAS_SERIE = ["ts", "mint", "precio", "mc", "liq", "compras_m5", "ventas_m5",
+                  "compradores_m5", "vendedores_m5", "vol_m5", "var_m5", "var_h1"]
+
 
 class Almacen:
     def __init__(self, carpeta):
@@ -37,6 +42,7 @@ class Almacen:
         self.ruta_det = os.path.join(carpeta, "detecciones.csv")
         self.ruta_seg = os.path.join(carpeta, "seguimiento.csv")
         self.ruta_car = os.path.join(carpeta, "carteras.csv")
+        self.ruta_serie = os.path.join(carpeta, "serie.csv")
 
     def _leer(self, ruta):
         if not os.path.exists(ruta):
@@ -85,3 +91,9 @@ class Almacen:
 
     def guardar_carteras(self, filas):
         self._anadir(self.ruta_car, COLUMNAS_CARTERAS, filas)
+
+    def serie(self):
+        return self._leer(self.ruta_serie)
+
+    def guardar_serie(self, filas):
+        self._anadir(self.ruta_serie, COLUMNAS_SERIE, filas)

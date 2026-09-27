@@ -39,6 +39,7 @@ def main():
         # El seguimiento va primero: sus controles tienen hora y no se pueden repetir.
         if args.accion in ("ciclo", "seguimiento"):
             seguimiento.seguir(almacen)
+            seguimiento.fotografiar(almacen)
         if args.accion in ("ciclo", "escanear"):
             escaner.escanear(almacen, con_rugcheck=not args.sin_rugcheck)
         if args.accion in ("ciclo", "informe"):

@@ -55,6 +55,14 @@ para medir con datos reales qué señales separan a los que se duplican de los q
      sin mirar al futuro.
    - **Palabras calientes** de las últimas 3 h frente a las 24 h anteriores.
    - **Narrativas activas** de las últimas 2 h y su token líder.
+   - **Señales de desplome (cuándo salir):** cada ciclo guarda una foto de 5 min de cada token
+     vivo detectado en las últimas 12 h (`serie.csv`: precio, liquidez, compras/ventas). El
+     informe mide, en tokens que ya subieron un 50% o más, con qué frecuencia llega un desplome
+     (caída a un 40% o menos en 30 min) cuando está activa cada señal: liquidez menor al 3% de
+     la capitalización, volumen de microcompras, compras muy desbalanceadas, subida de más del
+     100% en 1 h, "escalera" sin retrocesos, aceleración final o más vendedores que
+     compradores. Son las señales que se vieron antes de los desplomes de GTA 6 Coin y
+     MetaMuse; el informe dirá si se repiten.
 
 ## Dónde verlo
 

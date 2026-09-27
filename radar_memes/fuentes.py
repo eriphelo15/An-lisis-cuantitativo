@@ -206,3 +206,27 @@ def compradores(pool, mint, minimo_usd=100, maximo=40):
         c["primera"] = min(c["primera"], a["block_timestamp"])
     orden = sorted(carteras.items(), key=lambda kv: -kv[1]["usd"])[:maximo]
     return [{"cartera": k, "usd": round(v["usd"], 2), "primera_compra": v["primera"]} for k, v in orden]
+
+
+def pools_multi(pools):
+    """Estado actual de varios pools (lotes de 30): precio, liquidez y
+    operaciones de los últimos 5 min. Los pools cuyo lote falló no aparecen."""
+    estado = {}
+    pools = list(pools)
+    for i in range(0, len(pools), 30):
+        datos = _get(f"{GECKO}/pools/multi/{','.join(pools[i:i + 30])}")
+        for x in (datos or {}).get("data", []):
+            a = x.get("attributes", {})
+            t5 = (a.get("transactions") or {}).get("m5") or {}
+            pc = a.get("price_change_percentage") or {}
+            estado[a.get("address")] = {
+                "precio": float(a.get("base_token_price_usd") or 0),
+                "mc": float(a.get("market_cap_usd") or a.get("fdv_usd") or 0),
+                "liq": float(a.get("reserve_in_usd") or 0),
+                "compras_m5": t5.get("buys") or 0, "ventas_m5": t5.get("sells") or 0,
+                "compradores_m5": t5.get("buyers") or 0, "vendedores_m5": t5.get("sellers") or 0,
+                "vol_m5": float((a.get("volume_usd") or {}).get("m5") or 0),
+                "var_m5": float(pc.get("m5") or 0), "var_h1": float(pc.get("h1") or 0),
+            }
+        _dormir(PAUSA_GECKO)
+    return estado

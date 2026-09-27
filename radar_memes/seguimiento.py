@@ -193,3 +193,32 @@ def seguir(almacen, log=print):
     almacen.guardar_seguimientos(filas)
     log(f"[seguimiento] controles={len(filas)} aplazados={aplazados}")
     return filas
+
+
+# Serie de 5 min: cuánto tiempo seguir a cada token tras detectarlo.
+HORAS_SERIE = 12
+
+
+def fotografiar(almacen, log=print):
+    """Guarda una foto (precio, liquidez, compras/ventas de 5 min) de cada token
+    detectado en las últimas HORAS_SERIE horas que siga vivo."""
+    ahora = datetime.now(timezone.utc)
+    ultimo_precio = {}
+    for f in almacen.serie():
+        ultimo_precio[f["mint"]] = float(f["precio"] or 0)
+    pools = {}
+    for d in almacen.detecciones():
+        if ahora - datetime.fromisoformat(d["ts"]) > timedelta(hours=HORAS_SERIE):
+            continue
+        previo = ultimo_precio.get(d["mint"])
+        if previo is not None and previo <= UMBRAL_MUERTO * float(d["precio"]):
+            continue  # ya murió: no hace falta seguir fotografiándolo
+        pools[d["pool"]] = d["mint"]
+    if not pools:
+        return []
+    estado = fuentes.pools_multi(pools)
+    ts = ahora.isoformat(timespec="seconds")
+    filas = [dict(e, ts=ts, mint=pools[pool]) for pool, e in estado.items() if pool in pools]
+    almacen.guardar_serie(filas)
+    log(f"[serie] fotos={len(filas)} de {len(pools)} tokens seguidos")
+    return filas
