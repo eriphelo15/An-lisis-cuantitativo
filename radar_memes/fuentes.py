@@ -1,9 +1,10 @@
-"""Acceso a las APIs públicas: GeckoTerminal, DexScreener y RugCheck."""
+"""Acceso a las APIs públicas: GeckoTerminal y RugCheck."""
 
 import json
 import time
 import urllib.error
 import urllib.request
+from datetime import datetime, timezone
 
 GECKO = "https://api.geckoterminal.com/api/v2/networks/solana"
 RUGCHECK = "https://api.rugcheck.xyz/v1/tokens"
@@ -106,3 +107,31 @@ def velas_5m(pool, hasta_ts, limite=300):
         return []
     lista = datos.get("data", {}).get("attributes", {}).get("ohlcv_list") or []
     return sorted(tuple(v) for v in lista)
+
+
+def info_token(mint):
+    """Holders y autoridades del token (GeckoTerminal), o None si no respondió.
+
+    `top10_pct` es el % del suministro en manos de los 10 mayores holders
+    según GeckoTerminal; `holders_antig_min` indica cuán reciente es el dato.
+    """
+    datos = _get(f"{GECKO}/tokens/{mint}/info")
+    time.sleep(PAUSA_GECKO)
+    a = (datos or {}).get("data", {}).get("attributes")
+    if not a:
+        return None
+    h = a.get("holders") or {}
+    dist = h.get("distribution_percentage") or {}
+    antig = ""
+    if h.get("last_updated"):
+        t = datetime.fromisoformat(h["last_updated"].replace("Z", "+00:00"))
+        antig = round((datetime.now(timezone.utc) - t).total_seconds() / 60)
+    return {
+        "holders": h.get("count") or "",
+        "top10_pct": dist.get("top_10") or "",
+        "top11_20_pct": dist.get("11_20") or "",
+        "holders_antig_min": antig,
+        "mint_autoridad": a.get("mint_authority") or "",
+        "freeze_autoridad": a.get("freeze_authority") or "",
+        "gt_score": round(a["gt_score"], 1) if a.get("gt_score") is not None else "",
+    }

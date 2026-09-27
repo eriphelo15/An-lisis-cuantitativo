@@ -16,8 +16,12 @@ def cargar(almacen):
     if det.empty:
         return det
     num = ["edad_min", "precio", "mc", "liq", "compradores_h1", "vendedores_h1",
-           "vol_h1", "var_m5", "var_h1", "rc_peligros", "clones", "pasa_filtro", "puntuacion"]
-    det[num] = det[num].apply(pd.to_numeric, errors="coerce")
+           "vol_h1", "var_m5", "var_h1", "rc_peligros", "clones", "pasa_filtro", "puntuacion",
+           "holders", "top10_pct", "gt_score", "calor_narrativa", "puesto_narrativa"]
+    for c in num:
+        det[c] = pd.to_numeric(det[c], errors="coerce") if c in det else float("nan")
+    for c in ["narrativa", "catalizador", "motivo_descarte", "dex"]:
+        det[c] = det[c].fillna("") if c in det else ""
     det["ts"] = pd.to_datetime(det["ts"], utc=True)
 
     if seg.empty:
@@ -87,6 +91,19 @@ def generar(almacen):
                                       labels=["<0.5", "0.5-1", "1-3", ">3"])
         df["peligros_rugcheck"] = df["rc_peligros"].map(
             lambda v: "sin datos" if pd.isna(v) else ("2+" if v >= 2 else str(int(v))))
+        df["narrativa_"] = df["narrativa"].replace("", "sin narrativa")
+        df["papel_en_narrativa"] = df.apply(
+            lambda r: "sin narrativa" if not r["narrativa"]
+            else ("líder" if r["puesto_narrativa"] == 1 else "seguidor/clon"), axis=1)
+        df["calor"] = pd.cut(df["calor_narrativa"], [0, 1, 3, 8, 1e9],
+                             labels=["1 token", "2-3", "4-8", "9+"])
+        df["con_catalizador"] = df["catalizador"].map(lambda c: "sí" if c else "no")
+        df["top10_holders"] = pd.cut(df["top10_pct"], [-1, 15, 25, 35, 50, 101],
+                                     labels=["<15%", "15-25%", "25-35%", "35-50%", ">50%"])
+        df["num_holders"] = pd.cut(df["holders"], [0, 100, 300, 1000, 3000, 1e9],
+                                   labels=["<100", "100-300", "300-1K", "1K-3K", "3K+"])
+        df["gt_score_"] = pd.cut(df["gt_score"], [-1, 30, 45, 60, 101],
+                                 labels=["<30", "30-45", "45-60", "60+"])
         df["puntuacion_q"] = pd.qcut(df["puntuacion"].rank(method="first"), 5,
                                      labels=["Q1 (baja)", "Q2", "Q3", "Q4", "Q5 (alta)"])
 
@@ -97,6 +114,18 @@ def generar(almacen):
         motivos = motivos[motivos["motivo"] != ""]
         if len(motivos):
             lineas.append(_tabla(motivos, "motivo", "Por motivo de descarte (un token puede tener varios)"))
+
+        lineas.append("## Narrativas\n")
+        for col, titulo in [("narrativa_", "Por narrativa"),
+                            ("papel_en_narrativa", "Líder de su narrativa frente a seguidores y clones"),
+                            ("calor", "Calor de la narrativa (tokens con el mismo tema en el escaneo)"),
+                            ("con_catalizador", "Con catalizador próximo")]:
+            lineas.append(_tabla(df, col, titulo))
+
+        lineas.append("## Holders\n")
+        for col, titulo in [("top10_holders", "% del suministro en los 10 mayores holders"),
+                            ("num_holders", "Número de holders"), ("gt_score_", "GT Score")]:
+            lineas.append(_tabla(df, col, titulo))
 
         lineas.append("## Señales por separado\n")
         for col, titulo in [("edad", "Edad al detectarlo"), ("cap", "Capitalización al detectarlo"),
@@ -113,12 +142,29 @@ def generar(almacen):
                 lineas.append(f"- {h}: {v.mean():.0%} vivos (n={len(v)})")
         lineas.append("")
 
+    lineas.append("## Narrativas activas (últimas 2 h)\n")
+    ult = df[(df["ts"] >= ahora - timedelta(hours=2)) & (df["narrativa"] != "")]
+    if len(ult):
+        filas = []
+        for narrativa, g in ult.groupby("narrativa"):
+            lider = g.sort_values("liq", ascending=False).iloc[0]
+            cat = g["catalizador"].iloc[0]
+            filas.append({"narrativa": narrativa, "tokens_nuevos": len(g),
+                          "lider": lider["simbolo"], "mc_lider": f"{lider['mc'] / 1e3:.0f}K",
+                          "catalizador": f"{cat} (en {int(g['dias_catalizador'].iloc[0])} días)" if cat else "",
+                          "mint_lider": lider["mint"]})
+        t = pd.DataFrame(filas).sort_values("tokens_nuevos", ascending=False)
+        lineas.append(t.to_markdown(index=False) + "\n")
+    else:
+        lineas.append("Ninguna.\n")
+
     recientes = df[(df["pasa_filtro"] == 1) & (df["ts"] >= ahora - timedelta(hours=1))]
     lineas.append("## Pasan el filtro en la última hora\n")
     lineas.append("Solo son candidatos para vigilar mientras el filtro no demuestre ventaja. "
                   "Comprueba el contrato en rugcheck.xyz antes de hacer nada.\n")
     if len(recientes):
-        cols = ["ts", "simbolo", "mc", "liq", "edad_min", "compradores_h1", "vendedores_h1", "mint"]
+        cols = ["ts", "simbolo", "narrativa", "mc", "liq", "edad_min", "compradores_h1",
+                "vendedores_h1", "top10_pct", "mint"]
         t = recientes[cols].copy()
         t["ts"] = t["ts"].dt.strftime("%H:%M")
         t["mc"] = (t["mc"] / 1e3).round().astype(int).astype(str) + "K"

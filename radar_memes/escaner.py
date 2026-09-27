@@ -1,9 +1,8 @@
 """Detección: registra los tokens nuevos que superan un mínimo de actividad."""
 
-from collections import Counter
 from datetime import datetime, timedelta, timezone
 
-from . import fuentes
+from . import fuentes, narrativas
 
 # Mínimo para registrar un token (no es el filtro de compra: se registran
 # también los que no lo pasan, para poder comparar).
@@ -12,8 +11,9 @@ MINIMO = {
     "liq_min": 5_000, "edad_max_min": 24 * 60, "compradores_h1_min": 25,
 }
 
-# Máximo de consultas a RugCheck por escaneo (~3 min con su límite de 15/min).
-MAX_RUGCHECK_POR_ESCANEO = 40
+# Máximo de tokens por escaneo que se consultan en RugCheck (límite 15/min) y
+# en la ficha de holders de GeckoTerminal (~30/min): unos 4-5 min en total.
+MAX_CONSULTAS_POR_ESCANEO = 40
 
 # Filtro de compra v1: hipótesis a validar con los datos, no una verdad.
 FILTRO = {
@@ -22,6 +22,7 @@ FILTRO = {
     "vol_mc_max": 3.0,
     "compradores_h1_min": 100,
     "ratio_cv_min": 1.2, "ratio_cv_max": 8.0,
+    "top10_max": 35.0,  # % del suministro en los 10 mayores holders
 }
 
 
@@ -99,6 +100,11 @@ def evaluar_filtro(r):
         motivos.append("volumen_inflado")
     if r["compradores_h1"] < f["compradores_h1_min"]:
         motivos.append("pocos_compradores")
+    # Sin datos de holders no se descarta (igual que con RugCheck).
+    if r.get("top10_pct") not in (None, "") and float(r["top10_pct"]) > f["top10_max"]:
+        motivos.append("holders_concentrados")
+    if "yes" in (r.get("mint_autoridad"), r.get("freeze_autoridad")):
+        motivos.append("autoridad_activa")
     ratio = r["compradores_h1"] / max(1, r["vendedores_h1"])
     if ratio > f["ratio_cv_max"]:
         motivos.append("compras_desbalanceadas")
@@ -144,14 +150,34 @@ def escanear(almacen, con_rugcheck=True, log=print):
     for r in filas.values():
         mints_por_simbolo.setdefault(_clave(r["simbolo"]), set()).add(r["mint"])
 
+    # Narrativas: calor = tokens del escaneo con esa narrativa (atención en
+    # tiempo real); líder = el de más liquidez dentro de su narrativa.
+    for r in filas.values():
+        r["narrativa"] = narrativas.clasificar(r["simbolo"])
+    por_narrativa = {}
+    for r in filas.values():
+        if r["narrativa"]:
+            por_narrativa.setdefault(r["narrativa"], []).append(r)
+    for grupo in por_narrativa.values():
+        grupo.sort(key=lambda r: -r["liq"])
+        for puesto, r in enumerate(grupo, 1):
+            r["calor_narrativa"] = len(grupo)
+            r["puesto_narrativa"] = puesto
+    hoy = ahora.date()
+    for r in filas.values():
+        r["catalizador"], r["dias_catalizador"] = narrativas.proximo_catalizador(r["narrativa"], hoy)
+
     nuevas = [r for r in filas.values() if r["mint"] not in vistos and _supera_minimo(r)]
     # Si hay más tokens nuevos que consultas disponibles, primero los de más compradores.
     nuevas.sort(key=lambda r: -r["compradores_h1"])
     for i, r in enumerate(nuevas):
         r["clones"] = len(mints_por_simbolo.get(_clave(r["simbolo"]), set())) - 1
-        rc = fuentes.rugcheck(r["mint"]) if con_rugcheck and i < MAX_RUGCHECK_POR_ESCANEO else None
+        consultar = i < MAX_CONSULTAS_POR_ESCANEO
+        rc = fuentes.rugcheck(r["mint"]) if con_rugcheck and consultar else None
         r.update(rc or {"rc_score": "", "rc_peligros": "", "rc_avisos": "",
                         "rc_riesgos": "", "lp_bloqueado": ""})
+        info = fuentes.info_token(r["mint"]) if consultar else None
+        r.update(info or {})
         motivos = evaluar_filtro(r)
         r["pasa_filtro"] = int(not motivos)
         r["motivo_descarte"] = "|".join(motivos)

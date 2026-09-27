@@ -11,6 +11,9 @@ COLUMNAS_DETECCION = [
     "var_m5", "var_h1", "var_h6",
     "rc_score", "rc_peligros", "rc_avisos", "rc_riesgos", "lp_bloqueado",
     "clones", "pasa_filtro", "motivo_descarte", "puntuacion",
+    "holders", "top10_pct", "top11_20_pct", "holders_antig_min",
+    "mint_autoridad", "freeze_autoridad", "gt_score",
+    "narrativa", "calor_narrativa", "puesto_narrativa", "catalizador", "dias_catalizador",
 ]
 
 COLUMNAS_SEGUIMIENTO = [
@@ -33,10 +36,24 @@ class Almacen:
         with open(ruta, newline="", encoding="utf-8") as f:
             return list(csv.DictReader(f))
 
+    def _migrar(self, ruta, columnas):
+        """Reescribe el CSV con las columnas actuales si se añadieron columnas nuevas."""
+        with open(ruta, newline="", encoding="utf-8") as f:
+            lector = csv.DictReader(f)
+            if lector.fieldnames == columnas:
+                return
+            filas = list(lector)
+        with open(ruta, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=columnas, extrasaction="ignore")
+            w.writeheader()
+            w.writerows(filas)
+
     def _anadir(self, ruta, columnas, filas):
         if not filas:
             return
         nuevo = not os.path.exists(ruta)
+        if not nuevo:
+            self._migrar(ruta, columnas)
         with open(ruta, "a", newline="", encoding="utf-8") as f:
             w = csv.DictWriter(f, fieldnames=columnas, extrasaction="ignore")
             if nuevo:
