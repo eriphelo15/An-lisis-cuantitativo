@@ -1,13 +1,21 @@
 """Informe: qué señales en la detección anticipan los tokens que se duplican o mueren."""
 
+import bisect
 import os
 from datetime import datetime, timedelta, timezone
 
 import pandas as pd
 
+from .escaner import _palabras_utiles
+
 APUESTA = 50        # dólares por token en el plan
 COSTE_LADO = 0.03   # comisiones + slippage estimados por operación (entrada y salida)
 N_MINIMO = 30       # por debajo, la muestra no permite sacar conclusiones
+
+# Cartera "buena": al menos 3 tokens comprados con resultado a 24 h y en al
+# menos la mitad de ellos el precio llegó a 2x.
+CARTERA_MIN_TOKENS = 3
+CARTERA_MIN_ACIERTO = 0.5
 
 
 def cargar(almacen):
@@ -17,24 +25,26 @@ def cargar(almacen):
         return det
     num = ["edad_min", "precio", "mc", "liq", "compradores_h1", "vendedores_h1",
            "vol_h1", "var_m5", "var_h1", "rc_peligros", "clones", "pasa_filtro", "puntuacion",
-           "holders", "top10_pct", "gt_score", "calor_narrativa", "puesto_narrativa"]
+           "holders", "top10_pct", "gt_score", "calor_narrativa", "puesto_narrativa",
+           "calor_palabra"]
     for c in num:
         det[c] = pd.to_numeric(det[c], errors="coerce") if c in det else float("nan")
-    for c in ["narrativa", "catalizador", "motivo_descarte", "dex"]:
+    for c in ["narrativa", "catalizador", "motivo_descarte", "dex", "palabra_caliente"]:
         det[c] = det[c].fillna("") if c in det else ""
     det["ts"] = pd.to_datetime(det["ts"], utc=True)
 
     if seg.empty:
         return det
-    for c in ["precio", "vivo", "max_x", "min_x", "min_hasta_max", "toco_2x", "regla_x"]:
-        seg[c] = pd.to_numeric(seg[c], errors="coerce")
-    for h in ["30m", "1h", "6h", "24h"]:
-        s = seg[seg["horizonte"] == h].set_index("mint")
+    extra_24h = ["max_x", "min_x", "min_hasta_max", "toco_2x", "regla_x"]
+    extra_7d = ["max_x_7d", "horas_hasta_max_7d", "regla_tendencia_x"]
+    for c in ["precio", "vivo"] + extra_24h + extra_7d:
+        seg[c] = pd.to_numeric(seg[c], errors="coerce") if c in seg else float("nan")
+    for h in ["30m", "1h", "6h", "24h", "3d", "7d"]:
+        s = seg[seg["horizonte"] == h].drop_duplicates("mint").set_index("mint")
         det[f"vivo_{h}"] = det["mint"].map(s["vivo"])
         det[f"x_{h}"] = det["mint"].map(s["precio"]) / det["precio"]
-    s24 = seg[seg["horizonte"] == "24h"].set_index("mint")
-    for c in ["max_x", "min_x", "min_hasta_max", "toco_2x", "regla_x"]:
-        det[c] = det["mint"].map(s24[c])
+        for c in extra_24h if h == "24h" else extra_7d if h == "7d" else []:
+            det[c] = det["mint"].map(s[c])
     return det
 
 
@@ -46,14 +56,91 @@ def _resumen(g):
     muertos = ((g["vivo_24h"] == 0) | (g["x_24h"] <= 0.1)).mean()
     regla = g["regla_x"].dropna()
     neto = regla * (1 - COSTE_LADO) ** 2
+    g7 = g[g["max_x_7d"].notna()]
+    tend = g7["regla_tendencia_x"].dropna() * (1 - COSTE_LADO) ** 2
     return pd.Series({
         "n": n,
         "muertos_24h": f"{muertos:.0%}",
         "tocaron_2x": f"{g['toco_2x'].mean():.0%}" if g["toco_2x"].notna().any() else "-",
         "mediana_24h": f"{g['x_24h'].median() - 1:+.0%}",
         "regla_$_por_50": f"{(neto.mean() - 1) * APUESTA:+.2f}" if len(regla) else "-",
+        "n_7d": len(g7),
+        "10x_7d": f"{(g7['max_x_7d'] >= 10).mean():.1%}" if len(g7) else "-",
+        "50x_7d": f"{(g7['max_x_7d'] >= 50).mean():.1%}" if len(g7) else "-",
+        "tendencia_$_por_50": f"{(tend.mean() - 1) * APUESTA:+.2f}" if len(tend) else "-",
         "aviso": "muestra pequeña" if n < N_MINIMO else "",
     })
+
+
+def historial_carteras(df, car):
+    """Por cartera: lista ordenada de (momento en que se conoció el resultado, tocó 2x).
+
+    El resultado de un token se conoce 24 h después de detectarlo; usar esa
+    fecha evita mirar al futuro al puntuar carteras.
+    """
+    res = df[df["toco_2x"].notna()][["mint", "ts", "toco_2x"]]
+    res = res.assign(resuelto=res["ts"] + pd.Timedelta(hours=24))
+    m = car.merge(res, on="mint")
+    historial = {}
+    for cartera, g in m.groupby("cartera"):
+        g = g.sort_values("resuelto")
+        historial[cartera] = (list(g["resuelto"]), list(g["toco_2x"].cumsum()))
+    return historial
+
+
+def contar_carteras_buenas(df, car, historial):
+    """Para cada token, cuántas de sus carteras compradoras tenían ya buen historial."""
+    por_mint = car.groupby("mint")["cartera"].apply(list).to_dict()
+    cuentas = []
+    for mint, ts in zip(df["mint"], df["ts"]):
+        n_buenas = 0
+        for cartera in por_mint.get(mint, []):
+            fechas, aciertos = historial.get(cartera, ([], []))
+            k = bisect.bisect_left(fechas, ts)
+            if k >= CARTERA_MIN_TOKENS and aciertos[k - 1] / k >= CARTERA_MIN_ACIERTO:
+                n_buenas += 1
+        cuentas.append(n_buenas if mint in por_mint else float("nan"))
+    return cuentas
+
+
+def _ranking_carteras(df, car):
+    m = car.merge(df[df["toco_2x"].notna()][["mint", "toco_2x", "vivo_24h", "x_24h", "max_x_7d"]],
+                  on="mint")
+    if m.empty:
+        return None
+    g = m.groupby("cartera").agg(tokens=("mint", "nunique"), tocaron_2x=("toco_2x", "mean"),
+                                 muertos=("x_24h", lambda x: (x <= 0.1).mean()),
+                                 llegaron_10x_7d=("max_x_7d", lambda x: (x >= 10).mean()))
+    g = g[g["tokens"] >= CARTERA_MIN_TOKENS].sort_values(["tocaron_2x", "tokens"], ascending=False)
+    if g.empty:
+        return None
+    for c in ["tocaron_2x", "muertos", "llegaron_10x_7d"]:
+        g[c] = g[c].map(lambda v: "-" if pd.isna(v) else f"{v:.0%}")
+    return g.head(15)
+
+
+def _palabras_calientes(df, ahora):
+    reciente = df[df["ts"] >= ahora - timedelta(hours=3)]
+    base = df[(df["ts"] < ahora - timedelta(hours=3)) & (df["ts"] >= ahora - timedelta(hours=27))]
+
+    def conteo(d):
+        c = {}
+        for mint, simbolo in zip(d["mint"], d["simbolo"]):
+            for w in _palabras_utiles(str(simbolo)):
+                c.setdefault(w, set()).add(mint)
+        return c
+
+    rec, bas = conteo(reciente), conteo(base)
+    filas = []
+    for w, mints in rec.items():
+        n, n_base = len(mints), len(bas.get(w, ()))
+        subida = (n / 3) / max(n_base / 24, 1 / 24)  # tokens por hora frente a la base
+        if n >= 3 and subida >= 3:
+            g = reciente[reciente["mint"].isin(mints)].sort_values("mc", ascending=False)
+            filas.append({"palabra": w, "tokens_3h": n, "tokens_24h_previas": n_base,
+                          "veces_lo_normal": f"x{subida:.0f}", "mayor": g.iloc[0]["simbolo"],
+                          "mc_mayor": f"{g.iloc[0]['mc'] / 1e3:.0f}K", "mint_mayor": g.iloc[0]["mint"]})
+    return pd.DataFrame(filas).sort_values("tokens_3h", ascending=False).head(10) if filas else None
 
 
 def _tabla(df, columna, titulo):
@@ -63,6 +150,15 @@ def _tabla(df, columna, titulo):
 
 def generar(almacen):
     df = cargar(almacen)
+    car = pd.DataFrame(almacen.carteras())
+    if not df.empty:
+        if "toco_2x" not in df:
+            df["toco_2x"] = float("nan")
+        if not car.empty:
+            car["ts_deteccion"] = pd.to_datetime(car["ts_deteccion"], utc=True)
+            df["carteras_buenas"] = contar_carteras_buenas(df, car, historial_carteras(df, car))
+        else:
+            df["carteras_buenas"] = float("nan")
     ahora = datetime.now(timezone.utc)
     lineas = [f"# Informe del radar de memecoins\n",
               f"Generado: {ahora:%Y-%m-%d %H:%M} UTC\n"]
@@ -74,8 +170,12 @@ def generar(almacen):
     lineas.append(f"- Con resultado a 24 h: **{len(con24)}**"
                   + ("" if len(con24) else " (el primero llega 24 h después de la primera detección)"))
     lineas.append(f"- Pasan el filtro v1: **{int(df['pasa_filtro'].sum())}**")
-    lineas.append(f"- Resultado de la regla en dólares: por cada apuesta de ${APUESTA}, "
-                  f"con {COSTE_LADO:.0%} de costes en la entrada y en la salida.\n")
+    lineas.append(f"- Resultados en dólares por cada apuesta de ${APUESTA}, con {COSTE_LADO:.0%} "
+                  "de costes en la entrada y en la salida:")
+    lineas.append("  - `regla_$_por_50` (24 h): vender 50% a 2x, 20% a 5x, 20% a 10x; stop a -50%.")
+    lineas.append("  - `tendencia_$_por_50` (7 días): vender 1/3 a 3x y el resto con stop móvil "
+                  "del 50% desde el máximo. Es la que puede capturar las subidas grandes.")
+    lineas.append("  - `10x_7d` / `50x_7d`: % de tokens cuyo máximo en 7 días llegó a 10x / 50x.\n")
 
     if len(con24):
         df = df.copy()
@@ -98,6 +198,8 @@ def generar(almacen):
         df["calor"] = pd.cut(df["calor_narrativa"], [0, 1, 3, 8, 1e9],
                              labels=["1 token", "2-3", "4-8", "9+"])
         df["con_catalizador"] = df["catalizador"].map(lambda c: "sí" if c else "no")
+        df["calor_palabra_"] = pd.cut(df["calor_palabra"], [0, 1, 2, 4, 1e9],
+                                      labels=["única", "2 tokens", "3-4", "5+"])
         df["top10_holders"] = pd.cut(df["top10_pct"], [-1, 15, 25, 35, 50, 101],
                                      labels=["<15%", "15-25%", "25-35%", "35-50%", ">50%"])
         df["num_holders"] = pd.cut(df["holders"], [0, 100, 300, 1000, 3000, 1e9],
@@ -119,8 +221,21 @@ def generar(almacen):
         for col, titulo in [("narrativa_", "Por narrativa"),
                             ("papel_en_narrativa", "Líder de su narrativa frente a seguidores y clones"),
                             ("calor", "Calor de la narrativa (tokens con el mismo tema en el escaneo)"),
-                            ("con_catalizador", "Con catalizador próximo")]:
+                            ("con_catalizador", "Con catalizador próximo"),
+                            ("calor_palabra_", "Tokens del escaneo que comparten palabra con él")]:
             lineas.append(_tabla(df, col, titulo))
+
+        lineas.append("## Carteras inteligentes\n")
+        lineas.append(f"Cartera con buen historial: {CARTERA_MIN_TOKENS} tokens o más comprados antes "
+                      f"de detectarlos y al menos el {CARTERA_MIN_ACIERTO:.0%} llegaron a 2x. Solo cuenta "
+                      "el historial que se conocía en el momento de cada detección.\n")
+        df["carteras_buenas_"] = df["carteras_buenas"].map(
+            lambda v: "sin datos" if pd.isna(v) else ("0" if v == 0 else ("1" if v == 1 else "2+")))
+        lineas.append(_tabla(df, "carteras_buenas_", "Carteras con buen historial entre los compradores"))
+        ranking = _ranking_carteras(df, car) if not car.empty else None
+        lineas.append("### Mejores carteras\n")
+        lineas.append(ranking.to_markdown() + "\n" if ranking is not None
+                      else f"Aún no hay carteras con {CARTERA_MIN_TOKENS}+ tokens resueltos.\n")
 
         lineas.append("## Holders\n")
         for col, titulo in [("top10_holders", "% del suministro en los 10 mayores holders"),
@@ -141,6 +256,12 @@ def generar(almacen):
             if len(v):
                 lineas.append(f"- {h}: {v.mean():.0%} vivos (n={len(v)})")
         lineas.append("")
+
+    lineas.append("## Palabras calientes (últimas 3 h)\n")
+    lineas.append("Palabras que aparecen en muchos más tokens nuevos de lo normal: temas que "
+                  "se están calentando aunque no estén en la lista de narrativas.\n")
+    calientes = _palabras_calientes(df, ahora)
+    lineas.append(calientes.to_markdown(index=False) + "\n" if calientes is not None else "Ninguna.\n")
 
     lineas.append("## Narrativas activas (últimas 2 h)\n")
     ult = df[(df["ts"] >= ahora - timedelta(hours=2)) & (df["narrativa"] != "")]
@@ -164,7 +285,7 @@ def generar(almacen):
                   "Comprueba el contrato en rugcheck.xyz antes de hacer nada.\n")
     if len(recientes):
         cols = ["ts", "simbolo", "narrativa", "mc", "liq", "edad_min", "compradores_h1",
-                "vendedores_h1", "top10_pct", "mint"]
+                "vendedores_h1", "top10_pct", "carteras_buenas", "mint"]
         t = recientes[cols].copy()
         t["ts"] = t["ts"].dt.strftime("%H:%M")
         t["mc"] = (t["mc"] / 1e3).round().astype(int).astype(str) + "K"

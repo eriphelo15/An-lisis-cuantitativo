@@ -16,12 +16,14 @@ NARRATIVAS = {
            "deepseek", "llm", "agent", "agents", "sora", "neural", "robot", "bot"],
     "politica": ["trump", "melania", "barron", "maga", "biden", "vance", "kamala", "obama",
                  "election", "president", "congress", "senate", "midterm", "putin", "milei",
-                 "bukele", "zelensky", "freedom"],
+                 "bukele", "zelensky", "freedom", "newsom", "newscum"],
     "elon": ["elon", "musk", "tesla", "spacex", "xai", "doge", "mars", "starship"],
     "celebridades": ["mrbeast", "beast", "kanye", "drake", "taylor", "swift", "kardashian",
                      "ronaldo", "messi", "neymar", "speed", "ishowspeed", "kaicenat", "tate"],
     "animales": ["dog", "doge", "cat", "pepe", "frog", "inu", "shib", "wif", "bonk", "pengu",
                  "penguin", "monkey", "ape", "hippo", "moodeng", "goat", "bear", "bull"],
+    "festividades": ["halloween", "spooky", "pumpkin", "ghost", "xmas", "christmas", "santa",
+                     "thanksgiving", "turkey", "newyear", "grinch"],
     "cripto": ["pump", "sol", "solana", "bitcoin", "btc", "eth", "moon", "gem", "100x",
                "1000x", "wagmi", "gm", "defi", "meme"],
 }
@@ -29,7 +31,7 @@ NARRATIVAS = {
 RUTA_CATALIZADORES = os.path.join(os.path.dirname(__file__), "catalizadores.json")
 
 
-def _palabras(texto):
+def palabras(texto):
     # Separa también camelCase: "ChatGPTCoin" -> chat, gpt, coin
     texto = re.sub(r"([a-z])([A-Z])", r"\1 \2", texto)
     return [p for p in re.split(r"[^a-z0-9]+", texto.lower()) if p]
@@ -41,11 +43,11 @@ def clasificar(texto):
     No hay que pasarle el nombre del pool ("GTA 6 Coin / SOL"): el "SOL" del par
     haría que todo casara con la narrativa cripto.
     """
-    palabras = set(_palabras(texto))
+    en_texto = set(palabras(texto))
     junto = "".join(c for c in texto.lower() if c.isalnum())
     for narrativa, claves in NARRATIVAS.items():
         for clave in claves:
-            if (len(clave) <= 3 and clave in palabras) or (len(clave) > 3 and clave in junto):
+            if (len(clave) <= 3 and clave in en_texto) or (len(clave) > 3 and clave in junto):
                 return narrativa
     return ""
 

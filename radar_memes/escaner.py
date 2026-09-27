@@ -1,5 +1,6 @@
 """Detección: registra los tokens nuevos que superan un mínimo de actividad."""
 
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 
 from . import fuentes, narrativas
@@ -12,8 +13,14 @@ MINIMO = {
 }
 
 # Máximo de tokens por escaneo que se consultan en RugCheck (límite 15/min) y
-# en la ficha de holders de GeckoTerminal (~30/min): unos 4-5 min en total.
-MAX_CONSULTAS_POR_ESCANEO = 40
+# en la ficha de holders de GeckoTerminal (~30/min): el ciclo cabe en 5 min.
+MAX_CONSULTAS_POR_ESCANEO = 30
+# De ellos, a cuántos se les descargan las carteras compradoras (otra consulta).
+MAX_CARTERAS_POR_ESCANEO = 15
+
+# Palabras que no dicen nada del tema del token.
+PALABRAS_VACIAS = {"coin", "token", "the", "and", "sol", "official", "pump", "fun",
+                   "for", "of", "on", "inc", "new", "real", "first"}
 
 # Filtro de compra v1: hipótesis a validar con los datos, no una verdad.
 FILTRO = {
@@ -72,6 +79,11 @@ def _fila(pool, ahora):
         "var_h1": _f(pc.get("h1")),
         "var_h6": _f(pc.get("h6")),
     }
+
+
+def _palabras_utiles(simbolo):
+    return {w for w in narrativas.palabras(simbolo)
+            if len(w) >= 3 and w not in PALABRAS_VACIAS and not w.isdigit()}
 
 
 def _supera_minimo(r):
@@ -163,6 +175,17 @@ def escanear(almacen, con_rugcheck=True, log=print):
         for puesto, r in enumerate(grupo, 1):
             r["calor_narrativa"] = len(grupo)
             r["puesto_narrativa"] = puesto
+    # Palabras calientes: detecta temas que no están en la lista de narrativas
+    # (p. ej. un suceso viral) contando cuántos tokens del escaneo comparten palabra.
+    mints_por_palabra = {}
+    for r in filas.values():
+        for w in _palabras_utiles(r["simbolo"]):
+            mints_por_palabra.setdefault(w, set()).add(r["mint"])
+    for r in filas.values():
+        mejores = sorted(((len(mints_por_palabra[w]), w) for w in _palabras_utiles(r["simbolo"])),
+                         reverse=True)
+        r["calor_palabra"], r["palabra_caliente"] = mejores[0] if mejores else (0, "")
+
     hoy = ahora.date()
     for r in filas.values():
         r["catalizador"], r["dias_catalizador"] = narrativas.proximo_catalizador(r["narrativa"], hoy)
@@ -170,20 +193,33 @@ def escanear(almacen, con_rugcheck=True, log=print):
     nuevas = [r for r in filas.values() if r["mint"] not in vistos and _supera_minimo(r)]
     # Si hay más tokens nuevos que consultas disponibles, primero los de más compradores.
     nuevas.sort(key=lambda r: -r["compradores_h1"])
-    for i, r in enumerate(nuevas):
+    consultados = nuevas[:MAX_CONSULTAS_POR_ESCANEO]
+    carteras = []
+    # RugCheck y GeckoTerminal tienen límites separados: RugCheck va en paralelo.
+    with ThreadPoolExecutor(max_workers=1) as hilo:
+        futuros = ({r["mint"]: hilo.submit(fuentes.rugcheck, r["mint"]) for r in consultados}
+                   if con_rugcheck else {})
+        for i, r in enumerate(consultados):
+            r.update(fuentes.info_token(r["mint"]) or {})
+            if i < MAX_CARTERAS_POR_ESCANEO:
+                compras = fuentes.compradores(r["pool"], r["mint"])
+                r["carteras_registradas"] = len(compras)
+                carteras += [dict(c, mint=r["mint"], ts_deteccion=r["ts"]) for c in compras]
+        for r in nuevas:
+            futuro = futuros.get(r["mint"])
+            r.update((futuro.result() if futuro else None)
+                     or {"rc_score": "", "rc_peligros": "", "rc_avisos": "",
+                         "rc_riesgos": "", "lp_bloqueado": ""})
+
+    for r in nuevas:
         r["clones"] = len(mints_por_simbolo.get(_clave(r["simbolo"]), set())) - 1
-        consultar = i < MAX_CONSULTAS_POR_ESCANEO
-        rc = fuentes.rugcheck(r["mint"]) if con_rugcheck and consultar else None
-        r.update(rc or {"rc_score": "", "rc_peligros": "", "rc_avisos": "",
-                        "rc_riesgos": "", "lp_bloqueado": ""})
-        info = fuentes.info_token(r["mint"]) if consultar else None
-        r.update(info or {})
         motivos = evaluar_filtro(r)
         r["pasa_filtro"] = int(not motivos)
         r["motivo_descarte"] = "|".join(motivos)
         r["puntuacion"] = puntuar(r)
 
     almacen.guardar_detecciones(nuevas)
+    almacen.guardar_carteras(carteras)
     log(f"[escaneo] pools={len(pools)} tokens={len(filas)} nuevos_registrados={len(nuevas)} "
         f"pasan_filtro={sum(r['pasa_filtro'] for r in nuevas)}")
     return nuevas

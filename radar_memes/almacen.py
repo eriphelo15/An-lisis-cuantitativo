@@ -14,13 +14,20 @@ COLUMNAS_DETECCION = [
     "holders", "top10_pct", "top11_20_pct", "holders_antig_min",
     "mint_autoridad", "freeze_autoridad", "gt_score",
     "narrativa", "calor_narrativa", "puesto_narrativa", "catalizador", "dias_catalizador",
+    "palabra_caliente", "calor_palabra", "carteras_registradas",
 ]
 
 COLUMNAS_SEGUIMIENTO = [
     "mint", "horizonte", "ts", "retraso_min", "precio", "mc", "liq", "vivo",
     # Solo en el control de 24 h, calculados con velas de 5 min:
     "max_x", "min_x", "min_hasta_max", "toco_2x", "regla_x",
+    # Solo en el control de 7 días, con velas de 1 h:
+    "max_x_7d", "horas_hasta_max_7d", "regla_tendencia_x",
 ]
+
+# Carteras que compraron cada token antes de detectarlo (para buscar carteras
+# que entran temprano en los tokens que luego suben).
+COLUMNAS_CARTERAS = ["mint", "ts_deteccion", "cartera", "usd", "primera_compra"]
 
 
 class Almacen:
@@ -29,6 +36,7 @@ class Almacen:
         os.makedirs(carpeta, exist_ok=True)
         self.ruta_det = os.path.join(carpeta, "detecciones.csv")
         self.ruta_seg = os.path.join(carpeta, "seguimiento.csv")
+        self.ruta_car = os.path.join(carpeta, "carteras.csv")
 
     def _leer(self, ruta):
         if not os.path.exists(ruta):
@@ -71,3 +79,9 @@ class Almacen:
 
     def guardar_seguimientos(self, filas):
         self._anadir(self.ruta_seg, COLUMNAS_SEGUIMIENTO, filas)
+
+    def carteras(self):
+        return self._leer(self.ruta_car)
+
+    def guardar_carteras(self, filas):
+        self._anadir(self.ruta_car, COLUMNAS_CARTERAS, filas)

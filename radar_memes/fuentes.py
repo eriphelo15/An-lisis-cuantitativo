@@ -99,7 +99,16 @@ def velas_5m(pool, hasta_ts, limite=300):
 
     Cada vela es (ts, apertura, máximo, mínimo, cierre, volumen).
     """
-    url = (f"{GECKO}/pools/{pool}/ohlcv/minute?aggregate=5&limit={limite}"
+    return _velas(pool, hasta_ts, "minute?aggregate=5", limite)
+
+
+def velas_1h(pool, hasta_ts, limite=200):
+    """Velas de 1 hora en USD hasta `hasta_ts`, en orden cronológico."""
+    return _velas(pool, hasta_ts, "hour?aggregate=1", limite)
+
+
+def _velas(pool, hasta_ts, marco, limite):
+    url = (f"{GECKO}/pools/{pool}/ohlcv/{marco}&limit={limite}"
            f"&currency=usd&before_timestamp={int(hasta_ts)}")
     datos = _get(url)
     time.sleep(PAUSA_GECKO)
@@ -135,3 +144,24 @@ def info_token(mint):
         "freeze_autoridad": a.get("freeze_authority") or "",
         "gt_score": round(a["gt_score"], 1) if a.get("gt_score") is not None else "",
     }
+
+
+def compradores(pool, mint, minimo_usd=100, maximo=40):
+    """Carteras que compraron el token en el pool (últimas ~300 operaciones).
+
+    Devuelve hasta `maximo` carteras ordenadas por dólares comprados, con su
+    primera compra. Las compras de menos de `minimo_usd` se ignoran (polvo y
+    bots de volumen).
+    """
+    datos = _get(f"{GECKO}/pools/{pool}/trades?trade_volume_in_usd_greater_than={minimo_usd}")
+    time.sleep(PAUSA_GECKO)
+    carteras = {}
+    for t in (datos or {}).get("data", []):
+        a = t.get("attributes", {})
+        if a.get("kind") != "buy" or a.get("to_token_address") != mint:
+            continue
+        c = carteras.setdefault(a["tx_from_address"], {"usd": 0.0, "primera": a["block_timestamp"]})
+        c["usd"] += float(a.get("volume_in_usd") or 0)
+        c["primera"] = min(c["primera"], a["block_timestamp"])
+    orden = sorted(carteras.items(), key=lambda kv: -kv[1]["usd"])[:maximo]
+    return [{"cartera": k, "usd": round(v["usd"], 2), "primera_compra": v["primera"]} for k, v in orden]

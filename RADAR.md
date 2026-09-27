@@ -16,7 +16,14 @@ para medir con datos reales qué señales separan a los que se duplican de los q
      tokens del mismo tema hay en el escaneo) y si el token es el **líder** de su narrativa
      (el de más liquidez) o un seguidor/clon.
    - **Catalizadores:** fechas de eventos por narrativa en `radar_memes/catalizadores.json`
-     (p. ej. el lanzamiento de GTA 6). Se pueden añadir más editando ese archivo.
+     (lanzamiento de GTA 6, elecciones de EE. UU., festividades). Se pueden añadir más editando
+     ese archivo.
+   - **Palabras calientes:** cuántos tokens del escaneo comparten palabra con el token. Así se
+     detectan temas nuevos que no están en la lista (p. ej. "Newscum" apareció en 17 tokens a la
+     vez antes de añadirlo a política).
+   - **Carteras compradoras:** guarda las carteras que compraron cada token (compras de $100 o
+     más) en `carteras.csv`, para encontrar las que entran temprano una y otra vez en los que
+     luego suben.
 2. **Filtro v1:** marca qué tokens habría elegido el filtro. **Es una hipótesis, no una
    recomendación**; se registran también los descartados para poder compararlos.
    Criterios (en `radar_memes/escaner.py`, `FILTRO`):
@@ -28,15 +35,26 @@ para medir con datos reales qué señales separan a los que se duplican de los q
    - Al menos 100 compradores en 1 h, y entre 1.2 y 8 compradores por cada vendedor.
    - Los 10 mayores holders con un 35% del suministro como mucho, y autoridades de mint y
      freeze revocadas. Sin datos de holders, no se descarta.
-3. **Seguimiento:** precio, liquidez y si el token sigue vivo a cada horizonte. A las 24 h
-   descarga las velas de 5 min y calcula el máximo alcanzado y el resultado de la regla de salida:
+3. **Seguimiento:** precio, liquidez y si el token sigue vivo a los 30 min, 1 h, 6 h, 24 h,
+   3 días y 7 días (muerto = precio al 10% o menos del de detección). A las 24 h descarga las
+   velas de 5 min y calcula el máximo alcanzado y el resultado de la regla de salida:
    - Vender 50% a 2x, 20% a 5x y 20% a 10x, y dejar el 10% restante.
    - Salir de todo si cae a −50%. Se ejecuta al peor precio entre el stop y el cierre de la
      vela: en un rug pull nadie vende a −50%.
+
+   A los 7 días descarga velas de 1 h y mide el máximo alcanzado (¿llegó a 10x, 50x, 100x?) y
+   la **regla de tendencia**, pensada para no cortar las subidas grandes:
+   - Vender 1/3 a 3x (recuperas lo invertido).
+   - El resto, con stop móvil: salir si cae un 50% desde el máximo alcanzado.
 4. **Informe:** `INFORME.md` compara resultados por filtro, narrativa (líder frente a
-   clones, calor, catalizador), concentración de holders, edad, capitalización,
-   compradores/vendedores, volumen, RugCheck y DEX, con un 3% de costes por operación.
-   También lista las **narrativas activas** de las últimas 2 horas y su token líder.
+   clones, calor, catalizador), carteras inteligentes, concentración de holders, edad,
+   capitalización, compradores/vendedores, volumen, RugCheck y DEX, con un 3% de costes por
+   operación. También incluye:
+   - **Carteras inteligentes:** las que tienen 3+ tokens con resultado y al menos la mitad
+     llegó a 2x. Para cada token cuenta solo el historial conocido en el momento de detectarlo,
+     sin mirar al futuro.
+   - **Palabras calientes** de las últimas 3 h frente a las 24 h anteriores.
+   - **Narrativas activas** de las últimas 2 h y su token líder.
 
 ## Dónde verlo
 
@@ -65,7 +83,8 @@ python radar.py informe              # regenerar solo el informe
   cientos de tokens, el filtro no tiene ventaja.
 - Limitaciones:
   - Solo ve lo que listan las APIs públicas, y con minutos de retraso respecto a los bots.
-  - RugCheck y la ficha de holders se consultan como mucho para 40 tokens nuevos por escaneo,
+  - RugCheck y la ficha de holders se consultan como mucho para 30 tokens nuevos por escaneo, y
+    las carteras para 15,
     por los límites de las APIs. El dato de holders de GeckoTerminal puede tener minutos u
     horas de antigüedad (columna `holders_antig_min`).
   - Las narrativas se deducen solo del nombre: no hay acceso a X/Twitter ni a Telegram.
