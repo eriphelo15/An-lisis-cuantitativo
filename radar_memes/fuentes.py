@@ -186,6 +186,10 @@ def info_token(mint):
         "mint_autoridad": a.get("mint_authority") or "",
         "freeze_autoridad": a.get("freeze_authority") or "",
         "gt_score": round(a["gt_score"], 1) if a.get("gt_score") is not None else "",
+        "nombre_token": a.get("name") or "",
+        "descripcion": " ".join((a.get("description") or "").split())[:200],
+        "twitter": a.get("twitter_handle") or "",
+        "web": " ".join(a.get("websites") or []),
     }
 
 

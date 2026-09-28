@@ -29,7 +29,8 @@ def cargar(almacen):
            "calor_palabra", "lp_bloqueado"]
     for c in num:
         det[c] = pd.to_numeric(det[c], errors="coerce") if c in det else float("nan")
-    for c in ["narrativa", "catalizador", "motivo_descarte", "dex", "palabra_caliente", "origen"]:
+    for c in ["narrativa", "catalizador", "motivo_descarte", "dex", "palabra_caliente", "origen",
+              "prioridad"]:
         det[c] = det[c].fillna("") if c in det else ""
     det["ts"] = pd.to_datetime(det["ts"], utc=True)
 
@@ -280,6 +281,11 @@ def generar(almacen):
         lineas.append(_tabla(df.assign(todos="todos"), "todos", "Todos los tokens"))
         lineas.append(_tabla(df, "filtro_v1", "Filtro v1"))
         lineas.append(_tabla(df, "origen", "Alertas tempranas del vigía (2-15 min de vida) frente al escaneo"))
+        if "prioridad" in df and (df["origen"] == "vigia").any():
+            alertas = df[df["origen"] == "vigia"].copy()
+            alertas["tema"] = alertas["prioridad"].fillna("").replace(
+                {"alta": "con tema relevante (avisadas)", "baja": "sin tema (silenciosas)", "": "antes de separar"})
+            lineas.append(_tabla(alertas, "tema", "Alertas con tema relevante frente a sin tema"))
         motivos = df.assign(motivo=df["motivo_descarte"].fillna("").str.split("|")).explode("motivo")
         motivos = motivos[motivos["motivo"] != ""]
         if len(motivos):
@@ -329,7 +335,7 @@ def generar(almacen):
     lineas.append("## Últimas alertas del vigía (6 h)\n")
     alertas = df[(df["origen"] == "vigia") & (df["ts"] >= ahora - timedelta(hours=6))]
     if len(alertas):
-        t = alertas[["ts", "simbolo", "narrativa", "edad_min", "mc", "compradores_m5",
+        t = alertas[["ts", "simbolo", "narrativa", "prioridad", "edad_min", "mc", "compradores_m5",
                      "vendedores_m5", "mint"]].sort_values("ts", ascending=False).copy()
         if "x_1h" in alertas:
             t["x_1h"] = alertas["x_1h"].round(2)

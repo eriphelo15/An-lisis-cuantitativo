@@ -24,6 +24,10 @@ NARRATIVAS = {
                  "penguin", "monkey", "ape", "hippo", "moodeng", "goat", "bear", "bull"],
     "festividades": ["halloween", "spooky", "pumpkin", "ghost", "xmas", "christmas", "santa",
                      "thanksgiving", "turkey", "newyear", "grinch"],
+    # Noticias del mundo cripto (ETFs, reguladores, listados): Neartkt se colgó de la
+    # noticia del ETF de NEAR. Va antes que "cripto" para no perderse en lo genérico.
+    "noticias_cripto": ["etf", "sec", "blackrock", "bitwise", "grayscale", "listing",
+                        "binance", "coinbase", "near", "nearpad"],
     "cripto": ["pump", "sol", "solana", "bitcoin", "btc", "eth", "moon", "gem", "100x",
                "1000x", "wagmi", "gm", "defi", "meme"],
 }

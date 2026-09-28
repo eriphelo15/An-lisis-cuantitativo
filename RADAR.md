@@ -82,8 +82,17 @@ v1** (hipótesis, en `TEMPRANO`):
   Los tres últimos se añadieron tras Neartkt: se lanzó directamente en PumpSwap con liquidez
   sin bloquear y su creador la retiró.
 
+**Tema del token:** se clasifica por el símbolo y, si no basta, por el nombre y la descripción
+del token (p. ej. Neartkt hablaba del ETF de NEAR). **Solo se avisa al móvil si el tema es
+relevante**: videojuegos, IA, política, Elon, celebridades, festividades o noticias cripto
+(ETFs, reguladores, listados), o una palabra que ya aparece en 3+ tokens de las últimas 3 h.
+Las alertas sin tema se registran en silencio (`prioridad` = baja, `avisado` = 0) para poder
+comparar. Ojo: tener tema no es garantía; los estafadores se cuelgan de las noticias más
+calientes, y una cuenta de X en la ficha puede ser una suplantación.
+
 Cada alerta se guarda en `alertas.csv` y se sigue como cualquier detección, así que el informe
-compara las alertas con el escaneo normal y muestra las últimas 6 h.
+compara las alertas con el escaneo normal, las de tema relevante con las silenciosas, y
+muestra las últimas 6 h.
 
 **Avisos al móvil:** con la app gratuita [ntfy](https://ntfy.sh) suscrita a un tema, y ese
 mismo tema guardado en el secreto `NTFY_TOPIC` del repositorio (*Settings* → *Secrets and

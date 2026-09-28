@@ -34,6 +34,14 @@ RIESGOS_VETO = ("Single holder ownership", "Top 10 holders high ownership",
                 "Mint Authority still enabled", "Copycat token")
 TOP10_MAX = 40.0
 
+# Solo se avisa al móvil si el token tiene un tema relevante: una de estas
+# narrativas (las genéricas "animales" y "cripto" no cuentan) o una palabra que
+# ya aparece en varios tokens recientes. El resto se registra en silencio para
+# poder comparar.
+NARRATIVAS_RELEVANTES = {"videojuegos", "ia", "politica", "elon", "celebridades",
+                         "festividades", "noticias_cripto"}
+PALABRA_CALIENTE_MIN = 3   # tokens distintos con la misma palabra en las últimas 3 h
+
 
 def motivos_temprano(r, clon):
     """Lista de criterios que no cumple (vacía = candidato a alerta)."""
@@ -92,8 +100,14 @@ def _mensaje(r):
     ]
     if r.get("top10_pct") not in (None, ""):
         lineas.append(f"Top 10 holders: {float(r['top10_pct']):.0f}% · holders: {r.get('holders')}")
-    if r.get("narrativa") or r.get("palabra_caliente"):
-        lineas.append(f"Tema: {r.get('narrativa') or '-'} · palabra: {r.get('palabra_caliente') or '-'}")
+    tema = r.get("narrativa") or "-"
+    if r.get("calor_palabra", 0) >= PALABRA_CALIENTE_MIN:
+        tema += f" · \"{r['palabra_caliente']}\" en {r['calor_palabra']} tokens (3 h)"
+    lineas.append(f"Tema: {tema}")
+    if r.get("descripcion"):
+        lineas.append(f"Descripción: {r['descripcion'][:120]}")
+    if r.get("twitter"):
+        lineas.append(f"X: @{r['twitter']} (comprueba que sea la cuenta real)")
     lineas.append(f"Contrato: {r['mint']}")
     lineas.append("Sin validar: comprueba en RugCheck, máximo $50 y vende la mitad a 2x.")
     return "\n".join(lineas)
@@ -140,6 +154,11 @@ def vigilar(almacen, duracion_s, cada_s=60, log=print):
 
         registros = almacen.registros()
         dia = ahora - timedelta(hours=24)
+        tres_horas = ahora - timedelta(hours=3)
+        mints_por_palabra = {}
+        for d in [d for d in registros if datetime.fromisoformat(d["ts"]) >= tres_horas] + filas:
+            for w in escaner._palabras_utiles(f"{d['simbolo']} {d.get('nombre_token', '')}"):
+                mints_por_palabra.setdefault(w, set()).add(d["mint"])
         simbolos_previos = {escaner._clave(d["simbolo"]): d["mint"] for d in registros
                             if datetime.fromisoformat(d["ts"]) >= dia}
         for r in filas:
@@ -154,18 +173,29 @@ def vigilar(almacen, duracion_s, cada_s=60, log=print):
                 log(f"[vigia] {r['simbolo']} vetado: {', '.join(v)}")
                 alertados.add(r["mint"])  # no volver a evaluarlo
                 continue
-            r["narrativa"] = narrativas.clasificar(r["simbolo"])
+            r["narrativa"] = (narrativas.clasificar(r["simbolo"])
+                              or narrativas.clasificar(f"{r.get('nombre_token', '')} {r.get('descripcion', '')}"))
+            calientes = sorted(((len(mints_por_palabra.get(w, ())), w)
+                                for w in escaner._palabras_utiles(f"{r['simbolo']} {r.get('nombre_token', '')}")),
+                               reverse=True)
+            r["calor_palabra"], r["palabra_caliente"] = calientes[0] if calientes else (0, "")
+            relevante = (r["narrativa"] in NARRATIVAS_RELEVANTES
+                         or r["calor_palabra"] >= PALABRA_CALIENTE_MIN)
+            r["prioridad"] = "alta" if relevante else "baja"
             r["catalizador"], r["dias_catalizador"] = narrativas.proximo_catalizador(r["narrativa"], ahora.date())
             # El filtro v1 se registra también, para comparar alertas que lo pasan y que no.
             r["clones"] = 0
             motivos = escaner.evaluar_filtro(r)
             r.update({"pasa_filtro": int(not motivos), "motivo_descarte": "|".join(motivos),
                       "puntuacion": escaner.puntuar(r)})
+            enviada = relevante and fuentes.notificar(
+                f"Radar: {r['simbolo']} (${r['mc'] / 1e3:.0f}K)", _mensaje(r),
+                f"https://dexscreener.com/solana/{r['pool']}")
+            r["avisado"] = int(bool(enviada))
             almacen.guardar_alerta(r)
             alertados.add(r["mint"])
-            enviada = fuentes.notificar(f"Radar: {r['simbolo']} (${r['mc'] / 1e3:.0f}K)", _mensaje(r),
-                                        f"https://dexscreener.com/solana/{r['pool']}")
-            log(f"[vigia] ALERTA {r['simbolo']} {r['mint']} mc={r['mc']:.0f} notificada={enviada}")
+            log(f"[vigia] ALERTA {r['prioridad']} {r['simbolo']} {r['mint']} mc={r['mc']:.0f} "
+                f"tema={r['narrativa'] or r['palabra_caliente'] or '-'} notificada={enviada}")
 
         espera = cada_s - (time.monotonic() - inicio)
         if espera > 0:

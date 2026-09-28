@@ -203,6 +203,12 @@ def escanear(almacen, con_rugcheck=True, log=print):
                    if con_rugcheck else {})
         for i, r in enumerate(consultados):
             r.update(fuentes.info_token(r["mint"]) or {})
+            if not r.get("narrativa"):
+                # El símbolo solo dice poco: probar con el nombre y la descripción.
+                r["narrativa"] = narrativas.clasificar(
+                    f"{r.get('nombre_token', '')} {r.get('descripcion', '')}")
+                r["catalizador"], r["dias_catalizador"] = narrativas.proximo_catalizador(
+                    r["narrativa"], ahora.date())
             if i < MAX_CARTERAS_POR_ESCANEO:
                 compras = fuentes.compradores(r["pool"], r["mint"])
                 r["carteras_registradas"] = len(compras)

@@ -15,6 +15,7 @@ COLUMNAS_DETECCION = [
     "mint_autoridad", "freeze_autoridad", "gt_score",
     "narrativa", "calor_narrativa", "puesto_narrativa", "catalizador", "dias_catalizador",
     "palabra_caliente", "calor_palabra", "carteras_registradas",
+    "nombre_token", "descripcion", "twitter", "web", "prioridad", "avisado",
 ]
 
 COLUMNAS_SEGUIMIENTO = [
