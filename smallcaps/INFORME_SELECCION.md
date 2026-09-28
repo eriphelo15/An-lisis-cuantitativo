@@ -105,3 +105,31 @@ Velas de 1 / 5 min: solo 8 / 24 casos humo → el indicador Reversal y la entrad
 2. Los filtros de "confirmación" (1ª hora roja, bajo VWAP) no añaden ventaja medible con velas de 1 h.
 3. Estar **sobre el VWAP a las 11:30** es mala señal (VAL −0.30R): sirve como regla de salida/no añadir, no como filtro de entrada (exploratorio).
 4. **La selección manda:** con la misma regla E0, humo = +0.22R y el resto = −0.08R.
+
+## Ronda 4 — "día de tema" mejorado (`17_dia_de_tema.py`)
+Día de tema = ≥ 2 gappers (≥ 20 %) el mismo día que comparten palabra poco común del nombre o tema de la lista (en nombre o catalizador).
+Gappers ≥ 50 %, setup A:
+| Grupo | DEV 2015-21 R / WR / PF (n) | VAL 2022-26 R / WR / gan. / pérd. / PF (n) | Squeeze (VAL) |
+|---|---|---|---|
+| Día normal | +0.076 / 63 % / 1.19 (777) | +0.007 / 59 % / +0.77 / −1.07 / 1.02 (2 024) | 21 % |
+| **Día de tema** | −0.011 (5) — sin muestra | **+0.303 / 72 % / +0.81 / −1.03 / 2.06 (119; 87 días)** | 13 % |
+| Tema: líder | (5) | +0.287 / 71 % / 1.90 (92) | 15 % |
+| Tema: seguidor | (0) | +0.359 / 78 % / 3.02 (27) | 7 % |
+| Humo en día normal | +0.166 / 66 % / 1.44 (77) | +0.184 / 67 % / 1.50 (144) | 18 % |
+| Humo en día de tema | (2) | +0.447 / 75 % / 2.64 (24) | 13 % |
+
+| Hipótesis | VAL dif. R (t) | Veredicto |
+|---|---|---|
+| HT1 "no shortear en día de tema" | −0.30 (−3.2; por días: t −2.4, 87 días) | ❌ **al revés**: en 2022-26 los días de tema fueron MEJORES para el corto; DEV sin muestra (5 casos) → no validado en ningún sentido |
+| HT2 seguidor mejor que líder | +0.07 (0.4) | ❌ no significativa |
+| HT3 humo fuera de día de tema | −0.26 (−1.1) | ❌ no significativa (signo al revés) |
+
+Por tema (VAL): IA +0.45R (77), robótica/espacio +0.29R (25), cripto +0.17R (20), drones/defensa −0.34R (7).
+Las palabras raras del nombre casi nunca forman tema (Greenland, Argentina…): casi todos los días de tema vienen de la lista (IA, cripto, espacio).
+GRML/GLND (21-sep-2026) sí salen como día de tema: GRML (líder) perdió −1.25R (stop), GLND ganó +0.12R.
+
+**Conclusiones ronda 4:**
+1. **La idea "día de tema = no shortear" NO se sostiene con datos**: en 2022-26 los gappers de tema (sobre todo IA) se desinflaron MÁS.
+   GRML fue un caso real de squeeze, pero no la regla. En 2015-21 casi no hay días de tema detectables, así que no hay confirmación.
+2. Tampoco hay diferencia clara entre líder y seguidores.
+3. Lo que protege del squeeze sigue siendo la selección validada (humo + munición + cap ≥ $30 M) y el tamaño; el tema no es un filtro.
