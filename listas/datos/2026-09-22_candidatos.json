@@ -1,0 +1,487 @@
+{
+ "fecha": "2026-09-22",
+ "generado": "2026-09-28 18:28",
+ "replay": true,
+ "desde": "2026-09-21 16:00",
+ "corte": "2026-09-22 09:10",
+ "cobertura": null,
+ "candidatos": [
+  {
+   "sym": "LHSW",
+   "nombre": "Lianhe Sowell International Group Ltd",
+   "precio": 1.27,
+   "cierre_prev": 0.43299999833106995,
+   "gap": 1.933,
+   "cap": 66040000.0,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 2004024,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [
+    {
+     "hora": "2026-09-22 08:00",
+     "titular": "Lianhe Sowell International Group Ltd. Signs Strategic Cooperation Agreement with Subsidiary of Chery Group Holding Company to Advance Intelligent Equipment in China's Automotive Aftermarket",
+     "url": "https://finviz.com/news/394189/lianhe-sowell-international-group-ltd-signs-strategic-cooperation-agreement-with-subsidiary-of-chery-group-holding-company-to-advance-intelligent-equipment-in-chinas-automotive-aftermarket",
+     "fuente": "GlobeNewswire"
+    }
+   ],
+   "sector": "Services-Prepackaged Software",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": true,
+    "s3": null,
+    "s1": "2026-08-27",
+    "ventas_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2026-09-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/2004024/000121390026096975/ea0304365-424b4_lianhe.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2025-04-04",
+      "url": "https://www.sec.gov/Archives/edgar/data/2004024/000121390025028729/ea0200138-18.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     4.8
+    ],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-08-13",
+     "url": "https://www.sec.gov/Archives/edgar/data/2004024/000121390026089090/ea0300007-20f_lianhe.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "QNME",
+   "nombre": "Quanome Technologies, Inc.",
+   "precio": 1.32,
+   "cierre_prev": 0.6399999856948853,
+   "gap": 1.0625,
+   "cap": 45444377.88,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1996192,
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-21 16:45",
+     "items": "5.02",
+     "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101830/ea0305363-8k_quanome.htm",
+     "partes": [
+      {
+       "archivo": "ea0305363-8k_quanome.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101830/ea0305363-8k_quanome.htm",
+       "texto": "Item 5.02 Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers; Compensatory Arrangements of Certain Officers. Resignation of Director On September 21, 2026, the Board of Directors (the “Board”) of Quanome Technologies, Inc. (the “Company”) accepted Ms. Xiaoou Li’s resignation as a member of the Board of Directors (the “Board”), effective immediately (the “Effective Date”). Ms. Li’s resignation from the Board is not due to any disagreement with the Company on any matter relating to its operations, policies or practices. Appointment of Director On September 21, 2026, the Board elected Ms. Chao Liu to become a new independent director of the Board, effective immediately, to fill the vacancy created by Ms. Li's resignation. In connection with the election of Ms. Liu, the Board now consists of five members, composed of a majority of independent directors under the Nasdaq Marketplace Rules. Ms. Chao Liu, age 44, brings more than a decade of leadership experience across investment, real estate and non-profit organizations. Ms. Liu has served as President of Prosperity Alliance Singapore, an affiliate of the United Nations Institute for Training and Research (UNITAR) since 2025, as Chief Executive Officer of The HLW Investment (Singapore) since 2023, and as Chief Executive Officer of The HLW Investment USA since 2013, where Ms. Liu is responsible for real estate investment and property management. Ms. Liu founded the Brotherhood Cup Foundation USA in November 2021 and served as founder of the Brotherhood Cup (China), a charity organiza"
+      }
+     ]
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-09-21 16:15",
+     "items": "1.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101812/ea0306012-8k_quanome.htm",
+     "partes": [
+      {
+       "archivo": "ea0306012-8k_quanome.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101812/ea0306012-8k_quanome.htm",
+       "texto": "Item 1.01 Entry into a Material Definitive Agreement. Purchase and Sale Agreement On September 16, 2026, Quanome Technologies, Inc. (the “Company”) entered into a Purchase and Sale Agreement and related purchase order (collectively, the “Purchase Agreement”) with Compal Electronics, Inc. (the “Supplier”) for the purchase of 32 GPU server units for an aggregate purchase price of approximately US$18.8 million. Under the Purchase Agreement, the Company is required to make an initial payment equal to 20% of the aggregate purchase price following acceptance of the purchase order, with the remaining 80% payable prior to shipment, subject to the satisfaction of the applicable delivery and other conditions set forth in the Purchase Agreement. The GPU servers are expected to be delivered to a designated data center location in the United States. The Purchase Agreement contains customary provisions relating to delivery, title and risk of loss, inspection and acceptance, warranty coverage, remedies for non-conforming products, and termination and refund rights in certain circumstances. The Supplier is also required to provide certain commercially customary warranty and replacement support with respect to the GPU servers, subject to the terms and limitations set forth in the Purchase Agreement. The completion of the purchase remains subject to a number of conditions, including the Company’s payment obligations, the Supplier’s ability to complete production and delivery, applicable product registration and supply-chain requirements, and other customary commercial and operational conditi"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-21 16:45",
+     "items": "5.02",
+     "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101830/ea0305363-8k_quanome.htm",
+     "items_es": "5.02 directivos"
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-09-21 16:15",
+     "items": "1.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101812/ea0306012-8k_quanome.htm",
+     "items_es": "1.01 acuerdo firmado"
+    }
+   ],
+   "noticias": [],
+   "sector": "Arrangement of  Transportation of  Freight & Cargo",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": "2026-09-02",
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 2,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2024-06-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390024057041/ea0201917-14.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     1.91,
+     1.93,
+     4.5
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-05-19",
+     "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026059117/ea0290004-10q_lakeside.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "DCOY",
+   "nombre": "Decoy Therapeutics Inc.",
+   "precio": 5.15,
+   "cierre_prev": 2.559999942779541,
+   "gap": 1.0117,
+   "cap": 3374202.75,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1615219,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [
+    {
+     "hora": "2026-09-22 07:30",
+     "titular": "Decoy Therapeutics Exploring Pan-Filovirus Program via FDA Animal Rule Pathway and Non-Dilutive Funding",
+     "url": "https://finviz.com/news/394136/decoy-therapeutics-exploring-pan-filovirus-program-via-fda-animal-rule-pathway-and-non-dilutive-funding",
+     "fuente": "PR Newswire"
+    }
+   ],
+   "sector": "Pharmaceutical Preparations",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": true,
+    "s3": "2025-08-15",
+    "s1": "2026-07-10",
+    "ventas_12m": 1,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 4,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-11-12",
+      "url": "https://www.sec.gov/Archives/edgar/data/1615219/000162828025051365/slrxdecoyfinal424b4.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-08-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1615219/000162828025041046/slrxatmprospectus.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-03-11",
+      "url": "https://www.sec.gov/Archives/edgar/data/1615219/000161521925000029/salarius-atmprospectussupp.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-07-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1615219/000161521924000066/salarius-atmprospectussupp.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     5.91,
+     6.0,
+     27.9
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-12",
+     "url": "https://www.sec.gov/Archives/edgar/data/1615219/000119312526346852/dcoy-20260630.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "TOPS",
+   "nombre": "TOP SHIPS INC.",
+   "precio": 1.29,
+   "cierre_prev": 0.7200000286102295,
+   "gap": 0.7917,
+   "cap": 13280428.74,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1296484,
+   "catalizadores": [],
+   "docs_hoy": [
+    {
+     "form": "SCHEDULE 13D/A",
+     "hora": "2026-09-21 16:06",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1296484/000117184326006133/xslSCHEDULE_13D_X02/primary_doc.xml",
+     "items_es": ""
+    }
+   ],
+   "noticias": [],
+   "sector": "Deep Sea Foreign Transportation of  Freight",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": true,
+    "s3": "2025-09-30",
+    "s1": "2026-05-13",
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2024-05-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1296484/000114036124027446/ny20029887x1_424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2023-02-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1296484/000117184323001010/f424b5_021523.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2022-06-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1296484/000117184322004183/f424b5_060622.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2022-04-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1296484/000117184322002613/f424b5_041522.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": true,
+    "going_concern": false,
+    "warrants": [
+     16.2,
+     24.0,
+     50.0,
+     81.0,
+     120.0
+    ],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-04-01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1296484/000114036126012456/ef20060828_20f.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "FBGL",
+   "nombre": "FBS Global Ltd",
+   "precio": 0.636,
+   "cierre_prev": 0.40400001406669617,
+   "gap": 0.5743,
+   "cap": 8586000.0,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1938534,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "General Bldg Contractors - Residential Bldgs",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": "2026-02-27",
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-02-06",
+      "url": "https://www.sec.gov/Archives/edgar/data/1938534/000149315225005122/form424b4.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-04-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1938534/000149315226020758/form20-f.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "FLNA",
+   "nombre": "FILANA THERAPEUTICS, INC.",
+   "precio": 0.98,
+   "cierre_prev": 0.7400000095367432,
+   "gap": 0.3243,
+   "cap": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1069530,
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-22 08:00",
+     "items": "7.01,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1069530/000117184326006161/f8k_092226.htm",
+     "partes": [
+      {
+       "archivo": "f8k_092226.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1069530/000117184326006161/f8k_092226.htm",
+       "texto": "Item 7.01. Regulation FD Disclosure. On September 22, 2026, Filana Therapeutics, Inc. (the “Company”) issued a press release related to the matters described in Item 8.01 of this Current Report on Form 8-K. A copy of the press release is attached as Exhibit 99.1 and incorporated into this Item 7.01 by reference. The information in this Item 7.01 (including Exhibit 99.1) is being furnished pursuant to Item 7.01 and shall not be deemed to be “filed” for the purposes of Section 18 of the Securities Exchange Act of 1934, as amended (the “Exchange Act”), or otherwise subject to the liabilities of that section, nor shall such information be deemed to be incorporated by reference into any filing under the Securities Act of 1933, as amended, or the Exchange Act, except as shall be expressly set forth by specific references in such a filing. Item 8.01. Other Events. FDA Clinical Hold Lifted On September 22, 2026, the Company announced that the U.S. Food and Drug Administration has lifted the full clinical hold on the Company’s investigational new drug (IND) application to initiate a planned Phase 2a proof-of-concept study for simufilam in tuberous sclerosis complex (“TSC”)-related epilepsy. Planned Phase 2a Trial Design During the course of the clinical hold, the Company completed key trial-readiness activities, including engaging a leading clinical research organization, identifying clinical trial sites, and recruiting potential investigators. With investigational drug supply in place, implementation of the Company’s phase 2a study of simufilam is now able to progress expeditiously"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-22 08:00",
+     "items": "7.01,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1069530/000117184326006161/f8k_092226.htm",
+     "items_es": "7.01 nota de prensa; 8.01 otros hechos; 9.01 anexos"
+    }
+   ],
+   "noticias": [
+    {
+     "hora": "2026-09-22 08:00",
+     "titular": "Filana Therapeutics Announces FDA Lift of Clinical Hold on Simufilam, Enabling Phase 2a Study in TSC-Related Epilepsy",
+     "url": "https://finviz.com/news/394185/filana-therapeutics-announces-fda-lift-of-clinical-hold-on-simufilam-enabling-phase-2a-study-in-tsc-related-epilepsy",
+     "fuente": "GlobeNewswire"
+    }
+   ],
+   "sector": "Pharmaceutical Preparations",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": "2025-11-13",
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 1,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2023-05-01",
+      "url": "https://www.sec.gov/Archives/edgar/data/1069530/000149315223015040/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2022-11-21",
+      "url": "https://www.sec.gov/Archives/edgar/data/1069530/000149315222033007/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2022-07-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1069530/000149315222020719/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2021-02-12",
+      "url": "https://www.sec.gov/Archives/edgar/data/1069530/000149315221003430/form424b5.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [
+     14.92
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-07-29",
+     "url": "https://www.sec.gov/Archives/edgar/data/1069530/000143774926024752/sava20260630_10q.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "GDC",
+   "nombre": "GD Culture Group Ltd",
+   "precio": 1.83,
+   "cierre_prev": 1.4600000381469727,
+   "gap": 0.2534,
+   "cap": 7617375.0,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1641398,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Wholesale-Metals & Minerals (No Petroleum)",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": true,
+    "s3": "2026-01-26",
+    "s1": null,
+    "ventas_12m": 2,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 1,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-06-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1641398/000121390026071382/ea0295768-424b5_gdculture.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-04-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1641398/000121390026048867/ea0287505-424b5_gdculture.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-02-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1641398/000121390025011747/ea0230419-424b5_gdculture.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-03-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1641398/000121390024025819/ea0202432-424b5_gdcult.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1641398/000121390026090150/ea0301332-10q_gdculture.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  }
+ ]
+}

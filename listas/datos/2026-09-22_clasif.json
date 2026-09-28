@@ -1,0 +1,45 @@
+{
+ "LHSW": {
+  "tipo": "H",
+  "frase_en": "today announced that it has entered into a strategic cooperation agreement with Kumquat Technology Co., Ltd., a subsidiary of Chery Group",
+  "frase_es": "hoy anunció que ha firmado un acuerdo de cooperación estratégica con Kumquat Technology, filial del grupo Chery",
+  "cifra": "sin cifra en dólares: cooperación, sitios de demostración y 'explorar' mercados exteriores",
+  "nota": "Nota de prensa (8:00) sin 8-K/6-K. Alianza sin cifra = humo. Munición: venta 424B en 90 días, S-1 (27-ago), going concern."
+ },
+ "DCOY": {
+  "tipo": "H",
+  "frase_en": "today announced a refined corporate strategy to explore its D-MAVs for additional candidates, including a pan-filovirus program along the U.S. Food and Drug Administration (FDA) Animal Rule pathway",
+  "frase_es": "hoy anunció una estrategia corporativa revisada para explorar sus D-MAV en nuevos candidatos, incluido un programa contra filovirus por la vía 'Animal Rule' de la FDA",
+  "cifra": "sin cifra: 'explorar', datos in vitro (preclínico)",
+  "nota": "Nota de prensa (7:30) sin 8-K. 'Explorar' + preclínico = humo. Esa tarde firmó el warrant inducement a $3.25 (8-K del 23-sep). Munición: 424B en 90 días, ATM, S-1, going concern."
+ },
+ "QNME": {
+  "tipo": "H",
+  "frase_en": "entered into a Purchase and Sale Agreement and related purchase order with Compal Electronics, Inc. for the purchase of 32 GPU server units for an aggregate purchase price of approximately US$18.8 million",
+  "frase_es": "firmó un acuerdo para COMPRAR a Compal Electronics 32 servidores GPU por unos 18,8 millones de dólares",
+  "cifra": "$18.8 M (dólares) que la empresa PAGA (compra), no ingresos; capitalización ~$45 M",
+  "nota": "8-K Item 1.01 del 21-sep 16:15. Es un gasto (giro hacia IA/cómputo), no un contrato de venta = humo. Munición: shelf S-3 (2-sep), convertible tóxica, going concern."
+ },
+ "TOPS": {
+  "tipo": "N",
+  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
+  "nota": "Solo un 13D/A (21-sep 16:06). La empresa publicó 'Response to Unusual Market Action' a las 9:25, después del corte de las 9:10."
+ },
+ "FBGL": {
+  "tipo": "N",
+  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
+  "nota": "Sin noticias ni 8-K/6-K antes de abrir."
+ },
+ "FLNA": {
+  "tipo": "B",
+  "frase_en": "Filana Therapeutics Announces FDA Lift of Clinical Hold on Simufilam, Enabling Phase 2a Study in TSC-Related Epilepsy",
+  "frase_es": "la FDA levanta la suspensión clínica de simufilam y permite un estudio de fase 2a en epilepsia",
+  "cifra": "sin cifra; decisión regulatoria de la FDA",
+  "nota": "8-K 7.01/8.01 (8:00). Decisión real de la FDA. Precio < $1."
+ },
+ "GDC": {
+  "tipo": "N",
+  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
+  "nota": "Sin noticias ni 8-K antes de abrir (última: contra-split 1:250 en junio)."
+ }
+}
