@@ -15,7 +15,8 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
    (`ArtifactData set`, colección `listas`, `doc_id` = fecha, `file_path` = el JSON).
 4. Escanear: `python3 herramientas/lista_diaria.py escanear` → `listas/datos/HOY_candidatos.json`.
 5. Clasificar el catalizador de cada candidato con gap ≥ 50 % (leer `catalizadores[].partes[].texto` y `noticias`; si solo hay
-   noticia de agencia, abrirla con WebFetch). Escribir `listas/datos/HOY_clasif.json`:
+   noticia de agencia, abrirla con WebFetch). **Nunca poner N si hay algún titular sin abrir** (GYGY 28-sep: el artículo
+   de Benzinga explicaba la subida; también mirar si es una noticia vieja reciclada). Escribir `listas/datos/HOY_clasif.json`:
    `{"TICKER": {"tipo": "...", "frase_en": "frase ORIGINAL en inglés", "frase_es": "traducción", "cifra": "cifra con su unidad", "nota": "..."}}`
    Definiciones (registradas en `smallcaps/HIPOTESIS_SELECCION.md`, ronda 2b), en orden de prioridad:
    - **C** compra en efectivo: la empresa será comprada con pago en efectivo o precio fijo por acción (fusión definitiva, oferta pública).

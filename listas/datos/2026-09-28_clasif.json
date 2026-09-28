@@ -25,8 +25,11 @@
   "nota": "Sin 8-K ni noticias desde el cierre del viernes."
  },
  "GYGY": {
-  "tipo": "N",
-  "nota": "Sin 8-K ni noticias desde el cierre del viernes."
+  "tipo": "H",
+  "frase_en": "The launch follows an initial limited release and marks the platform's transition to full commercial availability.",
+  "frase_es": "El lanzamiento sigue a una versión inicial limitada y marca el paso de la plataforma a la disponibilidad comercial completa.",
+  "cifra": "sin cifra de ventas ni en dólares; empresa de ~$14 M de capitalización",
+  "nota": "Fuente: Benzinga vía Yahoo (6:10). Lanzamiento de producto (GameGolf KZN AI) sin ventas = humo; el anuncio original es del 23-sep, reciclado hoy. Sin 8-K. Munición: venta 424B4 del 29-jul (IPO reciente), S-1 del 4-sep (reventa) y convertible de precio variable en el último informe. Corregido tras comparar con el informe de Cowork: la primera clasificación fue 'sin noticia' por no abrir el artículo."
  },
  "NAMI": {
   "tipo": "H",
