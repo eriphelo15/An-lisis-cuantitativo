@@ -199,3 +199,61 @@ transcripciones (solo lo que dice; no se ve la pantalla). Tickers corregidos con
   - Cuenta pequeña (ej. $4 000): arriesgar un % fijo e ir subiendo el riesgo en dólares a medida que crece el capital; no subir tamaño
     "porque las comisiones o los datos son caros".
   - Tardó ~5 años en ser rentable; después "se acelera".
+
+## Barrido de los 22 directos restantes (14-ene → 1-jul-2026)
+Método: en lugar de leerlos enteros, se extrajeron los fragmentos alrededor de palabras clave (locates, comisiones, brókers, halts,
+offering/ATM/S-3/warrants, float, primer día rojo, gap and crap…) y se leyeron (~230 000 caracteres, ~20 % del total). Solo se apunta lo
+**nuevo o más preciso** que lo ya anotado. Tickers de estos fragmentos **no verificados** (salvo que se diga).
+
+### Locates y costes (lo más útil)
+- **Regla de locates con números (24-jun):** "si el locate es el **1 %** del precio y mi stop es del **5 %**, y puede que me stopee una vez
+  y reintente, tengo que apuntar a hacerle el **11 %** al trade… **por encima del 5 % no lo compro de entrada; por debajo del 5 % me lo
+  pienso; por debajo del 1 % casi siempre lo compro** si está en juego". (26-ago decía: ">2 % tiene que valer demasiado la pena".)
+- 20-may: "si te stopea no pierdes 5-7 %, pierdes 10-12 % (con el locate)… está muy caro el locate → *next*, hay muchas otras".
+- 22-ene: "hoy $125 de locates sobre $7 000 ganados; hay veces $500 sobre $3 000… **el año pasado gasté ~10 % de mis ganancias en locates**".
+- 6-may: los locates están caros "en todos lados" porque **se retiraron varios proveedores de locates**; lo ve en 4-5 brókers.
+- **Varios brókers con distintas cámaras de compensación = más fuentes de locates** (25-mar, 29-abr): Guardian → Velocity; Cobra → Wedbush;
+  CenterPoint → Clear Street. También sirve de respaldo si un bróker se cae (hace *boxing* de la posición en el otro).
+- Plataforma + datos: ~$120-200/mes para empezar (1-abr); DAS en Zimtra ~$220/mes vs ~$180 en Sage (24-jun); "te drena una cuenta de
+  $2 000 en unos meses" (29-abr).
+- Rebotes por aportar liquidez (entrar en el *bid*, ruta MEMX en vez de ARCA): con frecuencia le pagan más de lo que paga en comisiones.
+- TradeZero: "de los peores brókers en los que he operado" (18-feb) y "TradeZero, olvídate" (6-may). No da el motivo técnico en los
+  fragmentos (ver 8-jul: queja por el mínimo de $0.49 por orden).
+
+### Halts y riesgo de ruina
+- Short con halt: indicación **10× el precio** (17-jun: "la acción era $1 y la indicación decía $10"); pérdida no realizada de **$350 000**
+  en un halt (11-feb); "$380 de posición (100 acciones) pueden perder $6 000" en un microfloat ilíquido con recompra forzosa del bróker (18-feb).
+- En el short "el tope no es 100 %, es 500, 1 000, 2 000 %"; en el largo el tope es 0 (29-abr).
+- Halts **T1 "news pending"** seguidos de offering son cada vez más frecuentes (4-mar).
+- Recomienda aprender primero como **largo** antes de ser short seller, porque un halt en contra "no hay manera de soportarlo" siendo nuevo (4-feb).
+- Brókers exigen hasta **5-10× la posición en efectivo** para shortear chinas/microfloats (11-feb; 8-abr: $5 000 para 1 000 acciones).
+- **Max loss** diario fijado en el bróker; por acción = la mitad del diario (29-abr); subirlo solo al empezar el día y en frío si hay un
+  setup excepcional (20-may).
+
+### Dilución y catalizador (coincide con nuestro método)
+- Explica el **baby shelf I.B.6** igual que nuestra lección 11 (14-ene): 1/3 del *public float* (float × cierre máx. de 60 días) si < $75 M.
+- **RDO vs PIPE** (Hamlin, 17-jun): las acciones de un *registered direct offering* (S-1 efectivo o S-3) se pueden vender ya → más presión;
+  las de un PIPE/colocación privada no están registradas → menos presión inmediata ("mejor cubrir tras la primera caída").
+- Short con ATM de $150 M + ELOC + S-1 en curso = "dilución por todos lados… trade muy fácil" (12-mar).
+- Warrants por encima del precio (9, 10, 12, 15) como techo (25-mar). Insiders con acciones restringidas → al liberarse el float crece (11-feb).
+- Noticias de fusión/merger: "demasiado difíciles de shortear"; si está verde en el día, "es una estupidez shortear" (1-abr).
+- 3-jun: compró en un offering sin haber visto el filing (tenía el sonido de noticias bajado) → −$30 000 ese día y −$54 000 el anterior.
+
+### Primer día rojo (lo que dicen Edu y Hamlin)
+- "Mi setup favorito para shorts: **primer día rojo en multiday runners**" (4-feb).
+- Patrón ideal (1-abr, 9-sep, 17-jun con Hamlin): **varios días verdes seguidos, sin ponerse rojo en el día**, con **volumen y rango
+  crecientes** cada día; el día rojo es más duro que los anteriores. Ejemplos: Beyond Meat, CAR (mid cap), SMCI y MSTR (large caps).
+  Contraejemplo ILAP: el día más fuerte fue el primero y luego hubo divergencia de volumen → no es ideal.
+- Lo ejecuta "anticipándome como si fuera gap extension, con poco size, y luego fuerte en la confirmación del green to red".
+- Sus mejores trades del año: primer día rojo de TGL (+$30 000) y BMNR (+$30 000); su mayor pérdida de enero: primer día rojo de BNAI
+  (movimiento muy vertical, >$100 000 entre varias).
+- Otros datos: relación riesgo/beneficio "arriesgo 2 para ganar 1, con 75 % de acierto" (8-abr); microfloat < 3 M de acciones,
+  low float 3-10 M (18-feb).
+
+## Conclusiones tras las 33 sesiones (para contrastar con nuestros datos)
+1. Su ventaja declarada es discrecional y de alta tasa de acierto (73-75 %) con riesgo/beneficio < 1 → vulnerable a colas (halts):
+   STAK −$100 000, BNAI >−$100 000, halts con indicación 5-10×. Coincide con nuestras mediciones de colas.
+2. Locates: umbral práctico ≈ **1 % del precio (compra casi siempre) / 5 % (no compra)**; coste anual ≈ 10-20 % de sus ganancias.
+3. Coincidencias con el Radar: evita buyouts, pennies ("caras de operar"), noticias de fusión en verde; usa la dilución (ATM, S-3, baby shelf,
+   RDO) para la convicción, pero decide con el precio.
+4. Lo único concreto y medible que no habíamos probado: el **primer día rojo con días previos verdes y volumen creciente** → ronda 8.
