@@ -25,7 +25,13 @@
   Módulo 5 (setups medidos) y Módulo 6 (ejecución condensada: diferencias vs futuros) hechos.
   Módulo 7 (riesgo, con colas y Monte Carlo) hecho.
   Módulo 8 (infraestructura) hecho.
-  Validación de criterios de selección: rondas 1 y 2b (contenido del catalizador) hechas (ver lecciones). Ronda 3 (ejecución dentro de la selección) hecha. Ronda 4 (día de tema) hecha: no es filtro. Siguiente: sistema de lista diaria (solo cuando lo pida).
+  Validación de criterios de selección: rondas 1 y 2b (contenido del catalizador) hechas (ver lecciones). Ronda 3 (ejecución dentro de la selección) hecha. Ronda 4 (día de tema) hecha: no es filtro.
+  **Sistema de lista diaria HECHO (pedido por el usuario, 28-sep-2026): "Radar de Cortos".** Página https://claude.ai/artifact/LXxGL8Y1LVHDLnuUo21zCo
+  (base de datos: `listas/AAAA-MM-DD` = lista del día; `diario/FECHA_TICKER` = diario del usuario, no tocar). Generador `herramientas/lista_diaria.py`
+  (escanear → Claude clasifica en `_clasif.json` → finalizar → resultados al día siguiente; `--replay` para días pasados). Rutina programada
+  (pedida por el usuario) `trig_01U6BQShiEWqK14bK68a6ekq`: L-V 8:17 Nueva York, sesión nueva que sigue `listas/RUTINA.md`, aviso push.
+  Niveles: A (humo + gap ≥50 % + 424B 90 d + cap ≥$30 M), B (humo + gap ≥50 %), Vigilar, NO (resultados/financiación/bolsa/424B hoy), Nunca (compra en efectivo).
+  Pendiente ofrecido: medir el caso "sube sin ninguna noticia" (en replay 21-sep: GRML, BTTC, VEEE sin noticia → los tres −1.25R).
   Práctica de ejecución en DCOY, LHSW, INLF, GRML, GLND hecha por el usuario. Conclusión del usuario (compartida): el indicador captura bien las caídas cuando la acción 'valida la teoría' y falla cuando no; **lo decisivo es la selección fuera del gráfico**. Ejercicios del módulo 4: WHLR (usuario) y BENF (Claude como ejemplo) hechos.
 - Herramienta de dilución hecha: `herramientas/ficha_dilucion.py TICKER` (SEC EDGAR + Yahoo; ~7 s). Fichas en `fichas/`.
 - Futuro (cuando termine la formación): construir un sistema propio tipo "Flash Research" con estadísticas propias.
