@@ -44,6 +44,11 @@
   sin catalizador, sin dilución, sin exportar; Premium $89.95/mes → ahora no. SageTrader: corto de difíciles de prestar solo en Pro
   ($145/mes + $3 000 mínimo) → ahora no; buen router de locates para cuenta ≥ ~$10 000. FINRA: PDT baja a $2 000 desde el 4-jun-2026.
   Con riesgo 1 % los requisitos de garantía en corto ($5 o $2.50 por acción) no limitan.
+- **TradeZero International (verificado en tradezero.com/pricing-and-fees, 28-sep-2026):** mín. $500; no acepta EE. UU./Canadá/Bahamas (R. Dominicana
+  no excluida). Gratis solo órdenes límite no ejecutables en acciones ≥ $1; si no, $0.005/acción, mín. $0.49 y máx. $7.95 por orden; acciones < $1 siempre de pago.
+  ZeroPro $59/mes (TZ1, ZeroFree y móvil gratis). Locator en todas las plataformas (cuenta 'advanced' aprobada); locates Single Use más baratos y se
+  pueden devolver si no se usan. Máx. apalancamiento 2:1 al cierre. Con riesgo 1 % ($20) la comisión ida y vuelta ≈ 0.05-0.07R y el locate
+  que anula la ventaja (+0.22R) ≈ 7 % del precio por acción → registrar el coste real del locate de cada operación (diario de la página).
 - Herramienta de dilución hecha: `herramientas/ficha_dilucion.py TICKER` (SEC EDGAR + Yahoo; ~7 s). Fichas en `fichas/`.
 - Futuro (cuando termine la formación): construir un sistema propio tipo "Flash Research" con estadísticas propias.
   No construirlo antes de que el usuario lo pida.
