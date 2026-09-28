@@ -106,3 +106,20 @@ La ronda 2 usó solo una lista fija de palabras (no detecta temas nuevos como "G
 | HT3 | Gappers humo (ronda 2b): día de tema vs normal | NO es día de tema |
 Éxito: mismo sentido en DEV (2015-21) y VAL (2022-26), VAL t > 2, Holm sobre HT1-HT3.
 Limitación conocida: el nombre es el actual de la empresa (no el histórico).
+
+## Ronda 5 — precio real < $1 y coste del locate (pre-registro, escrito ANTES de ver resultados, 28-sep-2026)
+Motivo: los locates se cotizan en centavos por acción → en acciones baratas pesan mucho más en R.
+**Corrección previa detectada al preparar la ronda:** los precios de Yahoo están ajustados por splits posteriores (WHLR 5-dic-2025 figura
+a $36 677). Por eso (1) el "precio" histórico no es el precio real de ese día y (2) la capitalización de la ronda 1 (`mcap` = acciones de
+la SEC de esa fecha × apertura AJUSTADA) queda inflada en las empresas que hicieron contra-splits después. Se reconstruye el precio real:
+precio real = precio ajustado × producto de los ratios de los splits posteriores a la fecha (`splits.parquet`). Los splits vienen con
+fecha de mes (día 1): si hay un split en el mismo mes del evento, el caso es ambiguo → se excluye del análisis principal (se reporta aparte).
+Muestra: gappers humo (ronda 2b) con gap ≥ 50 % (la muestra del nivel B), y todos los humo como comparación. Setup A como siempre.
+Coste del locate en R = L ÷ (0.30 × precio real de apertura), con L = $0.01, $0.02 y $0.05 por acción (escenarios; sin datos reales aún).
+Comisión ida y vuelta con riesgo de $20 ≈ 0.05R (se resta igual a todos).
+| # | Hipótesis | Criterio |
+|---|---|---|
+| HP1 | Humo gap ≥ 50 %: R bruto (coste 1 % como siempre) en precio real < $1 vs ≥ $1 | ¿difiere? (mismo sentido DEV y VAL, VAL t > 2) |
+| HP2 | Humo gap ≥ 50 %: R neto con locate $0.02 y comisión 0.05R, < $1 vs ≥ $1 | ≥ $1 mejor (mismo sentido DEV y VAL, VAL t > 2) |
+| HP3 | Repetir la prueba de capitalización de la ronda 1 (< $30 M peor) con la capitalización corregida | < $30 M peor (mismo criterio) |
+Holm sobre HP1-HP3. Descriptivo: tramos < $1, $1-3, $3-10, ≥ $10; R, WR, ganancia media, pérdida media, PF.
