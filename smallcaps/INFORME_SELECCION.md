@@ -174,3 +174,12 @@ Script `19_mas_oportunidades.py` (pre-registro en `HIPOTESIS_SELECCION.md`). Pre
 - HM2 (sin 8-K ≈ sin noticia): base ≈ 0 en VAL (+0.00R) → no utilizable.
 - HM3 (día 2 del humo): ≈ 0 / negativo → no utilizable.
 **Conclusión:** ninguna de las tres añade una base positiva validada; la única base fuerte sigue siendo el nivel A (humo + gap ≥ 100 % + ≥ $1).
+
+## Ronda 7 — subgrupos del humo 20-50 % (28-sep-2026)
+Script `20_humo_20_50.py`, 237 casos (≥ $1). Ningún subgrupo pasa el criterio pre-registrado (Holm: ninguno).
+| Subgrupo | DEV R (n) | VAL R (n) | VAL WR | VAL PF | resto VAL R |
+|---|---|---|---|---|---|
+| con 424B 90 d | +0.01 (34) | +0.06 (43) | 67 % | 1.16 | +0.11 |
+| con shelf S-3 | +0.05 (72) | **+0.15 (87)** | 67 % | 1.60 | −0.01 |
+| solo nota de prensa (vs 1.01) | +0.07 (46) | +0.15 (63) | 64 % | 1.61 | −0.08 (12) |
+Lo más prometedor: humo 20-50 % + shelf S-3 (mismo sentido en ambos periodos, VAL t 1.75) — no validado; se sigue en vivo.
