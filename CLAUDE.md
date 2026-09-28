@@ -49,6 +49,10 @@
   ZeroPro $59/mes (TZ1, ZeroFree y móvil gratis). Locator en todas las plataformas (cuenta 'advanced' aprobada); locates Single Use más baratos y se
   pueden devolver si no se usan. Máx. apalancamiento 2:1 al cierre. Con riesgo 1 % ($20) la comisión ida y vuelta ≈ 0.05-0.07R y el locate
   que anula la ventaja (+0.22R) ≈ 7 % del precio por acción → registrar el coste real del locate de cada operación (diario de la página).
+  Tabla oficial (PDF 1-ago-2026) confirma comisiones; 'profesional' solo cambia datos ($250/mes), no comisiones. Gratis: límite no ejecutable,
+  > $1 y ≥ 100 acciones. Locates se cotizan en CENTAVOS por acción (ejemplos: $0.02 reseña jun-2026; $0.08 ejemplo de TradeZero) → pesan mucho
+  más en acciones < $1 (coste en R = locate ÷ (0.375 × precio): $0.02 en $0.38 = 0.14R; en $2.44 = 0.02R). Pendiente confirmar si el locate
+  mínimo es de 100 acciones.
 - Herramienta de dilución hecha: `herramientas/ficha_dilucion.py TICKER` (SEC EDGAR + Yahoo; ~7 s). Fichas en `fichas/`.
 - Futuro (cuando termine la formación): construir un sistema propio tipo "Flash Research" con estadísticas propias.
   No construirlo antes de que el usuario lo pida.
