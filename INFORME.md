@@ -1,8 +1,8 @@
 # Informe del radar de memecoins
 
-Generado: 2026-09-28 08:57 UTC
+Generado: 2026-09-28 09:06 UTC
 
-- Tokens registrados: **819** (desde 2026-09-27 18:07)
+- Tokens registrados: **833** (desde 2026-09-27 18:07)
 - Con resultado a 24 h: **0** (el primero llega 24 h después de la primera detección)
 - Pasan el filtro v1: **28**
 - Resultados en dólares por cada apuesta de $50, con 3% de costes en la entrada y en la salida:
@@ -12,90 +12,95 @@ Generado: 2026-09-28 08:57 UTC
 
 ## Últimas alertas del vigía (6 h)
 
-| ts    | simbolo    | narrativa   | prioridad   |   edad_min | mc   |   compradores_m5 |   vendedores_m5 | mint                                         |   x_1h |
-|:------|:-----------|:------------|:------------|-----------:|:-----|-----------------:|----------------:|:---------------------------------------------|-------:|
-| 08:43 | RGM        | ia          | alta        |        3.2 | 8K   |              115 |              73 | BDPLqmuZxWYtGkhDTnasxVDWcrgSVwFCDu6wMKAZpump | nan    |
-| 08:35 | H0me       |             | vetada      |        2   | 15K  |              237 |              62 | EGKJhQUGzNiaZfoLrKuDLQn1ReBK8iUgifK2xXhZuoAm | nan    |
-| 08:28 | TOKEN2049  |             | vetada      |        4.4 | 40K  |               44 |              26 | 46ex3A7XraiXUpRPxmKPojaEpxhkxuvsnGsFCHnZ7K9x | nan    |
-| 08:28 | NOEMA      |             | vetada      |        6   | 21K  |              271 |             178 | H5Pd5LgU7K3vNwhUW4JQYSVhVw6B1B8uzpCUXbvWpump | nan    |
-| 08:28 | LOOONG     |             | vetada      |        4.2 | 30K  |              363 |             227 | 4vW3qRmogpj4iy66xTgukkMepdbr8TTnKvmmDpv8pump | nan    |
-| 08:23 | e/l        |             | vetada      |        3.9 | 67K  |              677 |             291 | Eo9Vh9YyheFfZBkRme4vgGP7bCbBoKH4mKgRKU87pump | nan    |
-| 08:20 | $THRONE    |             | vetada      |        3.1 | 13K  |              293 |              88 | 7j3KWqoi49HziYB6KXPXUHks4pGVg7gotgCRkUnDBtU5 | nan    |
-| 08:16 | QORE       |             | vetada      |        2.1 | 9K   |               69 |              45 | 86iV4zs8jMGZjiaQaAcbNVTDBRjso8BCCGd5vezPpump | nan    |
-| 08:13 | TAP        |             | vetada      |        3.2 | 17K  |              285 |             195 | 4q88gcME69yvfcbN3m4NSNczbmk3D61a7PE1bLcXpump | nan    |
-| 08:10 | 1          |             | vetada      |        3   | 11K  |               73 |              48 | 3wQkX3N82NSxbND48RCUZPRu8roadhZa6QgW8yFNzdNx | nan    |
-| 08:10 | MIST       |             | vetada      |        2.8 | 22K  |               47 |              35 | 4gTBywUgAUQUMBJHRogtuFgDv8tDfTqcqNKLVWhVk92N | nan    |
-| 08:10 | 1000X      | cripto      | vetada      |        2.5 | 62K  |              184 |             134 | ELP7DpZvv41KzWewe513ZPBwTESsuxgzCJzh9zXn8WGd | nan    |
-| 08:10 | MERVIN     |             | vetada      |        2.3 | 73K  |              192 |              94 | AASBPGtKrK3kGQoDgjDbMbhs5v6hy9N2tNyXWbdxpump | nan    |
-| 07:57 | XOMUSDT    |             | vetada      |        3.9 | 91K  |               94 |              31 | HdkCkQHhVSTvi6WW5vaiabK7hzTVGsqdDCyyTeQphQLX | nan    |
-| 07:53 | AXIOM      |             | vetada      |        7.3 | 64K  |              527 |             398 | HPmrRWHrbwWVzJiQfnxgPSRDDkD6ShMLnEN6VuEzvyEV | nan    |
-| 07:46 | VAMPCAT    |             | vetada      |        2.1 | 31K  |              209 |              91 | 6RXHP4EsZjpV3DUXVv92SKq88rCZFW34UsuS6hpRdHPV |   0.12 |
-| 07:37 | UNPAID     |             | vetada      |        4.1 | 14K  |              578 |             117 | 2vcWNo27TBzq2PMZbAGhA2qr49xAVth3vcq6aX2cAb4F |   1.15 |
-| 07:37 | JSLING     |             | vetada      |        6.5 | 88K  |               88 |              31 | CBrb3vSehHm5DmTSu1ztF2FDAqJTZdH8pjQ9DaUHBAGS |   0    |
-| 07:37 | UNPAID     |             | vetada      |        5.2 | 22K  |              537 |              76 | 6VxZuiD2Hzo5empJXQvLpAGVsFd7bKedt39XjfYtJ5JM |   0    |
-| 07:34 | Gu Gua     |             | alta        |        2.4 | 10K  |              149 |              93 | 6ZE5JgWBm2qQ5p2yw6wnwAX8R6UqfiCoDSSjr1depump |   0.34 |
-| 07:26 | ket        |             | vetada      |       12.9 | 12K  |               86 |              63 | J8Jr8JPXCeWvj3EeWctug1ixcZTVpPUaisHjoMtDpump |   0.29 |
-| 07:19 | VantaCard  |             | vetada      |       12.6 | 16K  |              182 |              60 | 3jNVGYs3HCPmRnk12QWUVd1pzVckUx8dPyoaKW7zpump |   0.18 |
-| 07:16 | PumpSite   | cripto      | baja        |        3.1 | 10K  |               91 |              47 | 8v9xeUv9cr56vfDbfAWpigs4xcPcsroBYJDZ6CQLpump |   0.34 |
-| 07:12 | topless    |             | vetada      |        3.2 | 18K  |              416 |             104 | 4u1yNS74uK1HJwxEEgJJXEoFPpDNZTmT5pyLFEaGkkzR |   0    |
-| 07:12 | Cnfact     |             | vetada      |        3.3 | 78K  |               86 |              24 | 5xX5PXEeBJouuhuFrcfJ6DCNFtb1F8Bq9NJTNCBjbonk |   0    |
-| 07:02 | YON        |             | vetada      |        5.2 | 15K  |              184 |             115 | GEGEit5x2tGcLCDZFKVwr9fRKZs7984bQSkYHqf25G9Q |   0.25 |
-| 06:54 | METER      |             | baja        |        2.5 | 9K   |              104 |              62 | Bxhohnh4Sv9VvdgEatVymFP9A6vzzfAfcP25ah8Zpump |   0.39 |
-| 06:54 | Jak        |             | vetada      |        2.6 | 14K  |              331 |             105 | FcrWnyw86GoZ8C1g9hZ2q93xkVVvCyKH39qnBVQ2VRDx |   0    |
-| 06:48 | GET        |             | vetada      |        2.7 | 17K  |              391 |             196 | 5iwLiBK2wkzGbjFj9LUrgcsa8N7LDKR4u7jTLj6Spump |   0    |
-| 06:48 | NewGuy     |             | vetada      |        2.5 | 97K  |              538 |              78 | UToBuGdPZ1pNT7oUtwamQZ5FjXJx5FS8wRAFMEhwN7m  |   0    |
-| 06:43 | MORTGAGE   |             | vetada      |        3.9 | 23K  |              478 |              96 | 9Wc55rosRJSFAktu7dxFYcPWDbBof136Lvq9euAre8FY |   5.34 |
-| 06:40 | RIVER      |             | vetada      |        3   | 23K  |              167 |             116 | HBmnvSoG9QNT8QACD8WZsuTxjaFuqfw4EyrsGuE8pump |   0.17 |
-| 06:40 | SCAT       |             | vetada      |       12.8 | 10K  |               85 |              62 | CrxQ3SHsP7qjy7REBRhjDn9i4keHX1PfqHvp2Hsy8XdG |   0.89 |
-| 06:34 | swordcat   |             | baja        |        2.9 | 10K  |               80 |              58 | 4Px7VL8zi721aTYhd7osQKL2EYaVML8BW9Ak1p48scHR |   0.32 |
-| 06:34 | riff       |             | baja        |        3.1 | 8K   |              136 |              92 | HzLbqtsTC7Jn8GMB4wKyRuACz7uauhfzH65vwRbJpump |   0.41 |
-| 06:32 | Uaemeet    |             | vetada      |        2.2 | 77K  |              108 |              25 | AZrhe6A2Sjb4LJbswgdRXew3p76KGc29StFtMvBvmoon |   0    |
-| 06:30 | TROLL      |             | vetada      |        3   | 16K  |               69 |              34 | GWNgs2VUfA7tTGnRn9FjCzMY7Xk27GeeiDkWM3txmePz |   0    |
-| 06:26 | Paw        |             | alta        |        3.7 | 12K  |               41 |              20 | 4FZPCKj49LuaUJ5xKom9dYoQmm1Tt7F4yeyiHrpcnawu |   0.33 |
-| 06:24 | BEAR       | animales    | vetada      |        3.4 | 23K  |              310 |             194 | AHUYfm3aoYEcDApfhfEVR9ernkoykAhfTJ51cZgspump |   0.19 |
-| 06:20 | Abshld     |             | vetada      |        3.3 | 80K  |              107 |              22 | 2YBS8z611qZBSoBxiJ58wg926qDQy3r9odVxYFpbmoon |   0    |
-| 06:17 | LEVERAGE   |             | vetada      |        8.1 | 75K  |              469 |             324 | BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump  |   2.16 |
-| 06:12 | Shima      | cripto      | baja        |        5.5 | 9K   |              119 |              86 | B5NhBtmjmqFTyFSkYFSE8qPTP6GdMVmapZ4RtBoYpump |   0.37 |
-| 06:10 | maro       |             | vetada      |        3.2 | 57K  |               51 |              37 | BqXVJDb2pAxmoa2PBCxDypNwnitdVXvwN5L51EC9maro |   0    |
-| 06:08 | Redbull    | animales    | vetada      |        3.7 | 76K  |              239 |              49 | DFRPbHdZpxx8Q5Hp658pfkvrYgjKpY2QpQDvnhsmEjZF |   0    |
-| 05:51 | CROCS      |             | baja        |        2.2 | 11K  |               82 |              46 | Ees9nBcWavLJiE4P1inKwhXpNQSzL64zntyqWjpec6Dc |   9.32 |
-| 05:51 | PAKSPACE   |             | vetada      |        2.1 | 74K  |               80 |              27 | FVeMhWR4eUKryBPfeFrPhxEuRGd6kLsG1KudBHiPmoon |   0    |
-| 05:47 | TREND      |             | vetada      |        3.3 | 24K  |              437 |             256 | 92W24gMTrfSmavNatTCBawaDMbEQ3NJnMY7chbMVpump |   0.61 |
-| 05:37 | BBBYQ      |             | vetada      |        9.5 | 9K   |               66 |              47 | BzSCw6CEpcLyCZz59Y7pTLxRM2vpZaM1K14Pn946ps7q |   0.87 |
-| 05:33 | FULLSEND   |             | vetada      |        3   | 279K |              151 |              68 | Dimo67L6c5qCe7nuXz925EzjbYNpxpL8HihGQPNmpump |   0.48 |
-| 05:33 | 拼多多        |             | vetada      |        3.2 | 30K  |              286 |              40 | 2BT2Su86HVHxhygt6VxrWo9mdfnu3PJvsALLHzEMCtqh |   5.21 |
-| 05:30 | Gary       |             | baja        |        2.7 | 18K  |              194 |             116 | Ecx7uvbG63ETuZu4GZTzBmahadqgqDxryynzdTLwXff1 |   0.2  |
-| 05:30 | tr/acc     |             | vetada      |        2   | 108K |              266 |             110 | DGXf3mT2TaHsfy1Cn2p9CCSxfKENNM3oHPoR59Uwpump |   0    |
-| 05:24 | VUCIC      |             |             |        2.9 | 79K  |              147 |              36 | D74JWCJ4x5GAhbEtvBVrtTPqZtBzgknJcGCmbnYVpump |   0    |
-| 05:14 | FSD        |             |             |       13.5 | 24K  |               46 |              33 | HKgaE2JirCXudKEFm9JUTFDsV2hTx9sJoGr1tXnwpump |   0.61 |
-| 05:06 | FIM        |             |             |        2.8 | 21K  |              403 |             104 | 3AaZhDQug7q7h6ZJtNUR5Y5j6u2isGi7huN9ni4Justq |   0    |
-| 04:51 | Pager      |             |             |        7.4 | 19K  |              247 |             174 | 5ztqMCrrowVmMUg46ZVYmQ9boV1FDTuUj7quo2cwpump |   0.21 |
-| 04:51 | BOETIX     |             |             |        5.2 | 78K  |               77 |              23 | 7T4GuSjCy5nEq3wPqCTk2XtUGS4rk7dDservu8fgpump |   0    |
-| 04:51 | Minions    |             |             |        3.5 | 36K  |              374 |              77 | 89nk99jM9wo3tFuCoUbqrHpDHahcTQmGBD4k6EQKVTSj |   1.44 |
-| 04:48 | SNARKSTR   |             |             |        2.5 | 16K  |              563 |              96 | 4Jswhn7SvsFgpzk2g88mVDnnc9aCLLMdUaD8QKYqwtXm |   0    |
-| 04:48 | GRAYMATTER |             |             |        2   | 161K |             1002 |             613 | A2Kz4oAJvg9yuQR9znDicg8QvFDgrxaHp68ih3HCpump |   0.84 |
-| 04:09 | ROBINPEPE  | animales    |             |        2.5 | 33K  |              288 |              52 | 8LqsJ5cewbg9AwiN6imdGZocNm3tiHqgnm8t5g3VLMip |   2.13 |
-| 04:00 | 호냥이        |             |             |        2.5 | 8K   |               95 |              64 | BeYAs9VQV6zWpVbAfv9XcD14V4uohshVrGGDUJnHKiwn |   0.53 |
-| 03:54 | LASTACC    |             |             |        3.4 | 93K  |              622 |             202 | DGBK6nsRRTrVrpqhdY4PkUgKJfZhw6kayf6RT8Lepump |   0.02 |
-| 03:49 | BOOBS      |             |             |        2.2 | 19K  |              151 |              41 | HjyW96uXnDPyehceFGwAGpL21JKBuZArpFrBm2g9Rxgn |   1.84 |
-| 03:32 | STAN       |             |             |        2.8 | 10K  |               45 |              24 | J6AY2pQgQqzNLPcCSzJVm8PcWz8GNZ919vBTpMf7pump |   0.43 |
-| 03:12 | J          |             |             |        2.7 | 21K  |              319 |             103 | PezmauQpZfE3yNJo4P9ZKAo18ov6oedb2rdwbnTjJc1  |   1.04 |
-| 03:12 | Tip        |             |             |        2.7 | 11K  |              259 |             182 | FLB7VyLWUyxjpYS3QonkaFcThVWcu82vHpvNU58mpump |   0.5  |
+| ts    | simbolo    | narrativa    | prioridad   |   edad_min | mc   |   compradores_m5 |   vendedores_m5 | mint                                         |   x_1h |
+|:------|:-----------|:-------------|:------------|-----------:|:-----|-----------------:|----------------:|:---------------------------------------------|-------:|
+| 09:04 | RISING📈    |              | vetada      |        4.5 | 24K  |              472 |             104 | 9uomKkqJZkDqSY9ea7bh82S97JRm7Cszje9azZ3hJ66H | nan    |
+| 09:01 | Speedrun   | celebridades | vetada      |        3.3 | 14K  |              633 |              89 | CJFEgYzaAZNoeTbt1TvQJdtTGse3N6Q3zeS5C8HJaQY6 | nan    |
+| 09:01 | Ctxshld    |              | vetada      |        3.2 | 75K  |               61 |              20 | AQhVDvGHJ17JFBBvaFxxB2UdcsPFHHm2gVd1uJFjpump | nan    |
+| 08:55 | EGAREVEL   |              | vetada      |        2.5 | 15K  |               75 |              28 | FhKT813Bv8GvSqvXA2TQJvVPXTf33m8jCdetPULzrmro | nan    |
+| 08:55 | LEVECAT    |              | vetada      |        2.3 | 13K  |              201 |              63 | JGjMHPmjVAp1ucpyLN2xb8WTBUoYBn7YkkEsNMemySp  | nan    |
+| 08:43 | RGM        | ia           | alta        |        3.2 | 8K   |              115 |              73 | BDPLqmuZxWYtGkhDTnasxVDWcrgSVwFCDu6wMKAZpump | nan    |
+| 08:35 | H0me       |              | vetada      |        2   | 15K  |              237 |              62 | EGKJhQUGzNiaZfoLrKuDLQn1ReBK8iUgifK2xXhZuoAm | nan    |
+| 08:28 | NOEMA      |              | vetada      |        6   | 21K  |              271 |             178 | H5Pd5LgU7K3vNwhUW4JQYSVhVw6B1B8uzpCUXbvWpump | nan    |
+| 08:28 | LOOONG     |              | vetada      |        4.2 | 30K  |              363 |             227 | 4vW3qRmogpj4iy66xTgukkMepdbr8TTnKvmmDpv8pump | nan    |
+| 08:28 | TOKEN2049  |              | vetada      |        4.4 | 40K  |               44 |              26 | 46ex3A7XraiXUpRPxmKPojaEpxhkxuvsnGsFCHnZ7K9x | nan    |
+| 08:23 | e/l        |              | vetada      |        3.9 | 67K  |              677 |             291 | Eo9Vh9YyheFfZBkRme4vgGP7bCbBoKH4mKgRKU87pump | nan    |
+| 08:20 | $THRONE    |              | vetada      |        3.1 | 13K  |              293 |              88 | 7j3KWqoi49HziYB6KXPXUHks4pGVg7gotgCRkUnDBtU5 | nan    |
+| 08:16 | QORE       |              | vetada      |        2.1 | 9K   |               69 |              45 | 86iV4zs8jMGZjiaQaAcbNVTDBRjso8BCCGd5vezPpump | nan    |
+| 08:13 | TAP        |              | vetada      |        3.2 | 17K  |              285 |             195 | 4q88gcME69yvfcbN3m4NSNczbmk3D61a7PE1bLcXpump | nan    |
+| 08:10 | 1          |              | vetada      |        3   | 11K  |               73 |              48 | 3wQkX3N82NSxbND48RCUZPRu8roadhZa6QgW8yFNzdNx | nan    |
+| 08:10 | MIST       |              | vetada      |        2.8 | 22K  |               47 |              35 | 4gTBywUgAUQUMBJHRogtuFgDv8tDfTqcqNKLVWhVk92N | nan    |
+| 08:10 | MERVIN     |              | vetada      |        2.3 | 73K  |              192 |              94 | AASBPGtKrK3kGQoDgjDbMbhs5v6hy9N2tNyXWbdxpump | nan    |
+| 08:10 | 1000X      | cripto       | vetada      |        2.5 | 62K  |              184 |             134 | ELP7DpZvv41KzWewe513ZPBwTESsuxgzCJzh9zXn8WGd | nan    |
+| 07:57 | XOMUSDT    |              | vetada      |        3.9 | 91K  |               94 |              31 | HdkCkQHhVSTvi6WW5vaiabK7hzTVGsqdDCyyTeQphQLX |   1.26 |
+| 07:53 | AXIOM      |              | vetada      |        7.3 | 64K  |              527 |             398 | HPmrRWHrbwWVzJiQfnxgPSRDDkD6ShMLnEN6VuEzvyEV |   0.47 |
+| 07:46 | VAMPCAT    |              | vetada      |        2.1 | 31K  |              209 |              91 | 6RXHP4EsZjpV3DUXVv92SKq88rCZFW34UsuS6hpRdHPV |   0.12 |
+| 07:37 | UNPAID     |              | vetada      |        5.2 | 22K  |              537 |              76 | 6VxZuiD2Hzo5empJXQvLpAGVsFd7bKedt39XjfYtJ5JM |   0    |
+| 07:37 | UNPAID     |              | vetada      |        4.1 | 14K  |              578 |             117 | 2vcWNo27TBzq2PMZbAGhA2qr49xAVth3vcq6aX2cAb4F |   1.15 |
+| 07:37 | JSLING     |              | vetada      |        6.5 | 88K  |               88 |              31 | CBrb3vSehHm5DmTSu1ztF2FDAqJTZdH8pjQ9DaUHBAGS |   0    |
+| 07:34 | Gu Gua     |              | alta        |        2.4 | 10K  |              149 |              93 | 6ZE5JgWBm2qQ5p2yw6wnwAX8R6UqfiCoDSSjr1depump |   0.34 |
+| 07:26 | ket        |              | vetada      |       12.9 | 12K  |               86 |              63 | J8Jr8JPXCeWvj3EeWctug1ixcZTVpPUaisHjoMtDpump |   0.29 |
+| 07:19 | VantaCard  |              | vetada      |       12.6 | 16K  |              182 |              60 | 3jNVGYs3HCPmRnk12QWUVd1pzVckUx8dPyoaKW7zpump |   0.18 |
+| 07:16 | PumpSite   | cripto       | baja        |        3.1 | 10K  |               91 |              47 | 8v9xeUv9cr56vfDbfAWpigs4xcPcsroBYJDZ6CQLpump |   0.34 |
+| 07:12 | topless    |              | vetada      |        3.2 | 18K  |              416 |             104 | 4u1yNS74uK1HJwxEEgJJXEoFPpDNZTmT5pyLFEaGkkzR |   0    |
+| 07:12 | Cnfact     |              | vetada      |        3.3 | 78K  |               86 |              24 | 5xX5PXEeBJouuhuFrcfJ6DCNFtb1F8Bq9NJTNCBjbonk |   0    |
+| 07:02 | YON        |              | vetada      |        5.2 | 15K  |              184 |             115 | GEGEit5x2tGcLCDZFKVwr9fRKZs7984bQSkYHqf25G9Q |   0.25 |
+| 06:54 | METER      |              | baja        |        2.5 | 9K   |              104 |              62 | Bxhohnh4Sv9VvdgEatVymFP9A6vzzfAfcP25ah8Zpump |   0.39 |
+| 06:54 | Jak        |              | vetada      |        2.6 | 14K  |              331 |             105 | FcrWnyw86GoZ8C1g9hZ2q93xkVVvCyKH39qnBVQ2VRDx |   0    |
+| 06:48 | GET        |              | vetada      |        2.7 | 17K  |              391 |             196 | 5iwLiBK2wkzGbjFj9LUrgcsa8N7LDKR4u7jTLj6Spump |   0    |
+| 06:48 | NewGuy     |              | vetada      |        2.5 | 97K  |              538 |              78 | UToBuGdPZ1pNT7oUtwamQZ5FjXJx5FS8wRAFMEhwN7m  |   0    |
+| 06:43 | MORTGAGE   |              | vetada      |        3.9 | 23K  |              478 |              96 | 9Wc55rosRJSFAktu7dxFYcPWDbBof136Lvq9euAre8FY |   5.34 |
+| 06:40 | SCAT       |              | vetada      |       12.8 | 10K  |               85 |              62 | CrxQ3SHsP7qjy7REBRhjDn9i4keHX1PfqHvp2Hsy8XdG |   0.89 |
+| 06:40 | RIVER      |              | vetada      |        3   | 23K  |              167 |             116 | HBmnvSoG9QNT8QACD8WZsuTxjaFuqfw4EyrsGuE8pump |   0.17 |
+| 06:34 | riff       |              | baja        |        3.1 | 8K   |              136 |              92 | HzLbqtsTC7Jn8GMB4wKyRuACz7uauhfzH65vwRbJpump |   0.41 |
+| 06:34 | swordcat   |              | baja        |        2.9 | 10K  |               80 |              58 | 4Px7VL8zi721aTYhd7osQKL2EYaVML8BW9Ak1p48scHR |   0.32 |
+| 06:32 | Uaemeet    |              | vetada      |        2.2 | 77K  |              108 |              25 | AZrhe6A2Sjb4LJbswgdRXew3p76KGc29StFtMvBvmoon |   0    |
+| 06:30 | TROLL      |              | vetada      |        3   | 16K  |               69 |              34 | GWNgs2VUfA7tTGnRn9FjCzMY7Xk27GeeiDkWM3txmePz |   0    |
+| 06:26 | Paw        |              | alta        |        3.7 | 12K  |               41 |              20 | 4FZPCKj49LuaUJ5xKom9dYoQmm1Tt7F4yeyiHrpcnawu |   0.33 |
+| 06:24 | BEAR       | animales     | vetada      |        3.4 | 23K  |              310 |             194 | AHUYfm3aoYEcDApfhfEVR9ernkoykAhfTJ51cZgspump |   0.19 |
+| 06:20 | Abshld     |              | vetada      |        3.3 | 80K  |              107 |              22 | 2YBS8z611qZBSoBxiJ58wg926qDQy3r9odVxYFpbmoon |   0    |
+| 06:17 | LEVERAGE   |              | vetada      |        8.1 | 75K  |              469 |             324 | BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump  |   2.16 |
+| 06:12 | Shima      | cripto       | baja        |        5.5 | 9K   |              119 |              86 | B5NhBtmjmqFTyFSkYFSE8qPTP6GdMVmapZ4RtBoYpump |   0.37 |
+| 06:10 | maro       |              | vetada      |        3.2 | 57K  |               51 |              37 | BqXVJDb2pAxmoa2PBCxDypNwnitdVXvwN5L51EC9maro |   0    |
+| 06:08 | Redbull    | animales     | vetada      |        3.7 | 76K  |              239 |              49 | DFRPbHdZpxx8Q5Hp658pfkvrYgjKpY2QpQDvnhsmEjZF |   0    |
+| 05:51 | PAKSPACE   |              | vetada      |        2.1 | 74K  |               80 |              27 | FVeMhWR4eUKryBPfeFrPhxEuRGd6kLsG1KudBHiPmoon |   0    |
+| 05:51 | CROCS      |              | baja        |        2.2 | 11K  |               82 |              46 | Ees9nBcWavLJiE4P1inKwhXpNQSzL64zntyqWjpec6Dc |   9.32 |
+| 05:47 | TREND      |              | vetada      |        3.3 | 24K  |              437 |             256 | 92W24gMTrfSmavNatTCBawaDMbEQ3NJnMY7chbMVpump |   0.61 |
+| 05:37 | BBBYQ      |              | vetada      |        9.5 | 9K   |               66 |              47 | BzSCw6CEpcLyCZz59Y7pTLxRM2vpZaM1K14Pn946ps7q |   0.87 |
+| 05:33 | FULLSEND   |              | vetada      |        3   | 279K |              151 |              68 | Dimo67L6c5qCe7nuXz925EzjbYNpxpL8HihGQPNmpump |   0.48 |
+| 05:33 | 拼多多        |              | vetada      |        3.2 | 30K  |              286 |              40 | 2BT2Su86HVHxhygt6VxrWo9mdfnu3PJvsALLHzEMCtqh |   5.21 |
+| 05:30 | tr/acc     |              | vetada      |        2   | 108K |              266 |             110 | DGXf3mT2TaHsfy1Cn2p9CCSxfKENNM3oHPoR59Uwpump |   0    |
+| 05:30 | Gary       |              | baja        |        2.7 | 18K  |              194 |             116 | Ecx7uvbG63ETuZu4GZTzBmahadqgqDxryynzdTLwXff1 |   0.2  |
+| 05:24 | VUCIC      |              |             |        2.9 | 79K  |              147 |              36 | D74JWCJ4x5GAhbEtvBVrtTPqZtBzgknJcGCmbnYVpump |   0    |
+| 05:14 | FSD        |              |             |       13.5 | 24K  |               46 |              33 | HKgaE2JirCXudKEFm9JUTFDsV2hTx9sJoGr1tXnwpump |   0.61 |
+| 05:06 | FIM        |              |             |        2.8 | 21K  |              403 |             104 | 3AaZhDQug7q7h6ZJtNUR5Y5j6u2isGi7huN9ni4Justq |   0    |
+| 04:51 | Minions    |              |             |        3.5 | 36K  |              374 |              77 | 89nk99jM9wo3tFuCoUbqrHpDHahcTQmGBD4k6EQKVTSj |   1.44 |
+| 04:51 | Pager      |              |             |        7.4 | 19K  |              247 |             174 | 5ztqMCrrowVmMUg46ZVYmQ9boV1FDTuUj7quo2cwpump |   0.21 |
+| 04:51 | BOETIX     |              |             |        5.2 | 78K  |               77 |              23 | 7T4GuSjCy5nEq3wPqCTk2XtUGS4rk7dDservu8fgpump |   0    |
+| 04:48 | GRAYMATTER |              |             |        2   | 161K |             1002 |             613 | A2Kz4oAJvg9yuQR9znDicg8QvFDgrxaHp68ih3HCpump |   0.84 |
+| 04:48 | SNARKSTR   |              |             |        2.5 | 16K  |              563 |              96 | 4Jswhn7SvsFgpzk2g88mVDnnc9aCLLMdUaD8QKYqwtXm |   0    |
+| 04:09 | ROBINPEPE  | animales     |             |        2.5 | 33K  |              288 |              52 | 8LqsJ5cewbg9AwiN6imdGZocNm3tiHqgnm8t5g3VLMip |   2.13 |
+| 04:00 | 호냥이        |              |             |        2.5 | 8K   |               95 |              64 | BeYAs9VQV6zWpVbAfv9XcD14V4uohshVrGGDUJnHKiwn |   0.53 |
+| 03:54 | LASTACC    |              |             |        3.4 | 93K  |              622 |             202 | DGBK6nsRRTrVrpqhdY4PkUgKJfZhw6kayf6RT8Lepump |   0.02 |
+| 03:49 | BOOBS      |              |             |        2.2 | 19K  |              151 |              41 | HjyW96uXnDPyehceFGwAGpL21JKBuZArpFrBm2g9Rxgn |   1.84 |
+| 03:32 | STAN       |              |             |        2.8 | 10K  |               45 |              24 | J6AY2pQgQqzNLPcCSzJVm8PcWz8GNZ919vBTpMf7pump |   0.43 |
+| 03:12 | Tip        |              |             |        2.7 | 11K  |              259 |             182 | FLB7VyLWUyxjpYS3QonkaFcThVWcu82vHpvNU58mpump |   0.5  |
+| 03:12 | J          |              |             |        2.7 | 21K  |              319 |             103 | PezmauQpZfE3yNJo4P9ZKAo18ov6oedb2rdwbnTjJc1  |   1.04 |
 
 ## Señales de desplome (cuándo salir)
 
-Fotos de tokens que ya subían un 50% o más: **6528**; seguidas de un desplome (caída a un 40% o menos en 30 min): **151**. Cada fila compara cuántas veces llegó un desplome con la señal activa frente a sin ella: si la señal lo anticipa, el primer % es mucho mayor.
+Fotos de tokens que ya subían un 50% o más: **6657**; seguidas de un desplome (caída a un 40% o menos en 30 min): **153**. Cada fila compara cuántas veces llegó un desplome con la señal activa frente a sin ella: si la señal lo anticipa, el primer % es mucho mayor.
 
 | señal                                        |   fotos_con_señal | desplome_con_señal   | desplome_sin_señal   |
 |:---------------------------------------------|------------------:|:---------------------|:---------------------|
-| Liquidez < 3% de la capitalización           |              5193 | 1%                   | 7%                   |
-| Ticket medio < $30 (volumen de microcompras) |              5776 | 2%                   | 6%                   |
+| Liquidez < 3% de la capitalización           |              5301 | 1%                   | 7%                   |
+| Ticket medio < $30 (volumen de microcompras) |              5898 | 2%                   | 6%                   |
 | Más de 8 compradores por vendedor (5 min)    |                23 | 17%                  | 2%                   |
-| Subida de más del 100% en 1 h                |               639 | 12%                  | 1%                   |
-| Escalera: 30 min subiendo sin retrocesos     |                42 | 48%                  | 2%                   |
+| Subida de más del 100% en 1 h                |               644 | 12%                  | 1%                   |
+| Escalera: 30 min subiendo sin retrocesos     |                43 | 47%                  | 2%                   |
 | Aceleración final                            |               102 | 14%                  | 2%                   |
-| Más vendedores que compradores (5 min)       |              5772 | 1%                   | 12%                  |
-| Ya multiplicó x5 o más desde la detección    |              1688 | 1%                   | 3%                   |
+| Más vendedores que compradores (5 min)       |              5892 | 1%                   | 12%                  |
+| Ya multiplicó x5 o más desde la detección    |              1723 | 1%                   | 3%                   |
 
 ## Palabras calientes (últimas 3 h)
 
@@ -103,16 +108,17 @@ Palabras que aparecen en muchos más tokens nuevos de lo normal: temas que se es
 
 | palabra   |   tokens_3h |   tokens_24h_previas | veces_lo_normal   | mayor    | mc_mayor   | mint_mayor                                   |
 |:----------|------------:|---------------------:|:------------------|:---------|:-----------|:---------------------------------------------|
-| leverage  |           5 |                    0 | x40               | LEVERAGE | 75K        | BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump  |
+| leverage  |           8 |                    0 | x64               | LEVERAGE | 339K       | 9hXFWZABsS63QK3aHEF1wCttnGUvFVAXxWJ4ARfnSF5G |
 | stonkinu  |           3 |                    0 | x24               | STONKINU | 47K        | 6bxgHRcxRjtapo8ex9FcwgKHPuNUzFHxtKxdir3jWgnK |
 | topless   |           3 |                    0 | x24               | topless  | 47K        | 42UyjX29XykmpZHXf3Fg2D22TDsKkfzAMrJ1v4Hwpump |
 
 ## Narrativas activas (últimas 2 h)
 
-| narrativa   |   tokens_nuevos | lider    | mc_lider   | catalizador   | mint_lider                                   |
-|:------------|----------------:|:---------|:-----------|:--------------|:---------------------------------------------|
-| cripto      |               4 | SNOWMOON | 48K        |               | EKy7LyDdgvrmWoBSvcSkpZW9ESkU2VsFhZxkK39Dpump |
-| ia          |               1 | RGM      | 8K         |               | BDPLqmuZxWYtGkhDTnasxVDWcrgSVwFCDu6wMKAZpump |
+| narrativa    |   tokens_nuevos | lider    | mc_lider   | catalizador   | mint_lider                                   |
+|:-------------|----------------:|:---------|:-----------|:--------------|:---------------------------------------------|
+| cripto       |               4 | SNOWMOON | 48K        |               | EKy7LyDdgvrmWoBSvcSkpZW9ESkU2VsFhZxkK39Dpump |
+| celebridades |               1 | Speedrun | 14K        |               | CJFEgYzaAZNoeTbt1TvQJdtTGse3N6Q3zeS5C8HJaQY6 |
+| ia           |               1 | RGM      | 8K         |               | BDPLqmuZxWYtGkhDTnasxVDWcrgSVwFCDu6wMKAZpump |
 
 ## Pasan el filtro en la última hora
 
