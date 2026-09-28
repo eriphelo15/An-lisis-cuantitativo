@@ -111,3 +111,91 @@ transcripciones (solo lo que dice; no se ve la pantalla). Tickers corregidos con
   - Cuando dice que está difícil: mira a quién le va bien (Kinfo, últimos 3 meses) y se adapta.
   - "A+" = cuando los criterios fundamentales se alinean con los técnicos de un setup que domina.
   - Empezó con $2 000 y no crecía la cuenta porque sacaba las ganancias; la pandemia le permitió capitalizarse.
+
+### 2026-08-12 (miércoles; operando en vivo)
+- Acciones (verificadas con precios de ese día):
+  - RMCF ("la del chocolate", Rocky Mountain Chocolate): 12-ago abre $1.74, máx. $2.15, cierra $1.52 (≈ +150 % por rumor de fusión).
+    **Largo** comprando "todo lo que venda la base de $1.45", precio medio $1.58, salida media ≈ $1.85. Su mejor operación del día.
+    Watchlist: "típico buy the rumor… ya está *priced in* porque está 150 % arriba"; salir si pierde la base.
+  - PLAG ("PL"): 11-ago de $1.07 a máx. $6.81 (cierra $5.81); al día siguiente abre en $1.35. Dice que el 11-ago mucha gente "se destrozó la
+    cuenta" con los halts; él perdió ~$1 000 comprando esperando un rebote tras la "liquidación" que nunca llegó. Día del 11-ago: −$7 200.
+  - OFAL ("Of", china): "simpatía de PL… las simpatías no corren tanto como la líder → gap and crap" (12-ago $2.54 → máx. $3.79 → cierre $1.36).
+    **No tenía locates**; hizo rebotes en largo.
+  - XHLD: largo por "trampa de liquidez"; BQ, SCKT, SB: posiciones pequeñas. BIVI: quería shortearla pero **no había locates**.
+- Drawdown ~$120 000; agosto con solo 2 días verdes hasta entonces.
+- Datos que da: **arriesga ~$10 para ganar ~$6, con 75 % de acierto** ("nunca he sido un trader que deja correr").
+- Reglas / ideas:
+  - Escáner: "algo muy estúpido que siempre he usado: los gappers / mayores subidas"; nada sofisticado.
+  - Antes un ATM era muy bajista; "hoy todo el mundo sabe que hay ATM… es bajista, pero no tanto" → confía más en el precio que en
+    los fundamentales.
+  - Largos: mañana, power hour, premarket o after-hours; **"midday nunca"**.
+  - Tamaño asimétrico: sus mejores días vienen de un solo trade; su error es meter el mismo tamaño a todo → journaling semanal
+    (usa TraderVue) para saber en qué setup es bueno y apostar más ahí.
+  - Recomienda Flash Research (sus "amigos") para backtesting de small caps.
+  - "Si shorteas small caps y crees que tu sistema está blindado, replantéatelo todo": sé agresivo en los buenos momentos, porque los
+    drawdowns son inevitables.
+  - Para empezar: paper trading 3-4 semanas y luego 1-2 acciones.
+
+### 2026-08-05 (miércoles; día rojo)
+- Día: **−$8 500** (−$10 000 en algún momento); 4-ago **−$24 000** (TNMG −$16 000); 3-ago +$8 000; agosto −$17 000. Drawdown ~$130-140 000.
+- Acciones:
+  - TNMG: 4-ago gap +118 % ($0.78, máx. $0.89 en horario regular). Corto; cubrió "en el top de la locura": "de mis peores trades en años".
+  - DFNS ("FNS"): su "némesis": 21-jul $4.19 → 30-jul máx. $91. Perdió varias veces en *short into resistance* contra $60.
+  - AMIX: 4-ago $5.38 → máx. $24.68. Estaba largo desde $4.80-6 y aun así perdió comprando la ruptura de $22 y vendiendo en $18 tras un halt.
+  - JLHL: 5-ago $7.01 → máx. $16.14; largos que "no pegué una". YXT: 5-ago $7.32 → máx. $32.14 (china, +450 %).
+  - BJDX: corto "gap extension" con riesgo en $1.65 (5-ago máx. $1.69, mín. $1.24).
+- Datos que da: **73 % de acierto; "arriesgo $600 para ganar $400"**; "mi drawdown es 25-30 % de la cuenta, así que apunto a ≥100 % al año".
+- Reglas / ideas:
+  - Entradas = zonas; lo fijo es el **riesgo** (punto de salida) y el tamaño. Entrar más lejos del riesgo = más acierto y peor R/B;
+    pegado al riesgo = mejor R/B y menos acierto. Gap and go 3-5:1; VWAP bounce ~1:1.
+  - "Shortear chinas es una burrada", pero lo está intentando "de una manera particular".
+  - Riesgo de ruina en small caps **nunca es cero** (halt que abre +100 %/+300 %). Un sistema automático tiene *más* riesgo de ruina con
+    halts (el stop no encuentra liquidez).
+  - No hacer compounding con todo: separar cuentas (ej. empezar con $3 000, al duplicar sacar $3 000 a otra cuenta con estrategia menos agresiva).
+  - Escáner: Trade Ideas + su grupo; "solo veo gappers".
+
+### 2026-07-29 (miércoles; primer directo del drawdown)
+- Contexto: **24-jul, STAK** (china): ese día $1.23 → máx. **$12.00**, cierre $9.27 (verificado). Estaba corto con precio medio $3.75
+  (106 000 acciones contando el reciclaje) y cubrió en ~$4.62; la indicación del halt llegó a $13 (abrió en $8): "si abre en 13 pierdo
+  200 y pico mil". Pérdida del día ~$90-100 000, "22 % de las ganancias del año en 3 días". Lunes 27-jul llegó a −$38 000.
+  Reconoce un posible factor: acababa de pagar muchos impuestos.
+- Día: ~+$7 000, el 90 % de un "primer día rojo" en **DFNS** ("Defense"; 29-jul abre $39.23, máx. $61.38, mín. $30.69, cierra $50.22 —
+  la vela diaria fue verde; el trade fue intradía tras el *green to red*). Watchlist: "no es perfecto porque es microfloat y tiene
+  divergencia de volumen; lo intentaré solo si corre primero y hace green to red". Unas 800 acciones, "muy bajo size".
+- **Locates:** en DFNS se llevaron ~20 % de la ganancia ($5 900): "antes era el 10 %, ahorita es el 20 %"; "nunca había visto una
+  temporada tan larga con locates tan caros todos los días".
+- Reglas / ideas:
+  - Todos sus drawdowns siguen el mismo patrón: día 2 de venganza, día 3 de espiral, alivio, exceso de confianza, desánimo, calma.
+  - Drawdown aceptable: < 50 % de las ganancias del año (a mitad de año); si supera el 20 % de las del año anterior, es "muy fuerte".
+  - "El 80 % de mis ganancias lo saco las primeras 3 horas". Stops manuales, no automáticos.
+  - Los traders que se capitalizan (≥ $1 M) dejan de ser tan agresivos en small caps; "hacerlo como yo con $1 M es una estupidez".
+  - Con poca cuenta prefiere un activo muy volátil y sacar "el medio del movimiento" antes que apalancarse en activos lentos.
+
+### 2026-07-22 (miércoles; en vivo con David Hamlin "Laptop Legend" y Jan Torres)
+- Acciones (verificadas):
+  - ZCMD (china): 22-jul abre $2.26, máx. $11.96, cierra $4.29 (día siguiente $1.73). **Corto en el backside** ("no entré antes";
+    esperó a que perdiera la estructura en $7.50): precio medio $7.80-8.38, 900-2 000+ acciones, riesgo $9 y luego $8, objetivo $5.
+    ~+$7 000 en esa caída. Reducía tamaño cuando iba en contra y añadía cuando iba a favor.
+  - CPHI ("CPI"): 21-jul $0.86 → máx. $19.19; 22-jul **offering** y abre en $2.89. ZYBT: 20-jul $1.27 → $8.01, luego se desploma.
+- **Locates del día: casi $2 000** ("está más caro que antes… es como si sube la harina en tu pizzería: baja el margen, no dejas de hacer pizza").
+  Día: **+$15 000**. Racha desde el 9-jun: "la mejor de mi carrera", justo después del peor drawdown.
+- Reglas / ideas:
+  - Trauma con halts: "he estado short en una china, halteado, con la indicación +500 %"; ahora **sale cuando ve un halt al alza**.
+  - Backside tras el primer día con volumen histórico: los rebotes escalonados dejan compradores atrapados → más convicción en el corto.
+  - Hamlin: distinto "playbook" si la acción está siendo **liquidada** (mínimos y máximos decrecientes sin rebote) que si es un gap normal.
+  - Tardó ~4-5 años en ser rentable.
+
+### 2026-07-08 (miércoles; en plena racha ganadora)
+- Día ~+$4 000-4 500 con "short into resistance" en premarket en una acción que llama "Elhi" (**sin verificar**). Mes de julio
+  "el mejor comienzo de mes de mi carrera".
+- Sus peores pérdidas del año (dice): tres de $45 000, $34 000 y $31 000, y más de $200 000 en abril (tickers mal transcritos, sin verificar).
+- Reglas / ideas:
+  - Casi toda la sesión: **responsabilidad propia** ("ownership"): un halt de +200 % con una china es "injusto", pero tú eliges meterte
+    corto en una china ilíquida; "de bolas que te merecen la pérdida".
+  - **Acciones de centavos: "no las tradeo porque son caras de tradear, a menos que tenga un setup maravilloso; nunca me metería en un
+    penny para sacarle 5 %"** (coincide con nuestra ronda 5: el humo < $1 no cubre costes).
+  - Comisiones: "bajó sus comisiones mínimas… sigue siendo **$0.49**, horrible" — probablemente habla de TradeZero (su mínimo por orden
+    es $0.49); la transcripción no deja claro el nombre.
+  - Cuenta pequeña (ej. $4 000): arriesgar un % fijo e ir subiendo el riesgo en dólares a medida que crece el capital; no subir tamaño
+    "porque las comisiones o los datos son caros".
+  - Tardó ~5 años en ser rentable; después "se acelera".
