@@ -1,6 +1,6 @@
 {
  "fecha": "2026-09-21",
- "generado": "2026-09-28 14:22",
+ "generado": "2026-09-28 16:59",
  "replay": true,
  "desde": "2026-09-18 16:00",
  "corte": "2026-09-21 09:10",
@@ -82,12 +82,8 @@
     "warrants_en_dinero": true
    },
    "venta_hoy": false,
-   "plan": {
-    "entrada": "apertura (9:30)",
-    "stop": 9.529,
-    "stop_pct": 0.3,
-    "riesgo_accion": 2.7488,
-    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   "costes": {
+    "locate_1c_R": 0.005
    },
    "estad": {
     "R": 0.01,
@@ -155,12 +151,8 @@
     "warrants_en_dinero": false
    },
    "venta_hoy": false,
-   "plan": {
-    "entrada": "apertura (9:30)",
-    "stop": 3.926,
-    "stop_pct": 0.3,
-    "riesgo_accion": 1.1325,
-    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   "costes": {
+    "locate_1c_R": 0.011
    },
    "estad": {
     "R": 0.01,
@@ -214,12 +206,8 @@
     "warrants_en_dinero": false
    },
    "venta_hoy": false,
-   "plan": {
-    "entrada": "apertura (9:30)",
-    "stop": 0.8372,
-    "stop_pct": 0.3,
-    "riesgo_accion": 0.2415,
-    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   "costes": {
+    "locate_1c_R": 0.052
    },
    "estad": {
     "R": 0.01,
@@ -232,7 +220,6 @@
     "fuente": "contrato real / FDA / otros ≈ 0R"
    },
    "avisos": [
-    "Capitalización < $30 M: más squeezes (histórico −0.13R)",
     "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
    ]
   },
@@ -306,12 +293,8 @@
     "warrants_en_dinero": true
    },
    "venta_hoy": false,
-   "plan": {
-    "entrada": "apertura (9:30)",
-    "stop": 18.85,
-    "stop_pct": 0.3,
-    "riesgo_accion": 5.4375,
-    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   "costes": {
+    "locate_1c_R": 0.002
    },
    "estad": {
     "R": 0.01,
@@ -324,7 +307,6 @@
     "fuente": "contrato real / FDA / otros ≈ 0R"
    },
    "avisos": [
-    "Capitalización < $30 M: más squeezes (histórico −0.13R)",
     "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
    ]
   }

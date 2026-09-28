@@ -179,8 +179,6 @@ tr:last-child td{border-bottom:0}
     </div>
     <div class="ctrls">
       <div class="field"><label for="selFecha">Día</label><select id="selFecha"></select></div>
-      <div class="field"><label for="inCuenta">Cuenta $</label><input id="inCuenta" type="number" min="100" step="100" value="2000"></div>
-      <div class="field"><label for="inRiesgo">Riesgo %</label><input id="inRiesgo" type="number" min="0.1" max="5" step="0.1" value="1"></div>
     </div>
   </header>
 
@@ -201,10 +199,10 @@ tr:last-child td{border-bottom:0}
 
   <div class="rules">
     <b>Cómo se construye:</b> gap del premarket ≥ 50 % → lista; 20–50 % → vigilar. Catalizador leído en EDGAR (8-K/6-K desde el cierre anterior) y agencias de noticias.
-    <b>A</b> = humo + gap ≥ 50 % + venta 424B en 90 días + cap ≥ $30 M · <b>B</b> = humo + gap ≥ 50 % · <b>Vigilar</b> = contrato real, FDA, otros o sin noticia ·
+    <b>A</b> = humo + gap ≥ 100 % + precio ≥ $1 · <b>B</b> = humo + gap 50–100 % + precio ≥ $1 · <b>Vigilar</b> = humo con precio &lt; $1, contrato real, FDA, otros o sin noticia ·
     <b>NO</b> = resultados, financiación, avisos de bolsa o 424B hoy · <b>Nunca</b> = compra en efectivo.
-    Plan del setup medido: corto a la apertura, stop +30 %, riesgo por acción ≈ 37.5 % del precio (stop + 5 % de deslizamiento + 1 % de costes).
-    Todo es automático: confirma en los enlaces y confirma el locate en tu bróker antes de operar.
+    La letra indica la fuerza de la <b>base estadística</b> (resultado histórico sin ejecución: corto a la apertura, stop +30 %, salida al cierre). No es una instrucción de ejecución: la ejecución es tuya.
+    Confirma en los enlaces y confirma el locate en tu bróker antes de operar.
   </div>
 </div>
 
@@ -214,7 +212,7 @@ tr:last-child td{border-bottom:0}
 "use strict";
 const $=s=>document.querySelector(s);
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const LV={A:{c:"var(--lvA)",n:"A",d:"Humo + munición + cap ≥ $30 M"},B:{c:"var(--lvB)",n:"B",d:"Humo + gap ≥ 50 %"},VIGILAR:{c:"var(--lvV)",n:"Vigilar",d:"Contrato, FDA, otros, sin noticia"},NO:{c:"var(--lvNO)",n:"NO",d:"Resultados, financiación, bolsa"},NUNCA:{c:"var(--lvNU)",n:"Nunca",d:"Compra en efectivo"}};
+const LV={A:{c:"var(--lvA)",n:"A",d:"Humo + gap ≥ 100 % + ≥ $1"},B:{c:"var(--lvB)",n:"B",d:"Humo + gap 50–100 % + ≥ $1"},VIGILAR:{c:"var(--lvV)",n:"Vigilar",d:"< $1, contrato, FDA, otros, sin noticia"},NO:{c:"var(--lvNO)",n:"NO",d:"Resultados, financiación, bolsa"},NUNCA:{c:"var(--lvNU)",n:"Nunca",d:"Compra en efectivo"}};
 const ORD=["A","B","VIGILAR","NO","NUNCA"];
 const st={listas:{},fechas:[],fecha:null,diario:{},db:null,abierto:null,pane:"lista"};
 const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:v}catch(e){return d}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
@@ -223,8 +221,6 @@ const pct=(x,d=0)=>x==null||isNaN(x)?"—":(x>=0?"+":"")+(x*100).toFixed(d)+" %"
 const usd=x=>{if(x==null||isNaN(x))return "—";const a=Math.abs(x);return (x<0?"-":"")+(a>=1e9?"$"+(a/1e9).toFixed(2)+" B":a>=1e6?"$"+(a/1e6).toFixed(1)+" M":a>=1e3?"$"+(a/1e3).toFixed(0)+" k":"$"+a.toFixed(2))};
 const px=x=>x==null?"—":"$"+(x>=10?x.toFixed(2):x>=1?x.toFixed(3):x.toFixed(4));
 const R=x=>x==null||isNaN(x)?"—":(x>=0?"+":"")+x.toFixed(2)+"R";
-const cuenta=()=>Math.max(0,parseFloat($("#inCuenta").value)||0);
-const riesgo=()=>Math.max(0,parseFloat($("#inRiesgo").value)||0)/100;
 
 function metrics(rs){
   const v=rs.filter(x=>x!=null&&!isNaN(x));const g=v.filter(x=>x>0),p=v.filter(x=>x<=0);
@@ -252,8 +248,7 @@ function renderLevels(){
 function chip(on,txt,bad){return `<span class="chip ${on?(bad?"bad":"on"):""}">${esc(txt)}</span>`}
 
 function card(x,L){
-  const lv=LV[x.nivel]||LV.VIGILAR;const cl=x.clasif||{};const m=x.municion||{};const p=x.plan||{};const e=x.estad||{};
-  const acciones=p.riesgo_accion?Math.floor(cuenta()*riesgo()/p.riesgo_accion):0;
+  const lv=LV[x.nivel]||LV.VIGILAR;const cl=x.clasif||{};const m=x.municion||{};const e=x.estad||{};const co=x.costes||{};
   const res=L.resultados&&L.resultados[x.sym];
   const dj=st.diario[L.fecha+"_"+x.sym];
   const fuentes=(x.catalizadores||[]).map(k=>`<div><span class="t">${esc(k.hora.slice(11))}</span><a href="${esc(k.url)}" target="_blank" rel="noopener">${esc(k.form)}</a> · Items ${esc(k.items||"—")}${(k.anexos||[]).map(a=>` · <a href="${esc(a.url)}" target="_blank" rel="noopener">anexo</a>`).join("")}</div>`).join("");
@@ -299,16 +294,7 @@ function card(x,L){
       ${(m.ultimas_ventas||[]).length?`<div class="fuente">Ventas: ${(m.ultimas_ventas||[]).slice(0,3).map(v=>`<a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.form)} ${esc(v.fecha)}</a>`).join(" · ")}</div>`:""}
     </div>
     <div class="col">
-      <div class="sec">Plan</div>
-      <dl class="kv">
-        <dt>Entrada</dt><dd>${esc(p.entrada||"—")}</dd>
-        <dt>Stop (+30 %)</dt><dd>${px(p.stop)}</dd>
-        <dt>Riesgo por acción</dt><dd>${px(p.riesgo_accion)}</dd>
-        <dt>Acciones (${(riesgo()*100).toFixed(1)} % de ${usd(cuenta())})</dt><dd class="big">${acciones}</dd>
-        <dt>Valor de la posición</dt><dd>${usd(acciones*(x.precio||0))}</dd>
-      </dl>
-      <div class="note" style="margin-top:6px">${esc(p.salida||"")}</div>
-      <div class="sec" style="margin-top:14px">Histórico de este nivel</div>
+      <div class="sec">Base estadística del nivel</div>
       <div class="stat">
         <div><div class="l">Esper.</div><div class="v">${R(e.R)}</div></div>
         <div><div class="l">WR</div><div class="v">${e.WR!=null?Math.round(e.WR*100)+"%":"—"}</div></div>
@@ -317,11 +303,12 @@ function card(x,L){
         <div><div class="l">PF</div><div class="v">${e.PF!=null?e.PF.toFixed(2):"—"}</div></div>
       </div>
       <div class="fuente">${esc(e.fuente||"")}${e.n?" · "+e.n+" casos":""}${e.squeeze!=null?" · squeeze >+50 %: "+Math.round(e.squeeze*100)+" %":""}</div>
+      ${co.locate_1c_R!=null?`<div class="sec" style="margin-top:14px">Referencia de costes</div><div class="note">Cada $0.01 de locate por acción equivale a <b class="mono">${co.locate_1c_R.toFixed(2)}R</b> de la base (con stop +30 %).</div>`:""}
     </div>
   </div>
   ${(x.avisos||[]).length?`<div class="warns">${x.avisos.map(a=>`<div>${esc(a)}</div>`).join("")}</div>`:""}
   <div class="cfoot">
-    ${res?`<span class="res">Resultado real (corto a la apertura): apertura ${px(res.apertura)} · máx ${px(res.maximo)} (${pct(res.subida_max)}) · cierre ${px(res.cierre)} → <b class="${res.R>0?"pos":"neg"}">${R(res.R)}</b></span>`:`<span class="res">Resultado real: se añade al día siguiente</span>`}
+    ${res?`<span class="res">Resultado de base (mecánico): apertura ${px(res.apertura)} · máx ${px(res.maximo)} (${pct(res.subida_max)}) · cierre ${px(res.cierre)} → <b class="${res.R>0?"pos":"neg"}">${R(res.R)}</b></span>`:`<span class="res">Resultado de base: se añade al día siguiente</span>`}
     <span style="margin-left:auto"></span>
     ${dj?`<span class="logged">✓ En tu diario: ${dj.operada==="si"?R(djR(dj))+" · "+usd(djUSD(dj)):"no operada ("+esc(dj.motivo||"—")+")"}</span>`:""}
     <button class="btn ${dj?"ghost":""}" data-dj="${esc(x.sym)}" ${st.db?"":"disabled title='El diario necesita la base de datos de la página'"}>${dj?"Editar diario":"Registrar en el diario"}</button>
@@ -340,7 +327,7 @@ function formDiario(x,L,d){
     <div class="f"><label for="dj-loc-${esc(x.sym)}">Locate</label><select id="dj-loc-${esc(x.sym)}" name="locate"><option value="si" ${d.locate!=="no"&&d.locate!=="caro"?"selected":""}>Sí</option><option value="caro" ${d.locate==="caro"?"selected":""}>Caro</option><option value="no" ${d.locate==="no"?"selected":""}>No había</option></select></div>
     <div class="f"><label for="dj-e-${esc(x.sym)}">Entrada $</label><input id="dj-e-${esc(x.sym)}" name="entrada" type="number" step="0.0001" value="${v("entrada")}"></div>
     <div class="f"><label for="dj-s-${esc(x.sym)}">Salida $</label><input id="dj-s-${esc(x.sym)}" name="salida" type="number" step="0.0001" value="${v("salida")}"></div>
-    <div class="f"><label for="dj-st-${esc(x.sym)}">Stop usado $</label><input id="dj-st-${esc(x.sym)}" name="stop" type="number" step="0.0001" value="${v("stop",x.plan&&x.plan.stop)}"></div>
+    <div class="f"><label for="dj-st-${esc(x.sym)}">Stop usado $</label><input id="dj-st-${esc(x.sym)}" name="stop" type="number" step="0.0001" value="${v("stop")}"></div>
     <div class="f"><label for="dj-n-${esc(x.sym)}">Acciones</label><input id="dj-n-${esc(x.sym)}" name="acciones" type="number" step="1" value="${v("acciones")}"></div>
     <div class="f"><label for="dj-c-${esc(x.sym)}">Costes $ (locate + comisión)</label><input id="dj-c-${esc(x.sym)}" name="costes" type="number" step="0.01" value="${v("costes")}"></div>
     <div class="f"><label for="dj-m-${esc(x.sym)}">Si no operaste: motivo</label><input id="dj-m-${esc(x.sym)}" name="motivo" type="text" value="${v("motivo")}"></div>
@@ -383,9 +370,9 @@ function renderRend(){
   const el=$("#p-rend");const por={};ORD.forEach(k=>por[k]=[]);let dias=0;
   st.fechas.forEach(f=>{const L=st.listas[f];if(!L||!L.resultados)return;dias++;L.lista.forEach(x=>{const r=L.resultados[x.sym];if(r)por[x.nivel].push(r.R)})});
   el.innerHTML=`<div class="panel"><h3>Rendimiento de la propia lista</h3>
-  <p class="note" style="margin:0 0 10px">Resultado mecánico de cada acción listada (corto a la apertura, stop +30 %, deslizamiento y costes incluidos), en ${dias} día(s) con resultado. Sirve para comprobar que la lista se comporta como en las pruebas históricas.</p>
-  <div class="tbl-wrap"><table><thead><tr><th>Nivel</th><th class="n">Casos</th><th class="n">Esperanza</th><th class="n">WR</th><th class="n">Gan. media</th><th class="n">Pérd. media</th><th class="n">PF</th><th class="n">Histórico esperado</th></tr></thead><tbody>
-  ${ORD.map(k=>{const m=metrics(por[k]);const h={A:"+0.30R · PF 1.87",B:"+0.22R · PF 1.63",VIGILAR:"≈ 0R",NO:"PF 0.6–0.7",NUNCA:"WR 8 %"}[k];return `<tr><td><span class="lvl" style="--c:${LV[k].c}">${LV[k].n}</span></td><td class="n">${m.n}</td><td class="n ${m.R>0?"pos":m.R<0?"neg":""}">${R(m.R)}</td><td class="n">${m.WR!=null?Math.round(m.WR*100)+" %":"—"}</td><td class="n">${R(m.gan)}</td><td class="n">${R(m.perd)}</td><td class="n">${m.PF==null?"—":m.PF===Infinity?"∞":m.PF.toFixed(2)}</td><td class="n">${h}</td></tr>`}).join("")}
+  <p class="note" style="margin:0 0 10px">Resultado de base de cada acción listada (mecánico: corto a la apertura, stop +30 %, deslizamiento y costes incluidos), en ${dias} día(s) con resultado. Sirve para comprobar que la selección se comporta como en las pruebas históricas y, junto a tu diario, para ver cuánto añade tu ejecución.</p>
+  <div class="tbl-wrap"><table><thead><tr><th>Nivel</th><th class="n">Casos</th><th class="n">Esperanza</th><th class="n">WR</th><th class="n">Gan. media</th><th class="n">Pérd. media</th><th class="n">PF</th><th class="n">Base histórica</th></tr></thead><tbody>
+  ${ORD.map(k=>{const m=metrics(por[k]);const h={A:"+0.45R · PF 2.74",B:"≈ 0R · PF 0.96",VIGILAR:"≈ 0R (humo < $1: +0.26R antes del locate)",NO:"PF 0.6–0.7",NUNCA:"WR 8 %"}[k];return `<tr><td><span class="lvl" style="--c:${LV[k].c}">${LV[k].n}</span></td><td class="n">${m.n}</td><td class="n ${m.R>0?"pos":m.R<0?"neg":""}">${R(m.R)}</td><td class="n">${m.WR!=null?Math.round(m.WR*100)+" %":"—"}</td><td class="n">${R(m.gan)}</td><td class="n">${R(m.perd)}</td><td class="n">${m.PF==null?"—":m.PF===Infinity?"∞":m.PF.toFixed(2)}</td><td class="n">${h}</td></tr>`}).join("")}
   </tbody></table></div>
   <p class="note" style="margin-top:10px">Con pocos días los números bailan mucho: hacen falta decenas de casos por nivel para sacar conclusiones.</p></div>`;
 }
@@ -402,7 +389,6 @@ function fillFechas(){
   const sel=$("#selFecha");sel.innerHTML=st.fechas.map(f=>`<option value="${esc(f)}" ${f===st.fecha?"selected":""}>${esc(f)}${st.listas[f]&&st.listas[f].replay?" (prueba)":""}</option>`).join("");
 }
 $("#selFecha").addEventListener("change",e=>{st.fecha=e.target.value;st.abierto=null;renderAll()});
-["#inCuenta","#inRiesgo"].forEach(s=>$(s).addEventListener("input",()=>{store.set("radar.cuenta",$("#inCuenta").value);store.set("radar.riesgo",$("#inRiesgo").value);renderLista()}));
 
 document.addEventListener("click",e=>{
   const b=e.target.closest("[data-dj]");if(b){st.abierto=st.abierto===b.dataset.dj?null:b.dataset.dj;renderLista();return}
@@ -422,7 +408,6 @@ document.addEventListener("submit",async e=>{
 function adopt(L){if(!L||!L.fecha)return;st.listas[L.fecha]=L;st.fechas=Object.keys(st.listas).sort().reverse()}
 
 // arranque: respaldo incrustado, luego base de datos
-$("#inCuenta").value=store.get("radar.cuenta","2000");$("#inRiesgo").value=store.get("radar.riesgo","1");
 try{adopt(JSON.parse($("#respaldo").textContent||"{}"))}catch(e){}
 st.fecha=st.fechas[0]||null;fillFechas();selectPane(store.get("radar.pane","lista"));renderAll();
 

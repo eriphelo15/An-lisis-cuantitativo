@@ -41,7 +41,10 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
    `listas/datos/HOY.json` en la base de datos (`ArtifactData set`, colección `listas`, `doc_id` = HOY).
 7. `git add listas/datos && git commit -m "Lista diaria HOY" && git push -u origin claude/analisis-cuantitativo-45j7qe`
    (con las líneas de atribución de siempre).
-8. Mensaje final corto en español: niveles de la lista (A/B/Vigilar/NO/Nunca con tickers) y enlace a la página.
+8. Mensaje final en español: niveles de la lista (A/B/Vigilar/NO/Nunca con tickers), catalizador (frase original + traducción + cifra),
+   munición y base estadística de cada una, resultado de base del día anterior y enlace a la página.
+   **Solo trabajo de campo (selección).** NO dar instrucciones de ejecución (entrada, stop, tamaño, salida): la ejecución es discrecional
+   del usuario. El análisis de ejecución se trata aparte, en conversaciones de formación y estudios, nunca en la lista del día.
 9. **Notificación push** (pedida por el usuario el 28-sep; probada y funciona): herramienta `PushNotification`, una línea < 200
    caracteres, sin formato, p. ej. `Radar 29-sep listo: A → … · B → SOAR +111 %, GYGY +64 % · Vigilar → KOD · Nunca → LFCR · Control OK`.
    Si la auditoría retrasa la lista o falla algo, avisar también por push (`Radar 29-sep RETRASADO: <motivo>`).

@@ -1,6 +1,6 @@
 {
  "fecha": "2026-09-23",
- "generado": "2026-09-28 14:22",
+ "generado": "2026-09-28 16:59",
  "replay": true,
  "desde": "2026-09-22 16:00",
  "corte": "2026-09-23 09:10",
@@ -22,7 +22,7 @@
    "gap": 4.4275,
    "cap": null,
    "vol_pre": null,
-   "nivel": "B",
+   "nivel": "A",
    "clasif": {
     "tipo": "H",
     "frase_en": "formulated and is implementing a comprehensive strategy intended to eliminate both the fraudulent indebtedness asserted by HCLP",
@@ -108,22 +108,18 @@
     "warrants_en_dinero": false
    },
    "venta_hoy": false,
-   "plan": {
-    "entrada": "apertura (9:30)",
-    "stop": 3.796,
-    "stop_pct": 0.3,
-    "riesgo_accion": 1.095,
-    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   "costes": {
+    "locate_1c_R": 0.011
    },
    "estad": {
-    "R": 0.22,
-    "WR": 0.68,
-    "gan": 0.85,
-    "perd": -1.1,
-    "PF": 1.63,
-    "n": 168,
-    "squeeze": 0.17,
-    "fuente": "humo + gap ≥50 % · VAL 2022-26 (validado)"
+    "R": 0.45,
+    "WR": 0.75,
+    "gan": 0.94,
+    "perd": -1.03,
+    "PF": 2.74,
+    "n": 56,
+    "squeeze": 0.09,
+    "fuente": "base mecánica, humo + gap ≥100 % + precio ≥ $1 · VAL 2022-26 (DEV 2015-21: +0.42R, 18 casos) · corte provisional (ronda 5)"
    },
    "avisos": [
     "Convertible de precio variable (tóxica) en el último informe"
@@ -173,12 +169,8 @@
     "warrants_en_dinero": false
    },
    "venta_hoy": false,
-   "plan": {
-    "entrada": "apertura (9:30)",
-    "stop": 6.7665,
-    "stop_pct": 0.3,
-    "riesgo_accion": 1.9519,
-    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   "costes": {
+    "locate_1c_R": 0.006
    },
    "estad": {
     "R": 0.01,
@@ -191,7 +183,6 @@
     "fuente": "contrato real / FDA / otros ≈ 0R"
    },
    "avisos": [
-    "Capitalización < $30 M: más squeezes (histórico −0.13R)",
     "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
    ]
   },
@@ -284,12 +275,8 @@
     "warrants_en_dinero": false
    },
    "venta_hoy": false,
-   "plan": {
-    "entrada": "apertura (9:30)",
-    "stop": 0.507,
-    "stop_pct": 0.3,
-    "riesgo_accion": 0.1463,
-    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   "costes": {
+    "locate_1c_R": 0.085
    },
    "estad": {
     "R": 0.01,
@@ -301,9 +288,7 @@
     "squeeze": null,
     "fuente": "contrato real / FDA / otros ≈ 0R"
    },
-   "avisos": [
-    "Capitalización < $30 M: más squeezes (histórico −0.13R)"
-   ]
+   "avisos": []
   }
  ],
  "vigilar": [

@@ -28,13 +28,18 @@ FERIADOS = {  # NYSE, cerrado todo el día
     "2026-11-26", "2026-12-25", "2027-01-01", "2027-01-18", "2027-02-15", "2027-03-26", "2027-05-31", "2027-06-18",
     "2027-07-05", "2027-09-06", "2027-11-25", "2027-12-24"}
 GAP_LISTA, GAP_VIGILAR, PRECIO_MIN = 0.50, 0.20, 0.30
+GAP_A, PRECIO_OPERABLE = 1.00, 1.00      # ronda 5: A = gap ≥ 100 %; < $1 no operable (el locate en centavos se come la ventaja)
 STOP, DESL, COSTE = 0.30, 0.05, 0.01
 RIESGO_ACCION = (1 + STOP) * (1 + DESL) - 1 + COSTE          # ≈ 0.375 del precio de entrada si salta el stop con deslizamiento
 
 # Estadística histórica por nivel (setup A: corto a la apertura, stop +30 %, 5 % desliz., coste 1 %). Fuente: INFORME_SELECCION.md
 ESTAD = {
-    "A": dict(R=0.30, WR=0.69, gan=0.94, perd=-1.12, PF=1.87, n=68, squeeze=0.17, fuente="humo + gap ≥50 % + 424B 90 d · VAL 2022-26 (exploratorio)"),
-    "B": dict(R=0.22, WR=0.68, gan=0.85, perd=-1.10, PF=1.63, n=168, squeeze=0.17, fuente="humo + gap ≥50 % · VAL 2022-26 (validado)"),
+    "A": dict(R=0.45, WR=0.75, gan=0.94, perd=-1.03, PF=2.74, n=56, squeeze=0.09,
+              fuente="base mecánica, humo + gap ≥100 % + precio ≥ $1 · VAL 2022-26 (DEV 2015-21: +0.42R, 18 casos) · corte provisional (ronda 5)"),
+    "B": dict(R=-0.02, WR=0.60, gan=0.67, perd=-1.05, PF=0.96, n=60, squeeze=0.18,
+              fuente="base mecánica, humo + gap 50-100 % + precio ≥ $1 · VAL 2022-26 (DEV: +0.01R, 47 casos) · la ventaja depende de la ejecución"),
+    "H<1": dict(R=0.26, WR=0.70, gan=0.90, perd=-1.25, PF=1.68, n=40, squeeze=0.28,
+                fuente="base mecánica, humo + gap ≥50 % + precio < $1 · VAL 2022-26 · ANTES del locate: con $0.02 por acción queda en −0.14R (ronda 5)"),
     "VIGILAR": dict(R=0.01, WR=0.60, gan=None, perd=None, PF=1.05, n=None, squeeze=None, fuente="contrato real / FDA / otros ≈ 0R"),
     "NO": dict(R=-0.12, WR=0.49, gan=None, perd=None, PF=0.65, n=None, squeeze=None, fuente="resultados / financiación / avisos de bolsa: PF 0.6-0.7"),
     "NUNCA": dict(R=-0.04, WR=0.08, gan=None, perd=None, PF=0.23, n=13, squeeze=0.0, fuente="compra en efectivo: el precio queda anclado"),
@@ -161,8 +166,19 @@ def escanear_replay(fecha):
     import pandas as pd
     E = pd.read_parquet("/home/user/data/smallcaps/eventos_gappers.parquet")
     E = E[E.date == pd.Timestamp(fecha)]
-    return [dict(sym=r.sym, nombre="", precio=round(float(r.open), 4), cierre_prev=float(r.pc), gap=round(float(r.gap), 4),
-                 cap=None, vol_pre=None, bolsa="", estado="REPLAY") for r in E.itertuples() if r.open >= PRECIO_MIN]
+    f = {s: factor_split(s, fecha) for s in E.sym}          # Yahoo ajusta por splits posteriores → precio real del día
+    return [dict(sym=r.sym, nombre="", precio=round(float(r.open) * f[r.sym], 4), cierre_prev=float(r.pc) * f[r.sym], gap=round(float(r.gap), 4),
+                 cap=None, vol_pre=None, bolsa="", estado="REPLAY") for r in E.itertuples() if r.open * f[r.sym] >= PRECIO_MIN]
+
+
+def factor_split(sym, fecha):
+    """Producto de los ratios de los splits posteriores al mes de `fecha` (splits.parquet trae la fecha como día 1 del mes)."""
+    import pandas as pd
+    global _SP
+    if "_SP" not in globals():
+        _SP = pd.read_parquet("/home/user/data/smallcaps/splits.parquet"); _SP["t"] = pd.to_datetime(_SP.t)
+    d = pd.Timestamp(fecha); g = _SP[_SP.sym == sym]
+    return float(g[g.t > pd.Timestamp(d.year, d.month, 1)].ratio.prod())
 
 
 # ------------------------------------------------------------------ SEC
@@ -335,10 +351,9 @@ def nivel(c, cl):
     if t in ("R", "F", "S") or c.get("venta_hoy"):
         return "NO"
     if t == "H":
-        m = c.get("municion", {})
-        if m.get("venta90") and (c.get("cap") or 0) >= 30e6:
-            return "A"
-        return "B"
+        if (c.get("precio") or 0) < PRECIO_OPERABLE:
+            return "VIGILAR"
+        return "A" if c["gap"] >= GAP_A else "B"
     return "VIGILAR"
 
 
@@ -412,8 +427,10 @@ def finalizar(fecha, replay, forzar=False):
         # (aviso de capitalización < $30 M retirado el 28-sep: era un artefacto de precios ajustados por splits, ronda 5)
         if c.get("venta_hoy"):
             avisos.append("424B presentado HOY: la empresa está vendiendo acciones en esta subida")
+        if cl.get("tipo") == "H" and (c.get("precio") or 0) < PRECIO_OPERABLE:
+            avisos.append("Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5) → no operable")
         if cl.get("tipo") == "H" and not c.get("catalizadores"):
-            avisos.append("Humo solo en nota de prensa, sin 8-K: caso no validado → tamaño mínimo")
+            avisos.append("Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)")
         if cl.get("tipo") == "N":
             avisos.append("Sube sin ninguna noticia encontrada: caso no medido → solo vigilar")
         m = c.get("municion", {})
@@ -425,10 +442,11 @@ def finalizar(fecha, replay, forzar=False):
                           catalizadores=[dict(form=k["form"], hora=k["hora"], items=k["items"], url=k["url"],
                                               anexos=[dict(archivo=p["archivo"], url=p["url"]) for p in k["partes"]]) for k in c.get("catalizadores", [])],
                           docs_hoy=c.get("docs_hoy", []), noticias=c.get("noticias", []), municion=m, venta_hoy=c.get("venta_hoy", False),
-                          plan=dict(entrada="apertura (9:30)", stop=round(entrada * (1 + STOP), 4), stop_pct=STOP,
-                                    riesgo_accion=round(entrada * RIESGO_ACCION, 4),
-                                    salida="al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"),
-                          estad=ESTAD[nv], avisos=avisos))
+                          # referencia de costes (información de campo, no instrucción de ejecución):
+                          # cuánto R de la base mecánica consume cada $0.01 de locate por acción
+                          costes=dict(locate_1c_R=round(0.01 / (STOP * entrada), 3) if entrada else None),
+                          estad=ESTAD["H<1"] if nv == "VIGILAR" and cl.get("tipo") == "H" and c["gap"] >= GAP_LISTA and (c.get("precio") or 0) < PRECIO_OPERABLE else ESTAD[nv],
+                          avisos=avisos))
     lista.sort(key=lambda x: (orden[x["nivel"]], -x["gap"]))
     out = dict(fecha=fecha, generado=dt.datetime.now(NY).strftime("%Y-%m-%d %H:%M"), replay=replay, desde=C["desde"], corte=C["corte"],
                reglas=dict(gap_lista=GAP_LISTA, gap_vigilar=GAP_VIGILAR, stop=STOP, deslizamiento=DESL, coste=COSTE, riesgo_accion=RIESGO_ACCION),

@@ -1,6 +1,6 @@
 {
  "fecha": "2026-09-28",
- "generado": "2026-09-28 16:24",
+ "generado": "2026-09-28 16:59",
  "replay": false,
  "desde": "2026-09-25 16:00",
  "corte": "2026-09-28 14:20",
@@ -14,6 +14,154 @@
  },
  "lista": [
   {
+   "sym": "GYGY",
+   "nombre": "Game Your Game, Inc.",
+   "sector": "Services-Prepackaged Software",
+   "precio": 1.215,
+   "cierre_prev": 0.7396,
+   "gap": 0.6428,
+   "cap": 14000538,
+   "vol_pre": 106934982,
+   "nivel": "B",
+   "clasif": {
+    "tipo": "H",
+    "frase_en": "The launch follows an initial limited release and marks the platform's transition to full commercial availability.",
+    "frase_es": "El lanzamiento sigue a una versión inicial limitada y marca el paso de la plataforma a la disponibilidad comercial completa.",
+    "cifra": "sin cifra de ventas ni en dólares; empresa de ~$14 M de capitalización",
+    "nota": "Fuente: Benzinga vía Yahoo (6:10). Lanzamiento de producto (GameGolf KZN AI) sin ventas = humo; el anuncio original es del 23-sep, reciclado hoy. Sin 8-K. Munición: venta 424B4 del 29-jul (IPO reciente), S-1 del 4-sep (reventa) y convertible de precio variable en el último informe. Corregido tras comparar con el informe de Cowork: la primera clasificación fue 'sin noticia' por no abrir el artículo.",
+    "tipo_es": "Humo / cosmético"
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [
+    {
+     "hora": "2026-09-28 06:10",
+     "titular": "Why Is Game Your Game Stock Gaining Monday?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/why-game-game-stock-gaining-101055870.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "municion": {
+    "venta90": true,
+    "s3": null,
+    "s1": "2026-09-04",
+    "ventas_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2026-07-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/2111846/000121390026082494/ea0275919-11.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     6.8,
+     8.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-21",
+     "url": "https://www.sec.gov/Archives/edgar/data/2111846/000121390026092694/ea0300679-10q_game.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "costes": {
+    "locate_1c_R": 0.027
+   },
+   "estad": {
+    "R": -0.02,
+    "WR": 0.6,
+    "gan": 0.67,
+    "perd": -1.05,
+    "PF": 0.96,
+    "n": 60,
+    "squeeze": 0.18,
+    "fuente": "base mecánica, humo + gap 50-100 % + precio ≥ $1 · VAL 2022-26 (DEV: +0.01R, 47 casos) · la ventaja depende de la ejecución"
+   },
+   "avisos": [
+    "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)",
+    "Convertible de precio variable (tóxica) en el último informe"
+   ]
+  },
+  {
+   "sym": "NAMI",
+   "nombre": "Jinxin Technology Holding Company",
+   "sector": "Services-Educational Services",
+   "precio": 2.4399,
+   "cierre_prev": 1.61,
+   "gap": 0.5155,
+   "cap": 8253677,
+   "vol_pre": 45006831,
+   "nivel": "B",
+   "clasif": {
+    "tipo": "H",
+    "frase_en": "Pearson and Namibox Sign Strategic Cooperation Memorandum, Join Forces to Shape a New Global Learning and Education Landscape in the AI Era",
+    "frase_es": "Pearson y Namibox firman un memorando de cooperación estratégica y unen fuerzas para dar forma a un nuevo panorama global del aprendizaje y la educación en la era de la IA",
+    "cifra": "sin cifra en dólares: memorando (MOU), no un contrato; empresa de ~$8 M de capitalización",
+    "nota": "Nota de prensa (PR Newswire, 9:00) sin 6-K en la SEC por ahora (empresa china, presenta 6-K en vez de 8-K). Memorando + giro IA + 'tercera fase' de una relación que existe desde 2018 = humo. Sin ventas de acciones en 90 días (última 424B4 dic-2024); shelf F-3/S-3 de dic-2025.",
+    "tipo_es": "Humo / cosmético"
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [
+    {
+     "hora": "2026-09-28 09:00",
+     "titular": "Pearson and Namibox Sign Strategic Cooperation Memorandum, Join Forces to Shape a New Global Learning and Education Landscape in the AI Era",
+     "url": "https://finance.yahoo.com/technology/ai/articles/pearson-namibox-sign-strategic-cooperation-130000335.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": "2025-12-29",
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2024-12-06",
+      "url": "https://www.sec.gov/Archives/edgar/data/1967631/000121390024106418/ea0200131-21.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-04-28",
+     "url": "https://www.sec.gov/Archives/edgar/data/1967631/000121390026048243/ea0287299-20f_jinxin.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "costes": {
+    "locate_1c_R": 0.014
+   },
+   "estad": {
+    "R": -0.02,
+    "WR": 0.6,
+    "gan": 0.67,
+    "perd": -1.05,
+    "PF": 0.96,
+    "n": 60,
+    "squeeze": 0.18,
+    "fuente": "base mecánica, humo + gap 50-100 % + precio ≥ $1 · VAL 2022-26 (DEV: +0.01R, 47 casos) · la ventaja depende de la ejecución"
+   },
+   "avisos": [
+    "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)"
+   ]
+  },
+  {
    "sym": "SOAR",
    "nombre": "Volato Group, Inc.",
    "sector": "Air Transportation, Nonscheduled",
@@ -22,7 +170,7 @@
    "gap": 1.1103,
    "cap": 18739458,
    "vol_pre": 892358658,
-   "nivel": "B",
+   "nivel": "VIGILAR",
    "clasif": {
     "tipo": "H",
     "frase_en": "its Alignment Engine subsidiary has entered into two four-year, take-or-pay orders with a large AI customer, representing $1.17 billion in aggregate contract value",
@@ -106,188 +254,30 @@
     "warrants_en_dinero": false
    },
    "venta_hoy": false,
-   "plan": {
-    "entrada": "apertura (9:30)",
-    "stop": 0.4924,
-    "stop_pct": 0.3,
-    "riesgo_accion": 0.1421,
-    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   "costes": {
+    "locate_1c_R": 0.088
    },
    "estad": {
-    "R": 0.22,
-    "WR": 0.68,
-    "gan": 0.85,
-    "perd": -1.1,
-    "PF": 1.63,
-    "n": 168,
-    "squeeze": 0.17,
-    "fuente": "humo + gap ≥50 % · VAL 2022-26 (validado)"
-   },
-   "avisos": []
-  },
-  {
-   "sym": "GYGY",
-   "nombre": "Game Your Game, Inc.",
-   "sector": "Services-Prepackaged Software",
-   "precio": 1.21,
-   "cierre_prev": 0.7396,
-   "gap": 0.636,
-   "cap": 14000538,
-   "vol_pre": 106934982,
-   "nivel": "B",
-   "clasif": {
-    "tipo": "H",
-    "frase_en": "The launch follows an initial limited release and marks the platform's transition to full commercial availability.",
-    "frase_es": "El lanzamiento sigue a una versión inicial limitada y marca el paso de la plataforma a la disponibilidad comercial completa.",
-    "cifra": "sin cifra de ventas ni en dólares; empresa de ~$14 M de capitalización",
-    "nota": "Fuente: Benzinga vía Yahoo (6:10). Lanzamiento de producto (GameGolf KZN AI) sin ventas = humo; el anuncio original es del 23-sep, reciclado hoy. Sin 8-K. Munición: venta 424B4 del 29-jul (IPO reciente), S-1 del 4-sep (reventa) y convertible de precio variable en el último informe. Corregido tras comparar con el informe de Cowork: la primera clasificación fue 'sin noticia' por no abrir el artículo.",
-    "tipo_es": "Humo / cosmético"
-   },
-   "catalizadores": [],
-   "docs_hoy": [],
-   "noticias": [
-    {
-     "hora": "2026-09-28 06:10",
-     "titular": "Why Is Game Your Game Stock Gaining Monday?",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/why-game-game-stock-gaining-101055870.html?.tsrc=rss",
-     "fuente": "Yahoo"
-    }
-   ],
-   "municion": {
-    "venta90": true,
-    "s3": null,
-    "s1": "2026-09-04",
-    "ventas_12m": 1,
-    "aviso_bolsa": false,
-    "contrasplits_2a": 0,
-    "ultimas_ventas": [
-     {
-      "form": "424B4",
-      "fecha": "2026-07-29",
-      "url": "https://www.sec.gov/Archives/edgar/data/2111846/000121390026082494/ea0275919-11.htm"
-     }
-    ],
-    "atm": false,
-    "toxica": true,
-    "going_concern": true,
-    "warrants": [
-     6.8,
-     8.0
-    ],
-    "informe": {
-     "form": "10-Q",
-     "fecha": "2026-08-21",
-     "url": "https://www.sec.gov/Archives/edgar/data/2111846/000121390026092694/ea0300679-10q_game.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "plan": {
-    "entrada": "apertura (9:30)",
-    "stop": 1.573,
-    "stop_pct": 0.3,
-    "riesgo_accion": 0.4538,
-    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
-   },
-   "estad": {
-    "R": 0.22,
-    "WR": 0.68,
-    "gan": 0.85,
-    "perd": -1.1,
-    "PF": 1.63,
-    "n": 168,
-    "squeeze": 0.17,
-    "fuente": "humo + gap ≥50 % · VAL 2022-26 (validado)"
+    "R": 0.26,
+    "WR": 0.7,
+    "gan": 0.9,
+    "perd": -1.25,
+    "PF": 1.68,
+    "n": 40,
+    "squeeze": 0.28,
+    "fuente": "base mecánica, humo + gap ≥50 % + precio < $1 · VAL 2022-26 · ANTES del locate: con $0.02 por acción queda en −0.14R (ronda 5)"
    },
    "avisos": [
-    "Humo solo en nota de prensa, sin 8-K: caso no validado → tamaño mínimo",
-    "Convertible de precio variable (tóxica) en el último informe"
-   ]
-  },
-  {
-   "sym": "NAMI",
-   "nombre": "Jinxin Technology Holding Company",
-   "sector": "Services-Educational Services",
-   "precio": 2.45,
-   "cierre_prev": 1.61,
-   "gap": 0.5217,
-   "cap": 8253677,
-   "vol_pre": 45006831,
-   "nivel": "B",
-   "clasif": {
-    "tipo": "H",
-    "frase_en": "Pearson and Namibox Sign Strategic Cooperation Memorandum, Join Forces to Shape a New Global Learning and Education Landscape in the AI Era",
-    "frase_es": "Pearson y Namibox firman un memorando de cooperación estratégica y unen fuerzas para dar forma a un nuevo panorama global del aprendizaje y la educación en la era de la IA",
-    "cifra": "sin cifra en dólares: memorando (MOU), no un contrato; empresa de ~$8 M de capitalización",
-    "nota": "Nota de prensa (PR Newswire, 9:00) sin 6-K en la SEC por ahora (empresa china, presenta 6-K en vez de 8-K). Memorando + giro IA + 'tercera fase' de una relación que existe desde 2018 = humo. Sin ventas de acciones en 90 días (última 424B4 dic-2024); shelf F-3/S-3 de dic-2025.",
-    "tipo_es": "Humo / cosmético"
-   },
-   "catalizadores": [],
-   "docs_hoy": [],
-   "noticias": [
-    {
-     "hora": "2026-09-28 09:00",
-     "titular": "Pearson and Namibox Sign Strategic Cooperation Memorandum, Join Forces to Shape a New Global Learning and Education Landscape in the AI Era",
-     "url": "https://finance.yahoo.com/technology/ai/articles/pearson-namibox-sign-strategic-cooperation-130000335.html?.tsrc=rss",
-     "fuente": "Yahoo"
-    }
-   ],
-   "municion": {
-    "venta90": false,
-    "s3": "2025-12-29",
-    "s1": null,
-    "ventas_12m": 0,
-    "aviso_bolsa": false,
-    "contrasplits_2a": 0,
-    "ultimas_ventas": [
-     {
-      "form": "424B4",
-      "fecha": "2024-12-06",
-      "url": "https://www.sec.gov/Archives/edgar/data/1967631/000121390024106418/ea0200131-21.htm"
-     }
-    ],
-    "atm": false,
-    "toxica": false,
-    "going_concern": false,
-    "warrants": [],
-    "informe": {
-     "form": "20-F",
-     "fecha": "2026-04-28",
-     "url": "https://www.sec.gov/Archives/edgar/data/1967631/000121390026048243/ea0287299-20f_jinxin.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "plan": {
-    "entrada": "apertura (9:30)",
-    "stop": 3.185,
-    "stop_pct": 0.3,
-    "riesgo_accion": 0.9188,
-    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
-   },
-   "estad": {
-    "R": 0.22,
-    "WR": 0.68,
-    "gan": 0.85,
-    "perd": -1.1,
-    "PF": 1.63,
-    "n": 168,
-    "squeeze": 0.17,
-    "fuente": "humo + gap ≥50 % · VAL 2022-26 (validado)"
-   },
-   "avisos": [
-    "Humo solo en nota de prensa, sin 8-K: caso no validado → tamaño mínimo"
+    "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5) → no operable"
    ]
   },
   {
    "sym": "KOD",
    "nombre": "Kodiak Sciences Inc.",
    "sector": "Biological Products, (No Diagnostic Substances)",
-   "precio": 61.705,
+   "precio": 61.28,
    "cierre_prev": 32.35,
-   "gap": 0.9074,
+   "gap": 0.8943,
    "cap": 5728187392,
    "vol_pre": 31426405,
    "nivel": "VIGILAR",
@@ -372,12 +362,8 @@
     "warrants_en_dinero": false
    },
    "venta_hoy": false,
-   "plan": {
-    "entrada": "apertura (9:30)",
-    "stop": 80.2165,
-    "stop_pct": 0.3,
-    "riesgo_accion": 23.1394,
-    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   "costes": {
+    "locate_1c_R": 0.001
    },
    "estad": {
     "R": 0.01,
@@ -441,12 +427,8 @@
     "warrants_en_dinero": true
    },
    "venta_hoy": false,
-   "plan": {
-    "entrada": "apertura (9:30)",
-    "stop": 7.553,
-    "stop_pct": 0.3,
-    "riesgo_accion": 2.1788,
-    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   "costes": {
+    "locate_1c_R": 0.006
    },
    "estad": {
     "R": 0.01,
@@ -543,12 +525,8 @@
     "warrants_en_dinero": false
    },
    "venta_hoy": false,
-   "plan": {
-    "entrada": "apertura (9:30)",
-    "stop": 8.476,
-    "stop_pct": 0.3,
-    "riesgo_accion": 2.445,
-    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   "costes": {
+    "locate_1c_R": 0.005
    },
    "estad": {
     "R": -0.04,
@@ -567,8 +545,8 @@
   {
    "sym": "MIMI",
    "nombre": "Mint Incorporation Limited",
-   "precio": 1.03,
-   "gap": 0.3356,
+   "precio": 1.0394,
+   "gap": 0.3478,
    "cap": 14203875,
    "docs_hoy": [],
    "tipo": null

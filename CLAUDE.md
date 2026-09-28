@@ -33,7 +33,11 @@
   (base de datos: `listas/AAAA-MM-DD` = lista del día; `diario/FECHA_TICKER` = diario del usuario, no tocar). Generador `herramientas/lista_diaria.py`
   (escanear → Claude clasifica en `_clasif.json` → finalizar → resultados al día siguiente; `--replay` para días pasados). Rutina programada
   (pedida por el usuario) `trig_01LxzygdMnVhjKcap2MrESi5`: L-V 8:17 Nueva York, se ejecuta en ESTA sesión (session_01Y3DyUXFtmwsaxpZC7KkFLE) siguiendo `listas/RUTINA.md`. Al terminar envía notificación push con el resumen (pedida y probada el 28-sep). Una sesión nueva por disparo NO sirve: arranca sin repositorio ni base de datos de la página (probado el 28-sep).
-  Niveles: A (humo + gap ≥50 % + 424B 90 d + cap ≥$30 M), B (humo + gap ≥50 %), Vigilar, NO (resultados/financiación/bolsa/424B hoy), Nunca (compra en efectivo).
+  Niveles (desde el 28-sep, aprobados por el usuario): A = humo + gap ≥ 100 % + precio ≥ $1 (base +0.45R VAL, +0.42R DEV; corte provisional);
+  B = humo + gap 50-100 % + precio ≥ $1 (base ≈ 0R: la ventaja depende de la ejecución); Vigilar (humo < $1 por coste del locate, contrato real,
+  FDA, otros, sin noticia); NO (resultados/financiación/bolsa/424B hoy); Nunca (compra en efectivo). La letra = fuerza de la base estadística.
+  **Reparto acordado:** el Radar entrega SOLO selección (SEC, catalizador, munición, estadística de base). Sin plan de ejecución, stop ni tamaño:
+  la ejecución es discrecional del usuario. El análisis de ejecución/estrategias sigue, pero en conversaciones de formación, no en la lista diaria.
   Pendiente ofrecido: medir el caso "sube sin ninguna noticia" (días de prueba, revisados a mano: BTTC −1.25R, VEEE −1.25R, WHLR −1.25R, WETO +0.73R, SKYE +1.35R; GRML NO era "sin noticia": noticia de tema Groenlandia).
   Auditoría obligatoria antes de publicar (RUTINA.md paso 5b + control automático en `finalizar`, que bloquea la lista si hay errores).
   Errores corregidos el 28-sep al comparar con TradingView/Cowork: gap medido con el precio del momento (no la apertura), ADS extranjeras excluidas (NAMI), GYGY 'sin noticia' con un artículo sin abrir, y en los días de prueba HHS (compra a $5.00 = Nunca) y SURG (resultados = NO) sin clasificar.
