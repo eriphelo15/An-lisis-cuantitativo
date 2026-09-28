@@ -210,6 +210,26 @@ def _senales_desplome(serie, df):
     return "\n".join(lineas)
 
 
+def _supervivientes(sup):
+    if sup.empty:
+        return "Aún no hay supervivientes (se buscan una vez por hora).\n"
+    lineas = ["Hipótesis del estudio de gigantes: los que conservan valor tardaron semanas en "
+              "despegar. Se avisan los que no tienen vetos; los vetados se registran para comparar.\n"]
+    if "x_24h" in sup and sup["x_24h"].notna().any():
+        grupos = sup.assign(grupo=sup["prioridad"].replace({"alta": "avisados", "vetada": "vetados"}))
+        lineas.append(_tabla(grupos, "grupo", "Resultado de los supervivientes"))
+    t = sup.sort_values("ts", ascending=False).head(15).copy()
+    cols = ["ts", "simbolo", "prioridad", "mc", "dias_vida", "vs_maximo", "resucitado", "vetos"]
+    for c in ["x_1h", "x_24h", "x_3d", "x_7d", "max_x_7d"]:
+        if c in t and t[c].notna().any():
+            t[c] = t[c].round(2)
+            cols.append(c)
+    t["ts"] = t["ts"].dt.strftime("%m-%d %H:%M")
+    t["mc"] = (t["mc"] / 1e6).round(2).astype(str) + "M"
+    lineas.append(t[cols + ["mint"]].to_markdown(index=False) + "\n")
+    return "\n".join(lineas)
+
+
 def _tabla(df, columna, titulo):
     t = df.groupby(columna, observed=True).apply(_resumen, include_groups=False)
     return f"### {titulo}\n\n{t.to_markdown()}\n"
@@ -217,6 +237,11 @@ def _tabla(df, columna, titulo):
 
 def generar(almacen):
     df = cargar(almacen)
+    # Los supervivientes son tokens de días o semanas: van en su propia sección
+    # para no mezclarlos con los lanzamientos.
+    sup = df[df["origen"] == "superviviente"] if not df.empty else df
+    if not df.empty:
+        df = df[df["origen"] != "superviviente"].reset_index(drop=True)
     car = pd.DataFrame(almacen.carteras())
     if not df.empty:
         if "toco_2x" not in df:
@@ -230,7 +255,9 @@ def generar(almacen):
     lineas = [f"# Informe del radar de memecoins\n",
               f"Generado: {ahora:%Y-%m-%d %H:%M} UTC\n"]
     if df.empty:
-        return "\n".join(lineas + ["Todavía no hay detecciones."])
+        return "\n".join(lineas + ["Todavía no hay detecciones.\n",
+                                   "## Supervivientes (tokens de 3 a 120 días que despiertan)\n",
+                                   _supervivientes(sup)])
 
     con24 = df[df.get("x_24h", pd.Series(dtype=float)).notna()] if "x_24h" in df else df.iloc[0:0]
     lineas.append(f"- Tokens registrados: **{len(df)}** (desde {df['ts'].min():%Y-%m-%d %H:%M})")
@@ -339,6 +366,9 @@ def generar(almacen):
             if len(v):
                 lineas.append(f"- {h}: {v.mean():.0%} vivos (n={len(v)})")
         lineas.append("")
+
+    lineas.append("## Supervivientes (tokens de 3 a 120 días que despiertan)\n")
+    lineas.append(_supervivientes(sup))
 
     lineas.append("## Últimas alertas del vigía (6 h)\n")
     alertas = df[(df["origen"] == "vigia") & (df["ts"] >= ahora - timedelta(hours=6))]

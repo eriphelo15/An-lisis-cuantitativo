@@ -35,6 +35,13 @@ COLUMNAS_CARTERAS = ["mint", "ts_deteccion", "cartera", "usd", "primera_compra"]
 COLUMNAS_SERIE = ["ts", "mint", "precio", "mc", "liq", "compras_m5", "ventas_m5",
                   "compradores_m5", "vendedores_m5", "vol_m5", "var_m5", "var_h1"]
 
+# Supervivientes: tokens de días o semanas que despiertan (supervivientes.py).
+COLUMNAS_SUPERVIVIENTE = COLUMNAS_DETECCION + [
+    "compradores_h24", "vendedores_h24", "vol_h6", "vol_h24", "var_h24",
+    "dias_vida", "vs_maximo", "peor_caida_previa", "resucitado",
+]
+COLUMNAS_BUSQUEDA = ["ts", "pools"]
+
 
 class Almacen:
     def __init__(self, carpeta):
@@ -45,6 +52,8 @@ class Almacen:
         self.ruta_car = os.path.join(carpeta, "carteras.csv")
         self.ruta_serie = os.path.join(carpeta, "serie.csv")
         self.ruta_alertas = os.path.join(carpeta, "alertas.csv")
+        self.ruta_sup = os.path.join(carpeta, "supervivientes.csv")
+        self.ruta_busq = os.path.join(carpeta, "supervivientes_busquedas.csv")
 
     def _leer(self, ruta):
         if not os.path.exists(ruta):
@@ -114,7 +123,20 @@ class Almacen:
             w.writerows(filas)
         os.replace(temporal, self.ruta_alertas)
 
+    def supervivientes(self):
+        return self._leer(self.ruta_sup)
+
+    def guardar_superviviente(self, fila):
+        self._anadir(self.ruta_sup, COLUMNAS_SUPERVIVIENTE, [fila])
+
+    def supervivientes_busquedas(self):
+        return self._leer(self.ruta_busq)
+
+    def guardar_busqueda_supervivientes(self, fila):
+        self._anadir(self.ruta_busq, COLUMNAS_BUSQUEDA, [fila])
+
     def registros(self):
-        """Detecciones del escaneo y alertas del vigía juntas, con su origen."""
+        """Detecciones del escaneo, alertas del vigía y supervivientes, con su origen."""
         return ([dict(d, origen="escaneo") for d in self.detecciones()]
-                + [dict(a, origen="vigia") for a in self.alertas()])
+                + [dict(a, origen="vigia") for a in self.alertas()]
+                + [dict(s, origen="superviviente") for s in self.supervivientes()])

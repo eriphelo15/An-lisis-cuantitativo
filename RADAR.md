@@ -94,6 +94,29 @@ Cada alerta se guarda en `alertas.csv` y se sigue como cualquier detección, as�
 compara las alertas con el escaneo normal, las de tema relevante con las silenciosas, y
 muestra las últimas 6 h.
 
+## Supervivientes: tokens de días o semanas que despiertan
+
+`radar_memes/supervivientes.py` sale del estudio de gigantes (`ESTUDIO_GIGANTES.md`): los que
+suben en sus primeras horas casi siempre marcan su máximo el primer día y acaban en cero,
+mientras que los gigantes que conservan valor (ANSEM, GOLD, MANIFEST…) tardaron semanas en
+despegar, a menudo después de "morir" y resucitar. Una vez por hora el ciclo revisa los pools
+con más volumen de 24 h y en tendencia de 6 h/24 h, y registra los que cumplen los **criterios
+v1** (hipótesis, en `CRITERIOS`):
+
+- De 3 a 120 días de vida, capitalización de $300K a $30M, liquidez de $30K o más.
+- **Volumen real:** volumen de 24 h de 0.3 a 10 veces la capitalización (por debajo de 0.1 es
+  una capitalización ficticia de un pool montado a mano).
+- **Despierta:** sube un 30% o más en 24 h y el 40%+ del volumen del día es de las últimas 6 h;
+  300+ compradores en 24 h y al menos tantos compradores como vendedores.
+- **No es un gigante caído que rebota:** el precio está al menos al 50% de su máximo previo
+  (ninguno de los 111 gigantes que cayeron un 50% desde su techo lo recuperó).
+- Los mismos vetos del vigía (RugCheck, holders concentrados, autoridades, liquidez sin
+  bloquear), salvo el de liquidez/capitalización < 0.7, que solo vale para lanzamientos.
+
+Los que pasan se avisan al móvil ("Superviviente: …", como mucho 3 por hora) y se guardan en
+`supervivientes.csv`; los vetados también se guardan, sin avisar. Se siguen como cualquier
+detección y el informe tiene su propia sección.
+
 **Avisos al móvil:** con la app gratuita [ntfy](https://ntfy.sh) suscrita a un tema, y ese
 mismo tema guardado en el secreto `NTFY_TOPIC` del repositorio (*Settings* → *Secrets and
 variables* → *Actions*). Sin el secreto, el vigía registra las alertas pero no avisa. El tema

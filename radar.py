@@ -8,6 +8,7 @@ Uso:
   python radar.py seguimiento
   python radar.py informe
   python radar.py vigia --duracion 3600  # alertas tempranas (NTFY_TOPIC para avisar al móvil)
+  python radar.py supervivientes         # tokens de días/semanas que despiertan (1 vez por hora)
 
 Los datos se guardan en --datos (por defecto datos_radar/).
 """
@@ -15,7 +16,7 @@ Los datos se guardan en --datos (por defecto datos_radar/).
 import argparse
 import time
 
-from radar_memes import analisis, escaner, fuentes, seguimiento, vigia
+from radar_memes import analisis, escaner, fuentes, seguimiento, supervivientes, vigia
 from radar_memes.almacen import Almacen
 
 
@@ -23,7 +24,8 @@ def main():
     parser = argparse.ArgumentParser(description="Radar de memecoins de Solana",
                                      formatter_class=argparse.RawDescriptionHelpFormatter,
                                      epilog=__doc__)
-    parser.add_argument("accion", choices=["ciclo", "escanear", "seguimiento", "informe", "vigia"])
+    parser.add_argument("accion", choices=["ciclo", "escanear", "seguimiento", "informe", "vigia",
+                                           "supervivientes"])
     parser.add_argument("--datos", default="datos_radar", help="Carpeta de datos")
     parser.add_argument("--cada", type=int, default=0,
                         help="Repetir cada N segundos (0 = una sola vez)")
@@ -48,6 +50,9 @@ def main():
             seguimiento.fotografiar(almacen)
         if args.accion in ("ciclo", "escanear"):
             escaner.escanear(almacen, con_rugcheck=not args.sin_rugcheck)
+        # Una vez por hora (lo decide el propio módulo), si queda tiempo en el ciclo.
+        if args.accion in ("ciclo", "supervivientes") and not fuentes.sin_tiempo():
+            supervivientes.buscar(almacen)
         if args.accion in ("ciclo", "informe"):
             analisis.escribir(almacen)
         print(f"[ciclo] {time.monotonic() - inicio:.0f} s; errores: {dict(fuentes.errores) or 'ninguno'}")

@@ -150,6 +150,11 @@ def velas_1h(pool, hasta_ts, limite=200):
     return _velas(pool, hasta_ts, "hour?aggregate=1", limite)
 
 
+def velas_dia(pool, hasta_ts, limite=180):
+    """Velas diarias en USD hasta `hasta_ts` (vida del token en el pool)."""
+    return _velas(pool, hasta_ts, "day?aggregate=1", limite)
+
+
 def _velas(pool, hasta_ts, marco, limite):
     url = (f"{GECKO}/pools/{pool}/ohlcv/{marco}&limit={limite}"
            f"&currency=usd&before_timestamp={int(hasta_ts)}")
