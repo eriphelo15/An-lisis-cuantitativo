@@ -29,7 +29,7 @@
   **Sistema de lista diaria HECHO (pedido por el usuario, 28-sep-2026): "Radar de Cortos".** Página https://claude.ai/artifact/LXxGL8Y1LVHDLnuUo21zCo
   (base de datos: `listas/AAAA-MM-DD` = lista del día; `diario/FECHA_TICKER` = diario del usuario, no tocar). Generador `herramientas/lista_diaria.py`
   (escanear → Claude clasifica en `_clasif.json` → finalizar → resultados al día siguiente; `--replay` para días pasados). Rutina programada
-  (pedida por el usuario) `trig_01U6BQShiEWqK14bK68a6ekq`: L-V 8:17 Nueva York, sesión nueva que sigue `listas/RUTINA.md`, aviso push.
+  (pedida por el usuario) `trig_01LxzygdMnVhjKcap2MrESi5`: L-V 8:17 Nueva York, se ejecuta en ESTA sesión (session_01Y3DyUXFtmwsaxpZC7KkFLE) siguiendo `listas/RUTINA.md`. Una sesión nueva por disparo NO sirve: arranca sin repositorio ni base de datos de la página (probado el 28-sep).
   Niveles: A (humo + gap ≥50 % + 424B 90 d + cap ≥$30 M), B (humo + gap ≥50 %), Vigilar, NO (resultados/financiación/bolsa/424B hoy), Nunca (compra en efectivo).
   Pendiente ofrecido: medir el caso "sube sin ninguna noticia" (en replay 21-sep: GRML, BTTC, VEEE sin noticia → los tres −1.25R).
   Práctica de ejecución en DCOY, LHSW, INLF, GRML, GLND hecha por el usuario. Conclusión del usuario (compartida): el indicador captura bien las caídas cuando la acción 'valida la teoría' y falla cuando no; **lo decisivo es la selección fuera del gráfico**. Ejercicios del módulo 4: WHLR (usuario) y BENF (Claude como ejemplo) hechos.
