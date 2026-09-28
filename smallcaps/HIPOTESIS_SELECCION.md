@@ -90,3 +90,19 @@ Hipótesis (en los gappers humo; se reporta también el resto para comparar):
 | HE2 | Bajo VWAP vs sobre VWAP a las 11:30 (E2 vs E2c) | bajo VWAP |
 | HE3 | Esperar debilidad (E2) vs corto a la apertura (E0), mismas acciones | E2 |
 Éxito: mismo sentido en DEV y VAL, VAL t > 2, Holm sobre HE1-HE3.
+
+## Ronda 4 — "día de tema" mejorado (pre-registro, escrito ANTES de ver resultados)
+La ronda 2 usó solo una lista fija de palabras (no detecta temas nuevos como "Greenland"). Nueva definición, sobre los 8 604 gappers:
+- **Palabra de tema** de un gapper = (a) palabra poco común de su nombre (≥ 4 letras, aparece en ≤ 15 de los 8 604 nombres; así
+  "greenland" cuenta y "holdings/therapeutics/energy" no) o (b) palabra de la lista fija de la ronda 2 (IA, cripto, cuántica, drones/defensa,
+  nuclear/uranio, minerales, robótica/espacio) en el nombre o en el texto del catalizador.
+- **Día de tema:** ese día hay ≥ 2 gappers (gap ≥ 20 %, empresas distintas) que comparten una palabra de tema.
+- **Líder** del tema ese día = el de mayor gap; los demás = seguidores.
+- Resultado: setup A (corto a la apertura, stop +30 % con 5 % de deslizamiento, coste 1 %). Muestra de prueba: gappers ≥ 50 %.
+| # | Hipótesis | Mejor para el corto si… |
+|---|---|---|
+| HT1 | Día de tema vs día normal (gappers ≥ 50 %) | NO es día de tema |
+| HT2 | Dentro de días de tema: seguidor vs líder | seguidor |
+| HT3 | Gappers humo (ronda 2b): día de tema vs normal | NO es día de tema |
+Éxito: mismo sentido en DEV (2015-21) y VAL (2022-26), VAL t > 2, Holm sobre HT1-HT3.
+Limitación conocida: el nombre es el actual de la empresa (no el histórico).
