@@ -15,7 +15,7 @@
 - Ser honesto con los datos: si algo no funciona, decirlo; distinguir lo validado de lo decidido a posteriori.
 - **Principio del usuario: toda idea o criterio se valida con datos antes de usarlo.** Aunque tenga lógica, no se da por buena sin medirla.
 - El usuario tiene mucha experiencia ejecutando (futuros): su trabajo es ejecutar el mejor setup según la acción del precio; el trabajo fino de selección es de Claude.
-- **Operará acciones en bróker normal, sin fondeo.** Cuenta prevista: ~$2 000. Política de riesgo del usuario: 1 % base; hasta 5 % cuando la ventaja estadística esté validada. Referencia medida (Kelly sobre R reales del setup A, ajustados): ventaja +0.05R → Kelly 4 %; +0.10R → 8 %; +0.20R → 16.5 % (5 % ≈ 1/3 Kelly, aún 78 % prob. de caída >30 %); +0.30R → 25 %. Regla acordada: 5 % solo con ventaja validada ≥ ~+0.20R y ≥ 50-100 operaciones; la cola real (halts) puede ser peor que la de la muestra.
+- **Operará acciones en bróker normal, sin fondeo.** Cuenta prevista: ~$2 000. **Reside en República Dominicana.** Bróker previsto: TradeZero International (mín. $500, locates integrados) para cortos; IBKR secundario (mín. margen $2 000); Cobra/CenterPoint cuando la cuenta ≥ $30 000. Política de riesgo del usuario: 1 % base; hasta 5 % cuando la ventaja estadística esté validada. Referencia medida (Kelly sobre R reales del setup A, ajustados): ventaja +0.05R → Kelly 4 %; +0.10R → 8 %; +0.20R → 16.5 % (5 % ≈ 1/3 Kelly, aún 78 % prob. de caída >30 %); +0.30R → 25 %. Regla acordada: 5 % solo con ventaja validada ≥ ~+0.20R y ≥ 50-100 operaciones; la cola real (halts) puede ser peor que la de la muestra.
 - **Formato de resultados:** el usuario piensa en WR, ganancia media, pérdida media y PF. Dar SIEMPRE los resultados en ambos formatos: esperanza en R + WR + ganancia media (R) + pérdida media (R) + PF (y en $ para su cuenta cuando aplique). Equivalencia: +0.20R ≈ PF 1.4-1.5.
 - Commits y push en la rama `claude/analisis-cuantitativo-45j7qe`. Sin PR salvo que lo pida.
 
@@ -24,7 +24,8 @@
   1b (guía EDGAR + lecciones), 2 (mecánica del corto), 3 (leer la SEC: munición y baby shelf), 4 (anatomía del pump).
   Módulo 5 (setups medidos) y Módulo 6 (ejecución condensada: diferencias vs futuros) hechos.
   Módulo 7 (riesgo, con colas y Monte Carlo) hecho.
-  **Orden acordado:** Módulo 8 (infraestructura: bróker, locates, fondeo de acciones) → **validar con datos los criterios de selección** (munición activa el día del gap, catalizador, float/rotación premarket, etc.) → sistema de lista diaria (solo cuando lo pida).
+  Módulo 8 (infraestructura) hecho.
+  **Siguiente: validar con datos los criterios de selección** (munición activa el día del gap, catalizador, float/rotación premarket, etc.) → sistema de lista diaria (solo cuando lo pida).
   Práctica de ejecución en DCOY, LHSW, INLF, GRML, GLND hecha por el usuario. Conclusión del usuario (compartida): el indicador captura bien las caídas cuando la acción 'valida la teoría' y falla cuando no; **lo decisivo es la selección fuera del gráfico**. Ejercicios del módulo 4: WHLR (usuario) y BENF (Claude como ejemplo) hechos.
 - Herramienta de dilución hecha: `herramientas/ficha_dilucion.py TICKER` (SEC EDGAR + Yahoo; ~7 s). Fichas en `fichas/`.
 - Futuro (cuando termine la formación): construir un sistema propio tipo "Flash Research" con estadísticas propias.
