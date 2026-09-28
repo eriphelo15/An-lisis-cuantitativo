@@ -75,8 +75,12 @@ v1** (hipótesis, en `TEMPRANO`):
 - En los últimos 5 min: 40+ compradores, entre 1.3 y 8 compradores por vendedor, 4,000$+ de
   volumen y un ticket medio de 25$ o más (por debajo suelen ser bots de microcompras).
 - No es un clon de un símbolo ya visto en las últimas 24 h.
-- Vetos: RugCheck con un holder dominante, top 10 concentrado, historial de rug pulls del
-  creador, autoridades activas o copia de otro token; top 10 de holders por encima del 40%.
+- Vetos: cualquier riesgo que RugCheck califique de peligro (holder dominante, top 10
+  concentrado, liquidez sin bloquear, historial de rug pulls del creador…), autoridades
+  activas, top 10 de holders por encima del 40%, **más liquidez que capitalización** (pool
+  montado a mano) y, fuera de la curva de pump.fun, **menos del 50% de la liquidez bloqueada**.
+  Los tres últimos se añadieron tras Neartkt: se lanzó directamente en PumpSwap con liquidez
+  sin bloquear y su creador la retiró.
 
 Cada alerta se guarda en `alertas.csv` y se sigue como cualquier detección, así que el informe
 compara las alertas con el escaneo normal y muestra las últimas 6 h.

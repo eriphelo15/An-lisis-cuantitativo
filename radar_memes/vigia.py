@@ -63,6 +63,18 @@ def motivos_temprano(r, clon):
 def vetos(r):
     riesgos = r.get("rc_riesgos") or ""
     v = [n for n in RIESGOS_VETO if n in riesgos]
+    # Cualquier riesgo que RugCheck califique de peligro (p. ej. "Large Amount of
+    # LP Unlocked", que tenía Neartkt antes de que le retiraran la liquidez).
+    if r.get("rc_peligros") not in (None, "") and int(float(r["rc_peligros"])) > 0:
+        v.append("peligro_rugcheck")
+    # Más liquidez que capitalización: pool montado a mano, no un lanzamiento normal.
+    if r["mc"] and r["liq"] > r["mc"]:
+        v.append("liquidez_mayor_que_cap")
+    # Fuera de la curva de pump.fun, la liquidez tiene dueño: si no está bloqueada,
+    # quien la puso puede retirarla en cualquier momento.
+    if (r.get("dex") != "pump-fun" and r.get("lp_bloqueado") not in (None, "")
+            and float(r["lp_bloqueado"]) < 50):
+        v.append("liquidez_sin_bloquear")
     if r.get("top10_pct") not in (None, "") and float(r["top10_pct"]) > TOP10_MAX:
         v.append("holders_concentrados")
     if "yes" in (r.get("mint_autoridad"), r.get("freeze_autoridad")):
