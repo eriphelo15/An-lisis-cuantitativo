@@ -77,3 +77,31 @@ Humo por año (R): 2019 +0.56, 2020 +0.02, 2021 +0.21, 2022 −0.04, 2023 +0.07,
 5. **Cautelas:** (a) la clasificación la hizo una sola persona (Claude) y aunque fue a ciegas, conocer algunos casos famosos puede sesgar;
    (b) los filtros exploratorios (gap ≥ 100 %, combinaciones) tienen muestras de 20-70 y deben confirmarse con operaciones nuevas;
    (c) la pérdida media (~−1.1R) incluye el deslizamiento del stop: los squeezes siguen ocurriendo (14-17 %).
+
+## Ronda 3 — ejecución dentro de la selección (`16_ejecucion_humo.py`, velas de 1 h, oct-2023 → sep-2026)
+1 239 gappers con catalizador clasificado y velas de 1 h (222 humo). DEV = oct-2023 → dic-2024, VAL = 2025-26.
+| Regla (gappers humo) | DEV R / WR / PF (n) | VAL R / WR / gan. / pérd. / PF (n) |
+|---|---|---|
+| **E0 corto a la apertura, stop +30 %** | **+0.139 / 67 % / 1.46 (60)** | **+0.224 / 69 % / +0.75 / −0.95 / 1.76 (162)** |
+| E1 a las 10:30 si la 1ª hora es roja | +0.095 / 61 % / 1.57 (41) | +0.010 / 57 % / 1.04 (126) |
+| E1c a las 10:30 si la 1ª hora es verde | −0.346 / 42 % / 0.49 (19) | −0.075 / 56 % / 0.86 (36) |
+| E2 a las 11:30 bajo el VWAP | −0.052 / 46 % / 0.70 (48) | +0.033 / 56 % / 1.24 (124) |
+| E2c a las 11:30 sobre el VWAP | −0.033 / 58 % / 0.94 (12) | −0.295 / 53 % / 0.55 (38) |
+| (Gappers NO humo) E0 apertura | −0.151 / 46 % / 0.60 (254) | −0.081 / 50 % / 0.75 (763) |
+
+| Hipótesis | DEV dif. R (t) | VAL dif. R (t) | Veredicto |
+|---|---|---|---|
+| HE1 1ª hora roja vs verde | +0.44 (1.4) | +0.08 (0.3) | ❌ no significativa |
+| HE2 bajo vs sobre VWAP (11:30) | −0.02 (−0.1) | +0.33 (1.7) | ❌ no validada (signo distinto en DEV) |
+| HE3 esperar debilidad (E2) vs apertura (E0) | −0.43 (−4.7) | **−0.38 (−5.5)** | ❌ **al revés: esperar es PEOR** (validado en sentido contrario) |
+
+Exploratorio: corto a la apertura + **salir a las 11:30 si el precio sigue sobre el VWAP** → VAL +0.249R, PF 1.99 (vs +0.224R, PF 1.76);
+pérdida media −0.83R en vez de −0.95R; DEV +0.146R vs +0.139R. Mejora pequeña, a confirmar.
+Velas de 1 / 5 min: solo 8 / 24 casos humo → el indicador Reversal y la entrada fina NO se pueden validar aún con datos gratuitos.
+
+**Conclusiones ronda 3:**
+1. En gappers humo **la caída ocurre pronto**: entrar a la apertura (o en el primer empuje) captura la mayor parte; esperar a 10:30-11:30 deja
+   sin la mejor parte del movimiento (−0.4R por operación, muy significativo en los dos periodos).
+2. Los filtros de "confirmación" (1ª hora roja, bajo VWAP) no añaden ventaja medible con velas de 1 h.
+3. Estar **sobre el VWAP a las 11:30** es mala señal (VAL −0.30R): sirve como regla de salida/no añadir, no como filtro de entrada (exploratorio).
+4. **La selección manda:** con la misma regla E0, humo = +0.22R y el resto = −0.08R.
