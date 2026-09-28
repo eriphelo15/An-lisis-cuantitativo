@@ -134,3 +134,14 @@ de deslizamiento, coste 1 %, salida al cierre). DEV 2015-21 / VAL 2022-26. Se re
 | HM3 | **Día 2** de los humo con gap ≥ 50 %: corto a la apertura del día siguiente, stop +30 %, salida al cierre | descriptivo (¿base > 0?) |
 Criterio para considerar una base "utilizable": R > 0 en DEV y en VAL, VAL t > 2. Holm sobre HM1-HM3 (en HM2 y HM3 el test es R ≠ 0).
 Limitación de HM2: "sin 8-K" incluye acciones con nota de prensa sin 8-K (humo o no); no es exactamente "sin ninguna noticia".
+
+## Ronda 7 — subgrupos del humo con gap 20-50 % (pre-registro, escrito ANTES de ver resultados, 28-sep-2026)
+Muestra: humo (ronda 2b) con gap 20-50 %, precio real ≥ $1, ambiguos fuera; setup base. Criterios elegidos porque YA están validados en
+general (ronda 1) — se comprueba si también separan dentro de este grupo:
+| # | Subgrupo | Hipótesis |
+|---|---|---|
+| HS1 | venta 424B en los 90 días previos | con 424B > sin 424B |
+| HS2 | shelf S-3 presentado | con S-3 > sin S-3 |
+| HS3 | 8-K solo nota de prensa (items 7.01/8.01, sin 1.01) | solo nota > con acuerdo 1.01 |
+Base "operable" para un subgrupo: R > 0 en DEV y en VAL, y VAL t (R ≠ 0) > 2. Holm sobre HS1-HS3 (diferencias en VAL).
+No se probarán más combinaciones después de ver estos resultados.
