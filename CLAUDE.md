@@ -38,6 +38,12 @@
   Auditoría obligatoria antes de publicar (RUTINA.md paso 5b + control automático en `finalizar`, que bloquea la lista si hay errores).
   Errores corregidos el 28-sep al comparar con TradingView/Cowork: gap medido con el precio del momento (no la apertura), ADS extranjeras excluidas (NAMI), GYGY 'sin noticia' con un artículo sin abrir, y en los días de prueba HHS (compra a $5.00 = Nunca) y SURG (resultados = NO) sin clasificar.
   Práctica de ejecución en DCOY, LHSW, INLF, GRML, GLND hecha por el usuario. Conclusión del usuario (compartida): el indicador captura bien las caídas cuando la acción 'valida la teoría' y falla cuando no; **lo decisivo es la selección fuera del gráfico**. Ejercicios del módulo 4: WHLR (usuario) y BENF (Claude como ejemplo) hechos.
+- **Herramientas externas evaluadas (28-sep-2026):** DilutionTracker (el usuario la tiene) = auditor independiente de la munición + float
+  verificado; comparar las A/B del Radar con ella (sin API, CAPTCHA). Momo Screener (gratis) = solo pantalla del usuario (halts, aceleración);
+  precios pueden ir retrasados. Yahoo = ya es fuente del Radar (float poco fiable). Webull: no disponible en R. Dominicana. Flash Research:
+  sin catalizador, sin dilución, sin exportar; Premium $89.95/mes → ahora no. SageTrader: corto de difíciles de prestar solo en Pro
+  ($145/mes + $3 000 mínimo) → ahora no; buen router de locates para cuenta ≥ ~$10 000. FINRA: PDT baja a $2 000 desde el 4-jun-2026.
+  Con riesgo 1 % los requisitos de garantía en corto ($5 o $2.50 por acción) no limitan.
 - Herramienta de dilución hecha: `herramientas/ficha_dilucion.py TICKER` (SEC EDGAR + Yahoo; ~7 s). Fichas en `fichas/`.
 - Futuro (cuando termine la formación): construir un sistema propio tipo "Flash Research" con estadísticas propias.
   No construirlo antes de que el usuario lo pida.
