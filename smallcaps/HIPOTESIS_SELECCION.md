@@ -27,3 +27,25 @@
 
 **Regla de éxito:** mismo sentido en DEV y VAL; en VAL diferencia con t > 2 frente al resto (Holm sobre H1-H7 y H10).
 Limitaciones conocidas: sin volumen premarket ni float exacto (datos gratuitos); solo empresas que siguen cotizando (sesgo de supervivencia que perjudica al corto).
+
+---
+## Ronda 2 — contenido del catalizador (pre-registro, escrito ANTES de ver resultados)
+Muestra: gappers con 8-K o 6-K aceptado entre el cierre anterior y las 9:30 del día del gap (~3 000 de 8 604). Se lee el texto
+(anexo EX-99 si existe; si no, el documento principal) y se clasifica con reglas fijas de palabras clave (en inglés):
+- **Compra en efectivo:** "merger agreement"/"to be acquired"/"definitive agreement to be acquired" + "per share in cash"/"all-cash".
+- **Resultados:** Item 2.02 o "reports … results"/"financial results".
+- **FDA / clínico:** "FDA" + approv/clear/grant/designation, o "topline"/"primary endpoint".
+- **Contrato/acuerdo con cifra:** agreement/contract/order/award + cifra en dólares ("$X million/billion").
+- **Humo:** letter of intent/LOI/memorandum of understanding/MOU/non-binding/partnership/collaboration/explore/pilot, **sin cifra en dólares**.
+- **Otros.**
+Etiqueta aparte **"tema de moda"** si el texto o el nombre de la empresa contiene: artificial intelligence, AI, blockchain, bitcoin, crypto,
+digital asset, token, quantum, drone, nuclear, uranium, rare earth, lithium, Greenland, defense, robot, space, satellite.
+
+| # | Hipótesis | Mejor para el corto si… |
+|---|---|---|
+| H11 | Humo vs catalizador real (FDA, contrato con cifra, resultados) | es humo |
+| H12 | El texto incluye una cifra en dólares | NO la incluye |
+| H13 | Compra en efectivo | (descriptiva: se espera que NO se deba shortear) |
+| H14 | Tema de moda (texto o nombre) — aplica a TODOS los gappers por el nombre | NO es tema de moda |
+| H15 | Día de tema: ≥ 2 gappers (≥ 50 %) el mismo día que comparten palabra clave de tema | NO es día de tema |
+Misma regla de éxito: mismo sentido en DEV y VAL; VAL t > 2 (Holm sobre H11, H12, H14, H15).
