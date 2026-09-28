@@ -34,3 +34,46 @@ DEV 2015-2021 (2 712 gappers) · VAL 2022-2026 (5 892).
    El "día de tema" tipo GRML/GLND necesita una definición mejor (por palabras clave del nombre o noticia) antes de descartarlo.
 5. **Selección validada hoy:** gap ≥ 50 % + venta 424B en 90 días + capitalización ≥ $30 M → ≈ +0.10-0.12R, PF ≈ 1.25 con el setup mecánico A.
    Aún por debajo de +0.20R (el umbral acordado para subir el riesgo al 5 %). La ejecución fina (Módulo 5-6) y más criterios deben sumar el resto.
+
+## Ronda 2b — contenido del catalizador (clasificación manual a ciegas, `14`→`14b`→`15_catalizador_manual.py`)
+3 000 gappers con 8-K/6-K entre el cierre anterior y las 9:30. Cada nota se leyó (titular + primeras frases) **sin ver el resultado** y se
+clasificó con las definiciones registradas antes (commit e1c2798). Etiquetas en `etiquetas_catalizador/`; ~770 de resultados/avisos se
+etiquetaron con una regla fija (Item 2.02 = resultados, 3.01/5.07 = bolsa). El clasificador por palabras clave (ronda 2, `13_`) se descartó por impreciso.
+
+**Setup A (corto a la apertura, stop +30 % con 5 % de deslizamiento, coste 1 %):**
+| Catalizador | DEV 2015-21 R / WR / PF (n) | VAL 2022-26 R / WR / gan. media / pérd. media / PF (n) | Squeeze >+50 % (VAL) |
+|---|---|---|---|
+| **Humo / cosmético** | **+0.100 / 66 % / 1.33 (199)** | **+0.145 / 66 % / +0.70 / −0.91 / 1.46 (386)** | 14 % |
+| Contrato real con cifra | +0.104 / 72 % / 1.66 (67) | +0.012 / 61 % / 1.05 (83) | 6 % |
+| Biotech real (FDA / datos) | +0.097 / 71 % / 1.42 (149) | −0.008 / 59 % / 0.98 (201) | 12 % |
+| Resultados | −0.025 / 58 % / 0.90 (251) | −0.114 / 46 % / 0.61 (696) | 6 % |
+| Financiación (oferta, PIPE, ELOC) | −0.056 / 54 % / 0.84 (56) | −0.119 / 54 % / 0.72 (271) | 18 % |
+| Corporativo / bolsa | −0.119 / 60 % / 0.74 (25) | −0.172 / 50 % / 0.64 (113) | 20 % |
+| Compra en efectivo | (2) | −0.038 / 8 % / 0.23 (13) — el precio queda anclado | 0 % |
+| Otros | −0.082 / 57 % / 0.78 (170) | −0.037 / 56 % / 0.90 (318) | 15 % |
+
+**Hipótesis pre-registradas:**
+| # | DEV dif. R (t) | VAL dif. R (t) | Veredicto |
+|---|---|---|---|
+| H11b humo vs catalizador real (B+K+R) | +0.068 (1.0) | **+0.227 (4.5)** | ✅ VALIDADA (mismo sentido, Holm) |
+| H12b humo vs todo lo demás | +0.107 (1.7) | **+0.230 (4.7)** | ✅ VALIDADA (mismo sentido, Holm) |
+| H13b compra en efectivo | — | WR 8 % | ✅ descriptiva: no shortear |
+
+**Exploratorio (decidido tras ver los resultados):**
+| Filtro | DEV R / WR / PF (n) | VAL R / WR / gan. / pérd. / PF (n) |
+|---|---|---|
+| Humo + gap ≥ 50 % | +0.150 / 66 % / 1.39 (79) | **+0.222 / 68 % / +0.85 / −1.10 / 1.63 (168)** |
+| Humo + gap ≥ 100 % | +0.353 / 70 % / 2.12 (20) | **+0.399 / 73 % / +0.96 / −1.09 / 2.33 (73)** |
+| Humo + gap ≥ 50 % + venta 424B 90 d | +0.063 / 65 % / 1.16 (31) | +0.301 / 69 % / 1.87 (68) |
+| Humo + gap ≥ 50 % + cap ≥ $30 M | +0.052 / 60 % / 1.12 (58) | +0.229 / 65 % / 1.59 (85) |
+Humo por año (R): 2019 +0.56, 2020 +0.02, 2021 +0.21, 2022 −0.04, 2023 +0.07, 2024 +0.09, 2025 +0.22, 2026 +0.21 → positivo en la mayoría de años recientes, no en todos.
+
+**Conclusiones ronda 2b:**
+1. **El contenido del catalizador es el criterio más fuerte medido hasta ahora.** Un gap por humo/cosmético se desinfla: VAL +0.145R (PF 1.46)
+   frente a −0.08R del resto. Con gap ≥ 50 % sube a +0.22R (PF 1.63): **primera vez que se supera el umbral de +0.20R en VAL**.
+2. **Resultados, financiación y avisos de bolsa son MALOS para el corto** (PF 0.6-0.7 en VAL): el gap por resultados suele sostenerse.
+3. **Compra en efectivo: nunca shortear** (el precio queda clavado al precio de compra).
+4. Contratos reales y FDA fueron buenos en 2015-21 pero ≈ 0R en 2022-26: el mercado ya no los vende tan rápido.
+5. **Cautelas:** (a) la clasificación la hizo una sola persona (Claude) y aunque fue a ciegas, conocer algunos casos famosos puede sesgar;
+   (b) los filtros exploratorios (gap ≥ 100 %, combinaciones) tienen muestras de 20-70 y deben confirmarse con operaciones nuevas;
+   (c) la pérdida media (~−1.1R) incluye el deslizamiento del stop: los squeezes siguen ocurriendo (14-17 %).
