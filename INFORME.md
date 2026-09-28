@@ -1,8 +1,8 @@
 # Informe del radar de memecoins
 
-Generado: 2026-09-28 07:17 UTC
+Generado: 2026-09-28 07:26 UTC
 
-- Tokens registrados: **772** (desde 2026-09-27 18:07)
+- Tokens registrados: **774** (desde 2026-09-27 18:07)
 - Con resultado a 24 h: **0** (el primero llega 24 h después de la primera detección)
 - Pasan el filtro v1: **25**
 - Resultados en dólares por cada apuesta de $50, con 3% de costes en la entrada y en la salida:
@@ -14,6 +14,8 @@ Generado: 2026-09-28 07:17 UTC
 
 | ts    | simbolo    | narrativa   | prioridad   |   edad_min | mc   |   compradores_m5 |   vendedores_m5 | mint                                         |   x_1h |
 |:------|:-----------|:------------|:------------|-----------:|:-----|-----------------:|----------------:|:---------------------------------------------|-------:|
+| 07:19 | VantaCard  |             | vetada      |       12.6 | 16K  |              182 |              60 | 3jNVGYs3HCPmRnk12QWUVd1pzVckUx8dPyoaKW7zpump | nan    |
+| 07:16 | PumpSite   | cripto      | baja        |        3.1 | 10K  |               91 |              47 | 8v9xeUv9cr56vfDbfAWpigs4xcPcsroBYJDZ6CQLpump | nan    |
 | 07:12 | Cnfact     |             | vetada      |        3.3 | 78K  |               86 |              24 | 5xX5PXEeBJouuhuFrcfJ6DCNFtb1F8Bq9NJTNCBjbonk | nan    |
 | 07:12 | topless    |             | vetada      |        3.2 | 18K  |              416 |             104 | 4u1yNS74uK1HJwxEEgJJXEoFPpDNZTmT5pyLFEaGkkzR | nan    |
 | 07:02 | YON        |             | vetada      |        5.2 | 15K  |              184 |             115 | GEGEit5x2tGcLCDZFKVwr9fRKZs7984bQSkYHqf25G9Q | nan    |
@@ -31,18 +33,18 @@ Generado: 2026-09-28 07:17 UTC
 | 06:26 | Paw        |             | alta        |        3.7 | 12K  |               41 |              20 | 4FZPCKj49LuaUJ5xKom9dYoQmm1Tt7F4yeyiHrpcnawu | nan    |
 | 06:24 | BEAR       | animales    | vetada      |        3.4 | 23K  |              310 |             194 | AHUYfm3aoYEcDApfhfEVR9ernkoykAhfTJ51cZgspump | nan    |
 | 06:20 | Abshld     |             | vetada      |        3.3 | 80K  |              107 |              22 | 2YBS8z611qZBSoBxiJ58wg926qDQy3r9odVxYFpbmoon | nan    |
-| 06:17 | LEVERAGE   |             | vetada      |        8.1 | 75K  |              469 |             324 | BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump  | nan    |
-| 06:12 | Shima      | cripto      | baja        |        5.5 | 9K   |              119 |              86 | B5NhBtmjmqFTyFSkYFSE8qPTP6GdMVmapZ4RtBoYpump | nan    |
-| 06:10 | maro       |             | vetada      |        3.2 | 57K  |               51 |              37 | BqXVJDb2pAxmoa2PBCxDypNwnitdVXvwN5L51EC9maro | nan    |
+| 06:17 | LEVERAGE   |             | vetada      |        8.1 | 75K  |              469 |             324 | BM2k8mJUbMthHoioykyUm2NjMrXvLBYhoXruwYLpump  |   2.16 |
+| 06:12 | Shima      | cripto      | baja        |        5.5 | 9K   |              119 |              86 | B5NhBtmjmqFTyFSkYFSE8qPTP6GdMVmapZ4RtBoYpump |   0.37 |
+| 06:10 | maro       |             | vetada      |        3.2 | 57K  |               51 |              37 | BqXVJDb2pAxmoa2PBCxDypNwnitdVXvwN5L51EC9maro |   0    |
 | 06:08 | Redbull    | animales    | vetada      |        3.7 | 76K  |              239 |              49 | DFRPbHdZpxx8Q5Hp658pfkvrYgjKpY2QpQDvnhsmEjZF |   0    |
 | 05:51 | PAKSPACE   |             | vetada      |        2.1 | 74K  |               80 |              27 | FVeMhWR4eUKryBPfeFrPhxEuRGd6kLsG1KudBHiPmoon |   0    |
 | 05:51 | CROCS      |             | baja        |        2.2 | 11K  |               82 |              46 | Ees9nBcWavLJiE4P1inKwhXpNQSzL64zntyqWjpec6Dc |   9.32 |
 | 05:47 | TREND      |             | vetada      |        3.3 | 24K  |              437 |             256 | 92W24gMTrfSmavNatTCBawaDMbEQ3NJnMY7chbMVpump |   0.61 |
 | 05:37 | BBBYQ      |             | vetada      |        9.5 | 9K   |               66 |              47 | BzSCw6CEpcLyCZz59Y7pTLxRM2vpZaM1K14Pn946ps7q |   0.87 |
-| 05:33 | FULLSEND   |             | vetada      |        3   | 279K |              151 |              68 | Dimo67L6c5qCe7nuXz925EzjbYNpxpL8HihGQPNmpump |   0.48 |
 | 05:33 | 拼多多        |             | vetada      |        3.2 | 30K  |              286 |              40 | 2BT2Su86HVHxhygt6VxrWo9mdfnu3PJvsALLHzEMCtqh |   5.21 |
-| 05:30 | Gary       |             | baja        |        2.7 | 18K  |              194 |             116 | Ecx7uvbG63ETuZu4GZTzBmahadqgqDxryynzdTLwXff1 |   0.2  |
+| 05:33 | FULLSEND   |             | vetada      |        3   | 279K |              151 |              68 | Dimo67L6c5qCe7nuXz925EzjbYNpxpL8HihGQPNmpump |   0.48 |
 | 05:30 | tr/acc     |             | vetada      |        2   | 108K |              266 |             110 | DGXf3mT2TaHsfy1Cn2p9CCSxfKENNM3oHPoR59Uwpump |   0    |
+| 05:30 | Gary       |             | baja        |        2.7 | 18K  |              194 |             116 | Ecx7uvbG63ETuZu4GZTzBmahadqgqDxryynzdTLwXff1 |   0.2  |
 | 05:24 | VUCIC      |             |             |        2.9 | 79K  |              147 |              36 | D74JWCJ4x5GAhbEtvBVrtTPqZtBzgknJcGCmbnYVpump |   0    |
 | 05:14 | FSD        |             |             |       13.5 | 24K  |               46 |              33 | HKgaE2JirCXudKEFm9JUTFDsV2hTx9sJoGr1tXnwpump |   0.61 |
 | 05:06 | FIM        |             |             |        2.8 | 21K  |              403 |             104 | 3AaZhDQug7q7h6ZJtNUR5Y5j6u2isGi7huN9ni4Justq |   0    |
@@ -65,25 +67,23 @@ Generado: 2026-09-28 07:17 UTC
 | 01:53 | DIAMOND    |             |             |        2.6 | 14K  |              117 |              70 | AtTb2HLeczxWKVxd5S5gK7AZiFMRux2k9jg6z7Nvpump |   0.27 |
 | 01:51 | 📱C DOG     | animales    |             |        3.3 | 18K  |              228 |              63 | HLuiQJ9zJLEXynK29i6HGmnriiCtoU3RzwaXkuCcZ86A |   2.13 |
 | 01:43 | Buddha.Sol | cripto      |             |        3.4 | 10K  |              149 |             108 | 82td6DyPUNM8YBTFBA6AgHLWWkNQNmvdVZwqe7sGpump |   0.34 |
-| 01:27 | CLAIMED    |             |             |        3.5 | 22K  |              306 |              59 | C23u4ey5NYVHbAU7hjWhreTYPcXveR6weP2rbmi1mT86 |   3.11 |
 | 01:27 | CLAIMED    |             |             |        3.2 | 17K  |              375 |              80 | FLar4c5fLgSQKRPSRuVSz2r1PDp4Huv8GVX7yTnjCtaq |   1.02 |
-| 01:20 | cut        |             |             |        3.5 | 125K |              897 |             430 | 8c9rpLvnL7fN9Yjpk7TviSXongcgppcs4bN7n95qpump |   0.02 |
-| 01:20 | cut        |             |             |        3.1 | 12K  |              402 |             105 | GXBqRnzTJGW1uKbYPkfSBFYTmygdYmjUr8QvUs1mQY1w |   2.27 |
+| 01:27 | CLAIMED    |             |             |        3.5 | 22K  |              306 |              59 | C23u4ey5NYVHbAU7hjWhreTYPcXveR6weP2rbmi1mT86 |   3.11 |
 
 ## Señales de desplome (cuándo salir)
 
-Fotos de tokens que ya subían un 50% o más: **5165**; seguidas de un desplome (caída a un 40% o menos en 30 min): **131**. Cada fila compara cuántas veces llegó un desplome con la señal activa frente a sin ella: si la señal lo anticipa, el primer % es mucho mayor.
+Fotos de tokens que ya subían un 50% o más: **5285**; seguidas de un desplome (caída a un 40% o menos en 30 min): **139**. Cada fila compara cuántas veces llegó un desplome con la señal activa frente a sin ella: si la señal lo anticipa, el primer % es mucho mayor.
 
 | señal                                        |   fotos_con_señal | desplome_con_señal   | desplome_sin_señal   |
 |:---------------------------------------------|------------------:|:---------------------|:---------------------|
-| Liquidez < 3% de la capitalización           |              4063 | 1%                   | 8%                   |
-| Ticket medio < $30 (volumen de microcompras) |              4509 | 2%                   | 6%                   |
-| Más de 8 compradores por vendedor (5 min)    |                20 | 15%                  | 2%                   |
-| Subida de más del 100% en 1 h                |               577 | 12%                  | 1%                   |
-| Escalera: 30 min subiendo sin retrocesos     |                41 | 44%                  | 2%                   |
+| Liquidez < 3% de la capitalización           |              4159 | 1%                   | 9%                   |
+| Ticket medio < $30 (volumen de microcompras) |              4620 | 2%                   | 6%                   |
+| Más de 8 compradores por vendedor (5 min)    |                21 | 19%                  | 3%                   |
+| Subida de más del 100% en 1 h                |               581 | 13%                  | 1%                   |
+| Escalera: 30 min subiendo sin retrocesos     |                41 | 49%                  | 2%                   |
 | Aceleración final                            |                91 | 15%                  | 2%                   |
-| Más vendedores que compradores (5 min)       |              4505 | 1%                   | 13%                  |
-| Ya multiplicó x5 o más desde la detección    |              1352 | 2%                   | 3%                   |
+| Más vendedores que compradores (5 min)       |              4616 | 1%                   | 14%                  |
+| Ya multiplicó x5 o más desde la detección    |              1379 | 2%                   | 3%                   |
 
 ## Palabras calientes (últimas 3 h)
 
@@ -92,9 +92,8 @@ Palabras que aparecen en muchos más tokens nuevos de lo normal: temas que se es
 | palabra    |   tokens_3h |   tokens_24h_previas | veces_lo_normal   | mayor      | mc_mayor   | mint_mayor                                   |
 |:-----------|------------:|---------------------:|:------------------|:-----------|:-----------|:---------------------------------------------|
 | fim        |           9 |                    0 | x72               | FIM        | 49K        | 6NYduY5QzmsGzNjPdZ8E2VStRrZQsvBQpaJnd1nxB777 |
-| acc        |           5 |                    7 | x6                | tr/acc     | 108K       | DGXf3mT2TaHsfy1Cn2p9CCSxfKENNM3oHPoR59Uwpump |
 | gary       |           5 |                    0 | x40               | Gary       | 20K        | DD6spR2Z75n5CbL72kz4xLciA6NJdD7rNuMzqjTAQGa6 |
-| byte       |           4 |                    2 | x16               | BYTE       | 178K       | HkEs4VGBU9bKhsbmLTVc6A8bhghwVd1qacnSyC62TH32 |
+| acc        |           5 |                    7 | x6                | tr/acc     | 108K       | DGXf3mT2TaHsfy1Cn2p9CCSxfKENNM3oHPoR59Uwpump |
 | graymatter |           4 |                    0 | x32               | GRAYMATTER | 161K       | A2Kz4oAJvg9yuQR9znDicg8QvFDgrxaHp68ih3HCpump |
 | meta       |           3 |                    4 | x6                | Meta       | 500K       | E947nFnefYwu9MypAR88CnqzEeCcnTZWneJbyiNApump |
 | stonkinu   |           3 |                    0 | x24               | STONKINU   | 47K        | 6bxgHRcxRjtapo8ex9FcwgKHPuNUzFHxtKxdir3jWgnK |
@@ -102,18 +101,15 @@ Palabras que aparecen en muchos más tokens nuevos de lo normal: temas que se es
 
 ## Narrativas activas (últimas 2 h)
 
-| narrativa       |   tokens_nuevos | lider   | mc_lider   | catalizador                                            | mint_lider                                   |
-|:----------------|----------------:|:--------|:-----------|:-------------------------------------------------------|:---------------------------------------------|
-| animales        |               3 | Redbull | 76K        |                                                        | DFRPbHdZpxx8Q5Hp658pfkvrYgjKpY2QpQDvnhsmEjZF |
-| cripto          |               2 | xSOL    | 62K        |                                                        | A653DHAfrocjkK7M4NSDYz8vaXrxx4yyJwpjDeuLgRGA |
-| politica        |               2 | NEWSOM  | 90K        | Elecciones de mitad de mandato en EE. UU. (en 36 días) | HTVKJXwLCu9PiFKnWGk4FJeAndKcWx7hBp2op9mryBHZ |
-| elon            |               1 | ELON    | 425K       |                                                        | H7TsCXbbAjbLfwYZnSdQcYsPpQ4CxQ4rKh7AP9dLpump |
-| noticias_cripto |               1 | NEAR    | 67K        |                                                        | 66oYkUSiVnmvxEmLBaWiGvd21hgPD6LcAduYUwKypjyp |
+| narrativa       |   tokens_nuevos | lider   | mc_lider   | catalizador   | mint_lider                                   |
+|:----------------|----------------:|:--------|:-----------|:--------------|:---------------------------------------------|
+| animales        |               3 | Redbull | 76K        |               | DFRPbHdZpxx8Q5Hp658pfkvrYgjKpY2QpQDvnhsmEjZF |
+| cripto          |               3 | xSOL    | 62K        |               | A653DHAfrocjkK7M4NSDYz8vaXrxx4yyJwpjDeuLgRGA |
+| elon            |               1 | ELON    | 425K       |               | H7TsCXbbAjbLfwYZnSdQcYsPpQ4CxQ4rKh7AP9dLpump |
+| noticias_cripto |               1 | NEAR    | 67K        |               | 66oYkUSiVnmvxEmLBaWiGvd21hgPD6LcAduYUwKypjyp |
 
 ## Pasan el filtro en la última hora
 
 Solo son candidatos para vigilar mientras el filtro no demuestre ventaja. Comprueba el contrato en rugcheck.xyz antes de hacer nada.
 
-| ts    | simbolo   | narrativa   | mc   | liq   |   edad_min |   compradores_h1 |   vendedores_h1 |   top10_pct |   carteras_buenas | mint                                         |
-|:------|:----------|:------------|:-----|:------|-----------:|-----------------:|----------------:|------------:|------------------:|:---------------------------------------------|
-| 06:21 | SICKT     |             | 91K  | 22K   |        1.9 |              427 |             111 |         nan |               nan | CaL2h7rDKUHKV66nXGscnBNCPQXGx6BJ7GHW9tEZpump |
+Ninguno.
