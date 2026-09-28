@@ -1,0 +1,33 @@
+{
+ "VIVS": {
+  "tipo": "K",
+  "frase_en": "announced that it has received a $5 million payment from Eli Lilly",
+  "frase_es": "anunció que ha recibido un pago de 5 millones de dólares de Eli Lilly",
+  "cifra": "$5 M (dólares) cobrados de Eli Lilly (hito de un fármaco ya vendido); además 'espera' crecer >500 % en ventas en 2027 (previsión, no dato)",
+  "nota": "Dinero real cobrado de una contraparte identificada = contrato real. La previsión del 500 % es promesa. 10-K presentado el 14-jul 16:50."
+ },
+ "ELVA": {
+  "tipo": "H",
+  "frase_en": "today announced a commercial agreement and a warrant transaction with Amazon",
+  "frase_es": "hoy anunció un acuerdo comercial y una operación de warrants con Amazon",
+  "cifra": "SIN cifra en dólares del acuerdo (Amazon recibe warrants)",
+  "nota": "DUDA honesta: contraparte real e identificada (Amazon), pero sin cifra → por la definición registrada cuenta como humo. Los acuerdos de Amazon con warrants suelen ser reales; clasificación discutible."
+ },
+ "ERNA": {
+  "tipo": "H",
+  "frase_en": "today announced compelling new preclinical data independently validating the anti-tumor activity of its lead cell therapy candidate",
+  "frase_es": "hoy anunció nuevos datos preclínicos (en animales) que validan de forma independiente la actividad antitumoral de su candidato principal",
+  "cifra": "sin cifra; datos en animales, ensayo en humanos previsto para el 4T 2026",
+  "nota": "Preclínico = humo. Munición: ATM, S-3 (mar-26), warrants en dinero, going concern."
+ },
+ "KUST": {
+  "tipo": "N",
+  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
+  "nota": "Sin noticias ni 8-K antes de abrir. Munición: ELOC, warrants en dinero, going concern."
+ },
+ "TGHL": {
+  "tipo": "N",
+  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
+  "nota": "Sin noticias ni 8-K antes de abrir. Precio < $1."
+ }
+}

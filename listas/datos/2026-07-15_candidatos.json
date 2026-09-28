@@ -1,0 +1,318 @@
+{
+ "fecha": "2026-07-15",
+ "generado": "2026-09-28 18:41",
+ "replay": true,
+ "desde": "2026-07-14 16:00",
+ "corte": "2026-07-15 09:10",
+ "cobertura": null,
+ "candidatos": [
+  {
+   "sym": "VIVS",
+   "nombre": "VivoSim Labs, INC.",
+   "precio": 1.49,
+   "cierre_prev": 0.8299999833106995,
+   "gap": 0.7952,
+   "cap": 22127411.88,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1497253,
+   "catalizadores": [],
+   "docs_hoy": [
+    {
+     "form": "10-K",
+     "hora": "2026-07-14 16:50",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1497253/000119312526303316/vivs-20260331.htm",
+     "items_es": ""
+    }
+   ],
+   "noticias": [
+    {
+     "hora": "2026-07-15 08:05",
+     "titular": "VivoSim Receives $5M Milestone Payment from Eli Lilly; Provides Guidance That It Expects Revenue Growth of 500%+ in FY2027",
+     "url": "https://finviz.com/news/368419/vivosim-receives-5m-milestone-payment-from-eli-lilly-provides-guidance-that-it-expects-revenue-growth-of-500-in-fy2027",
+     "fuente": "GlobeNewswire"
+    },
+    {
+     "hora": "2026-07-14 17:12",
+     "titular": "VivoSim: Fiscal Q4 Earnings Snapshot",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/vivosim-fiscal-q4-earnings-snapshot-211205495.html",
+     "fuente": "Associated Press"
+    }
+   ],
+   "sector": "Biological Products, (No Diagnostic Substances)",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": "2024-01-26",
+    "s1": "2026-03-31",
+    "ventas_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 2,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2026-04-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/1497253/000121390026039307/ea0284536-424b4_vivosim.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-04-11",
+      "url": "https://www.sec.gov/Archives/edgar/data/1497253/000121390025030814/ea0237935-424b5_organovo.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-02-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1497253/000121390025017214/ea0232198-424b5_organovo.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2024-05-14",
+      "url": "https://www.sec.gov/Archives/edgar/data/1497253/000095017024059277/onvo_prospectus_may_2024.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     9.6,
+     33.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-02-11",
+     "url": "https://www.sec.gov/Archives/edgar/data/1497253/000119312526046520/vivs-20251231.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "ELVA",
+   "nombre": "Electrovaya Inc.",
+   "precio": 12.2,
+   "cierre_prev": 7.889999866485596,
+   "gap": 0.5463,
+   "cap": 416479513.0,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1844450,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [
+    {
+     "hora": "2026-07-15 08:52",
+     "titular": "Electrovaya Announces Commercial Relationship with Amazon",
+     "url": "https://finviz.com/news/368502/electrovaya-announces-commercial-relationship-with-amazon",
+     "fuente": "GlobeNewswire"
+    }
+   ],
+   "sector": "Miscellaneous Electrical Machinery, Equipment & Supplies",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": []
+   }
+  },
+  {
+   "sym": "KUST",
+   "nombre": "KUSTOM ENTERTAINMENT, INC.",
+   "precio": 1.49,
+   "cierre_prev": 1.0099999904632568,
+   "gap": 0.4752,
+   "cap": 9695221.4,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1342958,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Radio & Tv Broadcasting & Communications Equipment",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": "2025-11-26",
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 7,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-06-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1342958/000164117225016976/form424b4.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2025-02-14",
+      "url": "https://www.sec.gov/Archives/edgar/data/1342958/000149315225006704/form424b4.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2021-08-19",
+      "url": "https://www.sec.gov/Archives/edgar/data/1342958/000149315221020726/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2021-01-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1342958/000149315221002001/form424b5.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     1.0,
+     10.2,
+     15.0,
+     28.0,
+     31.86,
+     165.0,
+     518.11,
+     930.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-05-15",
+     "url": "https://www.sec.gov/Archives/edgar/data/1342958/000149315226023222/form10-q.htm"
+    },
+    "eloc": true,
+    "warrants_en_dinero": true
+   }
+  },
+  {
+   "sym": "ERNA",
+   "nombre": "Ernexa Therapeutics Inc.",
+   "precio": 8.51,
+   "cierre_prev": 6.059999942779541,
+   "gap": 0.4043,
+   "cap": 13891817.61,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 748592,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [
+    {
+     "hora": "2026-07-15 08:49",
+     "titular": "After Crinetics' $10 Billion Deal, Could Entera Bio Be the Next Category-Defining Oral Peptide Story?",
+     "url": "https://finviz.com/news/368508/after-crinetics-10-billion-deal-could-entera-bio-be-the-next-category-defining-oral-peptide-story",
+     "fuente": "FinanceWire"
+    },
+    {
+     "hora": "2026-07-15 07:50",
+     "titular": "Ernexa Therapeutics Receives Independent Validation of ERNA-101 with Complete Tumor Clearance and Durable Survival in Ovarian Cancer Models Ahead of Planned Clinical Entry",
+     "url": "https://finviz.com/news/368370/ernexa-therapeutics-receives-independent-validation-of-erna-101-with-complete-tumor-clearance-and-durable-survival-in-ovarian-cancer-models-ahead-of-planned-clinical-entry",
+     "fuente": "GlobeNewswire"
+    }
+   ],
+   "sector": "Pharmaceutical Preparations",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": "2026-03-24",
+    "s1": "2026-02-05",
+    "ventas_12m": 1,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 4,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-02-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/748592/000149315226005898/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2018-06-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/748592/000149315218009307/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2018-06-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/748592/000149315218009237/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2017-04-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/748592/000149315217004368/form424b5.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     0.25,
+     14.0,
+     17.0,
+     20.0,
+     32.78
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-05-11",
+     "url": "https://www.sec.gov/Archives/edgar/data/748592/000149315226022276/form10-q.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": true
+   }
+  },
+  {
+   "sym": "TGHL",
+   "nombre": "GrowHub Ltd",
+   "precio": 0.852,
+   "cierre_prev": 0.6610000133514404,
+   "gap": 0.289,
+   "cap": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 2024114,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Services-Computer Processing & Data Preparation",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": "2025-08-13",
+    "ventas_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-08-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/2024114/000164117225025766/form424b4.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     5.0
+    ],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-05-15",
+     "url": "https://www.sec.gov/Archives/edgar/data/2024114/000149315226023959/form20-f.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  }
+ ]
+}

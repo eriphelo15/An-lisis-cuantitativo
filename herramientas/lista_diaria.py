@@ -252,12 +252,14 @@ def municion(cik, pres, desde, sym, precio):
 
 
 # ------------------------------------------------------------------ noticias (vivo)
-def noticias(sym, desde):
+def noticias(sym, desde, hasta=None):
     out = []
     t = get(f"https://finviz.com/quote.ashx?t={sym}&p=d")
     if t:
         dia = None
-        for fila in re.findall(r'(?s)<tr[^>]*>(.*?)</tr>', t[t.find('id="news-table"'):t.find('id="news-table"') + 200000] if 'id="news-table"' in t else ""):
+        i0 = t.find('id="news-table"')
+        i1 = t.find("</table>", i0) if i0 >= 0 else -1           # toda la tabla (antes se cortaba a 200 000 caracteres y se perdían noticias)
+        for fila in re.findall(r'(?s)<tr[^>]*>(.*?)</tr>', t[i0:i1 if i1 > 0 else None] if i0 >= 0 else ""):
             f = re.search(r'<td[^>]*>\s*([^<]+?)\s*</td>', fila)
             a = re.search(r'<a[^>]*class="tab-link-news"[^>]*href="([^"]+)"[^>]*>([^<]+)</a>', fila)
             fuente = re.search(r'<span[^>]*>\(([^)]+)\)</span>', fila)
@@ -277,7 +279,7 @@ def noticias(sym, desde):
                 h = dt.datetime.combine(dia, dt.datetime.strptime(hh, "%I:%M%p").time(), NY)
             except Exception:
                 continue
-            if h >= desde:
+            if h >= desde and (hasta is None or h <= hasta):
                 out.append(dict(hora=h.strftime("%Y-%m-%d %H:%M"), titular=html.unescape(a.group(2)).strip(), url=urllib.parse.urljoin("https://finviz.com/", a.group(1)),
                                 fuente=fuente.group(1) if fuente else "Finviz"))
     if not out:
@@ -288,9 +290,9 @@ def noticias(sym, desde):
                 h = dt.datetime.strptime(pd_.group(1), "%a, %d %b %Y %H:%M:%S %z").astimezone(NY)
             except Exception:
                 continue
-            if h >= desde:
+            if h >= desde and (hasta is None or h <= hasta):
                 out.append(dict(hora=h.strftime("%Y-%m-%d %H:%M"), titular=html.unescape(ti.group(1)), url=li.group(1), fuente="Yahoo"))
-    return out[:8]
+    return out[:15]                                  # (antes [:8] sin límite superior: en días pasados se perdían noticias)
 
 
 # ------------------------------------------------------------------ pasos
@@ -337,8 +339,7 @@ def escanear(fecha, replay, corte_hhmm=None):
                 except Exception:
                     pass
         if c["gap"] >= GAP_VIGILAR:                    # noticias solo hasta el corte (también en días de prueba)
-            lim = corte.strftime("%Y-%m-%d %H:%M")
-            c["noticias"] = [n for n in noticias(c["sym"], desde) if n["hora"] <= lim]
+            c["noticias"] = noticias(c["sym"], desde, corte)
         print(f"  {c['sym']:6} gap {c['gap']:+.0%}  docs hoy {len(c['docs_hoy'])}  catalizadores {len(c['catalizadores'])}  noticias {len(c['noticias'])}", flush=True)
     out = dict(fecha=fecha, generado=dt.datetime.now(NY).strftime("%Y-%m-%d %H:%M"), replay=replay,
                desde=desde.strftime("%Y-%m-%d %H:%M"), corte=corte.strftime("%Y-%m-%d %H:%M"),
