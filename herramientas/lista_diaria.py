@@ -348,7 +348,8 @@ def finalizar(fecha, replay):
             q = {x["symbol"]: x for x in Yahoo().cotizaciones([c["sym"] for c in C["candidatos"]])}
             for c in C["candidatos"]:
                 x = q.get(c["sym"], {})
-                px = x.get("preMarketPrice") if x.get("marketState") in ("PRE", "PREPRE") else x.get("regularMarketPrice")
+                # con el mercado abierto, el gap es el de la apertura (como en escanear), no el cambio del momento
+                px = x.get("preMarketPrice") if x.get("marketState") in ("PRE", "PREPRE") else x.get("regularMarketOpen") or x.get("regularMarketPrice")
                 if px:
                     c["precio"] = round(px, 4); c["gap"] = round(px / c["cierre_prev"] - 1, 4)
         except Exception as e:
