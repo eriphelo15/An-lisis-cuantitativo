@@ -191,7 +191,7 @@ transcripciones (solo lo que dice; no se ve la pantalla). Tickers corregidos con
 - Sus peores pérdidas del año (dice): tres de $45 000, $34 000 y $31 000, y más de $200 000 en abril (tickers mal transcritos, sin verificar).
 - Reglas / ideas:
   - Casi toda la sesión: **responsabilidad propia** ("ownership"): un halt de +200 % con una china es "injusto", pero tú eliges meterte
-    corto en una china ilíquida; "de bolas que te merecen la pérdida".
+    corto en una china ilíquida; "de bolas que te mereces una pérdida".
   - **Acciones de centavos: "no las tradeo porque son caras de tradear, a menos que tenga un setup maravilloso; nunca me metería en un
     penny para sacarle 5 %"** (coincide con nuestra ronda 5: el humo < $1 no cubre costes).
   - Comisiones: "bajó sus comisiones mínimas… sigue siendo **$0.49**, horrible" — probablemente habla de TradeZero (su mínimo por orden
