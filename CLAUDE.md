@@ -38,7 +38,7 @@
   FDA, otros, sin noticia); NO (resultados/financiación/bolsa/424B hoy); Nunca (compra en efectivo). La letra = fuerza de la base estadística.
   **Reparto acordado:** el Radar entrega SOLO selección (SEC, catalizador, munición, estadística de base). Sin plan de ejecución, stop ni tamaño:
   la ejecución es discrecional del usuario. El análisis de ejecución/estrategias sigue, pero en conversaciones de formación, no en la lista diaria.
-  Pendiente ofrecido: medir el caso "sube sin ninguna noticia" (días de prueba, revisados a mano: BTTC −1.25R, VEEE −1.25R, WHLR −1.25R, WETO +0.73R, SKYE +1.35R; GRML NO era "sin noticia": noticia de tema Groenlandia).
+  Medido en la ronda 6 (sin 8-K ≈ 0R); casos de prueba del caso "sube sin ninguna noticia" (días de prueba, revisados a mano: BTTC −1.25R, VEEE −1.25R, WHLR −1.25R, WETO +0.73R, SKYE +1.35R; GRML NO era "sin noticia": noticia de tema Groenlandia).
   Auditoría obligatoria antes de publicar (RUTINA.md paso 5b + control automático en `finalizar`, que bloquea la lista si hay errores).
   Errores corregidos el 28-sep al comparar con TradingView/Cowork: gap medido con el precio del momento (no la apertura), ADS extranjeras excluidas (NAMI), GYGY 'sin noticia' con un artículo sin abrir, y en los días de prueba HHS (compra a $5.00 = Nunca) y SURG (resultados = NO) sin clasificar.
   Práctica de ejecución en DCOY, LHSW, INLF, GRML, GLND hecha por el usuario. Conclusión del usuario (compartida): el indicador captura bien las caídas cuando la acción 'valida la teoría' y falla cuando no; **lo decisivo es la selección fuera del gráfico**. Ejercicios del módulo 4: WHLR (usuario) y BENF (Claude como ejemplo) hechos.
@@ -100,9 +100,9 @@
   "ajustado" $16 vs real $2.72). R no cambia, pero sí todo criterio en dólares. **La 'cap < $30 M = peor' era un artefacto → NO se confirma**
   con la capitalización corregida (aviso retirado del Radar). Humo gap ≥ 50 %: ventaja bruta igual en < $1 (+0.26R VAL) y ≥ $1 (+0.21R); con
   locate $0.02 + comisión: < $1 −0.14R, ≥ $1 +0.13R (no validado, n 40, pero aritmético). Nivel A vs B no validado (424B dentro del humo
-  va al revés en DEV). Rotación > 10× se mantiene con datos corregidos. Pendiente de decisión del usuario: nivel A y aviso < $1.
+  va al revés en DEV). Rotación > 10× se mantiene con datos corregidos. Decidido por el usuario: niveles A/B nuevos y < $1 a Vigilar.
 - **Ronda 6 (`smallcaps/19_mas_oportunidades.py`):** humo gap 20-50 % (≥ $1) mejor que el resto de su tramo (VAL t 3.1) pero base propia
-  pequeña (+0.02R DEV / +0.09R VAL, PF 1.35) ≈ nivel B; gap ≥ 50 % sin 8-K ≈ 0R VAL; día 2 del humo ≈ 0 / −0.05R. Ninguna añade base validada.
+  pequeña (+0.02R DEV / +0.09R VAL, PF 1.35) ≈ nivel B; gap ≥ 50 % sin 8-K ≈ 0R VAL; día 2 del humo ≈ 0 / −0.05R. Ninguna añade base validada. El usuario decidió dejarlas como están (humo 20-50 % sigue en 'Vigilar 20-50 %').
   Frecuencia (último año, ≥ $1): A ~0.2/día (≈1/semana), B ~0.3/día, humo 20-50 % ~0.4/día.
 - Conclusión: la ventaja debe venir de selección (catalizador + munición activa) + ejecución fina en 1-5 min + gestión del riesgo; se medirá con el diario de operaciones del usuario y, si hace falta, datos de 1 min de pago con deslistadas.
 
