@@ -123,3 +123,14 @@ Comisión ida y vuelta con riesgo de $20 ≈ 0.05R (se resta igual a todos).
 | HP2 | Humo gap ≥ 50 %: R neto con locate $0.02 y comisión 0.05R, < $1 vs ≥ $1 | ≥ $1 mejor (mismo sentido DEV y VAL, VAL t > 2) |
 | HP3 | Repetir la prueba de capitalización de la ronda 1 (< $30 M peor) con la capitalización corregida | < $30 M peor (mismo criterio) |
 Holm sobre HP1-HP3. Descriptivo: tramos < $1, $1-3, $3-10, ≥ $10; R, WR, ganancia media, pérdida media, PF.
+
+## Ronda 6 — ¿más oportunidades con base medida? (pre-registro, escrito ANTES de ver resultados, 28-sep-2026)
+Precio real (ronda 5), solo precio ≥ $1, casos ambiguos por split fuera. Setup base como siempre (corto a la apertura, stop +30 % con 5 %
+de deslizamiento, coste 1 %, salida al cierre). DEV 2015-21 / VAL 2022-26. Se reporta R, WR, ganancia media, pérdida media, PF, squeeze.
+| # | Grupo | Hipótesis (mejor para el corto si…) |
+|---|---|---|
+| HM1 | Humo con gap 20-50 % (clasificados en la ronda 2b) vs resto de catalizadores con gap 20-50 % | humo > resto |
+| HM2 | Gappers ≥ 50 % **sin 8-K** antes de abrir (aproximación a "sin noticia": la historia no tiene noticias de agencias, solo EDGAR) | descriptivo (¿base > 0?) |
+| HM3 | **Día 2** de los humo con gap ≥ 50 %: corto a la apertura del día siguiente, stop +30 %, salida al cierre | descriptivo (¿base > 0?) |
+Criterio para considerar una base "utilizable": R > 0 en DEV y en VAL, VAL t > 2. Holm sobre HM1-HM3 (en HM2 y HM3 el test es R ≠ 0).
+Limitación de HM2: "sin 8-K" incluye acciones con nota de prensa sin 8-K (humo o no); no es exactamente "sin ninguna noticia".
