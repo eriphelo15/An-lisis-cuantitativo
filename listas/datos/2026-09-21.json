@@ -1,6 +1,6 @@
 {
  "fecha": "2026-09-21",
- "generado": "2026-09-28 12:33",
+ "generado": "2026-09-28 14:22",
  "replay": true,
  "desde": "2026-09-18 16:00",
  "corte": "2026-09-21 09:10",
@@ -24,7 +24,13 @@
    "vol_pre": null,
    "nivel": "VIGILAR",
    "clasif": {
-    "tipo_es": "Sin noticia"
+    "tipo": "O",
+    "frase_en": "CRML, GLND, GRML Surge Overnight After Trump Unveils Permanent US Security Deal For Greenland",
+    "frase_es": "CRML, GLND y GRML se disparan de madrugada después de que Trump anuncia un acuerdo de seguridad permanente de EE. UU. para Groenlandia",
+    "cifra": "sin cifra: noticia política/sectorial, no de la empresa",
+    "nota": "Día de tema (Groenlandia). Sin noticia propia ni 8-K. Corregido en la auditoría: antes figuraba como 'sin noticia'.",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
+    "tipo_es": "Otros"
    },
    "catalizadores": [],
    "docs_hoy": [],
@@ -106,7 +112,13 @@
    "vol_pre": null,
    "nivel": "VIGILAR",
    "clasif": {
-    "tipo_es": "Sin noticia"
+    "tipo": "O",
+    "frase_en": "CRML, GLND, GRML Surge Overnight After Trump Unveils Permanent US Security Deal For Greenland",
+    "frase_es": "CRML, GLND y GRML se disparan de madrugada después de que Trump anuncia un acuerdo de seguridad permanente de EE. UU. para Groenlandia",
+    "cifra": "sin cifra: noticia política/sectorial, no de la empresa",
+    "nota": "Día de tema (Groenlandia / tierras raras). No hay noticia propia de la empresa ni 8-K. Stocktwits 20-sep 21:50 y GuruFocus 21-sep 8:25.",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
+    "tipo_es": "Otros"
    },
    "catalizadores": [],
    "docs_hoy": [],
@@ -173,6 +185,9 @@
    "vol_pre": null,
    "nivel": "VIGILAR",
    "clasif": {
+    "tipo": "N",
+    "nota": "Sin 8-K ni noticias en la ventana.",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
     "tipo_es": "Sin noticia"
    },
    "catalizadores": [],
@@ -217,7 +232,8 @@
     "fuente": "contrato real / FDA / otros ≈ 0R"
    },
    "avisos": [
-    "Capitalización < $30 M: más squeezes (histórico −0.13R)"
+    "Capitalización < $30 M: más squeezes (histórico −0.13R)",
+    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
    ]
   },
   {
@@ -231,6 +247,9 @@
    "vol_pre": null,
    "nivel": "VIGILAR",
    "clasif": {
+    "tipo": "N",
+    "nota": "Sin 8-K ni noticias en la ventana.",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
     "tipo_es": "Sin noticia"
    },
    "catalizadores": [],
@@ -305,7 +324,8 @@
     "fuente": "contrato real / FDA / otros ≈ 0R"
    },
    "avisos": [
-    "Capitalización < $30 M: más squeezes (histórico −0.13R)"
+    "Capitalización < $30 M: más squeezes (histórico −0.13R)",
+    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
    ]
   }
  ],
@@ -450,5 +470,11 @@
    "subida_max": 0.576,
    "caida_cierre": 0.189
   }
+ },
+ "auditoria": {
+  "errores": [],
+  "avisos": [],
+  "cobertura": null,
+  "forzada": false
  }
 }

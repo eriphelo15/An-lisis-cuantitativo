@@ -30,6 +30,13 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
    - **S** corporativo/bolsa: contra-split, aviso o recuperación de cumplimiento de Nasdaq, juntas, auditor.
    - **O** otros. · **N** no se encontró ninguna noticia ni documento.
    Método acordado con el usuario: frase original en inglés + traducción + cifra con su unidad. Ser honesto si hay dudas (anotarlo en `nota`).
+5b. **Auditoría antes de publicar (obligatoria, nada se entrega sin ella):**
+   - Cada titular y cada 8-K/6-K de las acciones con gap ≥ 50 % abierto y leído (no basta el titular). Mirar si la noticia es vieja reciclada.
+   - `N` solo si se revisaron a mano Finviz, Yahoo y EDGAR sin encontrar nada → anotar `"fuentes_abiertas"` en el `_clasif.json`.
+   - Cada `frase_en` copiada literal del documento (verificable con Ctrl+F) y cada cifra con su unidad (dólares vs. acciones).
+   - `finalizar` ejecuta un control automático (cobertura del escáner ≥ 97 %, todo clasificado, sin `N` con titulares sin abrir,
+     frase + traducción + cifra presentes, munición analizada). Si da ERROR, corregir y repetir; `--forzar` solo si el tiempo se acaba,
+     y decirlo en el mensaje final.
 6. Finalizar: `python3 herramientas/lista_diaria.py finalizar` (actualiza precios del premarket y asigna nivel/plan) y guardar
    `listas/datos/HOY.json` en la base de datos (`ArtifactData set`, colección `listas`, `doc_id` = HOY).
 7. `git add listas/datos && git commit -m "Lista diaria HOY" && git push -u origin claude/analisis-cuantitativo-45j7qe`

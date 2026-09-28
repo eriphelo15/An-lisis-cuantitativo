@@ -1,2 +1,35 @@
-{"AKAN": {"tipo": "H", "frase_en": "Increases Recurring Revenue with completion of 200 KM Fiber Network", "frase_es": "aumenta sus ingresos recurrentes al completar una red de fibra de 200 km", "cifra": "sin cifra en dólares", "nota": "Actualización operativa sin ingresos cuantificados (6-K de la tarde anterior)."},
- "WETO": {"tipo": "N"}, "SURG": {"tipo": "N"}, "SKYE": {"tipo": "N"}, "HHS": {"tipo": "N"}}
+{
+ "AKAN": {
+  "tipo": "H",
+  "frase_en": "Increases Recurring Revenue with completion of 200 KM Fiber Network",
+  "frase_es": "aumenta sus ingresos recurrentes al completar una red de fibra de 200 km",
+  "cifra": "sin cifra en dólares",
+  "nota": "Actualización operativa sin ingresos cuantificados (6-K de la tarde anterior)."
+ },
+ "WETO": {
+  "tipo": "N",
+  "nota": "Sin 8-K ni noticias en la ventana.",
+  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)"
+ },
+ "SURG": {
+  "tipo": "R",
+  "frase_en": "SurgePays Reports Q2 2026 Revenue Growth of 40.7% Year-Over-Year to $16.2 Million, Reports Positive Net Income",
+  "frase_es": "SurgePays informa un crecimiento de ingresos del 40,7 % interanual en el 2º trimestre de 2026, hasta 16,2 millones de dólares, y beneficio neto positivo",
+  "cifra": "$16.2 M (dólares) de ingresos del trimestre; +40.7 %",
+  "nota": "Resultados trimestrales (GlobeNewswire 7:45). Corregido en la auditoría: antes figuraba como 'sin noticia'.",
+  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)"
+ },
+ "SKYE": {
+  "tipo": "N",
+  "nota": "Sin 8-K ni noticias en la ventana.",
+  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)"
+ },
+ "HHS": {
+  "tipo": "C",
+  "frase_en": "Harte Hanks Enters Definitive Agreement to Be Acquired by Star Equity Holdings for $5.00 Per Share",
+  "frase_es": "Harte Hanks firma un acuerdo definitivo para ser comprada por Star Equity Holdings a 5,00 dólares por acción",
+  "cifra": "$5.00 por acción (precio fijo de compra)",
+  "nota": "Compra a precio fijo por acción: el precio queda anclado. Corregido en la auditoría: antes figuraba como 'sin noticia'.",
+  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)"
+ }
+}

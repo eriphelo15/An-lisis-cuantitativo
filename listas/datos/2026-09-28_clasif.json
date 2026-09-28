@@ -22,7 +22,8 @@
  },
  "CLRO": {
   "tipo": "N",
-  "nota": "Sin 8-K ni noticias desde el cierre del viernes."
+  "fuentes_abiertas": "Finviz (quote) + Yahoo RSS + EDGAR, revisados a mano 28-sep",
+  "nota": "Confirmado a mano: sin 8-K ni noticias desde el cierre del viernes. Última noticia: 2-jul-2026 (fusión con Cortigent, filial de Vivani). Munición: S-3 (25-jun), S-1 (4-sep), ATM."
  },
  "GYGY": {
   "tipo": "H",

@@ -1,9 +1,9 @@
 {
  "fecha": "2026-09-28",
- "generado": "2026-09-28 14:06",
+ "generado": "2026-09-28 14:21",
  "replay": false,
  "desde": "2026-09-25 16:00",
- "corte": "2026-09-28 14:00",
+ "corte": "2026-09-28 14:20",
  "reglas": {
   "gap_lista": 0.5,
   "gap_vigilar": 0.2,
@@ -20,8 +20,8 @@
    "precio": 0.3788,
    "cierre_prev": 0.1795,
    "gap": 1.1103,
-   "cap": 19442054,
-   "vol_pre": 871631568,
+   "cap": 18739458,
+   "vol_pre": 892358658,
    "nivel": "B",
    "clasif": {
     "tipo": "H",
@@ -134,8 +134,8 @@
    "precio": 1.215,
    "cierre_prev": 0.7396,
    "gap": 0.6428,
-   "cap": 13737164,
-   "vol_pre": 104729653,
+   "cap": 14000538,
+   "vol_pre": 106934982,
    "nivel": "B",
    "clasif": {
     "tipo": "H",
@@ -215,8 +215,8 @@
    "precio": 2.4399,
    "cierre_prev": 1.61,
    "gap": 0.5155,
-   "cap": 8310599,
-   "vol_pre": 44764420,
+   "cap": 8253677,
+   "vol_pre": 45006831,
    "nivel": "B",
    "clasif": {
     "tipo": "H",
@@ -292,8 +292,8 @@
    "precio": 61.28,
    "cierre_prev": 32.35,
    "gap": 0.8943,
-   "cap": 5544579072,
-   "vol_pre": 30438434,
+   "cap": 5728187392,
+   "vol_pre": 31426405,
    "nivel": "VIGILAR",
    "clasif": {
     "tipo": "B",
@@ -402,12 +402,13 @@
    "precio": 5.81,
    "cierre_prev": 3.5228,
    "gap": 0.6493,
-   "cap": 11425614,
-   "vol_pre": 24496727,
+   "cap": 11770208,
+   "vol_pre": 24642594,
    "nivel": "VIGILAR",
    "clasif": {
     "tipo": "N",
-    "nota": "Sin 8-K ni noticias desde el cierre del viernes.",
+    "fuentes_abiertas": "Finviz (quote) + Yahoo RSS + EDGAR, revisados a mano 28-sep",
+    "nota": "Confirmado a mano: sin 8-K ni noticias desde el cierre del viernes. Última noticia: 2-jul-2026 (fusión con Cortigent, filial de Vivani). Munición: S-3 (25-jun), S-1 (4-sep), ATM.",
     "tipo_es": "Sin noticia"
    },
    "catalizadores": [],
@@ -473,8 +474,8 @@
    "precio": 6.52,
    "cierre_prev": 4.2,
    "gap": 0.5524,
-   "cap": 245666352,
-   "vol_pre": 3168104,
+   "cap": 246423424,
+   "vol_pre": 3276015,
    "nivel": "NUNCA",
    "clasif": {
     "tipo": "C",
@@ -573,7 +574,7 @@
    "nombre": "Mint Incorporation Limited",
    "precio": 1.0394,
    "gap": 0.3478,
-   "cap": 14348843,
+   "cap": 14203875,
    "docs_hoy": [],
    "tipo": null
   },
@@ -582,7 +583,7 @@
    "nombre": "WEBUY GLOBAL LTD.",
    "precio": 1.04,
    "gap": 0.2937,
-   "cap": 5234454,
+   "cap": 5015210,
    "docs_hoy": [
     {
      "form": "6-K",
@@ -599,7 +600,7 @@
    "nombre": "DataMEDS AI, Inc.",
    "precio": 3.97,
    "gap": 0.2765,
-   "cap": 12822509,
+   "cap": 12982390,
    "docs_hoy": [],
    "tipo": null
   },
@@ -632,7 +633,7 @@
    "nombre": "Lakewood-Amedex Biotherapeutics, Inc.",
    "precio": 2.06,
    "gap": 0.2335,
-   "cap": 2938176,
+   "cap": 2950261,
    "docs_hoy": [],
    "tipo": null
   },
@@ -641,10 +642,20 @@
    "nombre": "Delixy Holdings Limited",
    "precio": 3.05,
    "gap": 0.2202,
-   "cap": 8322150,
+   "cap": 8224050,
    "docs_hoy": [],
    "tipo": null
   }
  ],
- "resultados": null
+ "resultados": null,
+ "auditoria": {
+  "errores": [],
+  "avisos": [],
+  "cobertura": {
+   "universo": 5910,
+   "cotizadas": 5909,
+   "pct": 0.9998
+  },
+  "forzada": false
+ }
 }

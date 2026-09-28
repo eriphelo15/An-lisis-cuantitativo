@@ -13,6 +13,9 @@
 - **No crear rutinas, alertas, automatizaciones ni herramientas que no haya pedido explícitamente.** Si pregunta
   "¿se puede…?", responder y ofrecer; no ejecutar. (Ya pasó una vez con unas rutinas y pidió borrarlas.)
 - Ser honesto con los datos: si algo no funciona, decirlo; distinguir lo validado de lo decidido a posteriori.
+- **Precisión quirúrgica (exigencia del usuario, 28-sep-2026):** nada se entrega sin validarlo de principio a fin. Abrir y leer cada fuente
+  (no solo titulares), comprobar cada cifra y su unidad, contrastar con una segunda fuente cuando exista, y revisar el resultado final antes
+  de mostrarlo. Si algo no se pudo verificar, decirlo explícitamente. Aplica a todas las áreas (listas, estudios, SEC, código).
 - **Principio del usuario: toda idea o criterio se valida con datos antes de usarlo.** Aunque tenga lógica, no se da por buena sin medirla.
 - El usuario tiene mucha experiencia ejecutando (futuros): su trabajo es ejecutar el mejor setup según la acción del precio; el trabajo fino de selección es de Claude.
 - **Operará acciones en bróker normal, sin fondeo.** Cuenta prevista: ~$2 000. **Reside en República Dominicana.** Bróker previsto: TradeZero International (mín. $500, locates integrados) para cortos; IBKR secundario (mín. margen $2 000); Cobra/CenterPoint cuando la cuenta ≥ $30 000. Política de riesgo del usuario: 1 % base; hasta 5 % cuando la ventaja estadística esté validada. Referencia medida (Kelly sobre R reales del setup A, ajustados): ventaja +0.05R → Kelly 4 %; +0.10R → 8 %; +0.20R → 16.5 % (5 % ≈ 1/3 Kelly, aún 78 % prob. de caída >30 %); +0.30R → 25 %. Regla acordada: 5 % solo con ventaja validada ≥ ~+0.20R y ≥ 50-100 operaciones; la cola real (halts) puede ser peor que la de la muestra.
@@ -31,7 +34,9 @@
   (escanear → Claude clasifica en `_clasif.json` → finalizar → resultados al día siguiente; `--replay` para días pasados). Rutina programada
   (pedida por el usuario) `trig_01LxzygdMnVhjKcap2MrESi5`: L-V 8:17 Nueva York, se ejecuta en ESTA sesión (session_01Y3DyUXFtmwsaxpZC7KkFLE) siguiendo `listas/RUTINA.md`. Una sesión nueva por disparo NO sirve: arranca sin repositorio ni base de datos de la página (probado el 28-sep).
   Niveles: A (humo + gap ≥50 % + 424B 90 d + cap ≥$30 M), B (humo + gap ≥50 %), Vigilar, NO (resultados/financiación/bolsa/424B hoy), Nunca (compra en efectivo).
-  Pendiente ofrecido: medir el caso "sube sin ninguna noticia" (en replay 21-sep: GRML, BTTC, VEEE sin noticia → los tres −1.25R).
+  Pendiente ofrecido: medir el caso "sube sin ninguna noticia" (días de prueba, revisados a mano: BTTC −1.25R, VEEE −1.25R, WHLR −1.25R, WETO +0.73R, SKYE +1.35R; GRML NO era "sin noticia": noticia de tema Groenlandia).
+  Auditoría obligatoria antes de publicar (RUTINA.md paso 5b + control automático en `finalizar`, que bloquea la lista si hay errores).
+  Errores corregidos el 28-sep al comparar con TradingView/Cowork: gap medido con el precio del momento (no la apertura), ADS extranjeras excluidas (NAMI), GYGY 'sin noticia' con un artículo sin abrir, y en los días de prueba HHS (compra a $5.00 = Nunca) y SURG (resultados = NO) sin clasificar.
   Práctica de ejecución en DCOY, LHSW, INLF, GRML, GLND hecha por el usuario. Conclusión del usuario (compartida): el indicador captura bien las caídas cuando la acción 'valida la teoría' y falla cuando no; **lo decisivo es la selección fuera del gráfico**. Ejercicios del módulo 4: WHLR (usuario) y BENF (Claude como ejemplo) hechos.
 - Herramienta de dilución hecha: `herramientas/ficha_dilucion.py TICKER` (SEC EDGAR + Yahoo; ~7 s). Fichas en `fichas/`.
 - Futuro (cuando termine la formación): construir un sistema propio tipo "Flash Research" con estadísticas propias.

@@ -136,7 +136,9 @@ class Yahoo:
 
 def escanear_vivo():
     y = Yahoo()
-    cot = y.cotizaciones(universo())
+    U = universo()
+    cot = y.cotizaciones(U)
+    escanear_vivo.cobertura = dict(universo=len(U), cotizadas=len(cot), pct=round(len(cot) / max(len(U), 1), 4))
     cand = []
     for q in cot:
         prev = q.get("regularMarketPreviousClose")
@@ -318,7 +320,8 @@ def escanear(fecha, replay):
             c["noticias"] = noticias(c["sym"], desde)
         print(f"  {c['sym']:6} gap {c['gap']:+.0%}  docs hoy {len(c['docs_hoy'])}  catalizadores {len(c['catalizadores'])}  noticias {len(c['noticias'])}", flush=True)
     out = dict(fecha=fecha, generado=dt.datetime.now(NY).strftime("%Y-%m-%d %H:%M"), replay=replay,
-               desde=desde.strftime("%Y-%m-%d %H:%M"), corte=corte.strftime("%Y-%m-%d %H:%M"), candidatos=cand)
+               desde=desde.strftime("%Y-%m-%d %H:%M"), corte=corte.strftime("%Y-%m-%d %H:%M"),
+               cobertura=None if replay else getattr(escanear_vivo, "cobertura", None), candidatos=cand)
     json.dump(out, open(ruta(fecha, "_candidatos"), "w"), ensure_ascii=False, indent=1, default=str)
     print("→", ruta(fecha, "_candidatos"))
 
@@ -339,7 +342,42 @@ def nivel(c, cl):
     return "VIGILAR"
 
 
-def finalizar(fecha, replay):
+TIPOS_OK = set("CFRBKHSON")
+
+
+def auditar(C, CL, replay):
+    """Control de calidad antes de publicar. Errores = la lista NO se publica hasta corregirlos."""
+    err, av = [], []
+    cob = C.get("cobertura")
+    if not replay:
+        if not cob:
+            err.append("Sin dato de cobertura del escáner: repetir 'escanear'")
+        elif cob["pct"] < 0.97:
+            err.append(f"Cobertura del escáner {cob['pct']:.1%} ({cob['cotizadas']}/{cob['universo']}): faltan cotizaciones, repetir 'escanear'")
+    for c in C["candidatos"]:
+        if c["gap"] < GAP_LISTA:
+            continue
+        s, cl = c["sym"], CL.get(c["sym"])
+        if not cl:
+            err.append(f"{s}: gap {c['gap']:+.0%} sin clasificar"); continue
+        t = cl.get("tipo")
+        if t not in TIPOS_OK:
+            err.append(f"{s}: tipo '{t}' no válido")
+        fuentes = len(c.get("noticias", [])) + len(c.get("catalizadores", []))
+        if t == "N" and fuentes and not cl.get("fuentes_abiertas"):
+            err.append(f"{s}: 'sin noticia' pero hay {fuentes} titular(es)/8-K: abrirlos todos y anotar 'fuentes_abiertas'")
+        if t != "N" and (not cl.get("frase_en") or not cl.get("frase_es") or not cl.get("cifra")):
+            err.append(f"{s}: falta frase original, traducción o cifra con unidad")
+        if not replay and not c.get("municion"):
+            err.append(f"{s}: sin análisis de munición (subió sobre el 50 % después del escaneo): repetir 'escanear'")
+        if c.get("cap") is None:
+            av.append(f"{s}: capitalización desconocida")
+        if t == "N" and not replay and not cl.get("fuentes_abiertas"):
+            av.append(f"{s}: sin ninguna noticia; confirmar a mano en Finviz/Yahoo")
+    return err, av
+
+
+def finalizar(fecha, replay, forzar=False):
     C = json.load(open(ruta(fecha, "_candidatos")))
     cl_f = ruta(fecha, "_clasif")
     CL = json.load(open(cl_f)) if os.path.exists(cl_f) else {}
@@ -354,6 +392,13 @@ def finalizar(fecha, replay):
                     c["precio"] = round(px, 4); c["gap"] = round(px / c["cierre_prev"] - 1, 4)
         except Exception as e:
             print("sin actualizar precios:", e)
+    err, av = auditar(C, CL, replay)
+    for e in err:
+        print("ERROR:", e)
+    for a in av:
+        print("aviso:", a)
+    if err and not forzar:
+        sys.exit("Auditoría con errores: lista NO generada. Corregir y repetir (o --forzar si es imposible corregir a tiempo).")
     lista, vigilar = [], []
     orden = {"A": 0, "B": 1, "VIGILAR": 2, "NO": 3, "NUNCA": 4}
     for c in C["candidatos"]:
@@ -388,7 +433,8 @@ def finalizar(fecha, replay):
     lista.sort(key=lambda x: (orden[x["nivel"]], -x["gap"]))
     out = dict(fecha=fecha, generado=dt.datetime.now(NY).strftime("%Y-%m-%d %H:%M"), replay=replay, desde=C["desde"], corte=C["corte"],
                reglas=dict(gap_lista=GAP_LISTA, gap_vigilar=GAP_VIGILAR, stop=STOP, deslizamiento=DESL, coste=COSTE, riesgo_accion=RIESGO_ACCION),
-               lista=lista, vigilar=vigilar, resultados=None)
+               lista=lista, vigilar=vigilar, resultados=None,
+               auditoria=dict(errores=err, avisos=av, cobertura=C.get("cobertura"), forzada=bool(err and forzar)))
     json.dump(out, open(ruta(fecha), "w"), ensure_ascii=False, indent=1, default=str)
     print("→", ruta(fecha), "|", ", ".join(f"{x['sym']}:{x['nivel']}" for x in lista), "| vigilar", len(vigilar))
 
@@ -424,6 +470,7 @@ if __name__ == "__main__":
     ap.add_argument("paso", choices=["escanear", "finalizar", "resultados"])
     ap.add_argument("--fecha", default=dt.datetime.now(NY).date().isoformat())
     ap.add_argument("--replay", action="store_true")
+    ap.add_argument("--forzar", action="store_true", help="publicar aunque la auditoría tenga errores (queda anotado)")
     a = ap.parse_args()
-    {"escanear": lambda: escanear(a.fecha, a.replay), "finalizar": lambda: finalizar(a.fecha, a.replay),
+    {"escanear": lambda: escanear(a.fecha, a.replay), "finalizar": lambda: finalizar(a.fecha, a.replay, a.forzar),
      "resultados": lambda: resultados(a.fecha)}[a.paso]()

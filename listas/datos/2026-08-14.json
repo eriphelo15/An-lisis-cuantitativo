@@ -1,6 +1,6 @@
 {
  "fecha": "2026-08-14",
- "generado": "2026-09-28 12:32",
+ "generado": "2026-09-28 14:21",
  "replay": true,
  "desde": "2026-08-13 16:00",
  "corte": "2026-08-14 09:10",
@@ -130,6 +130,8 @@
    "nivel": "VIGILAR",
    "clasif": {
     "tipo": "N",
+    "nota": "Sin 8-K ni noticias en la ventana.",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
     "tipo_es": "Sin noticia"
    },
    "catalizadores": [],
@@ -201,95 +203,6 @@
    ]
   },
   {
-   "sym": "SURG",
-   "nombre": "SurgePays, Inc.",
-   "sector": "Telephone Communications (No Radiotelephone)",
-   "precio": 0.394,
-   "cierre_prev": 0.24699999392032623,
-   "gap": 0.5951,
-   "cap": 20845918.662,
-   "vol_pre": null,
-   "nivel": "VIGILAR",
-   "clasif": {
-    "tipo": "N",
-    "tipo_es": "Sin noticia"
-   },
-   "catalizadores": [],
-   "docs_hoy": [],
-   "noticias": [],
-   "municion": {
-    "venta90": false,
-    "s3": "2023-10-23",
-    "s1": null,
-    "ventas_12m": 3,
-    "aviso_bolsa": true,
-    "contrasplits_2a": 0,
-    "ultimas_ventas": [
-     {
-      "form": "424B5",
-      "fecha": "2026-01-22",
-      "url": "https://www.sec.gov/Archives/edgar/data/1392694/000149315226003210/form424b5.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2026-01-22",
-      "url": "https://www.sec.gov/Archives/edgar/data/1392694/000149315226003164/form424b5.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2026-01-20",
-      "url": "https://www.sec.gov/Archives/edgar/data/1392694/000149315226002910/form424b5.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2025-08-05",
-      "url": "https://www.sec.gov/Archives/edgar/data/1392694/000164117225022281/form424b5.htm"
-     }
-    ],
-    "atm": true,
-    "toxica": true,
-    "going_concern": true,
-    "warrants": [
-     1.25,
-     1.38,
-     1.75,
-     2.5,
-     4.73,
-     6.0
-    ],
-    "informe": {
-     "form": "10-Q",
-     "fecha": "2026-05-20",
-     "url": "https://www.sec.gov/Archives/edgar/data/1392694/000149315226024591/form10-q.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "plan": {
-    "entrada": "apertura (9:30)",
-    "stop": 0.5122,
-    "stop_pct": 0.3,
-    "riesgo_accion": 0.1478,
-    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
-   },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
-   },
-   "avisos": [
-    "Capitalización < $30 M: más squeezes (histórico −0.13R)",
-    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar",
-    "Convertible de precio variable (tóxica) en el último informe"
-   ]
-  },
-  {
    "sym": "SKYE",
    "nombre": "Skye Bioscience, Inc.",
    "sector": "Pharmaceutical Preparations",
@@ -301,6 +214,8 @@
    "nivel": "VIGILAR",
    "clasif": {
     "tipo": "N",
+    "nota": "Sin 8-K ni noticias en la ventana.",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
     "tipo_es": "Sin noticia"
    },
    "catalizadores": [],
@@ -367,6 +282,99 @@
    ]
   },
   {
+   "sym": "SURG",
+   "nombre": "SurgePays, Inc.",
+   "sector": "Telephone Communications (No Radiotelephone)",
+   "precio": 0.394,
+   "cierre_prev": 0.24699999392032623,
+   "gap": 0.5951,
+   "cap": 20845918.662,
+   "vol_pre": null,
+   "nivel": "NO",
+   "clasif": {
+    "tipo": "R",
+    "frase_en": "SurgePays Reports Q2 2026 Revenue Growth of 40.7% Year-Over-Year to $16.2 Million, Reports Positive Net Income",
+    "frase_es": "SurgePays informa un crecimiento de ingresos del 40,7 % interanual en el 2º trimestre de 2026, hasta 16,2 millones de dólares, y beneficio neto positivo",
+    "cifra": "$16.2 M (dólares) de ingresos del trimestre; +40.7 %",
+    "nota": "Resultados trimestrales (GlobeNewswire 7:45). Corregido en la auditoría: antes figuraba como 'sin noticia'.",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
+    "tipo_es": "Resultados"
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": "2023-10-23",
+    "s1": null,
+    "ventas_12m": 3,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-01-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1392694/000149315226003210/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-01-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1392694/000149315226003164/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-01-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1392694/000149315226002910/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-08-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1392694/000164117225022281/form424b5.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     1.25,
+     1.38,
+     1.75,
+     2.5,
+     4.73,
+     6.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-05-20",
+     "url": "https://www.sec.gov/Archives/edgar/data/1392694/000149315226024591/form10-q.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "plan": {
+    "entrada": "apertura (9:30)",
+    "stop": 0.5122,
+    "stop_pct": 0.3,
+    "riesgo_accion": 0.1478,
+    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   },
+   "estad": {
+    "R": -0.12,
+    "WR": 0.49,
+    "gan": null,
+    "perd": null,
+    "PF": 0.65,
+    "n": null,
+    "squeeze": null,
+    "fuente": "resultados / financiación / avisos de bolsa: PF 0.6-0.7"
+   },
+   "avisos": [
+    "Capitalización < $30 M: más squeezes (histórico −0.13R)",
+    "Convertible de precio variable (tóxica) en el último informe"
+   ]
+  },
+  {
    "sym": "HHS",
    "nombre": "HARTE HANKS INC",
    "sector": "Services-Direct Mail Advertising Services",
@@ -375,10 +383,15 @@
    "gap": 0.5053,
    "cap": 31531435.200000003,
    "vol_pre": null,
-   "nivel": "VIGILAR",
+   "nivel": "NUNCA",
    "clasif": {
-    "tipo": "N",
-    "tipo_es": "Sin noticia"
+    "tipo": "C",
+    "frase_en": "Harte Hanks Enters Definitive Agreement to Be Acquired by Star Equity Holdings for $5.00 Per Share",
+    "frase_es": "Harte Hanks firma un acuerdo definitivo para ser comprada por Star Equity Holdings a 5,00 dólares por acción",
+    "cifra": "$5.00 por acción (precio fijo de compra)",
+    "nota": "Compra a precio fijo por acción: el precio queda anclado. Corregido en la auditoría: antes figuraba como 'sin noticia'.",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
+    "tipo_es": "Compra en efectivo"
    },
    "catalizadores": [],
    "docs_hoy": [],
@@ -412,18 +425,16 @@
     "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
    },
    "estad": {
-    "R": 0.01,
-    "WR": 0.6,
+    "R": -0.04,
+    "WR": 0.08,
     "gan": null,
     "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
+    "PF": 0.23,
+    "n": 13,
+    "squeeze": 0.0,
+    "fuente": "compra en efectivo: el precio queda anclado"
    },
-   "avisos": [
-    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
-   ]
+   "avisos": []
   }
  ],
  "vigilar": [
@@ -556,15 +567,6 @@
    "subida_max": 0.216,
    "caida_cierre": -0.228
   },
-  "SURG": {
-   "apertura": 0.39399999380111694,
-   "maximo": 0.4300000071525574,
-   "minimo": 0.25999999046325684,
-   "cierre": 0.28200000524520874,
-   "R": 0.914,
-   "subida_max": 0.091,
-   "caida_cierre": -0.284
-  },
   "SKYE": {
    "apertura": 6.880000114440918,
    "maximo": 7.039999961853027,
@@ -573,6 +575,15 @@
    "R": 1.354,
    "subida_max": 0.023,
    "caida_cierre": -0.416
+  },
+  "SURG": {
+   "apertura": 0.39399999380111694,
+   "maximo": 0.4300000071525574,
+   "minimo": 0.25999999046325684,
+   "cierre": 0.28200000524520874,
+   "R": 0.914,
+   "subida_max": 0.091,
+   "caida_cierre": -0.284
   },
   "HHS": {
    "apertura": 4.230000019073486,
@@ -583,5 +594,11 @@
    "subida_max": 0.064,
    "caida_cierre": 0.017
   }
+ },
+ "auditoria": {
+  "errores": [],
+  "avisos": [],
+  "cobertura": null,
+  "forzada": false
  }
 }

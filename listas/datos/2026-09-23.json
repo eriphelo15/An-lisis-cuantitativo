@@ -1,6 +1,6 @@
 {
  "fecha": "2026-09-23",
- "generado": "2026-09-28 12:33",
+ "generado": "2026-09-28 14:22",
  "replay": true,
  "desde": "2026-09-22 16:00",
  "corte": "2026-09-23 09:10",
@@ -141,7 +141,8 @@
    "nivel": "VIGILAR",
    "clasif": {
     "tipo": "N",
-    "nota": "Sin 8-K ni nota antes de las 9:10 (en modo prueba no hay noticias de agencias).",
+    "nota": "Sin 8-K ni noticias en la ventana (la subida viene de los contra-splits encadenados, ver lección 12).",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
     "tipo_es": "Sin noticia"
    },
    "catalizadores": [],
@@ -386,5 +387,13 @@
    "subida_max": 0.41,
    "caida_cierre": -0.051
   }
+ },
+ "auditoria": {
+  "errores": [],
+  "avisos": [
+   "BENF: capitalización desconocida"
+  ],
+  "cobertura": null,
+  "forzada": false
  }
 }
