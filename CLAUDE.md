@@ -55,6 +55,7 @@
 - Corto en gappers >100 % (datos diarios 2015-26): +4.6 % a +7.5 % por operación con stop 30 %, pero los halts que ejecutan el stop más arriba pueden anular la ventaja.
 - Perfil de squeeze: float diminuto + sin munición activa (APUS) → la subida puede seguir días.
 - Setups mecánicos (velas 1 h, 3 518 gappers oct-2024→sep-2026; diario 2015-26): casi todos ≈ 0R. Solo el corto temprano en gaps ≥100 % con stop amplio da +0.13R, y con 5 % de deslizamiento por halts baja a +0.05R. Primera hora roja, máximo fallido, fade de tarde, día 2 y first red day ≈ 0R. Días con rotación >10× → el corto a la apertura pierde.
+- Indicador **Reversal** del usuario (near 2, long 20) usado en corto con reciclaje (corto en señal de venta, cubrir en la de compra, stop sobre el máximo barrido +0.5 %, coste 1 %): gappers de sep-2026 en 1 min (130 días) y 60 días en 5 min → elige mejores puntos que el azar (35 % vs 26 % ganadoras; gap ≥50 % en 1 min: −0.07R vs −0.25R) pero **no tiene ventaja propia tras costes** (≈ 0R o negativo). Filtros VWAP: muestras pequeñas, nada concluyente. Útil solo como gatillo de timing dentro de acciones bien seleccionadas; pendiente validar con más datos. `smallcaps/08_reversal_smallcaps.py`.
 - Conclusión: la ventaja debe venir de selección (catalizador + munición activa) + ejecución fina en 1-5 min + gestión del riesgo; se medirá con el diario de operaciones del usuario y, si hace falta, datos de 1 min de pago con deslistadas.
 
 ## Mapa del repositorio
