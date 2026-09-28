@@ -1,9 +1,9 @@
 {
  "fecha": "2026-09-28",
- "generado": "2026-09-28 16:59",
+ "generado": "2026-09-28 18:06",
  "replay": false,
  "desde": "2026-09-25 16:00",
- "corte": "2026-09-28 14:20",
+ "corte": "2026-09-28 09:10",
  "reglas": {
   "gap_lista": 0.5,
   "gap_vigilar": 0.2,
@@ -20,8 +20,8 @@
    "precio": 1.215,
    "cierre_prev": 0.7396,
    "gap": 0.6428,
-   "cap": 14000538,
-   "vol_pre": 106934982,
+   "cap": 12557020,
+   "vol_pre": 112295061,
    "nivel": "B",
    "clasif": {
     "tipo": "H",
@@ -96,8 +96,8 @@
    "precio": 2.4399,
    "cierre_prev": 1.61,
    "gap": 0.5155,
-   "cap": 8253677,
-   "vol_pre": 45006831,
+   "cap": 8500339,
+   "vol_pre": 46239913,
    "nivel": "B",
    "clasif": {
     "tipo": "H",
@@ -168,8 +168,8 @@
    "precio": 0.3788,
    "cierre_prev": 0.1795,
    "gap": 1.1103,
-   "cap": 18739458,
-   "vol_pre": 892358658,
+   "cap": 17098280,
+   "vol_pre": 972188181,
    "nivel": "VIGILAR",
    "clasif": {
     "tipo": "H",
@@ -275,11 +275,11 @@
    "sym": "KOD",
    "nombre": "Kodiak Sciences Inc.",
    "sector": "Biological Products, (No Diagnostic Substances)",
-   "precio": 61.28,
+   "precio": 61.705,
    "cierre_prev": 32.35,
-   "gap": 0.8943,
-   "cap": 5728187392,
-   "vol_pre": 31426405,
+   "gap": 0.9074,
+   "cap": 5651422720,
+   "vol_pre": 38398805,
    "nivel": "VIGILAR",
    "clasif": {
     "tipo": "B",
@@ -384,8 +384,8 @@
    "precio": 5.81,
    "cierre_prev": 3.5228,
    "gap": 0.6493,
-   "cap": 11770208,
-   "vol_pre": 24642594,
+   "cap": 13644601,
+   "vol_pre": 28097304,
    "nivel": "VIGILAR",
    "clasif": {
     "tipo": "N",
@@ -451,8 +451,8 @@
    "precio": 6.52,
    "cierre_prev": 4.2,
    "gap": 0.5524,
-   "cap": 246423424,
-   "vol_pre": 3276015,
+   "cap": 246801952,
+   "vol_pre": 4003471,
    "nivel": "NUNCA",
    "clasif": {
     "tipo": "C",
@@ -545,18 +545,107 @@
   {
    "sym": "MIMI",
    "nombre": "Mint Incorporation Limited",
+   "sector": "Services-Business Services, NEC",
    "precio": 1.0394,
+   "cierre_prev": 0.7712,
    "gap": 0.3478,
-   "cap": 14203875,
+   "cap": 13339985,
+   "vol_pre": 26747853,
+   "nivel": "VIGILAR",
+   "clasif": {
+    "tipo": "N",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano 28-sep",
+    "nota": "Sin 8-K/6-K ni noticias desde el cierre del viernes (última noticia: 15-sep, licencia con Pudgy Penguins). Historial reciente de humo: MOU de robótica (9-sep), tokenización de acciones (3-sep, +49 %).",
+    "tipo_es": "Sin noticia"
+   },
+   "catalizadores": [],
    "docs_hoy": [],
-   "tipo": null
+   "noticias": [],
+   "municion": {
+    "venta90": true,
+    "s3": "2026-05-19",
+    "s1": null,
+    "ventas_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-08-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1998560/000121390026094900/ea0303716-424b5_mint.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2025-01-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1998560/000121390025002315/ea0201201-11.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1998560/000121390026090165/ea0300620-20f_mint.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "costes": {
+    "locate_1c_R": 0.032
+   },
+   "estad": {
+    "R": 0.01,
+    "WR": 0.6,
+    "gan": null,
+    "perd": null,
+    "PF": 1.05,
+    "n": null,
+    "squeeze": null,
+    "fuente": "contrato real / FDA / otros ≈ 0R"
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
+   ]
   },
   {
    "sym": "WBUY",
    "nombre": "WEBUY GLOBAL LTD.",
+   "sector": "Retail-Miscellaneous Retail",
    "precio": 1.04,
+   "cierre_prev": 0.8039,
    "gap": 0.2937,
-   "cap": 5015210,
+   "cap": 4932993,
+   "vol_pre": 37592808,
+   "nivel": "NO",
+   "clasif": {
+    "tipo": "R",
+    "frase_en": "Revenue from continuing operations increased 94.4% year-over-year to US$14.31 million, while gross profit increased 131.7% to US$1.83 million",
+    "frase_es": "los ingresos de las operaciones continuadas subieron un 94,4 % interanual hasta 14,31 millones de dólares, y el beneficio bruto un 131,7 % hasta 1,83 millones",
+    "cifra": "$14.31 M (dólares) de ingresos del semestre; pérdida neta $3.32 M",
+    "nota": "Resultados semestrales (6-K 2:31 + nota de prensa 4:30). Empresa ~$5 M de capitalización, ELOC activa y going concern.",
+    "tipo_es": "Resultados"
+   },
+   "catalizadores": [
+    {
+     "form": "6-K",
+     "hora": "2026-09-28 02:31",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390026103727/ea0306044-6k_webuy.htm",
+     "anexos": [
+      {
+       "archivo": "ea030604401ex99-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390026103727/ea030604401ex99-1.htm"
+      },
+      {
+       "archivo": "ea030604401ex99-2.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390026103727/ea030604401ex99-2.htm"
+      }
+     ]
+    }
+   ],
    "docs_hoy": [
     {
      "form": "6-K",
@@ -566,23 +655,185 @@
      "items_es": ""
     }
    ],
-   "tipo": null
+   "noticias": [
+    {
+     "hora": "2026-09-28 04:30",
+     "titular": "WEBUY GLOBAL LTD. Nearly Doubles First-Half 2026 Revenue to US$14.3 Million as Gross Profit Increases 132%",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/webuy-global-ltd-nearly-doubles-083000007.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": "2026-05-18",
+    "s1": "2026-05-06",
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-07-31",
+      "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390025070089/ea0251040-424b4_webuy.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-12-17",
+      "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390024109783/ea0225039-424b5_webuy.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2024-04-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390024037877/ea0204966-424b4_webuyglo.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2023-10-19",
+      "url": "https://www.sec.gov/Archives/edgar/data/1946703/000164033423001918/webuy_424b4.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-04-29",
+     "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390026049395/ea0286498-20f_webuy.htm"
+    },
+    "eloc": true,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "costes": {
+    "locate_1c_R": 0.032
+   },
+   "estad": {
+    "R": -0.12,
+    "WR": 0.49,
+    "gan": null,
+    "perd": null,
+    "PF": 0.65,
+    "n": null,
+    "squeeze": null,
+    "fuente": "resultados / financiación / avisos de bolsa: PF 0.6-0.7"
+   },
+   "avisos": []
   },
   {
    "sym": "MEDS",
    "nombre": "DataMEDS AI, Inc.",
+   "sector": "Wholesale-Drugs, Proprietaries & Druggists' Sundries",
    "precio": 3.97,
+   "cierre_prev": 3.11,
    "gap": 0.2765,
-   "cap": 12982390,
+   "cap": 12182982,
+   "vol_pre": 33265665,
+   "nivel": "VIGILAR",
+   "clasif": {
+    "tipo": "H",
+    "frase_en": "DataMeds AI and Tollo Health Announce Launch of 'Health Lives Here' Mobile Application",
+    "frase_es": "DataMeds AI y Tollo Health anuncian el lanzamiento de la aplicación móvil 'Health Lives Here'",
+    "cifra": "sin cifra de ventas ni en dólares",
+    "nota": "Lanzamiento de app (telemedicina/GLP-1) sin ventas ni contrato con cifra, sin 8-K = humo. Munición: ATM, ELOC, S-1 (7-ago), warrants en dinero ($0.41/$0.50), going concern.",
+    "tipo_es": "Humo / cosmético"
+   },
+   "catalizadores": [],
    "docs_hoy": [],
-   "tipo": null
+   "noticias": [
+    {
+     "hora": "2026-09-28 06:00",
+     "titular": "DataMeds AI and Tollo Health Announce Launch of 'Health Lives Here' Mobile Application",
+     "url": "https://finance.yahoo.com/healthcare/articles/datameds-ai-tollo-health-announce-100000976.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": "2026-04-15",
+    "s1": "2026-08-07",
+    "ventas_12m": 1,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 2,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-09-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/2030763/000149315225015899/form424b4.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2025-02-21",
+      "url": "https://www.sec.gov/Archives/edgar/data/2030763/000149315225007800/form424b4.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     0.41,
+     0.5,
+     20.5,
+     36.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-17",
+     "url": "https://www.sec.gov/Archives/edgar/data/2030763/000149315226038581/form10-q.htm"
+    },
+    "eloc": true,
+    "warrants_en_dinero": true
+   },
+   "venta_hoy": false,
+   "costes": {
+    "locate_1c_R": 0.008
+   },
+   "estad": {
+    "R": 0.09,
+    "WR": 0.65,
+    "gan": 0.57,
+    "perd": -0.76,
+    "PF": 1.35,
+    "n": 138,
+    "squeeze": 0.1,
+    "fuente": "base mecánica, humo + gap 20-50 % + precio ≥ $1 · VAL 2022-26 (DEV: +0.02R, 99 casos) · base pequeña (ronda 6)"
+   },
+   "avisos": [
+    "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)"
+   ]
   },
   {
    "sym": "COLA",
    "nombre": "Columbus Acquisition Corp",
+   "sector": "Blank Checks",
    "precio": 12.95,
+   "cierre_prev": 10.45,
    "gap": 0.2392,
-   "cap": 46967336,
+   "cap": 47810944,
+   "vol_pre": 13130,
+   "nivel": "NO",
+   "clasif": {
+    "tipo": "S",
+    "frase_en": "today announced that it reconvened its Extraordinary General Meeting of the Shareholders and, without conducting any business, adjourned the Meeting to 9:00 a.m. Eastern Time on September 29, 2026",
+    "frase_es": "hoy anunció que reanudó su junta extraordinaria de accionistas y, sin tratar ningún asunto, la aplazó al 29 de septiembre de 2026 a las 9:00",
+    "cifra": "sin cifra; aplazamiento de la junta que vota la fusión con WISeSat.Space",
+    "nota": "SPAC (empresa de adquisición): el precio suele estar ligado al dinero en fideicomiso; evento corporativo.",
+    "tipo_es": "Corporativo / bolsa"
+   },
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 05:21",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026103784/ea0306809-8k_columbus.htm",
+     "anexos": [
+      {
+       "archivo": "ea030680901ex99-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026103784/ea030680901ex99-1.htm"
+      }
+     ]
+    }
+   ],
    "docs_hoy": [
     {
      "form": "DEFA14A",
@@ -599,25 +850,198 @@
      "items_es": "8.01 otros hechos; 9.01 anexos"
     }
    ],
-   "tipo": null
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 2,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-01-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390025006259/ea0207942-09.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-04",
+     "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026085116/ea0299941-10q_columbus.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "costes": {
+    "locate_1c_R": 0.003
+   },
+   "estad": {
+    "R": -0.12,
+    "WR": 0.49,
+    "gan": null,
+    "perd": null,
+    "PF": 0.65,
+    "n": null,
+    "squeeze": null,
+    "fuente": "resultados / financiación / avisos de bolsa: PF 0.6-0.7"
+   },
+   "avisos": []
   },
   {
    "sym": "LABT",
    "nombre": "Lakewood-Amedex Biotherapeutics, Inc.",
+   "sector": "Pharmaceutical Preparations",
    "precio": 2.06,
+   "cierre_prev": 1.67,
    "gap": 0.2335,
-   "cap": 2950261,
+   "cap": 2725141,
+   "vol_pre": 34886641,
+   "nivel": "VIGILAR",
+   "clasif": {
+    "tipo": "H",
+    "frase_en": "MIC testing analysis of Nu-3 assessed in vitro activity against recent clinical isolates",
+    "frase_es": "el análisis MIC evaluó la actividad de Nu-3 in vitro (en laboratorio) frente a bacterias aisladas de pacientes",
+    "cifra": "sin cifra; datos in vitro + primer paciente dosificado en fase 2a (resultados en el 1T 2027)",
+    "nota": "Datos de laboratorio y 'primer paciente dosificado' sin resultados clínicos = humo (preclínico). Munición: venta 424B en 90 días, S-1 (18-sep), convertible tóxica, going concern.",
+    "tipo_es": "Humo / cosmético"
+   },
+   "catalizadores": [],
    "docs_hoy": [],
-   "tipo": null
+   "noticias": [
+    {
+     "hora": "2026-09-28 08:16",
+     "titular": "LABT: First Patient Dosed in Phase 2a Trial of Nu-3 for Infected Diabetic Foot Ulcers",
+     "url": "https://finance.yahoo.com/healthcare/articles/labt-first-patient-dosed-phase-121600525.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    },
+    {
+     "hora": "2026-09-28 08:02",
+     "titular": "Lakewood-Amedex Biotherapeutics Announces Positive Data Against Recent Clinical Isolates from Infected Diabetic Foot Ulcers",
+     "url": "https://finance.yahoo.com/healthcare/articles/lakewood-amedex-biotherapeutics-announces-positive-120200296.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "municion": {
+    "venta90": true,
+    "s3": null,
+    "s1": "2026-09-18",
+    "ventas_12m": 2,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 1,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2026-05-14",
+      "url": "https://www.sec.gov/Archives/edgar/data/2079272/000121390026056648/ea0290410-424b4_lakewood.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2026-04-23",
+      "url": "https://www.sec.gov/Archives/edgar/data/2079272/000121390026047113/ea0248668-15.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     100.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/2079272/000121390026089380/ea0299462-10q_lakewood.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "costes": {
+    "locate_1c_R": 0.016
+   },
+   "estad": {
+    "R": 0.09,
+    "WR": 0.65,
+    "gan": 0.57,
+    "perd": -0.76,
+    "PF": 1.35,
+    "n": 138,
+    "squeeze": 0.1,
+    "fuente": "base mecánica, humo + gap 20-50 % + precio ≥ $1 · VAL 2022-26 (DEV: +0.02R, 99 casos) · base pequeña (ronda 6)"
+   },
+   "avisos": [
+    "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)",
+    "Convertible de precio variable (tóxica) en el último informe"
+   ]
   },
   {
    "sym": "DLXY",
    "nombre": "Delixy Holdings Limited",
+   "sector": "Wholesale-Petroleum & Petroleum Products (No Bulk Stations)",
    "precio": 3.05,
+   "cierre_prev": 2.4995,
    "gap": 0.2202,
-   "cap": 8224050,
+   "cap": 7978800,
+   "vol_pre": 1871557,
+   "nivel": "NO",
+   "clasif": {
+    "tipo": "S",
+    "frase_en": "Delixy Holdings Limited Announces 1-for-5 Reverse Share Split Effective September 28, 2026",
+    "frase_es": "Delixy Holdings anuncia un contra-split de 1 por 5 efectivo el 28 de septiembre de 2026",
+    "cifra": "contra-split 1:5, efectivo HOY",
+    "nota": "Sin noticias nuevas desde el 18-sep; hoy es el primer día tras el contra-split. Antes: LOI no vinculante por un campo petrolero (16-sep, +452 %).",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano 28-sep",
+    "tipo_es": "Corporativo / bolsa"
+   },
+   "catalizadores": [],
    "docs_hoy": [],
-   "tipo": null
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-07-09",
+      "url": "https://www.sec.gov/Archives/edgar/data/2025218/000121390025062254/ea0207238-23.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-04-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/2025218/000121390026050402/ea0287803-20f_delixy.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "costes": {
+    "locate_1c_R": 0.011
+   },
+   "estad": {
+    "R": -0.12,
+    "WR": 0.49,
+    "gan": null,
+    "perd": null,
+    "PF": 0.65,
+    "n": null,
+    "squeeze": null,
+    "fuente": "resultados / financiación / avisos de bolsa: PF 0.6-0.7"
+   },
+   "avisos": []
   }
  ],
  "resultados": null,

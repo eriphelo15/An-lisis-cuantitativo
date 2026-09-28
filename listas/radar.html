@@ -345,10 +345,13 @@ function renderLista(){
 function renderVigilar(){
   const L=lista();const el=$("#p-vigilar");
   if(!L||!L.vigilar.length){el.innerHTML=`<div class="empty">Sin acciones entre +20 % y +50 %.</div>`;return}
-  el.innerHTML=`<div class="tbl-wrap"><table><thead><tr><th>Ticker</th><th>Empresa</th><th class="n">Gap</th><th class="n">Precio</th><th class="n">Cap.</th><th>Documentos desde el cierre</th></tr></thead><tbody>
+  const viejo=L.vigilar.some(v=>!v.municion&&!v.clasif);   // listas antiguas: solo tabla simple
+  if(viejo){el.innerHTML=`<div class="tbl-wrap"><table><thead><tr><th>Ticker</th><th>Empresa</th><th class="n">Gap</th><th class="n">Precio</th><th class="n">Cap.</th><th>Documentos desde el cierre</th></tr></thead><tbody>
   ${L.vigilar.map(v=>`<tr><td class="mono"><b>${esc(v.sym)}</b></td><td>${esc(v.nombre)}</td><td class="n pos">${pct(v.gap)}</td><td class="n">${px(v.precio)}</td><td class="n">${usd(v.cap)}</td><td>${(v.docs_hoy||[]).map(d=>`<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.form)}</a> <span class="note">${esc(d.hora.slice(11))} ${esc(d.items_es||"")}</span>`).join(" · ")||'<span class="note">—</span>'}</td></tr>`).join("")}
-  </tbody></table></div>`;
+  </tbody></table></div>`;return}
+  el.innerHTML=`<p class="note" style="margin:0 0 12px">Gappers de +20 % a +50 % con el mismo trabajo de campo que la lista (catalizador, munición, base estadística). No entran en A/B: ${"humo 20-50 % tiene base pequeña (+0.09R en 2022-26)"}.</p>`+L.vigilar.map(x=>card(x,L)).join("");
 }
+function rerender(){renderLista();renderVigilar()}
 
 function renderDiario(){
   const el=$("#p-diario");const rows=Object.entries(st.diario).map(([k,d])=>Object.assign({id:k},d)).sort((a,b)=>(b.fecha||"").localeCompare(a.fecha||""));
@@ -367,12 +370,13 @@ function renderDiario(){
 function tile(l,v){return `<div class="tile"><div class="l">${l}</div><div class="v">${v??"—"}</div></div>`}
 
 function renderRend(){
-  const el=$("#p-rend");const por={};ORD.forEach(k=>por[k]=[]);let dias=0;
-  st.fechas.forEach(f=>{const L=st.listas[f];if(!L||!L.resultados)return;dias++;L.lista.forEach(x=>{const r=L.resultados[x.sym];if(r)por[x.nivel].push(r.R)})});
+  const el=$("#p-rend");const por={};ORD.forEach(k=>por[k]=[]);let dias=0;const v20h=[],v20o=[];
+  st.fechas.forEach(f=>{const L=st.listas[f];if(!L||!L.resultados)return;dias++;L.lista.forEach(x=>{const r=L.resultados[x.sym];if(r)por[x.nivel].push(r.R)});(L.vigilar||[]).forEach(x=>{const r=L.resultados[x.sym];if(r&&x.municion){(x.clasif&&x.clasif.tipo==="H"?v20h:v20o).push(r.R)}})});
   el.innerHTML=`<div class="panel"><h3>Rendimiento de la propia lista</h3>
   <p class="note" style="margin:0 0 10px">Resultado de base de cada acción listada (mecánico: corto a la apertura, stop +30 %, deslizamiento y costes incluidos), en ${dias} día(s) con resultado. Sirve para comprobar que la selección se comporta como en las pruebas históricas y, junto a tu diario, para ver cuánto añade tu ejecución.</p>
   <div class="tbl-wrap"><table><thead><tr><th>Nivel</th><th class="n">Casos</th><th class="n">Esperanza</th><th class="n">WR</th><th class="n">Gan. media</th><th class="n">Pérd. media</th><th class="n">PF</th><th class="n">Base histórica</th></tr></thead><tbody>
   ${ORD.map(k=>{const m=metrics(por[k]);const h={A:"+0.45R · PF 2.74",B:"≈ 0R · PF 0.96",VIGILAR:"≈ 0R (humo < $1: +0.26R antes del locate)",NO:"PF 0.6–0.7",NUNCA:"WR 8 %"}[k];return `<tr><td><span class="lvl" style="--c:${LV[k].c}">${LV[k].n}</span></td><td class="n">${m.n}</td><td class="n ${m.R>0?"pos":m.R<0?"neg":""}">${R(m.R)}</td><td class="n">${m.WR!=null?Math.round(m.WR*100)+" %":"—"}</td><td class="n">${R(m.gan)}</td><td class="n">${R(m.perd)}</td><td class="n">${m.PF==null?"—":m.PF===Infinity?"∞":m.PF.toFixed(2)}</td><td class="n">${h}</td></tr>`}).join("")}
+  ${[["Vigilar 20-50 % · humo",v20h,"+0.09R · PF 1.35"],["Vigilar 20-50 % · resto",v20o,"−0.12R · PF 0.57"]].map(([n,v,h])=>{const m=metrics(v);return `<tr><td><span class="lvl" style="--c:var(--lvV)">${n}</span></td><td class="n">${m.n}</td><td class="n ${m.R>0?"pos":m.R<0?"neg":""}">${R(m.R)}</td><td class="n">${m.WR!=null?Math.round(m.WR*100)+" %":"—"}</td><td class="n">${R(m.gan)}</td><td class="n">${R(m.perd)}</td><td class="n">${m.PF==null?"—":m.PF===Infinity?"∞":m.PF.toFixed(2)}</td><td class="n">${h}</td></tr>`}).join("")}
   </tbody></table></div>
   <p class="note" style="margin-top:10px">Con pocos días los números bailan mucho: hacen falta decenas de casos por nivel para sacar conclusiones.</p></div>`;
 }
@@ -391,17 +395,17 @@ function fillFechas(){
 $("#selFecha").addEventListener("change",e=>{st.fecha=e.target.value;st.abierto=null;renderAll()});
 
 document.addEventListener("click",e=>{
-  const b=e.target.closest("[data-dj]");if(b){st.abierto=st.abierto===b.dataset.dj?null:b.dataset.dj;renderLista();return}
-  if(e.target.closest("[data-cerrar]")){st.abierto=null;renderLista()}
+  const b=e.target.closest("[data-dj]");if(b){st.abierto=st.abierto===b.dataset.dj?null:b.dataset.dj;rerender();return}
+  if(e.target.closest("[data-cerrar]")){st.abierto=null;rerender()}
 });
 document.addEventListener("submit",async e=>{
   const f=e.target.closest("form.dj");if(!f)return;e.preventDefault();
-  const L=lista();const sym=f.dataset.sym;const x=L.lista.find(y=>y.sym===sym);const msg=$("#msg-"+sym);
+  const L=lista();const sym=f.dataset.sym;const x=L.lista.find(y=>y.sym===sym)||(L.vigilar||[]).find(y=>y.sym===sym);const msg=$("#msg-"+sym);
   const d=Object.fromEntries(new FormData(f).entries());
   Object.assign(d,{fecha:L.fecha,sym,nivel:x?x.nivel:"",tipo:x&&x.clasif?x.clasif.tipo||"":"",precio_lista:x?x.precio:null,actualizado:new Date().toISOString()});
   if(!st.db){msg.textContent="La base de datos no está disponible.";return}
   msg.textContent="Guardando…";
-  try{await st.db.doc("diario/"+L.fecha+"_"+sym).set(d);msg.textContent="Guardado";st.abierto=null;renderLista();renderDiario()}
+  try{await st.db.doc("diario/"+L.fecha+"_"+sym).set(d);msg.textContent="Guardado";st.abierto=null;rerender();renderDiario()}
   catch(err){msg.textContent=err&&err.code==="invalid_argument"?"No tienes permiso para escribir en esta página.":"No se pudo guardar. Inténtalo de nuevo."}
 });
 
@@ -420,7 +424,7 @@ st.fecha=st.fechas[0]||null;fillFechas();selectPane(store.get("radar.pane","list
     if(!st.fecha||st.fecha===prev)st.fecha=st.fechas[0];
     fillFechas();renderAll();
   },()=>{});
-  db.collection("diario").limit(1000).onSnapshot(s=>{st.diario={};s.docs.forEach(d=>st.diario[d.id]=d.data());renderLista();renderDiario()},()=>{});
+  db.collection("diario").limit(1000).onSnapshot(s=>{st.diario={};s.docs.forEach(d=>st.diario[d.id]=d.data());rerender();renderDiario()},()=>{});
 })();
 })();
 </script>

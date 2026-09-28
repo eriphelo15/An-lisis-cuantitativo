@@ -1,9 +1,9 @@
 {
  "fecha": "2026-09-28",
- "generado": "2026-09-28 14:20",
+ "generado": "2026-09-28 18:05",
  "replay": false,
  "desde": "2026-09-25 16:00",
- "corte": "2026-09-28 14:20",
+ "corte": "2026-09-28 09:10",
  "cobertura": {
   "universo": 5910,
   "cotizadas": 5909,
@@ -16,10 +16,10 @@
    "precio": 0.3788,
    "cierre_prev": 0.1795,
    "gap": 1.1103,
-   "cap": 18739458,
-   "vol_pre": 892358658,
+   "cap": 17098280,
+   "vol_pre": 972188181,
    "bolsa": "NYSE American",
-   "estado": "REGULAR",
+   "estado": "POST",
    "cik": 1853070,
    "catalizadores": [
     {
@@ -102,13 +102,13 @@
   {
    "sym": "KOD",
    "nombre": "Kodiak Sciences Inc.",
-   "precio": 61.28,
+   "precio": 61.705,
    "cierre_prev": 32.35,
-   "gap": 0.8943,
-   "cap": 5728187392,
-   "vol_pre": 31426405,
+   "gap": 0.9074,
+   "cap": 5651422720,
+   "vol_pre": 38398805,
    "bolsa": "NasdaqGM",
-   "estado": "REGULAR",
+   "estado": "POST",
    "cik": 1468748,
    "catalizadores": [
     {
@@ -192,10 +192,10 @@
    "precio": 5.81,
    "cierre_prev": 3.5228,
    "gap": 0.6493,
-   "cap": 11770208,
-   "vol_pre": 24642594,
+   "cap": 13644601,
+   "vol_pre": 28097304,
    "bolsa": "NasdaqCM",
-   "estado": "REGULAR",
+   "estado": "POST",
    "cik": 840715,
    "catalizadores": [],
    "docs_hoy": [],
@@ -239,10 +239,10 @@
    "precio": 1.215,
    "cierre_prev": 0.7396,
    "gap": 0.6428,
-   "cap": 14000538,
-   "vol_pre": 106934982,
+   "cap": 12557020,
+   "vol_pre": 112295061,
    "bolsa": "NasdaqCM",
-   "estado": "REGULAR",
+   "estado": "POST",
    "cik": 2111846,
    "catalizadores": [],
    "docs_hoy": [],
@@ -292,10 +292,10 @@
    "precio": 6.52,
    "cierre_prev": 4.2,
    "gap": 0.5524,
-   "cap": 246423424,
-   "vol_pre": 3276015,
+   "cap": 246801952,
+   "vol_pre": 4003471,
    "bolsa": "NasdaqGS",
-   "estado": "REGULAR",
+   "estado": "POST",
    "cik": 1005286,
    "catalizadores": [
     {
@@ -370,10 +370,10 @@
    "precio": 2.4399,
    "cierre_prev": 1.61,
    "gap": 0.5155,
-   "cap": 8253677,
-   "vol_pre": 45006831,
+   "cap": 8500339,
+   "vol_pre": 46239913,
    "bolsa": "NasdaqCM",
-   "estado": "REGULAR",
+   "estado": "POST",
    "cik": 1967631,
    "catalizadores": [],
    "docs_hoy": [],
@@ -420,17 +420,47 @@
    "precio": 1.0394,
    "cierre_prev": 0.7712,
    "gap": 0.3478,
-   "cap": 14203875,
-   "vol_pre": 25121039,
+   "cap": 13339985,
+   "vol_pre": 26747853,
    "bolsa": "NasdaqCM",
-   "estado": "REGULAR",
+   "estado": "POST",
    "cik": 1998560,
    "catalizadores": [],
    "docs_hoy": [],
    "noticias": [],
    "sector": "Services-Business Services, NEC",
    "venta_hoy": false,
-   "municion": {}
+   "municion": {
+    "venta90": true,
+    "s3": "2026-05-19",
+    "s1": null,
+    "ventas_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-08-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1998560/000121390026094900/ea0303716-424b5_mint.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2025-01-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1998560/000121390025002315/ea0201201-11.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1998560/000121390026090165/ea0300620-20f_mint.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
   },
   {
    "sym": "WBUY",
@@ -438,12 +468,31 @@
    "precio": 1.04,
    "cierre_prev": 0.8039,
    "gap": 0.2937,
-   "cap": 5015210,
-   "vol_pre": 36142799,
+   "cap": 4932993,
+   "vol_pre": 37592808,
    "bolsa": "NasdaqCM",
-   "estado": "REGULAR",
+   "estado": "POST",
    "cik": 1946703,
-   "catalizadores": [],
+   "catalizadores": [
+    {
+     "form": "6-K",
+     "hora": "2026-09-28 02:31",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390026103727/ea0306044-6k_webuy.htm",
+     "partes": [
+      {
+       "archivo": "ea030604401ex99-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390026103727/ea030604401ex99-1.htm",
+       "texto": "MANAGEMENT'S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERATIONS FOR THE SIX MONTHS ENDED JUNE 30, 2026 AND 2025 Exhibit 99.1 Results of Operations Comparative financial information for the six months ended June 30, 2025 has been retrospectively reclassified to reflect the Singapore grocery business as discontinued operations following its disposal in 2025, consistent with the presentation adopted in the Company’s audited consolidated financial statements for the year ended December 31, 2025. Accordingly, unless otherwise stated, the comparative results presented below represent results from continuing operations. The following table sets forth certain operational data for the six months ended June 30, 2026 and 2025: Periods Ended June 30, 2026 2025 USD USD Revenues $ 14,306,084 $ 7,359,679 Cost of revenues (12,479,546 ) (6,571,294 ) Gross profit 1,826,538 788,385 Operating expenses Selling and distribution expenses (1,103,932 ) (503,504 ) General administrative expenses (4,739,521 ) (6,239,331 ) Loss from operations (4,016,915 ) (5,954,450 ) Other income (expense) Other income 750,338 582,021 Finance costs (52,559 ) (586,990 ) Total other income (expense), net 697,779 (4,969 ) Loss before income taxes (3,319,136 ) (5,959,419 ) Income tax expense - - Net loss from continuing operations, net of tax $ (3,319,136 ) $ (5,959,419 ) Net loss from discontinued operations, net of tax - (1,727,481 ) Total net loss (3,319,136 ) (7,686,900 ) Revenues For the six months ended June 30, 2026 and 2025, we derived our revenue primarily from packaged tours, reflecting o"
+      },
+      {
+       "archivo": "ea030604401ex99-2.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390026103727/ea030604401ex99-2.htm",
+       "texto": "wbuy-20260630 http://fasb.org/srt/2026#ChiefExecutiveOfficerMember 1 http://fasb.org/us-gaap/2026#ForeignCountryMember http://fasb.org/us-gaap/2026#ForeignCountryMember Exhibit 99.2 WEBUY GLOBAL LTD AND SUBSIDIARIES UNAUDITED INTERIM CONSOLIDATED BALANCE SHEETS (Amounts expressed in US dollars (“$”) except for numbers of shares and par value) June 30, December 31, 2026 2025 Assets Current assets Cash and cash equivalents $ 2,436,957 $ 3,056,043 Accounts receivable 1,106,299 1,124,747 Prepaid expenses and other assets 8,467,672 5,401,296 Note receivable 3,366,570 4,070,970 Amount due from related parties 47,313 22,553 Total current assets 15,424,811 13,675,609 Leasehold improvements and equipment, net 337,302 287,064 Right of use assets – operating lease 1,522,604 1,501,726 Intangible assets 512,328 713,015 Total Assets $ 17,797,045 $ 16,177,414 Liabilities and Shareholders’ Equity Current Liabilities Accounts payable $ 3,182,811 $ 2,704,606 Deferred revenue 5,938,464 4,743,019 Other current liabilities 3,132,471 3,021,734 Amount due to a related party 26,245 26,391 Loans payable 31,094 102,149 Convertible notes payable - 529,768 Operating lease liability – current 966,398 768,538 Total Current Liabilities 13,277,483 11,896,205 Operating lease liability – non-current 781,623 989,503 Total Liabilities $ 14,059,106 $ 12,885,708 Commitments and contingencies - - Shareholders’ Equity Ordinary shares ( 2,166,666,666 shares authorized, comprising 2,166,250,000 Class A ordinary shares and 416,666 Class B ordinary shares, par value of $ 0.0000462 per share; 5,481,104 and 2,436,907 s"
+      }
+     ]
+    }
+   ],
    "docs_hoy": [
     {
      "form": "6-K",
@@ -453,10 +502,57 @@
      "items_es": ""
     }
    ],
-   "noticias": [],
+   "noticias": [
+    {
+     "hora": "2026-09-28 04:30",
+     "titular": "WEBUY GLOBAL LTD. Nearly Doubles First-Half 2026 Revenue to US$14.3 Million as Gross Profit Increases 132%",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/webuy-global-ltd-nearly-doubles-083000007.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
    "sector": "Retail-Miscellaneous Retail",
    "venta_hoy": false,
-   "municion": {}
+   "municion": {
+    "venta90": false,
+    "s3": "2026-05-18",
+    "s1": "2026-05-06",
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-07-31",
+      "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390025070089/ea0251040-424b4_webuy.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-12-17",
+      "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390024109783/ea0225039-424b5_webuy.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2024-04-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390024037877/ea0204966-424b4_webuyglo.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2023-10-19",
+      "url": "https://www.sec.gov/Archives/edgar/data/1946703/000164033423001918/webuy_424b4.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-04-29",
+     "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390026049395/ea0286498-20f_webuy.htm"
+    },
+    "eloc": true,
+    "warrants_en_dinero": false
+   }
   },
   {
    "sym": "MEDS",
@@ -464,17 +560,59 @@
    "precio": 3.97,
    "cierre_prev": 3.11,
    "gap": 0.2765,
-   "cap": 12982390,
-   "vol_pre": 31665742,
+   "cap": 12182982,
+   "vol_pre": 33265665,
    "bolsa": "NasdaqCM",
-   "estado": "REGULAR",
+   "estado": "POST",
    "cik": 2030763,
    "catalizadores": [],
    "docs_hoy": [],
-   "noticias": [],
+   "noticias": [
+    {
+     "hora": "2026-09-28 06:00",
+     "titular": "DataMeds AI and Tollo Health Announce Launch of 'Health Lives Here' Mobile Application",
+     "url": "https://finance.yahoo.com/healthcare/articles/datameds-ai-tollo-health-announce-100000976.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
    "sector": "Wholesale-Drugs, Proprietaries & Druggists' Sundries",
    "venta_hoy": false,
-   "municion": {}
+   "municion": {
+    "venta90": false,
+    "s3": "2026-04-15",
+    "s1": "2026-08-07",
+    "ventas_12m": 1,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 2,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-09-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/2030763/000149315225015899/form424b4.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2025-02-21",
+      "url": "https://www.sec.gov/Archives/edgar/data/2030763/000149315225007800/form424b4.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     0.41,
+     0.5,
+     20.5,
+     36.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-17",
+     "url": "https://www.sec.gov/Archives/edgar/data/2030763/000149315226038581/form10-q.htm"
+    },
+    "eloc": true,
+    "warrants_en_dinero": true
+   }
   },
   {
    "sym": "COLA",
@@ -482,12 +620,26 @@
    "precio": 12.95,
    "cierre_prev": 10.45,
    "gap": 0.2392,
-   "cap": 46967336,
-   "vol_pre": 4063,
+   "cap": 47810944,
+   "vol_pre": 13130,
    "bolsa": "NasdaqGM",
-   "estado": "REGULAR",
+   "estado": "POST",
    "cik": 2028201,
-   "catalizadores": [],
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 05:21",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026103784/ea0306809-8k_columbus.htm",
+     "partes": [
+      {
+       "archivo": "ea030680901ex99-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026103784/ea030680901ex99-1.htm",
+       "texto": "DATED SEPTEMBER 28, 2026 Exhibit 99.1 Columbus Acquisition Corp Announces Adjournment of Reconvened Extraordinary General Meeting of the Shareholders New York, Sept. 28, 2026 (GLOBE NEWSWIRE) -- Columbus Acquisition Corp (the “Company”), a blank check company, today announced that it reconvened its Extraordinary General Meeting of the Shareholders (the “Meeting”) and, without conducting any business, adjourned the Meeting to 9:00 a.m. Eastern Time on September 29, 2026 at the offices of Loeb & Loeb LLP, 345 Park Avenue, New York, NY 10154, and virtually via teleconference using the following dial-in information: Telephone access: Within the U.S.: and Canada: 1 800-450-7155 (toll-free) Outside of the U.S. and Canada: +1 857-999-9155 (standard rates apply) Phone conference ID: 5870682# The Meeting was adjourned as to all of the proposals contained in the Company’s definitive proxy statement filed with the Securities and Exchange Commission (“SEC”) on August 19, 2026, including any amendments or supplements thereto (the “Proxy Statement”), including the proposal to approve the proposed business combination with WISeSat.Space Corp. Except for the meeting date and time provided above, the Company’s previously announced information concerning the Meeting remains unchanged. The record date for determining the Company shareholders entitled to receive notice of and to vote at the Meeting remains the close of business on August 17, 2026 (the “Record Date”). Shareholders as of the Record Date are eligible to vote, even if they have subsequently sold their shares. If you have already v"
+      }
+     ]
+    }
+   ],
    "docs_hoy": [
     {
      "form": "DEFA14A",
@@ -507,7 +659,32 @@
    "noticias": [],
    "sector": "Blank Checks",
    "venta_hoy": false,
-   "municion": {}
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 2,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-01-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390025006259/ea0207942-09.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-04",
+     "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026085116/ea0299941-10q_columbus.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
   },
   {
    "sym": "LABT",
@@ -515,17 +692,62 @@
    "precio": 2.06,
    "cierre_prev": 1.67,
    "gap": 0.2335,
-   "cap": 2950261,
-   "vol_pre": 33961770,
+   "cap": 2725141,
+   "vol_pre": 34886641,
    "bolsa": "NasdaqCM",
-   "estado": "REGULAR",
+   "estado": "POST",
    "cik": 2079272,
    "catalizadores": [],
    "docs_hoy": [],
-   "noticias": [],
+   "noticias": [
+    {
+     "hora": "2026-09-28 08:16",
+     "titular": "LABT: First Patient Dosed in Phase 2a Trial of Nu-3 for Infected Diabetic Foot Ulcers",
+     "url": "https://finance.yahoo.com/healthcare/articles/labt-first-patient-dosed-phase-121600525.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    },
+    {
+     "hora": "2026-09-28 08:02",
+     "titular": "Lakewood-Amedex Biotherapeutics Announces Positive Data Against Recent Clinical Isolates from Infected Diabetic Foot Ulcers",
+     "url": "https://finance.yahoo.com/healthcare/articles/lakewood-amedex-biotherapeutics-announces-positive-120200296.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
    "sector": "Pharmaceutical Preparations",
    "venta_hoy": false,
-   "municion": {}
+   "municion": {
+    "venta90": true,
+    "s3": null,
+    "s1": "2026-09-18",
+    "ventas_12m": 2,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 1,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2026-05-14",
+      "url": "https://www.sec.gov/Archives/edgar/data/2079272/000121390026056648/ea0290410-424b4_lakewood.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2026-04-23",
+      "url": "https://www.sec.gov/Archives/edgar/data/2079272/000121390026047113/ea0248668-15.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     100.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/2079272/000121390026089380/ea0299462-10q_lakewood.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
   },
   {
    "sym": "DLXY",
@@ -533,17 +755,42 @@
    "precio": 3.05,
    "cierre_prev": 2.4995,
    "gap": 0.2202,
-   "cap": 8224050,
-   "vol_pre": 1777072,
+   "cap": 7978800,
+   "vol_pre": 1871557,
    "bolsa": "NasdaqCM",
-   "estado": "REGULAR",
+   "estado": "POST",
    "cik": 2025218,
    "catalizadores": [],
    "docs_hoy": [],
    "noticias": [],
    "sector": "Wholesale-Petroleum & Petroleum Products (No Bulk Stations)",
    "venta_hoy": false,
-   "municion": {}
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-07-09",
+      "url": "https://www.sec.gov/Archives/edgar/data/2025218/000121390025062254/ea0207238-23.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-04-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/2025218/000121390026050402/ea0287803-20f_delixy.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
   }
  ]
 }

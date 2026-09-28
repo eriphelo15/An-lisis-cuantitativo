@@ -14,7 +14,7 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
    `python3 herramientas/lista_diaria.py resultados --fecha AAAA-MM-DD` y guardar ese archivo en la base de datos
    (`ArtifactData set`, colección `listas`, `doc_id` = fecha, `file_path` = el JSON).
 4. Escanear: `python3 herramientas/lista_diaria.py escanear` → `listas/datos/HOY_candidatos.json`.
-5. Clasificar el catalizador de cada candidato con gap ≥ 50 % (leer `catalizadores[].partes[].texto` y `noticias`; si solo hay
+5. Clasificar el catalizador de **cada candidato con gap ≥ 20 %** (desde el 29-sep también los de 20-50 %, que llevan ficha completa) (leer `catalizadores[].partes[].texto` y `noticias`; si solo hay
    noticia de agencia, abrirla con WebFetch). **Nunca poner N si hay algún titular sin abrir** (GYGY 28-sep: el artículo
    de Benzinga explicaba la subida; también mirar si es una noticia vieja reciclada). Escribir `listas/datos/HOY_clasif.json`:
    `{"TICKER": {"tipo": "...", "frase_en": "frase ORIGINAL en inglés", "frase_es": "traducción", "cifra": "cifra con su unidad", "nota": "..."}}`
@@ -31,7 +31,7 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
    - **O** otros. · **N** no se encontró ninguna noticia ni documento.
    Método acordado con el usuario: frase original en inglés + traducción + cifra con su unidad. Ser honesto si hay dudas (anotarlo en `nota`).
 5b. **Auditoría antes de publicar (obligatoria, nada se entrega sin ella):**
-   - Cada titular y cada 8-K/6-K de las acciones con gap ≥ 50 % abierto y leído (no basta el titular). Mirar si la noticia es vieja reciclada.
+   - Cada titular y cada 8-K/6-K de las acciones con gap ≥ 20 % abierto y leído (no basta el titular). Mirar si la noticia es vieja reciclada.
    - `N` solo si se revisaron a mano Finviz, Yahoo y EDGAR sin encontrar nada → anotar `"fuentes_abiertas"` en el `_clasif.json`.
    - Cada `frase_en` copiada literal del documento (verificable con Ctrl+F) y cada cifra con su unidad (dólares vs. acciones).
    - `finalizar` ejecuta un control automático (cobertura del escáner ≥ 97 %, todo clasificado, sin `N` con titulares sin abrir,

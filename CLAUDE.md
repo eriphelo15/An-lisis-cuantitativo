@@ -36,6 +36,8 @@
   Niveles (desde el 28-sep, aprobados por el usuario): A = humo + gap ≥ 100 % + precio ≥ $1 (base +0.45R VAL, +0.42R DEV; corte provisional);
   B = humo + gap 50-100 % + precio ≥ $1 (base ≈ 0R: la ventaja depende de la ejecución); Vigilar (humo < $1 por coste del locate, contrato real,
   FDA, otros, sin noticia); NO (resultados/financiación/bolsa/424B hoy); Nunca (compra en efectivo). La letra = fuerza de la base estadística.
+  Desde el 29-sep (pedido por el usuario): trabajo de campo completo (catalizador + munición + noticias) también para los gappers de 20-50 %,
+  con ficha completa en la pestaña 'Vigilar 20-50 %' (no entran en A/B). `escanear --corte HH:MM` rehace un día ya abierto.
   **Reparto acordado:** el Radar entrega SOLO selección (SEC, catalizador, munición, estadística de base). Sin plan de ejecución, stop ni tamaño:
   la ejecución es discrecional del usuario. El análisis de ejecución/estrategias sigue, pero en conversaciones de formación, no en la lista diaria.
   Medido en la ronda 6 (sin 8-K ≈ 0R); casos de prueba del caso "sube sin ninguna noticia" (días de prueba, revisados a mano: BTTC −1.25R, VEEE −1.25R, WHLR −1.25R, WETO +0.73R, SKYE +1.35R; GRML NO era "sin noticia": noticia de tema Groenlandia).

@@ -38,6 +38,8 @@ ESTAD = {
               fuente="base mecánica, humo + gap ≥100 % + precio ≥ $1 · VAL 2022-26 (DEV 2015-21: +0.42R, 18 casos) · corte provisional (ronda 5)"),
     "B": dict(R=-0.02, WR=0.60, gan=0.67, perd=-1.05, PF=0.96, n=60, squeeze=0.18,
               fuente="base mecánica, humo + gap 50-100 % + precio ≥ $1 · VAL 2022-26 (DEV: +0.01R, 47 casos) · la ventaja depende de la ejecución"),
+    "H20": dict(R=0.09, WR=0.65, gan=0.57, perd=-0.76, PF=1.35, n=138, squeeze=0.10,
+                fuente="base mecánica, humo + gap 20-50 % + precio ≥ $1 · VAL 2022-26 (DEV: +0.02R, 99 casos) · base pequeña (ronda 6)"),
     "H<1": dict(R=0.26, WR=0.70, gan=0.90, perd=-1.25, PF=1.68, n=40, squeeze=0.28,
                 fuente="base mecánica, humo + gap ≥50 % + precio < $1 · VAL 2022-26 · ANTES del locate: con $0.02 por acción queda en −0.14R (ronda 5)"),
     "VIGILAR": dict(R=0.01, WR=0.60, gan=None, perd=None, PF=1.05, n=None, squeeze=None, fuente="contrato real / FDA / otros ≈ 0R"),
@@ -297,12 +299,14 @@ def ruta(fecha, suf=""):
     return os.path.join(DATOS, f"{fecha}{suf}.json")
 
 
-def escanear(fecha, replay):
+def escanear(fecha, replay, corte_hhmm=None):
     d = dt.date.fromisoformat(fecha)
     if not es_habil(d):
         print(f"{fecha}: mercado cerrado (fin de semana o festivo). Sin lista."); return
     desde = dt.datetime.combine(dia_habil_anterior(d), dt.time(16, 0), NY)
     corte = dt.datetime.combine(d, dt.time(9, 10), NY) if replay else dt.datetime.now(NY)
+    if corte_hhmm:                                   # rehacer un día en vivo con el corte de documentos de la mañana
+        hh, mm = map(int, corte_hhmm.split(":")); corte = dt.datetime.combine(d, dt.time(hh, mm), NY)
     cand = escanear_replay(fecha) if replay else escanear_vivo()
     cand.sort(key=lambda c: -c["gap"])
     print(f"{len(cand)} candidatos con gap ≥ {GAP_VIGILAR:.0%}", flush=True)
@@ -319,7 +323,7 @@ def escanear(fecha, replay):
             hoy = [p for p in pres if desde < p["hora"] <= corte]
             c["docs_hoy"] = [dict(form=p["form"], hora=p["hora"].strftime("%Y-%m-%d %H:%M"), items=p["items"], url=p["url"],
                                   items_es="; ".join(f"{i} {ITEMS.get(i, '')}" for i in p["items"].split(",") if i)) for p in hoy]
-            profundo = c["gap"] >= GAP_LISTA
+            profundo = c["gap"] >= GAP_VIGILAR          # desde el 29-sep: análisis completo también para los gappers de 20-50 %
             for p in hoy:
                 if p["form"] in ("8-K", "8-K/A", "6-K", "6-K/A") and profundo:
                     c["catalizadores"].append(dict(form=p["form"], hora=p["hora"].strftime("%Y-%m-%d %H:%M"), items=p["items"],
@@ -332,8 +336,9 @@ def escanear(fecha, replay):
                     v = max(fr["units"]["shares"], key=lambda f: f["end"])["val"]; c["cap"] = v * c["precio"]
                 except Exception:
                     pass
-        if not replay and c["gap"] >= GAP_LISTA:
-            c["noticias"] = noticias(c["sym"], desde)
+        if c["gap"] >= GAP_VIGILAR:                    # noticias solo hasta el corte (también en días de prueba)
+            lim = corte.strftime("%Y-%m-%d %H:%M")
+            c["noticias"] = [n for n in noticias(c["sym"], desde) if n["hora"] <= lim]
         print(f"  {c['sym']:6} gap {c['gap']:+.0%}  docs hoy {len(c['docs_hoy'])}  catalizadores {len(c['catalizadores'])}  noticias {len(c['noticias'])}", flush=True)
     out = dict(fecha=fecha, generado=dt.datetime.now(NY).strftime("%Y-%m-%d %H:%M"), replay=replay,
                desde=desde.strftime("%Y-%m-%d %H:%M"), corte=corte.strftime("%Y-%m-%d %H:%M"),
@@ -370,8 +375,6 @@ def auditar(C, CL, replay):
         elif cob["pct"] < 0.97:
             err.append(f"Cobertura del escáner {cob['pct']:.1%} ({cob['cotizadas']}/{cob['universo']}): faltan cotizaciones, repetir 'escanear'")
     for c in C["candidatos"]:
-        if c["gap"] < GAP_LISTA:
-            continue
         s, cl = c["sym"], CL.get(c["sym"])
         if not cl:
             err.append(f"{s}: gap {c['gap']:+.0%} sin clasificar"); continue
@@ -384,7 +387,7 @@ def auditar(C, CL, replay):
         if t != "N" and (not cl.get("frase_en") or not cl.get("frase_es") or not cl.get("cifra")):
             err.append(f"{s}: falta frase original, traducción o cifra con unidad")
         if not replay and not c.get("municion"):
-            err.append(f"{s}: sin análisis de munición (subió sobre el 50 % después del escaneo): repetir 'escanear'")
+            err.append(f"{s}: sin análisis de munición: repetir 'escanear'")
         if c.get("cap") is None:
             av.append(f"{s}: capitalización desconocida")
         if t == "N" and not replay and not cl.get("fuentes_abiertas"):
@@ -418,11 +421,11 @@ def finalizar(fecha, replay, forzar=False):
     orden = {"A": 0, "B": 1, "VIGILAR": 2, "NO": 3, "NUNCA": 4}
     for c in C["candidatos"]:
         cl = CL.get(c["sym"], {})
-        if c["gap"] < GAP_LISTA:
-            vigilar.append(dict(sym=c["sym"], nombre=c["nombre"], precio=c["precio"], gap=c["gap"], cap=c.get("cap"),
-                                docs_hoy=c.get("docs_hoy", []), tipo=cl.get("tipo")))
-            continue
-        nv = nivel(c, cl)
+        t = cl.get("tipo", "N")
+        if c["gap"] < GAP_LISTA:     # 20-50 %: ficha completa, nivel solo informativo (NO/Nunca si el catalizador lo indica)
+            nv = "NUNCA" if t == "C" else "NO" if (t in ("R", "F", "S") or c.get("venta_hoy")) else "VIGILAR"
+        else:
+            nv = nivel(c, cl)
         avisos = []
         # (aviso de capitalización < $30 M retirado el 28-sep: era un artefacto de precios ajustados por splits, ronda 5)
         if c.get("venta_hoy"):
@@ -437,7 +440,13 @@ def finalizar(fecha, replay, forzar=False):
         if m.get("toxica"):
             avisos.append("Convertible de precio variable (tóxica) en el último informe")
         entrada = c["precio"]
-        lista.append(dict(sym=c["sym"], nombre=c["nombre"], sector=c.get("sector", ""), precio=entrada, cierre_prev=c["cierre_prev"],
+        if c["gap"] < GAP_LISTA:
+            est = ESTAD["H20"] if t == "H" and (entrada or 0) >= PRECIO_OPERABLE else ESTAD[nv]
+        elif nv == "VIGILAR" and t == "H" and (entrada or 0) < PRECIO_OPERABLE:
+            est = ESTAD["H<1"]
+        else:
+            est = ESTAD[nv]
+        (lista if c["gap"] >= GAP_LISTA else vigilar).append(dict(sym=c["sym"], nombre=c["nombre"], sector=c.get("sector", ""), precio=entrada, cierre_prev=c["cierre_prev"],
                           gap=c["gap"], cap=c.get("cap"), vol_pre=c.get("vol_pre"), nivel=nv, clasif=dict(cl, tipo_es=TIPOS.get(cl.get("tipo", "N"), "")),
                           catalizadores=[dict(form=k["form"], hora=k["hora"], items=k["items"], url=k["url"],
                                               anexos=[dict(archivo=p["archivo"], url=p["url"]) for p in k["partes"]]) for k in c.get("catalizadores", [])],
@@ -445,9 +454,9 @@ def finalizar(fecha, replay, forzar=False):
                           # referencia de costes (información de campo, no instrucción de ejecución):
                           # cuánto R de la base mecánica consume cada $0.01 de locate por acción
                           costes=dict(locate_1c_R=round(0.01 / (STOP * entrada), 3) if entrada else None),
-                          estad=ESTAD["H<1"] if nv == "VIGILAR" and cl.get("tipo") == "H" and c["gap"] >= GAP_LISTA and (c.get("precio") or 0) < PRECIO_OPERABLE else ESTAD[nv],
-                          avisos=avisos))
+                          estad=est, avisos=avisos))
     lista.sort(key=lambda x: (orden[x["nivel"]], -x["gap"]))
+    vigilar.sort(key=lambda x: -x["gap"])
     out = dict(fecha=fecha, generado=dt.datetime.now(NY).strftime("%Y-%m-%d %H:%M"), replay=replay, desde=C["desde"], corte=C["corte"],
                reglas=dict(gap_lista=GAP_LISTA, gap_vigilar=GAP_VIGILAR, stop=STOP, deslizamiento=DESL, coste=COSTE, riesgo_accion=RIESGO_ACCION),
                lista=lista, vigilar=vigilar, resultados=None,
@@ -462,7 +471,7 @@ def resultados(fecha):
     L = json.load(open(ruta(fecha)))
     d = dt.date.fromisoformat(fecha)
     res = {}
-    for x in L["lista"]:
+    for x in L["lista"] + [v for v in L.get("vigilar", []) if "precio" in v]:
         try:
             h = yf.download(x["sym"], start=d.isoformat(), end=(d + dt.timedelta(days=5)).isoformat(), progress=False, auto_adjust=False)
             if hasattr(h.columns, "levels"):
@@ -487,7 +496,8 @@ if __name__ == "__main__":
     ap.add_argument("paso", choices=["escanear", "finalizar", "resultados"])
     ap.add_argument("--fecha", default=dt.datetime.now(NY).date().isoformat())
     ap.add_argument("--replay", action="store_true")
+    ap.add_argument("--corte", help="HH:MM: solo documentos/noticias hasta esa hora (para rehacer un día ya abierto)")
     ap.add_argument("--forzar", action="store_true", help="publicar aunque la auditoría tenga errores (queda anotado)")
     a = ap.parse_args()
-    {"escanear": lambda: escanear(a.fecha, a.replay), "finalizar": lambda: finalizar(a.fecha, a.replay, a.forzar),
+    {"escanear": lambda: escanear(a.fecha, a.replay, a.corte), "finalizar": lambda: finalizar(a.fecha, a.replay, a.forzar),
      "resultados": lambda: resultados(a.fecha)}[a.paso]()

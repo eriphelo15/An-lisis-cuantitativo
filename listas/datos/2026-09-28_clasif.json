@@ -38,5 +38,46 @@
   "frase_es": "Pearson y Namibox firman un memorando de cooperación estratégica y unen fuerzas para dar forma a un nuevo panorama global del aprendizaje y la educación en la era de la IA",
   "cifra": "sin cifra en dólares: memorando (MOU), no un contrato; empresa de ~$8 M de capitalización",
   "nota": "Nota de prensa (PR Newswire, 9:00) sin 6-K en la SEC por ahora (empresa china, presenta 6-K en vez de 8-K). Memorando + giro IA + 'tercera fase' de una relación que existe desde 2018 = humo. Sin ventas de acciones en 90 días (última 424B4 dic-2024); shelf F-3/S-3 de dic-2025."
+ },
+ "MIMI": {
+  "tipo": "N",
+  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano 28-sep",
+  "nota": "Sin 8-K/6-K ni noticias desde el cierre del viernes (última noticia: 15-sep, licencia con Pudgy Penguins). Historial reciente de humo: MOU de robótica (9-sep), tokenización de acciones (3-sep, +49 %)."
+ },
+ "WBUY": {
+  "tipo": "R",
+  "frase_en": "Revenue from continuing operations increased 94.4% year-over-year to US$14.31 million, while gross profit increased 131.7% to US$1.83 million",
+  "frase_es": "los ingresos de las operaciones continuadas subieron un 94,4 % interanual hasta 14,31 millones de dólares, y el beneficio bruto un 131,7 % hasta 1,83 millones",
+  "cifra": "$14.31 M (dólares) de ingresos del semestre; pérdida neta $3.32 M",
+  "nota": "Resultados semestrales (6-K 2:31 + nota de prensa 4:30). Empresa ~$5 M de capitalización, ELOC activa y going concern."
+ },
+ "MEDS": {
+  "tipo": "H",
+  "frase_en": "DataMeds AI and Tollo Health Announce Launch of 'Health Lives Here' Mobile Application",
+  "frase_es": "DataMeds AI y Tollo Health anuncian el lanzamiento de la aplicación móvil 'Health Lives Here'",
+  "cifra": "sin cifra de ventas ni en dólares",
+  "nota": "Lanzamiento de app (telemedicina/GLP-1) sin ventas ni contrato con cifra, sin 8-K = humo. Munición: ATM, ELOC, S-1 (7-ago), warrants en dinero ($0.41/$0.50), going concern."
+ },
+ "COLA": {
+  "tipo": "S",
+  "frase_en": "today announced that it reconvened its Extraordinary General Meeting of the Shareholders and, without conducting any business, adjourned the Meeting to 9:00 a.m. Eastern Time on September 29, 2026",
+  "frase_es": "hoy anunció que reanudó su junta extraordinaria de accionistas y, sin tratar ningún asunto, la aplazó al 29 de septiembre de 2026 a las 9:00",
+  "cifra": "sin cifra; aplazamiento de la junta que vota la fusión con WISeSat.Space",
+  "nota": "SPAC (empresa de adquisición): el precio suele estar ligado al dinero en fideicomiso; evento corporativo."
+ },
+ "LABT": {
+  "tipo": "H",
+  "frase_en": "MIC testing analysis of Nu-3 assessed in vitro activity against recent clinical isolates",
+  "frase_es": "el análisis MIC evaluó la actividad de Nu-3 in vitro (en laboratorio) frente a bacterias aisladas de pacientes",
+  "cifra": "sin cifra; datos in vitro + primer paciente dosificado en fase 2a (resultados en el 1T 2027)",
+  "nota": "Datos de laboratorio y 'primer paciente dosificado' sin resultados clínicos = humo (preclínico). Munición: venta 424B en 90 días, S-1 (18-sep), convertible tóxica, going concern."
+ },
+ "DLXY": {
+  "tipo": "S",
+  "frase_en": "Delixy Holdings Limited Announces 1-for-5 Reverse Share Split Effective September 28, 2026",
+  "frase_es": "Delixy Holdings anuncia un contra-split de 1 por 5 efectivo el 28 de septiembre de 2026",
+  "cifra": "contra-split 1:5, efectivo HOY",
+  "nota": "Sin noticias nuevas desde el 18-sep; hoy es el primer día tras el contra-split. Antes: LOI no vinculante por un campo petrolero (16-sep, +452 %).",
+  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano 28-sep"
  }
 }
