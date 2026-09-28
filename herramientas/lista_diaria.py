@@ -409,8 +409,7 @@ def finalizar(fecha, replay, forzar=False):
             continue
         nv = nivel(c, cl)
         avisos = []
-        if (c.get("cap") or 0) and c["cap"] < 30e6:
-            avisos.append("Capitalización < $30 M: más squeezes (histórico −0.13R)")
+        # (aviso de capitalización < $30 M retirado el 28-sep: era un artefacto de precios ajustados por splits, ronda 5)
         if c.get("venta_hoy"):
             avisos.append("424B presentado HOY: la empresa está vendiendo acciones en esta subida")
         if cl.get("tipo") == "H" and not c.get("catalizadores"):

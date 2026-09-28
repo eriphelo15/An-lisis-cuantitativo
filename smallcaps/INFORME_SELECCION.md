@@ -133,3 +133,27 @@ GRML/GLND (21-sep-2026) sí salen como día de tema: GRML (líder) perdió −1.
    GRML fue un caso real de squeeze, pero no la regla. En 2015-21 casi no hay días de tema detectables, así que no hay confirmación.
 2. Tampoco hay diferencia clara entre líder y seguidores.
 3. Lo que protege del squeeze sigue siendo la selección validada (humo + munición + cap ≥ $30 M) y el tamaño; el tema no es un filtro.
+
+## Ronda 5 — precio real < $1, coste del locate y capitalización corregida (28-sep-2026)
+Script `18_precio_real.py` (pre-registro en `HIPOTESIS_SELECCION.md`). **Error de datos detectado y corregido:** Yahoo ajusta los precios por
+splits posteriores (el 55 % de los gappers hizo split después; precio mediano de apertura "ajustado" $16.07 vs real **$2.72**). El R del setup
+no cambia (usa proporciones), pero sí cualquier criterio en dólares: precio y **capitalización** (mediana de la ronda 1 $468 M vs real **$41 M**).
+Se reconstruye el precio real con `splits.parquet`; 547 casos con split en el mismo mes quedan apartados (ambiguos).
+
+**Humo con gap ≥ 50 % por precio real** (R bruto con coste 1 %; neto = − locate ÷ (0.30 × precio) − 0.05R de comisión):
+| Tramo | VAL n | VAL R bruto | WR | PF | Neto locate $0.01 | $0.02 | $0.05 | DEV R bruto (n) |
+|---|---|---|---|---|---|---|---|---|
+| < $1 | 40 | +0.26 | 70 % | 1.68 | +0.03 | **−0.14** | −0.66 | +0.14 (8) |
+| $1-3 | 58 | +0.21 | 66 % | 1.61 | +0.14 | +0.13 | +0.07 | −0.08 (19) |
+| $3-10 | 46 | +0.20 | 70 % | 1.62 | +0.14 | +0.14 | +0.12 | +0.20 (34) |
+| ≥ $10 | 12 | +0.21 | 67 % | 1.59 | +0.15 | +0.15 | +0.14 | +0.23 (12) |
+- **HP1 (bruto < $1 vs ≥ $1): sin diferencia** (VAL +0.26 vs +0.21, t 0.25). La ventaja antes de costes es la misma.
+- **HP2 (neto con locate $0.02): ≥ $1 mejor** en DEV y VAL (VAL +0.13R vs −0.14R) pero **t 1.0 → no validado** (solo 40 casos < $1).
+  Es aritmética más que estadística: el locate en centavos pesa ~3-6 veces más en R en una acción de $0.40 que en una de $2.
+- **HP3 (capitalización corregida < $30 M peor): NO se confirma** (VAL −0.055 vs −0.048, t −0.3; por tramos no hay patrón). El hallazgo
+  "cap < $30 M = peor" de la ronda 1 era un **artefacto** del precio ajustado. Se retira el aviso del Radar.
+- Nivel A: sus estadísticas (+0.30R, n 68) son de humo + gap ≥ 50 % + 424B 90 d **sin** filtro de capitalización; en DEV el 424B dentro del
+  humo va al revés (+0.06 con 424B vs +0.21 sin) → la ventaja de A sobre B **no está validada**.
+- Rotación > 10× (07_filtros) revisada con volumen corregido: se mantiene (VAL −0.13R; DEV −0.25R).
+**Decisión práctica:** en acciones < $1 operar solo con locate ≤ ~$0.01 por acción (≈ 2.5 % del precio deja la mitad de la ventaja); en ≥ $1 el
+locate típico ($0.02) deja ~+0.13R netos. Medir los locates reales en el diario.
