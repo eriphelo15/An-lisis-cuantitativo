@@ -72,3 +72,21 @@ contado como contrato; un contrato de compraventa de acciones y un contra-split 
   - **H12b:** H vs todo lo demás.
   - **H13b (descriptiva):** C compra en efectivo → no se debe shortear (el precio queda anclado).
   - Descriptivas por categoría: R, WR, ganancia media, pérdida media, PF y % de squeeze (>+50 %) en DEV y VAL.
+
+## Ronda 3 — ejecución DENTRO de la selección (pre-registro, escrito ANTES de ver resultados)
+Muestra: gappers (≥ 20 %) con catalizador clasificado (ronda 2b) y velas de 1 h de Yahoo (oct-2023 → sep-2026; ~1 440 casos, 275 "humo").
+DEV = oct-2023 → dic-2024 · VAL = ene-2025 → sep-2026. Con velas de 1 min / 5 min solo hay 8 / 24 casos humo: el indicador Reversal
+NO se puede validar aún (se reporta solo como descriptivo). VWAP aproximado con velas de 1 h (precio típico × volumen acumulado).
+Reglas (salida al cierre; coste 1 %; stop con 5 % de deslizamiento; R = beneficio / distancia al stop):
+- **E0 apertura:** corto a la apertura, stop +30 % (setup A).
+- **E1 1ª hora roja:** corto a las 10:30 solo si la 1ª vela cierra bajo la apertura; stop = máximo del día hasta ese momento × 1.05 (mín. 3 %).
+- **E1c 1ª hora verde** (control de E1): igual pero si cierra sobre la apertura.
+- **E2 bajo VWAP a las 11:30:** corto a las 11:30 si el cierre de la 2ª vela está bajo el VWAP; stop = máximo del día × 1.05 (mín. 3 %).
+- **E2c sobre VWAP a las 11:30** (control de E2).
+Hipótesis (en los gappers humo; se reporta también el resto para comparar):
+| # | Hipótesis | Mejor si… |
+|---|---|---|
+| HE1 | 1ª hora roja vs verde (E1 vs E1c) | roja |
+| HE2 | Bajo VWAP vs sobre VWAP a las 11:30 (E2 vs E2c) | bajo VWAP |
+| HE3 | Esperar debilidad (E2) vs corto a la apertura (E0), mismas acciones | E2 |
+Éxito: mismo sentido en DEV y VAL, VAL t > 2, Holm sobre HE1-HE3.
