@@ -13,12 +13,16 @@
 - **No crear rutinas, alertas, automatizaciones ni herramientas que no haya pedido explícitamente.** Si pregunta
   "¿se puede…?", responder y ofrecer; no ejecutar. (Ya pasó una vez con unas rutinas y pidió borrarlas.)
 - Ser honesto con los datos: si algo no funciona, decirlo; distinguir lo validado de lo decidido a posteriori.
+- **Principio del usuario: toda idea o criterio se valida con datos antes de usarlo.** Aunque tenga lógica, no se da por buena sin medirla.
+- El usuario tiene mucha experiencia ejecutando (futuros): su trabajo es ejecutar el mejor setup según la acción del precio; el trabajo fino de selección es de Claude.
 - Commits y push en la rama `claude/analisis-cuantitativo-45j7qe`. Sin PR salvo que lo pida.
 
 ## Estado actual
 - **Curso de short seller** en `curso_short/` (programa en `00_PROGRAMA.md`). Hechos: módulos 1 (economía de la dilución),
   1b (guía EDGAR + lecciones), 2 (mecánica del corto), 3 (leer la SEC: munición y baby shelf), 4 (anatomía del pump).
-  Módulo 5 (setups medidos) hecho. **Siguiente: Módulo 6 — ejecución (Level 2, cinta, órdenes, halts).** Ejercicios del módulo 4: WHLR (usuario) y BENF (Claude como ejemplo) hechos.
+  Módulo 5 (setups medidos) y Módulo 6 (ejecución condensada: diferencias vs futuros) hechos.
+  **Orden acordado:** Módulo 7 (riesgo) → Módulo 8 (infraestructura: bróker, locates, fondeo de acciones) → **validar con datos los criterios de selección** (munición activa el día del gap, catalizador, float/rotación premarket, etc.) → sistema de lista diaria (solo cuando lo pida).
+  Práctica pendiente del usuario: ejecución en DCOY, LHSW, INLF, GRML, GLND (fichas en `fichas/`). Ejercicios del módulo 4: WHLR (usuario) y BENF (Claude como ejemplo) hechos.
 - Herramienta de dilución hecha: `herramientas/ficha_dilucion.py TICKER` (SEC EDGAR + Yahoo; ~7 s). Fichas en `fichas/`.
 - Futuro (cuando termine la formación): construir un sistema propio tipo "Flash Research" con estadísticas propias.
   No construirlo antes de que el usuario lo pida.
