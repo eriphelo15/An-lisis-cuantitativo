@@ -183,3 +183,27 @@ Script `20_humo_20_50.py`, 237 casos (≥ $1). Ningún subgrupo pasa el criterio
 | con shelf S-3 | +0.05 (72) | **+0.15 (87)** | 67 % | 1.60 | −0.01 |
 | solo nota de prensa (vs 1.01) | +0.07 (46) | +0.15 (63) | 64 % | 1.61 | −0.08 (12) |
 Lo más prometedor: humo 20-50 % + shelf S-3 (mismo sentido en ambos periodos, VAL t 1.75) — no validado; se sigue en vivo.
+
+## Ronda 8 — "primer día rojo" de Edu Trades / Hamlin, corto el mismo día (28-sep-2026)
+Script `21_primer_dia_rojo.py` (pre-registro en `HIPOTESIS_SELECCION.md`). Diario 2015-2026, precio real ≥ $1, sin mirar el futuro
+(un corredor de varios días genera un candidato cada día). Patrón completo: ≥ 2 días verdes seguidos, subida acumulada ≥ +100 %,
+volumen creciente en la racha, el día D abre todavía verde. A = corto a la apertura; B = corto cuando se pone rojo (toca el cierre de D-1).
+| Grupo | Setup | Periodo | n | R | WR | Gan. media | Pérd. media | PF |
+|---|---|---|---|---|---|---|---|---|
+| Patrón completo | A | DEV | 165 | +0.03 | 60 % | +0.66 | −0.93 | 1.07 |
+| Patrón completo | A | VAL | 220 | −0.02 | 56 % | +0.57 | −0.78 | 0.95 |
+| Patrón completo | B | DEV | 98 | +0.07 | 68 % | +0.29 | −0.43 | 1.47 |
+| Patrón completo | B | VAL | 127 | −0.01 | 54 % | +0.29 | −0.35 | 0.94 |
+| Volumen NO creciente | B | DEV | 259 | +0.04 | 57 % | +0.28 | −0.27 | 1.37 |
+| Volumen NO creciente | B | VAL | 610 | +0.01 | 57 % | +0.33 | −0.41 | 1.08 |
+- HR1 (A) VAL t 0.06, HR2 (B) VAL t −0.23, HR3 (volumen creciente mejor) VAL t −1.39 (al revés): **ninguna validada (Holm: ninguna)**.
+- Con costes reales (locate 1 % del precio + comisión 0.05R): A −0.06R DEV / −0.10R VAL; B −0.01R DEV / −0.08R VAL.
+- Descriptivo (no validación): racha de 2 días B VAL +0.07R (n 60); racha "sin ponerse roja en el día" (Hamlin) B VAL +0.08R (n 28) —
+  muestras pequeñas; ≥ 3 días B VAL −0.08R. Solo el 39 % de los candidatos acaba cerrando rojo.
+- Frecuencia (último año): ~0.18 candidatos/día; ~0.13/día con entrada B.
+- Limitaciones: velas diarias (en B no se sabe si el máximo fue antes o después de ponerse rojo → se cuenta como stop, conservador);
+  universo listado hoy (faltan deslistadas); casos con split en el mismo mes excluidos (p. ej. DFNS jul-2026); la definición de "volumen
+  creciente" exige subir en TODOS los días de la racha, y un día verde pequeño al inicio (DAIC 21-ago) la rompe.
+**Conclusión:** el primer día rojo **mecánico** (con o sin la condición de volumen) ≈ 0R, igual que el "día siguiente al rojo" de la ronda
+de setups. La ventaja que Edu obtiene en ese patrón (TGL, BMNR, DAIC) no está en el patrón diario en sí: vendría de la ejecución
+intradía (dónde entra, cuánto aguanta, qué descarta) y de la selección discrecional — no medible con estos datos.
