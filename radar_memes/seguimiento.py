@@ -141,8 +141,15 @@ def _analizar_velas(det, estado_actual):
     }
 
 
+# Liquidez por debajo de la cual no se puede vender: cuando retiran la liquidez
+# de un pool el precio se queda congelado y parecería vivo (le pasó a C DOG,
+# ROGLOVE y la mitad de las primeras alertas del vigía).
+LIQ_MINIMA = 1_000
+
+
 def _vivo(det, e):
-    return bool(e) and e["precio"] > UMBRAL_MUERTO * float(det["precio"])
+    return (bool(e) and e["precio"] > UMBRAL_MUERTO * float(det["precio"])
+            and e["liq"] >= LIQ_MINIMA)
 
 
 def seguir(almacen, log=print):
@@ -170,7 +177,8 @@ def seguir(almacen, log=print):
         vivo = _vivo(d, e)
         fila = {"mint": d["mint"], "horizonte": h, "ts": ahora.isoformat(timespec="seconds"),
                 "retraso_min": round(retraso, 1), "vivo": int(vivo),
-                "precio": e["precio"] if e else 0.0,
+                # Muerto = no se puede vender: vale 0 aunque el precio se haya congelado alto.
+                "precio": e["precio"] if vivo else 0.0,
                 "mc": e["mc"] if e else 0, "liq": e["liq"] if e else 0}
 
         if h in ("24h", "7d"):

@@ -78,8 +78,14 @@ def vetos(r):
     # Más liquidez que capitalización: pool montado a mano, no un lanzamiento normal.
     if r["mc"] and r["liq"] > r["mc"]:
         v.append("liquidez_mayor_que_cap")
+    # Fuera de la curva de pump.fun, poca liquidez para su capitalización significa
+    # que casi todo el suministro está en pocas carteras listas para vender: las 8
+    # primeras alertas así (liquidez 0.2-0.65x la capitalización) perdieron todas.
+    if r.get("dex") != "pump-fun" and r["mc"] and r["liq"] / r["mc"] < 0.7:
+        v.append("poca_liquidez_para_su_cap")
     # Fuera de la curva de pump.fun, la liquidez tiene dueño: si no está bloqueada,
-    # quien la puso puede retirarla en cualquier momento.
+    # quien la puso puede retirarla en cualquier momento (14 de las 17 primeras
+    # alertas a las que les retiraron la liquidez tenían 0% bloqueado).
     if (r.get("dex") != "pump-fun" and r.get("lp_bloqueado") not in (None, "")
             and float(r["lp_bloqueado"]) < 50):
         v.append("liquidez_sin_bloquear")
@@ -153,6 +159,9 @@ def vigilar(almacen, duracion_s, cada_s=60, log=print):
             fuentes._dormir(fuentes.PAUSA_GECKO)
 
         registros = almacen.registros()
+        # Los que ya registró el escaneo principal no se vuelven a alertar.
+        ya_registrados = {d["mint"] for d in registros}
+        filas = [r for r in filas if r["mint"] not in ya_registrados]
         dia = ahora - timedelta(hours=24)
         tres_horas = ahora - timedelta(hours=3)
         mints_por_palabra = {}
@@ -170,8 +179,12 @@ def vigilar(almacen, duracion_s, cada_s=60, log=print):
             r.update(fuentes.info_token(r["mint"]) or {})
             v = vetos(r)
             if v:
-                log(f"[vigia] {r['simbolo']} vetado: {', '.join(v)}")
+                # Se registra en silencio para poder medir si cada veto acierta.
+                r.update({"prioridad": "vetada", "avisado": 0, "vetos": "|".join(v),
+                          "narrativa": narrativas.clasificar(r["simbolo"])})
+                almacen.guardar_alerta(r)
                 alertados.add(r["mint"])  # no volver a evaluarlo
+                log(f"[vigia] {r['simbolo']} vetado: {', '.join(v)}")
                 continue
             r["narrativa"] = (narrativas.clasificar(r["simbolo"])
                               or narrativas.clasificar(f"{r.get('nombre_token', '')} {r.get('descripcion', '')}"))

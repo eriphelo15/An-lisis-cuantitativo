@@ -33,6 +33,8 @@ def cargar(almacen):
               "prioridad"]:
         det[c] = det[c].fillna("") if c in det else ""
     det["ts"] = pd.to_datetime(det["ts"], utc=True)
+    # Un mismo token puede estar en el escaneo y en las alertas: se queda el primer registro.
+    det = det.sort_values("ts").drop_duplicates("mint", keep="first").reset_index(drop=True)
 
     if seg.empty:
         return det
@@ -284,8 +286,14 @@ def generar(almacen):
         if "prioridad" in df and (df["origen"] == "vigia").any():
             alertas = df[df["origen"] == "vigia"].copy()
             alertas["tema"] = alertas["prioridad"].fillna("").replace(
-                {"alta": "con tema relevante (avisadas)", "baja": "sin tema (silenciosas)", "": "antes de separar"})
-            lineas.append(_tabla(alertas, "tema", "Alertas con tema relevante frente a sin tema"))
+                {"alta": "con tema relevante (avisadas)", "baja": "sin tema (silenciosas)",
+                 "vetada": "vetadas (no avisadas)", "": "antes de separar"})
+            lineas.append(_tabla(alertas, "tema", "Alertas con tema, sin tema y vetadas"))
+            vetadas = alertas[alertas["prioridad"] == "vetada"].copy()
+            if len(vetadas) and "vetos" in vetadas:
+                vetadas = vetadas.assign(veto=vetadas["vetos"].fillna("").str.split("|")).explode("veto")
+                lineas.append(_tabla(vetadas, "veto", "Qué habría pasado con los vetados, por veto "
+                                                      "(si les va bien, el veto sobra)"))
         motivos = df.assign(motivo=df["motivo_descarte"].fillna("").str.split("|")).explode("motivo")
         motivos = motivos[motivos["motivo"] != ""]
         if len(motivos):
