@@ -1,8 +1,8 @@
 # Informe del radar de memecoins
 
-Generado: 2026-09-28 07:53 UTC
+Generado: 2026-09-28 08:02 UTC
 
-- Tokens registrados: **787** (desde 2026-09-27 18:07)
+- Tokens registrados: **789** (desde 2026-09-27 18:07)
 - Con resultado a 24 h: **0** (el primero llega 24 h después de la primera detección)
 - Pasan el filtro v1: **26**
 - Resultados en dólares por cada apuesta de $50, con 3% de costes en la entrada y en la salida:
@@ -14,26 +14,28 @@ Generado: 2026-09-28 07:53 UTC
 
 | ts    | simbolo    | narrativa   | prioridad   |   edad_min | mc   |   compradores_m5 |   vendedores_m5 | mint                                         |   x_1h |
 |:------|:-----------|:------------|:------------|-----------:|:-----|-----------------:|----------------:|:---------------------------------------------|-------:|
+| 07:57 | XOMUSDT    |             | vetada      |        3.9 | 91K  |               94 |              31 | HdkCkQHhVSTvi6WW5vaiabK7hzTVGsqdDCyyTeQphQLX | nan    |
+| 07:53 | AXIOM      |             | vetada      |        7.3 | 64K  |              527 |             398 | HPmrRWHrbwWVzJiQfnxgPSRDDkD6ShMLnEN6VuEzvyEV | nan    |
 | 07:46 | VAMPCAT    |             | vetada      |        2.1 | 31K  |              209 |              91 | 6RXHP4EsZjpV3DUXVv92SKq88rCZFW34UsuS6hpRdHPV | nan    |
+| 07:37 | JSLING     |             | vetada      |        6.5 | 88K  |               88 |              31 | CBrb3vSehHm5DmTSu1ztF2FDAqJTZdH8pjQ9DaUHBAGS | nan    |
 | 07:37 | UNPAID     |             | vetada      |        5.2 | 22K  |              537 |              76 | 6VxZuiD2Hzo5empJXQvLpAGVsFd7bKedt39XjfYtJ5JM | nan    |
 | 07:37 | UNPAID     |             | vetada      |        4.1 | 14K  |              578 |             117 | 2vcWNo27TBzq2PMZbAGhA2qr49xAVth3vcq6aX2cAb4F | nan    |
-| 07:37 | JSLING     |             | vetada      |        6.5 | 88K  |               88 |              31 | CBrb3vSehHm5DmTSu1ztF2FDAqJTZdH8pjQ9DaUHBAGS | nan    |
 | 07:34 | Gu Gua     |             | alta        |        2.4 | 10K  |              149 |              93 | 6ZE5JgWBm2qQ5p2yw6wnwAX8R6UqfiCoDSSjr1depump | nan    |
 | 07:26 | ket        |             | vetada      |       12.9 | 12K  |               86 |              63 | J8Jr8JPXCeWvj3EeWctug1ixcZTVpPUaisHjoMtDpump | nan    |
 | 07:19 | VantaCard  |             | vetada      |       12.6 | 16K  |              182 |              60 | 3jNVGYs3HCPmRnk12QWUVd1pzVckUx8dPyoaKW7zpump | nan    |
 | 07:16 | PumpSite   | cripto      | baja        |        3.1 | 10K  |               91 |              47 | 8v9xeUv9cr56vfDbfAWpigs4xcPcsroBYJDZ6CQLpump | nan    |
-| 07:12 | topless    |             | vetada      |        3.2 | 18K  |              416 |             104 | 4u1yNS74uK1HJwxEEgJJXEoFPpDNZTmT5pyLFEaGkkzR | nan    |
 | 07:12 | Cnfact     |             | vetada      |        3.3 | 78K  |               86 |              24 | 5xX5PXEeBJouuhuFrcfJ6DCNFtb1F8Bq9NJTNCBjbonk | nan    |
+| 07:12 | topless    |             | vetada      |        3.2 | 18K  |              416 |             104 | 4u1yNS74uK1HJwxEEgJJXEoFPpDNZTmT5pyLFEaGkkzR | nan    |
 | 07:02 | YON        |             | vetada      |        5.2 | 15K  |              184 |             115 | GEGEit5x2tGcLCDZFKVwr9fRKZs7984bQSkYHqf25G9Q | nan    |
-| 06:54 | Jak        |             | vetada      |        2.6 | 14K  |              331 |             105 | FcrWnyw86GoZ8C1g9hZ2q93xkVVvCyKH39qnBVQ2VRDx | nan    |
 | 06:54 | METER      |             | baja        |        2.5 | 9K   |              104 |              62 | Bxhohnh4Sv9VvdgEatVymFP9A6vzzfAfcP25ah8Zpump | nan    |
-| 06:48 | GET        |             | vetada      |        2.7 | 17K  |              391 |             196 | 5iwLiBK2wkzGbjFj9LUrgcsa8N7LDKR4u7jTLj6Spump | nan    |
+| 06:54 | Jak        |             | vetada      |        2.6 | 14K  |              331 |             105 | FcrWnyw86GoZ8C1g9hZ2q93xkVVvCyKH39qnBVQ2VRDx | nan    |
 | 06:48 | NewGuy     |             | vetada      |        2.5 | 97K  |              538 |              78 | UToBuGdPZ1pNT7oUtwamQZ5FjXJx5FS8wRAFMEhwN7m  | nan    |
+| 06:48 | GET        |             | vetada      |        2.7 | 17K  |              391 |             196 | 5iwLiBK2wkzGbjFj9LUrgcsa8N7LDKR4u7jTLj6Spump | nan    |
 | 06:43 | MORTGAGE   |             | vetada      |        3.9 | 23K  |              478 |              96 | 9Wc55rosRJSFAktu7dxFYcPWDbBof136Lvq9euAre8FY |   5.34 |
-| 06:40 | RIVER      |             | vetada      |        3   | 23K  |              167 |             116 | HBmnvSoG9QNT8QACD8WZsuTxjaFuqfw4EyrsGuE8pump |   0.17 |
 | 06:40 | SCAT       |             | vetada      |       12.8 | 10K  |               85 |              62 | CrxQ3SHsP7qjy7REBRhjDn9i4keHX1PfqHvp2Hsy8XdG |   0.89 |
-| 06:34 | riff       |             | baja        |        3.1 | 8K   |              136 |              92 | HzLbqtsTC7Jn8GMB4wKyRuACz7uauhfzH65vwRbJpump |   0.41 |
+| 06:40 | RIVER      |             | vetada      |        3   | 23K  |              167 |             116 | HBmnvSoG9QNT8QACD8WZsuTxjaFuqfw4EyrsGuE8pump |   0.17 |
 | 06:34 | swordcat   |             | baja        |        2.9 | 10K  |               80 |              58 | 4Px7VL8zi721aTYhd7osQKL2EYaVML8BW9Ak1p48scHR |   0.32 |
+| 06:34 | riff       |             | baja        |        3.1 | 8K   |              136 |              92 | HzLbqtsTC7Jn8GMB4wKyRuACz7uauhfzH65vwRbJpump |   0.41 |
 | 06:32 | Uaemeet    |             | vetada      |        2.2 | 77K  |              108 |              25 | AZrhe6A2Sjb4LJbswgdRXew3p76KGc29StFtMvBvmoon |   0    |
 | 06:30 | TROLL      |             | vetada      |        3   | 16K  |               69 |              34 | GWNgs2VUfA7tTGnRn9FjCzMY7Xk27GeeiDkWM3txmePz |   0    |
 | 06:26 | Paw        |             | alta        |        3.7 | 12K  |               41 |              20 | 4FZPCKj49LuaUJ5xKom9dYoQmm1Tt7F4yeyiHrpcnawu |   0.33 |
@@ -47,16 +49,16 @@ Generado: 2026-09-28 07:53 UTC
 | 05:51 | PAKSPACE   |             | vetada      |        2.1 | 74K  |               80 |              27 | FVeMhWR4eUKryBPfeFrPhxEuRGd6kLsG1KudBHiPmoon |   0    |
 | 05:47 | TREND      |             | vetada      |        3.3 | 24K  |              437 |             256 | 92W24gMTrfSmavNatTCBawaDMbEQ3NJnMY7chbMVpump |   0.61 |
 | 05:37 | BBBYQ      |             | vetada      |        9.5 | 9K   |               66 |              47 | BzSCw6CEpcLyCZz59Y7pTLxRM2vpZaM1K14Pn946ps7q |   0.87 |
-| 05:33 | 拼多多        |             | vetada      |        3.2 | 30K  |              286 |              40 | 2BT2Su86HVHxhygt6VxrWo9mdfnu3PJvsALLHzEMCtqh |   5.21 |
 | 05:33 | FULLSEND   |             | vetada      |        3   | 279K |              151 |              68 | Dimo67L6c5qCe7nuXz925EzjbYNpxpL8HihGQPNmpump |   0.48 |
+| 05:33 | 拼多多        |             | vetada      |        3.2 | 30K  |              286 |              40 | 2BT2Su86HVHxhygt6VxrWo9mdfnu3PJvsALLHzEMCtqh |   5.21 |
 | 05:30 | Gary       |             | baja        |        2.7 | 18K  |              194 |             116 | Ecx7uvbG63ETuZu4GZTzBmahadqgqDxryynzdTLwXff1 |   0.2  |
 | 05:30 | tr/acc     |             | vetada      |        2   | 108K |              266 |             110 | DGXf3mT2TaHsfy1Cn2p9CCSxfKENNM3oHPoR59Uwpump |   0    |
 | 05:24 | VUCIC      |             |             |        2.9 | 79K  |              147 |              36 | D74JWCJ4x5GAhbEtvBVrtTPqZtBzgknJcGCmbnYVpump |   0    |
 | 05:14 | FSD        |             |             |       13.5 | 24K  |               46 |              33 | HKgaE2JirCXudKEFm9JUTFDsV2hTx9sJoGr1tXnwpump |   0.61 |
 | 05:06 | FIM        |             |             |        2.8 | 21K  |              403 |             104 | 3AaZhDQug7q7h6ZJtNUR5Y5j6u2isGi7huN9ni4Justq |   0    |
-| 04:51 | BOETIX     |             |             |        5.2 | 78K  |               77 |              23 | 7T4GuSjCy5nEq3wPqCTk2XtUGS4rk7dDservu8fgpump |   0    |
 | 04:51 | Pager      |             |             |        7.4 | 19K  |              247 |             174 | 5ztqMCrrowVmMUg46ZVYmQ9boV1FDTuUj7quo2cwpump |   0.21 |
 | 04:51 | Minions    |             |             |        3.5 | 36K  |              374 |              77 | 89nk99jM9wo3tFuCoUbqrHpDHahcTQmGBD4k6EQKVTSj |   1.44 |
+| 04:51 | BOETIX     |             |             |        5.2 | 78K  |               77 |              23 | 7T4GuSjCy5nEq3wPqCTk2XtUGS4rk7dDservu8fgpump |   0    |
 | 04:48 | GRAYMATTER |             |             |        2   | 161K |             1002 |             613 | A2Kz4oAJvg9yuQR9znDicg8QvFDgrxaHp68ih3HCpump |   0.84 |
 | 04:48 | SNARKSTR   |             |             |        2.5 | 16K  |              563 |              96 | 4Jswhn7SvsFgpzk2g88mVDnnc9aCLLMdUaD8QKYqwtXm |   0    |
 | 04:09 | ROBINPEPE  | animales    |             |        2.5 | 33K  |              288 |              52 | 8LqsJ5cewbg9AwiN6imdGZocNm3tiHqgnm8t5g3VLMip |   2.13 |
@@ -72,18 +74,18 @@ Generado: 2026-09-28 07:53 UTC
 
 ## Señales de desplome (cuándo salir)
 
-Fotos de tokens que ya subían un 50% o más: **5674**; seguidas de un desplome (caída a un 40% o menos en 30 min): **141**. Cada fila compara cuántas veces llegó un desplome con la señal activa frente a sin ella: si la señal lo anticipa, el primer % es mucho mayor.
+Fotos de tokens que ya subían un 50% o más: **5762**; seguidas de un desplome (caída a un 40% o menos en 30 min): **141**. Cada fila compara cuántas veces llegó un desplome con la señal activa frente a sin ella: si la señal lo anticipa, el primer % es mucho mayor.
 
 | señal                                        |   fotos_con_señal | desplome_con_señal   | desplome_sin_señal   |
 |:---------------------------------------------|------------------:|:---------------------|:---------------------|
-| Liquidez < 3% de la capitalización           |              4476 | 1%                   | 8%                   |
-| Ticket medio < $30 (volumen de microcompras) |              4973 | 2%                   | 6%                   |
+| Liquidez < 3% de la capitalización           |              4551 | 1%                   | 8%                   |
+| Ticket medio < $30 (volumen de microcompras) |              5057 | 2%                   | 6%                   |
 | Más de 8 compradores por vendedor (5 min)    |                21 | 19%                  | 2%                   |
 | Subida de más del 100% en 1 h                |               612 | 12%                  | 1%                   |
 | Escalera: 30 min subiendo sin retrocesos     |                41 | 49%                  | 2%                   |
 | Aceleración final                            |                96 | 15%                  | 2%                   |
-| Más vendedores que compradores (5 min)       |              4974 | 1%                   | 13%                  |
-| Ya multiplicó x5 o más desde la detección    |              1470 | 1%                   | 3%                   |
+| Más vendedores que compradores (5 min)       |              5058 | 1%                   | 13%                  |
+| Ya multiplicó x5 o más desde la detección    |              1493 | 1%                   | 3%                   |
 
 ## Palabras calientes (últimas 3 h)
 
