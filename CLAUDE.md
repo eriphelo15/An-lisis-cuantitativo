@@ -16,6 +16,7 @@
 - **Principio del usuario: toda idea o criterio se valida con datos antes de usarlo.** Aunque tenga lógica, no se da por buena sin medirla.
 - El usuario tiene mucha experiencia ejecutando (futuros): su trabajo es ejecutar el mejor setup según la acción del precio; el trabajo fino de selección es de Claude.
 - **Operará acciones en bróker normal, sin fondeo.** Cuenta prevista: ~$2 000. Política de riesgo del usuario: 1 % base; hasta 5 % cuando la ventaja estadística esté validada. Referencia medida (Kelly sobre R reales del setup A, ajustados): ventaja +0.05R → Kelly 4 %; +0.10R → 8 %; +0.20R → 16.5 % (5 % ≈ 1/3 Kelly, aún 78 % prob. de caída >30 %); +0.30R → 25 %. Regla acordada: 5 % solo con ventaja validada ≥ ~+0.20R y ≥ 50-100 operaciones; la cola real (halts) puede ser peor que la de la muestra.
+- **Formato de resultados:** el usuario piensa en WR, ganancia media, pérdida media y PF. Dar SIEMPRE los resultados en ambos formatos: esperanza en R + WR + ganancia media (R) + pérdida media (R) + PF (y en $ para su cuenta cuando aplique). Equivalencia: +0.20R ≈ PF 1.4-1.5.
 - Commits y push en la rama `claude/analisis-cuantitativo-45j7qe`. Sin PR salvo que lo pida.
 
 ## Estado actual
