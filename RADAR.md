@@ -117,6 +117,31 @@ Los que pasan se avisan al móvil ("Superviviente: …", como mucho 3 por hora) 
 `supervivientes.csv`; los vetados también se guardan, sin avisar. Se siguen como cualquier
 detección y el informe tiene su propia sección.
 
+## Motor de salida: avisos para vender lo que tienes
+
+`radar_memes/salidas.py` corre dentro del vigía y revisa cada 2 minutos los tokens en los que
+estás posicionado. Se maneja desde la app de ntfy: suscríbete al tema **`<tu tema>-cartera`**
+(el mismo tema de las alertas con `-cartera` al final) y publica en él:
+
+- El **contrato** del token (o `+contrato`): empieza a vigilarlo; la entrada es el precio de ese
+  momento. Te confirma con "Vigilando …".
+- `-contrato` o `vendí contrato`: deja de vigilarlo.
+- `lista`: te responde con cada posición, su múltiplo desde la entrada y su distancia al máximo.
+
+Avisos (en el tema de siempre), con las reglas del estudio de gigantes:
+
+- **SAL YA** si cae un **30% desde el máximo** alcanzado desde tu entrada (stop móvil: con
+  velas diarias capturaba un 54% del máximo frente a un 3% de aguantar), si cae un **50%**
+  (ninguno de los 111 gigantes que cayó así volvió a su máximo) o si **retiran liquidez** (cae a
+  la mitad o por debajo de $1,000).
+- **Atención** (no es orden de venta): volumen de 24 h en récord con el precio ya x2 o más (el
+  techo suele llegar ese día o poco antes), o presión de venta fuerte (más del doble de
+  vendedores que compradores en 5 min y -20% en 1 h).
+
+Las posiciones se guardan en `posiciones.json` y cada aviso en `salidas.csv` (precio, entrada y
+máximo), para medir si salir fue acertado. El radar revisa cada 2 minutos: en un rug pull de un
+solo bloque ningún aviso llega a tiempo.
+
 **Avisos al móvil:** con la app gratuita [ntfy](https://ntfy.sh) suscrita a un tema, y ese
 mismo tema guardado en el secreto `NTFY_TOPIC` del repositorio (*Settings* → *Secrets and
 variables* → *Actions*). Sin el secreto, el vigía registra las alertas pero no avisa. El tema

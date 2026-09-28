@@ -12,7 +12,7 @@ informe mide si las alertas aciertan.
 import time
 from datetime import datetime, timedelta, timezone
 
-from . import escaner, fuentes, narrativas
+from . import escaner, fuentes, narrativas, salidas
 
 EDAD_MAX_MIN = 15      # hasta qué edad se vigila un pool
 PAGINAS_NUEVOS = 2     # la página 1 cubre ~1 minuto de lanzamientos
@@ -209,6 +209,12 @@ def vigilar(almacen, duracion_s, cada_s=60, log=print):
             alertados.add(r["mint"])
             log(f"[vigia] ALERTA {r['prioridad']} {r['simbolo']} {r['mint']} mc={r['mc']:.0f} "
                 f"tema={r['narrativa'] or r['palabra_caliente'] or '-'} notificada={enviada}")
+
+        # Motor de salida: posiciones de la cartera (decide él si toca revisar).
+        try:
+            salidas.revisar(almacen.carpeta, log)
+        except Exception as e:  # un fallo aquí no debe parar las alertas
+            log(f"[salidas] error: {type(e).__name__}: {e}")
 
         espera = cada_s - (time.monotonic() - inicio)
         if espera > 0:
