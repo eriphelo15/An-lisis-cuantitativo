@@ -68,8 +68,9 @@ enfrían con SOL. En 2026, con SOL de $72 (julio) a ~$122 (septiembre), vuelven 
 
 1. **Escáner de supervivientes** (`radar_memes/supervivientes.py`): tokens de 3 a 120 días con
    volumen real que despiertan, sin ser gigantes caídos.
-2. **Motor de salida** (pendiente): stop móvil del 30% desde el máximo como regla principal,
-   aviso cuando el volumen marca récord, y fuera sin excepción si cae un 50% desde el techo.
+2. **Motor de salida** (`radar_memes/salidas.py`): stop móvil del 30% desde el máximo como regla
+   principal, aviso cuando el volumen marca récord, y fuera sin excepción si cae un 50% desde el
+   techo o si retiran liquidez.
 
 ## Limitaciones
 
