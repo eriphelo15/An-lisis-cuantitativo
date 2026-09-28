@@ -49,3 +49,26 @@ digital asset, token, quantum, drone, nuclear, uranium, rare earth, lithium, Gre
 | H14 | Tema de moda (texto o nombre) — aplica a TODOS los gappers por el nombre | NO es tema de moda |
 | H15 | Día de tema: ≥ 2 gappers (≥ 50 %) el mismo día que comparten palabra clave de tema | NO es día de tema |
 Misma regla de éxito: mismo sentido en DEV y VAL; VAL t > 2 (Holm sobre H11, H12, H14, H15).
+
+## Ronda 2b — clasificación MANUAL a ciegas (enmienda registrada ANTES de clasificar)
+Motivo: la auditoría del clasificador por palabras clave mostró demasiados errores (p. ej. un MOU "por $200 M potenciales"
+contado como contrato; un contrato de compraventa de acciones y un contra-split contados como humo). Cambio de método:
+- Para cada gapper con 8-K/6-K previo a la apertura se extrae un **resumen** (titular + primeras frases del anexo EX-99 o, si no hay
+  nota, del primer Item del 8-K). El archivo de resúmenes **no contiene el resultado** de la acción.
+- Claude lee cada resumen y asigna **una** categoría con estas definiciones (orden de prioridad):
+  - **C compra** — la empresa será comprada con pago en efectivo o precio fijo por acción (fusión definitiva, oferta pública).
+  - **F financiación** — oferta de acciones, colocación privada, registered direct, warrants, convertibles, ELOC/SEPA, préstamo.
+  - **R resultados** — resultados trimestrales/anuales o cifras preliminares de ventas.
+  - **B biotech real** — aprobación/autorización de la FDA u otra agencia, o datos clínicos con resultado (topline, endpoint).
+  - **K contrato real** — acuerdo firmado y definitivo con contraparte identificada **y** cifra en dólares (pedido, contrato,
+    licencia, venta de activos, adquisición definitiva hecha por la empresa).
+  - **H humo / cosmético** — LOI, MOU, acuerdo no vinculante, "partnership/collaboration" sin cifra, "explora/evalúa", pilotos,
+    lanzamientos de producto sin ventas, cambios de nombre o giro de negocio (IA, cripto, tesorería de tokens), presentaciones
+    en conferencias, patentes, cartas del CEO, recompras simbólicas, nombramientos, premios; y cifras "potenciales/hasta".
+  - **S corporativo/bolsa** — contra-split, aviso o recuperación del cumplimiento de Nasdaq, junta de accionistas, cambios de auditor.
+  - **O otros / no se puede saber** (sin texto útil).
+- Hipótesis (mismo criterio de éxito: mismo sentido en DEV y VAL, VAL t > 2, Holm):
+  - **H11b:** H (humo) vs reales (B + K + R) → mejor para el corto si es humo.
+  - **H12b:** H vs todo lo demás.
+  - **H13b (descriptiva):** C compra en efectivo → no se debe shortear (el precio queda anclado).
+  - Descriptivas por categoría: R, WR, ganancia media, pérdida media, PF y % de squeeze (>+50 %) en DEV y VAL.
