@@ -1,0 +1,487 @@
+{
+ "fecha": "2026-09-28",
+ "generado": "2026-09-28 12:35",
+ "replay": false,
+ "desde": "2026-09-25 16:00",
+ "corte": "2026-09-28 12:35",
+ "candidatos": [
+  {
+   "sym": "SOAR",
+   "nombre": "Volato Group, Inc.",
+   "precio": 0.3788,
+   "cierre_prev": 0.1795,
+   "gap": 1.1103,
+   "cap": 21211950,
+   "vol_pre": 778184920,
+   "bolsa": "NYSE American",
+   "estado": "REGULAR",
+   "cik": 1853070,
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 04:05",
+     "items": "1.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226044456/form8-k.htm",
+     "partes": [
+      {
+       "archivo": "ex99-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226044456/ex99-1.htm",
+       "texto": "Volato Group’s Alignment Engine Subsidiary Signs $1.2 Billion in AI Infrastructure Orders with Large AI Customer Four-Year Take-or-Pay Orders Include Approximately $133 Million in Contractual Prepayments, Including Approximately $40 Million Due Following Execution NORTH CANTON, Ohio – September 28, 2026 – Volato Group, Inc. (NYSE American: SOAR) (“Volato” or the “Company”) today announced that its Alignment Engine subsidiary has entered into two four-year, take-or-pay orders with a large AI customer, representing $1.17 billion in aggregate contract value and marking Alignment Engine’s first major customer commitment for its AI infrastructure platform. The orders provide for the phased deployment of dedicated, next-generation AMD GPU infrastructure at Alignment Engine’s AI infrastructure campus in Ohio. The initial deployment will utilize AMD MI355X GPUs and has a contractual start date of December 31, 2026. A second deployment will utilize AMD MI455X GPUs and has a contractual start date of June 30, 2027. The deployments will operate as dedicated, single-tenant GPU clusters, reflecting a commercial model centered on long-term contracted capacity rather than short-term or spot-market GPU demand. Under the orders, the customer has committed to approximately $133 million in contractual prepayments, including approximately $40 million due following execution of the initial order. The remaining prepayments are scheduled in stages based on specified dates and equipment shipment milestones. The remaining contract value is payable over the four-year terms on a take-or-pay basis, su"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 04:05",
+     "items": "1.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226044456/form8-k.htm",
+     "items_es": "1.01 acuerdo firmado; 7.01 nota de prensa; 9.01 anexos"
+    }
+   ],
+   "noticias": [
+    {
+     "hora": "2026-09-28 08:05",
+     "titular": "Volato Group’s Alignment Engine Subsidiary Signs $1.2 Billion in AI Infrastructure Orders with Large AI Customer",
+     "url": "https://finance.yahoo.com/technology/ai/articles/volato-group-alignment-engine-subsidiary-120500289.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "sector": "Air Transportation, Nonscheduled",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": true,
+    "s3": "2026-06-18",
+    "s1": null,
+    "ventas_12m": 3,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 2,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-07-01",
+      "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226031391/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-03-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226013361/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-12-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315225026674/form424b5.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2021-12-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/1853070/000114036121040097/nt10025000x13_424b4.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     287.5
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226038025/form10-q.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "KOD",
+   "nombre": "Kodiak Sciences Inc.",
+   "precio": 61.28,
+   "cierre_prev": 32.35,
+   "gap": 0.8943,
+   "cap": 5499956224,
+   "vol_pre": 26184933,
+   "bolsa": "NasdaqGM",
+   "estado": "REGULAR",
+   "cik": 1468748,
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 04:53",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312526403481/d185059d8k.htm",
+     "partes": [
+      {
+       "archivo": "d185059dex991.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312526403481/d185059dex991.htm",
+       "texto": "Zenkuda and tabirafusp-ted Meet Primary Endpoints in Pivotal DAYBREAK Trial in wAMD, with Zenkuda Demonstrating a Potential New Standard-of-Care Profile with Strong Immediacy and Sustained Clinical Effect with Majority of Patients on 24-week Dosing Interval Using Strict Treat-to-Dryness Real World Retreatment Criteria. • Zenkuda (tarcocimab tedromer) met the primary endpoint (p-value of 0.0007) demonstrating meaningful vision gains as well as rapid and sustained retinal drying with the majority of patients (54%) on 6-month dosing, establishing a first-line benchmark in wet age-related macular degeneration (wAMD) • Zenkuda multi-indication biologics license application (BLA) planned for the fourth quarter of 2026 to include five positive Phase 3 studies across wAMD, diabetic retinopathy and retinal vein occlusion • Tabirafusp alfa tedromer (tabirafusp-ted) met the vision primary endpoint (p-value of 0.0036) and anatomical key secondary endpoint (p-value of <0.0001) • Post-hoc analyses to identify which treatment naïve wAMD patient sub-groups can benefit from IL-6 inhibition are planned. Tabirafusp-ted development program is accelerating in diabetic macular edema and actively enrolling in the ALTO Phase 3 Study • Zenkuda and tabirafusp-ted demonstrated safety consistent with the established safety profile of aflibercept PALO ALTO, Calif., September 28, 2026 /PRNewswire/ — Kodiak Sciences Inc. (Nasdaq: KOD), a precommercial retina-focused biotechnology company committed to researching, developing and commercializing transformative therapeutics, today announced that the primary"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 04:53",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312526403481/d185059d8k.htm",
+     "items_es": "8.01 otros hechos; 9.01 anexos"
+    }
+   ],
+   "noticias": [
+    {
+     "hora": "2026-09-25 18:01",
+     "titular": "Kodiak Sciences to Present Topline Results on September 28, 2026 from DAYBREAK Pivotal Phase 3 Study of Zenkuda and KSI-501 in Patients with Wet Age-Related Macular Degeneration",
+     "url": "https://finviz.com/news/395705/kodiak-sciences-to-present-topline-results-on-september-28-2026-from-daybreak-pivotal-phase-3-study-of-zenkuda-and-ksi-501-in-patients-with-wet-age-related-macular-degeneration",
+     "fuente": "PR Newswire"
+    }
+   ],
+   "sector": "Biological Products, (No Diagnostic Substances)",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 2,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2025-12-17",
+      "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312525322974/d35710d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-12-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312525319413/d35710d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2020-11-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312520296947/d81062d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2020-11-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312520294830/d81062d424b5.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-13",
+     "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312526349251/kod-20260630.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "CLRO",
+   "nombre": "ClearOne, Inc.",
+   "precio": 5.81,
+   "cierre_prev": 3.5228,
+   "gap": 0.6493,
+   "cap": 13109519,
+   "vol_pre": 23231341,
+   "bolsa": "NasdaqCM",
+   "estado": "REGULAR",
+   "cik": 840715,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Telephone & Telegraph Apparatus",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": "2026-06-25",
+    "s1": "2026-09-04",
+    "ventas_12m": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 3,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2020-09-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/840715/000175392620000295/MainDocument.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     5.0,
+     10.0,
+     35.33
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/840715/000175392626001521/clro-20260630.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": true
+   }
+  },
+  {
+   "sym": "GYGY",
+   "nombre": "Game Your Game, Inc.",
+   "precio": 1.215,
+   "cierre_prev": 0.7396,
+   "gap": 0.6428,
+   "cap": 12765704,
+   "vol_pre": 93709445,
+   "bolsa": "NasdaqCM",
+   "estado": "REGULAR",
+   "cik": 2111846,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Services-Prepackaged Software",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": true,
+    "s3": null,
+    "s1": "2026-09-04",
+    "ventas_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2026-07-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/2111846/000121390026082494/ea0275919-11.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     6.8,
+     8.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-21",
+     "url": "https://www.sec.gov/Archives/edgar/data/2111846/000121390026092694/ea0300679-10q_game.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "LFCR",
+   "nombre": "Lifecore Biomedical, Inc.",
+   "precio": 6.52,
+   "cierre_prev": 4.2,
+   "gap": 0.5524,
+   "cap": 248369072,
+   "vol_pre": 2516707,
+   "bolsa": "NasdaqGS",
+   "estado": "REGULAR",
+   "cik": 1005286,
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 04:53",
+     "items": "1.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037767/ef20082009_8k.htm",
+     "partes": [
+      {
+       "archivo": "ef20082009_ex99-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037767/ef20082009_ex99-1.htm",
+       "texto": "Lifecore Biomedical to be Acquired by Webster Equity Partners • Lifecore Common Stockholders to Receive $6.28 per Share in Cash at Closing, Representing a 49.5% Premium • Lifecore Series A Preferred Stockholders Will Receive Required “Conversion Amount” per Share in Cash at Closing • Both Common Stockholders and Series A Preferred Stockholders Will Receive Contingent Value Rights (CVRs) for Up to $160 Million in Aggregate Cash Payments Contingent Upon Achieving Performance Milestones • Stockholders May Receive Up to $9.67 per Common Equivalent in Combined Cash and CVR at Full Performance Milestone Payments • Transaction Expected to Support Lifecore’s Growth Objectives CHASKA, Minn. and WALTHAM, Mass. September 28, 2026 . Lifecore Biomedical, Inc. (Nasdaq: LFCR) today announced that it has entered into a definitive agreement to be acquired by Webster Equity Partners in a transaction valued at up to $663.7 million, assuming full achievement of certain performance milestones. “We are thrilled to announce this exciting transaction which we believe will support Lifecore’s next phase of growth,” said Paul Josephs, President and Chief Executive Officer of Lifecore. “Lifecore is approaching an exciting inflection point, with the potential for numerous programs to commercialize by the end of 2028. Following consideration of a range of alternatives, we believe that Webster Equity Partners shares our vision for maximizing Lifecore’s business and will provide us with additional resources and expertise to accelerate our growth. For our stockholders, this transaction delivers immediate a"
+      },
+      {
+       "archivo": "ef20082009_ex99-2.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037767/ef20082009_ex99-2.htm",
+       "texto": "Email from CEO of Lifecore Biomedical, Inc. September 28, 2026 Lifecore Team, I’m reaching out to share an exciting and important update about our company and the future we are building together. Lifecore Biomedical has entered into a merger agreement to be acquired by Webster Equity Partners in a transaction valued at up to approximately $663.7 million. Under the merger agreement, holders of common stock will receive $6.28 per share in cash at closing. Holders of common stock also will receive a right to potential future cash payments of $3.39 per share, based upon company achievement of performance milestones in 2028-2030 and assuming full performance milestone payments of $160 million in the aggregate . Upon completion of the transaction, Lifecore will no longer be a public reporting company, and our stock will not be publicly traded. Through the dedicated efforts of our employees, we have built a solid foundation as a fully integrated CDMO. We believe Lifecore is at an inflection point and, with the right partnership, we can accelerate our next phase of growth and unlock our full potential. Webster Equity Partners shares our excitement in maximizing the potential of our business. Now is the right time to move forward with new ownership that will support acceleration of our exciting growth plans. Next Steps: Business as Usual While we are announcing this transaction today, it is subject to customary closing conditions and the receipt of stockholder approval and transaction-related regulatory approval, and it is expected to close at the end of Q4 2026. During this process"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "DEFA14A",
+     "hora": "2026-09-28 04:56",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037768/ef20082009_defa14a.htm",
+     "items_es": ""
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 04:53",
+     "items": "1.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037767/ef20082009_8k.htm",
+     "items_es": "1.01 acuerdo firmado; 7.01 nota de prensa; 9.01 anexos"
+    }
+   ],
+   "noticias": [
+    {
+     "hora": "2026-09-28 08:45",
+     "titular": "Lifecore Biomedical to be Acquired by Webster Equity Partners",
+     "url": "https://finance.yahoo.com/healthcare/articles/lifecore-biomedical-acquired-webster-equity-124500829.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "sector": "Pharmaceutical Preparations",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": "2025-09-23",
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-05",
+     "url": "https://www.sec.gov/Archives/edgar/data/1005286/000100528626000033/lfcr-20260630.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "MIMI",
+   "nombre": "Mint Incorporation Limited",
+   "precio": 1.0394,
+   "cierre_prev": 0.7712,
+   "gap": 0.3478,
+   "cap": 14072221,
+   "vol_pre": 24403307,
+   "bolsa": "NasdaqCM",
+   "estado": "REGULAR",
+   "cik": 1998560,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Services-Business Services, NEC",
+   "venta_hoy": false,
+   "municion": {}
+  },
+  {
+   "sym": "WBUY",
+   "nombre": "WEBUY GLOBAL LTD.",
+   "precio": 1.04,
+   "cierre_prev": 0.8039,
+   "gap": 0.2937,
+   "cap": 5209241,
+   "vol_pre": 35433366,
+   "bolsa": "NasdaqCM",
+   "estado": "REGULAR",
+   "cik": 1946703,
+   "catalizadores": [],
+   "docs_hoy": [
+    {
+     "form": "6-K",
+     "hora": "2026-09-28 02:31",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390026103727/ea0306044-6k_webuy.htm",
+     "items_es": ""
+    }
+   ],
+   "noticias": [],
+   "sector": "Retail-Miscellaneous Retail",
+   "venta_hoy": false,
+   "municion": {}
+  },
+  {
+   "sym": "MEDS",
+   "nombre": "DataMEDS AI, Inc.",
+   "precio": 3.97,
+   "cierre_prev": 3.11,
+   "gap": 0.2765,
+   "cap": 13498487,
+   "vol_pre": 28657678,
+   "bolsa": "NasdaqCM",
+   "estado": "REGULAR",
+   "cik": 2030763,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Wholesale-Drugs, Proprietaries & Druggists' Sundries",
+   "venta_hoy": false,
+   "municion": {}
+  },
+  {
+   "sym": "COLA",
+   "nombre": "Columbus Acquisition Corp",
+   "precio": 12.95,
+   "cierre_prev": 10.45,
+   "gap": 0.2392,
+   "cap": 48696348,
+   "vol_pre": 3697,
+   "bolsa": "NasdaqGM",
+   "estado": "REGULAR",
+   "cik": 2028201,
+   "catalizadores": [],
+   "docs_hoy": [
+    {
+     "form": "DEFA14A",
+     "hora": "2026-09-28 05:24",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026103788/ea0306809-8k_columbus.htm",
+     "items_es": ""
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 05:21",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026103784/ea0306809-8k_columbus.htm",
+     "items_es": "8.01 otros hechos; 9.01 anexos"
+    }
+   ],
+   "noticias": [],
+   "sector": "Blank Checks",
+   "venta_hoy": false,
+   "municion": {}
+  },
+  {
+   "sym": "LABT",
+   "nombre": "Lakewood-Amedex Biotherapeutics, Inc.",
+   "precio": 2.06,
+   "cierre_prev": 1.67,
+   "gap": 0.2335,
+   "cap": 3127751,
+   "vol_pre": 33540158,
+   "bolsa": "NasdaqCM",
+   "estado": "REGULAR",
+   "cik": 2079272,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Pharmaceutical Preparations",
+   "venta_hoy": false,
+   "municion": {}
+  },
+  {
+   "sym": "DLXY",
+   "nombre": "Delixy Holdings Limited",
+   "precio": 3.05,
+   "cierre_prev": 2.4995,
+   "gap": 0.2202,
+   "cap": 8894400,
+   "vol_pre": 1718790,
+   "bolsa": "NasdaqCM",
+   "estado": "REGULAR",
+   "cik": 2025218,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Wholesale-Petroleum & Petroleum Products (No Bulk Stations)",
+   "venta_hoy": false,
+   "municion": {}
+  }
+ ]
+}

@@ -1,0 +1,487 @@
+{
+ "fecha": "2026-08-14",
+ "generado": "2026-09-28 12:32",
+ "replay": true,
+ "desde": "2026-08-13 16:00",
+ "corte": "2026-08-14 09:10",
+ "candidatos": [
+  {
+   "sym": "WETO",
+   "nombre": "Wetour Robotics Ltd",
+   "precio": 10.65,
+   "cierre_prev": 3.609999895095825,
+   "gap": 1.9501,
+   "cap": 234300000.0,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1941158,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Local & Suburban Transit & Interurban Hwy Passenger Trans",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": true,
+    "s3": "2026-04-30",
+    "s1": null,
+    "ventas_12m": 2,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-07-06",
+      "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026075590/ea0297083-424b5_wetour.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-05-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026057982/ea0290010-424b5_wetour.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2025-02-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1941158/000157587225000194/vc073_424b4.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2025-02-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1941158/000157587225000188/vc071_424b4.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [
+     5.0
+    ],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2025-10-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1941158/000157587225000653/weto-20250630.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": true
+   }
+  },
+  {
+   "sym": "SURG",
+   "nombre": "SurgePays, Inc.",
+   "precio": 0.394,
+   "cierre_prev": 0.24699999392032623,
+   "gap": 0.5951,
+   "cap": 20845918.662,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1392694,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Telephone Communications (No Radiotelephone)",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": "2023-10-23",
+    "s1": null,
+    "ventas_12m": 3,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-01-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1392694/000149315226003210/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-01-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1392694/000149315226003164/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-01-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1392694/000149315226002910/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-08-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1392694/000164117225022281/form424b5.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     1.25,
+     1.38,
+     1.75,
+     2.5,
+     4.73,
+     6.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-05-20",
+     "url": "https://www.sec.gov/Archives/edgar/data/1392694/000149315226024591/form10-q.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "SKYE",
+   "nombre": "Skye Bioscience, Inc.",
+   "precio": 6.88,
+   "cierre_prev": 4.328000068664551,
+   "gap": 0.5896,
+   "cap": 243699321.44,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1516551,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Pharmaceutical Preparations",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": "2024-05-10",
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 1,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2021-09-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1516551/000164033421002413/skye_424b5.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2020-08-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/1516551/000164033420001952/embi_424b4.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2019-11-13",
+      "url": "https://www.sec.gov/Archives/edgar/data/1516551/000164033419002259/nmus_424b4.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     0.61
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-05-11",
+     "url": "https://www.sec.gov/Archives/edgar/data/1516551/000162828026033417/skye-20260331.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": true
+   }
+  },
+  {
+   "sym": "AKAN",
+   "nombre": "AKANDA CORP.",
+   "precio": 7.81,
+   "cierre_prev": 5.010000228881836,
+   "gap": 0.5589,
+   "cap": 15491494.26,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1888014,
+   "catalizadores": [
+    {
+     "form": "6-K",
+     "hora": "2026-08-13 16:05",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1888014/000121390026089076/ea0302055-6k_akanda.htm",
+     "partes": [
+      {
+       "archivo": "ea030205501ex99-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1888014/000121390026089076/ea030205501ex99-1.htm",
+       "texto": "DATED AUGUST 13, 2026 Exhibit 99.1 Akanda’s First Towers & Fiber Increases Recurring Revenue with completion of 200 KM Fiber Network Toronto, Ontario--(Newsfile Corp. – August 13, 2026) - Akanda Corp. (NASDAQ: AKAN) (\"Akanda\") and its 100% owned subsidiary First Towers & Fiber Corp. (\"FTF\" or the \"Company\"), an emerging telecommunications infrastructure developer in Mexico, today announced an update on recent operational milestones and expansion progress, underscoring its continued growth in telecommunications infrastructure. Core Business and Tower Operations FTF maintains a portfolio of 28 cellular tower sites, all fully operational and actively radiating signal. The Company continues to focus on its passive infrastructure model, leasing tower assets to a growing roster of network providers. Fiber Network Deployment and Revenue Timeline The Company has completed physical installation of 200 kilometers of fiber optic infrastructure. The first 100 kilometers (50%) have been formally accepted by a network provider client and have entered the billing phase, with initial lease cash flow expected in August/September 2026. The remaining 100 kilometers (50%) are scheduled for client acceptance by December 2026. Once fully accepted, the entire 200-kilometer network is projected to reach full commercial run-rate cash flow beginning January 2027. Regional Expansion in Guanajuato The fiber deployment marks a strategic expansion into the Guanajuato region, with a specific focus on the Irapuato–Silao industrial corridor — a key local market that the Company believes strengthens its reg"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "6-K",
+     "hora": "2026-08-13 16:05",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1888014/000121390026089076/ea0302055-6k_akanda.htm",
+     "items_es": ""
+    }
+   ],
+   "noticias": [],
+   "sector": "Medicinal Chemicals & Botanical Products",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": "2024-01-18",
+    "s1": "2026-03-20",
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2024-10-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/1888014/000121390024084909/ea0212571-03.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-05-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1888014/000121390024044928/ea0206500-424b5_akandacorp.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-05-17",
+      "url": "https://www.sec.gov/Archives/edgar/data/1888014/000121390024044697/ea0206467-424b5_akandacorp.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2024-03-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1888014/000121390024025987/ea0200030-04.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-06-09",
+     "url": "https://www.sec.gov/Archives/edgar/data/1888014/000121390026066800/ea0288681-20f_akanda.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "HHS",
+   "nombre": "HARTE HANKS INC",
+   "precio": 4.23,
+   "cierre_prev": 2.809999942779541,
+   "gap": 0.5053,
+   "cap": 31531435.200000003,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 45919,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Services-Direct Mail Advertising Services",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-05-15",
+     "url": "https://www.sec.gov/Archives/edgar/data/45919/000162828026035323/hrth-20260331.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "DAAQ",
+   "nombre": "Digital Asset Acquisition Corp.",
+   "precio": 10.41,
+   "cierre_prev": 7.260000228881836,
+   "gap": 0.4339,
+   "cap": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 2052162,
+   "catalizadores": [],
+   "docs_hoy": [
+    {
+     "form": "425",
+     "hora": "2026-08-13 17:03",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/2052162/000121390026089223/ea0302045-8k425_digital.htm",
+     "items_es": ""
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-08-13 17:02",
+     "items": "1.01,1.02,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/2052162/000121390026089219/ea0302045-8k425_digital.htm",
+     "items_es": "1.01 acuerdo firmado; 1.02 fin de acuerdo; 8.01 otros hechos; 9.01 anexos"
+    }
+   ],
+   "noticias": [],
+   "sector": "State Commercial Banks",
+   "venta_hoy": false,
+   "municion": {}
+  },
+  {
+   "sym": "SXTC",
+   "nombre": "China SXT Pharmaceuticals, Inc.",
+   "precio": 4.6,
+   "cierre_prev": 3.299999952316284,
+   "gap": 0.3939,
+   "cap": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1723980,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Pharmaceutical Preparations",
+   "venta_hoy": false,
+   "municion": {}
+  },
+  {
+   "sym": "CGTL",
+   "nombre": "Creative Global Technology Holdings Ltd",
+   "precio": 5.03,
+   "cierre_prev": 3.680000066757202,
+   "gap": 0.3668,
+   "cap": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1967822,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Wholesale-Computers & Peripheral Equipment & Software",
+   "venta_hoy": false,
+   "municion": {}
+  },
+  {
+   "sym": "MDXH",
+   "nombre": "MDxHealth SA",
+   "precio": 0.608,
+   "cierre_prev": 0.4620000123977661,
+   "gap": 0.316,
+   "cap": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1872529,
+   "catalizadores": [],
+   "docs_hoy": [
+    {
+     "form": "6-K",
+     "hora": "2026-08-13 16:05",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1872529/000121390026089082/ea0301894-6k_mdxhealth.htm",
+     "items_es": ""
+    },
+    {
+     "form": "424B5",
+     "hora": "2026-08-13 16:03",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1872529/000121390026089071/ea0301603-424b5_mdxhealth.htm",
+     "items_es": ""
+    },
+    {
+     "form": "6-K",
+     "hora": "2026-08-13 16:02",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1872529/000121390026089069/ea0301975-6k_mdxhealth.htm",
+     "items_es": ""
+    }
+   ],
+   "noticias": [],
+   "sector": "Services-Medical Laboratories",
+   "venta_hoy": true,
+   "municion": {}
+  },
+  {
+   "sym": "MF",
+   "nombre": "MindForge Inc.",
+   "precio": 13.04,
+   "cierre_prev": 10.0,
+   "gap": 0.304,
+   "cap": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1888525,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Services-Computer Programming, Data Processing, Etc.",
+   "venta_hoy": false,
+   "municion": {}
+  },
+  {
+   "sym": "LBGJ",
+   "nombre": "Li Bang International Corp Inc.",
+   "precio": 3.71,
+   "cierre_prev": 2.990000009536743,
+   "gap": 0.2408,
+   "cap": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1896425,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Refrigeration & Service Industry Machinery",
+   "venta_hoy": false,
+   "municion": {}
+  },
+  {
+   "sym": "VALN",
+   "nombre": "Valneva SE",
+   "precio": 7.0,
+   "cierre_prev": 5.650000095367432,
+   "gap": 0.2389,
+   "cap": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1836564,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Biological Products, (No Diagnostic Substances)",
+   "venta_hoy": false,
+   "municion": {}
+  },
+  {
+   "sym": "IMXI",
+   "nombre": "International Money Express, Inc.",
+   "precio": 14.24,
+   "cierre_prev": 11.699999809265137,
+   "gap": 0.2171,
+   "cap": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1683695,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Services-Business Services, NEC",
+   "venta_hoy": false,
+   "municion": {}
+  }
+ ]
+}

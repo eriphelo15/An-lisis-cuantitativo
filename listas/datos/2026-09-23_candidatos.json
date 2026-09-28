@@ -1,0 +1,313 @@
+{
+ "fecha": "2026-09-23",
+ "generado": "2026-09-28 12:33",
+ "replay": true,
+ "desde": "2026-09-22 16:00",
+ "corte": "2026-09-23 09:10",
+ "candidatos": [
+  {
+   "sym": "BENF",
+   "nombre": "Beneficient",
+   "precio": 2.92,
+   "cierre_prev": 0.5379999876022339,
+   "gap": 4.4275,
+   "cap": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1775734,
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-23 07:35",
+     "items": "7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1775734/000149315226043806/form8-k.htm",
+     "partes": [
+      {
+       "archivo": "ex99-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1775734/000149315226043806/ex99-1.htm",
+       "texto": "Beneficient Announces Strategy to Eliminate HCLP Debt and Heppner Equity Interests DALLAS, September 23, 2026 (GLOBE NEWSWIRE) — Beneficient (NASDAQ: BENF) (the “Company”), a technology-enabled platform providing exit opportunities and primary capital solutions and related trust and custody services to holders of alternative assets, today announced that it has formulated and is implementing a comprehensive strategy intended to eliminate both the fraudulent indebtedness asserted by HCLP Nominees, L.L.C. (“HCLP”) and the equity interests in Beneficient and its subsidiaries held by the Company’s former Chief Executive Officer, Brad Heppner, and his affiliated entities (“Heppner Equity Interests”). Through the strategy, the Company also seeks to terminate all other remaining agreements with Heppner or his affiliated entities (“Heppner Agreements”) and have all amounts purportedly owed to them by Beneficient or its subsidiaries under those agreements or otherwise deemed void and unenforceable. The strategy follows Heppner’s May 2026 federal fraud conviction and is a significant component of the Company’s broader effort to transform its balance sheet, simplify its capital structure, and unlock its potential. The Company continues to operate its business and pursue its long-term growth objectives while implementing the strategy. As previously disclosed, Heppner was convicted on May 7, 2026, of securities fraud, wire fraud and related charges in connection with a fraudulent scheme to enrich himself. The criminal trial revealed overwhelming evidence that Heppner fraudulently conceal"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-23 07:35",
+     "items": "7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1775734/000149315226043806/form8-k.htm",
+     "items_es": "7.01 nota de prensa; 9.01 anexos"
+    },
+    {
+     "form": "4",
+     "hora": "2026-09-22 21:55",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1775734/000149315226043790/xslF345X06/ownership.xml",
+     "items_es": ""
+    },
+    {
+     "form": "4",
+     "hora": "2026-09-22 21:54",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1775734/000149315226043789/xslF345X06/ownership.xml",
+     "items_es": ""
+    },
+    {
+     "form": "4",
+     "hora": "2026-09-22 21:54",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1775734/000149315226043788/xslF345X06/ownership.xml",
+     "items_es": ""
+    },
+    {
+     "form": "4",
+     "hora": "2026-09-22 21:53",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1775734/000149315226043787/xslF345X06/ownership.xml",
+     "items_es": ""
+    }
+   ],
+   "noticias": [],
+   "sector": "Finance Services",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": true,
+    "s3": "2024-09-24",
+    "s1": "2026-07-29",
+    "ventas_12m": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 9,
+    "ultimas_ventas": [],
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     4.16,
+     7.0,
+     21.04
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1775734/000177573426000030/ben-20260630.htm"
+    },
+    "eloc": true,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "WHLR",
+   "nombre": "Wheeler Real Estate Investment Trust, Inc.",
+   "precio": 5.205,
+   "cierre_prev": 1.8700000047683716,
+   "gap": 1.7834,
+   "cap": 10053811.44,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1527541,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Real Estate Investment Trusts",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": true,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 12,
+    "ultimas_ventas": [],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [
+     42.0,
+     50.0,
+     84.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-06",
+     "url": "https://www.sec.gov/Archives/edgar/data/1527541/000152754126000251/whlr-20260630.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "VTGN",
+   "nombre": "Vistagen Therapeutics, Inc.",
+   "precio": 0.39,
+   "cierre_prev": 0.25,
+   "gap": 0.56,
+   "cap": 17306995.29,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1411685,
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-22 16:22",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1411685/000162828026063046/vtgn-20260922.htm",
+     "partes": [
+      {
+       "archivo": "ex99120260922.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1411685/000162828026063046/ex99120260922.htm",
+       "texto": "Document EXHIBIT 99.1 Vistagen Announces Preliminary Positive Data from Open-Label Extension Portion of PALISADE-4 Phase 3 Study of Fasedienol for the Acute Treatment of Social Anxiety Disorder Fasedienol nasal spray was well-tolerated in patients with social anxiety disorder with no new drug-related safety findings after as-needed use for up to 12 months Clinically relevant improvement in social anxiety over time was observed on both clinician-administered and patient-reported scales over four months PALISADE-4 OLE data add to growing body of evidence supporting fasedienol’s potential to address social anxiety disorder in anxiety-provoking social and performance situations in everyday life SOUTH SAN FRANCISCO, Calif.--(BUSINESS WIRE)— September 21, 2026-- Vistagen (Nasdaq: VTGN), a late clinical-stage biopharmaceutical company leveraging nose-to-brain neurocircuitry to develop and commercialize a new class of intranasal product candidates called pherines, today announced preliminary positive data from the open-label extension (OLE) portion of its PALISADE-4 Phase 3 study of fasedienol for the acute treatment of social anxiety disorder. In a recent analysis of subjects who elected to participate in the OLE portion of PALISADE-4 (safety population: N=322), administration of 3.2 µg of fasedienol, taken as needed up to six times per day in anxiety-provoking social and performance situations in everyday life for up to 12 months, was well-tolerated with no new drug-related safety findings. Exploratory efficacy data over the first four months of as-needed treatment demonstrated i"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-22 16:22",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1411685/000162828026063046/vtgn-20260922.htm",
+     "items_es": "8.01 otros hechos; 9.01 anexos"
+    }
+   ],
+   "noticias": [],
+   "sector": "Pharmaceutical Preparations",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": "2024-02-13",
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2025-06-17",
+      "url": "https://www.sec.gov/Archives/edgar/data/1411685/000141168525000044/vtgn424b52025_06x17.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2023-10-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/1411685/000143774923027529/vtgn20230921_424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2023-08-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/1411685/000143774923022393/vtgn20230807_424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2023-06-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1411685/000143774923019024/vtgn20230629_424b5.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     5.38,
+     6.42,
+     7.3,
+     8.88
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1411685/000162828026057116/vtgn-20260630.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "DCOY",
+   "nombre": "Decoy Therapeutics Inc.",
+   "precio": 4.4,
+   "cierre_prev": 3.0999999046325684,
+   "gap": 0.4194,
+   "cap": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1615219,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Pharmaceutical Preparations",
+   "venta_hoy": false,
+   "municion": {}
+  },
+  {
+   "sym": "MSS",
+   "nombre": "Maison Solutions Inc.",
+   "precio": 2.06,
+   "cierre_prev": 1.559999942779541,
+   "gap": 0.3205,
+   "cap": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1892292,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Retail-Grocery Stores",
+   "venta_hoy": false,
+   "municion": {}
+  },
+  {
+   "sym": "BFRG",
+   "nombre": "BullFrog AI Holdings, Inc.",
+   "precio": 0.782,
+   "cierre_prev": 0.6000000238418579,
+   "gap": 0.3033,
+   "cap": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1829247,
+   "catalizadores": [],
+   "docs_hoy": [
+    {
+     "form": "4",
+     "hora": "2026-09-22 16:46",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1829247/000162828026063056/xslF345X06/wk-form4_1790109961.xml",
+     "items_es": ""
+    },
+    {
+     "form": "4",
+     "hora": "2026-09-22 16:45",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1829247/000162828026063054/xslF345X06/wk-form4_1790109920.xml",
+     "items_es": ""
+    }
+   ],
+   "noticias": [],
+   "sector": "Pharmaceutical Preparations",
+   "venta_hoy": false,
+   "municion": {}
+  },
+  {
+   "sym": "HCTI",
+   "nombre": "Healthcare Triangle, Inc.",
+   "precio": 1.11,
+   "cierre_prev": 0.8650000095367432,
+   "gap": 0.2832,
+   "cap": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "estado": "REPLAY",
+   "cik": 1839285,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Services-Computer Integrated Systems Design",
+   "venta_hoy": false,
+   "municion": {}
+  }
+ ]
+}

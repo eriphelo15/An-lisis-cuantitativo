@@ -1,0 +1,454 @@
+{
+ "fecha": "2026-09-21",
+ "generado": "2026-09-28 12:33",
+ "replay": true,
+ "desde": "2026-09-18 16:00",
+ "corte": "2026-09-21 09:10",
+ "reglas": {
+  "gap_lista": 0.5,
+  "gap_vigilar": 0.2,
+  "stop": 0.3,
+  "deslizamiento": 0.05,
+  "coste": 0.01,
+  "riesgo_accion": 0.3750000000000002
+ },
+ "lista": [
+  {
+   "sym": "GRML",
+   "nombre": "Greenland Mines Ltd",
+   "sector": "Biological Products, (No Diagnostic Substances)",
+   "precio": 7.33,
+   "cierre_prev": 2.8499999046325684,
+   "gap": 1.5719,
+   "cap": 1164375169.21,
+   "vol_pre": null,
+   "nivel": "VIGILAR",
+   "clasif": {
+    "tipo_es": "Sin noticia"
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": true,
+    "s3": "2025-07-07",
+    "s1": "2025-12-05",
+    "ventas_12m": 3,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 3,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-08-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1907223/000121390026094216/ea0303562-424b5_green.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-08-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1907223/000121390026093597/ea0303382-424b5_green.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-08-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1907223/000121390026093106/ea0303090-424b5_greenland.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-07-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1907223/000121390025068301/ea0250520-424b5_klotho.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     0.3,
+     0.5,
+     0.75,
+     3.49
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-17",
+     "url": "https://www.sec.gov/Archives/edgar/data/1907223/000121390026090821/ea0298606-10q_greenland.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": true
+   },
+   "venta_hoy": false,
+   "plan": {
+    "entrada": "apertura (9:30)",
+    "stop": 9.529,
+    "stop_pct": 0.3,
+    "riesgo_accion": 2.7488,
+    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   },
+   "estad": {
+    "R": 0.01,
+    "WR": 0.6,
+    "gan": null,
+    "perd": null,
+    "PF": 1.05,
+    "n": null,
+    "squeeze": null,
+    "fuente": "contrato real / FDA / otros ≈ 0R"
+   },
+   "avisos": []
+  },
+  {
+   "sym": "GLND",
+   "nombre": "Greenland Energy Co",
+   "sector": "Drilling Oil & Gas Wells",
+   "precio": 3.02,
+   "cierre_prev": 1.2000000476837158,
+   "gap": 1.5167,
+   "cap": 132065185.88,
+   "vol_pre": null,
+   "nivel": "VIGILAR",
+   "clasif": {
+    "tipo_es": "Sin noticia"
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": "2026-04-23",
+    "ventas_12m": 1,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 1,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2026-04-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/2093507/000182912626004054/greenlandenergy_424b4.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [
+     3.36,
+     5.0,
+     5.79,
+     15.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-13",
+     "url": "https://www.sec.gov/Archives/edgar/data/2093507/000182912626008774/greenlandenergy_10q.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "plan": {
+    "entrada": "apertura (9:30)",
+    "stop": 3.926,
+    "stop_pct": 0.3,
+    "riesgo_accion": 1.1325,
+    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   },
+   "estad": {
+    "R": 0.01,
+    "WR": 0.6,
+    "gan": null,
+    "perd": null,
+    "PF": 1.05,
+    "n": null,
+    "squeeze": null,
+    "fuente": "contrato real / FDA / otros ≈ 0R"
+   },
+   "avisos": []
+  },
+  {
+   "sym": "BTTC",
+   "nombre": "Black Titan Corp",
+   "sector": "Services-Computer Programming Services",
+   "precio": 0.644,
+   "cierre_prev": 0.36500000953674316,
+   "gap": 0.7644,
+   "cap": 4974011.28,
+   "vol_pre": null,
+   "nivel": "VIGILAR",
+   "clasif": {
+    "tipo_es": "Sin noticia"
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": "2026-05-12",
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2025-11-28",
+     "url": "https://www.sec.gov/Archives/edgar/data/2034400/000149315225025421/form20-f.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "plan": {
+    "entrada": "apertura (9:30)",
+    "stop": 0.8372,
+    "stop_pct": 0.3,
+    "riesgo_accion": 0.2415,
+    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   },
+   "estad": {
+    "R": 0.01,
+    "WR": 0.6,
+    "gan": null,
+    "perd": null,
+    "PF": 1.05,
+    "n": null,
+    "squeeze": null,
+    "fuente": "contrato real / FDA / otros ≈ 0R"
+   },
+   "avisos": [
+    "Capitalización < $30 M: más squeezes (histórico −0.13R)"
+   ]
+  },
+  {
+   "sym": "VEEE",
+   "nombre": "Twin Vee PowerCats, Co.",
+   "sector": "Ship & Boat Building & Repairing",
+   "precio": 14.5,
+   "cierre_prev": 8.579999923706055,
+   "gap": 0.69,
+   "cap": 8330279.0,
+   "vol_pre": null,
+   "nivel": "VIGILAR",
+   "clasif": {
+    "tipo_es": "Sin noticia"
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": "2026-03-05",
+    "s1": "2026-01-26",
+    "ventas_12m": 4,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 5,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-03-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1855509/000173112226000474/e7487_424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-03-17",
+      "url": "https://www.sec.gov/Archives/edgar/data/1855509/000173112226000410/e7449_424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-03-09",
+      "url": "https://www.sec.gov/Archives/edgar/data/1855509/000173112226000362/e7398_424b5.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2026-02-23",
+      "url": "https://www.sec.gov/Archives/edgar/data/1855509/000173112226000273/e7294_424b4.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     0.12,
+     1.0,
+     2.0,
+     3.0,
+     17.57,
+     17.58,
+     17.76,
+     21.74
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-06",
+     "url": "https://www.sec.gov/Archives/edgar/data/1855509/000173112226001024/e7829_10q.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": true
+   },
+   "venta_hoy": false,
+   "plan": {
+    "entrada": "apertura (9:30)",
+    "stop": 18.85,
+    "stop_pct": 0.3,
+    "riesgo_accion": 5.4375,
+    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   },
+   "estad": {
+    "R": 0.01,
+    "WR": 0.6,
+    "gan": null,
+    "perd": null,
+    "PF": 1.05,
+    "n": null,
+    "squeeze": null,
+    "fuente": "contrato real / FDA / otros ≈ 0R"
+   },
+   "avisos": [
+    "Capitalización < $30 M: más squeezes (histórico −0.13R)"
+   ]
+  }
+ ],
+ "vigilar": [
+  {
+   "sym": "LOBO",
+   "nombre": "LOBO TECHNOLOGIES LTD.",
+   "precio": 0.709,
+   "gap": 0.3377,
+   "cap": null,
+   "docs_hoy": [
+    {
+     "form": "6-K",
+     "hora": "2026-09-18 16:06",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1932072/000149315226043339/form6-k.htm",
+     "items_es": ""
+    }
+   ],
+   "tipo": null
+  },
+  {
+   "sym": "PRTH",
+   "nombre": "Priority Technology Holdings, Inc.",
+   "precio": 7.785,
+   "gap": 0.3353,
+   "cap": null,
+   "docs_hoy": [
+    {
+     "form": "DEFA14A",
+     "hora": "2026-09-21 07:42",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1653558/000121390026101653/ea0306047-8k_priority.htm",
+     "items_es": ""
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-09-21 07:40",
+     "items": "1.01,5.02,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1653558/000121390026101651/ea0306047-8k_priority.htm",
+     "items_es": "1.01 acuerdo firmado; 5.02 directivos; 8.01 otros hechos; 9.01 anexos"
+    }
+   ],
+   "tipo": null
+  },
+  {
+   "sym": "SVRN",
+   "nombre": "OceanPal Inc.",
+   "precio": 26.36,
+   "gap": 0.2972,
+   "cap": null,
+   "docs_hoy": [],
+   "tipo": null
+  },
+  {
+   "sym": "AVAT",
+   "nombre": "Avalanche Treasury Corp",
+   "precio": 1.4,
+   "gap": 0.2963,
+   "cap": null,
+   "docs_hoy": [],
+   "tipo": null
+  },
+  {
+   "sym": "MX",
+   "nombre": "MAGNACHIP SEMICONDUCTOR Corp",
+   "precio": 3.47,
+   "gap": 0.2618,
+   "cap": null,
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-21 07:05",
+     "items": "1.01,3.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1325702/000119312526396059/mx-20260729.htm",
+     "items_es": "1.01 acuerdo firmado; 3.02 venta privada de acciones; 7.01 nota de prensa; 9.01 anexos"
+    }
+   ],
+   "tipo": null
+  },
+  {
+   "sym": "INV",
+   "nombre": "Innventure, Inc.",
+   "precio": 0.731,
+   "gap": 0.2224,
+   "cap": null,
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-21 08:17",
+     "items": "5.02,8.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/2001557/000200155726000175/innv-20260918.htm",
+     "items_es": "5.02 directivos; 8.01 otros hechos"
+    }
+   ],
+   "tipo": null
+  },
+  {
+   "sym": "CISS",
+   "nombre": "C3is Inc.",
+   "precio": 1.56,
+   "gap": 0.2093,
+   "cap": null,
+   "docs_hoy": [],
+   "tipo": null
+  }
+ ],
+ "resultados": {
+  "GRML": {
+   "apertura": 7.329999923706055,
+   "maximo": 11.680000305175781,
+   "minimo": 6.630000114440918,
+   "cierre": 9.420000076293945,
+   "R": -1.25,
+   "subida_max": 0.593,
+   "caida_cierre": 0.285
+  },
+  "GLND": {
+   "apertura": 3.0199999809265137,
+   "maximo": 3.390000104904175,
+   "minimo": 2.6500000953674316,
+   "cierre": 2.880000114440918,
+   "R": 0.121,
+   "subida_max": 0.123,
+   "caida_cierre": -0.046
+  },
+  "BTTC": {
+   "apertura": 0.6439999938011169,
+   "maximo": 0.9800000190734863,
+   "minimo": 0.5680000185966492,
+   "cierre": 0.7950000166893005,
+   "R": -1.25,
+   "subida_max": 0.522,
+   "caida_cierre": 0.234
+  },
+  "VEEE": {
+   "apertura": 14.5,
+   "maximo": 22.849000930786133,
+   "minimo": 13.680000305175781,
+   "cierre": 17.239999771118164,
+   "R": -1.25,
+   "subida_max": 0.576,
+   "caida_cierre": 0.189
+  }
+ }
+}

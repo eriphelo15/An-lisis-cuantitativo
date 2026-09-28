@@ -1,0 +1,439 @@
+{
+ "fecha": "2026-09-28",
+ "generado": "2026-09-28 12:36",
+ "replay": false,
+ "desde": "2026-09-25 16:00",
+ "corte": "2026-09-28 12:35",
+ "reglas": {
+  "gap_lista": 0.5,
+  "gap_vigilar": 0.2,
+  "stop": 0.3,
+  "deslizamiento": 0.05,
+  "coste": 0.01,
+  "riesgo_accion": 0.3750000000000002
+ },
+ "lista": [
+  {
+   "sym": "SOAR",
+   "nombre": "Volato Group, Inc.",
+   "sector": "Air Transportation, Nonscheduled",
+   "precio": 0.3953,
+   "cierre_prev": 0.1795,
+   "gap": 1.2022,
+   "cap": 21211950,
+   "vol_pre": 778184920,
+   "nivel": "B",
+   "clasif": {
+    "tipo": "H",
+    "frase_en": "its Alignment Engine subsidiary has entered into two four-year, take-or-pay orders with a large AI customer, representing $1.17 billion in aggregate contract value",
+    "frase_es": "su filial Alignment Engine firmó dos pedidos a cuatro años con un gran cliente de IA, por un valor total de 1.170 millones de dólares",
+    "cifra": "$1.17 B (dólares) de valor de contrato; cliente SIN nombre; empresa de $21 M de capitalización",
+    "nota": "Hay 8-K con Item 1.01 (acuerdo firmado), pero el cliente no se identifica y el pedido es ~55 veces el tamaño de la empresa. Giro hacia IA. Por las definiciones registradas (contrato real = contraparte identificada + cifra) cuenta como humo.",
+    "tipo_es": "Humo / cosmético"
+   },
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 04:05",
+     "items": "1.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226044456/form8-k.htm",
+     "anexos": [
+      {
+       "archivo": "ex99-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226044456/ex99-1.htm"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 04:05",
+     "items": "1.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226044456/form8-k.htm",
+     "items_es": "1.01 acuerdo firmado; 7.01 nota de prensa; 9.01 anexos"
+    }
+   ],
+   "noticias": [
+    {
+     "hora": "2026-09-28 08:05",
+     "titular": "Volato Group’s Alignment Engine Subsidiary Signs $1.2 Billion in AI Infrastructure Orders with Large AI Customer",
+     "url": "https://finance.yahoo.com/technology/ai/articles/volato-group-alignment-engine-subsidiary-120500289.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "municion": {
+    "venta90": true,
+    "s3": "2026-06-18",
+    "s1": null,
+    "ventas_12m": 3,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 2,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-07-01",
+      "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226031391/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-03-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226013361/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-12-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315225026674/form424b5.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2021-12-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/1853070/000114036121040097/nt10025000x13_424b4.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     287.5
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226038025/form10-q.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "plan": {
+    "entrada": "apertura (9:30)",
+    "stop": 0.5139,
+    "stop_pct": 0.3,
+    "riesgo_accion": 0.1482,
+    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   },
+   "estad": {
+    "R": 0.22,
+    "WR": 0.68,
+    "gan": 0.85,
+    "perd": -1.1,
+    "PF": 1.63,
+    "n": 168,
+    "squeeze": 0.17,
+    "fuente": "humo + gap ≥50 % · VAL 2022-26 (validado)"
+   },
+   "avisos": [
+    "Capitalización < $30 M: más squeezes (histórico −0.13R)"
+   ]
+  },
+  {
+   "sym": "KOD",
+   "nombre": "Kodiak Sciences Inc.",
+   "sector": "Biological Products, (No Diagnostic Substances)",
+   "precio": 87.15,
+   "cierre_prev": 32.35,
+   "gap": 1.694,
+   "cap": 5499956224,
+   "vol_pre": 26184933,
+   "nivel": "VIGILAR",
+   "clasif": {
+    "tipo": "B",
+    "frase_en": "Zenkuda (tarcocimab tedromer) met the primary endpoint (p-value of 0.0007)",
+    "frase_es": "Zenkuda cumplió el objetivo principal del estudio de fase 3 (p = 0,0007)",
+    "cifra": "sin cifra en dólares; dato clínico real de fase 3",
+    "nota": "Catalizador real (biotech). Capitalización $5.5 B: no es small cap.",
+    "tipo_es": "Biotech real (FDA / datos)"
+   },
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 04:53",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312526403481/d185059d8k.htm",
+     "anexos": [
+      {
+       "archivo": "d185059dex991.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312526403481/d185059dex991.htm"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 04:53",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312526403481/d185059d8k.htm",
+     "items_es": "8.01 otros hechos; 9.01 anexos"
+    }
+   ],
+   "noticias": [
+    {
+     "hora": "2026-09-25 18:01",
+     "titular": "Kodiak Sciences to Present Topline Results on September 28, 2026 from DAYBREAK Pivotal Phase 3 Study of Zenkuda and KSI-501 in Patients with Wet Age-Related Macular Degeneration",
+     "url": "https://finviz.com/news/395705/kodiak-sciences-to-present-topline-results-on-september-28-2026-from-daybreak-pivotal-phase-3-study-of-zenkuda-and-ksi-501-in-patients-with-wet-age-related-macular-degeneration",
+     "fuente": "PR Newswire"
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 2,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2025-12-17",
+      "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312525322974/d35710d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-12-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312525319413/d35710d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2020-11-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312520296947/d81062d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2020-11-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312520294830/d81062d424b5.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-13",
+     "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312526349251/kod-20260630.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "plan": {
+    "entrada": "apertura (9:30)",
+    "stop": 113.295,
+    "stop_pct": 0.3,
+    "riesgo_accion": 32.6813,
+    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   },
+   "estad": {
+    "R": 0.01,
+    "WR": 0.6,
+    "gan": null,
+    "perd": null,
+    "PF": 1.05,
+    "n": null,
+    "squeeze": null,
+    "fuente": "contrato real / FDA / otros ≈ 0R"
+   },
+   "avisos": []
+  },
+  {
+   "sym": "LFCR",
+   "nombre": "Lifecore Biomedical, Inc.",
+   "sector": "Pharmaceutical Preparations",
+   "precio": 6.5691,
+   "cierre_prev": 4.2,
+   "gap": 0.5641,
+   "cap": 248369072,
+   "vol_pre": 2516707,
+   "nivel": "NUNCA",
+   "clasif": {
+    "tipo": "C",
+    "frase_en": "Lifecore Common Stockholders to Receive $6.28 per Share in Cash at Closing",
+    "frase_es": "los accionistas recibirán 6,28 dólares por acción en efectivo al cerrar la compra",
+    "cifra": "$6.28 por acción en efectivo (+ CVR de hasta $3.39)",
+    "nota": "Compra en efectivo: el precio queda anclado cerca de $6.28. Nunca shortear.",
+    "tipo_es": "Compra en efectivo"
+   },
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 04:53",
+     "items": "1.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037767/ef20082009_8k.htm",
+     "anexos": [
+      {
+       "archivo": "ef20082009_ex99-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037767/ef20082009_ex99-1.htm"
+      },
+      {
+       "archivo": "ef20082009_ex99-2.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037767/ef20082009_ex99-2.htm"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "DEFA14A",
+     "hora": "2026-09-28 04:56",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037768/ef20082009_defa14a.htm",
+     "items_es": ""
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 04:53",
+     "items": "1.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037767/ef20082009_8k.htm",
+     "items_es": "1.01 acuerdo firmado; 7.01 nota de prensa; 9.01 anexos"
+    }
+   ],
+   "noticias": [
+    {
+     "hora": "2026-09-28 08:45",
+     "titular": "Lifecore Biomedical to be Acquired by Webster Equity Partners",
+     "url": "https://finance.yahoo.com/healthcare/articles/lifecore-biomedical-acquired-webster-equity-124500829.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": "2025-09-23",
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-05",
+     "url": "https://www.sec.gov/Archives/edgar/data/1005286/000100528626000033/lfcr-20260630.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "plan": {
+    "entrada": "apertura (9:30)",
+    "stop": 8.5398,
+    "stop_pct": 0.3,
+    "riesgo_accion": 2.4634,
+    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   },
+   "estad": {
+    "R": -0.04,
+    "WR": 0.08,
+    "gan": null,
+    "perd": null,
+    "PF": 0.23,
+    "n": 13,
+    "squeeze": 0.0,
+    "fuente": "compra en efectivo: el precio queda anclado"
+   },
+   "avisos": []
+  }
+ ],
+ "vigilar": [
+  {
+   "sym": "CLRO",
+   "nombre": "ClearOne, Inc.",
+   "precio": 4.9001,
+   "gap": 0.391,
+   "cap": 13109519,
+   "docs_hoy": [],
+   "tipo": "N"
+  },
+  {
+   "sym": "GYGY",
+   "nombre": "Game Your Game, Inc.",
+   "precio": 0.8871,
+   "gap": 0.1994,
+   "cap": 12765704,
+   "docs_hoy": [],
+   "tipo": "N"
+  },
+  {
+   "sym": "MIMI",
+   "nombre": "Mint Incorporation Limited",
+   "precio": 0.9513,
+   "gap": 0.2335,
+   "cap": 14072221,
+   "docs_hoy": [],
+   "tipo": null
+  },
+  {
+   "sym": "WBUY",
+   "nombre": "WEBUY GLOBAL LTD.",
+   "precio": 0.9483,
+   "gap": 0.1796,
+   "cap": 5209241,
+   "docs_hoy": [
+    {
+     "form": "6-K",
+     "hora": "2026-09-28 02:31",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390026103727/ea0306044-6k_webuy.htm",
+     "items_es": ""
+    }
+   ],
+   "tipo": null
+  },
+  {
+   "sym": "MEDS",
+   "nombre": "DataMEDS AI, Inc.",
+   "precio": 4.235,
+   "gap": 0.3617,
+   "cap": 13498487,
+   "docs_hoy": [],
+   "tipo": null
+  },
+  {
+   "sym": "COLA",
+   "nombre": "Columbus Acquisition Corp",
+   "precio": 10.8348,
+   "gap": 0.0368,
+   "cap": 48696348,
+   "docs_hoy": [
+    {
+     "form": "DEFA14A",
+     "hora": "2026-09-28 05:24",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026103788/ea0306809-8k_columbus.htm",
+     "items_es": ""
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 05:21",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026103784/ea0306809-8k_columbus.htm",
+     "items_es": "8.01 otros hechos; 9.01 anexos"
+    }
+   ],
+   "tipo": null
+  },
+  {
+   "sym": "LABT",
+   "nombre": "Lakewood-Amedex Biotherapeutics, Inc.",
+   "precio": 1.315,
+   "gap": -0.2126,
+   "cap": 3127751,
+   "docs_hoy": [],
+   "tipo": null
+  },
+  {
+   "sym": "DLXY",
+   "nombre": "Delixy Holdings Limited",
+   "precio": 2.64,
+   "gap": 0.0562,
+   "cap": 8894400,
+   "docs_hoy": [],
+   "tipo": null
+  }
+ ],
+ "resultados": null
+}

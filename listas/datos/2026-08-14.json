@@ -1,0 +1,587 @@
+{
+ "fecha": "2026-08-14",
+ "generado": "2026-09-28 12:32",
+ "replay": true,
+ "desde": "2026-08-13 16:00",
+ "corte": "2026-08-14 09:10",
+ "reglas": {
+  "gap_lista": 0.5,
+  "gap_vigilar": 0.2,
+  "stop": 0.3,
+  "deslizamiento": 0.05,
+  "coste": 0.01,
+  "riesgo_accion": 0.3750000000000002
+ },
+ "lista": [
+  {
+   "sym": "AKAN",
+   "nombre": "AKANDA CORP.",
+   "sector": "Medicinal Chemicals & Botanical Products",
+   "precio": 7.81,
+   "cierre_prev": 5.010000228881836,
+   "gap": 0.5589,
+   "cap": 15491494.26,
+   "vol_pre": null,
+   "nivel": "B",
+   "clasif": {
+    "tipo": "H",
+    "frase_en": "Increases Recurring Revenue with completion of 200 KM Fiber Network",
+    "frase_es": "aumenta sus ingresos recurrentes al completar una red de fibra de 200 km",
+    "cifra": "sin cifra en dólares",
+    "nota": "Actualización operativa sin ingresos cuantificados (6-K de la tarde anterior).",
+    "tipo_es": "Humo / cosmético"
+   },
+   "catalizadores": [
+    {
+     "form": "6-K",
+     "hora": "2026-08-13 16:05",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1888014/000121390026089076/ea0302055-6k_akanda.htm",
+     "anexos": [
+      {
+       "archivo": "ea030205501ex99-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1888014/000121390026089076/ea030205501ex99-1.htm"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "6-K",
+     "hora": "2026-08-13 16:05",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1888014/000121390026089076/ea0302055-6k_akanda.htm",
+     "items_es": ""
+    }
+   ],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": "2024-01-18",
+    "s1": "2026-03-20",
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2024-10-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/1888014/000121390024084909/ea0212571-03.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-05-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1888014/000121390024044928/ea0206500-424b5_akandacorp.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-05-17",
+      "url": "https://www.sec.gov/Archives/edgar/data/1888014/000121390024044697/ea0206467-424b5_akandacorp.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2024-03-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1888014/000121390024025987/ea0200030-04.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-06-09",
+     "url": "https://www.sec.gov/Archives/edgar/data/1888014/000121390026066800/ea0288681-20f_akanda.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "plan": {
+    "entrada": "apertura (9:30)",
+    "stop": 10.153,
+    "stop_pct": 0.3,
+    "riesgo_accion": 2.9288,
+    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   },
+   "estad": {
+    "R": 0.22,
+    "WR": 0.68,
+    "gan": 0.85,
+    "perd": -1.1,
+    "PF": 1.63,
+    "n": 168,
+    "squeeze": 0.17,
+    "fuente": "humo + gap ≥50 % · VAL 2022-26 (validado)"
+   },
+   "avisos": [
+    "Capitalización < $30 M: más squeezes (histórico −0.13R)"
+   ]
+  },
+  {
+   "sym": "WETO",
+   "nombre": "Wetour Robotics Ltd",
+   "sector": "Local & Suburban Transit & Interurban Hwy Passenger Trans",
+   "precio": 10.65,
+   "cierre_prev": 3.609999895095825,
+   "gap": 1.9501,
+   "cap": 234300000.0,
+   "vol_pre": null,
+   "nivel": "VIGILAR",
+   "clasif": {
+    "tipo": "N",
+    "tipo_es": "Sin noticia"
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": true,
+    "s3": "2026-04-30",
+    "s1": null,
+    "ventas_12m": 2,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-07-06",
+      "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026075590/ea0297083-424b5_wetour.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-05-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026057982/ea0290010-424b5_wetour.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2025-02-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1941158/000157587225000194/vc073_424b4.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2025-02-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1941158/000157587225000188/vc071_424b4.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [
+     5.0
+    ],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2025-10-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1941158/000157587225000653/weto-20250630.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": true
+   },
+   "venta_hoy": false,
+   "plan": {
+    "entrada": "apertura (9:30)",
+    "stop": 13.845,
+    "stop_pct": 0.3,
+    "riesgo_accion": 3.9938,
+    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   },
+   "estad": {
+    "R": 0.01,
+    "WR": 0.6,
+    "gan": null,
+    "perd": null,
+    "PF": 1.05,
+    "n": null,
+    "squeeze": null,
+    "fuente": "contrato real / FDA / otros ≈ 0R"
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
+   ]
+  },
+  {
+   "sym": "SURG",
+   "nombre": "SurgePays, Inc.",
+   "sector": "Telephone Communications (No Radiotelephone)",
+   "precio": 0.394,
+   "cierre_prev": 0.24699999392032623,
+   "gap": 0.5951,
+   "cap": 20845918.662,
+   "vol_pre": null,
+   "nivel": "VIGILAR",
+   "clasif": {
+    "tipo": "N",
+    "tipo_es": "Sin noticia"
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": "2023-10-23",
+    "s1": null,
+    "ventas_12m": 3,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-01-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1392694/000149315226003210/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-01-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1392694/000149315226003164/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-01-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1392694/000149315226002910/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-08-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1392694/000164117225022281/form424b5.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     1.25,
+     1.38,
+     1.75,
+     2.5,
+     4.73,
+     6.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-05-20",
+     "url": "https://www.sec.gov/Archives/edgar/data/1392694/000149315226024591/form10-q.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "plan": {
+    "entrada": "apertura (9:30)",
+    "stop": 0.5122,
+    "stop_pct": 0.3,
+    "riesgo_accion": 0.1478,
+    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   },
+   "estad": {
+    "R": 0.01,
+    "WR": 0.6,
+    "gan": null,
+    "perd": null,
+    "PF": 1.05,
+    "n": null,
+    "squeeze": null,
+    "fuente": "contrato real / FDA / otros ≈ 0R"
+   },
+   "avisos": [
+    "Capitalización < $30 M: más squeezes (histórico −0.13R)",
+    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar",
+    "Convertible de precio variable (tóxica) en el último informe"
+   ]
+  },
+  {
+   "sym": "SKYE",
+   "nombre": "Skye Bioscience, Inc.",
+   "sector": "Pharmaceutical Preparations",
+   "precio": 6.88,
+   "cierre_prev": 4.328000068664551,
+   "gap": 0.5896,
+   "cap": 243699321.44,
+   "vol_pre": null,
+   "nivel": "VIGILAR",
+   "clasif": {
+    "tipo": "N",
+    "tipo_es": "Sin noticia"
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": "2024-05-10",
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 1,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2021-09-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1516551/000164033421002413/skye_424b5.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2020-08-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/1516551/000164033420001952/embi_424b4.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2019-11-13",
+      "url": "https://www.sec.gov/Archives/edgar/data/1516551/000164033419002259/nmus_424b4.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     0.61
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-05-11",
+     "url": "https://www.sec.gov/Archives/edgar/data/1516551/000162828026033417/skye-20260331.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": true
+   },
+   "venta_hoy": false,
+   "plan": {
+    "entrada": "apertura (9:30)",
+    "stop": 8.944,
+    "stop_pct": 0.3,
+    "riesgo_accion": 2.58,
+    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   },
+   "estad": {
+    "R": 0.01,
+    "WR": 0.6,
+    "gan": null,
+    "perd": null,
+    "PF": 1.05,
+    "n": null,
+    "squeeze": null,
+    "fuente": "contrato real / FDA / otros ≈ 0R"
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
+   ]
+  },
+  {
+   "sym": "HHS",
+   "nombre": "HARTE HANKS INC",
+   "sector": "Services-Direct Mail Advertising Services",
+   "precio": 4.23,
+   "cierre_prev": 2.809999942779541,
+   "gap": 0.5053,
+   "cap": 31531435.200000003,
+   "vol_pre": null,
+   "nivel": "VIGILAR",
+   "clasif": {
+    "tipo": "N",
+    "tipo_es": "Sin noticia"
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-05-15",
+     "url": "https://www.sec.gov/Archives/edgar/data/45919/000162828026035323/hrth-20260331.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "plan": {
+    "entrada": "apertura (9:30)",
+    "stop": 5.499,
+    "stop_pct": 0.3,
+    "riesgo_accion": 1.5863,
+    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   },
+   "estad": {
+    "R": 0.01,
+    "WR": 0.6,
+    "gan": null,
+    "perd": null,
+    "PF": 1.05,
+    "n": null,
+    "squeeze": null,
+    "fuente": "contrato real / FDA / otros ≈ 0R"
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
+   ]
+  }
+ ],
+ "vigilar": [
+  {
+   "sym": "DAAQ",
+   "nombre": "Digital Asset Acquisition Corp.",
+   "precio": 10.41,
+   "gap": 0.4339,
+   "cap": null,
+   "docs_hoy": [
+    {
+     "form": "425",
+     "hora": "2026-08-13 17:03",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/2052162/000121390026089223/ea0302045-8k425_digital.htm",
+     "items_es": ""
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-08-13 17:02",
+     "items": "1.01,1.02,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/2052162/000121390026089219/ea0302045-8k425_digital.htm",
+     "items_es": "1.01 acuerdo firmado; 1.02 fin de acuerdo; 8.01 otros hechos; 9.01 anexos"
+    }
+   ],
+   "tipo": null
+  },
+  {
+   "sym": "SXTC",
+   "nombre": "China SXT Pharmaceuticals, Inc.",
+   "precio": 4.6,
+   "gap": 0.3939,
+   "cap": null,
+   "docs_hoy": [],
+   "tipo": null
+  },
+  {
+   "sym": "CGTL",
+   "nombre": "Creative Global Technology Holdings Ltd",
+   "precio": 5.03,
+   "gap": 0.3668,
+   "cap": null,
+   "docs_hoy": [],
+   "tipo": null
+  },
+  {
+   "sym": "MDXH",
+   "nombre": "MDxHealth SA",
+   "precio": 0.608,
+   "gap": 0.316,
+   "cap": null,
+   "docs_hoy": [
+    {
+     "form": "6-K",
+     "hora": "2026-08-13 16:05",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1872529/000121390026089082/ea0301894-6k_mdxhealth.htm",
+     "items_es": ""
+    },
+    {
+     "form": "424B5",
+     "hora": "2026-08-13 16:03",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1872529/000121390026089071/ea0301603-424b5_mdxhealth.htm",
+     "items_es": ""
+    },
+    {
+     "form": "6-K",
+     "hora": "2026-08-13 16:02",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1872529/000121390026089069/ea0301975-6k_mdxhealth.htm",
+     "items_es": ""
+    }
+   ],
+   "tipo": null
+  },
+  {
+   "sym": "MF",
+   "nombre": "MindForge Inc.",
+   "precio": 13.04,
+   "gap": 0.304,
+   "cap": null,
+   "docs_hoy": [],
+   "tipo": null
+  },
+  {
+   "sym": "LBGJ",
+   "nombre": "Li Bang International Corp Inc.",
+   "precio": 3.71,
+   "gap": 0.2408,
+   "cap": null,
+   "docs_hoy": [],
+   "tipo": null
+  },
+  {
+   "sym": "VALN",
+   "nombre": "Valneva SE",
+   "precio": 7.0,
+   "gap": 0.2389,
+   "cap": null,
+   "docs_hoy": [],
+   "tipo": null
+  },
+  {
+   "sym": "IMXI",
+   "nombre": "International Money Express, Inc.",
+   "precio": 14.24,
+   "gap": 0.2171,
+   "cap": null,
+   "docs_hoy": [],
+   "tipo": null
+  }
+ ],
+ "resultados": {
+  "AKAN": {
+   "apertura": 7.809999942779541,
+   "maximo": 8.649999618530273,
+   "minimo": 6.224999904632568,
+   "cierre": 6.449999809265137,
+   "R": 0.547,
+   "subida_max": 0.108,
+   "caida_cierre": -0.174
+  },
+  "WETO": {
+   "apertura": 10.649999618530273,
+   "maximo": 12.949999809265137,
+   "minimo": 7.260000228881836,
+   "cierre": 8.220000267028809,
+   "R": 0.727,
+   "subida_max": 0.216,
+   "caida_cierre": -0.228
+  },
+  "SURG": {
+   "apertura": 0.39399999380111694,
+   "maximo": 0.4300000071525574,
+   "minimo": 0.25999999046325684,
+   "cierre": 0.28200000524520874,
+   "R": 0.914,
+   "subida_max": 0.091,
+   "caida_cierre": -0.284
+  },
+  "SKYE": {
+   "apertura": 6.880000114440918,
+   "maximo": 7.039999961853027,
+   "minimo": 3.7839999198913574,
+   "cierre": 4.015999794006348,
+   "R": 1.354,
+   "subida_max": 0.023,
+   "caida_cierre": -0.416
+  },
+  "HHS": {
+   "apertura": 4.230000019073486,
+   "maximo": 4.5,
+   "minimo": 4.079999923706055,
+   "cierre": 4.300000190734863,
+   "R": -0.088,
+   "subida_max": 0.064,
+   "caida_cierre": 0.017
+  }
+ }
+}
