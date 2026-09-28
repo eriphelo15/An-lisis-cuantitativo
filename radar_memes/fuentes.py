@@ -238,17 +238,18 @@ def notificar(titulo, texto, enlace=None, etiquetas="rocket"):
     """Envía una notificación push por ntfy.sh al tema de NTFY_TOPIC.
 
     Sin NTFY_TOPIC no envía nada (devuelve False). El tema va en un secreto:
-    quien lo conozca puede leer y publicar en él.
+    quien lo conozca puede leer y publicar en él. Se publica en JSON para que
+    los acentos y los nombres con caracteres especiales lleguen bien.
     """
     tema = os.environ.get("NTFY_TOPIC", "").strip()
     if not tema:
         return False
-    cabeceras = {"Title": titulo.encode("utf-8"), "Tags": etiquetas, "Priority": "high"}
+    cuerpo = {"topic": tema, "title": titulo, "message": texto, "tags": [etiquetas], "priority": 4}
     if enlace:
-        cabeceras["Click"] = enlace
+        cuerpo["click"] = enlace
     try:
-        peticion = urllib.request.Request(f"https://ntfy.sh/{tema}", data=texto.encode("utf-8"),
-                                          headers=cabeceras, method="POST")
+        peticion = urllib.request.Request("https://ntfy.sh/", data=json.dumps(cuerpo).encode("utf-8"),
+                                          headers={"Content-Type": "application/json"}, method="POST")
         urllib.request.urlopen(peticion, timeout=15).close()
         return True
     except Exception as e:
