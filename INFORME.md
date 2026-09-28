@@ -1,10 +1,10 @@
 # Informe del radar de memecoins
 
-Generado: 2026-09-28 00:30 UTC
+Generado: 2026-09-28 00:39 UTC
 
-- Tokens registrados: **419** (desde 2026-09-27 18:07)
+- Tokens registrados: **428** (desde 2026-09-27 18:07)
 - Con resultado a 24 h: **0** (el primero llega 24 h después de la primera detección)
-- Pasan el filtro v1: **9**
+- Pasan el filtro v1: **10**
 - Resultados en dólares por cada apuesta de $50, con 3% de costes en la entrada y en la salida:
   - `regla_$_por_50` (24 h): vender 50% a 2x, 20% a 5x, 20% a 10x; stop a -50%.
   - `tendencia_$_por_50` (7 días): vender 1/3 a 3x y el resto con stop móvil del 50% desde el máximo. Es la que puede capturar las subidas grandes.
@@ -24,20 +24,20 @@ Generado: 2026-09-28 00:30 UTC
 
 ## Señales de desplome (cuándo salir)
 
-Fotos de tokens que ya subían un 50% o más: **393**; seguidas de un desplome (caída a un 40% o menos en 30 min): **12**. Cada fila compara cuántas veces llegó un desplome con la señal activa frente a sin ella: si la señal lo anticipa, el primer % es mucho mayor.
+Fotos de tokens que ya subían un 50% o más: **478**; seguidas de un desplome (caída a un 40% o menos en 30 min): **12**. Cada fila compara cuántas veces llegó un desplome con la señal activa frente a sin ella: si la señal lo anticipa, el primer % es mucho mayor.
 
 _Menos de 20 desplomes registrados: todavía no se puede concluir nada._
 
 | señal                                        |   fotos_con_señal | desplome_con_señal   | desplome_sin_señal   |
 |:---------------------------------------------|------------------:|:---------------------|:---------------------|
-| Liquidez < 3% de la capitalización           |               292 | 0%                   | 12%                  |
-| Ticket medio < $30 (volumen de microcompras) |               326 | 2%                   | 6%                   |
-| Más de 8 compradores por vendedor (5 min)    |                 2 | 100%                 | 3%                   |
-| Subida de más del 100% en 1 h                |                88 | 11%                  | 1%                   |
-| Escalera: 30 min subiendo sin retrocesos     |                 0 | -                    | 3%                   |
-| Aceleración final                            |                 5 | 0%                   | 3%                   |
-| Más vendedores que compradores (5 min)       |               315 | 0%                   | 14%                  |
-| Ya multiplicó x5 o más desde la detección    |               108 | 2%                   | 4%                   |
+| Liquidez < 3% de la capitalización           |               358 | 0%                   | 10%                  |
+| Ticket medio < $30 (volumen de microcompras) |               398 | 2%                   | 5%                   |
+| Más de 8 compradores por vendedor (5 min)    |                 2 | 100%                 | 2%                   |
+| Subida de más del 100% en 1 h                |               102 | 10%                  | 1%                   |
+| Escalera: 30 min subiendo sin retrocesos     |                 2 | 0%                   | 3%                   |
+| Aceleración final                            |                 6 | 0%                   | 3%                   |
+| Más vendedores que compradores (5 min)       |               388 | 0%                   | 12%                  |
+| Ya multiplicó x5 o más desde la detección    |               133 | 2%                   | 3%                   |
 
 ## Palabras calientes (últimas 3 h)
 
@@ -48,20 +48,20 @@ Palabras que aparecen en muchos más tokens nuevos de lo normal: temas que se es
 | moin       |          16 |                   13 | x10               | moin       | 324K       | BdeQbxD9v9JkKam8r9P3wz317rn7jDu7MHGczVw2LZ8m |
 | claudechan |           7 |                    0 | x56               | CLAUDECHAN | 474K       | DmgujFb6P3NJfgLyFhJhcwnUBNQJ7QSBLwtNvy3vi4J9 |
 | buns       |           6 |                    0 | x48               | BUNS       | 499K       | 2YrzLLfojLVezr4oRx4D6VYeG2ehJHoPLs5Zbt1AATSv |
-| vbucks     |           5 |                    0 | x40               | VBUCKS     | 132K       | G3EZu7t5T4zy9bgbdKe7YbtNfBzL3nePcMr6JeaYsw1t |
+| zmr        |           6 |                    0 | x48               | zmr        | 176K       | 9inZTWscKifF835pUztDZmF77wBe2d16n3cJd97ZE4UJ |
 | inu        |           5 |                    0 | x40               | inu        | 126K       | 9L4xAusWTDaHxbA54ZRQGeqM5UZrHyysjx5qnTVvyApT |
+| vbucks     |           5 |                    0 | x40               | VBUCKS     | 132K       | G3EZu7t5T4zy9bgbdKe7YbtNfBzL3nePcMr6JeaYsw1t |
 | ocelot     |           5 |                    0 | x40               | Ocelot     | 149K       | FdjkMLM79vWtvaDYU83xkXoZAPnhdKpicZmyFQQ89RSN |
-| zmr        |           5 |                    0 | x40               | zmr        | 176K       | 9inZTWscKifF835pUztDZmF77wBe2d16n3cJd97ZE4UJ |
 | gta        |           4 |                    0 | x32               | GTA 6 Coin | 1114K      | GHNJY8WowhxAFneGs3oXoFV5EpiScmNAZrnAuxN5pump |
+| wiffomo    |           3 |                    0 | x24               | wiffomo    | 160K       | FJGWEmtCEtvyviC8w86twWNiTcXwn7YiAoHmJgxWpump |
 | pkmn50     |           3 |                    1 | x24               | PKMN50     | 114K       | BcpRdQiNzwGRJLbtrUwKrLCWAVwm8Bm1KKbGYtUohoyG |
-| toad       |           3 |                    0 | x24               | TOAD       | 50K        | ByqdCepXayazM7xg7yum6PtYsbzFM8Qe12qcfBAYpump |
 
 ## Narrativas activas (últimas 2 h)
 
 | narrativa   |   tokens_nuevos | lider      | mc_lider   | catalizador                                            | mint_lider                                   |
 |:------------|----------------:|:-----------|:-----------|:-------------------------------------------------------|:---------------------------------------------|
-| ia          |              12 | CLAUDECHAN | 114K       |                                                        | L3AkrXzxvigXwefBR5ov87BMsKVJTss76kDk8tLHihr  |
-| cripto      |               4 | SNOWMOON   | 107K       |                                                        | 9hJPqv4skc13qXXfoxudGqpUe8ByMUKnRoiVNUHnwhL  |
+| ia          |              14 | CLAUDECHAN | 114K       |                                                        | L3AkrXzxvigXwefBR5ov87BMsKVJTss76kDk8tLHihr  |
+| cripto      |               2 | SNOWMOON   | 107K       |                                                        | 9hJPqv4skc13qXXfoxudGqpUe8ByMUKnRoiVNUHnwhL  |
 | videojuegos |               2 | GTA 6 Coin | 438K       | Lanzamiento de GTA 6 (previsto) (en 53 días)           | WnFL5YYoGzCskdFxowXBv2j4cjT5xcD6iNdD8dWpump  |
 | animales    |               1 | Bdfbull    | 122K       |                                                        | F1CZsBwru1KGc4wZHem9oAjna2xkBJ3DbS4db9QvBAGS |
 | elon        |               1 | Elon Coin  | 474K       |                                                        | Cfctf6xtNf96tM8jKmEZYAYmjjnpaEQH4gxeJP34pump |
@@ -71,4 +71,6 @@ Palabras que aparecen en muchos más tokens nuevos de lo normal: temas que se es
 
 Solo son candidatos para vigilar mientras el filtro no demuestre ventaja. Comprueba el contrato en rugcheck.xyz antes de hacer nada.
 
-Ninguno.
+| ts    | simbolo   | narrativa   | mc   | liq   |   edad_min |   compradores_h1 |   vendedores_h1 |   top10_pct |   carteras_buenas | mint                                         |
+|:------|:----------|:------------|:-----|:------|-----------:|-----------------:|----------------:|------------:|------------------:|:---------------------------------------------|
+| 00:34 | SUPERCAPY |             | 115K | 32K   |        1.8 |              440 |              56 |         nan |               nan | 7hBLGsXj16vGPVpDiVrZsLmeWS8ZiGgsbwpYRAxVpump |
