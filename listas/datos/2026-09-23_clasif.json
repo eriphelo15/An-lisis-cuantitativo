@@ -17,5 +17,27 @@
   "frase_es": "datos preliminares positivos de la extensión abierta del estudio de fase 3 PALISADE-4",
   "cifra": "sin cifra; datos de seguridad a 12 meses",
   "nota": "Dato clínico real, pero de una extensión abierta (sin placebo)."
+ },
+ "DCOY": {
+  "tipo": "F",
+  "frase_en": "The New Warrants are not subject to stockholder approval and will become exercisable immediately upon issuance",
+  "frase_es": "los nuevos warrants no necesitan aprobación de los accionistas y se podrán ejercer de inmediato",
+  "cifra": "2 368 868 acciones en warrants nuevos a $3.25 (precio de la acción: $4.40); $3.85 M (dólares) recaudados",
+  "nota": "Warrant inducement anunciado el 22-sep a las 12:50 (en plena sesión) y corregido a las 18:14. Financiación = munición inmediata (lección 6). 8-K presentado el 23-sep a las 17:02."
+ },
+ "MSS": {
+  "tipo": "N",
+  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
+  "nota": "Sin noticias desde el 26-ago. Munición: convertible tóxica y warrants en dinero ($0.26-0.78). El trader pagó locate de $0.016/acción."
+ },
+ "BFRG": {
+  "tipo": "N",
+  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
+  "nota": "Solo dos Form 4 (22-sep 16:45). Sin noticias. Precio < $1."
+ },
+ "HCTI": {
+  "tipo": "N",
+  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
+  "nota": "Sin noticia antes de las 9:10. A las 9:17 publicó una LOI (carta de intención no vinculante) para comprar Roboticom por $30 M = humo, pero llegó después del corte."
  }
 }

@@ -1,9 +1,10 @@
 {
  "fecha": "2026-09-23",
- "generado": "2026-09-28 12:33",
+ "generado": "2026-09-28 18:30",
  "replay": true,
  "desde": "2026-09-22 16:00",
  "corte": "2026-09-23 09:10",
+ "cobertura": null,
  "candidatos": [
   {
    "sym": "BENF",
@@ -68,7 +69,20 @@
      "items_es": ""
     }
    ],
-   "noticias": [],
+   "noticias": [
+    {
+     "hora": "2026-09-23 08:11",
+     "titular": "Beneficient Seeks Resolution to Eliminate About $130 Million of Disputed Debt Linked to Former CEO",
+     "url": "https://finviz.com/news/394674/beneficient-seeks-resolution-to-eliminate-about-130-million-of-disputed-debt-linked-to-former-ceo",
+     "fuente": "InvestorsHub"
+    },
+    {
+     "hora": "2026-09-23 07:30",
+     "titular": "Beneficient Announces Strategy to Eliminate HCLP Debt and Heppner Equity Interests",
+     "url": "https://finviz.com/news/394605/beneficient-announces-strategy-to-eliminate-hclp-debt-and-heppner-equity-interests",
+     "fuente": "GlobeNewswire"
+    }
+   ],
    "sector": "Finance Services",
    "venta_hoy": false,
    "municion": {
@@ -228,17 +242,68 @@
    "precio": 4.4,
    "cierre_prev": 3.0999999046325684,
    "gap": 0.4194,
-   "cap": null,
+   "cap": 2882814.0,
    "vol_pre": null,
    "bolsa": "",
    "estado": "REPLAY",
    "cik": 1615219,
    "catalizadores": [],
    "docs_hoy": [],
-   "noticias": [],
+   "noticias": [
+    {
+     "hora": "2026-09-22 18:14",
+     "titular": "Decoy Therapeutics, Inc. Issues Correction to Warrant Inducement Transaction Press Release",
+     "url": "https://finviz.com/news/394513/decoy-therapeutics-inc-issues-correction-to-warrant-inducement-transaction-press-release",
+     "fuente": "PR Newswire"
+    }
+   ],
    "sector": "Pharmaceutical Preparations",
    "venta_hoy": false,
-   "municion": {}
+   "municion": {
+    "venta90": true,
+    "s3": "2025-08-15",
+    "s1": "2026-07-10",
+    "ventas_12m": 1,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 4,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-11-12",
+      "url": "https://www.sec.gov/Archives/edgar/data/1615219/000162828025051365/slrxdecoyfinal424b4.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-08-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1615219/000162828025041046/slrxatmprospectus.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-03-11",
+      "url": "https://www.sec.gov/Archives/edgar/data/1615219/000161521925000029/salarius-atmprospectussupp.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-07-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1615219/000161521924000066/salarius-atmprospectussupp.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     5.91,
+     6.0,
+     27.9
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-12",
+     "url": "https://www.sec.gov/Archives/edgar/data/1615219/000119312526346852/dcoy-20260630.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
   },
   {
    "sym": "MSS",
@@ -246,7 +311,7 @@
    "precio": 2.06,
    "cierre_prev": 1.559999942779541,
    "gap": 0.3205,
-   "cap": null,
+   "cap": 35947980.56,
    "vol_pre": null,
    "bolsa": "",
    "estado": "REPLAY",
@@ -256,7 +321,36 @@
    "noticias": [],
    "sector": "Retail-Grocery Stores",
    "venta_hoy": false,
-   "municion": {}
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": "2025-12-11",
+    "ventas_12m": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 3,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2023-10-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1892292/000101376223002201/f424b41023_maison.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     0.26,
+     0.28,
+     0.78
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-03-17",
+     "url": "https://www.sec.gov/Archives/edgar/data/1892292/000121390026029204/ea0281006-10q_maison.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": true
+   }
   },
   {
    "sym": "BFRG",
@@ -264,7 +358,7 @@
    "precio": 0.782,
    "cierre_prev": 0.6000000238418579,
    "gap": 0.3033,
-   "cap": null,
+   "cap": 14499571.082,
    "vol_pre": null,
    "bolsa": "",
    "estado": "REPLAY",
@@ -289,7 +383,47 @@
    "noticias": [],
    "sector": "Pharmaceutical Preparations",
    "venta_hoy": false,
-   "municion": {}
+   "municion": {
+    "venta90": true,
+    "s3": "2024-08-15",
+    "s1": "2026-05-29",
+    "ventas_12m": 2,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 1,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-04-01",
+      "url": "https://www.sec.gov/Archives/edgar/data/1829247/000149315226014685/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-11-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1829247/000149315225021283/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-04-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1829247/000164117225006297/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-10-21",
+      "url": "https://www.sec.gov/Archives/edgar/data/1829247/000149315224041774/form424b5.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1829247/000162828026057121/bfrg-20260630.htm"
+    },
+    "eloc": true,
+    "warrants_en_dinero": false
+   }
   },
   {
    "sym": "HCTI",
@@ -297,7 +431,7 @@
    "precio": 1.11,
    "cierre_prev": 0.8650000095367432,
    "gap": 0.2832,
-   "cap": null,
+   "cap": 16621497.420000002,
    "vol_pre": null,
    "bolsa": "",
    "estado": "REPLAY",
@@ -307,7 +441,47 @@
    "noticias": [],
    "sector": "Services-Computer Integrated Systems Design",
    "venta_hoy": false,
-   "municion": {}
+   "municion": {
+    "venta90": true,
+    "s3": "2026-07-06",
+    "s1": "2026-07-10",
+    "ventas_12m": 3,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 4,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-03-31",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839285/000121390026037401/ea0284441-424b5_health.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-02-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839285/000121390026021235/f424b50226_healthcare.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-11-19",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839285/000121390025112544/ea0265944-424b5_health.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2025-05-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839285/000121390025044095/ea0242427-424b4_health.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": true,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-13",
+     "url": "https://www.sec.gov/Archives/edgar/data/1839285/000121390026089241/ea0299879-10q_healthcare.htm"
+    },
+    "eloc": true,
+    "warrants_en_dinero": false
+   }
   }
  ]
 }
