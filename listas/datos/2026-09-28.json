@@ -1,9 +1,9 @@
 {
  "fecha": "2026-09-28",
- "generado": "2026-09-28 13:42",
+ "generado": "2026-09-28 14:01",
  "replay": false,
  "desde": "2026-09-25 16:00",
- "corte": "2026-09-28 12:35",
+ "corte": "2026-09-28 14:00",
  "reglas": {
   "gap_lista": 0.5,
   "gap_vigilar": 0.2,
@@ -20,8 +20,8 @@
    "precio": 0.3788,
    "cierre_prev": 0.1795,
    "gap": 1.1103,
-   "cap": 21211950,
-   "vol_pre": 778184920,
+   "cap": 19442054,
+   "vol_pre": 871631568,
    "nivel": "B",
    "clasif": {
     "tipo": "H",
@@ -128,14 +128,91 @@
    ]
   },
   {
+   "sym": "NAMI",
+   "nombre": "Jinxin Technology Holding Company",
+   "sector": "Services-Educational Services",
+   "precio": 2.4399,
+   "cierre_prev": 1.61,
+   "gap": 0.5155,
+   "cap": 8310599,
+   "vol_pre": 44764420,
+   "nivel": "B",
+   "clasif": {
+    "tipo": "H",
+    "frase_en": "Pearson and Namibox Sign Strategic Cooperation Memorandum, Join Forces to Shape a New Global Learning and Education Landscape in the AI Era",
+    "frase_es": "Pearson y Namibox firman un memorando de cooperación estratégica y unen fuerzas para dar forma a un nuevo panorama global del aprendizaje y la educación en la era de la IA",
+    "cifra": "sin cifra en dólares: memorando (MOU), no un contrato; empresa de ~$8 M de capitalización",
+    "nota": "Nota de prensa (PR Newswire, 9:00) sin 6-K en la SEC por ahora (empresa china, presenta 6-K en vez de 8-K). Memorando + giro IA + 'tercera fase' de una relación que existe desde 2018 = humo. Sin ventas de acciones en 90 días (última 424B4 dic-2024); shelf F-3/S-3 de dic-2025.",
+    "tipo_es": "Humo / cosmético"
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [
+    {
+     "hora": "2026-09-28 09:00",
+     "titular": "Pearson and Namibox Sign Strategic Cooperation Memorandum, Join Forces to Shape a New Global Learning and Education Landscape in the AI Era",
+     "url": "https://finance.yahoo.com/technology/ai/articles/pearson-namibox-sign-strategic-cooperation-130000335.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": "2025-12-29",
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2024-12-06",
+      "url": "https://www.sec.gov/Archives/edgar/data/1967631/000121390024106418/ea0200131-21.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-04-28",
+     "url": "https://www.sec.gov/Archives/edgar/data/1967631/000121390026048243/ea0287299-20f_jinxin.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "plan": {
+    "entrada": "apertura (9:30)",
+    "stop": 3.1719,
+    "stop_pct": 0.3,
+    "riesgo_accion": 0.915,
+    "salida": "al cierre, o a las 11:30 si el precio sigue sobre el VWAP (regla exploratoria)"
+   },
+   "estad": {
+    "R": 0.22,
+    "WR": 0.68,
+    "gan": 0.85,
+    "perd": -1.1,
+    "PF": 1.63,
+    "n": 168,
+    "squeeze": 0.17,
+    "fuente": "humo + gap ≥50 % · VAL 2022-26 (validado)"
+   },
+   "avisos": [
+    "Capitalización < $30 M: más squeezes (histórico −0.13R)",
+    "Humo solo en nota de prensa, sin 8-K: caso no validado → tamaño mínimo"
+   ]
+  },
+  {
    "sym": "KOD",
    "nombre": "Kodiak Sciences Inc.",
    "sector": "Biological Products, (No Diagnostic Substances)",
    "precio": 61.28,
    "cierre_prev": 32.35,
    "gap": 0.8943,
-   "cap": 5499956224,
-   "vol_pre": 26184933,
+   "cap": 5544579072,
+   "vol_pre": 30438434,
    "nivel": "VIGILAR",
    "clasif": {
     "tipo": "B",
@@ -244,8 +321,8 @@
    "precio": 5.81,
    "cierre_prev": 3.5228,
    "gap": 0.6493,
-   "cap": 13109519,
-   "vol_pre": 23231341,
+   "cap": 11425614,
+   "vol_pre": 24496727,
    "nivel": "VIGILAR",
    "clasif": {
     "tipo": "N",
@@ -315,8 +392,8 @@
    "precio": 1.215,
    "cierre_prev": 0.7396,
    "gap": 0.6428,
-   "cap": 12765704,
-   "vol_pre": 93709445,
+   "cap": 13737164,
+   "vol_pre": 104729653,
    "nivel": "VIGILAR",
    "clasif": {
     "tipo": "N",
@@ -325,7 +402,14 @@
    },
    "catalizadores": [],
    "docs_hoy": [],
-   "noticias": [],
+   "noticias": [
+    {
+     "hora": "2026-09-28 06:10",
+     "titular": "Why Is Game Your Game Stock Gaining Monday?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/why-game-game-stock-gaining-101055870.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
    "municion": {
     "venta90": true,
     "s3": null,
@@ -386,8 +470,8 @@
    "precio": 6.52,
    "cierre_prev": 4.2,
    "gap": 0.5524,
-   "cap": 248369072,
-   "vol_pre": 2516707,
+   "cap": 245666352,
+   "vol_pre": 3168104,
    "nivel": "NUNCA",
    "clasif": {
     "tipo": "C",
@@ -486,7 +570,7 @@
    "nombre": "Mint Incorporation Limited",
    "precio": 1.0394,
    "gap": 0.3478,
-   "cap": 14072221,
+   "cap": 14348843,
    "docs_hoy": [],
    "tipo": null
   },
@@ -495,7 +579,7 @@
    "nombre": "WEBUY GLOBAL LTD.",
    "precio": 1.04,
    "gap": 0.2937,
-   "cap": 5209241,
+   "cap": 5234454,
    "docs_hoy": [
     {
      "form": "6-K",
@@ -512,7 +596,7 @@
    "nombre": "DataMEDS AI, Inc.",
    "precio": 3.97,
    "gap": 0.2765,
-   "cap": 13498487,
+   "cap": 12822509,
    "docs_hoy": [],
    "tipo": null
   },
@@ -521,7 +605,7 @@
    "nombre": "Columbus Acquisition Corp",
    "precio": 12.95,
    "gap": 0.2392,
-   "cap": 48696348,
+   "cap": 46967336,
    "docs_hoy": [
     {
      "form": "DEFA14A",
@@ -545,7 +629,7 @@
    "nombre": "Lakewood-Amedex Biotherapeutics, Inc.",
    "precio": 2.06,
    "gap": 0.2335,
-   "cap": 3127751,
+   "cap": 2938176,
    "docs_hoy": [],
    "tipo": null
   },
@@ -554,7 +638,7 @@
    "nombre": "Delixy Holdings Limited",
    "precio": 3.05,
    "gap": 0.2202,
-   "cap": 8894400,
+   "cap": 8322150,
    "docs_hoy": [],
    "tipo": null
   }

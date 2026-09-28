@@ -107,9 +107,9 @@ def universo():
             if not s or not re.fullmatch(r"[A-Z]{1,5}", s):      # fuera warrants/unidades/preferentes con sufijos raros
                 continue
             nombre = c[1].lower()
-            if any(w in nombre for w in (" warrant", " unit", " right", "preferred", " notes", "depositary share")) and "ordinary" not in nombre:
+            if any(w in nombre for w in (" warrant", " unit", " right", "preferred", " notes")) and "ordinary" not in nombre:
                 continue
-            syms.add(s)
+            syms.add(s)          # las ADS (acciones extranjeras, p. ej. chinas: NAMI) SÍ entran; las de preferentes ya caen por "preferred"
     # fuera warrants/derechos/unidades de 5 letras cuya raíz de 4 letras también cotiza (RGTIW, ABCDR, ABCDU)
     return sorted(s for s in syms if not (len(s) == 5 and s[-1] in "WRU" and s[:4] in syms))
 
