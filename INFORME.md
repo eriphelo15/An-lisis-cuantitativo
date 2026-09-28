@@ -1,8 +1,8 @@
 # Informe del radar de memecoins
 
-Generado: 2026-09-28 06:59 UTC
+Generado: 2026-09-28 07:08 UTC
 
-- Tokens registrados: **765** (desde 2026-09-27 18:07)
+- Tokens registrados: **766** (desde 2026-09-27 18:07)
 - Con resultado a 24 h: **0** (el primero llega 24 h después de la primera detección)
 - Pasan el filtro v1: **25**
 - Resultados en dólares por cada apuesta de $50, con 3% de costes en la entrada y en la salida:
@@ -14,6 +14,7 @@ Generado: 2026-09-28 06:59 UTC
 
 | ts    | simbolo    | narrativa   | prioridad   |   edad_min | mc   |   compradores_m5 |   vendedores_m5 | mint                                         |   x_1h |
 |:------|:-----------|:------------|:------------|-----------:|:-----|-----------------:|----------------:|:---------------------------------------------|-------:|
+| 07:02 | YON        |             | vetada      |        5.2 | 15K  |              184 |             115 | GEGEit5x2tGcLCDZFKVwr9fRKZs7984bQSkYHqf25G9Q | nan    |
 | 06:54 | Jak        |             | vetada      |        2.6 | 14K  |              331 |             105 | FcrWnyw86GoZ8C1g9hZ2q93xkVVvCyKH39qnBVQ2VRDx | nan    |
 | 06:54 | METER      |             | baja        |        2.5 | 9K   |              104 |              62 | Bxhohnh4Sv9VvdgEatVymFP9A6vzzfAfcP25ah8Zpump | nan    |
 | 06:48 | GET        |             | vetada      |        2.7 | 17K  |              391 |             196 | 5iwLiBK2wkzGbjFj9LUrgcsa8N7LDKR4u7jTLj6Spump | nan    |
@@ -32,14 +33,14 @@ Generado: 2026-09-28 06:59 UTC
 | 06:12 | Shima      | cripto      | baja        |        5.5 | 9K   |              119 |              86 | B5NhBtmjmqFTyFSkYFSE8qPTP6GdMVmapZ4RtBoYpump | nan    |
 | 06:10 | maro       |             | vetada      |        3.2 | 57K  |               51 |              37 | BqXVJDb2pAxmoa2PBCxDypNwnitdVXvwN5L51EC9maro | nan    |
 | 06:08 | Redbull    | animales    | vetada      |        3.7 | 76K  |              239 |              49 | DFRPbHdZpxx8Q5Hp658pfkvrYgjKpY2QpQDvnhsmEjZF | nan    |
-| 05:51 | CROCS      |             | baja        |        2.2 | 11K  |               82 |              46 | Ees9nBcWavLJiE4P1inKwhXpNQSzL64zntyqWjpec6Dc | nan    |
-| 05:51 | PAKSPACE   |             | vetada      |        2.1 | 74K  |               80 |              27 | FVeMhWR4eUKryBPfeFrPhxEuRGd6kLsG1KudBHiPmoon | nan    |
+| 05:51 | CROCS      |             | baja        |        2.2 | 11K  |               82 |              46 | Ees9nBcWavLJiE4P1inKwhXpNQSzL64zntyqWjpec6Dc |   9.32 |
+| 05:51 | PAKSPACE   |             | vetada      |        2.1 | 74K  |               80 |              27 | FVeMhWR4eUKryBPfeFrPhxEuRGd6kLsG1KudBHiPmoon |   0    |
 | 05:47 | TREND      |             | vetada      |        3.3 | 24K  |              437 |             256 | 92W24gMTrfSmavNatTCBawaDMbEQ3NJnMY7chbMVpump |   0.61 |
 | 05:37 | BBBYQ      |             | vetada      |        9.5 | 9K   |               66 |              47 | BzSCw6CEpcLyCZz59Y7pTLxRM2vpZaM1K14Pn946ps7q |   0.87 |
 | 05:33 | FULLSEND   |             | vetada      |        3   | 279K |              151 |              68 | Dimo67L6c5qCe7nuXz925EzjbYNpxpL8HihGQPNmpump |   0.48 |
 | 05:33 | 拼多多        |             | vetada      |        3.2 | 30K  |              286 |              40 | 2BT2Su86HVHxhygt6VxrWo9mdfnu3PJvsALLHzEMCtqh |   5.21 |
-| 05:30 | Gary       |             | baja        |        2.7 | 18K  |              194 |             116 | Ecx7uvbG63ETuZu4GZTzBmahadqgqDxryynzdTLwXff1 |   0.2  |
 | 05:30 | tr/acc     |             | vetada      |        2   | 108K |              266 |             110 | DGXf3mT2TaHsfy1Cn2p9CCSxfKENNM3oHPoR59Uwpump |   0    |
+| 05:30 | Gary       |             | baja        |        2.7 | 18K  |              194 |             116 | Ecx7uvbG63ETuZu4GZTzBmahadqgqDxryynzdTLwXff1 |   0.2  |
 | 05:24 | VUCIC      |             |             |        2.9 | 79K  |              147 |              36 | D74JWCJ4x5GAhbEtvBVrtTPqZtBzgknJcGCmbnYVpump |   0    |
 | 05:14 | FSD        |             |             |       13.5 | 24K  |               46 |              33 | HKgaE2JirCXudKEFm9JUTFDsV2hTx9sJoGr1tXnwpump |   0.61 |
 | 05:06 | FIM        |             |             |        2.8 | 21K  |              403 |             104 | 3AaZhDQug7q7h6ZJtNUR5Y5j6u2isGi7huN9ni4Justq |   0    |
@@ -64,26 +65,25 @@ Generado: 2026-09-28 06:59 UTC
 | 01:43 | Buddha.Sol | cripto      |             |        3.4 | 10K  |              149 |             108 | 82td6DyPUNM8YBTFBA6AgHLWWkNQNmvdVZwqe7sGpump |   0.34 |
 | 01:27 | CLAIMED    |             |             |        3.2 | 17K  |              375 |              80 | FLar4c5fLgSQKRPSRuVSz2r1PDp4Huv8GVX7yTnjCtaq |   1.02 |
 | 01:27 | CLAIMED    |             |             |        3.5 | 22K  |              306 |              59 | C23u4ey5NYVHbAU7hjWhreTYPcXveR6weP2rbmi1mT86 |   3.11 |
-| 01:20 | cut        |             |             |        3.5 | 125K |              897 |             430 | 8c9rpLvnL7fN9Yjpk7TviSXongcgppcs4bN7n95qpump |   0.02 |
 | 01:20 | cut        |             |             |        3.1 | 12K  |              402 |             105 | GXBqRnzTJGW1uKbYPkfSBFYTmygdYmjUr8QvUs1mQY1w |   2.27 |
+| 01:20 | cut        |             |             |        3.5 | 125K |              897 |             430 | 8c9rpLvnL7fN9Yjpk7TviSXongcgppcs4bN7n95qpump |   0.02 |
 | 01:15 | Dinky      |             |             |        2.1 | 15K  |              134 |             103 | F1ZTzjeEsw3FM4vFofHZKnZMNt3shJ2GJXwBe4rXpump |   0.24 |
 | 01:08 | CRYPTCATCH |             |             |        8.9 | 10K  |              126 |              89 | GsHERzUtQkkuymwJyp2KyCf82oXqQKcYXQmRq5Gupump |   0.34 |
-| 01:00 | x/acc      |             |             |        3.6 | 135K |              339 |              59 | C5zyCRUo23yLHDfcYWWTZNVh4yxWgQ8PFr1zx1Zrpump |   1.55 |
 
 ## Señales de desplome (cuándo salir)
 
-Fotos de tokens que ya subían un 50% o más: **4899**; seguidas de un desplome (caída a un 40% o menos en 30 min): **126**. Cada fila compara cuántas veces llegó un desplome con la señal activa frente a sin ella: si la señal lo anticipa, el primer % es mucho mayor.
+Fotos de tokens que ya subían un 50% o más: **5033**; seguidas de un desplome (caída a un 40% o menos en 30 min): **131**. Cada fila compara cuántas veces llegó un desplome con la señal activa frente a sin ella: si la señal lo anticipa, el primer % es mucho mayor.
 
 | señal                                        |   fotos_con_señal | desplome_con_señal   | desplome_sin_señal   |
 |:---------------------------------------------|------------------:|:---------------------|:---------------------|
-| Liquidez < 3% de la capitalización           |              3851 | 1%                   | 9%                   |
-| Ticket medio < $30 (volumen de microcompras) |              4269 | 2%                   | 6%                   |
-| Más de 8 compradores por vendedor (5 min)    |                19 | 16%                  | 3%                   |
-| Subida de más del 100% en 1 h                |               551 | 13%                  | 1%                   |
-| Escalera: 30 min subiendo sin retrocesos     |                39 | 44%                  | 2%                   |
+| Liquidez < 3% de la capitalización           |              3957 | 1%                   | 9%                   |
+| Ticket medio < $30 (volumen de microcompras) |              4391 | 2%                   | 6%                   |
+| Más de 8 compradores por vendedor (5 min)    |                20 | 15%                  | 3%                   |
+| Subida de más del 100% en 1 h                |               563 | 12%                  | 1%                   |
+| Escalera: 30 min subiendo sin retrocesos     |                40 | 45%                  | 2%                   |
 | Aceleración final                            |                91 | 15%                  | 2%                   |
-| Más vendedores que compradores (5 min)       |              4268 | 1%                   | 13%                  |
-| Ya multiplicó x5 o más desde la detección    |              1293 | 2%                   | 3%                   |
+| Más vendedores que compradores (5 min)       |              4387 | 1%                   | 13%                  |
+| Ya multiplicó x5 o más desde la detección    |              1321 | 2%                   | 3%                   |
 
 ## Palabras calientes (últimas 3 h)
 
