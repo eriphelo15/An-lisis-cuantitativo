@@ -1,8 +1,8 @@
 # Informe del radar de memecoins
 
-Generado: 2026-09-28 06:04 UTC
+Generado: 2026-09-28 06:14 UTC
 
-- Tokens registrados: **727** (desde 2026-09-27 18:07)
+- Tokens registrados: **732** (desde 2026-09-27 18:07)
 - Con resultado a 24 h: **0** (el primero llega 24 h después de la primera detección)
 - Pasan el filtro v1: **24**
 - Resultados en dólares por cada apuesta de $50, con 3% de costes en la entrada y en la salida:
@@ -14,12 +14,14 @@ Generado: 2026-09-28 06:04 UTC
 
 | ts    | simbolo    | narrativa   | prioridad   |   edad_min | mc   |   compradores_m5 |   vendedores_m5 | mint                                         |   x_1h |
 |:------|:-----------|:------------|:------------|-----------:|:-----|-----------------:|----------------:|:---------------------------------------------|-------:|
+| 06:10 | maro       |             | vetada      |        3.2 | 57K  |               51 |              37 | BqXVJDb2pAxmoa2PBCxDypNwnitdVXvwN5L51EC9maro | nan    |
+| 06:08 | Redbull    | animales    | vetada      |        3.7 | 76K  |              239 |              49 | DFRPbHdZpxx8Q5Hp658pfkvrYgjKpY2QpQDvnhsmEjZF | nan    |
 | 05:51 | PAKSPACE   |             | vetada      |        2.1 | 74K  |               80 |              27 | FVeMhWR4eUKryBPfeFrPhxEuRGd6kLsG1KudBHiPmoon | nan    |
 | 05:51 | CROCS      |             | baja        |        2.2 | 11K  |               82 |              46 | Ees9nBcWavLJiE4P1inKwhXpNQSzL64zntyqWjpec6Dc | nan    |
 | 05:47 | TREND      |             | vetada      |        3.3 | 24K  |              437 |             256 | 92W24gMTrfSmavNatTCBawaDMbEQ3NJnMY7chbMVpump | nan    |
 | 05:37 | BBBYQ      |             | vetada      |        9.5 | 9K   |               66 |              47 | BzSCw6CEpcLyCZz59Y7pTLxRM2vpZaM1K14Pn946ps7q | nan    |
-| 05:33 | FULLSEND   |             | vetada      |        3   | 279K |              151 |              68 | Dimo67L6c5qCe7nuXz925EzjbYNpxpL8HihGQPNmpump | nan    |
 | 05:33 | 拼多多        |             | vetada      |        3.2 | 30K  |              286 |              40 | 2BT2Su86HVHxhygt6VxrWo9mdfnu3PJvsALLHzEMCtqh | nan    |
+| 05:33 | FULLSEND   |             | vetada      |        3   | 279K |              151 |              68 | Dimo67L6c5qCe7nuXz925EzjbYNpxpL8HihGQPNmpump | nan    |
 | 05:30 | Gary       |             | baja        |        2.7 | 18K  |              194 |             116 | Ecx7uvbG63ETuZu4GZTzBmahadqgqDxryynzdTLwXff1 | nan    |
 | 05:30 | tr/acc     |             | vetada      |        2   | 108K |              266 |             110 | DGXf3mT2TaHsfy1Cn2p9CCSxfKENNM3oHPoR59Uwpump | nan    |
 | 05:24 | VUCIC      |             |             |        2.9 | 79K  |              147 |              36 | D74JWCJ4x5GAhbEtvBVrtTPqZtBzgknJcGCmbnYVpump | nan    |
@@ -40,8 +42,8 @@ Generado: 2026-09-28 06:04 UTC
 | 02:56 | SIRI       |             |             |        3.9 | 61K  |              326 |             242 | nspzEbY9m1rLDaHMw19RjEv1cUfX8k2c9t1nxXVpump  |   0.32 |
 | 02:38 | ROGLOVE    |             |             |        2.6 | 87K  |              156 |              37 | GPjSdf5A2BuRX7n62tqfhZ4t4E31xzHKpT8eJM2ABAGS |   4.01 |
 | 02:10 | glorp      |             |             |        3.1 | 17K  |              240 |              82 | A38LnLdn5S5LRSBfsroojJUQPKqmD2CYt9TKJkqQBsHG |   1.39 |
-| 01:53 | ZLAVER     |             |             |        2.3 | 100K |              108 |              25 | Ei4bPiqh76bVPABpMGnqb8GVz4phzMfVoJoJLcJ8BAGS |   1.06 |
 | 01:53 | DIAMOND    |             |             |        2.6 | 14K  |              117 |              70 | AtTb2HLeczxWKVxd5S5gK7AZiFMRux2k9jg6z7Nvpump |   0.27 |
+| 01:53 | ZLAVER     |             |             |        2.3 | 100K |              108 |              25 | Ei4bPiqh76bVPABpMGnqb8GVz4phzMfVoJoJLcJ8BAGS |   1.06 |
 | 01:51 | 📱C DOG     | animales    |             |        3.3 | 18K  |              228 |              63 | HLuiQJ9zJLEXynK29i6HGmnriiCtoU3RzwaXkuCcZ86A |   2.13 |
 | 01:43 | Buddha.Sol | cripto      |             |        3.4 | 10K  |              149 |             108 | 82td6DyPUNM8YBTFBA6AgHLWWkNQNmvdVZwqe7sGpump |   0.34 |
 | 01:27 | CLAIMED    |             |             |        3.2 | 17K  |              375 |              80 | FLar4c5fLgSQKRPSRuVSz2r1PDp4Huv8GVX7yTnjCtaq |   1.02 |
@@ -59,18 +61,18 @@ Generado: 2026-09-28 06:04 UTC
 
 ## Señales de desplome (cuándo salir)
 
-Fotos de tokens que ya subían un 50% o más: **4174**; seguidas de un desplome (caída a un 40% o menos en 30 min): **121**. Cada fila compara cuántas veces llegó un desplome con la señal activa frente a sin ella: si la señal lo anticipa, el primer % es mucho mayor.
+Fotos de tokens que ya subían un 50% o más: **4309**; seguidas de un desplome (caída a un 40% o menos en 30 min): **123**. Cada fila compara cuántas veces llegó un desplome con la señal activa frente a sin ella: si la señal lo anticipa, el primer % es mucho mayor.
 
 | señal                                        |   fotos_con_señal | desplome_con_señal   | desplome_sin_señal   |
 |:---------------------------------------------|------------------:|:---------------------|:---------------------|
-| Liquidez < 3% de la capitalización           |              3279 | 1%                   | 10%                  |
-| Ticket medio < $30 (volumen de microcompras) |              3620 | 2%                   | 7%                   |
+| Liquidez < 3% de la capitalización           |              3388 | 1%                   | 10%                  |
+| Ticket medio < $30 (volumen de microcompras) |              3741 | 2%                   | 7%                   |
 | Más de 8 compradores por vendedor (5 min)    |                19 | 16%                  | 3%                   |
-| Subida de más del 100% en 1 h                |               497 | 14%                  | 1%                   |
-| Escalera: 30 min subiendo sin retrocesos     |                36 | 47%                  | 3%                   |
-| Aceleración final                            |                85 | 16%                  | 3%                   |
-| Más vendedores que compradores (5 min)       |              3611 | 1%                   | 15%                  |
-| Ya multiplicó x5 o más desde la detección    |              1126 | 2%                   | 3%                   |
+| Subida de más del 100% en 1 h                |               506 | 14%                  | 1%                   |
+| Escalera: 30 min subiendo sin retrocesos     |                36 | 47%                  | 2%                   |
+| Aceleración final                            |                86 | 16%                  | 3%                   |
+| Más vendedores que compradores (5 min)       |              3734 | 1%                   | 15%                  |
+| Ya multiplicó x5 o más desde la detección    |              1158 | 2%                   | 3%                   |
 
 ## Palabras calientes (últimas 3 h)
 
