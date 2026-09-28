@@ -21,8 +21,9 @@
 - **Curso de short seller** en `curso_short/` (programa en `00_PROGRAMA.md`). Hechos: módulos 1 (economía de la dilución),
   1b (guía EDGAR + lecciones), 2 (mecánica del corto), 3 (leer la SEC: munición y baby shelf), 4 (anatomía del pump).
   Módulo 5 (setups medidos) y Módulo 6 (ejecución condensada: diferencias vs futuros) hechos.
-  **Orden acordado:** Módulo 7 (riesgo) → Módulo 8 (infraestructura: bróker, locates, fondeo de acciones) → **validar con datos los criterios de selección** (munición activa el día del gap, catalizador, float/rotación premarket, etc.) → sistema de lista diaria (solo cuando lo pida).
-  Práctica pendiente del usuario: ejecución en DCOY, LHSW, INLF, GRML, GLND (fichas en `fichas/`). Ejercicios del módulo 4: WHLR (usuario) y BENF (Claude como ejemplo) hechos.
+  Módulo 7 (riesgo, con colas y Monte Carlo) hecho.
+  **Orden acordado:** Módulo 8 (infraestructura: bróker, locates, fondeo de acciones) → **validar con datos los criterios de selección** (munición activa el día del gap, catalizador, float/rotación premarket, etc.) → sistema de lista diaria (solo cuando lo pida).
+  Práctica de ejecución en DCOY, LHSW, INLF, GRML, GLND hecha por el usuario. Conclusión del usuario (compartida): el indicador captura bien las caídas cuando la acción 'valida la teoría' y falla cuando no; **lo decisivo es la selección fuera del gráfico**. Ejercicios del módulo 4: WHLR (usuario) y BENF (Claude como ejemplo) hechos.
 - Herramienta de dilución hecha: `herramientas/ficha_dilucion.py TICKER` (SEC EDGAR + Yahoo; ~7 s). Fichas en `fichas/`.
 - Futuro (cuando termine la formación): construir un sistema propio tipo "Flash Research" con estadísticas propias.
   No construirlo antes de que el usuario lo pida.
@@ -57,6 +58,7 @@
 - Setups mecánicos (velas 1 h, 3 518 gappers oct-2024→sep-2026; diario 2015-26): casi todos ≈ 0R. Solo el corto temprano en gaps ≥100 % con stop amplio da +0.13R, y con 5 % de deslizamiento por halts baja a +0.05R. Primera hora roja, máximo fallido, fade de tarde, día 2 y first red day ≈ 0R. Días con rotación >10× → el corto a la apertura pierde.
 - Indicador **Reversal** del usuario (near 2, long 20) usado en corto con reciclaje (corto en señal de venta, cubrir en la de compra, stop sobre el máximo barrido +0.5 %, coste 1 %): gappers de sep-2026 en 1 min (130 días) y 60 días en 5 min → elige mejores puntos que el azar (35 % vs 26 % ganadoras; gap ≥50 % en 1 min: −0.07R vs −0.25R) pero **no tiene ventaja propia tras costes** (≈ 0R o negativo). Filtros VWAP: muestras pequeñas, nada concluyente. Útil solo como gatillo de timing dentro de acciones bien seleccionadas; pendiente validar con más datos. `smallcaps/08_reversal_smallcaps.py`.
 - GRML (21-sep-2026): 5 señales de venta del Reversal, 2 ganadoras y 3 stops; subió +76 % desde las 9:55 pese a tener munición (shelf/ATM/warrants). Precio siempre sobre un VWAP ascendente + mínimos crecientes + **día de tema** (GLND 'Greenland' +152 % el mismo día). **Hipótesis a validar con datos:** (a) solo cortos bajo el VWAP o tras rechazarlo; (b) 'día de tema' (varias acciones del mismo tema/nombre gapeando juntas) = no shortear; (c) munición activa no basta por sí sola.
+- Colas (8 604 gappers): en gaps ≥100 % la subida máxima desde la apertura supera +100 % el 9.7 % de las veces en el día (12.5 % en 2 días); p99 +319 %. Monte Carlo con setup A (+0.05R): riesgo 1 %/op → caída típica 13 %; 5 %/op → 61 % de prob. de caer >50 %; 10 %/op → pierde aunque la estrategia gane. `smallcaps/09_riesgo.py`.
 - Conclusión: la ventaja debe venir de selección (catalizador + munición activa) + ejecución fina en 1-5 min + gestión del riesgo; se medirá con el diario de operaciones del usuario y, si hace falta, datos de 1 min de pago con deslistadas.
 
 ## Mapa del repositorio
