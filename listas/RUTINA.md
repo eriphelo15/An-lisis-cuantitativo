@@ -42,5 +42,8 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
 7. `git add listas/datos && git commit -m "Lista diaria HOY" && git push -u origin claude/analisis-cuantitativo-45j7qe`
    (con las líneas de atribución de siempre).
 8. Mensaje final corto en español: niveles de la lista (A/B/Vigilar/NO/Nunca con tickers) y enlace a la página.
+9. **Notificación push** (pedida por el usuario el 28-sep; probada y funciona): herramienta `PushNotification`, una línea < 200
+   caracteres, sin formato, p. ej. `Radar 29-sep listo: A → … · B → SOAR +111 %, GYGY +64 % · Vigilar → KOD · Nunca → LFCR · Control OK`.
+   Si la auditoría retrasa la lista o falla algo, avisar también por push (`Radar 29-sep RETRASADO: <motivo>`).
 
 No cambiar reglas, niveles ni estadísticas: solo lo validado en `smallcaps/INFORME_SELECCION.md`. No crear otras rutinas.

@@ -32,7 +32,7 @@
   **Sistema de lista diaria HECHO (pedido por el usuario, 28-sep-2026): "Radar de Cortos".** Página https://claude.ai/artifact/LXxGL8Y1LVHDLnuUo21zCo
   (base de datos: `listas/AAAA-MM-DD` = lista del día; `diario/FECHA_TICKER` = diario del usuario, no tocar). Generador `herramientas/lista_diaria.py`
   (escanear → Claude clasifica en `_clasif.json` → finalizar → resultados al día siguiente; `--replay` para días pasados). Rutina programada
-  (pedida por el usuario) `trig_01LxzygdMnVhjKcap2MrESi5`: L-V 8:17 Nueva York, se ejecuta en ESTA sesión (session_01Y3DyUXFtmwsaxpZC7KkFLE) siguiendo `listas/RUTINA.md`. Una sesión nueva por disparo NO sirve: arranca sin repositorio ni base de datos de la página (probado el 28-sep).
+  (pedida por el usuario) `trig_01LxzygdMnVhjKcap2MrESi5`: L-V 8:17 Nueva York, se ejecuta en ESTA sesión (session_01Y3DyUXFtmwsaxpZC7KkFLE) siguiendo `listas/RUTINA.md`. Al terminar envía notificación push con el resumen (pedida y probada el 28-sep). Una sesión nueva por disparo NO sirve: arranca sin repositorio ni base de datos de la página (probado el 28-sep).
   Niveles: A (humo + gap ≥50 % + 424B 90 d + cap ≥$30 M), B (humo + gap ≥50 %), Vigilar, NO (resultados/financiación/bolsa/424B hoy), Nunca (compra en efectivo).
   Pendiente ofrecido: medir el caso "sube sin ninguna noticia" (días de prueba, revisados a mano: BTTC −1.25R, VEEE −1.25R, WHLR −1.25R, WETO +0.73R, SKYE +1.35R; GRML NO era "sin noticia": noticia de tema Groenlandia).
   Auditoría obligatoria antes de publicar (RUTINA.md paso 5b + control automático en `finalizar`, que bloquea la lista si hay errores).
