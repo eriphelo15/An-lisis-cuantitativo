@@ -110,6 +110,12 @@
   Frecuencia (último año, ≥ $1): A ~0.2/día (≈1/semana), B ~0.3/día, humo 20-50 % ~0.4/día.
 - **Ronda 7 (`smallcaps/20_humo_20_50.py`):** subgrupos del humo 20-50 % (424B, S-3, solo nota de prensa): ninguno validado. El más
   prometedor, humo 20-50 % + shelf S-3: +0.05R DEV / +0.15R VAL (PF 1.60, t 1.75) → seguir en vivo, no operable por ahora.
+- **Ronda 8 (`smallcaps/21_primer_dia_rojo.py`): "primer día rojo" de Edu/Hamlin corto el MISMO día** (≥ 2 días verdes, +100 %, volumen
+  creciente, D abre verde): A (apertura) DEV +0.03R / VAL −0.02R; B (green to red) DEV +0.07R / VAL −0.01R; volumen creciente NO mejora.
+  No validado; con locate 1 % + comisión, negativo. Su ventaja en ese patrón sería ejecución/selección discrecional, no el patrón diario.
+- **Edu Trades (33 directos, `smallcaps/referencias/EDUTRADES.md`):** WR 73-75 % con R/B < 1; grandes pérdidas por halts (STAK −$100 000).
+  Regla de locates: < 1 % del precio casi siempre compra, > 5 % nunca; coste anual 10-20 % de sus ganancias. Varios brókers con distintas
+  cámaras de compensación = más locates. Critica a TradeZero (sin motivo técnico claro; tiene afiliación con Sage).
 - Conclusión: la ventaja debe venir de selección (catalizador + munición activa) + ejecución fina en 1-5 min + gestión del riesgo; se medirá con el diario de operaciones del usuario y, si hace falta, datos de 1 min de pago con deslistadas.
 
 ## Mapa del repositorio
