@@ -101,6 +101,9 @@
   con la capitalización corregida (aviso retirado del Radar). Humo gap ≥ 50 %: ventaja bruta igual en < $1 (+0.26R VAL) y ≥ $1 (+0.21R); con
   locate $0.02 + comisión: < $1 −0.14R, ≥ $1 +0.13R (no validado, n 40, pero aritmético). Nivel A vs B no validado (424B dentro del humo
   va al revés en DEV). Rotación > 10× se mantiene con datos corregidos. Pendiente de decisión del usuario: nivel A y aviso < $1.
+- **Ronda 6 (`smallcaps/19_mas_oportunidades.py`):** humo gap 20-50 % (≥ $1) mejor que el resto de su tramo (VAL t 3.1) pero base propia
+  pequeña (+0.02R DEV / +0.09R VAL, PF 1.35) ≈ nivel B; gap ≥ 50 % sin 8-K ≈ 0R VAL; día 2 del humo ≈ 0 / −0.05R. Ninguna añade base validada.
+  Frecuencia (último año, ≥ $1): A ~0.2/día (≈1/semana), B ~0.3/día, humo 20-50 % ~0.4/día.
 - Conclusión: la ventaja debe venir de selección (catalizador + munición activa) + ejecución fina en 1-5 min + gestión del riesgo; se medirá con el diario de operaciones del usuario y, si hace falta, datos de 1 min de pago con deslistadas.
 
 ## Mapa del repositorio

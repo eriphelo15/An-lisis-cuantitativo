@@ -157,3 +157,20 @@ Se reconstruye el precio real con `splits.parquet`; 547 casos con split en el mi
 - Rotación > 10× (07_filtros) revisada con volumen corregido: se mantiene (VAL −0.13R; DEV −0.25R).
 **Decisión práctica:** en acciones < $1 operar solo con locate ≤ ~$0.01 por acción (≈ 2.5 % del precio deja la mitad de la ventaja); en ≥ $1 el
 locate típico ($0.02) deja ~+0.13R netos. Medir los locates reales en el diario.
+
+## Ronda 6 — ¿más oportunidades con base medida? (28-sep-2026)
+Script `19_mas_oportunidades.py` (pre-registro en `HIPOTESIS_SELECCION.md`). Precio real ≥ $1, setup base.
+| Grupo | Periodo | n | R | WR | Gan. media | Pérd. media | PF |
+|---|---|---|---|---|---|---|---|
+| Humo gap 20-50 % | DEV | 99 | +0.02 | 67 % | +0.43 | −0.80 | 1.09 |
+| Humo gap 20-50 % | VAL | 138 | +0.09 | 65 % | +0.57 | −0.76 | 1.35 |
+| Resto gap 20-50 % | VAL | 950 | −0.12 | 46 % | +0.36 | −0.54 | 0.57 |
+| Sin 8-K, gap ≥ 50 % | DEV | 511 | +0.12 | 64 % | +0.79 | −1.07 | 1.31 |
+| Sin 8-K, gap ≥ 50 % | VAL | 1 065 | +0.00 | 58 % | +0.78 | −1.06 | 1.00 |
+| Día 2 del humo gap ≥ 50 % | DEV | 65 | +0.03 | 63 % | +0.33 | −0.48 | 1.17 |
+| Día 2 del humo gap ≥ 50 % | VAL | 116 | −0.05 | 48 % | +0.36 | −0.43 | 0.79 |
+- HM1: el humo 20-50 % es **mejor que el resto** de su tramo (VAL t 3.1, Holm OK; mismo sentido en DEV, muy pequeño), pero su base propia es
+  pequeña (+0.02 / +0.09R, t 1.4) → tras costes ≈ 0: parecida al nivel B. ~0.4 casos/día con precio ≥ $1.
+- HM2 (sin 8-K ≈ sin noticia): base ≈ 0 en VAL (+0.00R) → no utilizable.
+- HM3 (día 2 del humo): ≈ 0 / negativo → no utilizable.
+**Conclusión:** ninguna de las tres añade una base positiva validada; la única base fuerte sigue siendo el nivel A (humo + gap ≥ 100 % + ≥ $1).
