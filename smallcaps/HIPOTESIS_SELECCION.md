@@ -145,3 +145,28 @@ general (ronda 1) — se comprueba si también separan dentro de este grupo:
 | HS3 | 8-K solo nota de prensa (items 7.01/8.01, sin 1.01) | solo nota > con acuerdo 1.01 |
 Base "operable" para un subgrupo: R > 0 en DEV y en VAL, y VAL t (R ≠ 0) > 2. Holm sobre HS1-HS3 (diferencias en VAL).
 No se probarán más combinaciones después de ver estos resultados.
+
+## Ronda 8 — "primer día rojo" de Edu Trades / Hamlin (pre-registro, escrito ANTES de ver resultados, 28-sep-2026)
+Origen: 33 directos de Edu (`referencias/EDUTRADES.md`). Su patrón ideal: varios días verdes seguidos con **volumen creciente**, y corto el
+día que se vuelve rojo ("anticipándome como gap extension con poco size y luego fuerte en la confirmación del green to red").
+Diferencia con lo medido antes (06_setups, "G first red day"): allí el corto era el DÍA SIGUIENTE al día rojo; aquí es el MISMO día.
+Datos: diario 2015-2026 (Yahoo, universo listado hoy → sesgo de supervivencia), precio real por splits (ronda 5), ambiguos fuera.
+**Sin mirar el futuro:** en la apertura del día D solo se sabe lo ocurrido hasta D-1; un corredor de 5 días genera un candidato cada día.
+Definiciones:
+- Día verde: cierre > cierre anterior. Racha: k ≥ 2 días verdes seguidos que terminan en D-1.
+- Subida acumulada: cierre D-1 ÷ cierre del día previo a la racha − 1 ≥ **+100 %**.
+- Volumen creciente: cada día de la racha con más volumen que el anterior de la racha.
+- Filtros: precio real de apertura D ≥ $1; volumen en dólares de D-1 ≥ $1 M; D abre por encima del cierre D-1 (todavía verde).
+Setups (costes como siempre: 1 % ida y vuelta, 5 % de deslizamiento en el stop):
+- **A (anticipación):** corto a la apertura de D, stop apertura × 1.30, salida al cierre.
+- **B (green to red):** entra solo si el mínimo de D toca el cierre D-1 (se pone rojo); entrada = cierre D-1; stop = apertura × 1.30;
+  si el máximo de D alcanza el stop cuenta como stop (conservador: con velas diarias no se sabe el orden); salida al cierre.
+| # | Hipótesis | Criterio |
+|---|---|---|
+| HR1 | Setup A en el patrón completo | R > 0 en DEV 2015-21 y VAL 2022-26, VAL t > 2 |
+| HR2 | Setup B en el patrón completo | R > 0 en DEV y VAL, VAL t > 2 |
+| HR3 | Volumen creciente vs no creciente (resto igual), setup B | creciente mejor, mismo signo DEV y VAL, VAL t > 2 |
+t calculado con la media por episodio (racha) para no contar varias veces el mismo corredor. Holm sobre HR1-HR3 (VAL).
+Descriptivo (no cuenta como validación): subida ≥ +50 %; k = 2 vs k ≥ 3; racha "sin ponerse roja en el día" (mínimo ≥ cierre anterior,
+criterio de Hamlin); coste de locate 1 % del precio (+0.033R) y comisión 0.05R; primer candidato de cada racha.
+No se probarán más variantes después de ver estos resultados.
