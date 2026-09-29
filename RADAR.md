@@ -82,6 +82,11 @@ v1** (hipótesis, en `TEMPRANO`):
   Los tres últimos se añadieron tras Neartkt: se lanzó directamente en PumpSwap con liquidez
   sin bloquear y su creador la retiró.
 
+**Avisos al móvil de lanzamientos: desactivados** desde el 29-09-2026 (`AVISAR_LANZAMIENTOS`). De
+las 22 primeras alertas con tema y sin vetos, la mediana iba -65% a la hora y ninguna llegó a 2x
+en 6 h. El vigía sigue registrándolas para medir, y los avisos al móvil quedan para los
+supervivientes y el motor de salida.
+
 **Tema del token:** se clasifica por el símbolo y, si no basta, por el nombre y la descripción
 del token (p. ej. Neartkt hablaba del ETF de NEAR). **Solo se avisa al móvil si el tema es
 relevante**: videojuegos, IA, política, Elon, celebridades, festividades o noticias cripto
@@ -134,9 +139,13 @@ Avisos (en el tema de siempre), con las reglas del estudio de gigantes:
   velas diarias capturaba un 54% del máximo frente a un 3% de aguantar), si cae un **50%**
   (ninguno de los 111 gigantes que cayó así volvió a su máximo) o si **retiran liquidez** (cae a
   la mitad o por debajo de $1,000).
-- **Atención** (no es orden de venta): volumen de 24 h en récord con el precio ya x2 o más (el
-  techo suele llegar ese día o poco antes), o presión de venta fuerte (más del doble de
-  vendedores que compradores en 5 min y -20% en 1 h).
+- **Atención** (no es orden de venta):
+  - **Escalera:** 30 min subiendo sin un solo retroceso de 5 min. En la serie del radar precedió
+    un desplome (caída al 40% o menos en 30 min) el 46% de las veces, frente al 2% sin ella.
+  - **Subida de +100% en 1 h** (desplome el 13% de las veces frente al 1%).
+  - Volumen de 24 h en récord con el precio ya x2 o más (el techo suele llegar ese día o poco
+    antes).
+  - Presión de venta fuerte: más del doble de vendedores que compradores en 5 min y -20% en 1 h.
 
 Las posiciones se guardan en `posiciones.json` y cada aviso en `salidas.csv` (precio, entrada y
 máximo), para medir si salir fue acertado. El radar revisa cada 2 minutos: en un rug pull de un

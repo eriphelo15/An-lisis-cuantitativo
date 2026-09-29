@@ -47,12 +47,14 @@ def main():
         # El seguimiento va primero: sus controles tienen hora y no se pueden repetir.
         if args.accion in ("ciclo", "seguimiento"):
             seguimiento.seguir(almacen)
+        # Una vez por hora (lo decide el propio módulo). Va antes que las fotos y el
+        # escaneo de lanzamientos: al final del ciclo no quedaba tiempo y no corría nunca.
+        if args.accion in ("ciclo", "supervivientes") and not fuentes.sin_tiempo():
+            supervivientes.buscar(almacen)
+        if args.accion in ("ciclo", "seguimiento"):
             seguimiento.fotografiar(almacen)
         if args.accion in ("ciclo", "escanear"):
             escaner.escanear(almacen, con_rugcheck=not args.sin_rugcheck)
-        # Una vez por hora (lo decide el propio módulo), si queda tiempo en el ciclo.
-        if args.accion in ("ciclo", "supervivientes") and not fuentes.sin_tiempo():
-            supervivientes.buscar(almacen)
         if args.accion in ("ciclo", "informe"):
             analisis.escribir(almacen)
         print(f"[ciclo] {time.monotonic() - inicio:.0f} s; errores: {dict(fuentes.errores) or 'ninguno'}")

@@ -37,10 +37,15 @@ LIQ_CAIDA = 0.50
 LIQ_MINIMA = 1_000
 VOLUMEN_RECORD_X = 1.5      # el volumen de 24 h supera en 1.5x el mayor visto
 VOLUMEN_RECORD_MIN_X = 2.0  # solo si el precio ya multiplica x2 la entrada
+# Escalera: todas las variaciones de 5 min de la última media hora al alza. En la
+# serie del radar precedió un desplome (caída al 40% o menos en 30 min) el 46% de
+# las veces, frente al 2% sin ella; una subida de +100% en 1 h, el 13% frente al 1%.
+ESCALERA_MIN = 30
+SUBIDA_H1 = 100.0
 PRESION_RATIO = 2.0
 PRESION_VAR_H1 = -20.0
 # Horas mínimas entre dos avisos del mismo tipo (los de salida se envían una vez).
-REPETIR_H = {"volumen_record": 6, "presion_venta": 1}
+REPETIR_H = {"volumen_record": 6, "presion_venta": 1, "escalera": 1, "subida_h1": 2}
 CADA_S = 120  # cada cuánto revisar (se llama desde el bucle del vigía)
 
 MINT = re.compile(r"[1-9A-HJ-NP-Za-km-z]{32,44}")
@@ -127,7 +132,8 @@ def _estado(mints):
     pools = {e["pool"]: m for m, e in estado.items() if e.get("pool")}
     if pools:
         for pool, e in fuentes.pools_multi(pools).items():
-            estado[pools[pool]].update({k: e[k] for k in ("compradores_m5", "vendedores_m5", "var_h1")})
+            estado[pools[pool]].update({k: e[k] for k in ("compradores_m5", "vendedores_m5",
+                                                          "var_m5", "var_h1")})
     return estado
 
 
@@ -205,6 +211,15 @@ def atender_mensajes(cartera, log=print):
     cartera.guardar()
 
 
+def escalera(historial, ahora):
+    """True si en los últimos ESCALERA_MIN minutos hay revisiones que los cubren
+    y en todas la variación de 5 min fue positiva."""
+    desde = ahora.timestamp() - ESCALERA_MIN * 60
+    tramo = [v for t, v in historial if t >= desde - 60]
+    cubre = historial and historial[0][0] <= desde + 60
+    return bool(cubre and len(tramo) >= 5 and all(v > 0 for v in tramo))
+
+
 def senales(p, e, vol24, ahora):
     """Lista de (tipo, es_salida, texto) activas para una posición."""
     s = []
@@ -227,6 +242,16 @@ def senales(p, e, vol24, ahora):
                   f"Volumen de 24 h en récord (${vol24 / 1e6:,.2f}M) con el precio x"
                   f"{precio / p['entrada']:.1f}: el techo suele llegar ese día o poco antes. "
                   "Valora asegurar una parte."))
+    actual = [[ahora.timestamp(), e["var_m5"]]] if "var_m5" in e else []
+    if escalera((p.get("historial") or []) + actual, ahora):
+        s.append(("escalera", False,
+                  f"Lleva {ESCALERA_MIN} min subiendo sin un solo retroceso de 5 min. En los datos del "
+                  "radar, casi la mitad de las escaleras (46%) acabaron en un desplome del 60% en "
+                  "30 min. Asegura ganancias."))
+    if e.get("var_h1", 0) >= SUBIDA_H1:
+        s.append(("subida_h1", False,
+                  f"+{e['var_h1']:.0f}% en 1 h: tras subidas así el desplome es 10 veces más "
+                  "frecuente. Valora asegurar una parte."))
     ratio = e.get("vendedores_m5", 0) / max(1, e.get("compradores_m5", 0))
     if ratio >= PRESION_RATIO and e.get("var_h1", 0) <= PRESION_VAR_H1:
         s.append(("presion_venta", False,
@@ -279,4 +304,8 @@ def revisar(carpeta, log=print):
         p["maximo"] = max(p["maximo"], e["precio"])
         p["liq_ref"] = max(p["liq_ref"], e["liq"])
         p["vol24_max"] = max(p.get("vol24_max") or 0.0, v24)
+        if "var_m5" in e:
+            h = p.setdefault("historial", [])
+            h.append([ahora.timestamp(), e["var_m5"]])
+            del h[:-40]
     cartera.guardar()

@@ -42,6 +42,11 @@ NARRATIVAS_RELEVANTES = {"videojuegos", "ia", "politica", "elon", "celebridades"
                          "festividades", "noticias_cripto"}
 PALABRA_CALIENTE_MIN = 3   # tokens distintos con la misma palabra en las últimas 3 h
 
+# Avisar al móvil de los lanzamientos: desactivado el 2026-09-29. De las 22 primeras
+# alertas con tema y sin vetos, la mediana iba -65% a la hora y ninguna llegó a 2x en
+# 6 h (el estudio de gigantes apunta en la misma dirección). Se siguen registrando.
+AVISAR_LANZAMIENTOS = False
+
 
 def motivos_temprano(r, clon):
     """Lista de criterios que no cumple (vacía = candidato a alerta)."""
@@ -201,7 +206,7 @@ def vigilar(almacen, duracion_s, cada_s=60, log=print):
             motivos = escaner.evaluar_filtro(r)
             r.update({"pasa_filtro": int(not motivos), "motivo_descarte": "|".join(motivos),
                       "puntuacion": escaner.puntuar(r)})
-            enviada = relevante and fuentes.notificar(
+            enviada = AVISAR_LANZAMIENTOS and relevante and fuentes.notificar(
                 f"Radar: {r['simbolo']} (${r['mc'] / 1e3:.0f}K)", _mensaje(r),
                 f"https://dexscreener.com/solana/{r['pool']}")
             r["avisado"] = int(bool(enviada))

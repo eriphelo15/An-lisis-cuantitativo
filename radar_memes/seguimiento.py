@@ -211,16 +211,18 @@ def fotografiar(almacen, log=print):
     """Guarda una foto (precio, liquidez, compras/ventas de 5 min) de cada token
     detectado en las últimas HORAS_SERIE horas que siga vivo."""
     ahora = datetime.now(timezone.utc)
-    ultimo_precio = {}
+    ultimo_precio, ultima_liq = {}, {}
     for f in almacen.serie():
         ultimo_precio[f["mint"]] = float(f["precio"] or 0)
+        ultima_liq[f["mint"]] = float(f["liq"] or 0)
     pools = {}
     for d in almacen.registros():
         if ahora - datetime.fromisoformat(d["ts"]) > timedelta(hours=HORAS_SERIE):
             continue
         previo = ultimo_precio.get(d["mint"])
-        if previo is not None and previo <= UMBRAL_MUERTO * float(d["precio"]):
-            continue  # ya murió: no hace falta seguir fotografiándolo
+        if previo is not None and (previo <= UMBRAL_MUERTO * float(d["precio"])
+                                   or ultima_liq[d["mint"]] < LIQ_MINIMA):
+            continue  # ya murió (precio hundido o sin liquidez): no hace falta seguir fotografiándolo
         pools[d["pool"]] = d["mint"]
     if not pools:
         return []

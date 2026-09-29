@@ -14,9 +14,11 @@ MINIMO = {
 
 # Máximo de tokens por escaneo que se consultan en RugCheck (límite 15/min) y
 # en la ficha de holders de GeckoTerminal (~30/min): el ciclo cabe en 5 min.
-MAX_CONSULTAS_POR_ESCANEO = 30
+# Bajado de 30 a 15 (y las carteras de 15 a 5) para que el ciclo quepa en 5 min
+# con el escáner de supervivientes: con 30 tardaba los 9 min de plazo.
+MAX_CONSULTAS_POR_ESCANEO = 15
 # De ellos, a cuántos se les descargan las carteras compradoras (otra consulta).
-MAX_CARTERAS_POR_ESCANEO = 15
+MAX_CARTERAS_POR_ESCANEO = 5
 
 # Palabras que no dicen nada del tema del token.
 PALABRAS_VACIAS = {"coin", "token", "the", "and", "sol", "official", "pump", "fun",

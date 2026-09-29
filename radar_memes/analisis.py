@@ -55,7 +55,10 @@ def _resumen(g):
     g = g[g["x_24h"].notna()]
     n = len(g)
     if n == 0:
-        return pd.Series({"n": 0})
+        # Mismas columnas que un grupo con datos: si no, la tabla sale deformada.
+        return pd.Series({"n": 0, "muertos_24h": "-", "tocaron_2x": "-", "mediana_24h": "-",
+                          "regla_$_por_50": "-", "n_7d": 0, "10x_7d": "-", "50x_7d": "-",
+                          "tendencia_$_por_50": "-", "aviso": "sin resultados aún"})
     muertos = ((g["vivo_24h"] == 0) | (g["x_24h"] <= 0.1)).mean()
     regla = g["regla_x"].dropna()
     neto = regla * (1 - COSTE_LADO) ** 2
