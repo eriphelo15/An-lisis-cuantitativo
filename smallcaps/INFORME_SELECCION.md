@@ -230,3 +230,22 @@ intradía (dónde entra, cuánto aguanta, qué descarta) y de la selección disc
 **Holm (VAL): ninguna validada** (HG3 t −1.60, HG2 −1.29, HG1 +0.79, HE2 −0.60).
 Conclusión: los dos criterios de Edu medibles con datos diarios no dan ventaja por sí solos. Refuerza lo aprendido: la base viene del
 tipo de catalizador (humo) y la munición; lo de Edu es lectura discrecional del precio y del volumen en el momento.
+
+## Exploratorio (idea del usuario, 29-sep-2026, `23_ruptura_930.py`): ruptura temprana de la vela de las 9:30, solo cortos
+Reglas: vela de 1 min de las 9:30 (O, máx., L); corto cuando una vela CIERRA bajo L (hasta 11:00); cubre cuando una vela cierra sobre O;
+re-entra si vuelve a cerrar bajo L; tamaño constante; coste 0.5 % por intento. Sin el filtro discrecional del usuario (volumen, lectura).
+Muestra: 1 min = 19 días (31-ago → 25-sep-2026), 27 días con ruptura en gaps ≥ 50 % y ≥ $1; 5 min (primera vela de 5 min) = 60 días, 75 casos.
+1R = distancia de la entrada a O (mín. 2 %) — definición cambiada tras ver resultados (la inicial, L→O, infravaloraba el riesgo real:
+en TURB la entrada fue 1.40 con L 1.48 y O 1.50).
+| Datos | Tramo | Salida | n | R | Mediana | WR | Gan. media | Pérd. media | PF | Sin los 3 mejores días |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 min | gap ≥ 50 % | fin 10:30 | 26 | +0.77 | +0.68 | 58 % | +2.05 | −0.98 | 2.85 | |
+| 1 min | gap ≥ 50 % | fin 16:00 | 27 | +1.12 | −0.26 | 44 % | +4.66 | −1.71 | 2.18 | **−0.22** |
+| 5 min | gap ≥ 50 % | fin 10:30 | 69 | +0.11 | +0.09 | 58 % | +0.89 | −0.98 | 1.26 | |
+| 5 min | gap ≥ 50 % | fin 16:00 | 75 | +0.21 | +0.06 | 52 % | +2.00 | −1.73 | 1.25 | **−0.14** |
+| 1 min | gap 20-50 % | fin 16:00 | 50 | −0.64 | −1.13 | 36 % | +2.44 | −2.38 | 0.58 | |
+| 5 min | gap 20-50 % | fin 16:00 | 113 | −0.18 | −0.65 | 39 % | +1.72 | −1.39 | 0.79 | |
+Referencia mismos días (1 min, ≥ 50 %): corto a la apertura, stop +30 % = +0.04R (WR 65 %).
+Lectura: en gaps ≥ 50 % sale positivo, pero **depende de 3 días** (SGRX, SSM, RDHL con +12 a +18R); sin ellos es negativo. Ningún t > 2.
+En gaps 20-50 % pierde claramente. Colas: TURB (−10R, 17-sep) y GRML (−9R, 21-sep) por salir al cierre de vela muy por encima de O.
+No validado; muestra pequeña y no separable en DEV/VAL. Para medirlo de verdad hacen falta más meses de datos de 1 min.
