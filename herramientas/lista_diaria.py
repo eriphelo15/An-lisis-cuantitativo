@@ -148,10 +148,12 @@ def escanear_vivo():
     escanear_vivo.cobertura = dict(universo=len(U), cotizadas=len(cot), pct=round(len(cot) / max(len(U), 1), 4))
     cand = []
     for q in cot:
-        prev = q.get("regularMarketPreviousClose")
+        estado = q.get("marketState")
+        # Antes de la apertura (PRE/PREPRE) Yahoo pone el cierre de AYER en regularMarketPrice y el de ANTEAYER en
+        # regularMarketPreviousClose (error detectado el 29-sep-2026: KOD salía +171 % contra el viernes y estaba −2.5 %).
+        prev = q.get("regularMarketPrice") if estado in ("PRE", "PREPRE") else q.get("regularMarketPreviousClose")
         if not prev:
             continue
-        estado = q.get("marketState")
         px = q.get("preMarketPrice") if estado in ("PRE", "PREPRE") else q.get("regularMarketOpen") or q.get("regularMarketPrice")
         if not px or px < PRECIO_MIN:
             continue

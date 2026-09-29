@@ -1,0 +1,23 @@
+{
+ "BKYI": {"tipo": "H",
+  "frase_en": "today announced a strategic partnership with Al Majlis Group, the Dubai-based public affairs and advisory group founded by H.E. Dherar Belhoul Al Falasi.",
+  "frase_es": "anunció hoy una alianza estratégica con Al Majlis Group, el grupo de asuntos públicos y asesoría con sede en Dubái fundado por S.E. Dherar Belhoul Al Falasi.",
+  "cifra": "ninguna cifra en dólares; sin pedido ni contrato (\"The first phase will focus on a joint approach to a select group of priority organizations\")",
+  "nota": "Nota de prensa GlobeNewswire 29-sep 3:30, sin 8-K. Alianza de distribución/asesoría sin importe ni cliente = humo. Capitalización ~$2.4 M; going concern; aviso de bolsa; S-1 del 21-nov-2025."},
+ "SSTI": {"tipo": "C",
+  "frase_en": "Transom will acquire SoundThinking through a tender offer for $8.00 per share in cash, and one non-transferable CVR worth up to $3.00 per share",
+  "frase_es": "Transom comprará SoundThinking mediante una oferta pública de $8.00 por acción en efectivo, más un derecho contingente no transferible de hasta $3.00 por acción",
+  "cifra": "$8.00 por acción en efectivo (dólares por acción) + CVR de hasta $3.00; ~33 % del capital ya comprometido a vender",
+  "nota": "8-K Item 1.01 (acuerdo de fusión definitivo) del 29-sep 3:45. Compra en efectivo = Nunca shortear (el precio queda anclado cerca de $8)."},
+ "SANG": {"tipo": "C",
+  "frase_en": "shareholders of Sangoma (the “Sangoma Shareholders”) will receive, in exchange for each Sangoma Share held, US$4.925 in cash (the “Cash Consideration”) and 0.04767 of a share of common stock of BRC",
+  "frase_es": "los accionistas de Sangoma recibirán, por cada acción, 4.925 dólares en efectivo más 0.04767 acciones de BRC",
+  "cifra": "$4.925 en efectivo por acción + 0.04767 acciones de BRC (valor implícito $5.225 por acción)",
+  "nota": "Acuerdo de compra definitivo (6-K del 29-sep y nota de Business Wire del 28-sep 17:48). ~94 % en efectivo → compra con precio fijo = Nunca. El mismo día publicó resultados del 4T fiscal 2026 (40-F)."},
+ "MSGY": {"tipo": "F",
+  "frase_en": "the Purchasers agreed to purchase from the Company, in a private placement (the “Private Placement”), an aggregate of 667,000 Class A ordinary shares of the Company, par value US$0.0008 each (the “Class A Ordinary Shares”), at a purchase price of US$1.50 per share, for aggregate gross proceeds to the Company of US$1,000,500",
+  "frase_es": "los compradores acordaron comprar a la empresa, en una colocación privada, 667 000 acciones ordinarias clase A a 1.50 dólares por acción, por un total bruto de 1 000 500 dólares",
+  "cifra": "667 000 acciones (acciones) a $1.50 (dólares por acción) = $1.0 M; más warrants serie A de 166 750 acciones a $1.30 y serie B de 166 750 a $1.10",
+  "nota": "6-K del 28-sep (acuerdo firmado el 25-sep); nota GlobeNewswire del 28-sep 13:05, en plena sesión del lunes. No hay noticia nueva hoy (revisados Yahoo/Finviz por la herramienta y EDGAR a mano: el único otro 6-K reciente es la dimisión del CEO del 24-sep). Colocación a $1.50 con la acción a ~$3.8: esos compradores tendrán acciones muy por debajo del precio.",
+  "fuentes_abiertas": ["EDGAR 6-K 28-sep (colocación privada)", "EDGAR 6-K 24-sep (dimisión CEO)", "noticias Yahoo/Finviz vía herramienta (solo la del 28-sep 13:05)"]}
+}

@@ -1,0 +1,294 @@
+{
+ "fecha": "2026-09-29",
+ "generado": "2026-09-29 08:30",
+ "replay": false,
+ "desde": "2026-09-28 16:00",
+ "corte": "2026-09-29 08:29",
+ "cobertura": {
+  "universo": 3436,
+  "cotizadas": 3435,
+  "pct": 0.9997
+ },
+ "candidatos": [
+  {
+   "sym": "BKYI",
+   "nombre": "BIO-key International, Inc.",
+   "precio": 2.9283,
+   "cierre_prev": 1.68,
+   "gap": 0.743,
+   "cap": 2413057,
+   "vol_pre": 93298,
+   "bolsa": "NasdaqCM",
+   "estado": "PRE",
+   "cik": 1019034,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [
+    {
+     "hora": "2026-09-29 03:30",
+     "titular": "BIO-key Partners with Al Majlis Group to Expand Identity Security Across Arabian Gulf",
+     "url": "https://finance.yahoo.com/technology/ai/articles/bio-key-partners-al-majlis-073000380.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "sector": "Services-Prepackaged Software",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": "2025-11-21",
+    "ventas_12m": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 1,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2023-10-31",
+      "url": "https://www.sec.gov/Archives/edgar/data/1019034/000143774923029483/bkyi20231030_424b4.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2020-07-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1019034/000143774920015508/bkyi20200721_424b4.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2018-08-23",
+      "url": "https://www.sec.gov/Archives/edgar/data/1019034/000143774918016061/bkyi20180823_424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2018-08-21",
+      "url": "https://www.sec.gov/Archives/edgar/data/1019034/000143774918015971/bkyi20180808_424b5.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     4.06,
+     10.2,
+     18.5,
+     21.5,
+     31.5
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-13",
+     "url": "https://www.sec.gov/Archives/edgar/data/1019034/000143774926027723/bkyi20260630_10q.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "SSTI",
+   "nombre": "SoundThinking, Inc.",
+   "precio": 8.2513,
+   "cierre_prev": 5.47,
+   "gap": 0.5085,
+   "cap": 72005928,
+   "vol_pre": 41919,
+   "bolsa": "NasdaqCM",
+   "estado": "PRE",
+   "cik": 1351636,
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-29 03:45",
+     "items": "1.01,5.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1351636/000119312526406024/d107296d8k.htm",
+     "partes": [
+      {
+       "archivo": "d107296dex991.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1351636/000119312526406024/d107296dex991.htm",
+       "texto": "SoundThinking to be Acquired by Transom Capital Group SoundThinking shareholders to receive $8.00 per share in cash, plus one non-transferable contingent value right (CVR) for up to an additional $3.00 per share Upfront cash consideration of $8.00 per share represents a 46% premium to closing price on September 28, 2026 Shareholders owning approximately 33% of SoundThinking’s outstanding common stock have already agreed to tender their shares in the tender offer FREMONT, Calif. and LOS ANGELES — September 29, 2026 — SoundThinking, Inc. (Nasdaq: SSTI) (“SoundThinking” or the “Company”), a leading public safety technology company, and Transom Capital Group (“Transom”), an operationally focused middle-market private equity firm, today announced that they have entered into a definitive merger agreement (“Merger Agreement”) under which Transom will acquire SoundThinking through a tender offer for $8.00 per share in cash, and one non-transferable CVR worth up to $3.00 per share, for aggregate potential consideration of up to $11.00 per share in cash. The implied enterprise value of SoundThinking based solely on the up-front cash consideration is approximately $114 million, and the total enterprise value with payment of the maximum CVR payment is approximately $159 million. The up-front cash consideration offer price represents a premium of 46% to the closing price per share of the Company’s common stock on September 28, 2026 (the last trading day prior to the announcement of the transaction). If the shareholders ultimately receive CVR payments, the premium received by the Company"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-29 03:45",
+     "items": "1.01,5.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1351636/000119312526406024/d107296d8k.htm",
+     "items_es": "1.01 acuerdo firmado; 5.02 directivos; 7.01 nota de prensa; 9.01 anexos"
+    }
+   ],
+   "noticias": [
+    {
+     "hora": "2026-09-29 07:35",
+     "titular": "SoundThinking to be Acquired by Transom Capital Group",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/soundthinking-acquired-transom-capital-group-113500532.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "sector": "Services-Prepackaged Software",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2019-03-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1351636/000119312519067399/d713115d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2019-03-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1351636/000119312519064255/d713115d424b5.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2017-06-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/1351636/000104746917003890/a2232376z424b4.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1351636/000119312526352203/ssti-20260630.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "SANG",
+   "nombre": "Sangoma Technologies Corporation",
+   "precio": 4.9803,
+   "cierre_prev": 3.59,
+   "gap": 0.3873,
+   "cap": 119470856,
+   "vol_pre": 42726,
+   "bolsa": "NasdaqGS",
+   "estado": "PRE",
+   "cik": 1753368,
+   "catalizadores": [
+    {
+     "form": "6-K",
+     "hora": "2026-09-29 02:03",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1753368/000110465926111514/tm2626529d1_6k.htm",
+     "partes": [
+      {
+       "archivo": "tm2626529d1_ex99-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1753368/000110465926111514/tm2626529d1_ex99-1.htm",
+       "texto": "Sangoma Technologies Corporation Enters into Definitive Agreement to be Acquired by BRC Group Holdings, Inc. Transaction Creates an Industry Leader in Unified Business Communications Toronto, Ontario and Los Angeles, California: September 28, 2026 – Sangoma Technologies Corporation (TSX: STC; NASDAQ: SANG) (“Sangoma”), a trusted industry leader uniquely offering businesses a choice of on-premises, cloud-based or hybrid communications solutions, and BRC Group Holdings, Inc. (NASDAQ: RILY) (“BRC”), a diversified holding company with a scaled business communications portfolio, announced today that the companies have entered into a definitive arrangement agreement (the “Arrangement Agreement”) pursuant to which an affiliate of BRC will acquire all of the issued and outstanding common shares of Sangoma (the “Sangoma Shares”) in a transaction that values Sangoma at an enterprise value of approximately US$204 million (C$289 1 million) (the “Transaction”). Under the terms of the Arrangement Agreement, shareholders of Sangoma (the “Sangoma Shareholders”) will receive, in exchange for each Sangoma Share held, US$4.925 in cash (the “Cash Consideration”) and 0.04767 of a share of common stock of BRC (each a “BRC Share”) (the “Share Consideration” and, collectively with the Cash Consideration, the “Consideration”). Based on the 20-day VWAP of BRC common shares on the NASDAQ, the Consideration implies a value of US$5.225 (C$7.40) per Sangoma Share, representing a premium of approximately 47% based on the closing price, and a premium of approximately 51% based on the 10-day VWAP, of Sango"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "6-K",
+     "hora": "2026-09-29 02:03",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1753368/000110465926111514/tm2626529d1_6k.htm",
+     "items_es": ""
+    },
+    {
+     "form": "40-F",
+     "hora": "2026-09-28 17:10",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1753368/000175336826000011/sang-20260630.htm",
+     "items_es": ""
+    }
+   ],
+   "noticias": [
+    {
+     "hora": "2026-09-28 18:31",
+     "titular": "Sangoma Technologies stock surges over 40% on BRC acquisition deal",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/sangoma-technologies-stock-surges-over-223123988.html",
+     "fuente": "Investing.com"
+    },
+    {
+     "hora": "2026-09-28 17:48",
+     "titular": "Sangoma Technologies Corporation Enters into Definitive Agreement to be Acquired by BRC Group Holdings, Inc.",
+     "url": "https://www.businesswire.com/news/home/20260928333255/en/",
+     "fuente": "Business Wire"
+    },
+    {
+     "hora": "2026-09-28 17:46",
+     "titular": "BRC Group Holdings, Inc. Agrees to Acquire Sangoma Technologies Corporation to Scale Communications Portfolio",
+     "url": "https://finviz.com/news/396189/brc-group-holdings-inc-agrees-to-acquire-sangoma-technologies-corporation-to-scale-communications-portfolio",
+     "fuente": "PR Newswire"
+    },
+    {
+     "hora": "2026-09-28 17:00",
+     "titular": "Sangoma Announces Fourth Quarter Fiscal 2026 Results",
+     "url": "https://www.businesswire.com/news/home/20260928479328/en/",
+     "fuente": "Business Wire"
+    }
+   ],
+   "sector": "Services-Computer Programming, Data Processing, Etc.",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": []
+   }
+  },
+  {
+   "sym": "MSGY",
+   "nombre": "Masonglory Limited",
+   "precio": 3.8397,
+   "cierre_prev": 3.13,
+   "gap": 0.2267,
+   "cap": 6634426,
+   "vol_pre": 9093650,
+   "bolsa": "NasdaqCM",
+   "estado": "PRE",
+   "cik": 2020228,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Construction - Special Trade Contractors",
+   "venta_hoy": false,
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-07-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/2020228/000121390025062117/ea0207245-17.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-07-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/2020228/000121390026083085/ea0297251-20f_masonglory.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   }
+  }
+ ]
+}

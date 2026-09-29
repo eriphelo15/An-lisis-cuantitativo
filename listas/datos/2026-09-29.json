@@ -1,0 +1,395 @@
+{
+ "fecha": "2026-09-29",
+ "generado": "2026-09-29 08:31",
+ "replay": false,
+ "desde": "2026-09-28 16:00",
+ "corte": "2026-09-29 08:29",
+ "reglas": {
+  "gap_lista": 0.5,
+  "gap_vigilar": 0.2,
+  "stop": 0.3,
+  "deslizamiento": 0.05,
+  "coste": 0.01,
+  "riesgo_accion": 0.3750000000000002
+ },
+ "lista": [
+  {
+   "sym": "BKYI",
+   "nombre": "BIO-key International, Inc.",
+   "sector": "Services-Prepackaged Software",
+   "precio": 2.8786,
+   "cierre_prev": 1.68,
+   "gap": 0.7135,
+   "cap": 2413057,
+   "vol_pre": 93298,
+   "nivel": "B",
+   "clasif": {
+    "tipo": "H",
+    "frase_en": "today announced a strategic partnership with Al Majlis Group, the Dubai-based public affairs and advisory group founded by H.E. Dherar Belhoul Al Falasi.",
+    "frase_es": "anunció hoy una alianza estratégica con Al Majlis Group, el grupo de asuntos públicos y asesoría con sede en Dubái fundado por S.E. Dherar Belhoul Al Falasi.",
+    "cifra": "ninguna cifra en dólares; sin pedido ni contrato (\"The first phase will focus on a joint approach to a select group of priority organizations\")",
+    "nota": "Nota de prensa GlobeNewswire 29-sep 3:30, sin 8-K. Alianza de distribución/asesoría sin importe ni cliente = humo. Capitalización ~$2.4 M; going concern; aviso de bolsa; S-1 del 21-nov-2025.",
+    "tipo_es": "Humo / cosmético"
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [
+    {
+     "hora": "2026-09-29 03:30",
+     "titular": "BIO-key Partners with Al Majlis Group to Expand Identity Security Across Arabian Gulf",
+     "url": "https://finance.yahoo.com/technology/ai/articles/bio-key-partners-al-majlis-073000380.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": "2025-11-21",
+    "ventas_12m": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 1,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2023-10-31",
+      "url": "https://www.sec.gov/Archives/edgar/data/1019034/000143774923029483/bkyi20231030_424b4.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2020-07-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1019034/000143774920015508/bkyi20200721_424b4.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2018-08-23",
+      "url": "https://www.sec.gov/Archives/edgar/data/1019034/000143774918016061/bkyi20180823_424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2018-08-21",
+      "url": "https://www.sec.gov/Archives/edgar/data/1019034/000143774918015971/bkyi20180808_424b5.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     4.06,
+     10.2,
+     18.5,
+     21.5,
+     31.5
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-13",
+     "url": "https://www.sec.gov/Archives/edgar/data/1019034/000143774926027723/bkyi20260630_10q.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "costes": {
+    "locate_1c_R": 0.012
+   },
+   "estad": {
+    "R": -0.02,
+    "WR": 0.6,
+    "gan": 0.67,
+    "perd": -1.05,
+    "PF": 0.96,
+    "n": 60,
+    "squeeze": 0.18,
+    "fuente": "base mecánica, humo + gap 50-100 % + precio ≥ $1 · VAL 2022-26 (DEV: +0.01R, 47 casos) · la ventaja depende de la ejecución"
+   },
+   "avisos": [
+    "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)"
+   ]
+  },
+  {
+   "sym": "SSTI",
+   "nombre": "SoundThinking, Inc.",
+   "sector": "Services-Prepackaged Software",
+   "precio": 8.2515,
+   "cierre_prev": 5.47,
+   "gap": 0.5085,
+   "cap": 72005928,
+   "vol_pre": 41919,
+   "nivel": "NUNCA",
+   "clasif": {
+    "tipo": "C",
+    "frase_en": "Transom will acquire SoundThinking through a tender offer for $8.00 per share in cash, and one non-transferable CVR worth up to $3.00 per share",
+    "frase_es": "Transom comprará SoundThinking mediante una oferta pública de $8.00 por acción en efectivo, más un derecho contingente no transferible de hasta $3.00 por acción",
+    "cifra": "$8.00 por acción en efectivo (dólares por acción) + CVR de hasta $3.00; ~33 % del capital ya comprometido a vender",
+    "nota": "8-K Item 1.01 (acuerdo de fusión definitivo) del 29-sep 3:45. Compra en efectivo = Nunca shortear (el precio queda anclado cerca de $8).",
+    "tipo_es": "Compra en efectivo"
+   },
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-29 03:45",
+     "items": "1.01,5.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1351636/000119312526406024/d107296d8k.htm",
+     "anexos": [
+      {
+       "archivo": "d107296dex991.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1351636/000119312526406024/d107296dex991.htm"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-29 03:45",
+     "items": "1.01,5.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1351636/000119312526406024/d107296d8k.htm",
+     "items_es": "1.01 acuerdo firmado; 5.02 directivos; 7.01 nota de prensa; 9.01 anexos"
+    }
+   ],
+   "noticias": [
+    {
+     "hora": "2026-09-29 07:35",
+     "titular": "SoundThinking to be Acquired by Transom Capital Group",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/soundthinking-acquired-transom-capital-group-113500532.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2019-03-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1351636/000119312519067399/d713115d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2019-03-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1351636/000119312519064255/d713115d424b5.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2017-06-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/1351636/000104746917003890/a2232376z424b4.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1351636/000119312526352203/ssti-20260630.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "costes": {
+    "locate_1c_R": 0.004
+   },
+   "estad": {
+    "R": -0.04,
+    "WR": 0.08,
+    "gan": null,
+    "perd": null,
+    "PF": 0.23,
+    "n": 13,
+    "squeeze": 0.0,
+    "fuente": "compra en efectivo: el precio queda anclado"
+   },
+   "avisos": []
+  }
+ ],
+ "vigilar": [
+  {
+   "sym": "SANG",
+   "nombre": "Sangoma Technologies Corporation",
+   "sector": "Services-Computer Programming, Data Processing, Etc.",
+   "precio": 4.9802,
+   "cierre_prev": 3.59,
+   "gap": 0.3872,
+   "cap": 119470856,
+   "vol_pre": 42726,
+   "nivel": "NUNCA",
+   "clasif": {
+    "tipo": "C",
+    "frase_en": "shareholders of Sangoma (the “Sangoma Shareholders”) will receive, in exchange for each Sangoma Share held, US$4.925 in cash (the “Cash Consideration”) and 0.04767 of a share of common stock of BRC",
+    "frase_es": "los accionistas de Sangoma recibirán, por cada acción, 4.925 dólares en efectivo más 0.04767 acciones de BRC",
+    "cifra": "$4.925 en efectivo por acción + 0.04767 acciones de BRC (valor implícito $5.225 por acción)",
+    "nota": "Acuerdo de compra definitivo (6-K del 29-sep y nota de Business Wire del 28-sep 17:48). ~94 % en efectivo → compra con precio fijo = Nunca. El mismo día publicó resultados del 4T fiscal 2026 (40-F).",
+    "tipo_es": "Compra en efectivo"
+   },
+   "catalizadores": [
+    {
+     "form": "6-K",
+     "hora": "2026-09-29 02:03",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1753368/000110465926111514/tm2626529d1_6k.htm",
+     "anexos": [
+      {
+       "archivo": "tm2626529d1_ex99-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1753368/000110465926111514/tm2626529d1_ex99-1.htm"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "6-K",
+     "hora": "2026-09-29 02:03",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1753368/000110465926111514/tm2626529d1_6k.htm",
+     "items_es": ""
+    },
+    {
+     "form": "40-F",
+     "hora": "2026-09-28 17:10",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1753368/000175336826000011/sang-20260630.htm",
+     "items_es": ""
+    }
+   ],
+   "noticias": [
+    {
+     "hora": "2026-09-28 18:31",
+     "titular": "Sangoma Technologies stock surges over 40% on BRC acquisition deal",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/sangoma-technologies-stock-surges-over-223123988.html",
+     "fuente": "Investing.com"
+    },
+    {
+     "hora": "2026-09-28 17:48",
+     "titular": "Sangoma Technologies Corporation Enters into Definitive Agreement to be Acquired by BRC Group Holdings, Inc.",
+     "url": "https://www.businesswire.com/news/home/20260928333255/en/",
+     "fuente": "Business Wire"
+    },
+    {
+     "hora": "2026-09-28 17:46",
+     "titular": "BRC Group Holdings, Inc. Agrees to Acquire Sangoma Technologies Corporation to Scale Communications Portfolio",
+     "url": "https://finviz.com/news/396189/brc-group-holdings-inc-agrees-to-acquire-sangoma-technologies-corporation-to-scale-communications-portfolio",
+     "fuente": "PR Newswire"
+    },
+    {
+     "hora": "2026-09-28 17:00",
+     "titular": "Sangoma Announces Fourth Quarter Fiscal 2026 Results",
+     "url": "https://www.businesswire.com/news/home/20260928479328/en/",
+     "fuente": "Business Wire"
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": []
+   },
+   "venta_hoy": false,
+   "costes": {
+    "locate_1c_R": 0.007
+   },
+   "estad": {
+    "R": -0.04,
+    "WR": 0.08,
+    "gan": null,
+    "perd": null,
+    "PF": 0.23,
+    "n": 13,
+    "squeeze": 0.0,
+    "fuente": "compra en efectivo: el precio queda anclado"
+   },
+   "avisos": []
+  },
+  {
+   "sym": "MSGY",
+   "nombre": "Masonglory Limited",
+   "sector": "Construction - Special Trade Contractors",
+   "precio": 4.04,
+   "cierre_prev": 3.13,
+   "gap": 0.2907,
+   "cap": 6634426,
+   "vol_pre": 9093650,
+   "nivel": "NO",
+   "clasif": {
+    "tipo": "F",
+    "frase_en": "the Purchasers agreed to purchase from the Company, in a private placement (the “Private Placement”), an aggregate of 667,000 Class A ordinary shares of the Company, par value US$0.0008 each (the “Class A Ordinary Shares”), at a purchase price of US$1.50 per share, for aggregate gross proceeds to the Company of US$1,000,500",
+    "frase_es": "los compradores acordaron comprar a la empresa, en una colocación privada, 667 000 acciones ordinarias clase A a 1.50 dólares por acción, por un total bruto de 1 000 500 dólares",
+    "cifra": "667 000 acciones (acciones) a $1.50 (dólares por acción) = $1.0 M; más warrants serie A de 166 750 acciones a $1.30 y serie B de 166 750 a $1.10",
+    "nota": "6-K del 28-sep (acuerdo firmado el 25-sep); nota GlobeNewswire del 28-sep 13:05, en plena sesión del lunes. No hay noticia nueva hoy (revisados Yahoo/Finviz por la herramienta y EDGAR a mano: el único otro 6-K reciente es la dimisión del CEO del 24-sep). Colocación a $1.50 con la acción a ~$3.8: esos compradores tendrán acciones muy por debajo del precio.",
+    "fuentes_abiertas": [
+     "EDGAR 6-K 28-sep (colocación privada)",
+     "EDGAR 6-K 24-sep (dimisión CEO)",
+     "noticias Yahoo/Finviz vía herramienta (solo la del 28-sep 13:05)"
+    ],
+    "tipo_es": "Financiación"
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-07-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/2020228/000121390025062117/ea0207245-17.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-07-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/2020228/000121390026083085/ea0297251-20f_masonglory.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "venta_hoy": false,
+   "costes": {
+    "locate_1c_R": 0.008
+   },
+   "estad": {
+    "R": -0.12,
+    "WR": 0.49,
+    "gan": null,
+    "perd": null,
+    "PF": 0.65,
+    "n": null,
+    "squeeze": null,
+    "fuente": "resultados / financiación / avisos de bolsa: PF 0.6-0.7"
+   },
+   "avisos": []
+  }
+ ],
+ "resultados": null,
+ "auditoria": {
+  "errores": [],
+  "avisos": [],
+  "cobertura": {
+   "universo": 3436,
+   "cotizadas": 3435,
+   "pct": 0.9997
+  },
+  "forzada": false
+ }
+}
