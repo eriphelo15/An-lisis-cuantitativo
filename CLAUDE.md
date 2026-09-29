@@ -123,6 +123,13 @@
   Radar en `listas/m1/` (paso 3b de RUTINA.md, dentro de la rutina existente) y mide la regla → `listas/ruptura_930.csv`. Estudio aparte, no va a la página.
   Inicio (21, 22, 23 y 28-sep; los 3 primeros son listas reconstruidas): A/B 5 op. +0.72R WR 40 % PF 2.15; Vigilar ≥ 50 % ≥ $1 5 op. +0.46R;
   20-50 % 17 op. −0.66R WR 12 % PF 0.39. Objetivo: ~100 operaciones en gap ≥ 50 % antes de decidir.
+  **Ronda 10 (backtest con Massive, 29-sep, `smallcaps/25_ruptura_massive.py`):** 2 años, 1 121 operaciones en gap ≥ 50 % (≥ $1, con deslistadas):
+  DEV +0.06R / VAL −0.06R (WR 40/35 %, PF 1.07/0.93, stops medios −1.61R) → NO validada. ≥ 100 %: +0.11/+0.14R (t < 1). Corto a la apertura
+  (stop 30 %, fuera 11:30) en todos los días: +0.055/−0.017R. Días que no rompen el mínimo de las 9:30 (~13 %): el corto a la apertura pierde ~−1R.
+  Error propio corregido: comparar con la referencia solo en los días con entrada sesga a favor de la referencia.
+  **Credencial de Massive** guardada en el entorno (API credentials, api.polygon.io y api.massive.com; funciona en esta sesión). Plan gratis:
+  1 min sin ajustar desde 29-sep-2024, 5 consultas/min. Datos en /home/user/data/massive (se regeneran con `24_massive_descarga.py`).
+  **Error corregido 29-sep en el Radar:** antes de la apertura Yahoo pone el cierre de ayer en regularMarketPrice; el escáner usaba el de anteayer.
 - Conclusión: la ventaja debe venir de selección (catalizador + munición activa) + ejecución fina en 1-5 min + gestión del riesgo; se medirá con el diario de operaciones del usuario y, si hace falta, datos de 1 min de pago con deslistadas.
 
 ## Mapa del repositorio

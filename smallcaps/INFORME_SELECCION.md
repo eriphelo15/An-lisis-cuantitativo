@@ -249,3 +249,22 @@ Referencia mismos días (1 min, ≥ 50 %): corto a la apertura, stop +30 % = +0.
 Lectura: en gaps ≥ 50 % sale positivo, pero **depende de 3 días** (SGRX, SSM, RDHL con +12 a +18R); sin ellos es negativo. Ningún t > 2.
 En gaps 20-50 % pierde claramente. Colas: TURB (−10R, 17-sep) y GRML (−9R, 21-sep) por salir al cierre de vela muy por encima de O.
 No validado; muestra pequeña y no separable en DEV/VAL. Para medirlo de verdad hacen falta más meses de datos de 1 min.
+
+## Ronda 10 — backtest de la ruptura de la vela de 1 min de las 9:30 con Massive (29-sep-2026, `24_massive_descarga.py`, `25_ruptura_massive.py`)
+Datos: Massive (antes Polygon), plan gratis. 5 495 días de gap ≥ 20 % entre oct-2024 y sep-2026 (incluidas acciones luego deslistadas);
+1 814 de gap ≥ 50 %, de ellos 1 291 con precio real ≥ $1 y vela de las 9:30. Reglas del usuario (un intento, entrada hasta 11:00, fuera 11:30).
+Comprobación con los casos medidos antes con Yahoo: BENF −0.09R (igual), LHSW +2.45R (+2.46), QNME −1.93R (igual), GRML −1.82R (−1.99).
+**Gap ≥ 50 %, precio ≥ $1 (coste 0.5 %):**
+| Periodo | Operaciones | R | Mediana | WR | Gan. media | Pérd. media | PF | t | Sin los 5 mejores |
+|---|---|---|---|---|---|---|---|---|---|
+| DEV oct-24 → sep-25 | 604 | +0.06 | −1.10 | 40 % | +2.42 | −1.54 | 1.07 | 0.6 | −0.07 |
+| VAL oct-25 → sep-26 | 517 | **−0.06** | −1.13 | 35 % | +2.59 | −1.51 | 0.93 | −0.6 | −0.18 |
+Con coste 1 %: −0.04R / −0.17R. Por tramo: 50-100 % +0.03 / −0.19R; ≥ 100 % +0.11 / +0.14R (t < 1). Humo (etiqueta 2b, n 60): −0.10R.
+Los stops cuestan de media −1.61R (salir al cierre de una vela sobre la apertura sobrepasa el nivel); las salidas a las 11:30, +2.22R.
+**Holm: HB1 no validada** (VAL t −0.57). HB2 pendiente (faltan los 20-50 %, en descarga).
+**HB3 mal planteada en el pre-registro (error mío):** la referencia se midió solo en los días en que la regla entró (días que ya rompieron el mínimo
+= días que caen) → sesgo a favor de la referencia (+0.20R / +0.13R). Medida en TODOS los días de gap ≥ 50 %: corto a la apertura, stop +30 %,
+salida 11:30 = +0.055R (DEV, PF 1.16) / −0.017R (VAL, PF 0.95). La regla contando los días sin ruptura como 0: +0.05R / −0.06R. Ambas ≈ 0R.
+Dato útil (descriptivo): en los días que NO rompen el mínimo de las 9:30 (≈ 13 %), el corto a la apertura pierde −0.9 a −1.0R (casi siempre stop).
+Conclusión: la ruptura de las 9:30 como regla mecánica NO tiene ventaja en 2 años con 1 121 operaciones. Sirve como filtro (evita los días de
+squeeze) pero la salida por cierre sobre la apertura se come la ventaja. Cualquier variante nueva sería exploratoria y necesitaría pre-registro nuevo.
