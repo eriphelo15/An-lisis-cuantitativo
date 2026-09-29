@@ -1,9 +1,9 @@
 # Informe del radar de memecoins
 
-Generado: 2026-09-28 23:50 UTC
+Generado: 2026-09-28 23:59 UTC
 
-- Tokens registrados: **2040** (desde 2026-09-27 18:07)
-- Con resultado a 24 h: **384**
+- Tokens registrados: **2043** (desde 2026-09-27 18:07)
+- Con resultado a 24 h: **395**
 - Pasan el filtro v1: **47**
 - Resultados en dólares por cada apuesta de $50, con 3% de costes en la entrada y en la salida:
   - `regla_$_por_50` (24 h): vender 50% a 2x, 20% a 5x, 20% a 10x; stop a -50%.
@@ -16,39 +16,39 @@ Generado: 2026-09-28 23:50 UTC
 
 | todos   |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso   |
 |:--------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:--------|
-| todos   | 384 | 73%           | 40%          | -100%         |           -21.06 |      0 | -        | -        | -                    |         |
+| todos   | 395 | 73%           | 41%          | -100%         |            -21.1 |      0 | -        | -        | -                    |         |
 
 ### Filtro v1
 
 | filtro_v1   |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso           |
 |:------------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:----------------|
-| no pasa     | 375 | 73%           | 41%          | -100%         |           -20.89 |      0 | -        | -        | -                    |                 |
+| no pasa     | 386 | 73%           | 41%          | -100%         |           -20.94 |      0 | -        | -        | -                    |                 |
 | pasa        |   9 | 78%           | 33%          | -100%         |           -27.87 |      0 | -        | -        | -                    | muestra pequeña |
 
 ### Alertas tempranas del vigía (2-15 min de vida) frente al escaneo
 
-|                                   | 0      |
-|:----------------------------------|:-------|
-| ('escaneo', 'n')                  | 384    |
-| ('escaneo', 'muertos_24h')        | 73%    |
-| ('escaneo', 'tocaron_2x')         | 40%    |
-| ('escaneo', 'mediana_24h')        | -100%  |
-| ('escaneo', 'regla_$_por_50')     | -21.06 |
-| ('escaneo', 'n_7d')               | 0      |
-| ('escaneo', '10x_7d')             | -      |
-| ('escaneo', '50x_7d')             | -      |
-| ('escaneo', 'tendencia_$_por_50') | -      |
-| ('escaneo', 'aviso')              |        |
-| ('vigia', 'n')                    | 0      |
+| origen   |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso           |
+|:---------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:----------------|
+| escaneo  | 394 | 73%           | 41%          | -100%         |           -21.03 |      0 | -        | -        | -                    |                 |
+| vigia    |   1 | 100%          | 0%           | -100%         |           -50    |      0 | -        | -        | -                    | muestra pequeña |
 
 ### Alertas con tema, sin tema y vetadas
 
-| tema                          |   n |
-|:------------------------------|----:|
-| antes de separar              |   0 |
-| con tema relevante (avisadas) |   0 |
-| sin tema (silenciosas)        |   0 |
-| vetadas (no avisadas)         |   0 |
+|                                            | 0               |
+|:-------------------------------------------|:----------------|
+| ('antes de separar', 'n')                  | 1               |
+| ('antes de separar', 'muertos_24h')        | 100%            |
+| ('antes de separar', 'tocaron_2x')         | 0%              |
+| ('antes de separar', 'mediana_24h')        | -100%           |
+| ('antes de separar', 'regla_$_por_50')     | -50.00          |
+| ('antes de separar', 'n_7d')               | 0               |
+| ('antes de separar', '10x_7d')             | -               |
+| ('antes de separar', '50x_7d')             | -               |
+| ('antes de separar', 'tendencia_$_por_50') | -               |
+| ('antes de separar', 'aviso')              | muestra pequeña |
+| ('con tema relevante (avisadas)', 'n')     | 0               |
+| ('sin tema (silenciosas)', 'n')            | 0               |
+| ('vetadas (no avisadas)', 'n')             | 0               |
 
 ### Qué habría pasado con los vetados, por veto (si les va bien, el veto sobra)
 
@@ -70,15 +70,15 @@ Generado: 2026-09-28 23:50 UTC
 
 | motivo                 |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso   |
 |:-----------------------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:--------|
-| compras_desbalanceadas |  80 | 92%           | 44%          | -100%         |           -17.53 |      0 | -        | -        | -                    |         |
-| holders_concentrados   | 185 | 70%           | 48%          | -100%         |           -16.61 |      0 | -        | -        | -                    |         |
-| liquidez_anomala       | 139 | 79%           | 37%          | -100%         |           -25.23 |      0 | -        | -        | -                    |         |
-| mc_fuera_rango         | 213 | 62%           | 36%          | -100%         |           -22.6  |      0 | -        | -        | -                    |         |
-| nombre_clonado         | 238 | 78%           | 42%          | -100%         |           -23.03 |      0 | -        | -        | -                    |         |
-| peligro_rugcheck       | 225 | 87%           | 37%          | -100%         |           -26.16 |      0 | -        | -        | -                    |         |
-| pocos_compradores      |  52 | 63%           | 25%          | -100%         |           -24.9  |      0 | -        | -        | -                    |         |
-| presion_venta          |  67 | 64%           | 42%          | -100%         |           -23.15 |      0 | -        | -        | -                    |         |
-| volumen_inflado        |  94 | 71%           | 40%          | -100%         |           -21.89 |      0 | -        | -        | -                    |         |
+| compras_desbalanceadas |  82 | 93%           | 44%          | -100%         |           -17.15 |      0 | -        | -        | -                    |         |
+| holders_concentrados   | 191 | 70%           | 48%          | -100%         |           -16.2  |      0 | -        | -        | -                    |         |
+| liquidez_anomala       | 145 | 80%           | 37%          | -100%         |           -26    |      0 | -        | -        | -                    |         |
+| mc_fuera_rango         | 217 | 62%           | 35%          | -100%         |           -22.91 |      0 | -        | -        | -                    |         |
+| nombre_clonado         | 244 | 78%           | 42%          | -100%         |           -23.33 |      0 | -        | -        | -                    |         |
+| peligro_rugcheck       | 232 | 87%           | 37%          | -100%         |           -26.16 |      0 | -        | -        | -                    |         |
+| pocos_compradores      |  54 | 65%           | 24%          | -100%         |           -25.95 |      0 | -        | -        | -                    |         |
+| presion_venta          |  69 | 65%           | 42%          | -100%         |           -23.96 |      0 | -        | -        | -                    |         |
+| volumen_inflado        |  97 | 72%           | 41%          | -100%         |           -21.26 |      0 | -        | -        | -                    |         |
 
 ## Narrativas
 
@@ -86,11 +86,11 @@ Generado: 2026-09-28 23:50 UTC
 
 |                                         | 0               |
 |:----------------------------------------|:----------------|
-| ('animales', 'n')                       | 5               |
-| ('animales', 'muertos_24h')             | 80%             |
-| ('animales', 'tocaron_2x')              | 33%             |
+| ('animales', 'n')                       | 6               |
+| ('animales', 'muertos_24h')             | 83%             |
+| ('animales', 'tocaron_2x')              | 25%             |
 | ('animales', 'mediana_24h')             | -100%           |
-| ('animales', 'regla_$_por_50')          | -40.59          |
+| ('animales', 'regla_$_por_50')          | -42.16          |
 | ('animales', 'n_7d')                    | 0               |
 | ('animales', '10x_7d')                  | -               |
 | ('animales', '50x_7d')                  | -               |
@@ -127,11 +127,11 @@ Generado: 2026-09-28 23:50 UTC
 | ('elon', 'tendencia_$_por_50')          | -               |
 | ('elon', 'aviso')                       | muestra pequeña |
 | ('festividades', 'n')                   | 0               |
-| ('ia', 'n')                             | 23              |
-| ('ia', 'muertos_24h')                   | 74%             |
-| ('ia', 'tocaron_2x')                    | 45%             |
+| ('ia', 'n')                             | 24              |
+| ('ia', 'muertos_24h')                   | 71%             |
+| ('ia', 'tocaron_2x')                    | 43%             |
 | ('ia', 'mediana_24h')                   | -100%           |
-| ('ia', 'regla_$_por_50')                | -21.50          |
+| ('ia', 'regla_$_por_50')                | -21.81          |
 | ('ia', 'n_7d')                          | 0               |
 | ('ia', '10x_7d')                        | -               |
 | ('ia', '50x_7d')                        | -               |
@@ -148,11 +148,11 @@ Generado: 2026-09-28 23:50 UTC
 | ('politica', '50x_7d')                  | -               |
 | ('politica', 'tendencia_$_por_50')      | -               |
 | ('politica', 'aviso')                   | muestra pequeña |
-| ('sin narrativa', 'n')                  | 323             |
+| ('sin narrativa', 'n')                  | 332             |
 | ('sin narrativa', 'muertos_24h')        | 73%             |
-| ('sin narrativa', 'tocaron_2x')         | 38%             |
+| ('sin narrativa', 'tocaron_2x')         | 39%             |
 | ('sin narrativa', 'mediana_24h')        | -100%           |
-| ('sin narrativa', 'regla_$_por_50')     | -22.41          |
+| ('sin narrativa', 'regla_$_por_50')     | -22.31          |
 | ('sin narrativa', 'n_7d')               | 0               |
 | ('sin narrativa', '10x_7d')             | -               |
 | ('sin narrativa', '50x_7d')             | -               |
@@ -174,33 +174,33 @@ Generado: 2026-09-28 23:50 UTC
 | papel_en_narrativa   |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso           |
 |:---------------------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:----------------|
 | líder                |  16 | 100%          | 50%          | -100%         |           -14.55 |      0 | -        | -        | -                    | muestra pequeña |
-| seguidor/clon        |  45 | 67%           | 54%          | -100%         |           -13.72 |      0 | -        | -        | -                    |                 |
-| sin narrativa        | 323 | 73%           | 38%          | -100%         |           -22.41 |      0 | -        | -        | -                    |                 |
+| seguidor/clon        |  47 | 66%           | 51%          | -100%         |           -14.85 |      0 | -        | -        | -                    |                 |
+| sin narrativa        | 332 | 73%           | 39%          | -100%         |           -22.31 |      0 | -        | -        | -                    |                 |
 
 ### Calor de la narrativa (tokens con el mismo tema en el escaneo)
 
 | calor   |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso           |
 |:--------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:----------------|
 | 1 token |   8 | 100%          | 50%          | -100%         |           -26.39 |      0 | -        | -        | -                    | muestra pequeña |
-| 2-3     |   9 | 100%          | 78%          | -100%         |            31.22 |      0 | -        | -        | -                    | muestra pequeña |
-| 4-8     |  24 | 62%           | 53%          | -100%         |           -23.54 |      0 | -        | -        | -                    | muestra pequeña |
+| 2-3     |  10 | 100%          | 70%          | -100%         |            23.1  |      0 | -        | -        | -                    | muestra pequeña |
+| 4-8     |  25 | 60%           | 50%          | -100%         |           -23.76 |      0 | -        | -        | -                    | muestra pequeña |
 | 9+      |  20 | 70%           | 42%          | -100%         |           -18.74 |      0 | -        | -        | -                    | muestra pequeña |
 
 ### Con catalizador próximo
 
 | con_catalizador   |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso           |
 |:------------------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:----------------|
-| no                | 366 | 73%           | 40%          | -100%         |           -21.69 |      0 | -        | -        | -                    |                 |
+| no                | 377 | 73%           | 40%          | -100%         |           -21.72 |      0 | -        | -        | -                    |                 |
 | sí                |  18 | 78%           | 60%          | -100%         |            -7.97 |      0 | -        | -        | -                    | muestra pequeña |
 
 ### Tokens del escaneo que comparten palabra con él
 
 | calor_palabra_   |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso   |
 |:-----------------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:--------|
-| única            | 156 | 70%           | 43%          | -100%         |           -16.2  |      0 | -        | -        | -                    |         |
+| única            | 160 | 70%           | 43%          | -100%         |           -16.34 |      0 | -        | -        | -                    |         |
 | 2 tokens         |  44 | 64%           | 37%          | -100%         |           -21.4  |      0 | -        | -        | -                    |         |
-| 3-4              |  53 | 74%           | 33%          | -100%         |           -26.2  |      0 | -        | -        | -                    |         |
-| 5+               | 100 | 78%           | 38%          | -100%         |           -27.08 |      0 | -        | -        | -                    |         |
+| 3-4              |  55 | 75%           | 36%          | -100%         |           -25.75 |      0 | -        | -        | -                    |         |
+| 5+               | 101 | 78%           | 38%          | -100%         |           -27.32 |      0 | -        | -        | -                    |         |
 
 ## Carteras inteligentes
 
@@ -210,11 +210,11 @@ Cartera con buen historial: 3 tokens o más comprados antes de detectarlos y al 
 
 |                                     | 0      |
 |:------------------------------------|:-------|
-| ('0', 'n')                          | 282    |
+| ('0', 'n')                          | 290    |
 | ('0', 'muertos_24h')                | 72%    |
 | ('0', 'tocaron_2x')                 | 46%    |
 | ('0', 'mediana_24h')                | -100%  |
-| ('0', 'regla_$_por_50')             | -18.14 |
+| ('0', 'regla_$_por_50')             | -18.06 |
 | ('0', 'n_7d')                       | 0      |
 | ('0', '10x_7d')                     | -      |
 | ('0', '50x_7d')                     | -      |
@@ -222,11 +222,11 @@ Cartera con buen historial: 3 tokens o más comprados antes de detectarlos y al 
 | ('0', 'aviso')                      |        |
 | ('1', 'n')                          | 0      |
 | ('2+', 'n')                         | 0      |
-| ('sin datos', 'n')                  | 102    |
-| ('sin datos', 'muertos_24h')        | 75%    |
-| ('sin datos', 'tocaron_2x')         | 26%    |
+| ('sin datos', 'n')                  | 105    |
+| ('sin datos', 'muertos_24h')        | 76%    |
+| ('sin datos', 'tocaron_2x')         | 27%    |
 | ('sin datos', 'mediana_24h')        | -100%  |
-| ('sin datos', 'regla_$_por_50')     | -29.23 |
+| ('sin datos', 'regla_$_por_50')     | -29.62 |
 | ('sin datos', 'n_7d')               | 0      |
 | ('sin datos', '10x_7d')             | -      |
 | ('sin datos', '50x_7d')             | -      |
@@ -246,12 +246,12 @@ Cartera con buen historial: 3 tokens o más comprados antes de detectarlos y al 
 | 9KBFYgtJ7Pomou2G7qwqVk5ATqf6fFT5ADhq8HfrKLDE |        4 | 100%         | 75%       | 0%                |
 | CQobSAZab6bok6VU6iwKAhwgXZUEF8oLy8gv6DSW9SU  |        4 | 100%         | 75%       | 0%                |
 | CqrwxeCMchk4DWkT4JMw6BYq42f6QNVeGUSpn8fW3rRR |        4 | 100%         | 75%       | 0%                |
-| DE7Ny6o8TWrur9nPTkvDsGyS7Nz8At21YD9XYAxzJE26 |        4 | 100%         | 100%      | 0%                |
 | EZ9PDDvSi6JhwBumh3Ufx2A3qAvrhPRx5cVzNANWKWe2 |        4 | 100%         | 75%       | 0%                |
 | GFrTtWdMTjWfynEVNmU2vkqSAQBG2RRs8EpZMJbn4wMf |        4 | 100%         | 75%       | 0%                |
 | HJF1KEDP6qrRmETVrXLXzojpQ9hBi9MfL9hoVrfiH8hr |        4 | 100%         | 75%       | 0%                |
 | Hh4afzozYWN9ud4CGN4fr4iZ6t2xqEfwRY1VXtaoY7A6 |        4 | 100%         | 75%       | 0%                |
 | 28zQhQW2RPvSNvEqEQWrxJHH8FGawuKVzwxzk6dxKeSD |        3 | 100%         | 100%      | 0%                |
+| 2VJ72AwxbPaPtnASaKuR2XnwTf9C4SfCs5EsrA1z4Mt2 |        3 | 100%         | 100%      | 0%                |
 
 ## Holders
 
@@ -263,25 +263,25 @@ Cartera con buen historial: 3 tokens o más comprados antes de detectarlos y al 
 | 15-25%          |  19 | 89%           | 32%          | -100%         |           -19.37 |      0 | -        | -        | -                    | muestra pequeña |
 | 25-35%          |  17 | 47%           | 47%          | -87%          |            -6.16 |      0 | -        | -        | -                    | muestra pequeña |
 | 35-50%          |  25 | 56%           | 58%          | -100%         |           -12.62 |      0 | -        | -        | -                    | muestra pequeña |
-| >50%            | 159 | 72%           | 46%          | -100%         |           -17.03 |      0 | -        | -        | -                    |                 |
+| >50%            | 165 | 72%           | 46%          | -100%         |           -16.54 |      0 | -        | -        | -                    |                 |
 
 ### Número de holders
 
 | num_holders   |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso           |
 |:--------------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:----------------|
-| <100          |  33 | 58%           | 46%          | -100%         |            -6.4  |      0 | -        | -        | -                    |                 |
-| 100-300       |  70 | 59%           | 45%          | -100%         |           -16.23 |      0 | -        | -        | -                    |                 |
+| <100          |  36 | 56%           | 48%          | -100%         |            -4.89 |      0 | -        | -        | -                    |                 |
+| 100-300       |  71 | 59%           | 45%          | -100%         |           -16.72 |      0 | -        | -        | -                    |                 |
 | 300-1K        |  62 | 79%           | 53%          | -100%         |           -21.44 |      0 | -        | -        | -                    |                 |
-| 1K-3K         |  47 | 85%           | 41%          | -100%         |           -21.53 |      0 | -        | -        | -                    |                 |
+| 1K-3K         |  49 | 86%           | 41%          | -100%         |           -20.74 |      0 | -        | -        | -                    |                 |
 | 3K+           |  11 | 73%           | 36%          | -100%         |             5.83 |      0 | -        | -        | -                    | muestra pequeña |
 
 ### GT Score
 
 | gt_score_   |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso           |
 |:------------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:----------------|
-| <30         | 149 | 74%           | 26%          | -100%         |           -29.91 |      0 | -        | -        | -                    |                 |
-| 30-45       | 160 | 74%           | 52%          | -100%         |           -14.44 |      0 | -        | -        | -                    |                 |
-| 45-60       |  39 | 77%           | 46%          | -100%         |            -9.45 |      0 | -        | -        | -                    |                 |
+| <30         | 156 | 75%           | 27%          | -100%         |           -30.56 |      0 | -        | -        | -                    |                 |
+| 30-45       | 162 | 73%           | 53%          | -100%         |           -13.88 |      0 | -        | -        | -                    |                 |
+| 45-60       |  41 | 78%           | 46%          | -100%         |            -9.1  |      0 | -        | -        | -                    |                 |
 | 60+         |   1 | 0%            | 0%           | -79%          |           -32.17 |      0 | -        | -        | -                    | muestra pequeña |
 
 ## Señales por separado
@@ -290,66 +290,66 @@ Cartera con buen historial: 3 tokens o más comprados antes de detectarlos y al 
 
 | edad      |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso           |
 |:----------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:----------------|
-| <15 min   | 331 | 74%           | 41%          | -100%         |           -22.65 |      0 | -        | -        | -                    |                 |
+| <15 min   | 339 | 74%           | 40%          | -100%         |           -23.04 |      0 | -        | -        | -                    |                 |
 | 15-30 min |  11 | 64%           | 56%          | -100%         |            -8.5  |      0 | -        | -        | -                    | muestra pequeña |
-| 30-60 min |  11 | 82%           | 30%          | -100%         |           -35.99 |      0 | -        | -        | -                    | muestra pequeña |
+| 30-60 min |  13 | 85%           | 33%          | -100%         |           -30.8  |      0 | -        | -        | -                    | muestra pequeña |
 | 1-3 h     |  11 | 82%           | 27%          | -100%         |           -18.49 |      0 | -        | -        | -                    | muestra pequeña |
-| 3-24 h    |  15 | 47%           | 47%          | -87%          |            13.02 |      0 | -        | -        | -                    | muestra pequeña |
+| 3-24 h    |  16 | 44%           | 50%          | -83%          |            16.18 |      0 | -        | -        | -                    | muestra pequeña |
 
 ### Capitalización al detectarlo
 
 | cap       |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso           |
 |:----------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:----------------|
-| <50K      | 203 | 61%           | 36%          | -100%         |           -22.95 |      0 | -        | -        | -                    |                 |
-| 50-150K   |  93 | 88%           | 44%          | -100%         |           -27.85 |      0 | -        | -        | -                    |                 |
-| 150-500K  |  59 | 81%           | 47%          | -100%         |            -7.25 |      0 | -        | -        | -                    |                 |
-| 500K-1.5M |  19 | 100%          | 53%          | -100%         |           -15.95 |      0 | -        | -        | -                    | muestra pequeña |
+| <50K      | 207 | 61%           | 36%          | -100%         |           -23.27 |      0 | -        | -        | -                    |                 |
+| 50-150K   |  98 | 88%           | 44%          | -100%         |           -27.32 |      0 | -        | -        | -                    |                 |
+| 150-500K  |  60 | 82%           | 47%          | -100%         |            -6.37 |      0 | -        | -        | -                    |                 |
+| 500K-1.5M |  20 | 100%          | 55%          | -100%         |           -17.66 |      0 | -        | -        | -                    | muestra pequeña |
 | >1.5M     |  10 | 80%           | 30%          | -100%         |           -15.85 |      0 | -        | -        | -                    | muestra pequeña |
 
 ### Compradores / vendedores (1 h)
 
 | compradores_vs_vendedores   |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso   |
 |:----------------------------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:--------|
-| <1.2                        |  67 | 64%           | 42%          | -100%         |           -23.15 |      0 | -        | -        | -                    |         |
-| 1.2-3                       | 126 | 55%           | 41%          | -100%         |           -19.17 |      0 | -        | -        | -                    |         |
-| 3-8                         | 111 | 86%           | 36%          | -100%         |           -24.59 |      0 | -        | -        | -                    |         |
-| >8                          |  80 | 92%           | 44%          | -100%         |           -17.53 |      0 | -        | -        | -                    |         |
+| <1.2                        |  69 | 65%           | 42%          | -100%         |           -23.96 |      0 | -        | -        | -                    |         |
+| 1.2-3                       | 129 | 54%           | 41%          | -100%         |           -18.83 |      0 | -        | -        | -                    |         |
+| 3-8                         | 115 | 86%           | 37%          | -100%         |           -24.87 |      0 | -        | -        | -                    |         |
+| >8                          |  82 | 93%           | 44%          | -100%         |           -17.15 |      0 | -        | -        | -                    |         |
 
 ### Volumen de 1 h / capitalización
 
 | volumen_vs_cap   |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso   |
 |:-----------------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:--------|
-| <0.5             | 152 | 86%           | 32%          | -100%         |           -30.76 |      0 | -        | -        | -                    |         |
-| 0.5-1            |  44 | 70%           | 38%          | -100%         |            -8.03 |      0 | -        | -        | -                    |         |
-| 1-3              |  94 | 56%           | 55%          | -100%         |           -11.01 |      0 | -        | -        | -                    |         |
-| >3               |  94 | 71%           | 40%          | -100%         |           -21.89 |      0 | -        | -        | -                    |         |
+| <0.5             | 158 | 86%           | 32%          | -100%         |           -31.37 |      0 | -        | -        | -                    |         |
+| 0.5-1            |  45 | 69%           | 39%          | -100%         |            -6.37 |      0 | -        | -        | -                    |         |
+| 1-3              |  95 | 56%           | 54%          | -100%         |           -11.2  |      0 | -        | -        | -                    |         |
+| >3               |  97 | 72%           | 41%          | -100%         |           -21.26 |      0 | -        | -        | -                    |         |
 
 ### Peligros de RugCheck
 
 | peligros_rugcheck   |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso           |
 |:--------------------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:----------------|
-| 0                   | 151 | 54%           | 44%          | -100%         |           -13.51 |      0 | -        | -        | -                    |                 |
-| 1                   | 179 | 90%           | 37%          | -100%         |           -24.74 |      0 | -        | -        | -                    |                 |
-| 2+                  |  46 | 74%           | 33%          | -100%         |           -32.86 |      0 | -        | -        | -                    |                 |
+| 0                   | 155 | 54%           | 44%          | -100%         |           -13.58 |      0 | -        | -        | -                    |                 |
+| 1                   | 185 | 90%           | 38%          | -100%         |           -24.66 |      0 | -        | -        | -                    |                 |
+| 2+                  |  47 | 74%           | 32%          | -100%         |           -33.31 |      0 | -        | -        | -                    |                 |
 | sin datos           |   8 | 50%           | 57%          | -85%          |           -28.31 |      0 | -        | -        | -                    | muestra pequeña |
 
 ### Liquidez bloqueada (RugCheck): con 0% el creador puede retirarla
 
 | liquidez_bloqueada   |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso           |
 |:---------------------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:----------------|
-| 0%                   | 124 | 78%           | 32%          | -100%         |           -29.52 |      0 | -        | -        | -                    |                 |
-| parcial              | 105 | 81%           | 47%          | -100%         |           -15.67 |      0 | -        | -        | -                    |                 |
-| 100%                 | 147 | 65%           | 41%          | -100%         |           -17.91 |      0 | -        | -        | -                    |                 |
+| 0%                   | 129 | 78%           | 32%          | -100%         |           -30.2  |      0 | -        | -        | -                    |                 |
+| parcial              | 109 | 82%           | 47%          | -100%         |           -15.62 |      0 | -        | -        | -                    |                 |
+| 100%                 | 149 | 64%           | 41%          | -100%         |           -17.41 |      0 | -        | -        | -                    |                 |
 | sin datos            |   8 | 50%           | 57%          | -85%          |           -28.31 |      0 | -        | -        | -                    | muestra pequeña |
 
 ### Puntuación (quintiles)
 
 | puntuacion_q   |   n | muertos_24h   | tocaron_2x   | mediana_24h   |   regla_$_por_50 |   n_7d | 10x_7d   | 50x_7d   | tendencia_$_por_50   | aviso   |
 |:---------------|----:|:--------------|:-------------|:--------------|-----------------:|-------:|:---------|:---------|:---------------------|:--------|
-| Q1 (baja)      | 111 | 77%           | 29%          | -100%         |           -30.95 |      0 | -        | -        | -                    |         |
-| Q2             |  95 | 76%           | 40%          | -100%         |           -24.78 |      0 | -        | -        | -                    |         |
-| Q3             |  65 | 69%           | 41%          | -100%         |           -14.1  |      0 | -        | -        | -                    |         |
-| Q4             |  40 | 60%           | 38%          | -100%         |           -18.88 |      0 | -        | -        | -                    |         |
+| Q1 (baja)      | 116 | 78%           | 28%          | -100%         |           -31.89 |      0 | -        | -        | -                    |         |
+| Q2             |  97 | 76%           | 41%          | -100%         |           -24.57 |      0 | -        | -        | -                    |         |
+| Q3             |  67 | 69%           | 39%          | -100%         |           -14.85 |      0 | -        | -        | -                    |         |
+| Q4             |  42 | 60%           | 41%          | -100%         |           -15.38 |      0 | -        | -        | -                    |         |
 | Q5 (alta)      |  73 | 75%           | 53%          | -100%         |           -10.5  |      0 | -        | -        | -                    |         |
 
 ### DEX
@@ -359,21 +359,21 @@ Cartera con buen historial: 3 tokens o más comprados antes de detectarlos y al 
 | ('bags-fm', 'n')                          | 0               |
 | ('letsbonk-fun', 'n')                     | 0               |
 | ('meteora', 'n')                          | 0               |
-| ('meteora-damm-v2', 'n')                  | 61              |
+| ('meteora-damm-v2', 'n')                  | 62              |
 | ('meteora-damm-v2', 'muertos_24h')        | 87%             |
-| ('meteora-damm-v2', 'tocaron_2x')         | 27%             |
+| ('meteora-damm-v2', 'tocaron_2x')         | 29%             |
 | ('meteora-damm-v2', 'mediana_24h')        | -100%           |
-| ('meteora-damm-v2', 'regla_$_por_50')     | -37.15          |
+| ('meteora-damm-v2', 'regla_$_por_50')     | -37.39          |
 | ('meteora-damm-v2', 'n_7d')               | 0               |
 | ('meteora-damm-v2', '10x_7d')             | -               |
 | ('meteora-damm-v2', '50x_7d')             | -               |
 | ('meteora-damm-v2', 'tendencia_$_por_50') | -               |
 | ('meteora-damm-v2', 'aviso')              |                 |
-| ('meteora-dbc', 'n')                      | 20              |
-| ('meteora-dbc', 'muertos_24h')            | 55%             |
-| ('meteora-dbc', 'tocaron_2x')             | 21%             |
+| ('meteora-dbc', 'n')                      | 21              |
+| ('meteora-dbc', 'muertos_24h')            | 57%             |
+| ('meteora-dbc', 'tocaron_2x')             | 20%             |
 | ('meteora-dbc', 'mediana_24h')            | -100%           |
-| ('meteora-dbc', 'regla_$_por_50')         | -24.79          |
+| ('meteora-dbc', 'regla_$_por_50')         | -26.36          |
 | ('meteora-dbc', 'n_7d')                   | 0               |
 | ('meteora-dbc', '10x_7d')                 | -               |
 | ('meteora-dbc', '50x_7d')                 | -               |
@@ -390,21 +390,21 @@ Cartera con buen historial: 3 tokens o más comprados antes de detectarlos y al 
 | ('orca', '50x_7d')                        | -               |
 | ('orca', 'tendencia_$_por_50')            | -               |
 | ('orca', 'aviso')                         | muestra pequeña |
-| ('pump-fun', 'n')                         | 52              |
-| ('pump-fun', 'muertos_24h')               | 27%             |
+| ('pump-fun', 'n')                         | 53              |
+| ('pump-fun', 'muertos_24h')               | 26%             |
 | ('pump-fun', 'tocaron_2x')                | 42%             |
 | ('pump-fun', 'mediana_24h')               | -83%            |
-| ('pump-fun', 'regla_$_por_50')            | -15.45          |
+| ('pump-fun', 'regla_$_por_50')            | -15.70          |
 | ('pump-fun', 'n_7d')                      | 0               |
 | ('pump-fun', '10x_7d')                    | -               |
 | ('pump-fun', '50x_7d')                    | -               |
 | ('pump-fun', 'tendencia_$_por_50')        | -               |
 | ('pump-fun', 'aviso')                     |                 |
-| ('pumpswap', 'n')                         | 245             |
+| ('pumpswap', 'n')                         | 253             |
 | ('pumpswap', 'muertos_24h')               | 83%             |
 | ('pumpswap', 'tocaron_2x')                | 43%             |
 | ('pumpswap', 'mediana_24h')               | -100%           |
-| ('pumpswap', 'regla_$_por_50')            | -19.57          |
+| ('pumpswap', 'regla_$_por_50')            | -19.42          |
 | ('pumpswap', 'n_7d')                      | 0               |
 | ('pumpswap', '10x_7d')                    | -               |
 | ('pumpswap', '50x_7d')                    | -               |
@@ -444,10 +444,10 @@ Cartera con buen historial: 3 tokens o más comprados antes de detectarlos y al 
 
 ## Supervivencia por horizonte
 
-- 30m: 56% vivos (n=1960)
-- 1h: 49% vivos (n=1963)
-- 6h: 35% vivos (n=1683)
-- 24h: 27% vivos (n=384)
+- 30m: 56% vivos (n=1963)
+- 1h: 49% vivos (n=1984)
+- 6h: 35% vivos (n=1687)
+- 24h: 27% vivos (n=395)
 
 ## Supervivientes (tokens de 3 a 120 días que despiertan)
 
@@ -457,6 +457,9 @@ Aún no hay supervivientes (se buscan una vez por hora).
 
 | ts    | simbolo     | narrativa   | prioridad   |   edad_min | mc   |   compradores_m5 |   vendedores_m5 | mint                                         |   x_1h |
 |:------|:------------|:------------|:------------|-----------:|:-----|-----------------:|----------------:|:---------------------------------------------|-------:|
+| 23:55 | Unbox       |             | vetada      |        5.5 | 11K  |               78 |              44 | N1kCpRuU94iRGRNqe5ZiUqHa9w9kaMWgZ56kpXUpump  | nan    |
+| 23:55 | CANDACE     |             | vetada      |       12.5 | 93K  |               72 |              49 | GrXMbn56JtFngA2FgoXenJG5HeD1GhvFnjyFPWbfpump | nan    |
+| 23:52 | BAGSPAY     |             | vetada      |        2.6 | 53K  |              511 |              64 | AMaR7sGJoLXWTWxTh8wcT6FT1pgC3YvPbnU7BXKBdthZ | nan    |
 | 23:47 | ANTH        |             | vetada      |        2.9 | 16K  |               90 |              64 | 8HQDosKAfeJE5wjV5sWm9fv1KgaVTFNZdYsP5mJqASTb | nan    |
 | 23:43 | RuneChain   |             | baja        |       11.1 | 12K  |               64 |              40 | 7SpVU1kJEDtrQexRWgZy64ZXnHjhHyimRjB2zmHZpump | nan    |
 | 23:41 | trickle     |             | vetada      |        3.6 | 53K  |              263 |             153 | 7SDWbs81JV89HeC4jNbZ15yczLCTZa2RvHg5z4Lrpump | nan    |
@@ -473,17 +476,17 @@ Aún no hay supervivientes (se buscan una vez por hora).
 | 23:06 | Krater      |             | baja        |        6.4 | 9K   |               52 |              31 | m5q3JpMtohBRhW2mGnzCj287NkMNCJHZjMepSkHXtos  | nan    |
 | 22:51 | Kitty       |             | vetada      |        4.7 | 27K  |              234 |              40 | C6BtpFKSxCRsDxPeY9aEVZaxXephu5gqZj9mfePAynAa | nan    |
 | 22:51 | OUROBOROS   |             | vetada      |        5.6 | 16K  |              138 |              96 | 8WWryGjcJ2Dv4rJGm9MNzvJw5WNp9vZeVgnY6RcW5uKe | nan    |
-| 22:51 | Ouroboros   |             | baja        |        5.2 | 9K   |               81 |              55 | 8BTPgeMzB1RJvjboWGDEgyssEJZ9GiHfWT13tGk5mWL3 | nan    |
 | 22:51 | Swordgirl   |             | vetada      |        5   | 10K  |              132 |              58 | EgbNLcoQX56RDXZiKpbR5QouRU7eE9n64n24AjC3pump | nan    |
+| 22:51 | Ouroboros   |             | baja        |        5.2 | 9K   |               81 |              55 | 8BTPgeMzB1RJvjboWGDEgyssEJZ9GiHfWT13tGk5mWL3 | nan    |
 | 22:35 | MEDCUP      |             | vetada      |        3.8 | 73K  |              205 |              52 | BX1TZRDW9HKqYtLpMiModBdcDeNazYgseVcFyK3obonk |   0    |
-| 22:33 | PUMPTOBER   | cripto      | vetada      |        3   | 46K  |               61 |              25 | D37sbd3C3dqgnQ4TGWtxksMp6gRjmP1C7K3ib9wLpump |   0    |
 | 22:33 | PUPI        |             | vetada      |       15   | 29K  |               46 |              32 | DXrrBJMjK3xAV7YvuWAg42aeJHck3GmJmcN78HfDpump |   4.41 |
-| 22:31 | Carla       |             | vetada      |        3.4 | 14K  |               80 |              54 | 3PjwCqfGMR8CXZbcPEbGTSPQGduizdoVz4N1RQmJd8Uv |   4.13 |
-| 22:31 | LMT         | politica    | alta        |        3.3 | 17K  |               84 |              62 | HcjPrHdESBJioSMj3HZbHbH7nUsUdcPyjQrPwYZGpump |   0    |
+| 22:33 | PUMPTOBER   | cripto      | vetada      |        3   | 46K  |               61 |              25 | D37sbd3C3dqgnQ4TGWtxksMp6gRjmP1C7K3ib9wLpump |   0    |
 | 22:31 | epsteinu    |             | vetada      |        3   | 17K  |              148 |              73 | AZ8jS8apTnvge18otci45VrJJQKbL3v8DWJNEJEwpump |   0.21 |
+| 22:31 | LMT         | politica    | alta        |        3.3 | 17K  |               84 |              62 | HcjPrHdESBJioSMj3HZbHbH7nUsUdcPyjQrPwYZGpump |   0    |
+| 22:31 | Carla       |             | vetada      |        3.4 | 14K  |               80 |              54 | 3PjwCqfGMR8CXZbcPEbGTSPQGduizdoVz4N1RQmJd8Uv |   4.13 |
 | 22:29 | Merrylegs   |             | vetada      |        4   | 45K  |              694 |             363 | 9t4nAuTyS6QLStW1vTxMLf7899b9UF1tmmhRCLbApump |   0.21 |
-| 22:27 | KP          |             | vetada      |        2.8 | 83K  |              387 |             108 | CmWxjebLZa3VohM2QhPcN2VVhwkLqnytksqDiaJwKZ3E |   0    |
 | 22:27 | BOCK        |             | vetada      |        3.7 | 15K  |               57 |              26 | 95iVDfEQkHtS734cuseXLJ8oXtrP1LV1gA7uyRB7bonk |   0.23 |
+| 22:27 | KP          |             | vetada      |        2.8 | 83K  |              387 |             108 | CmWxjebLZa3VohM2QhPcN2VVhwkLqnytksqDiaJwKZ3E |   0    |
 | 22:22 | なごやし        |             | vetada      |        3.4 | 29K  |              291 |              73 | HSPehHbS5idzDTfgxz6ZvidREsMFm8dh1YTUmXkUT7xC |   0    |
 | 22:22 | IRA         |             | vetada      |        4.8 | 19K  |              105 |              53 | F9XfvHQ4MWiX6FVQKHwBM6q7gaxCqEv5WEhjTC2rpump |   0.2  |
 | 22:22 | loria       |             | vetada      |        3.5 | 23K  |               51 |              31 | FK2LDCsv29toyvzBWLsHoo12BY74ErrCpMWwAmbBxMJY |   0.12 |
@@ -496,109 +499,105 @@ Aún no hay supervivientes (se buscan una vez por hora).
 | 21:59 | PATHJAV     |             | vetada      |        4.3 | 83K  |              135 |              36 | 2CJcgwnrKeH9PZXirAkgEBfw7V114zAeLR6GPVyFbonk |   0    |
 | 21:59 | SLOTVINE    |             | baja        |        4   | 34K  |              359 |              97 | BHwrSxQX9G6bBd8773mJVRenuPow5USmP98kq453pump |   0    |
 | 21:57 | MATRIX      |             | vetada      |        2.8 | 90K  |              524 |             328 | H4gAMBFkfzhn51phWA7M9XCi3duFobaBz89rY38Epump |   0    |
-| 21:54 | Loomer      |             | vetada      |        2.5 | 86K  |              970 |             596 | 4JUv66RqP9ed78ajpNpuTbC1rGGgQwBwei4agQtGanTb |   1.79 |
 | 21:54 | FINE        |             | vetada      |        2.7 | 17K  |              368 |             100 | 2aMF4mRqtFTjiqPzpWUWkSiYuevPNdX1jxt3B93RR1gT |   0    |
-| 21:48 | HIGGSFIELD  | ia          | alta        |        3.1 | 13K  |               65 |              42 | EnyHpAEKC3yxczpC9ib2WGUKBCExTFLgB3pQQaGhpump |   0.26 |
+| 21:54 | Loomer      |             | vetada      |        2.5 | 86K  |              970 |             596 | 4JUv66RqP9ed78ajpNpuTbC1rGGgQwBwei4agQtGanTb |   1.79 |
 | 21:48 | Dungkey     |             | vetada      |        3.3 | 76K  |              131 |              36 | 29CWCFZHnrasVuhJWsQmmzAYEAXev9mj73VRq5FMmoon |   0    |
+| 21:48 | HIGGSFIELD  | ia          | alta        |        3.1 | 13K  |               65 |              42 | EnyHpAEKC3yxczpC9ib2WGUKBCExTFLgB3pQQaGhpump |   0.26 |
 | 21:46 | MOON        | cripto      | vetada      |       11.5 | 21K  |              127 |              38 | Ex17UpeY1VjphPbeLrwrdQSjR39g9QdmksfavERUHeXX |   0    |
 | 21:44 | pud         |             | vetada      |        2.2 | 20K  |              655 |             443 | 2nhnxwuAXBAiD5Dcga8AtwKeXPkMA7spEu1CeGUpvHpG |   0.19 |
 | 21:38 | Gtray       |             | vetada      |        3.8 | 81K  |              152 |              46 | FUsWtFFzjG8MAhVNtzv7ohgdBHsgNnpGEu3MGF3bonk  |   0    |
 | 21:36 | HAMSTR      |             | vetada      |        5.8 | 11K  |               65 |              43 | 5GFoqsbyNqAZi79iisdQW9bBFLP5yR9BqJA3sx8SEYbt |   0.56 |
 | 21:27 | ENCORE      |             | vetada      |        2.2 | 142K |               90 |              24 | AfZxVCPC9p6nT5uCLBUHEyAxnK7LHEr5UPAfEHb7moon |   0    |
-| 21:25 | Novita      |             | alta        |        2.5 | 15K  |              210 |             153 | 2K6byUNcQcXAUHpnNjq2UvjAmUZc8XrA3GQb5MDvtqSu |   0.22 |
+| 21:25 | dwog        |             | baja        |        2.3 | 9K   |              101 |              71 | 332w4TZ6gYWCpGaVoQ34BKG6QoTzS7s3L6AkjgDQZ6Hd |   0.37 |
 | 21:25 | SPORT       |             | baja        |        2.9 | 9K   |              203 |             134 | HjrAxGSsFyKwDL7UyYdEJa7NjU6SsvZm77KRe31ipump |   0.4  |
 | 21:25 | PILLNAMES   |             | vetada      |        2.6 | 11K  |              140 |             102 | 5WTkGBaJCCJk3RLATBJKpD3rzMaQWsFPqXMxAxHFpump |   0.34 |
-| 21:25 | dwog        |             | baja        |        2.3 | 9K   |              101 |              71 | 332w4TZ6gYWCpGaVoQ34BKG6QoTzS7s3L6AkjgDQZ6Hd |   0.37 |
+| 21:25 | Novita      |             | alta        |        2.5 | 15K  |              210 |             153 | 2K6byUNcQcXAUHpnNjq2UvjAmUZc8XrA3GQb5MDvtqSu |   0.22 |
 | 21:23 | TAMA        |             | vetada      |        5   | 15K  |              198 |             128 | sUccrFL84carhdbYXUkTeKkU2eiXT5kY5KDmR6Vpump  |   0.22 |
 | 21:21 | UP          |             | vetada      |        2.5 | 14K  |               77 |              54 | BGNLnqbCZrRWcFYewgUe3eoZuTWXdr6SVWF2VVLj1nqi |   0.25 |
-| 21:20 | Parcel      |             | vetada      |        2.4 | 38K  |              439 |             109 | 47v8RTn4E3vS38BvaumuWFLjkMXEqckUtFfh8GRNpump |   0    |
 | 21:20 | BUTTERS     |             | vetada      |        3.4 | 18K  |              232 |              78 | FxqKHgX8qhYT1qiojpYLDJPuFmpd6uZsVPAfB8nBZckW |   0    |
+| 21:20 | Parcel      |             | vetada      |        2.4 | 38K  |              439 |             109 | 47v8RTn4E3vS38BvaumuWFLjkMXEqckUtFfh8GRNpump |   0    |
 | 21:20 | BROOD       |             | vetada      |        5.9 | 9K   |              382 |             213 | 4fk4pdVqFFobEkZXHLET5BviRYTC71zCgpepKDJGpump |   0.35 |
 | 21:17 | botchain    |             | vetada      |        2.6 | 90K  |              306 |             222 | DjFCHHoJfNGkLZRs6D49CCsneui1vwym5NX8vAiepump |   0    |
 | 21:16 | gotchi      |             | vetada      |        2   | 24K  |              131 |              87 | 2DW3jtBhRnrTMeopJyTsLBWfkwFm4NkH8QdR8YS7pump |   0.41 |
-| 21:13 | 天才交易员       |             | vetada      |        9.3 | 49K  |              339 |              63 | 97XZamAKV9s3RtybN7cuk6oD4kW7i5ZS4z99V1n1V7vh |   0.14 |
 | 21:13 | PUTE        | elon        | alta        |        4.1 | 14K  |              185 |             111 | A3zuVVEJFqQS44ZgF1K9y86vFn2LgJBC6BPpqurFpump |   0.36 |
+| 21:13 | 天才交易员       |             | vetada      |        9.3 | 49K  |              339 |              63 | 97XZamAKV9s3RtybN7cuk6oD4kW7i5ZS4z99V1n1V7vh |   0.14 |
 | 21:09 | PIPS        | cripto      | baja        |        3.1 | 13K  |              188 |             123 | FpPeaDbprm7JHAxghi98czirmRw3aWRbigefbsTKpump |   0.25 |
 | 21:07 | SUPERTAKE   |             | vetada      |        3.4 | 81K  |              662 |             368 | WNnpLo7Mjx3mGw5Vu41EyXUd4CCyJyVHoXVkGdMxpLU  |   0.19 |
 | 21:01 | REPOING     |             | vetada      |        2.2 | 15K  |              265 |              76 | Cg82oWFeMvjEqGseFriaGfYGfMHmsBykgtCwdp7DkJUX |   0    |
 | 20:55 | Daifuku     | animales    | baja        |        2.5 | 9K   |               45 |              30 | GC4fSFRYrsEA47HFYnUraDkx9fXLBuWc6tgoDQMShs1d |   0.4  |
 | 20:52 | PENNY       | cripto      | baja        |        2   | 13K  |              331 |             226 | FXoxRGx1jEHVY2VWMrwkSmrUrT8XwpH9ePikQsjapump |   0.29 |
 | 20:47 | AI6         |             | vetada      |        2.4 | 314K |             1476 |             771 | DKxXdaMC1so182urvrrnhs6V6fGTrttPS8br6JuEpump |   0.66 |
-| 20:44 | AGSHLD      |             | vetada      |        2.9 | 77K  |              111 |              26 | GxQymQf6heKhkJMEWo7vgGjGE4w9P4SufgNAvivYbonk |   0    |
 | 20:44 | BRIDGE      |             | vetada      |        2   | 16K  |              297 |             108 | AgtkJoUnsjTJFx6EAgVW9Bfbm9uJoWuJRagSLMifqqPw |   0    |
+| 20:44 | AGSHLD      |             | vetada      |        2.9 | 77K  |              111 |              26 | GxQymQf6heKhkJMEWo7vgGjGE4w9P4SufgNAvivYbonk |   0    |
 | 20:42 | meme/acc    | cripto      | alta        |        4   | 11K  |               56 |              33 | GL68bnTmd6upLw1iHDNdvkBRcEb7VKDCz5woH6Jupump |   0.31 |
 | 20:40 | LOBBY       |             | baja        |        4   | 11K  |               92 |              51 | 5Z5WvVb6ZV5mwVJu3yoPoFeQFJ9jfERR2iXjg4nXpump |   0.42 |
 | 20:37 | KYLE        |             | vetada      |        2.9 | 18K  |              444 |             308 | ALXXnx7apbbnoYe8D8Sgfhac4QEcfQEQuctWeNi82ha8 |   0.29 |
 | 20:31 | FROSTY      |             | vetada      |        2.6 | 16K  |              362 |             262 | 6xjdmD4NyXAHEVfXt2s8oPFree4Eci2EThL1oDQypump |   0.17 |
 | 20:28 | Spend       |             | vetada      |        2.7 | 29K  |              372 |             193 | AMVBZPNtnDSgHoNZYRKjPQHPXFQogrRjTnUfxodopump |   0.15 |
-| 20:28 | HOOK        |             | vetada      |        2.4 | 17K  |               59 |              29 | 66UokDvAUWuT8DiX1JxAyisx3uo4nErZYQocXTowQm2G |   0.29 |
 | 20:28 | PICK        |             | vetada      |        2.4 | 28K  |              244 |             149 | EFzc9krvFrc3SbPKrUabiKxtrWNsDbXGUMZt5VtowoFX |   0.12 |
+| 20:28 | HOOK        |             | vetada      |        2.4 | 17K  |               59 |              29 | 66UokDvAUWuT8DiX1JxAyisx3uo4nErZYQocXTowQm2G |   0.29 |
 | 20:20 | INUINK      |             | vetada      |        3.3 | 245K |               82 |              20 | 9k7NgXqiJ7tvLtiB6HXdJHnKZZynFz46AB6Eg4Uwpump |   1.29 |
 | 20:04 | BridgePad   |             | vetada      |        3.3 | 9K   |              199 |             147 | CQA5Hm11M4p24FkAndoSVnXKGBEnHkRqbfhCDXzBpump |   0.42 |
-| 20:02 | PAYDAY      |             | vetada      |        2.8 | 35K  |              490 |             137 | BQKQeoxCEwyn4kPyEpJ88NqBaEELG6fLKufRCsvMpump |   0    |
 | 20:02 | Goldbid     |             | vetada      |        3.6 | 73K  |               60 |              17 | 9UjQYT8BTZbgYQVYpLLiSsZ1b4f9UeWfQFBMiV67pump |   0    |
+| 20:02 | PAYDAY      |             | vetada      |        2.8 | 35K  |              490 |             137 | BQKQeoxCEwyn4kPyEpJ88NqBaEELG6fLKufRCsvMpump |   0    |
 | 20:01 | D/TRUMP     | politica    | vetada      |        2.6 | 30K  |              126 |              86 | BTgenoGircCT23iFM7EzKf9jaf2LFnfh9K6sfpz6pump |   0    |
 | 19:56 | Nibs        |             | vetada      |       14   | 9K   |               40 |              21 | DVx9ULhL3e7xQsGagXgkxdZoWTVorYgDbe33ydqyFhyN |   0.8  |
 | 19:54 | PIPE/ACC    |             | vetada      |        2.4 | 17K  |              309 |             173 | 3rNV2pmns8nCpx5NjSTwoBxARwQs21BgsdwjxXdfpump |   0    |
 | 19:52 | ipfs        |             | vetada      |        2.4 | 31K  |              622 |             363 | DSudLYZaGrxPFhQydNEDELTt4aDC9bhetA4yG8utpump |   0.12 |
 | 19:44 | Bronbell    |             | vetada      |        2.7 | 73K  |               99 |              20 | Ad3kZ8FJKiZw7qYL6amZsEq4tscCq5cUvYte4XQAmoon |   0    |
 | 19:43 | MOTEPAID    | ia          | alta        |        2.1 | 9K   |              117 |              73 | GZR6rd4rVd2wtKh7cFUTW8KB8Z4wMHro6vg1BCcLpump |   0.28 |
-| 19:40 | Entry       |             | vetada      |        3   | 8K   |               62 |              37 | EP4FsbkhEBpAH1mcseYtZXLv6KSNehtPRRixj3fapump |   0.4  |
 | 19:40 | 世界末日        |             | vetada      |        4   | 22K  |              209 |              27 | BorCApfhv7enbjDuRxd9CxA1Ucy7b9CZrbcQWJLu3zU9 |   1.88 |
-| 19:29 | LUMI        |             | vetada      |        3.8 | 25K  |              140 |              70 | 7dMdLxaSg4JLXdhtG28wx7wGPUKMQbK4NUdAoXePpump |   0.24 |
+| 19:40 | Entry       |             | vetada      |        3   | 8K   |               62 |              37 | EP4FsbkhEBpAH1mcseYtZXLv6KSNehtPRRixj3fapump |   0.4  |
 | 19:29 | GAMEZ       |             | baja        |        8.9 | 8K   |               76 |              49 | 5QJfwezvP4jCpBJk2MnPk5EvGx57znhZNzewbpUBuZwJ |   1.72 |
+| 19:29 | LUMI        |             | vetada      |        3.8 | 25K  |              140 |              70 | 7dMdLxaSg4JLXdhtG28wx7wGPUKMQbK4NUdAoXePpump |   0.24 |
 | 19:28 | WRIT        |             | vetada      |        2.1 | 20K  |              170 |             115 | writr2gAJwSvyPLYtxJJT7jCTqFvmCfxk6Xg6qpq8pq  |   0.2  |
 | 19:22 | FROINKCAT   |             | vetada      |       12.5 | 249K |              309 |             105 | 8VxaJHWP9NGYVDeYexGXXbmpmoiVXNvspjqtkbZUpump |   0    |
 | 19:15 | fomome      |             | vetada      |        2.2 | 15K  |              192 |              78 | GYMnLJmPTxriy27NPa1GyF6wZkpQpWDGDpxF4dBRkBx  |   0    |
 | 19:12 | Tehc        |             | vetada      |        2.3 | 14K  |               95 |              36 | DWvE2aXXTUvCWtrcN4w9eVySP7KNhJbUUz3HsEHXYyW1 |   0    |
 | 19:09 | JEETTARA    | cripto      | baja        |        2   | 9K   |              143 |              84 | qyLr3k8yBZz5Lj3aV3uzmkqpGyyBqLyyfJ3ugbvpump  |   1.1  |
-| 19:08 | CCAT        |             | vetada      |        2.9 | 86K  |              735 |             451 | H7YEgWhVSWW1HAJomtsBTmSpaBRCoD9V17BvwEyipump |   0    |
 | 19:08 | Fo          |             | vetada      |        3.8 | 15K  |              222 |             170 | Bken2392oK2zoS9S4711KR7Mm8m5ynaftZc2SUPxFHjY |   0.46 |
+| 19:08 | CCAT        |             | vetada      |        2.9 | 86K  |              735 |             451 | H7YEgWhVSWW1HAJomtsBTmSpaBRCoD9V17BvwEyipump |   0    |
 | 19:05 | SMUDGE      |             | vetada      |        6.1 | 9K   |              115 |              71 | Af22pLvYvP5Tt8RyqdevgYefVujAa9eLNsa4rpDupump |   0.34 |
-| 19:05 | SARP        |             | vetada      |        3.7 | 245K |               63 |              43 | 53gTSW4WFgrRHgQCtf5CyXgrEBNyNWHobYBAhqQJpump |   1    |
 | 19:05 | LEFTCURVE   |             | vetada      |        3.6 | 15K  |              382 |              79 | Hsu6bApBpA71odJDPx3pcpYuyDUN4Pi6cKx7pYGDiSJq |   0    |
+| 19:05 | SARP        |             | vetada      |        3.7 | 245K |               63 |              43 | 53gTSW4WFgrRHgQCtf5CyXgrEBNyNWHobYBAhqQJpump |   1    |
 | 19:03 | AMC         |             | vetada      |        5.7 | 145K |              492 |              65 | 8LPQXVXwXrpCeSbBiVR7fjKEVb1iSptKvFLRKVKdpump |   1.69 |
 | 18:57 | p/xmr       |             | vetada      |        3.4 | 20K  |              357 |             232 | u9uhxHwAn5K5jcuB25QEXBX7XBPArFSTkTQg7F1nuCA  |   0.29 |
 | 18:54 | CRACKED     | cripto      | baja        |        2.4 | 9K   |              152 |              68 | KMxqn3LHW8aVBK4rmphAqYcEnBVcYzLqzKJ8vyCpump  |   0.37 |
 | 18:51 | Parrot      |             | vetada      |        7.7 | 16K  |               80 |              47 | 7DsTxrXyApdqySsJC59drq9gZfuLWF93Wv5Th5uhpump |   0.21 |
 | 18:46 | VOM         |             | vetada      |        2.9 | 11K  |               95 |              63 | 683rxoY4Xtg2Xb7PQidPbv66NuyDyM1bMTQzJTDFpump |   0.36 |
-| 18:44 | LIFT        |             | vetada      |        3.5 | 148K |              246 |             115 | 2URzCYAiUypdmbiKBUv2xGLbaRxxNUFryhawJKTamoon |   0    |
 | 18:44 | Joe         |             | vetada      |        2.2 | 145K |              178 |              26 | 3i5xUxZm4gYN8gZMSZd3xhMxVS3vdGn33ETjK3g9ADhY |   0    |
+| 18:44 | LIFT        |             | vetada      |        3.5 | 148K |              246 |             115 | 2URzCYAiUypdmbiKBUv2xGLbaRxxNUFryhawJKTamoon |   0    |
 | 18:38 | AgentPaid   | ia          | alta        |        6.1 | 13K  |               64 |              39 | EsceEf93ytUGvepAcY71fahRcFE4bZSkz2M2X7dPpump |   0.33 |
 | 18:37 | FLY         |             | vetada      |        2.5 | 14K  |              385 |             155 | CJqg1CXuBAETr7mAJuuM7vf7bJsTWmmy4SuzLGsnpump |   0.19 |
 | 18:34 | Cluely      |             | baja        |        2.2 | 17K  |               97 |              46 | 8vHheszLT8RHMqTLwuE4BnY7GwT3YPBSW4rFqopmbbiC |   0.33 |
 | 18:33 | Streampay   |             | baja        |        6.5 | 12K  |               80 |              58 | Hqi51M7x3bQw8XnNbTQZ6btZAdqvj9w5CFkCjFLqpump |   0.3  |
-| 18:29 | Miurafrg    |             | vetada      |        2.2 | 68K  |               75 |              19 | D7gwqhNVvz698hNoWwQQgkJeZ9pS8fwdUzu8om7imoon |   0    |
-| 18:29 | PFC         |             | vetada      |        2   | 51K  |              947 |             497 | 5bpnsoZ3HgwGs42Tyd6nEK9s9MCQhhDjVmUveqgbmyJK |   0.11 |
 | 18:29 | pill        |             | vetada      |        3.4 | 15K  |              289 |             220 | 77VDJkKqNDZQZTuoZ5cqtKyLP1PyjMonwfcLvdEwhHJq |   0.22 |
+| 18:29 | PFC         |             | vetada      |        2   | 51K  |              947 |             497 | 5bpnsoZ3HgwGs42Tyd6nEK9s9MCQhhDjVmUveqgbmyJK |   0.11 |
+| 18:29 | Miurafrg    |             | vetada      |        2.2 | 68K  |               75 |              19 | D7gwqhNVvz698hNoWwQQgkJeZ9pS8fwdUzu8om7imoon |   0    |
 | 18:24 | BRAIN       |             | vetada      |        2.5 | 27K  |              213 |              54 | CaWLh6nbv1N1UtwJqkvJvdrZKivKczjxKXqF1u5SNS9p |   0    |
 | 18:24 | BRAIN       |             | vetada      |        2.7 | 76K  |              394 |             110 | B7HbqBEFJaxWYKUPoMvcTQraxZf9prpr1qJQFr47NVUi |   0    |
 | 18:24 | FRENS       |             | vetada      |        2.6 | 11K  |               65 |              39 | 85oYxESrgDPDkEQNt8n65mYfArfSD7LqevYtfSXaSpCV |   0.3  |
 | 18:20 | NALA        | animales    | alta        |        6.1 | 11K  |               75 |              45 | H74zH4LnbC3Juxvzvo6GdfLzrepoG2FXoK6R7fi9pump |   0.46 |
 | 18:13 | MTMEI       |             | vetada      |        2.2 | 100K |              507 |             178 | JCDe5ecFTfbLoY1fmVcMZ6G4bMho25xEknzF2M8hpump |   0    |
 | 18:09 | Trailer     |             | vetada      |        4.5 | 15K  |               73 |              54 | 6TLpr7zsrg6e6vT8hNuEoUK7xw47NcFHGGXGCAbYSTNK |   0.22 |
-| 18:05 | Tiangong    |             | vetada      |        2.7 | 85K  |               96 |              23 | DWvCu4VXyck6hFxVpLyxAmrQ61pXr6K6yd3WmNcAmoon |   0    |
 | 18:05 | WATCH       |             | vetada      |        2.6 | 45K  |              200 |              67 | 51GGCsVPuMSkrWkJM4r8wBz6HVPBqVXVpP1unSDgpump |   0    |
+| 18:05 | Tiangong    |             | vetada      |        2.7 | 85K  |               96 |              23 | DWvCu4VXyck6hFxVpLyxAmrQ61pXr6K6yd3WmNcAmoon |   0    |
 | 18:03 | MSUKE/ACC   |             | vetada      |        2.6 | 13K  |              388 |             239 | FatepgpFaFkkLQF7Vo3KKWTN4U3rfdeM8crg5v2Mpump |   0.2  |
-| 17:58 | ZELUM       |             | baja        |        2.3 | 9K   |              147 |              83 | GifXoMHe5L3jed2Hqf3vCjMNZgM495fbaWM61Nx2pump |   0.37 |
-| 17:58 | cbADA       |             | vetada      |        2   | 328K |               43 |              25 | cbADAmv9issuPfhFwyQG3xac4DGPd1LDSt1oz7vwJsg  |   0.98 |
-| 17:58 | Dared       |             | baja        |        3.8 | 9K   |              205 |             134 | CUZ2CR3FMmjxbknvCBknyxTV1RVBMUcwSfmun1j4pump |   0.44 |
-| 17:55 | π3.1415926  |             | vetada      |        3.8 | 27K  |              239 |              41 | 2id5EcKDfWBWzw73K3aKZX78hWVDdVQTzRt5XNGVWDZA |   0    |
 
 ## Señales de desplome (cuándo salir)
 
-Fotos de tokens que ya subían un 50% o más: **22967**; seguidas de un desplome (caída a un 40% o menos en 30 min): **479**. Cada fila compara cuántas veces llegó un desplome con la señal activa frente a sin ella: si la señal lo anticipa, el primer % es mucho mayor.
+Fotos de tokens que ya subían un 50% o más: **23032**; seguidas de un desplome (caída a un 40% o menos en 30 min): **479**. Cada fila compara cuántas veces llegó un desplome con la señal activa frente a sin ella: si la señal lo anticipa, el primer % es mucho mayor.
 
 | señal                                        |   fotos_con_señal | desplome_con_señal   | desplome_sin_señal   |
 |:---------------------------------------------|------------------:|:---------------------|:---------------------|
-| Liquidez < 3% de la capitalización           |             18836 | 1%                   | 9%                   |
-| Ticket medio < $30 (volumen de microcompras) |             20797 | 1%                   | 8%                   |
+| Liquidez < 3% de la capitalización           |             18899 | 1%                   | 9%                   |
+| Ticket medio < $30 (volumen de microcompras) |             20862 | 1%                   | 8%                   |
 | Más de 8 compradores por vendedor (5 min)    |               126 | 10%                  | 2%                   |
 | Subida de más del 100% en 1 h                |              2313 | 13%                  | 1%                   |
 | Escalera: 30 min subiendo sin retrocesos     |               252 | 46%                  | 2%                   |
 | Aceleración final                            |               307 | 16%                  | 2%                   |
-| Más vendedores que compradores (5 min)       |             20625 | 1%                   | 14%                  |
-| Ya multiplicó x5 o más desde la detección    |              7982 | 2%                   | 2%                   |
+| Más vendedores que compradores (5 min)       |             20690 | 1%                   | 14%                  |
+| Ya multiplicó x5 o más desde la detección    |              8017 | 2%                   | 2%                   |
 
 ## Palabras calientes (últimas 3 h)
 
