@@ -18,7 +18,7 @@ S = requests.Session()
 def llamar(url, params=None):
     for k in range(6):
         try:
-            r = S.get(url if url.startswith("http") else BASE + url, params=params, timeout=60)
+            r = S.get(url if url.startswith("http") else BASE + url, params=params, timeout=(15, 60))
             if r.status_code == 429:
                 time.sleep(60); continue
             d = r.json()
