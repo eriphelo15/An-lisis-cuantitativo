@@ -130,6 +130,9 @@
   **Credencial de Massive** guardada en el entorno (API credentials, api.polygon.io y api.massive.com; funciona en esta sesión). Plan gratis:
   1 min sin ajustar desde 29-sep-2024, 5 consultas/min. Datos en /home/user/data/massive (se regeneran con `24_massive_descarga.py`).
   **Error corregido 29-sep en el Radar:** antes de la apertura Yahoo pone el cierre de ayer en regularMarketPrice; el escáner usaba el de anteayer.
+- **Ronda 11 (29-sep, caso BKYI; `smallcaps/26_avisos_acciones_municion.py`):** < 5 M acciones y 'sin munición' (sin 424B 90 d ni S-3) NO validados como filtro
+  (signos opuestos DEV/VAL; las dos juntas DEV +0.48R / VAL −0.40R, n 36/50). Añadidos al Radar como avisos informativos sin tocar el nivel
+  (acciones = sharesOutstanding de Yahoo; 'sin munición' no se muestra si el catalizador es F o C).
 - Conclusión: la ventaja debe venir de selección (catalizador + munición activa) + ejecución fina en 1-5 min + gestión del riesgo; se medirá con el diario de operaciones del usuario y, si hace falta, datos de 1 min de pago con deslistadas.
 
 ## Mapa del repositorio

@@ -268,3 +268,15 @@ salida 11:30 = +0.055R (DEV, PF 1.16) / −0.017R (VAL, PF 0.95). La regla conta
 Dato útil (descriptivo): en los días que NO rompen el mínimo de las 9:30 (≈ 13 %), el corto a la apertura pierde −0.9 a −1.0R (casi siempre stop).
 Conclusión: la ruptura de las 9:30 como regla mecánica NO tiene ventaja en 2 años con 1 121 operaciones. Sirve como filtro (evita los días de
 squeeze) pero la salida por cierre sobre la apertura se come la ventaja. Cualquier variante nueva sería exploratoria y necesitaría pre-registro nuevo.
+
+## Ronda 11 — pocas acciones / sin munición (29-sep-2026, `26_avisos_acciones_municion.py`; caso BKYI)
+Gap ≥ 50 %, precio real ≥ $1, setup base (corto apertura, stop 30 %, cierre).
+| Grupo | DEV 2015-21: n · R · WR · PF | VAL 2022-26: n · R · WR · PF |
+|---|---|---|
+| < 5 M acciones | 99 · +0.22 · 66 % · 1.56 | 361 · −0.02 · 59 % · 0.96 |
+| ≥ 5 M acciones | 446 · +0.05 · 62 % · 1.14 | 661 · +0.02 · 58 % · 1.04 |
+| Sin munición (sin 424B 90 d ni S-3) | 215 · +0.18 · 65 % · 1.48 | 370 · −0.06 · 54 % · 0.86 |
+| Con munición | 460 · +0.07 · 63 % · 1.19 | 1 044 · +0.03 · 60 % · 1.06 |
+| Las dos juntas | 36 · +0.48 · 75 % · 2.54 | 50 · −0.40 · 40 % · 0.36 |
+Holm: ninguna validada (HX2 VAL t −1.51, HX1 −0.51; en DEV el signo es el contrario). Dentro del humo tampoco empeoran.
+Decisión (pre-registrada): se muestran como AVISOS informativos en la ficha, sin cambiar el nivel.

@@ -161,7 +161,7 @@ def escanear_vivo():
         if gap >= GAP_VIGILAR:
             cand.append(dict(sym=q["symbol"], nombre=q.get("longName") or q.get("shortName") or "", precio=round(px, 4),
                              cierre_prev=prev, gap=round(gap, 4), cap=q.get("marketCap"),
-                             vol_pre=q.get("preMarketVolume") or q.get("regularMarketVolume"),
+                             vol_pre=q.get("preMarketVolume") or q.get("regularMarketVolume"), acciones=q.get("sharesOutstanding"),
                              bolsa=q.get("fullExchangeName"), estado=estado))
     return cand
 
@@ -442,6 +442,14 @@ def finalizar(fecha, replay, forzar=False):
         m = c.get("municion", {})
         if m.get("toxica"):
             avisos.append("Convertible de precio variable (tóxica) en el último informe")
+        # avisos informativos de la ronda 11 (29-sep, caso BKYI): NO validados → no cambian el nivel
+        acc = c.get("acciones")          # acciones en circulación de Yahoo (sin estimar desde la capitalización: BKYI salía 0.82 M vs 1.44 M)
+        if acc and acc < 5e6:
+            avisos.append(f"Muy pocas acciones en circulación ({acc / 1e6:.2f} M): cualquier volumen dispara la rotación "
+                          "(rotación > 10× = el corto pierde, validado). Como filtro previo NO validado (ronda 11)")
+        if m and t not in ("F", "C") and not (m.get("venta90") or m.get("s3") or m.get("atm") or m.get("eloc") or m.get("warrants_en_dinero")):
+            avisos.append("Sin munición activa (sin venta 424B en 90 días, sin S-3, ATM, ELOC ni warrants por debajo del precio): "
+                          "no hay vendedor de acciones de la empresa. Como filtro NO validado (ronda 11)")
         entrada = c["precio"]
         if c["gap"] < GAP_LISTA:
             est = ESTAD["H20"] if t == "H" and (entrada or 0) >= PRECIO_OPERABLE else ESTAD[nv]
@@ -450,7 +458,7 @@ def finalizar(fecha, replay, forzar=False):
         else:
             est = ESTAD[nv]
         (lista if c["gap"] >= GAP_LISTA else vigilar).append(dict(sym=c["sym"], nombre=c["nombre"], sector=c.get("sector", ""), precio=entrada, cierre_prev=c["cierre_prev"],
-                          gap=c["gap"], cap=c.get("cap"), vol_pre=c.get("vol_pre"), nivel=nv, clasif=dict(cl, tipo_es=TIPOS.get(cl.get("tipo", "N"), "")),
+                          gap=c["gap"], cap=c.get("cap"), acciones=acc, vol_pre=c.get("vol_pre"), nivel=nv, clasif=dict(cl, tipo_es=TIPOS.get(cl.get("tipo", "N"), "")),
                           catalizadores=[dict(form=k["form"], hora=k["hora"], items=k["items"], url=k["url"],
                                               anexos=[dict(archivo=p["archivo"], url=p["url"]) for p in k["partes"]]) for k in c.get("catalizadores", [])],
                           docs_hoy=c.get("docs_hoy", []), noticias=c.get("noticias", []), municion=m, venta_hoy=c.get("venta_hoy", False),
