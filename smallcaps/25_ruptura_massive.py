@@ -60,6 +60,9 @@ for r in E.itertuples():
                       R1=regla(x, 0.01)["R"] if a["estado"] not in ("no rompió",) else np.nan,
                       Rref=referencia(x)))
 X = pd.DataFrame(filas)
+for col in ["R", "R1", "Rref", "precio", "tipo", "entrada", "salida"]:
+    if col not in X:
+        X[col] = np.nan
 X["per"] = np.where(X.fecha < "2025-10-01", "DEV oct24-sep25", "VAL oct25-sep26")
 X["tramo"] = np.where(X.gap >= 1, "≥ 100 %", np.where(X.gap >= .5, "50-100 %", "20-50 %"))
 X["g50"] = X.gap >= .5
