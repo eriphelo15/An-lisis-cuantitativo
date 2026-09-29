@@ -61,6 +61,10 @@
   > $1 y ≥ 100 acciones. Locates se cotizan en CENTAVOS por acción (ejemplos: $0.02 reseña jun-2026; $0.08 ejemplo de TradeZero) → pesan mucho
   más en acciones < $1 (coste en R = locate ÷ (0.375 × precio): $0.02 en $0.38 = 0.14R; en $2.44 = 0.02R). Pendiente confirmar si el locate
   mínimo es de 100 acciones.
+- **Massive (antes Polygon), añadido como herramienta el 29-sep (pedido del usuario):** credencial en el entorno (api.polygon.io / api.massive.com).
+  Plan gratis: cierres diarios de TODO el mercado (1 consulta), velas de 1 min sin ajustar desde 29-sep-2024 hasta ayer, 5 consultas/min.
+  NO da datos del día en curso ni snapshot/gainers (Starter $29/mes: 15 min de retraso). En el Radar: segunda fuente del cierre de ayer
+  (`massive_cierres` en lista_diaria.py) + red extra de candidatos + control Yahoo vs Massive (> 2 % = error).
 - Herramienta de dilución hecha: `herramientas/ficha_dilucion.py TICKER` (SEC EDGAR + Yahoo; ~7 s). Fichas en `fichas/`.
 - Futuro (cuando termine la formación): construir un sistema propio tipo "Flash Research" con estadísticas propias.
   No construirlo antes de que el usuario lo pida.

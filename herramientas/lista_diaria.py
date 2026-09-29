@@ -157,12 +157,30 @@ def cierre_ultima_sesion(s, sym, hoy):
         return None, None
 
 
+def massive_cierres(dia):
+    """Cierre oficial de TODAS las acciones en `dia` (Massive, antes Polygon; plan gratis, 1 consulta; la credencial la añade el
+    entorno). Fuente complementaria a Yahoo (añadida el 29-sep-2026 a petición del usuario). Devuelve {} si no está disponible."""
+    import requests
+    for k in range(4):
+        try:
+            r = requests.get(f"https://api.polygon.io/v2/aggs/grouped/locale/us/market/stocks/{dia}",
+                             params=dict(adjusted="false"), timeout=(15, 60))
+            if r.status_code == 429 or "exceeded" in r.text[:300]:
+                time.sleep(20); continue
+            return {x["T"]: x["c"] for x in (r.json().get("results") or []) if x.get("c")}
+        except Exception:
+            time.sleep(10)
+    return {}
+
+
 def escanear_vivo():
     y = Yahoo()
     U = universo()
     cot = y.cotizaciones(U)
     escanear_vivo.cobertura = dict(universo=len(U), cotizadas=len(cot), pct=round(len(cot) / max(len(U), 1), 4))
     hoy = dt.datetime.now(NY).date()
+    MS = massive_cierres(dia_habil_anterior(hoy))
+    escanear_vivo.cobertura["massive"] = len(MS)
     cand = []
     for q in cot:
         estado = q.get("marketState")
@@ -171,7 +189,8 @@ def escanear_vivo():
         # 1) red amplia: antes de la apertura Yahoo pone el cierre de AYER en regularMarketPrice y el de ANTEAYER en
         #    regularMarketPreviousClose (29-sep: KOD +171 % contra el viernes y estaba −2.5 %), pero no siempre de forma
         #    fiable (SLND 29-sep: +58 % real y quedó fuera) → se usan los dos campos y se verifica en el paso 2.
-        refs = [x for x in (q.get("regularMarketPrice") if pre else None, q.get("regularMarketPreviousClose")) if x]
+        refs = [x for x in (q.get("regularMarketPrice") if pre else None, q.get("regularMarketPreviousClose"),
+                            MS.get(q["symbol"])) if x]
         if not px or px < PRECIO_MIN or not refs or max(px / r - 1 for r in refs) < GAP_VIGILAR - 0.05:
             continue
         # 2) verificación con el cierre oficial de la última sesión (histórico diario) y el último precio real
@@ -181,9 +200,10 @@ def escanear_vivo():
         if pre and ult:
             px = ult
         gap = px / prev - 1
-        if gap >= GAP_VIGILAR and px >= PRECIO_MIN:
+        cm = MS.get(q["symbol"])
+        if (gap >= GAP_VIGILAR or (cm and px / cm - 1 >= GAP_VIGILAR)) and px >= PRECIO_MIN:
             cand.append(dict(sym=q["symbol"], nombre=q.get("longName") or q.get("shortName") or "", precio=round(px, 4),
-                             cierre_prev=prev, gap=round(gap, 4), cap=q.get("marketCap"),
+                             cierre_prev=prev, cierre_massive=cm, gap=round(gap, 4), cap=q.get("marketCap"),
                              vol_pre=q.get("preMarketVolume") or q.get("regularMarketVolume"), acciones=q.get("sharesOutstanding"),
                              bolsa=q.get("fullExchangeName"), estado=estado))
     return cand
@@ -400,6 +420,8 @@ def auditar(C, CL, replay):
             err.append("Sin dato de cobertura del escáner: repetir 'escanear'")
         elif cob["pct"] < 0.97:
             err.append(f"Cobertura del escáner {cob['pct']:.1%} ({cob['cotizadas']}/{cob['universo']}): faltan cotizaciones, repetir 'escanear'")
+    if not replay and cob and not cob.get("massive"):
+        av.append("Massive no respondió: cierres de ayer sin contrastar con la segunda fuente")
     for c in C["candidatos"]:
         s, cl = c["sym"], CL.get(c["sym"])
         if not cl:
@@ -416,6 +438,11 @@ def auditar(C, CL, replay):
             err.append(f"{s}: sin análisis de munición: repetir 'escanear'")
         if c.get("cap") is None:
             av.append(f"{s}: capitalización desconocida")
+        cm = c.get("cierre_massive")
+        if not replay and cm and abs(c["cierre_prev"] / cm - 1) > 0.02:
+            err.append(f"{s}: cierre anterior Yahoo {c['cierre_prev']} vs Massive {cm} (difieren > 2 %): comprobar cuál es el correcto (¿split?)")
+        if not replay and not cm:
+            av.append(f"{s}: sin cierre de Massive para contrastar")
         if t == "N" and not replay and not cl.get("fuentes_abiertas"):
             av.append(f"{s}: sin ninguna noticia; confirmar a mano en Finviz/Yahoo")
     return err, av

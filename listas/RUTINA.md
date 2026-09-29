@@ -19,6 +19,9 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
    Se sube con el commit del paso 7 (`git add listas/m1 listas/ruptura_930.csv`). En el mensaje final (paso 8), UNA línea aparte,
    marcada como estudio: resultado de ayer por acción y acumulado por nivel (n, R, WR, PF). Nada de esto va a la página ni al push.
 4. Escanear: `python3 herramientas/lista_diaria.py escanear` → `listas/datos/HOY_candidatos.json`.
+   El escáner usa DOS fuentes para el cierre de ayer: Yahoo (histórico diario) y **Massive** (antes Polygon; credencial en el entorno,
+   1 consulta). Una acción entra como candidata si supera el 20 % contra cualquiera de las dos. Si los cierres difieren > 2 %,
+   `finalizar` da ERROR (revisar a mano: suele ser un split). Si Massive no responde, aviso y se sigue con Yahoo.
 5. Clasificar el catalizador de **cada candidato con gap ≥ 20 %** (desde el 29-sep también los de 20-50 %, que llevan ficha completa) (leer `catalizadores[].partes[].texto` y `noticias`; si solo hay
    noticia de agencia, abrirla con WebFetch). **Nunca poner N si hay algún titular sin abrir** (GYGY 28-sep: el artículo
    de Benzinga explicaba la subida; también mirar si es una noticia vieja reciclada). Escribir `listas/datos/HOY_clasif.json`:
