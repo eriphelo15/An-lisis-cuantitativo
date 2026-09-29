@@ -13,6 +13,11 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
 3. Resultados de días anteriores: para cada `listas/datos/AAAA-MM-DD.json` anterior a hoy con `"resultados": null`, ejecutar
    `python3 herramientas/lista_diaria.py resultados --fecha AAAA-MM-DD` y guardar ese archivo en la base de datos
    (`ArtifactData set`, colección `listas`, `doc_id` = fecha, `file_path` = el JSON).
+3b. **Estudio ruptura 9:30 (pedido por el usuario el 29-sep; es un ESTUDIO, no parte de la lista):** para cada `listas/datos/AAAA-MM-DD.json`
+   anterior a hoy sin carpeta `listas/m1/AAAA-MM-DD/` (Yahoo solo guarda ~30 días de velas de 1 min), ejecutar
+   `python3 herramientas/ruptura_930.py guardar --fecha AAAA-MM-DD`; después `python3 herramientas/ruptura_930.py medir`.
+   Se sube con el commit del paso 7 (`git add listas/m1 listas/ruptura_930.csv`). En el mensaje final (paso 8), UNA línea aparte,
+   marcada como estudio: resultado de ayer por acción y acumulado por nivel (n, R, WR, PF). Nada de esto va a la página ni al push.
 4. Escanear: `python3 herramientas/lista_diaria.py escanear` → `listas/datos/HOY_candidatos.json`.
 5. Clasificar el catalizador de **cada candidato con gap ≥ 20 %** (desde el 29-sep también los de 20-50 %, que llevan ficha completa) (leer `catalizadores[].partes[].texto` y `noticias`; si solo hay
    noticia de agencia, abrirla con WebFetch). **Nunca poner N si hay algún titular sin abrir** (GYGY 28-sep: el artículo
@@ -39,7 +44,7 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
      y decirlo en el mensaje final.
 6. Finalizar: `python3 herramientas/lista_diaria.py finalizar` (actualiza precios del premarket y asigna nivel/plan) y guardar
    `listas/datos/HOY.json` en la base de datos (`ArtifactData set`, colección `listas`, `doc_id` = HOY).
-7. `git add listas/datos && git commit -m "Lista diaria HOY" && git push -u origin claude/analisis-cuantitativo-45j7qe`
+7. `git add listas/datos listas/m1 listas/ruptura_930.csv && git commit -m "Lista diaria HOY" && git push -u origin claude/analisis-cuantitativo-45j7qe`
    (con las líneas de atribución de siempre).
 8. Mensaje final en español: niveles de la lista (A/B/Vigilar/NO/Nunca con tickers), catalizador (frase original + traducción + cifra),
    munición y base estadística de cada una, resultado de base del día anterior y enlace a la página.
