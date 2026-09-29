@@ -207,3 +207,26 @@ volumen creciente en la racha, el día D abre todavía verde. A = corto a la ape
 **Conclusión:** el primer día rojo **mecánico** (con o sin la condición de volumen) ≈ 0R, igual que el "día siguiente al rojo" de la ronda
 de setups. La ventaja que Edu obtiene en ese patrón (TGL, BMNR, DAIC) no está en el patrón diario en sí: vendría de la ejecución
 intradía (dónde entra, cuánto aguanta, qué descarta) y de la selección discrecional — no medible con estos datos.
+
+## Ronda 9 — ideas de las listas de Edu (29-sep-2026, `22_ronda9_edu.py`; pre-registro en HIPOTESIS_SELECCION.md)
+**E1 — Overextended gap down** (≥ 2 días verdes, subida ≥ +100 %, el día D abre bajo el cierre de D-1; precio real ≥ $1):
+| Setup | Periodo | n (corredores) | R por operación | R por corredor | WR | Gan. media | Pérd. media | PF |
+|---|---|---|---|---|---|---|---|---|
+| A: corto apertura, stop +30 % | DEV 2015-21 | 671 (596) | +0.07 | — (t 5.7) | 66 % | +0.37 | −0.49 | 1.43 |
+| A | VAL 2022-26 | 1 521 (1 247) | **−0.06** | +0.01 (t 0.8) | 51 % | +0.42 | −0.56 | 0.79 |
+| B (Edu): stop sobre el cierre de D-1 | DEV | 671 | +0.12 | (t 4.0) | 57 % | +1.11 | −1.19 | 1.24 |
+| B | VAL | 1 521 | **−0.23** | (t −1.3) | 41 % | +1.31 | −1.27 | 0.70 |
+| Comparación: abre SOBRE el cierre, A | DEV / VAL | 520 / 1 051 | +0.07 / −0.02 | | 63 % / 55 % | | | 1.28 / 0.94 |
+- Funcionó en 2015-21 y **dejó de funcionar en 2022-26** (igual que otros setups diarios). Neto de locate 1 % + comisión: A −0.14R, B −0.41R (VAL).
+- Abrir bajo el cierre NO es mejor que abrir sobre el cierre (HG3, t −1.6).
+- Comprobado a mano un caso (LUCY 13-abr-2023: racha de 4 días verdes, +221 %, abre −10 %; A +0.07R, B −1.24R): cuadra.
+**E2 — Historial de spikes** (gappers ≥ 50 %, precio ≥ $1; spikes del año anterior sin los 10 días previos):
+| Grupo | Periodo | n | R | WR | Gan. media | Pérd. media | PF |
+|---|---|---|---|---|---|---|---|
+| Mayoría de spikes previos rojos | DEV / VAL | 36 / 48 | +0.14 / **−0.09** | 64 % / 52 % | +0.87 / +0.80 | −1.14 / −1.05 | 1.35 / 0.83 |
+| Mayoría verdes | DEV / VAL | 593 / 1 296 | +0.13 / +0.01 | 65 % / 59 % | +0.77 / +0.75 | −1.07 / −1.05 | 1.35 / 1.01 |
+| Sin spikes previos | DEV / VAL | 46 / 70 | −0.22 / +0.02 | | | | |
+- El historial "cerró rojo" es raro (4 % de los casos) y **no mejora** el corto (HE2, t −0.6). Con "devolvió la mitad de la subida" tampoco (VAL −0.03 vs +0.01).
+**Holm (VAL): ninguna validada** (HG3 t −1.60, HG2 −1.29, HG1 +0.79, HE2 −0.60).
+Conclusión: los dos criterios de Edu medibles con datos diarios no dan ventaja por sí solos. Refuerza lo aprendido: la base viene del
+tipo de catalizador (humo) y la munición; lo de Edu es lectura discrecional del precio y del volumen en el momento.

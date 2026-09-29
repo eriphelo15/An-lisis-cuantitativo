@@ -348,3 +348,5 @@ sería de ejecución y de lectura del volumen en el momento.
 - **E4 — Precio sobre el de una colocación reciente** (PIPE/RDO/warrants): requiere sacar precios de los 424B → más trabajo.
 - **E5 — Propiedad institucional alta**: sin datos históricos gratis; solo se podría registrar desde hoy en el Radar y medirlo con el tiempo.
 - Premarket volumen/float y lectura de la cinta: necesitan datos de pago.
+- **Medido el 29-sep-2026 (ronda 9, `INFORME_SELECCION.md`):** E1 overextended gap down → funcionaba en 2015-21 (+0.07R / +0.12R) pero
+  en 2022-26 pierde (−0.06R / −0.23R). E2 historial de spikes rojos → casi nunca se da (4 %) y no mejora el corto. Ninguna validada.
