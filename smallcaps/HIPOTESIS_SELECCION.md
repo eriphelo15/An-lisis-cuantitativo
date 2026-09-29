@@ -196,3 +196,22 @@ Holm sobre HG1, HG2, HG3, HE2 (VAL).
 Descriptivo (no valida nada): E1 con subida ≥ +50 %; E2 dentro del humo gap ≥ 50 %; E2 con "rojo" = devolvió ≥ la mitad de la subida
 del día; neto de locate 1 % + comisión 0.05R; frecuencia en el último año.
 No se probarán más variantes después de ver estos resultados.
+
+## Ronda 10 — backtest de la ruptura de la vela de las 9:30 con Massive/Polygon (pre-registro, ANTES de descargar datos, 29-sep-2026)
+Idea del usuario (`23b_ruptura_930_usuario.py`). Datos: Massive (antes Polygon), plan gratis: velas de 1 min SIN ajustar desde el
+29-sep-2024 y barras diarias de todas las acciones de cada día (incluidas las que después dejaron de cotizar → sin sesgo de supervivencia).
+**Universo:** días hábiles 1-oct-2024 → 25-sep-2026. Gap = apertura ÷ cierre anterior − 1 con barras diarias ajustadas por splits.
+Tickers de 1-5 letras, tipo acción común o ADR (referencia de Massive), fuera warrants/derechos/unidades. Gap 20 %-500 %, volumen en
+dólares del día ≥ $1 M (mismo filtro que `02_gappers.py`), precio real de apertura (vela 9:30 sin ajustar) ≥ $1, vela de las 9:30 presente.
+**Regla (la del usuario):** O y L = apertura y mínimo de la vela de 1 min de las 9:30; corto al CIERRE de la primera vela que cierra bajo L
+(solo hasta las 11:00); un solo intento; sale al cierre de la primera vela que cierra sobre O o a las 11:30. 1R = entrada → O (mín. 2 %).
+Coste 0.5 % del precio (sensibilidad: 1 %). Referencia en los mismos días: corto a la apertura de las 9:30, stop +30 % (relleno +5 %), salida 11:30.
+**Periodos:** DEV = oct-2024 → sep-2025 · VAL = oct-2025 → sep-2026.
+| # | Hipótesis | Criterio |
+|---|---|---|
+| HB1 | Regla en gap ≥ 50 %: R > 0 | R > 0 en DEV y VAL, VAL t > 2 |
+| HB2 | Gap ≥ 50 % mejor que gap 20-50 % | mismo signo DEV y VAL, VAL t > 2 |
+| HB3 | Regla mejor que la referencia (corto a la apertura) en gap ≥ 50 %, diferencia por día emparejada | mismo signo DEV y VAL, VAL t > 2 |
+Holm sobre HB1-HB3 (VAL). Descriptivo (no valida): gap ≥ 100 %, tipo de catalizador donde haya etiqueta de la ronda 2b, días sin ruptura,
+dependencia de los 3-5 mejores días, colas (peor día), coste 1 %, frecuencia por día.
+No se probarán más variantes de la regla después de ver estos resultados (cualquier cambio posterior se marcará como exploratorio).
