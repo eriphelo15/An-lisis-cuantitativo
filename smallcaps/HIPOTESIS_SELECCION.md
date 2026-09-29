@@ -215,3 +215,15 @@ Coste 0.5 % del precio (sensibilidad: 1 %). Referencia en los mismos días: cort
 Holm sobre HB1-HB3 (VAL). Descriptivo (no valida): gap ≥ 100 %, tipo de catalizador donde haya etiqueta de la ronda 2b, días sin ruptura,
 dependencia de los 3-5 mejores días, colas (peor día), coste 1 %, frecuencia por día.
 No se probarán más variantes de la regla después de ver estos resultados (cualquier cambio posterior se marcará como exploratorio).
+
+## Ronda 11 — avisos del Radar: pocas acciones y sin munición (pre-registro, ANTES de ver resultados, 29-sep-2026)
+Origen: BKYI 29-sep (nivel B; 1.44 M de acciones, sin munición activa; rotación ~59× tras la apertura). Aprobado por el usuario.
+Datos: base de la ronda 1/5 (`res_18_precio_real.csv`, 8 604 gappers 2015-26, acciones de la SEC a esa fecha, precio real). Gap ≥ 50 %,
+precio real ≥ $1, ambiguos fuera. Setup base: corto a la apertura, stop +30 % (+5 % deslizamiento), coste 1 %, salida al cierre.
+Acciones en circulación = capitalización real ÷ precio real (acciones de la SEC en esa fecha).
+| # | Hipótesis | Criterio |
+|---|---|---|
+| HX1 | Menos de 5 M de acciones → corto PEOR que con ≥ 5 M | mismo signo DEV y VAL, VAL t < −2 |
+| HX2 | Sin munición activa (sin venta 424B en 90 días y sin shelf S-3) → corto PEOR que con munición | mismo signo DEV y VAL, VAL t < −2 |
+Holm sobre HX1-HX2 (VAL). Descriptivo: dentro del humo; las dos condiciones juntas; escalones de acciones (< 2 M, 2-5 M, 5-20 M, > 20 M).
+Los avisos se añaden a la ficha como información aunque no se validen; solo cambiarían el NIVEL si se validan.
