@@ -257,3 +257,94 @@ offering/ATM/S-3/warrants, float, primer día rojo, gap and crap…) y se leyero
 3. Coincidencias con el Radar: evita buyouts, pennies ("caras de operar"), noticias de fusión en verde; usa la dilución (ATM, S-3, baby shelf,
    RDO) para la convicción, pero decide con el precio.
 4. Lo único concreto y medible que no habíamos probado: el **primer día rojo con días previos verdes y volumen creciente** → ronda 8.
+
+## Listas de reproducción: Patrones, Aprendizaje y Trades en vivo (revisadas el 29-sep-2026)
+Fuente: canal de YouTube de Edu (Latin Day Trading). Transcripciones automáticas de 51 de los 53 vídeos (2018-2023). No revisé los
+vídeos de configurar TWS/ToS; los 4 más largos de preguntas y respuestas (≈ 6 h) los revisé buscando palabras clave, no enteros.
+Lo que sigue es **lo que él dice**; al lado va lo que dicen **nuestros datos**. Aviso: son vídeos de 2018-2021, antes de su etapa
+actual de 2026 (más dinero y más short).
+
+### 1. Su modelo del mercado ("el patrón de las small caps")
+- Toda small cap sigue el mismo ciclo: **subida vertical → caída fuerte (≈ −50 %) → rebote (+20-40 %) → destrucción lenta** con rebotes
+  débiles ("patadas de ahogado"). "Si no hay este patrón no hacemos nada." Motivo: empresas que pierden dinero y se financian vendiendo
+  acciones cuando el precio sube (pump → dump).
+  → **Nuestros datos lo confirman**: gappers > 100 % cierran bajo su apertura el 76 % el día 1; multiplican sus acciones ×2.7 en 12 meses.
+- **Front side / back side**: largo mientras hace máximos nuevos; corto solo cuando deja de hacerlos. Tres señales de debilidad:
+  (1) no hace máximo nuevo, (2) abre por debajo del cierre anterior (*overextended gap down*), (3) primer día rojo.
+- **Sobre extensión**: solo shortea si el precio subió > 50-70 % en un día, comparado con su historial. Sin sobre extensión, no hay corto.
+  → Coincide con nuestro corte (gap ≥ 50 %); nuestro nivel A pide ≥ 100 %.
+- **El volumen es el amigo del largo y el enemigo del corto.** Lo que quiere el corto no es "vender caro", sino **vender cuando ya no hay
+  demanda**. Por eso quiere volumen decreciente y "divergencia de volumen" (precio sube con menos volumen).
+- "El mercado puede seguir irracional más tiempo del que tú aguantas": su ejemplo es una acción que pasó de $2 a $73 en 4 días.
+  → Nuestras colas: en gaps ≥ 100 % la subida máxima desde la apertura supera +100 % el 9.7 % de las veces.
+
+### 2. Rotación del float (el criterio que más repite)
+- "El volumen ideal para shortear es el que **no rota el float**. Si rota el float ya estás en peligro." Si el volumen supera el float,
+  "no te va a hacer squeeze 10 centavos, te va a hacer un dólar, un 25 %". Con rotación 10-20× → "peligrosísimo" para el corto
+  (vídeo "Low float", 2022). En el 9-nov-2018 cambió de corto a largo en NBLN cuando empezó a rotar el float.
+- Cuando no rota el float es "súper agresivo" con el *short into resistance*.
+- **El float nunca se sabe con exactitud**: cada web da uno distinto (NBLN: 9, 17 y 18 M). Él lo cruza con el último 10-Q/424B
+  (acciones en circulación) y con los informes de accionistas del 5 %.
+  → **Nuestros datos**: rotación > 10× = el corto a la apertura pierde (confirmado también con precios corregidos, ronda 5).
+  Su umbral (≈ 1×) es mucho más estricto que el nuestro y **no está medido** (ver hipótesis E3).
+
+### 3. Selección: cómo arma su lista (vídeos "Watchlist" y "Formación de precios")
+Criterios para vigilar una acción: que se mueva **≥ 15 % en el día con volumen**, que tenga historial de subidas ("si ya corrió, puede
+volver a correr"), low float, catalizador y posible dilución en los filings. Plantilla de la ficha: sector, catalizador, float cruzado en
+varias fuentes, historial de spikes, % de instituciones, quema de caja, niveles, filings (aviso de deslistado, 424B, warrants, baby shelf,
+lo que queda del S-3) y escenarios.
+- **Catalizador**: "el mercado juzga el catalizador, no nosotros". Sin catalizador = manipulación de grupo → "ignórala o solo lee el precio".
+  Fusiones/compras: difíciles de shortear.
+  → Nosotros sí medimos el contenido del catalizador y **sí importa**: humo +0.145R (VAL) frente a −0.08R del resto; sin 8-K ≈ 0R.
+- **Dilución**: el ATM es "lo más tóxico que puede haber"; con ATM/S-3 grandes "no importa el catalizador". Un ATM se vende con algoritmos
+  para crear liquidez, no se "lanza de golpe" (salvo que falle y lo suelten).
+  → Nuestros datos: venta 424B en 90 días (+0.136R) y S-3 (+0.072R) **validados**; pero en la ronda 2b el catalizador humo pesó más que la
+  munición por sí sola.
+- **TNXP (23-mar-2020)**: un inversor compró ~15 M de acciones a $1.10 → "va a usar la subida para descargar" → shorteó sobre $1.10 y la
+  acción cayó por debajo. Idea medible: precio por encima del precio de una colocación reciente (hipótesis E4).
+- **Mucha propiedad institucional** (ISEE, 85 % en manos de instituciones): "controlan el inventario, deciden cuándo sale la oferta" →
+  hay que tenerle mucho cuidado; puede dar squeezes horribles. En la sesión de watchlist marcó > 40-50 % como aviso.
+  → **No medido.** No tenemos historial de ese dato (Yahoo solo da el actual) → hipótesis E5.
+- **Historial de la acción**: en ISEE miró que sus 2 spikes anteriores > 20 % cerraron rojos. "El desempeño pasado probablemente
+  indique el futuro en este tipo de compañías." → **No medido, y sí se puede medir con nuestros datos** (hipótesis E2).
+
+### 4. Sus setups (sesión "Strategies in Small Caps", feb-2020)
+Dice que la estrategia es solo "un 10-15 % de todo" (el resto: contexto, catalizador, gestión del riesgo, psicología) y que una buena
+estrategia acierta como mucho **65-70 %**.
+| Setup | Regla que da | Riesgo (stop) | Lo que medimos nosotros |
+|---|---|---|---|
+| **Primer día rojo** (corto) | tras días verdes con sobre extensión, el precio cae bajo la apertura; ideal con menos volumen que el día anterior | la apertura del día | Ronda 8: ≈ 0R (DEV +0.03 / VAL −0.02 en apertura; B +0.07 / −0.01). No validado |
+| **Overextended gap down** (corto) | tras sobre extensión abre bajo el cierre anterior; corto lo más cerca posible del cierre anterior, con volumen decreciente | el cierre anterior | **No medido** (hipótesis E1) |
+| **Short into resistance** (corto) | corto en una resistencia de días anteriores si el float no rota; mejor si abre cerca del cierre y el máximo está lejos | la resistencia | No medido (necesita niveles y float fiable) |
+| **Rechazo del VWAP** (corto) | día rojo, tendencia bajista, volumen decreciente, mínimo ≥ 10-20 % bajo el VWAP | el VWAP | Ronda 3: "bajo VWAP" como filtro no validado; esperar a las 11:30 bajo VWAP = −0.38R |
+| **Green to red** (corto, PXS) | ruptura de varios meses con mucho volumen; corto cuando pasa de verde a rojo en el día | máximo cercano | Ronda 8 B (tocar el cierre anterior) ≈ 0R |
+| **Gap & crap** (corto, APDN/MVIS/ANIX) | gap que se hunde; típico con ATM de $50 M | máximo | Es nuestro "corto temprano" en humo: +0.22R VAL con stop 30 % |
+| Breakout, red to green, VWAP bounce, primer día verde (largos) | largos a favor de tendencia | nivel roto / VWAP | Fuera de nuestro foco (corto) |
+| Comprar pánicos (CVSI, OTC) | caída de 20-50 % sin razón fundamental; "dejar que se desangre" y comprar el giro con volumen | último soporte | No medido |
+- Opera **solo la primera hora (9:30-10:30 NY)**. → Nuestros datos: 72 % del volumen en la 1.ª hora; máximo del día antes de las 10:00
+  el 60 %. Coincide.
+- Ejecución: entrar cerca del stop, sacar la mitad pronto, bajar el stop a medida que baja ("trailing"), y "reciclar" (cubrir en soportes y
+  volver a entrar en los rebotes). En un corto contra tendencia (*front side*) solo se salvó "por pura ejecución".
+
+### 5. Riesgo y dinero
+- Relación riesgo/beneficio objetivo 2:1 (2022); si hay FOMO, entrar con 1/4 del tamaño y construir la posición. En 2018 ponía stops de
+  2-15 centavos. Empezar con $200-500 y escalar solo cuando las estadísticas lo avalen.
+- Locates: "para mí están bien porque cuestan ~1 % del precio" (1 000 acciones de Redbox = $116, con la mitad pagada por su socio).
+  Con un locate puedes reciclar durante todo el día sin pasar del número de acciones pedido. → Igual que su regla de 2026.
+- Pérdidas de $6 000-6 500 por indisciplina en 2022 ("hice lo mismo que en la pérdida anterior").
+- En 2020 su bróker de corto era TradeZero ("fenomenal para encontrar acciones, pero caras"). En 2026 lo critica.
+
+### 6. Qué aporta de nuevo (y qué no)
+**Confirma** lo que ya tenemos medido: ciclo pump-dump, 1.ª hora, rotación como peligro, dilución como munición, colas.
+**No aporta ventaja nueva medida**: sus setups diarios (primer día rojo, green to red) ya dieron ≈ 0R en nuestra ronda 8; su ventaja
+sería de ejecución y de lectura del volumen en el momento.
+**Ideas nuevas que se pueden medir** (solo propuestas; no las he ejecutado):
+- **E1 — Overextended gap down**: tras ≥ 2 días verdes y ≥ +100 %, el día D abre bajo el cierre de D-1; corto a la apertura o al volver al
+  cierre de D-1, stop sobre el cierre de D-1. Datos diarios que ya tenemos; mismo método que la ronda 8 (DEV/VAL, precio real, costes).
+- **E2 — Historial de la acción**: ¿el corto funciona mejor si sus spikes anteriores (gap ≥ 20-50 % en los últimos 12 meses) cerraron
+  rojos? Útil para el Radar: sería un dato más de la ficha. Datos diarios que ya tenemos.
+- **E3 — Umbral de rotación**: probar escalones de volumen ÷ acciones en circulación (1×, 2-3×, 5×, 10×) en humo y en gap ≥ 50 %. Límite:
+  float histórico poco fiable; usar acciones en circulación de la SEC.
+- **E4 — Precio sobre el de una colocación reciente** (PIPE/RDO/warrants): requiere sacar precios de los 424B → más trabajo.
+- **E5 — Propiedad institucional alta**: sin datos históricos gratis; solo se podría registrar desde hoy en el Radar y medirlo con el tiempo.
+- Premarket volumen/float y lectura de la cinta: necesitan datos de pago.
