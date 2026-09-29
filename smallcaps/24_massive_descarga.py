@@ -26,7 +26,7 @@ def llamar(url, params=None):
             return d
         except Exception as e:
             print("reintento", url, e, flush=True); time.sleep(30)
-    return {}
+    return None                      # fallo de red: NO se guarda nada (antes se guardaba un archivo vacío como si no hubiera datos)
 
 
 def referencia():
@@ -36,14 +36,14 @@ def referencia():
     filas = []
     for tipo in ["CS", "ADRC"]:
         for activo in ["true", "false"]:
-            d = llamar("/v3/reference/tickers", dict(market="stocks", type=tipo, active=activo, limit=1000))
+            d = llamar("/v3/reference/tickers", dict(market="stocks", type=tipo, active=activo, limit=1000)) or {}
             while True:
                 filas += [dict(ticker=x["ticker"], tipo=tipo, activo=x.get("active"), nombre=x.get("name"),
                                bolsa=x.get("primary_exchange"), baja=x.get("delisted_utc")) for x in d.get("results", [])]
                 print("referencia", tipo, activo, len(filas), flush=True)
                 if not d.get("next_url"):
                     break
-                d = llamar(d["next_url"])
+                d = llamar(d["next_url"]) or {}
     T = pd.DataFrame(filas).drop_duplicates()
     T.to_parquet(f)
     return T
@@ -56,6 +56,8 @@ def diarios():
         if os.path.exists(f):
             continue
         d = llamar(f"/v2/aggs/grouped/locale/us/market/stocks/{dia.date()}", dict(adjusted="true"))
+        if d is None:
+            continue
         R = pd.DataFrame(d.get("results") or [])
         R.to_parquet(f)
         print("diario", dia.date(), len(R), flush=True)
@@ -87,6 +89,9 @@ def minutos(E):
         if os.path.exists(f):
             continue
         d = llamar(f"/v2/aggs/ticker/{r.sym}/range/1/minute/{r.fecha}/{r.fecha}", dict(adjusted="false", limit=50000))
+        if d is None or d.get("status") not in ("OK", "DELAYED"):
+            print("sin respuesta válida, se reintentará luego:", r.sym, r.fecha, (d or {}).get("status"), flush=True)
+            continue
         pd.DataFrame(d.get("results") or []).to_parquet(f)
         n += 1
         if n % 20 == 0:
