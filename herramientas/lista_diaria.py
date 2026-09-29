@@ -141,24 +141,47 @@ class Yahoo:
         return out
 
 
+def cierre_ultima_sesion(s, sym, hoy):
+    """Cierre oficial de la última sesión completa ANTERIOR a hoy (histórico diario de Yahoo) y último precio (incl. premarket)."""
+    try:
+        r = s.get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}",
+                  params=dict(range="5d", interval="1m", includePrePost="true"), timeout=20).json()["chart"]["result"][0]
+        d = s.get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}",
+                  params=dict(range="10d", interval="1d"), timeout=20).json()["chart"]["result"][0]
+        dias = [dt.datetime.fromtimestamp(x, NY).date() for x in d["timestamp"]]
+        cierres = d["indicators"]["quote"][0]["close"]
+        prev = next(c for f, c in sorted(zip(dias, cierres), reverse=True) if f < hoy and c)
+        ult = [c for c in r["indicators"]["quote"][0]["close"] if c]
+        return prev, (ult[-1] if ult else None)
+    except Exception:
+        return None, None
+
+
 def escanear_vivo():
     y = Yahoo()
     U = universo()
     cot = y.cotizaciones(U)
     escanear_vivo.cobertura = dict(universo=len(U), cotizadas=len(cot), pct=round(len(cot) / max(len(U), 1), 4))
+    hoy = dt.datetime.now(NY).date()
     cand = []
     for q in cot:
         estado = q.get("marketState")
-        # Antes de la apertura (PRE/PREPRE) Yahoo pone el cierre de AYER en regularMarketPrice y el de ANTEAYER en
-        # regularMarketPreviousClose (error detectado el 29-sep-2026: KOD salía +171 % contra el viernes y estaba −2.5 %).
-        prev = q.get("regularMarketPrice") if estado in ("PRE", "PREPRE") else q.get("regularMarketPreviousClose")
-        if not prev:
+        pre = estado in ("PRE", "PREPRE")
+        px = q.get("preMarketPrice") if pre else q.get("regularMarketOpen") or q.get("regularMarketPrice")
+        # 1) red amplia: antes de la apertura Yahoo pone el cierre de AYER en regularMarketPrice y el de ANTEAYER en
+        #    regularMarketPreviousClose (29-sep: KOD +171 % contra el viernes y estaba −2.5 %), pero no siempre de forma
+        #    fiable (SLND 29-sep: +58 % real y quedó fuera) → se usan los dos campos y se verifica en el paso 2.
+        refs = [x for x in (q.get("regularMarketPrice") if pre else None, q.get("regularMarketPreviousClose")) if x]
+        if not px or px < PRECIO_MIN or not refs or max(px / r - 1 for r in refs) < GAP_VIGILAR - 0.05:
             continue
-        px = q.get("preMarketPrice") if estado in ("PRE", "PREPRE") else q.get("regularMarketOpen") or q.get("regularMarketPrice")
-        if not px or px < PRECIO_MIN:
-            continue
+        # 2) verificación con el cierre oficial de la última sesión (histórico diario) y el último precio real
+        prev, ult = cierre_ultima_sesion(y.s, q["symbol"], hoy)
+        if prev is None:
+            prev = refs[0]
+        if pre and ult:
+            px = ult
         gap = px / prev - 1
-        if gap >= GAP_VIGILAR:
+        if gap >= GAP_VIGILAR and px >= PRECIO_MIN:
             cand.append(dict(sym=q["symbol"], nombre=q.get("longName") or q.get("shortName") or "", precio=round(px, 4),
                              cierre_prev=prev, gap=round(gap, 4), cap=q.get("marketCap"),
                              vol_pre=q.get("preMarketVolume") or q.get("regularMarketVolume"), acciones=q.get("sharesOutstanding"),
