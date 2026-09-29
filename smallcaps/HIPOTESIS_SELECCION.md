@@ -170,3 +170,29 @@ t calculado con la media por episodio (racha) para no contar varias veces el mis
 Descriptivo (no cuenta como validación): subida ≥ +50 %; k = 2 vs k ≥ 3; racha "sin ponerse roja en el día" (mínimo ≥ cierre anterior,
 criterio de Hamlin); coste de locate 1 % del precio (+0.033R) y comisión 0.05R; primer candidato de cada racha.
 No se probarán más variantes después de ver estos resultados.
+
+## Ronda 9 — ideas de las listas de Edu: E1 overextended gap down y E2 historial de la acción (pre-registro, ANTES de ver resultados, 29-sep-2026)
+Origen: `referencias/EDUTRADES.md` (listas Patrones/Aprendizaje/Trades). Aprobado por el usuario ("Procede").
+Datos: diario 2015-2026 (Yahoo, universo listado hoy → sesgo de supervivencia), precio real por splits (ronda 5), ambiguos fuera,
+precio real ≥ $1. Costes como siempre: 1 % ida y vuelta, deslizamiento en el stop. DEV 2015-21 / VAL 2022-26.
+
+**E1 — Overextended gap down (Edu):** tras una sobre extensión, el día D abre POR DEBAJO del cierre de D-1; riesgo = cierre de D-1.
+Candidatos con la misma construcción que la ronda 8 (sin mirar el futuro): racha de k ≥ 2 días verdes que termina en D-1, subida
+acumulada ≥ +100 %, volumen en dólares de D-1 ≥ $1 M, y **apertura de D < cierre de D-1** (la ronda 8 exigía lo contrario).
+- **Setup A:** corto a la apertura de D, stop apertura × 1.30 (+5 % de deslizamiento), salida al cierre.
+- **Setup B (el de Edu):** corto a la apertura de D, stop = máx(cierre D-1 × 1.02, apertura × 1.03), relleno del stop con +2 %;
+  si el máximo de D toca el stop cuenta como stop (conservador: con velas diarias no se sabe el orden); salida al cierre.
+**E2 — Historial de spikes (Edu en ISEE: "las dos veces que hizo más de 20 % cerró rojo"):** en los gappers ≥ 50 % (8 604 eventos,
+setup base: corto a la apertura, stop +30 %), mirar los 365 días naturales anteriores excluyendo los 10 días hábiles previos al evento.
+Spike previo = día con máximo ≥ cierre anterior × 1.20. "Rojo" = cierre < apertura de ese día. Grupos: sin spikes previos; **mayoría roja**
+(≥ 1 spike y ≥ 2/3 rojos); **mayoría verde** (≥ 1 spike y < 2/3 rojos).
+| # | Hipótesis | Criterio |
+|---|---|---|
+| HG1 | E1 setup A: R > 0 | R > 0 en DEV y VAL, VAL t > 2 (t con media por episodio) |
+| HG2 | E1 setup B: R > 0 | igual |
+| HG3 | E1 (abre bajo el cierre) mejor que la ronda 8 (abre sobre el cierre), setup A | mismo signo DEV y VAL, VAL t > 2 |
+| HE2 | E2: mayoría roja mejor que mayoría verde (gap ≥ 50 %) | mismo signo DEV y VAL, VAL t > 2 |
+Holm sobre HG1, HG2, HG3, HE2 (VAL).
+Descriptivo (no valida nada): E1 con subida ≥ +50 %; E2 dentro del humo gap ≥ 50 %; E2 con "rojo" = devolvió ≥ la mitad de la subida
+del día; neto de locate 1 % + comisión 0.05R; frecuencia en el último año.
+No se probarán más variantes después de ver estos resultados.
