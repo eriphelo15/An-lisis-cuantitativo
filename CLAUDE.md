@@ -116,6 +116,7 @@
 - **Edu Trades (33 directos, `smallcaps/referencias/EDUTRADES.md`):** WR 73-75 % con R/B < 1; grandes pérdidas por halts (STAK −$100 000).
   Regla de locates: < 1 % del precio casi siempre compra, > 5 % nunca; coste anual 10-20 % de sus ganancias. Varios brókers con distintas
   cámaras de compensación = más locates. Critica a TradeZero (sin motivo técnico claro; tiene afiliación con Sage).
+- **Edu, listas de YouTube (Patrones/Aprendizaje/Trades, 51 vídeos 2018-23; `EDUTRADES.md`):** confirma ciclo pump-dump, 1.ª hora, rotación = peligro (su umbral ≈ 1×, el nuestro medido > 10×), dilución como munición. Sus setups diarios ya dan ≈ 0R (ronda 8). Hipótesis nuevas PROPUESTAS, sin ejecutar (esperan aprobación del usuario): E1 overextended gap down, E2 historial de spikes rojos, E3 escalones de rotación, E4 precio sobre colocación reciente, E5 propiedad institucional alta (sin datos históricos).
 - Conclusión: la ventaja debe venir de selección (catalizador + munición activa) + ejecución fina en 1-5 min + gestión del riesgo; se medirá con el diario de operaciones del usuario y, si hace falta, datos de 1 min de pago con deslistadas.
 
 ## Mapa del repositorio
