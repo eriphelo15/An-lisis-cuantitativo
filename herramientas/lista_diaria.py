@@ -103,9 +103,13 @@ def es_habil(d):
 # ------------------------------------------------------------------ universo y premarket
 def universo():
     syms = set()
+    universo.faltan = []
     for u, col_etf, col_test in [("https://www.nasdaqtrader.com/dynamic/SymDir/nasdaqlisted.txt", 6, 3),
                                  ("https://www.nasdaqtrader.com/dynamic/SymDir/otherlisted.txt", 4, 6)]:
-        t = get(u) or ""
+        # 29-sep-2026: el fichero de NYSE/NYSE American (otherlisted) no se descargó y el Radar perdió SLND → más reintentos y control
+        t = get(u, tries=6, timeout=40) or ""
+        if len(t.splitlines()) < 1000:
+            universo.faltan.append(u.rsplit("/", 1)[-1])
         for ln in t.splitlines()[1:]:
             c = ln.split("|")
             if len(c) < 7 or c[col_etf] == "Y" or c[col_test] == "Y":
@@ -173,11 +177,30 @@ def massive_cierres(dia):
     return {}
 
 
+def tradingview_premarket(minimo=15):
+    """Segunda fuente de gappers del premarket (escáner público de TradingView, añadido el 29-sep-2026 tras perder SLND).
+    Devuelve {ticker: (precio_premarket, cambio_%)} de acciones de NASDAQ/NYSE/AMEX con cambio premarket ≥ `minimo` %."""
+    import requests
+    body = {"filter": [{"left": "type", "operation": "equal", "right": "stock"},
+                       {"left": "exchange", "operation": "in_range", "right": ["NASDAQ", "NYSE", "AMEX"]},
+                       {"left": "premarket_change", "operation": "greater", "right": minimo}],
+            "columns": ["name", "premarket_close", "premarket_change"],
+            "sort": {"sortBy": "premarket_change", "sortOrder": "desc"}, "range": [0, 300]}
+    for k in range(3):
+        try:
+            r = requests.post("https://scanner.tradingview.com/america/scan", json=body, timeout=20).json()
+            return {x["d"][0]: (x["d"][1], x["d"][2]) for x in r.get("data", []) if x["d"][1]}
+        except Exception:
+            time.sleep(5)
+    return None
+
+
 def escanear_vivo():
     y = Yahoo()
     U = universo()
     cot = y.cotizaciones(U)
-    escanear_vivo.cobertura = dict(universo=len(U), cotizadas=len(cot), pct=round(len(cot) / max(len(U), 1), 4))
+    escanear_vivo.cobertura = dict(universo=len(U), cotizadas=len(cot), pct=round(len(cot) / max(len(U), 1), 4),
+                                   ficheros_faltan=list(universo.faltan))
     hoy = dt.datetime.now(NY).date()
     MS = massive_cierres(dia_habil_anterior(hoy))
     escanear_vivo.cobertura["massive"] = len(MS)
@@ -199,13 +222,52 @@ def escanear_vivo():
             prev = refs[0]
         if pre and ult:
             px = ult
-        gap = px / prev - 1
         cm = MS.get(q["symbol"])
+        # split efectivo hoy (29-sep: CDT, AGRZ, ONMD, TRUG, VRME salían +900-2400 %): el histórico y Massive dan el cierre SIN
+        # ajustar; la cotización de Yahoo sí lo ajusta → si difieren ×2 o más, se usa el factor entero del split
+        qref = [x for x in (q.get("regularMarketPrice") if pre else None, q.get("regularMarketPreviousClose")) if x]
+        split = None
+        for r in qref:
+            f = r / prev
+            if f >= 1.9 or f <= 0.55:
+                split = round(f) if f >= 1.9 else round(1 / f)
+                prev, cm = (prev * split, cm * split if cm else cm) if f >= 1.9 else (prev / split, cm / split if cm else cm)
+                break
+        gap = px / prev - 1
         if (gap >= GAP_VIGILAR or (cm and px / cm - 1 >= GAP_VIGILAR)) and px >= PRECIO_MIN:
             cand.append(dict(sym=q["symbol"], nombre=q.get("longName") or q.get("shortName") or "", precio=round(px, 4),
                              cierre_prev=prev, cierre_massive=cm, gap=round(gap, 4), cap=q.get("marketCap"),
                              vol_pre=q.get("preMarketVolume") or q.get("regularMarketVolume"), acciones=q.get("sharesOutstanding"),
-                             bolsa=q.get("fullExchangeName"), estado=estado))
+                             bolsa=q.get("fullExchangeName"), estado=estado, split_hoy=split))
+    # 3) segunda fuente de gappers: TradingView. Lo que TradingView ve con ≥ 20 % y el escáner no, se verifica y se añade.
+    TV = tradingview_premarket()
+    escanear_vivo.cobertura["tradingview"] = None if TV is None else len(TV)
+    solo_tv = []
+    ya = {c["sym"] for c in cand}
+    qd = {q["symbol"]: q for q in cot}
+    for sym, (ptv, chg) in (TV or {}).items():
+        if chg < GAP_VIGILAR * 100 or sym in ya:
+            continue
+        q = qd.get(sym)
+        if q is None:
+            motivo = "sin cotización de Yahoo" if sym in U else "fuera del universo: ETF, warrant, preferente o no listada"
+            solo_tv.append(f"{sym} +{chg:.0f} % ({motivo}) → revisar a mano")
+            continue
+        prev, ult = cierre_ultima_sesion(y.s, sym, hoy)
+        px = ult or ptv
+        cm = MS.get(sym)
+        prev = prev or cm
+        if not prev or px < PRECIO_MIN:
+            solo_tv.append(f"{sym} +{chg:.0f} % (sin cierre anterior o precio < ${PRECIO_MIN})"); continue
+        gap = px / prev - 1
+        if gap < GAP_VIGILAR:
+            solo_tv.append(f"{sym} +{chg:.0f} % en TradingView pero {gap:+.0%} con el cierre oficial"); continue
+        cand.append(dict(sym=sym, nombre=q.get("longName") or q.get("shortName") or "", precio=round(px, 4),
+                         cierre_prev=prev, cierre_massive=cm, gap=round(gap, 4), cap=q.get("marketCap"),
+                         vol_pre=q.get("preMarketVolume") or q.get("regularMarketVolume"), acciones=q.get("sharesOutstanding"),
+                         bolsa=q.get("fullExchangeName"), estado=q.get("marketState"), fuente="TradingView"))
+        solo_tv.append(f"{sym} +{gap:.0%}: AÑADIDA (solo la veía TradingView; revisar por qué Yahoo no)")
+    escanear_vivo.cobertura["solo_tradingview"] = solo_tv
     return cand
 
 
@@ -418,8 +480,15 @@ def auditar(C, CL, replay):
     if not replay:
         if not cob:
             err.append("Sin dato de cobertura del escáner: repetir 'escanear'")
+        elif cob.get("ficheros_faltan") or cob["universo"] < 5000:
+            err.append(f"Universo incompleto ({cob['universo']} tickers; faltan {cob.get('ficheros_faltan')}): repetir 'escanear' "
+                       "(29-sep: faltó el fichero de NYSE/NYSE American y se perdió SLND)")
         elif cob["pct"] < 0.97:
             err.append(f"Cobertura del escáner {cob['pct']:.1%} ({cob['cotizadas']}/{cob['universo']}): faltan cotizaciones, repetir 'escanear'")
+    if not replay and cob and cob.get("tradingview") is None:
+        av.append("TradingView no respondió: gappers sin contrastar con la segunda fuente")
+    for x in (cob or {}).get("solo_tradingview", []):
+        av.append("Segunda fuente (TradingView): " + x)
     if not replay and cob and not cob.get("massive"):
         av.append("Massive no respondió: cierres de ayer sin contrastar con la segunda fuente")
     for c in C["candidatos"]:

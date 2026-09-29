@@ -22,6 +22,9 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
    El escáner usa DOS fuentes para el cierre de ayer: Yahoo (histórico diario) y **Massive** (antes Polygon; credencial en el entorno,
    1 consulta). Una acción entra como candidata si supera el 20 % contra cualquiera de las dos. Si los cierres difieren > 2 %,
    `finalizar` da ERROR (revisar a mano: suele ser un split). Si Massive no responde, aviso y se sigue con Yahoo.
+   Segunda fuente de gappers: **TradingView** (escáner público, cambio premarket ≥ 20 %). Lo que ve TradingView y no el escáner
+   se verifica con el cierre oficial y se añade; lo que no se pueda verificar aparece como aviso → revisarlo a mano antes de publicar.
+   La auditoría bloquea la lista si el universo está incompleto (< 5 000 tickers o falta el fichero de NYSE/NYSE American).
 5. Clasificar el catalizador de **cada candidato con gap ≥ 20 %** (desde el 29-sep también los de 20-50 %, que llevan ficha completa) (leer `catalizadores[].partes[].texto` y `noticias`; si solo hay
    noticia de agencia, abrirla con WebFetch). **Nunca poner N si hay algún titular sin abrir** (GYGY 28-sep: el artículo
    de Benzinga explicaba la subida; también mirar si es una noticia vieja reciclada). Escribir `listas/datos/HOY_clasif.json`:

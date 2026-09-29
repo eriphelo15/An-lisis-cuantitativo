@@ -136,6 +136,9 @@
   **Error corregido 29-sep en el Radar:** antes de la apertura Yahoo pone el cierre de ayer en regularMarketPrice; el escáner usaba el de anteayer.
   Segunda corrección (29-sep, al comparar con la lista de Edu): SLND +58 % real quedó fuera → el escáner ahora hace red amplia con los dos campos
   y verifica cada candidato contra el cierre oficial de la última sesión (histórico diario de Yahoo, `cierre_ultima_sesion`) y el último precio de 1 min.
+  **Causa real de SLND (encontrada después):** el 29-sep no se descargó el fichero otherlisted (NYSE/NYSE American): universo 3 436 en vez de 5 910.
+  Corregido: 6 reintentos + ERROR de auditoría si falta un fichero o universo < 5 000. Añadidos: TradingView como 2.ª fuente de gappers
+  (`tradingview_premarket`) y detección de splits del día (cotización Yahoo ajustada vs cierre sin ajustar ×2 o más → `split_hoy`).
 - **Ronda 11 (29-sep, caso BKYI; `smallcaps/26_avisos_acciones_municion.py`):** < 5 M acciones y 'sin munición' (sin 424B 90 d ni S-3) NO validados como filtro
   (signos opuestos DEV/VAL; las dos juntas DEV +0.48R / VAL −0.40R, n 36/50). Añadidos al Radar como avisos informativos sin tocar el nivel
   (acciones = sharesOutstanding de Yahoo; 'sin munición' no se muestra si el catalizador es F o C).
