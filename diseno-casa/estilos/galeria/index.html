@@ -1,0 +1,102 @@
+<title>Estilos de Casa Volado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Barlow+Condensed:wght@500;600&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: visor grande con selector de estilo, y debajo las seis fichas para comparar de un vistazo */
+:root{
+  --bg:#EEF0EE; --paper:#F9FAF8; --ink:#1A2220; --muted:#5B6863; --line:#CDD4D0; --accent:#2B6E79;
+  --display:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --body:'Instrument Sans','Segoe UI',system-ui,sans-serif;
+  --tech:'Barlow Condensed','Arial Narrow',sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111513;--paper:#181D1B;--ink:#E2E8E4;--muted:#96A29C;--line:#2C3531;--accent:#6DB5C0;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#111513;--paper:#181D1B;--ink:#E2E8E4;--muted:#96A29C;--line:#2C3531;--accent:#6DB5C0;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--body);margin:0;padding-inline:16px;padding-block:26px 56px}
+.wrap{max-width:1240px;margin:0 auto;display:grid;gap:30px}
+header{display:grid;gap:10px;max-width:760px}
+.eyebrow{font:600 13px/1 var(--tech);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font:800 clamp(38px,6.5vw,72px)/.95 var(--display);font-variation-settings:"wdth" 122;letter-spacing:-.02em;margin:0;text-wrap:balance}
+header p{margin:0;color:var(--muted);max-width:64ch}
+.viewer{display:grid;gap:12px}
+.tabs{display:flex;flex-wrap:wrap;gap:4px}
+.tabs button{font:600 14px/1 var(--tech);letter-spacing:.07em;text-transform:uppercase;padding:10px 14px;border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:2px;cursor:pointer}
+.tabs button:hover{color:var(--ink);border-color:var(--muted)}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tabs button:focus-visible,.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.stage{display:grid;grid-template-columns:minmax(0,2.4fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:900px){.stage{grid-template-columns:1fr}}
+.stage img{display:block;width:100%;max-width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line)}
+.info{display:grid;gap:12px;min-width:0}
+.info h2{font:750 30px/1.05 var(--display);font-variation-settings:"wdth" 115;margin:0;text-wrap:balance}
+.info p{margin:0;color:var(--muted)}
+.mats{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.mats li{display:grid;grid-template-columns:16px 1fr;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);font-size:14px}
+.mats i{width:16px;height:16px;border:1px solid var(--line);display:block}
+.tag{font:600 12px/1 var(--tech);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.card{display:grid;gap:8px;background:none;border:0;padding:0;text-align:left;cursor:pointer;color:var(--ink);font:inherit}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line);display:block}
+.card[aria-current="true"] img{outline:3px solid var(--accent);outline-offset:-3px}
+.card b{font:700 18px/1.1 var(--display);font-variation-settings:"wdth" 112}
+.card span{color:var(--muted);font-size:13.5px}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px 36px;border-top:1px solid var(--line);padding-top:20px}
+.notes h3{font:700 17px/1.2 var(--display);margin:0 0 6px}
+.notes p{margin:0;color:var(--muted);font-size:14px;max-width:62ch}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Casa Volado · terreno 10 × 20 m · vista desde el jardín al atardecer</div>
+    <h1>Estilos de Casa Volado</h1>
+    <p>La misma casa, con la misma planta, las mismas medidas y la misma alberca, vestida de seis formas distintas. Elige uno y compara materiales y ambiente.</p>
+  </header>
+
+  <section class="viewer" aria-label="Visor de estilos">
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="stage">
+      <img id="big" src="1_minimalista.jpg" alt="">
+      <div class="info">
+        <span class="tag" id="tag"></span>
+        <h2 id="name"></h2>
+        <p id="desc"></p>
+        <ul class="mats" id="mats"></ul>
+        <p id="fit" style="font-size:14px"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid" id="grid" aria-label="Todos los estilos"></section>
+
+  <section class="notes">
+    <div><h3>Qué se mantiene</h3><p>Planta y medidas del anteproyecto: tres recámaras, estudio, sala-comedor-cocina abierta a la terraza, balcón y alberca de 5.60 × 2.40 m.</p></div>
+    <div><h3>Qué cambia</h3><p>Materiales de fachada, marcos, lamas, aleros, iluminación exterior y pisos de terraza. Cada estilo cambia el carácter de la casa sin mover un muro.</p></div>
+    <div><h3>Cómo están hechos</h3><p>Renders con trazado de rayos en Blender Cycles, a la hora azul, con las luces interiores encendidas. Muebles y vegetación son de referencia.</p></div>
+  </section>
+</div>
+
+<script>
+const S=[
+ {f:'1_minimalista.jpg',n:'Minimalista blanco',t:'Limpio y luminoso',d:'Un marco blanco profundo recorta la planta alta; abajo, un cancel de piso a techo desaparece hacia la terraza.',m:[['#DBD9D1','Estuco liso blanco'],['#0A0A0A','Perfiles negros finos'],['#8A5A30','Deck de madera'],['#E8E6E1','Borde de alberca blanco']],fit:'Ideal si buscas una casa atemporal, fácil de mantener y muy luminosa.'},
+ {f:'2_cristal.jpg',n:'Casa de cristal',t:'Transparencia total',d:'Los dos pisos son vidrio de piso a techo entre losas blancas finas. De noche la casa se vuelve una linterna.',m:[['#DDEBEB','Vidrio de piso a techo'],['#E6E6E6','Losas y columnas blancas'],['#FFB870','LED cálido bajo losa'],['#E7E4DE','Terraza de mármol']],fit:'Espectacular, pero necesita vidrio de control solar y cortinas para el sol del Caribe.'},
+ {f:'3_elegante.jpg',n:'Elegante de lujo',t:'Travertino y bronce',d:'Travertino en muros y losas, lamas verticales de bronce frente a las recámaras y luz LED cálida que dibuja cada losa.',m:[['#CFBC9E','Travertino'],['#6B4526','Lamas y perfiles de bronce'],['#E7E4DE','Mármol claro'],['#FFB870','LED cálido']],fit:'El más señorial. Las lamas dan privacidad y sombra sin perder la vista.'},
+ {f:'4_tropical.jpg',n:'Tropical moderno',t:'Pensado para el trópico',d:'Una celosía de madera envuelve la planta alta y un alero de concreto de 1.6 m da sombra profunda; piedra, palmeras y deck.',m:[['#744520','Celosía de madera'],['#80807A','Alero de concreto'],['#5B554C','Muro de piedra'],['#D4CBB8','Estuco hueso']],fit:'El más adecuado para Santo Domingo: sombra, ventilación cruzada y privacidad.'},
+ {f:'5_concreto.jpg',n:'Concreto y madera',t:'Sobrio y robusto',d:'Concreto aparente con la huella de la cimbra de tablas, plafón de madera bajo los aleros y cancelería negra.',m:[['#7F7F7A','Concreto aparente'],['#744520','Plafón de madera'],['#0A0A0A','Cancelería negra'],['#5B554C','Piedra']],fit:'Muy resistente al clima y casi sin mantenimiento de pintura.'},
+ {f:'6_nordico.jpg',n:'Negro nórdico',t:'Contraste dramático',d:'Madera quemada negra (shou sugi ban), marcos de roble claro y una línea de luz cálida que recorta el volumen.',m:[['#0B0B0B','Madera quemada negra'],['#B99470','Marcos de roble'],['#454545','Concreto oscuro'],['#FFB870','LED cálido']],fit:'El más llamativo de noche. En clima tropical conviene combinarlo con aleros.'},
+];
+const tabs=document.getElementById('tabs'), grid=document.getElementById('grid');
+function show(i){
+  const s=S[i]; const big=document.getElementById('big'); big.src=s.f; big.alt='Render de Casa Volado en estilo '+s.n;
+  document.getElementById('tag').textContent=s.t; document.getElementById('name').textContent=s.n; document.getElementById('desc').textContent=s.d; document.getElementById('fit').textContent=s.fit;
+  document.getElementById('mats').innerHTML=s.m.map(([c,l])=>`<li><i style="background:${c}"></i><span>${l}</span></li>`).join('');
+  tabs.querySelectorAll('button').forEach((b,k)=>b.setAttribute('aria-selected',k===i?'true':'false'));
+  grid.querySelectorAll('.card').forEach((c,k)=>c.setAttribute('aria-current',k===i?'true':'false'));
+}
+S.forEach((s,i)=>{
+  const b=document.createElement('button'); b.role='tab'; b.id='tab-'+i; b.textContent=s.n; b.onclick=()=>show(i); tabs.appendChild(b);
+  const c=document.createElement('button'); c.className='card'; c.id='card-'+i; c.innerHTML=`<img src="${s.f}" alt="" loading="lazy"><b>${s.n}</b><span>${s.t}</span>`;
+  c.onclick=()=>{show(i); document.querySelector('.viewer').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}; grid.appendChild(c);
+});
+show(0);
+</script>
