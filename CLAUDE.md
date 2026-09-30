@@ -93,6 +93,9 @@
 15. Catalizador en 8-K Item 7.01 (nota de prensa "furnished") con verbos "seeks / pursuing / proposed" = plan, no acuerdo firmado; un acuerdo firmado va en Item 1.01 (BENF 23-sep-2026).
 16. ELOC / SEPA (p. ej. Yorkville): la empresa puede vender acciones al inversor en cualquier momento, que las revende al mercado → munición continua; suele venir con notas convertibles del mismo inversor (BENF: SEPA de hasta $100 M + notas convertibles de $4 M).
 17. Los datos gratuitos de Yahoo pueden no coincidir entre velas de 5 min y cierre diario en small caps muy volátiles: usar el cierre oficial para conclusiones.
+18. El catalizador del gap es lo publicado desde el cierre anterior. Una financiación o noticia de ayer es munición/contexto, no el motivo:
+    clasificar N (LGHL 30-sep: 6-K de la convertible del 29-sep 5:15; detectado al comparar con las posiciones de Edu; MSGY y DLXY igual).
+    Control automático en `auditar` (ERROR si tipo ≠ N sin ningún documento ni noticia en la ventana).
 ### Mercado y datos propios
 - Gappers >100 %: el día 1 cierra bajo su apertura el 76 %; el día 2 supera el máximo del día 1 solo el 11 %; corto apertura día 1 → cierre día 2 gana el 80 % (mediana +29 %), pero en el peor 10 % hay subidas de +117 % en contra.
 - Día típico (gap ≥50 %, velas 5 min): máximo del día antes de las 10:00 el 60 %, antes de las 11:00 el 78 %; subida mediana apertura→máximo +18 % (p90 +107 %); caída mediana desde el máximo −41 %; 72 % del volumen en la primera hora.

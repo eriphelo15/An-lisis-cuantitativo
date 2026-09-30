@@ -488,6 +488,12 @@ def auditar(C, CL, replay):
             err.append(f"{s}: cierre anterior Yahoo {c['cierre_prev']} vs Massive {cm} (difieren > 2 %): comprobar cuál es el correcto (¿split?)")
         if not replay and not cm:
             av.append(f"{s}: sin cierre de Massive para contrastar")
+        # 30-sep (caso LGHL): el catalizador tiene que ser de HOY (desde el cierre anterior). Una financiación de ayer es munición,
+        # no el motivo del gap: si no hay ningún 8-K/6-K ni noticia en la ventana, el tipo correcto es N (lo viejo va en la nota)
+        if t in TIPOS_OK - {"N"} and not fuentes and not cl.get("fuente_fuera_herramienta"):
+            err.append(f"{s}: clasificado '{t}' pero no hay ningún 8-K/6-K ni noticia desde el cierre anterior: si el documento es "
+                       "anterior, el tipo es N y lo viejo va en 'nota'; si la noticia existe pero la herramienta no la vio, anotar "
+                       "'fuente_fuera_herramienta' con el enlace y la hora")
         if t == "N" and not replay and not cl.get("fuentes_abiertas"):
             av.append(f"{s}: sin ninguna noticia; confirmar a mano en Finviz/Yahoo")
     return err, av

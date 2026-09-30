@@ -196,6 +196,168 @@
    "avisos": [
     "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)"
    ]
+  },
+  {
+   "sym": "MSGY",
+   "nombre": "Masonglory Limited",
+   "sector": "Construction - Special Trade Contractors",
+   "precio": 4.04,
+   "cierre_prev": 3.13,
+   "gap": 0.2907,
+   "cap": 6634426,
+   "acciones": null,
+   "vol_pre": 9093650,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "nota": "Reclasificado 30-sep de 'F' a N: el 6-K/nota de la colocación son del 28-sep (13:05, en plena sesión), anteriores al cierre del 28-sep; hoy no hay noticia. ANTES (no es de hoy, es munición/contexto): «the Purchasers agreed to purchase from the Company, in a private placement (the “Private Placement”), an aggregate of 667,000 Class A ordinary shares of the Company, par value US$0.0008 each (the “Class A Ordinary Shares”), at a purchase price of US$1.50 per share, for aggregate gross proceeds to the Company of US$1,000,500» = 667 000 acciones (acciones) a $1.50 (dólares por acción) = $1.0 M; más warrants serie A de 166 750 acciones a $1.30 y serie B de 166 750 a $1.10. 6-K del 28-sep (acuerdo firmado el 25-sep); nota GlobeNewswire del 28-sep 13:05, en plena sesión del lunes. No hay noticia nueva hoy (revisados Yahoo/Finviz por la herramienta y EDGAR a mano: el único otro 6-K reciente es la dimisión del CEO del 24-sep). Colocación a $1.50 con la acción a ~$3.8: esos compradores tendrán acciones muy por debajo del precio.",
+    "fuentes_abiertas": [
+     "EDGAR 6-K 28-sep (colocación privada)",
+     "EDGAR 6-K 24-sep (dimisión CEO)",
+     "noticias Yahoo/Finviz vía herramienta (solo la del 28-sep 13:05)"
+    ],
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 7,
+    "tercio": "Baja",
+    "pred_R": -0.04,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 183,
+    "R": -0.05,
+    "WR": 0.54,
+    "gan": 0.48,
+    "perd": -0.67,
+    "PF": 0.85,
+    "dev": 0.04
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 5.2,
+    "pml": 3.13,
+    "pmh_hora": "06:22",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 315721,
+    "inversiones": 0,
+    "caja_fecha": "2026-03-31",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "20-F",
+    "url": "https://www.sec.gov/Archives/edgar/data/2020228/000121390026083085/",
+    "flujo_operativo": -3813420,
+    "flujo_desde": "2025-04-01",
+    "flujo_hasta": "2026-03-31",
+    "meses": 12,
+    "quema_mes": 317785,
+    "autonomia_meses": 1.0
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-07-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/2020228/000121390025062117/ea0207245-17.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-07-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/2020228/000121390026083085/ea0297251-20f_masonglory.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.008
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
+   ]
   }
  ],
  "descartadas": [
@@ -265,33 +427,6 @@
      "items_es": ""
     }
    ]
-  },
-  {
-   "sym": "MSGY",
-   "nombre": "Masonglory Limited",
-   "sector": "Construction - Special Trade Contractors",
-   "precio": 4.04,
-   "cierre_prev": 3.13,
-   "gap": 0.2907,
-   "cap": 6634426,
-   "acciones": null,
-   "vol_pre": 9093650,
-   "bolsa": "NasdaqCM",
-   "clasif": {
-    "tipo": "F",
-    "frase_en": "the Purchasers agreed to purchase from the Company, in a private placement (the “Private Placement”), an aggregate of 667,000 Class A ordinary shares of the Company, par value US$0.0008 each (the “Class A Ordinary Shares”), at a purchase price of US$1.50 per share, for aggregate gross proceeds to the Company of US$1,000,500",
-    "frase_es": "los compradores acordaron comprar a la empresa, en una colocación privada, 667 000 acciones ordinarias clase A a 1.50 dólares por acción, por un total bruto de 1 000 500 dólares",
-    "cifra": "667 000 acciones (acciones) a $1.50 (dólares por acción) = $1.0 M; más warrants serie A de 166 750 acciones a $1.30 y serie B de 166 750 a $1.10",
-    "nota": "6-K del 28-sep (acuerdo firmado el 25-sep); nota GlobeNewswire del 28-sep 13:05, en plena sesión del lunes. No hay noticia nueva hoy (revisados Yahoo/Finviz por la herramienta y EDGAR a mano: el único otro 6-K reciente es la dimisión del CEO del 24-sep). Colocación a $1.50 con la acción a ~$3.8: esos compradores tendrán acciones muy por debajo del precio.",
-    "fuentes_abiertas": [
-     "EDGAR 6-K 28-sep (colocación privada)",
-     "EDGAR 6-K 24-sep (dimisión CEO)",
-     "noticias Yahoo/Finviz vía herramienta (solo la del 28-sep 13:05)"
-    ],
-    "tipo_es": "Financiación"
-   },
-   "motivo": "Financiación: históricamente malo para el corto (PF 0.72)",
-   "docs_hoy": []
   }
  ],
  "resultados": {

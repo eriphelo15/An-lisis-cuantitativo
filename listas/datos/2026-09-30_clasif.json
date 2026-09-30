@@ -1,35 +1,67 @@
 {
- "CNTB": {"tipo": "B",
+ "CNTB": {
+  "tipo": "B",
   "frase_en": "Rademikibart significantly reduced the rate of treatment failure by 81% through Week 4 compared to placebo (p=0.0122)",
   "frase_es": "Rademikibart redujo de forma significativa la tasa de fracaso del tratamiento un 81 % hasta la semana 4 frente a placebo (p=0.0122)",
   "cifra": "−81 % de fracaso del tratamiento (objetivo principal cumplido, p = 0.0122); ensayo de fase 2 con 159 pacientes; sin cifra en dólares",
-  "nota": "8-K Items 7.01/8.01 del 30-sep 3:05 + nota de prensa 7:00. Datos clínicos con resultado (objetivo principal) = biotech real. S-3 del 15-may-2026 presentado (munición disponible); warrants a $2.14 (por encima del precio)."},
- "FRGT": {"tipo": "N",
-  "frase_en": "", "frase_es": "", "cifra": "",
+  "nota": "8-K Items 7.01/8.01 del 30-sep 3:05 + nota de prensa 7:00. Datos clínicos con resultado (objetivo principal) = biotech real. S-3 del 15-may-2026 presentado (munición disponible); warrants a $2.14 (por encima del precio)."
+ },
+ "FRGT": {
+  "tipo": "N",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
   "nota": "Sube sin noticia: la herramienta no encontró titulares en Finviz ni Yahoo desde el 28-sep 16:00 y en EDGAR lo último son Forms 4 del 1-2 sep. Precio < $1 ($0.51); solo ~572 000 acciones (2 contrasplits en 2 años); convertible tóxica y going concern.",
-  "fuentes_abiertas": ["noticias Finviz/Yahoo vía herramienta (0 titulares)", "EDGAR submissions (último: Form 4 del 2-sep)"]},
- "LGHL": {"tipo": "F",
-  "frase_en": "At the closing of the Subsequent Offering, the Company sold to the Buyer the Subsequent Offering Note in the principal amount of $3,000,000.",
-  "frase_es": "Al cierre de la oferta adicional, la empresa vendió al comprador un pagaré (nota convertible) por un principal de 3 000 000 dólares.",
-  "cifra": "$3,000,000 (dólares) en nota convertible senior garantizada a un comprador institucional",
-  "nota": "6-K del 29-sep 5:15 (antes de la sesión de ayer); hoy no hay noticia nueva (Finviz/Yahoo vía herramienta, EDGAR a mano). Solo ~45 900 acciones según Yahoo; convertible tóxica en el último informe; warrants desde $0.16 (en dinero).",
-  "fuentes_abiertas": ["EDGAR 6-K 29-sep (nota convertible $3 M)", "noticias Finviz/Yahoo vía herramienta (0 titulares)"]},
- "NCI": {"tipo": "N",
-  "frase_en": "", "frase_es": "", "cifra": "",
+  "fuentes_abiertas": [
+   "noticias Finviz/Yahoo vía herramienta (0 titulares)",
+   "EDGAR submissions (último: Form 4 del 2-sep)"
+  ]
+ },
+ "LGHL": {
+  "tipo": "N",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
+  "nota": "Reclasificado 30-sep de 'F' a N: el 6-K de la nota convertible es del 29-sep 5:15, anterior al cierre del 29-sep; hoy no hay noticia. ANTES (no es de hoy, es munición/contexto): «At the closing of the Subsequent Offering, the Company sold to the Buyer the Subsequent Offering Note in the principal amount of $3,000,000.» = $3,000,000 (dólares) en nota convertible senior garantizada a un comprador institucional. 6-K del 29-sep 5:15 (antes de la sesión de ayer); hoy no hay noticia nueva (Finviz/Yahoo vía herramienta, EDGAR a mano). Solo ~45 900 acciones según Yahoo; convertible tóxica en el último informe; warrants desde $0.16 (en dinero).",
+  "fuentes_abiertas": [
+   "EDGAR 6-K 29-sep (nota convertible $3 M)",
+   "noticias Finviz/Yahoo vía herramienta (0 titulares)"
+  ]
+ },
+ "NCI": {
+  "tipo": "N",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
   "nota": "Sube sin noticia: 0 titulares en Finviz/Yahoo (herramienta) desde el 28-sep 16:00; en EDGAR lo último es un 6-K del 16-sep y Forms 4 del 8-sep. S-3 del 30-jul-2026 presentado.",
-  "fuentes_abiertas": ["noticias Finviz/Yahoo vía herramienta (0 titulares)", "EDGAR submissions (último 6-K del 16-sep)"]},
- "VBIO": {"tipo": "H",
+  "fuentes_abiertas": [
+   "noticias Finviz/Yahoo vía herramienta (0 titulares)",
+   "EDGAR submissions (último 6-K del 16-sep)"
+  ]
+ },
+ "VBIO": {
+  "tipo": "H",
   "frase_en": "today announced the successful completion of formulation work under the companies' ongoing program to develop a novel oral mucosal formulation of Entolimod",
   "frase_es": "anunció hoy que completó con éxito el trabajo de formulación dentro del programa para desarrollar una nueva formulación oral (por la mucosa de la boca) de Entolimod",
   "cifra": "ninguna cifra en dólares; trabajo de formulación preclínico (el 'x10-40' de oportunidad es una estimación, 'not a revenue forecast')",
-  "nota": "Nota de prensa 30-sep 7:45, sin 8-K. Preclínico/formulación = humo. Munición abundante: ATM, ELOC, S-3, S-1 de jul-2026, warrants en dinero, convertible tóxica."},
- "FFR": {"tipo": "H",
+  "nota": "Nota de prensa 30-sep 7:45, sin 8-K. Preclínico/formulación = humo. Munición abundante: ATM, ELOC, S-3, S-1 de jul-2026, warrants en dinero, convertible tóxica."
+ },
+ "FFR": {
+  "tipo": "H",
   "frase_en": "On September 25, 2026, the Company entered into a non-binding term sheet (the “Term Sheet”) with Faraday Future Intelligent Electric Inc. (“FFAI” or the “Seller”), the Company’s majority stockholder",
   "frase_es": "El 25-sep-2026 la empresa firmó una hoja de términos NO vinculante con Faraday Future (FFAI), que es su accionista mayoritario",
   "cifra": "valoración 'estimada' de $200 M (dólares) del negocio de robots, en hoja de términos no vinculante",
-  "nota": "Antes AIxCrypto (AIXC); cambia de nombre y de ticker a FFR hoy (8-K Item 5.03). Operación con parte vinculada (el accionista mayoritario), no vinculante = humo."},
- "WETO": {"tipo": "N",
-  "frase_en": "", "frase_es": "", "cifra": "",
+  "nota": "Antes AIxCrypto (AIXC); cambia de nombre y de ticker a FFR hoy (8-K Item 5.03). Operación con parte vinculada (el accionista mayoritario), no vinculante = humo."
+ },
+ "WETO": {
+  "tipo": "N",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
   "nota": "Sube sin noticia: 0 titulares en Finviz/Yahoo (herramienta) desde el 28-sep 16:00; en EDGAR lo último es un 6-K del 18-sep. Venta 424B en los últimos 90 días y S-3 de abr-2026 (munición).",
-  "fuentes_abiertas": ["noticias Finviz/Yahoo vía herramienta (0 titulares)", "EDGAR submissions (último 6-K del 18-sep)"]}
+  "fuentes_abiertas": [
+   "noticias Finviz/Yahoo vía herramienta (0 titulares)",
+   "EDGAR submissions (último 6-K del 18-sep)"
+  ]
+ }
 }

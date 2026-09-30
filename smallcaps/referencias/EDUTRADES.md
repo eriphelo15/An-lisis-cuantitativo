@@ -360,3 +360,5 @@ CMCT y TNON; P/L del día $15 314 (12:35) → $18 167 (14:57).
 - CMCT y TNON: sin gap premarket (CMCT +0 %, TNON +3 % a las 9:05); subieron durante la sesión (máx. 10:36 y 11:20). Fuera del alcance
   del Radar (solo gappers del premarket): no es fallo del escáner. Setup de Edu distinto ("runner" intradía), sin medir.
 Base del día del Radar: CNTB +1.35R, FFR −1.25R, VBIO +0.97R, WETO +0.81R, NCI +0.94R (descartadas: LGHL +0.43R, FRGT +0.63R). Un día: sin conclusiones.
+Corregido el 30-sep (el usuario pidió aplicar lo que manda la lógica): LGHL, MSGY (29-sep) y DLXY (28-sep) pasan a N; control automático añadido.
+Con la corrección, LGHL entra en el screener con tesis 5 (baja) y riesgo extremo (0.05 M acciones): la corrección no la convierte en favorita.

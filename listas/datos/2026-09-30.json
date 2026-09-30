@@ -743,6 +743,174 @@
    ]
   },
   {
+   "sym": "LGHL",
+   "nombre": "Lion Group Holding Ltd.",
+   "sector": "Security Brokers, Dealers & Flotation Companies",
+   "precio": 7.13,
+   "cierre_prev": 4.510000228881836,
+   "gap": 0.5809,
+   "cap": 208109,
+   "acciones": 45878,
+   "vol_pre": 67021,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "nota": "Reclasificado 30-sep de 'F' a N: el 6-K de la nota convertible es del 29-sep 5:15, anterior al cierre del 29-sep; hoy no hay noticia. ANTES (no es de hoy, es munición/contexto): «At the closing of the Subsequent Offering, the Company sold to the Buyer the Subsequent Offering Note in the principal amount of $3,000,000.» = $3,000,000 (dólares) en nota convertible senior garantizada a un comprador institucional. 6-K del 29-sep 5:15 (antes de la sesión de ayer); hoy no hay noticia nueva (Finviz/Yahoo vía herramienta, EDGAR a mano). Solo ~45 900 acciones según Yahoo; convertible tóxica en el último informe; warrants desde $0.16 (en dinero).",
+    "fuentes_abiertas": [
+     "EDGAR 6-K 29-sep (nota convertible $3 M)",
+     "noticias Finviz/Yahoo vía herramienta (0 titulares)"
+    ],
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 5,
+    "tercio": "Baja",
+    "pred_R": -0.052,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": true,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 74,
+    "R": -0.11,
+    "WR": 0.54,
+    "gan": 0.6,
+    "perd": -0.96,
+    "PF": 0.74,
+    "dev": -0.07
+   },
+   "riesgo": {
+    "nivel": "Extremo",
+    "motivos": [
+     "Solo 0.05 M de acciones en circulación",
+     "Rotación premarket 1.5× las acciones en circulación"
+    ],
+    "rotacion_pre": 1.46,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 9.79,
+    "pml": 4.6,
+    "pmh_hora": "07:18",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 20124296,
+    "inversiones": 0,
+    "caja_fecha": "2025-12-31",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "20-F",
+    "url": "https://www.sec.gov/Archives/edgar/data/1806524/000121390026050410/",
+    "flujo_operativo": -3523695,
+    "flujo_desde": "2025-01-01",
+    "flujo_hasta": "2025-12-31",
+    "meses": 12,
+    "quema_mes": 293641,
+    "autonomia_meses": 68.5
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": "2025-11-12",
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [],
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     0.16,
+     0.28,
+     1.0,
+     1.13,
+     1.82,
+     1.9,
+     2.0,
+     2.45
+    ],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-04-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1806524/000121390026050410/ea0288087-20f_lion.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": true
+   },
+   "costes": {
+    "locate_1c_R": 0.005
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)",
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
+   ]
+  },
+  {
    "sym": "NCI",
    "nombre": "Neo-Concept International Group Holdings Limited",
    "sector": "Apparel & Other Finishd Prods of  Fabrics & Similar Matl",
@@ -935,32 +1103,6 @@
     "tipo_es": "Sin noticia"
    },
    "motivo": "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5)",
-   "docs_hoy": []
-  },
-  {
-   "sym": "LGHL",
-   "nombre": "Lion Group Holding Ltd.",
-   "sector": "Security Brokers, Dealers & Flotation Companies",
-   "precio": 7.13,
-   "cierre_prev": 4.510000228881836,
-   "gap": 0.5809,
-   "cap": 208109,
-   "acciones": 45878,
-   "vol_pre": 67021,
-   "bolsa": "NasdaqCM",
-   "clasif": {
-    "tipo": "F",
-    "frase_en": "At the closing of the Subsequent Offering, the Company sold to the Buyer the Subsequent Offering Note in the principal amount of $3,000,000.",
-    "frase_es": "Al cierre de la oferta adicional, la empresa vendió al comprador un pagaré (nota convertible) por un principal de 3 000 000 dólares.",
-    "cifra": "$3,000,000 (dólares) en nota convertible senior garantizada a un comprador institucional",
-    "nota": "6-K del 29-sep 5:15 (antes de la sesión de ayer); hoy no hay noticia nueva (Finviz/Yahoo vía herramienta, EDGAR a mano). Solo ~45 900 acciones según Yahoo; convertible tóxica en el último informe; warrants desde $0.16 (en dinero).",
-    "fuentes_abiertas": [
-     "EDGAR 6-K 29-sep (nota convertible $3 M)",
-     "noticias Finviz/Yahoo vía herramienta (0 titulares)"
-    ],
-    "tipo_es": "Financiación"
-   },
-   "motivo": "Financiación: históricamente malo para el corto (PF 0.72)",
    "docs_hoy": []
   }
  ],

@@ -44,6 +44,10 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
 5b. **Auditoría antes de publicar (obligatoria, nada se entrega sin ella):**
    - Cada titular y cada 8-K/6-K de las acciones con gap ≥ 20 % abierto y leído (no basta el titular). Mirar si la noticia es vieja reciclada.
    - `N` solo si se revisaron a mano Finviz, Yahoo y EDGAR sin encontrar nada → anotar `"fuentes_abiertas"` en el `_clasif.json`.
+   - **El catalizador tiene que ser de HOY (desde el cierre anterior).** Un 6-K/8-K o nota de días anteriores (p. ej. una financiación de
+     ayer) es munición o contexto, no el motivo del gap: tipo `N` y lo viejo en `nota` (LGHL 30-sep, MSGY 29-sep, DLXY 28-sep).
+     `finalizar` da ERROR si el tipo no es N y no hay ningún 8-K/6-K ni noticia en la ventana; si la noticia de hoy existe pero la
+     herramienta no la vio, anotar `"fuente_fuera_herramienta"` con el enlace y la hora.
    - Cada `frase_en` copiada literal del documento (verificable con Ctrl+F) y cada cifra con su unidad (dólares vs. acciones).
    - `finalizar` ejecuta un control automático (cobertura del escáner ≥ 97 %, todo clasificado, sin `N` con titulares sin abrir,
      frase + traducción + cifra presentes, munición analizada). Si da ERROR, corregir y repetir; `--forzar` solo si el tiempo se acaba,

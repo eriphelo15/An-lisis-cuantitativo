@@ -1053,6 +1053,164 @@
    ]
   },
   {
+   "sym": "DLXY",
+   "nombre": "Delixy Holdings Limited",
+   "sector": "Wholesale-Petroleum & Petroleum Products (No Bulk Stations)",
+   "precio": 3.05,
+   "cierre_prev": 2.4995,
+   "gap": 0.2202,
+   "cap": 7978800,
+   "acciones": null,
+   "vol_pre": 1871557,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "nota": "Reclasificado 30-sep de 'S' a N: el contra-split se anunció antes y no explica un gap real (el cierre ya está ajustado); no hay noticia de hoy. ANTES (no es de hoy, es munición/contexto): «Delixy Holdings Limited Announces 1-for-5 Reverse Share Split Effective September 28, 2026» = contra-split 1:5, efectivo HOY. Sin noticias nuevas desde el 18-sep; hoy es el primer día tras el contra-split. Antes: LOI no vinculante por un campo petrolero (16-sep, +452 %).",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano 28-sep",
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 7,
+    "tercio": "Baja",
+    "pred_R": -0.04,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 183,
+    "R": -0.05,
+    "WR": 0.54,
+    "gan": 0.48,
+    "perd": -0.67,
+    "PF": 0.85,
+    "dev": 0.04
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 3.43,
+    "pml": 2.68,
+    "pmh_hora": "09:15",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 1793000,
+    "inversiones": 0,
+    "caja_fecha": "2025-12-31",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "20-F",
+    "url": "https://www.sec.gov/Archives/edgar/data/2025218/000121390026050402/",
+    "flujo_operativo": -5245000,
+    "flujo_desde": "2025-01-01",
+    "flujo_hasta": "2025-12-31",
+    "meses": 12,
+    "quema_mes": 437083,
+    "autonomia_meses": 4.1
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-07-09",
+      "url": "https://www.sec.gov/Archives/edgar/data/2025218/000121390025062254/ea0207238-23.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-04-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/2025218/000121390026050402/ea0287803-20f_delixy.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.011
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
+   ]
+  },
+  {
    "sym": "CLRO",
    "nombre": "ClearOne, Inc.",
    "sector": "Telephone & Telegraph Apparatus",
@@ -1346,29 +1504,6 @@
      "items_es": "8.01 otros hechos; 9.01 anexos"
     }
    ]
-  },
-  {
-   "sym": "DLXY",
-   "nombre": "Delixy Holdings Limited",
-   "sector": "Wholesale-Petroleum & Petroleum Products (No Bulk Stations)",
-   "precio": 3.05,
-   "cierre_prev": 2.4995,
-   "gap": 0.2202,
-   "cap": 7978800,
-   "acciones": null,
-   "vol_pre": 1871557,
-   "bolsa": "NasdaqCM",
-   "clasif": {
-    "tipo": "S",
-    "frase_en": "Delixy Holdings Limited Announces 1-for-5 Reverse Share Split Effective September 28, 2026",
-    "frase_es": "Delixy Holdings anuncia un contra-split de 1 por 5 efectivo el 28 de septiembre de 2026",
-    "cifra": "contra-split 1:5, efectivo HOY",
-    "nota": "Sin noticias nuevas desde el 18-sep; hoy es el primer día tras el contra-split. Antes: LOI no vinculante por un campo petrolero (16-sep, +452 %).",
-    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano 28-sep",
-    "tipo_es": "Corporativo / bolsa"
-   },
-   "motivo": "Aviso de bolsa / corporativo: históricamente malo para el corto (PF 0.64)",
-   "docs_hoy": []
   }
  ],
  "resultados": {

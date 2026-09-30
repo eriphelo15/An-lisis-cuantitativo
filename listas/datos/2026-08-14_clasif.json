@@ -17,7 +17,8 @@
   "frase_es": "SurgePays informa un crecimiento de ingresos del 40,7 % interanual en el 2º trimestre de 2026, hasta 16,2 millones de dólares, y beneficio neto positivo",
   "cifra": "$16.2 M (dólares) de ingresos del trimestre; +40.7 %",
   "nota": "Resultados trimestrales (GlobeNewswire 7:45). Corregido en la auditoría: antes figuraba como 'sin noticia'.",
-  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)"
+  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
+  "fuente_fuera_herramienta": "GlobeNewswire 14-ago 7:45 (resultados), día de prueba sin agencias"
  },
  "SKYE": {
   "tipo": "N",
@@ -30,6 +31,7 @@
   "frase_es": "Harte Hanks firma un acuerdo definitivo para ser comprada por Star Equity Holdings a 5,00 dólares por acción",
   "cifra": "$5.00 por acción (precio fijo de compra)",
   "nota": "Compra a precio fijo por acción: el precio queda anclado. Corregido en la auditoría: antes figuraba como 'sin noticia'.",
-  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)"
+  "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
+  "fuente_fuera_herramienta": "nota de prensa del acuerdo de compra, día de prueba sin agencias"
  }
 }
