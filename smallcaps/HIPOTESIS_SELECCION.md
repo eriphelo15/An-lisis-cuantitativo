@@ -227,3 +227,21 @@ Acciones en circulación = capitalización real ÷ precio real (acciones de la S
 | HX2 | Sin munición activa (sin venta 424B en 90 días y sin shelf S-3) → corto PEOR que con munición | mismo signo DEV y VAL, VAL t < −2 |
 Holm sobre HX1-HX2 (VAL). Descriptivo: dentro del humo; las dos condiciones juntas; escalones de acciones (< 2 M, 2-5 M, 5-20 M, > 20 M).
 Los avisos se añaden a la ficha como información aunque no se validen; solo cambiarían el NIVEL si se validan.
+
+## Ronda 12 — puntuación global de la tesis de corto (pre-registro, ANTES de ver resultados, 30-sep-2026)
+Pedido por el usuario: sustituir las letras por una puntuación global (gap como un factor más) + riesgo estructural aparte.
+**Universo:** 3 000 catalizadores clasificados a mano (ronda 2b), gap ≥ 20 %, precio real ≥ $1, ambiguos fuera, y SIN los grupos que el
+Radar descarta (C compra en efectivo, R resultados, F financiación, S bolsa) → 1 222 casos (DEV 501 / VAL 721).
+**Resultado medido:** setup base (corto a la apertura, stop +30 % con 5 % de deslizamiento, coste 1 %, salida al cierre), en R.
+**Factores (todos conocidos antes de la apertura):** gap 50-100 % y gap ≥ 100 % (base 20-50 %); catalizador H humo, B biotech, K contrato
+(base O otros); venta 424B en 90 días; shelf S-3; diluidor en serie (≥ 3 ventas 424B en 365 días); 8-K solo nota de prensa.
+**Pesos:** regresión lineal de R sobre esos factores SOLO con DEV 2015-21. Puntuación = valor predicho, pasado a 0-100 por percentiles de DEV.
+| # | Hipótesis (en VAL 2022-26, pesos congelados de DEV) | Criterio |
+|---|---|---|
+| HS1 | La puntuación ordena: correlación de rangos puntuación-R > 0 | p < 0.05 (Spearman) |
+| HS2 | Tercio alto mejor que tercio bajo | diferencia > 0, t > 2 |
+Descriptivo: R, WR, ganancia/pérdida media y PF por tercios en DEV y VAL; dentro de gap ≥ 50 %; pesos obtenidos.
+Factores que el Radar ve hoy pero NO existen en el histórico (ATM, ELOC, warrants en dinero, convertible tóxica, going concern, caja):
+se mostrarán en la ficha, pero con peso 0 hasta que se puedan medir. El riesgo estructural (acciones < 5 M, precio, rotación) NO entra
+en la puntuación: va aparte y limita el tamaño.
+Si HS1 y HS2 no se cumplen, la puntuación se usa solo para ordenar la lista, marcada "no validada".
