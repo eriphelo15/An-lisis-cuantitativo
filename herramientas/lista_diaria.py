@@ -165,12 +165,12 @@ def massive_cierres(dia):
     """Cierre oficial de TODAS las acciones en `dia` (Massive, antes Polygon; plan gratis, 1 consulta; la credencial la añade el
     entorno). Fuente complementaria a Yahoo (añadida el 29-sep-2026 a petición del usuario). Devuelve {} si no está disponible."""
     import requests
-    for k in range(4):
+    for k in range(8):
         try:
             r = requests.get(f"https://api.polygon.io/v2/aggs/grouped/locale/us/market/stocks/{dia}",
                              params=dict(adjusted="false"), timeout=(15, 60))
             if r.status_code == 429 or "exceeded" in r.text[:300]:
-                time.sleep(20); continue
+                time.sleep(15); continue
             return {x["T"]: x["c"] for x in (r.json().get("results") or []) if x.get("c")}
         except Exception:
             time.sleep(10)

@@ -11,7 +11,7 @@ import requests
 
 BASE = "https://api.polygon.io"
 OUT = "/home/user/data/massive"
-PAUSA = 12.5
+PAUSA = 15.5   # 4 consultas/min: deja hueco para la consulta diaria del Radar (límite 5/min compartido)
 S = requests.Session()
 
 
