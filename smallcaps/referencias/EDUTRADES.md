@@ -350,3 +350,13 @@ sería de ejecución y de lectura del volumen en el momento.
 - Premarket volumen/float y lectura de la cinta: necesitan datos de pago.
 - **Medido el 29-sep-2026 (ronda 9, `INFORME_SELECCION.md`):** E1 overextended gap down → funcionaba en 2015-21 (+0.07R / +0.12R) pero
   en 2022-26 pierde (−0.06R / −0.23R). E2 historial de spikes rojos → casi nunca se da (4 %) y no mejora el corto. Ninguna validada.
+
+## Contraste en vivo, 30-sep-2026 (capturas del directo "Zombie Hour", https://www.youtube.com/live/lqiZNPPjLOE)
+Sin transcripción aún (YouTube no la había generado). Posiciones visibles: cortos en CNTB (11 727 acciones a $1.476 a las 12:35), LGHL,
+CMCT y TNON; P/L del día $15 314 (12:35) → $18 167 (14:57).
+- CNTB: 1.ª de nuestro Radar (tesis 80, alta). Base del día +1.35R (apertura $1.885 → cierre $1.10). Coincidimos.
+- LGHL: nosotros la descartamos como "financiación", pero el 6-K de la nota convertible era del 29-sep 5:15, ANTES de la sesión anterior;
+  hoy no había noticia → debió clasificarse "sin noticia" (N) y quedar en el screener. Base +0.43R. **Error de clasificación nuestro.**
+- CMCT y TNON: sin gap premarket (CMCT +0 %, TNON +3 % a las 9:05); subieron durante la sesión (máx. 10:36 y 11:20). Fuera del alcance
+  del Radar (solo gappers del premarket): no es fallo del escáner. Setup de Edu distinto ("runner" intradía), sin medir.
+Base del día del Radar: CNTB +1.35R, FFR −1.25R, VBIO +0.97R, WETO +0.81R, NCI +0.94R (descartadas: LGHL +0.43R, FRGT +0.63R). Un día: sin conclusiones.
