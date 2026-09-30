@@ -19,6 +19,10 @@
 - **Principio del usuario: toda idea o criterio se valida con datos antes de usarlo.** Aunque tenga lógica, no se da por buena sin medirla.
 - El usuario tiene mucha experiencia ejecutando (futuros): su trabajo es ejecutar el mejor setup según la acción del precio; el trabajo fino de selección es de Claude.
 - **Operará acciones en bróker normal, sin fondeo.** Cuenta prevista: ~$2 000. **Reside en República Dominicana.** Bróker previsto: TradeZero International (mín. $500, locates integrados) para cortos; IBKR secundario (mín. margen $2 000); Cobra/CenterPoint cuando la cuenta ≥ $30 000. Política de riesgo del usuario: 1 % base; hasta 5 % cuando la ventaja estadística esté validada. Referencia medida (Kelly sobre R reales del setup A, ajustados): ventaja +0.05R → Kelly 4 %; +0.10R → 8 %; +0.20R → 16.5 % (5 % ≈ 1/3 Kelly, aún 78 % prob. de caída >30 %); +0.30R → 25 %. Regla acordada: 5 % solo con ventaja validada ≥ ~+0.20R y ≥ 50-100 operaciones; la cola real (halts) puede ser peor que la de la muestra.
+- **Principio del usuario (30-sep): la base mecánica NO valida nada.** Es una regla fija sin ejecución; en vivo solo da más o menos peso a una
+  tesis. Lo que ya tiene valor en el trabajo de campo está definido (filtro + puntuación validados en el histórico). Lo ÚNICO que certifica es
+  el diario: selección de Claude + ejecución del usuario + cierre real de cada operación → esperanza/WR/PF reales. Presentar la base como
+  "referencia", nunca como validación; cuando haya operaciones en el diario, esas son las cifras principales.
 - **Formato de resultados:** el usuario piensa en WR, ganancia media, pérdida media y PF. Dar SIEMPRE los resultados en ambos formatos: esperanza en R + WR + ganancia media (R) + pérdida media (R) + PF (y en $ para su cuenta cuando aplique). Equivalencia: +0.20R ≈ PF 1.4-1.5.
 - Commits y push en la rama `claude/analisis-cuantitativo-45j7qe`. Sin PR salvo que lo pida.
 

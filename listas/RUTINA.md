@@ -62,8 +62,9 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
 7. `git add listas/datos listas/m1 listas/ruptura_930.csv && git commit -m "Lista diaria HOY" && git push -u origin claude/analisis-cuantitativo-45j7qe`
    (con las líneas de atribución de siempre).
 8. Mensaje final en español: tabla del screener ordenada por tesis (ticker, tesis 0-100 y tercio, riesgo, gap, precio, catalizador),
-   de cada una la frase original + traducción + cifra y la munición; las descartadas en una línea con su motivo; resultado de base
-   del día anterior por tercio y enlace a la página.
+   de cada una la frase original + traducción + cifra y la munición; las descartadas en una línea con su motivo; referencia de base
+   del día anterior por tercio (es REFERENCIA, no validación: lo que valida es el diario del usuario; si hay operaciones nuevas en `diario`,
+   sus resultados reales van primero) y enlace a la página.
    **Solo trabajo de campo (selección).** NO dar instrucciones de ejecución (entrada, stop, tamaño, salida): la ejecución es discrecional
    del usuario. El análisis de ejecución se trata aparte, en conversaciones de formación y estudios, nunca en la lista del día.
 9. **Notificación push** (pedida por el usuario el 28-sep; probada y funciona): herramienta `PushNotification`, una línea < 200
