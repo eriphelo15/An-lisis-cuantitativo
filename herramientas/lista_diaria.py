@@ -225,11 +225,13 @@ def escanear_vivo():
         cm = MS.get(q["symbol"])
         # split efectivo hoy (29-sep: CDT, AGRZ, ONMD, TRUG, VRME salían +900-2400 %): el histórico y Massive dan el cierre SIN
         # ajustar; la cotización de Yahoo sí lo ajusta → si difieren ×2 o más, se usa el factor entero del split
-        qref = [x for x in (q.get("regularMarketPrice") if pre else None, q.get("regularMarketPreviousClose")) if x]
+        # antes de la apertura solo regularMarketPrice (= cierre de AYER); regularMarketPreviousClose es el de ANTEAYER y un día de
+        # +86 % parecía un split (30-sep: BKYI y SDEV salían +77 % / +71 % y en realidad bajaban −11 % / −15 %)
+        qref = [x for x in ((q.get("regularMarketPrice"),) if pre else (q.get("regularMarketPreviousClose"),)) if x]
         split = None
         for r in qref:
             f = r / prev
-            if f >= 1.9 or f <= 0.55:
+            if (f >= 1.9 or f <= 0.55) and (not cm or abs(cm / prev - 1) < 0.02):
                 split = round(f) if f >= 1.9 else round(1 / f)
                 prev, cm = (prev * split, cm * split if cm else cm) if f >= 1.9 else (prev / split, cm / split if cm else cm)
                 break

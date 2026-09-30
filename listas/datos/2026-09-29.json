@@ -381,7 +381,44 @@
    "avisos": []
   }
  ],
- "resultados": null,
+ "resultados": {
+  "BKYI": {
+   "apertura": 3.369999885559082,
+   "maximo": 4.659999847412109,
+   "minimo": 2.700000047683716,
+   "cierre": 3.119999885559082,
+   "R": -1.25,
+   "subida_max": 0.383,
+   "caida_cierre": -0.074
+  },
+  "SSTI": {
+   "apertura": 8.300000190734863,
+   "maximo": 8.430000305175781,
+   "minimo": 8.180000305175781,
+   "cierre": 8.210000038146973,
+   "R": 0.003,
+   "subida_max": 0.016,
+   "caida_cierre": -0.011
+  },
+  "SANG": {
+   "apertura": 4.949999809265137,
+   "maximo": 5.059999942779541,
+   "minimo": 4.869999885559082,
+   "cierre": 4.929999828338623,
+   "R": -0.02,
+   "subida_max": 0.022,
+   "caida_cierre": -0.004
+  },
+  "MSGY": {
+   "apertura": 3.940000057220459,
+   "maximo": 4.769999980926514,
+   "minimo": 3.200000047683716,
+   "cierre": 4.440000057220459,
+   "R": -0.456,
+   "subida_max": 0.211,
+   "caida_cierre": 0.127
+  }
+ },
  "auditoria": {
   "errores": [],
   "avisos": [],
