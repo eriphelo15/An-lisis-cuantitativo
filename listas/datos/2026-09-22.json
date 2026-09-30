@@ -4,15 +4,15 @@
  "replay": true,
  "desde": "2026-09-21 16:00",
  "corte": "2026-09-22 09:10",
+ "version": 2,
  "reglas": {
-  "gap_lista": 0.5,
-  "gap_vigilar": 0.2,
+  "gap_minimo": 0.2,
   "stop": 0.3,
   "deslizamiento": 0.05,
   "coste": 0.01,
   "riesgo_accion": 0.3750000000000002
  },
- "lista": [
+ "acciones": [
   {
    "sym": "LHSW",
    "nombre": "Lianhe Sowell International Group Ltd",
@@ -21,8 +21,9 @@
    "cierre_prev": 0.43299999833106995,
    "gap": 1.933,
    "cap": 66040000.0,
+   "acciones": null,
    "vol_pre": null,
-   "nivel": "A",
+   "bolsa": "",
    "clasif": {
     "tipo": "H",
     "frase_en": "today announced that it has entered into a strategic cooperation agreement with Kumquat Technology Co., Ltd., a subsidiary of Chery Group",
@@ -30,6 +31,107 @@
     "cifra": "sin cifra en dólares: cooperación, sitios de demostración y 'explorar' mercados exteriores",
     "nota": "Nota de prensa (8:00) sin 8-K/6-K. Alianza sin cifra = humo. Munición: venta 424B en 90 días, S-1 (27-ago), going concern.",
     "tipo_es": "Humo / cosmético"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 96,
+    "tercio": "Alta",
+    "pred_R": 0.188,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": true,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": true,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 160,
+    "R": 0.26,
+    "WR": 0.69,
+    "gan": 0.82,
+    "perd": -1.0,
+    "PF": 1.86,
+    "dev": 0.17
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 1.56,
+    "pml": 0.4278,
+    "pmh_hora": "09:18",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 1885367,
+    "inversiones": 0,
+    "caja_fecha": "2026-03-31",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "20-F",
+    "url": "https://www.sec.gov/Archives/edgar/data/2004024/000121390026089090/",
+    "flujo_operativo": -8966396,
+    "flujo_desde": "2025-04-01",
+    "flujo_hasta": "2026-03-31",
+    "meses": 12,
+    "quema_mes": 747200,
+    "autonomia_meses": 2.5
    },
    "catalizadores": [],
    "docs_hoy": [],
@@ -74,131 +176,11 @@
     "eloc": false,
     "warrants_en_dinero": false
    },
-   "venta_hoy": false,
    "costes": {
     "locate_1c_R": 0.026
    },
-   "estad": {
-    "R": 0.45,
-    "WR": 0.75,
-    "gan": 0.94,
-    "perd": -1.03,
-    "PF": 2.74,
-    "n": 56,
-    "squeeze": 0.09,
-    "fuente": "base mecánica, humo + gap ≥100 % + precio ≥ $1 · VAL 2022-26 (DEV 2015-21: +0.42R, 18 casos) · corte provisional (ronda 5)"
-   },
    "avisos": [
     "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)"
-   ]
-  },
-  {
-   "sym": "QNME",
-   "nombre": "Quanome Technologies, Inc.",
-   "sector": "Arrangement of  Transportation of  Freight & Cargo",
-   "precio": 1.32,
-   "cierre_prev": 0.6399999856948853,
-   "gap": 1.0625,
-   "cap": 45444377.88,
-   "vol_pre": null,
-   "nivel": "A",
-   "clasif": {
-    "tipo": "H",
-    "frase_en": "entered into a Purchase and Sale Agreement and related purchase order with Compal Electronics, Inc. for the purchase of 32 GPU server units for an aggregate purchase price of approximately US$18.8 million",
-    "frase_es": "firmó un acuerdo para COMPRAR a Compal Electronics 32 servidores GPU por unos 18,8 millones de dólares",
-    "cifra": "$18.8 M (dólares) que la empresa PAGA (compra), no ingresos; capitalización ~$45 M",
-    "nota": "8-K Item 1.01 del 21-sep 16:15. Es un gasto (giro hacia IA/cómputo), no un contrato de venta = humo. Munición: shelf S-3 (2-sep), convertible tóxica, going concern.",
-    "tipo_es": "Humo / cosmético"
-   },
-   "catalizadores": [
-    {
-     "form": "8-K",
-     "hora": "2026-09-21 16:45",
-     "items": "5.02",
-     "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101830/ea0305363-8k_quanome.htm",
-     "anexos": [
-      {
-       "archivo": "ea0305363-8k_quanome.htm",
-       "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101830/ea0305363-8k_quanome.htm"
-      }
-     ]
-    },
-    {
-     "form": "8-K",
-     "hora": "2026-09-21 16:15",
-     "items": "1.01",
-     "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101812/ea0306012-8k_quanome.htm",
-     "anexos": [
-      {
-       "archivo": "ea0306012-8k_quanome.htm",
-       "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101812/ea0306012-8k_quanome.htm"
-      }
-     ]
-    }
-   ],
-   "docs_hoy": [
-    {
-     "form": "8-K",
-     "hora": "2026-09-21 16:45",
-     "items": "5.02",
-     "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101830/ea0305363-8k_quanome.htm",
-     "items_es": "5.02 directivos"
-    },
-    {
-     "form": "8-K",
-     "hora": "2026-09-21 16:15",
-     "items": "1.01",
-     "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101812/ea0306012-8k_quanome.htm",
-     "items_es": "1.01 acuerdo firmado"
-    }
-   ],
-   "noticias": [],
-   "municion": {
-    "venta90": false,
-    "s3": "2026-09-02",
-    "s1": null,
-    "ventas_12m": 0,
-    "aviso_bolsa": true,
-    "contrasplits_2a": 2,
-    "ultimas_ventas": [
-     {
-      "form": "424B4",
-      "fecha": "2024-06-28",
-      "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390024057041/ea0201917-14.htm"
-     }
-    ],
-    "atm": false,
-    "toxica": true,
-    "going_concern": true,
-    "warrants": [
-     1.91,
-     1.93,
-     4.5
-    ],
-    "informe": {
-     "form": "10-Q",
-     "fecha": "2026-05-19",
-     "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026059117/ea0290004-10q_lakeside.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.025
-   },
-   "estad": {
-    "R": 0.45,
-    "WR": 0.75,
-    "gan": 0.94,
-    "perd": -1.03,
-    "PF": 2.74,
-    "n": 56,
-    "squeeze": 0.09,
-    "fuente": "base mecánica, humo + gap ≥100 % + precio ≥ $1 · VAL 2022-26 (DEV 2015-21: +0.42R, 18 casos) · corte provisional (ronda 5)"
-   },
-   "avisos": [
-    "Convertible de precio variable (tóxica) en el último informe"
    ]
   },
   {
@@ -209,8 +191,9 @@
    "cierre_prev": 2.559999942779541,
    "gap": 1.0117,
    "cap": 3374202.75,
+   "acciones": null,
    "vol_pre": null,
-   "nivel": "A",
+   "bolsa": "",
    "clasif": {
     "tipo": "H",
     "frase_en": "today announced a refined corporate strategy to explore its D-MAVs for additional candidates, including a pan-filovirus program along the U.S. Food and Drug Administration (FDA) Animal Rule pathway",
@@ -218,6 +201,107 @@
     "cifra": "sin cifra: 'explorar', datos in vitro (preclínico)",
     "nota": "Nota de prensa (7:30) sin 8-K. 'Explorar' + preclínico = humo. Esa tarde firmó el warrant inducement a $3.25 (8-K del 23-sep). Munición: 424B en 90 días, ATM, S-1, going concern.",
     "tipo_es": "Humo / cosmético"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 93,
+    "tercio": "Alta",
+    "pred_R": 0.166,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": true,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": true,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 160,
+    "R": 0.26,
+    "WR": 0.69,
+    "gan": 0.82,
+    "perd": -1.0,
+    "PF": 1.86,
+    "dev": 0.17
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 5.76,
+    "pml": 2.53,
+    "pmh_hora": "08:28",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 8289108,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1615219/000119312526346852/",
+    "flujo_operativo": -5541348,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 923558,
+    "autonomia_meses": 9.0
    },
    "catalizadores": [],
    "docs_hoy": [],
@@ -274,22 +358,215 @@
     "eloc": false,
     "warrants_en_dinero": false
    },
-   "venta_hoy": false,
    "costes": {
     "locate_1c_R": 0.006
    },
-   "estad": {
-    "R": 0.45,
-    "WR": 0.75,
-    "gan": 0.94,
-    "perd": -1.03,
-    "PF": 2.74,
-    "n": 56,
-    "squeeze": 0.09,
-    "fuente": "base mecánica, humo + gap ≥100 % + precio ≥ $1 · VAL 2022-26 (DEV 2015-21: +0.42R, 18 casos) · corte provisional (ronda 5)"
-   },
    "avisos": [
     "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)"
+   ]
+  },
+  {
+   "sym": "QNME",
+   "nombre": "Quanome Technologies, Inc.",
+   "sector": "Arrangement of  Transportation of  Freight & Cargo",
+   "precio": 1.32,
+   "cierre_prev": 0.6399999856948853,
+   "gap": 1.0625,
+   "cap": 45444377.88,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "clasif": {
+    "tipo": "H",
+    "frase_en": "entered into a Purchase and Sale Agreement and related purchase order with Compal Electronics, Inc. for the purchase of 32 GPU server units for an aggregate purchase price of approximately US$18.8 million",
+    "frase_es": "firmó un acuerdo para COMPRAR a Compal Electronics 32 servidores GPU por unos 18,8 millones de dólares",
+    "cifra": "$18.8 M (dólares) que la empresa PAGA (compra), no ingresos; capitalización ~$45 M",
+    "nota": "8-K Item 1.01 del 21-sep 16:15. Es un gasto (giro hacia IA/cómputo), no un contrato de venta = humo. Munición: shelf S-3 (2-sep), convertible tóxica, going concern.",
+    "tipo_es": "Humo / cosmético"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 83,
+    "tercio": "Alta",
+    "pred_R": 0.117,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": true,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": true,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 160,
+    "R": 0.26,
+    "WR": 0.69,
+    "gan": 0.82,
+    "perd": -1.0,
+    "PF": 1.86,
+    "dev": 0.17
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 1.7601,
+    "pml": 0.9324,
+    "pmh_hora": "07:44",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 670281,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-K",
+    "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026103571/",
+    "flujo_operativo": -4469978,
+    "flujo_desde": "2025-07-01",
+    "flujo_hasta": "2025-12-31",
+    "meses": 6,
+    "quema_mes": 744996,
+    "autonomia_meses": 0.9
+   },
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-21 16:45",
+     "items": "5.02",
+     "items_es": "5.02 directivos",
+     "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101830/ea0305363-8k_quanome.htm",
+     "partes": [
+      {
+       "archivo": "ea0305363-8k_quanome.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101830/ea0305363-8k_quanome.htm",
+       "texto": "Item 5.02 Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers; Compensatory Arrangements of Certain Officers. Resignation of Director On September 21, 2026, the Board of Directors (the “Board”) of Quanome Technologies, Inc. (the “Company”) accepted Ms. Xiaoou Li’s resignation as a member of the Board of Directors (the “Board”), effective immediately (the “Effective Date”). Ms. Li’s resignation from the Board is not due to any disagreement with the Company on any matter relating to its operations, policies or practices. Appointment of Director On September 21, 2026, the Board elected Ms. Chao Liu to become a new independent director of the Board, effective immediately, to fill the vacancy created by Ms. Li's resignation. In connection with the election of Ms. Liu, the Board now consists of five members, composed of a majority of independent directors under the Nasdaq Marketplace Rules. Ms. Chao Liu, age 44, brings more than a decade of leadership experience across investment, real estate and non-profit organizations. Ms. Liu has served as President of Prosperity Alliance Singapore, an affiliate of the United Nations Institute for Training and Research (UNITAR) since 2025, as Chief Executive Officer of The HLW Investment (Singapore) since 2023, and as Chief Executive Officer of The HLW Investment USA since 2013, where Ms. Liu is responsible for real estate investment and property management. Ms. Liu founded the Brotherhood Cup Foundation USA in November 2021 and served as founder of the Brotherhood Cup (China), a charity organiza"
+      }
+     ]
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-09-21 16:15",
+     "items": "1.01",
+     "items_es": "1.01 acuerdo firmado",
+     "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101812/ea0306012-8k_quanome.htm",
+     "partes": [
+      {
+       "archivo": "ea0306012-8k_quanome.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101812/ea0306012-8k_quanome.htm",
+       "texto": "Item 1.01 Entry into a Material Definitive Agreement. Purchase and Sale Agreement On September 16, 2026, Quanome Technologies, Inc. (the “Company”) entered into a Purchase and Sale Agreement and related purchase order (collectively, the “Purchase Agreement”) with Compal Electronics, Inc. (the “Supplier”) for the purchase of 32 GPU server units for an aggregate purchase price of approximately US$18.8 million. Under the Purchase Agreement, the Company is required to make an initial payment equal to 20% of the aggregate purchase price following acceptance of the purchase order, with the remaining 80% payable prior to shipment, subject to the satisfaction of the applicable delivery and other conditions set forth in the Purchase Agreement. The GPU servers are expected to be delivered to a designated data center location in the United States. The Purchase Agreement contains customary provisions relating to delivery, title and risk of loss, inspection and acceptance, warranty coverage, remedies for non-conforming products, and termination and refund rights in certain circumstances. The Supplier is also required to provide certain commercially customary warranty and replacement support with respect to the GPU servers, subject to the terms and limitations set forth in the Purchase Agreement. The completion of the purchase remains subject to a number of conditions, including the Company’s payment obligations, the Supplier’s ability to complete production and delivery, applicable product registration and supply-chain requirements, and other customary commercial and operational conditi"
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-21 16:45",
+     "items": "5.02",
+     "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101830/ea0305363-8k_quanome.htm",
+     "items_es": "5.02 directivos"
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-09-21 16:15",
+     "items": "1.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101812/ea0306012-8k_quanome.htm",
+     "items_es": "1.01 acuerdo firmado"
+    }
+   ],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": "2026-09-02",
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 2,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2024-06-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390024057041/ea0201917-14.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     1.91,
+     1.93,
+     4.5
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-05-19",
+     "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026059117/ea0290004-10q_lakeside.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.025
+   },
+   "avisos": [
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
    ]
   },
   {
@@ -300,13 +577,114 @@
    "cierre_prev": 0.7200000286102295,
    "gap": 0.7917,
    "cap": 13280428.74,
+   "acciones": null,
    "vol_pre": null,
-   "nivel": "VIGILAR",
+   "bolsa": "",
    "clasif": {
     "tipo": "N",
     "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
     "nota": "Solo un 13D/A (21-sep 16:06). La empresa publicó 'Response to Unusual Market Action' a las 9:25, después del corte de las 9:10.",
     "tipo_es": "Sin noticia"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 20,
+    "tercio": "Baja",
+    "pred_R": -0.003,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": true,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 74,
+    "R": -0.11,
+    "WR": 0.54,
+    "gan": 0.6,
+    "perd": -0.96,
+    "PF": 0.74,
+    "dev": -0.07
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 1.62,
+    "pml": 1.14,
+    "pmh_hora": "05:42",
+    "hasta": "09:14"
+   },
+   "caja": {
+    "caja": 20372000,
+    "inversiones": 0,
+    "caja_fecha": "2025-12-31",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "20-F",
+    "url": "https://www.sec.gov/Archives/edgar/data/1296484/000114036126012456/",
+    "flujo_operativo": 26431000,
+    "flujo_desde": "2025-01-01",
+    "flujo_hasta": "2025-12-31",
+    "meses": 12
    },
    "catalizadores": [],
    "docs_hoy": [
@@ -366,197 +744,13 @@
     "eloc": false,
     "warrants_en_dinero": false
    },
-   "venta_hoy": false,
    "costes": {
     "locate_1c_R": 0.026
    },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
-   },
    "avisos": [
-    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar",
-    "Convertible de precio variable (tóxica) en el último informe"
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)",
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
    ]
-  },
-  {
-   "sym": "FBGL",
-   "nombre": "FBS Global Ltd",
-   "sector": "General Bldg Contractors - Residential Bldgs",
-   "precio": 0.636,
-   "cierre_prev": 0.40400001406669617,
-   "gap": 0.5743,
-   "cap": 8586000.0,
-   "vol_pre": null,
-   "nivel": "VIGILAR",
-   "clasif": {
-    "tipo": "N",
-    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
-    "nota": "Sin noticias ni 8-K/6-K antes de abrir.",
-    "tipo_es": "Sin noticia"
-   },
-   "catalizadores": [],
-   "docs_hoy": [],
-   "noticias": [],
-   "municion": {
-    "venta90": false,
-    "s3": null,
-    "s1": "2026-02-27",
-    "ventas_12m": 0,
-    "aviso_bolsa": false,
-    "contrasplits_2a": 0,
-    "ultimas_ventas": [
-     {
-      "form": "424B4",
-      "fecha": "2025-02-06",
-      "url": "https://www.sec.gov/Archives/edgar/data/1938534/000149315225005122/form424b4.htm"
-     }
-    ],
-    "atm": false,
-    "toxica": false,
-    "going_concern": false,
-    "warrants": [],
-    "informe": {
-     "form": "20-F",
-     "fecha": "2026-04-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1938534/000149315226020758/form20-f.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.052
-   },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
-   },
-   "avisos": [
-    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
-   ]
-  }
- ],
- "vigilar": [
-  {
-   "sym": "FLNA",
-   "nombre": "FILANA THERAPEUTICS, INC.",
-   "sector": "Pharmaceutical Preparations",
-   "precio": 0.98,
-   "cierre_prev": 0.7400000095367432,
-   "gap": 0.3243,
-   "cap": null,
-   "vol_pre": null,
-   "nivel": "VIGILAR",
-   "clasif": {
-    "tipo": "B",
-    "frase_en": "Filana Therapeutics Announces FDA Lift of Clinical Hold on Simufilam, Enabling Phase 2a Study in TSC-Related Epilepsy",
-    "frase_es": "la FDA levanta la suspensión clínica de simufilam y permite un estudio de fase 2a en epilepsia",
-    "cifra": "sin cifra; decisión regulatoria de la FDA",
-    "nota": "8-K 7.01/8.01 (8:00). Decisión real de la FDA. Precio < $1.",
-    "tipo_es": "Biotech real (FDA / datos)"
-   },
-   "catalizadores": [
-    {
-     "form": "8-K",
-     "hora": "2026-09-22 08:00",
-     "items": "7.01,8.01,9.01",
-     "url": "https://www.sec.gov/Archives/edgar/data/1069530/000117184326006161/f8k_092226.htm",
-     "anexos": [
-      {
-       "archivo": "f8k_092226.htm",
-       "url": "https://www.sec.gov/Archives/edgar/data/1069530/000117184326006161/f8k_092226.htm"
-      }
-     ]
-    }
-   ],
-   "docs_hoy": [
-    {
-     "form": "8-K",
-     "hora": "2026-09-22 08:00",
-     "items": "7.01,8.01,9.01",
-     "url": "https://www.sec.gov/Archives/edgar/data/1069530/000117184326006161/f8k_092226.htm",
-     "items_es": "7.01 nota de prensa; 8.01 otros hechos; 9.01 anexos"
-    }
-   ],
-   "noticias": [
-    {
-     "hora": "2026-09-22 08:00",
-     "titular": "Filana Therapeutics Announces FDA Lift of Clinical Hold on Simufilam, Enabling Phase 2a Study in TSC-Related Epilepsy",
-     "url": "https://finviz.com/news/394185/filana-therapeutics-announces-fda-lift-of-clinical-hold-on-simufilam-enabling-phase-2a-study-in-tsc-related-epilepsy",
-     "fuente": "GlobeNewswire"
-    }
-   ],
-   "municion": {
-    "venta90": false,
-    "s3": "2025-11-13",
-    "s1": null,
-    "ventas_12m": 0,
-    "aviso_bolsa": true,
-    "contrasplits_2a": 1,
-    "ultimas_ventas": [
-     {
-      "form": "424B5",
-      "fecha": "2023-05-01",
-      "url": "https://www.sec.gov/Archives/edgar/data/1069530/000149315223015040/form424b5.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2022-11-21",
-      "url": "https://www.sec.gov/Archives/edgar/data/1069530/000149315222033007/form424b5.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2022-07-29",
-      "url": "https://www.sec.gov/Archives/edgar/data/1069530/000149315222020719/form424b5.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2021-02-12",
-      "url": "https://www.sec.gov/Archives/edgar/data/1069530/000149315221003430/form424b5.htm"
-     }
-    ],
-    "atm": true,
-    "toxica": false,
-    "going_concern": false,
-    "warrants": [
-     14.92
-    ],
-    "informe": {
-     "form": "10-Q",
-     "fecha": "2026-07-29",
-     "url": "https://www.sec.gov/Archives/edgar/data/1069530/000143774926024752/sava20260630_10q.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.034
-   },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
-   },
-   "avisos": []
   },
   {
    "sym": "GDC",
@@ -566,13 +760,116 @@
    "cierre_prev": 1.4600000381469727,
    "gap": 0.2534,
    "cap": 7617375.0,
+   "acciones": null,
    "vol_pre": null,
-   "nivel": "VIGILAR",
+   "bolsa": "",
    "clasif": {
     "tipo": "N",
     "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
     "nota": "Sin noticias ni 8-K antes de abrir (última: contra-split 1:250 en junio).",
     "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 18,
+    "tercio": "Baja",
+    "pred_R": -0.013,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 183,
+    "R": -0.05,
+    "WR": 0.54,
+    "gan": 0.48,
+    "perd": -0.67,
+    "PF": 0.85,
+    "dev": 0.04
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 2.08,
+    "pml": 1.72,
+    "pmh_hora": "06:21",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 7219580,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1641398/000121390026090150/",
+    "flujo_operativo": -12341854,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 2056976,
+    "autonomia_meses": 3.5
    },
    "catalizadores": [],
    "docs_hoy": [],
@@ -618,22 +915,63 @@
     "eloc": false,
     "warrants_en_dinero": false
    },
-   "venta_hoy": false,
    "costes": {
     "locate_1c_R": 0.018
    },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
-   },
    "avisos": [
-    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
+   ]
+  }
+ ],
+ "descartadas": [
+  {
+   "sym": "FBGL",
+   "nombre": "FBS Global Ltd",
+   "sector": "General Bldg Contractors - Residential Bldgs",
+   "precio": 0.636,
+   "cierre_prev": 0.40400001406669617,
+   "gap": 0.5743,
+   "cap": 8586000.0,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "clasif": {
+    "tipo": "N",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
+    "nota": "Sin noticias ni 8-K/6-K antes de abrir.",
+    "tipo_es": "Sin noticia"
+   },
+   "motivo": "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5)",
+   "docs_hoy": []
+  },
+  {
+   "sym": "FLNA",
+   "nombre": "FILANA THERAPEUTICS, INC.",
+   "sector": "Pharmaceutical Preparations",
+   "precio": 0.98,
+   "cierre_prev": 0.7400000095367432,
+   "gap": 0.3243,
+   "cap": null,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "clasif": {
+    "tipo": "B",
+    "frase_en": "Filana Therapeutics Announces FDA Lift of Clinical Hold on Simufilam, Enabling Phase 2a Study in TSC-Related Epilepsy",
+    "frase_es": "la FDA levanta la suspensión clínica de simufilam y permite un estudio de fase 2a en epilepsia",
+    "cifra": "sin cifra; decisión regulatoria de la FDA",
+    "nota": "8-K 7.01/8.01 (8:00). Decisión real de la FDA. Precio < $1.",
+    "tipo_es": "Biotech real (FDA / datos)"
+   },
+   "motivo": "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5)",
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-22 08:00",
+     "items": "7.01,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1069530/000117184326006161/f8k_092226.htm",
+     "items_es": "7.01 nota de prensa; 8.01 otros hechos; 9.01 anexos"
+    }
    ]
   }
  ],
@@ -709,5 +1047,6 @@
   ],
   "cobertura": null,
   "forzada": false
- }
+ },
+ "convertida_v1": true
 }

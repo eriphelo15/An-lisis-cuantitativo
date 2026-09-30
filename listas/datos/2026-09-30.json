@@ -4,15 +4,15 @@
  "replay": false,
  "desde": "2026-09-29 16:00",
  "corte": "2026-09-30 08:21",
+ "version": 2,
  "reglas": {
-  "gap_lista": 0.5,
-  "gap_vigilar": 0.2,
+  "gap_minimo": 0.2,
   "stop": 0.3,
   "deslizamiento": 0.05,
   "coste": 0.01,
   "riesgo_accion": 0.3750000000000002
  },
- "lista": [
+ "acciones": [
   {
    "sym": "CNTB",
    "nombre": "Connect Biopharma Holdings Limited",
@@ -23,7 +23,7 @@
    "cap": 62470512,
    "acciones": 62974309,
    "vol_pre": 1596687,
-   "nivel": "VIGILAR",
+   "bolsa": "NasdaqGM",
    "clasif": {
     "tipo": "B",
     "frase_en": "Rademikibart significantly reduced the rate of treatment failure by 81% through Week 4 compared to placebo (p=0.0122)",
@@ -32,16 +32,119 @@
     "nota": "8-K Items 7.01/8.01 del 30-sep 3:05 + nota de prensa 7:00. Datos clínicos con resultado (objetivo principal) = biotech real. S-3 del 15-may-2026 presentado (munición disponible); warrants a $2.14 (por encima del precio).",
     "tipo_es": "Biotech real (FDA / datos)"
    },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 80,
+    "tercio": "Alta",
+    "pred_R": 0.108,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": true,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": true,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": true,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 160,
+    "R": 0.26,
+    "WR": 0.69,
+    "gan": 0.82,
+    "perd": -1.0,
+    "PF": 1.86,
+    "dev": 0.17
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": 0.03,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 2.08,
+    "pml": 0.97,
+    "pmh_hora": "08:06",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 27015000,
+    "inversiones": 4471000,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1835268/000183526826000028/",
+    "flujo_operativo": -31927000,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 5321167,
+    "autonomia_meses": 5.9
+   },
    "catalizadores": [
     {
      "form": "8-K",
      "hora": "2026-09-30 03:05",
      "items": "7.01,8.01,9.01",
+     "items_es": "7.01 nota de prensa; 8.01 otros hechos; 9.01 anexos",
      "url": "https://www.sec.gov/Archives/edgar/data/1835268/000183526826000038/cntb-20260930.htm",
-     "anexos": [
+     "partes": [
       {
        "archivo": "cntb-20260930.htm",
-       "url": "https://www.sec.gov/Archives/edgar/data/1835268/000183526826000038/cntb-20260930.htm"
+       "url": "https://www.sec.gov/Archives/edgar/data/1835268/000183526826000038/cntb-20260930.htm",
+       "texto": "Item 7.01 Regulation FD Disclosure. Press Release. On September 30, 2026, Connect Biopharma Holdings Limited (the “Company”) issued a press release announcing topline results from its global phase 2 study evaluating rademikibart, the Company’s next-generation, potentially best-in-class anti-interleukin-4-receptor alpha antibody as an add-on treatment for acute exacerbations in adult participants with chronic obstructive pulmonary disease (“COPD”) and type 2 inflammation (the “COPD Study”). A copy of the press release is attached as Exhibit 99.1 and is incorporated herein by reference. Corporate Presentation. A copy of presentation materials related to the COPD Study, all or a part of which may be used by the Company in investor or scientific presentations from time to time, is furnished herewith as Exhibit 99.2 (the “Corporate Presentation”). The Company does not undertake any obligation to update the Corporate Presentation. The information in this Item 7.01, including in Exhibit 99.1 and Exhibit 99.2, shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934, as amended (the “Exchange Act”), or otherwise subject to the liabilities of that section, nor shall it be deemed incorporated by reference in any filing under the Securities Act of 1933, as amended, or the Exchange Act, whether made before or after the date hereof, except as expressly set forth by specific reference in such filing. Item 8.01 Other Events. On September 30, 2026, the Company announced topline results for the COPD Study. The COPD Study is a randomized, double-blind, placebo-controlled study evaluating the safety and efficacy of rademikibart as an adjunct to standard of care for acute exacerbations in participants with COPD and type 2 inflammation. The study enrolled 159 participants globally with an eosinophil count of ≥300 cells/μL who have experienced an acute COPD exacerbation. Participants were randomized 1:1 to receive either a single dose of rademikibart or placebo, administered subcutaneously in addition to standard of care. The primary endpoint was treatment failure, defined as death due to any cause, (re)admission to a hospital for COPD, emergency department (re)visit or unscheduled medical visit for worsening of COPD symptoms, or the necessity to intensify pharmacologic treatment within 28 days after randomization. Secondary endpoints included post-bronchodilator (“post-BD”) forced expiratory volume in one second (“FEV 1 ”) at Week 1 (key secondary), rate and time to new moderate and severe COPD exacerbations, change-from-baseline in clinical respiratory symptoms of COPD, post-BD FEV 1 at other timepoints, and incidence of adverse events for 8 weeks after dosing. Key topline results include: • Rademikibart significantly reduced the rate of treatment failure by 81% through Week 4 compared to placebo (p=0.0122) • Rademikibart significantly reduced the rate of new moderate to severe COPD exacerbations by 85% through Week 4 compared to placebo (p=0.030) • Rademikibart significantly reduced new visits to emergency departments and hospital admissions for new exacerbations by 100% through Week 4 compared to placebo (p=0.0137) • Rademikibart significantly reduced the use of rescue inhalers from Week 2 through Week 7 and significantly improved COPD symptoms at Week 2 compared to placebo (Total Score, p=0.0197) • Clinically meaningful 70 mL greater improvement in FEV 1 at Week 4 with rademikibart compared to placebo (p=0.1607) • Rademikibart was well tolerated and no new safety signals were observed through the end of the study. The safety profile was comparable to placebo, with a lower incidence of adverse events and serious adverse events reported in the rademikibart arm compared to the placebo arm. Item 9.01 Financial Statements and Exhibits. (d) Exhibits Exhibit No. Description 99.1 Press Release of the Company, dated September 30, 2026 99.2 Corporate Presentation, dated September 30, 2026 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) Forward-Looking Statements The Company cautions you that statements contained in this Current Report on Form 8-K, including in the exhibits furnished herewith, regarding matters that are not historical facts are forward-looking statements. The forward-looking statements are based on our current beliefs and expectations and include, but are not limited to, statements regarding: our future financial and operating results and related expectations, business strategy and plans, prospective products (as well as their potential to achieve a differentiated, competitive, or favorable benefit or profile or trend, including on safety, tolerability, improvement, maintenance, clinical response, dosing, efficacy and/or convenience), statements regarding the timing or results of any interim analysis or interim, topline or preliminary data and whether such analysis or data is indicative of safety, efficacy, final trial results or likelihood of regulatory approval for our product candidates, planned or expected meetings with the U.S. Food and Drug Administration (“FDA”) or any other regulatory authorities, planned or expected product approval applications or approvals, anticipated milestones and milestone payments, expected data readouts and enrollments and the timing thereof, research and development plans and costs including expectations for future clinical studies, potential future partnerships, expectations about existing partnerships, timing and likelihood of success, objectives of management for future operations, future results of anticipated product development efforts, adequacy of existing cash and potential partnership funding to fund operations and capital expenditure requirements, anticipated patient populations, market opportunities and potential pricing strategies for our prospective products, if approved, our plans for rademikibart, including potential indications, as well as statements regarding industry trends. The inclusion of forward-looking statements should not be regarded as a representation by the Company that any of these plans will be achieved. Actual results may differ from those set forth in this Current Report on Form 8-K due to the risks and uncertainties inherent in the Company’s business and beyond its control, including, without limitation: the ability of our clinical trials to demonstrate safety and efficacy of our product candidates and other positive results; whether we will need expanded or additional trials in order to obtain regulatory approval for our product candidates; the timing and outcome of any meetings with the FDA or other regulatory authorities regarding further development of our product candidates, including with respect to a potential Phase 3 program for rademikibart; our ability to obtain and maintain regulatory approval of our product candidates; existing regulations and regulatory developments in the U.S., the People’s Republic of China, Europe and other jurisdictions; our plans and ability to obtain, maintain, protect and enforce our intellectual property rights and our proprietary technologies, including extensions of existing patent terms where available; our continued reliance on third parties to conduct additional clinical trials of our product candidates, and for the manufacture of our product candidates for preclinical studies and clinical trials; the degree of market acceptance of our product candidates, if approved, by physicians, patients, healthcare payors and others in the medical community; the impact on our business of adverse global macroeconomic and geopolitical conditions, including high interest rates, the inflationary environment, recessionary fears, foreign exchange rate volatility, instability in financial institutions, government shutdowns, changes in monetary policy, changes in trade policies, including tariffs and other trade restrictions or the threat of such actions, and rising geopolitical instability, including the conflicts in the Middle East and the related volatility in the price of oil and other commodity prices; and other risks described in our Annual Report on Form 10-K for the fiscal year ended December 31, 2025, and in any subsequent filings with the SEC. You are cautioned not to place undue reliance on these forward-looking statements, which speak only as of the date hereof, and we undertake no obligation to update such statements to reflect events that occur or circumstances that exist after the date hereof. All forward-looking statements are qualified in their entirety by this cautionary statement, which is made under the safe harbor provisions of the Private Securities Litigation Reform Act of 1995. SIGNATURES Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. CONNECT BIOPHARMA HOLDINGS LIMITED Date: September 30, 2026 By: /s/ David Szekeres Name: David Szekeres Title: President"
       }
      ]
     }
@@ -91,262 +194,183 @@
     "eloc": false,
     "warrants_en_dinero": false
    },
-   "venta_hoy": false,
    "costes": {
     "locate_1c_R": 0.018
-   },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
    },
    "avisos": []
   },
   {
-   "sym": "FRGT",
-   "nombre": "Freight Technologies, Inc.",
-   "sector": "Arrangement of  Transportation of  Freight & Cargo",
-   "precio": 0.5001,
-   "cierre_prev": 0.30300000309944153,
-   "gap": 0.6505,
-   "cap": 173067,
-   "acciones": 572125,
-   "vol_pre": 1177248,
-   "nivel": "VIGILAR",
+   "sym": "FFR",
+   "nombre": "AIxCrypto Holdings, Inc.",
+   "sector": "",
+   "precio": 1.2198,
+   "cierre_prev": 1.0099999904632568,
+   "gap": 0.2077,
+   "cap": null,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "NasdaqGM",
    "clasif": {
-    "tipo": "N",
-    "frase_en": "",
-    "frase_es": "",
-    "cifra": "",
-    "nota": "Sube sin noticia: la herramienta no encontró titulares en Finviz ni Yahoo desde el 28-sep 16:00 y en EDGAR lo último son Forms 4 del 1-2 sep. Precio < $1 ($0.51); solo ~572 000 acciones (2 contrasplits en 2 años); convertible tóxica y going concern.",
-    "fuentes_abiertas": [
-     "noticias Finviz/Yahoo vía herramienta (0 titulares)",
-     "EDGAR submissions (último: Form 4 del 2-sep)"
-    ],
-    "tipo_es": "Sin noticia"
+    "tipo": "H",
+    "frase_en": "On September 25, 2026, the Company entered into a non-binding term sheet (the “Term Sheet”) with Faraday Future Intelligent Electric Inc. (“FFAI” or the “Seller”), the Company’s majority stockholder",
+    "frase_es": "El 25-sep-2026 la empresa firmó una hoja de términos NO vinculante con Faraday Future (FFAI), que es su accionista mayoritario",
+    "cifra": "valoración 'estimada' de $200 M (dólares) del negocio de robots, en hoja de términos no vinculante",
+    "nota": "Antes AIxCrypto (AIXC); cambia de nombre y de ticker a FFR hoy (8-K Item 5.03). Operación con parte vinculada (el accionista mayoritario), no vinculante = humo.",
+    "tipo_es": "Humo / cosmético"
    },
-   "catalizadores": [],
-   "docs_hoy": [],
-   "noticias": [],
-   "municion": {
-    "venta90": false,
-    "s3": null,
-    "s1": null,
-    "ventas_12m": 0,
-    "aviso_bolsa": false,
-    "contrasplits_2a": 2,
-    "ultimas_ventas": [
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 61,
+    "tercio": "Media",
+    "pred_R": 0.086,
+    "factores": [
      {
-      "form": "424B5",
-      "fecha": "2024-06-24",
-      "url": "https://www.sec.gov/Archives/edgar/data/1687542/000149315224024831/form424b5.htm"
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
      },
      {
-      "form": "424B5",
-      "fecha": "2024-05-23",
-      "url": "https://www.sec.gov/Archives/edgar/data/1687542/000149315224021074/form424b5.htm"
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
      },
      {
-      "form": "424B5",
-      "fecha": "2022-10-31",
-      "url": "https://www.sec.gov/Archives/edgar/data/1687542/000149315222029962/form424b5.htm"
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": true,
+      "peso": 0.0774
      },
      {
-      "form": "424B5",
-      "fecha": "2022-02-11",
-      "url": "https://www.sec.gov/Archives/edgar/data/1687542/000149315222004078/form424b5.htm"
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
      }
     ],
-    "atm": false,
-    "toxica": true,
-    "going_concern": true,
-    "warrants": [
-     360.0
-    ],
-    "informe": {
-     "form": "20-F",
-     "fecha": "2026-05-14",
-     "url": "https://www.sec.gov/Archives/edgar/data/1687542/000149315226023206/form20-f.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.067
+    "base": -0.0395,
+    "notas": [
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
    },
    "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
+    "n": 137,
+    "R": -0.02,
+    "WR": 0.58,
+    "gan": 0.51,
+    "perd": -0.75,
+    "PF": 0.95,
+    "dev": -0.02
    },
-   "avisos": [
-    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar",
-    "Convertible de precio variable (tóxica) en el último informe",
-    "Muy pocas acciones en circulación (0.57 M): cualquier volumen dispara la rotación (rotación > 10× = el corto pierde, validado). Como filtro previo NO validado (ronda 11)",
-    "Sin munición activa (sin venta 424B en 90 días, sin S-3, ATM, ELOC ni warrants por debajo del precio): no hay vendedor de acciones de la empresa. Como filtro NO validado (ronda 11)"
-   ]
-  },
-  {
-   "sym": "LGHL",
-   "nombre": "Lion Group Holding Ltd.",
-   "sector": "Security Brokers, Dealers & Flotation Companies",
-   "precio": 7.13,
-   "cierre_prev": 4.510000228881836,
-   "gap": 0.5809,
-   "cap": 208109,
-   "acciones": 45878,
-   "vol_pre": 67021,
-   "nivel": "NO",
-   "clasif": {
-    "tipo": "F",
-    "frase_en": "At the closing of the Subsequent Offering, the Company sold to the Buyer the Subsequent Offering Note in the principal amount of $3,000,000.",
-    "frase_es": "Al cierre de la oferta adicional, la empresa vendió al comprador un pagaré (nota convertible) por un principal de 3 000 000 dólares.",
-    "cifra": "$3,000,000 (dólares) en nota convertible senior garantizada a un comprador institucional",
-    "nota": "6-K del 29-sep 5:15 (antes de la sesión de ayer); hoy no hay noticia nueva (Finviz/Yahoo vía herramienta, EDGAR a mano). Solo ~45 900 acciones según Yahoo; convertible tóxica en el último informe; warrants desde $0.16 (en dinero).",
-    "fuentes_abiertas": [
-     "EDGAR 6-K 29-sep (nota convertible $3 M)",
-     "noticias Finviz/Yahoo vía herramienta (0 titulares)"
-    ],
-    "tipo_es": "Financiación"
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
    },
+   "premarket": {
+    "pmh": 2.9399,
+    "pml": 1.01,
+    "pmh_hora": "05:08",
+    "hasta": "09:29"
+   },
+   "caja": null,
    "catalizadores": [],
    "docs_hoy": [],
-   "noticias": [],
+   "noticias": [
+    {
+     "hora": "2026-09-29 22:24",
+     "titular": "FF EAI Robotics Ecosystem Inc. (f/k/a AIxCrypto Holdings, Inc.) to Acquire FF Robotics Business for Standalone Listing; Faraday Future Unveils New Execution Plans for \"Built In USA\" Acceleration Program and Initiates Conditional Approval Application, Will Roll Out New Robot Product in Q1 2027",
+     "url": "https://finviz.com/news/396820/ff-eai-robotics-ecosystem-inc-fka-aixcrypto-holdings-inc-to-acquire-ff-robotics-business-for-standalone-listing-faraday-future-unveils-new-execution-plans-for-built-in-usa-acceleration-program-and-initiates-conditional-approval-application-will-roll-out-new-robot-product-in-q1-2027",
+     "fuente": "PR Newswire"
+    }
+   ],
    "municion": {
-    "venta90": false,
-    "s3": "2025-11-12",
-    "s1": null,
+    "venta90": true,
+    "s3": null,
+    "s1": "2026-09-09",
     "ventas_12m": 0,
-    "aviso_bolsa": false,
-    "contrasplits_2a": 0,
-    "ultimas_ventas": [],
-    "atm": false,
-    "toxica": true,
-    "going_concern": true,
-    "warrants": [
-     0.16,
-     0.28,
-     1.0,
-     1.13,
-     1.82,
-     1.9,
-     2.0,
-     2.45
-    ],
-    "informe": {
-     "form": "20-F",
-     "fecha": "2026-04-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1806524/000121390026050410/ea0288087-20f_lion.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": true
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.005
-   },
-   "estad": {
-    "R": -0.12,
-    "WR": 0.49,
-    "gan": null,
-    "perd": null,
-    "PF": 0.65,
-    "n": null,
-    "squeeze": null,
-    "fuente": "resultados / financiación / avisos de bolsa: PF 0.6-0.7"
-   },
-   "avisos": [
-    "Convertible de precio variable (tóxica) en el último informe",
-    "Muy pocas acciones en circulación (0.05 M): cualquier volumen dispara la rotación (rotación > 10× = el corto pierde, validado). Como filtro previo NO validado (ronda 11)"
-   ]
-  }
- ],
- "vigilar": [
-  {
-   "sym": "NCI",
-   "nombre": "Neo-Concept International Group Holdings Limited",
-   "sector": "Apparel & Other Finishd Prods of  Fabrics & Similar Matl",
-   "precio": 1.6895,
-   "cierre_prev": 1.2599999904632568,
-   "gap": 0.3409,
-   "cap": 3249895,
-   "acciones": 2364282,
-   "vol_pre": 6597376,
-   "nivel": "VIGILAR",
-   "clasif": {
-    "tipo": "N",
-    "frase_en": "",
-    "frase_es": "",
-    "cifra": "",
-    "nota": "Sube sin noticia: 0 titulares en Finviz/Yahoo (herramienta) desde el 28-sep 16:00; en EDGAR lo último es un 6-K del 16-sep y Forms 4 del 8-sep. S-3 del 30-jul-2026 presentado.",
-    "fuentes_abiertas": [
-     "noticias Finviz/Yahoo vía herramienta (0 titulares)",
-     "EDGAR submissions (último 6-K del 16-sep)"
-    ],
-    "tipo_es": "Sin noticia"
-   },
-   "catalizadores": [],
-   "docs_hoy": [],
-   "noticias": [],
-   "municion": {
-    "venta90": false,
-    "s3": "2026-07-30",
-    "s1": null,
-    "ventas_12m": 1,
-    "aviso_bolsa": false,
-    "contrasplits_2a": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 5,
     "ultimas_ventas": [
      {
       "form": "424B4",
-      "fecha": "2026-02-11",
-      "url": "https://www.sec.gov/Archives/edgar/data/1916331/000121390026014624/ea0244201-10.htm"
+      "fecha": "2024-09-06",
+      "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315224035279/form424b4.htm"
      },
      {
-      "form": "424B4",
-      "fecha": "2024-04-24",
-      "url": "https://www.sec.gov/Archives/edgar/data/1916331/000121390024035783/ea0202567-03.htm"
+      "form": "424B5",
+      "fecha": "2021-12-01",
+      "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315221030175/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2020-12-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315220023894/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2020-10-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315220018835/form424b5.htm"
      }
     ],
     "atm": false,
     "toxica": false,
-    "going_concern": false,
-    "warrants": [],
+    "going_concern": true,
+    "warrants": [
+     0.05,
+     1.5,
+     2.0,
+     2.47,
+     5.82,
+     6.5,
+     13.0,
+     82.5
+    ],
     "informe": {
-     "form": "20-F",
-     "fecha": "2026-04-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1916331/000121390026050005/ea0286052-20f_neoconcept.htm"
+     "form": "10-Q",
+     "fecha": "2026-08-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315226036658/form10-q.htm"
     },
     "eloc": false,
-    "warrants_en_dinero": false
+    "warrants_en_dinero": true
    },
-   "venta_hoy": false,
    "costes": {
-    "locate_1c_R": 0.02
-   },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
+    "locate_1c_R": 0.027
    },
    "avisos": [
-    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar",
-    "Muy pocas acciones en circulación (2.36 M): cualquier volumen dispara la rotación (rotación > 10× = el corto pierde, validado). Como filtro previo NO validado (ronda 11)"
+    "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)"
    ]
   },
   {
@@ -359,7 +383,7 @@
    "cap": 2511876,
    "acciones": 887589,
    "vol_pre": 372760,
-   "nivel": "VIGILAR",
+   "bolsa": "NasdaqCM",
    "clasif": {
     "tipo": "H",
     "frase_en": "today announced the successful completion of formulation work under the companies' ongoing program to develop a novel oral mucosal formulation of Entolimod",
@@ -367,6 +391,109 @@
     "cifra": "ninguna cifra en dólares; trabajo de formulación preclínico (el 'x10-40' de oportunidad es una estimación, 'not a revenue forecast')",
     "nota": "Nota de prensa 30-sep 7:45, sin 8-K. Preclínico/formulación = humo. Munición abundante: ATM, ELOC, S-3, S-1 de jul-2026, warrants en dinero, convertible tóxica.",
     "tipo_es": "Humo / cosmético"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 26,
+    "tercio": "Baja",
+    "pred_R": 0.015,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": true,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 183,
+    "R": -0.05,
+    "WR": 0.54,
+    "gan": 0.48,
+    "perd": -0.67,
+    "PF": 0.85,
+    "dev": 0.04
+   },
+   "riesgo": {
+    "nivel": "Extremo",
+    "motivos": [
+     "Solo 0.89 M de acciones en circulación"
+    ],
+    "rotacion_pre": 0.42,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 4.23,
+    "pml": 2.727,
+    "pmh_hora": "09:10",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 2108000,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1787740/000143774926028069/",
+    "flujo_operativo": -10292000,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 1715333,
+    "autonomia_meses": 1.2
    },
    "catalizadores": [],
    "docs_hoy": [],
@@ -428,24 +555,12 @@
     "eloc": true,
     "warrants_en_dinero": true
    },
-   "venta_hoy": false,
    "costes": {
     "locate_1c_R": 0.01
    },
-   "estad": {
-    "R": 0.09,
-    "WR": 0.65,
-    "gan": 0.57,
-    "perd": -0.76,
-    "PF": 1.35,
-    "n": 138,
-    "squeeze": 0.1,
-    "fuente": "base mecánica, humo + gap 20-50 % + precio ≥ $1 · VAL 2022-26 (DEV: +0.02R, 99 casos) · base pequeña (ronda 6)"
-   },
    "avisos": [
     "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)",
-    "Convertible de precio variable (tóxica) en el último informe",
-    "Muy pocas acciones en circulación (0.89 M): cualquier volumen dispara la rotación (rotación > 10× = el corto pierde, validado). Como filtro previo NO validado (ronda 11)"
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
    ]
   },
   {
@@ -458,7 +573,7 @@
    "cap": 1185581,
    "acciones": 1077801,
    "vol_pre": 9065276,
-   "nivel": "VIGILAR",
+   "bolsa": "NasdaqCM",
    "clasif": {
     "tipo": "N",
     "frase_en": "",
@@ -470,6 +585,109 @@
      "EDGAR submissions (último 6-K del 18-sep)"
     ],
     "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 17,
+    "tercio": "Baja",
+    "pred_R": -0.025,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": true,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 183,
+    "R": -0.05,
+    "WR": 0.54,
+    "gan": 0.48,
+    "perd": -0.67,
+    "PF": 0.85,
+    "dev": 0.04
+   },
+   "riesgo": {
+    "nivel": "Extremo",
+    "motivos": [
+     "Pocas acciones en circulación (1.08 M)",
+     "Rotación premarket 8.4× las acciones en circulación"
+    ],
+    "rotacion_pre": 8.41,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 1.6384,
+    "pml": 1.22,
+    "pmh_hora": "04:04",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 104030,
+    "inversiones": 82031,
+    "caja_fecha": "2025-12-31",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "6-K",
+    "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026048528/",
+    "flujo_operativo": 1561269,
+    "flujo_desde": "2025-07-01",
+    "flujo_hasta": "2025-12-31",
+    "meses": 6
    },
    "catalizadores": [],
    "docs_hoy": [],
@@ -517,121 +735,233 @@
     "eloc": false,
     "warrants_en_dinero": false
    },
-   "venta_hoy": false,
    "costes": {
     "locate_1c_R": 0.025
    },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
-   },
    "avisos": [
-    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar",
-    "Muy pocas acciones en circulación (1.08 M): cualquier volumen dispara la rotación (rotación > 10× = el corto pierde, validado). Como filtro previo NO validado (ronda 11)"
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
    ]
   },
   {
-   "sym": "FFR",
-   "nombre": "AIxCrypto Holdings, Inc.",
-   "sector": "",
-   "precio": 1.2198,
-   "cierre_prev": 1.0099999904632568,
-   "gap": 0.2077,
-   "cap": null,
-   "acciones": null,
-   "vol_pre": null,
-   "nivel": "VIGILAR",
+   "sym": "NCI",
+   "nombre": "Neo-Concept International Group Holdings Limited",
+   "sector": "Apparel & Other Finishd Prods of  Fabrics & Similar Matl",
+   "precio": 1.6895,
+   "cierre_prev": 1.2599999904632568,
+   "gap": 0.3409,
+   "cap": 3249895,
+   "acciones": 2364282,
+   "vol_pre": 6597376,
+   "bolsa": "NasdaqCM",
    "clasif": {
-    "tipo": "H",
-    "frase_en": "On September 25, 2026, the Company entered into a non-binding term sheet (the “Term Sheet”) with Faraday Future Intelligent Electric Inc. (“FFAI” or the “Seller”), the Company’s majority stockholder",
-    "frase_es": "El 25-sep-2026 la empresa firmó una hoja de términos NO vinculante con Faraday Future (FFAI), que es su accionista mayoritario",
-    "cifra": "valoración 'estimada' de $200 M (dólares) del negocio de robots, en hoja de términos no vinculante",
-    "nota": "Antes AIxCrypto (AIXC); cambia de nombre y de ticker a FFR hoy (8-K Item 5.03). Operación con parte vinculada (el accionista mayoritario), no vinculante = humo.",
-    "tipo_es": "Humo / cosmético"
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "nota": "Sube sin noticia: 0 titulares en Finviz/Yahoo (herramienta) desde el 28-sep 16:00; en EDGAR lo último es un 6-K del 16-sep y Forms 4 del 8-sep. S-3 del 30-jul-2026 presentado.",
+    "fuentes_abiertas": [
+     "noticias Finviz/Yahoo vía herramienta (0 titulares)",
+     "EDGAR submissions (último 6-K del 16-sep)"
+    ],
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 5,
+    "tercio": "Baja",
+    "pred_R": -0.062,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 183,
+    "R": -0.05,
+    "WR": 0.54,
+    "gan": 0.48,
+    "perd": -0.67,
+    "PF": 0.85,
+    "dev": 0.04
+   },
+   "riesgo": {
+    "nivel": "Alto",
+    "motivos": [
+     "Pocas acciones en circulación (2.36 M)",
+     "Rotación premarket 2.8× las acciones en circulación"
+    ],
+    "rotacion_pre": 2.79,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 2.5596,
+    "pml": 1.58,
+    "pmh_hora": "04:00",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 299730,
+    "inversiones": 0,
+    "caja_fecha": "2025-12-31",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "20-F",
+    "url": "https://www.sec.gov/Archives/edgar/data/1916331/000121390026050005/",
+    "flujo_operativo": 2746238,
+    "flujo_desde": "2025-01-01",
+    "flujo_hasta": "2025-12-31",
+    "meses": 12
    },
    "catalizadores": [],
    "docs_hoy": [],
-   "noticias": [
-    {
-     "hora": "2026-09-29 22:24",
-     "titular": "FF EAI Robotics Ecosystem Inc. (f/k/a AIxCrypto Holdings, Inc.) to Acquire FF Robotics Business for Standalone Listing; Faraday Future Unveils New Execution Plans for \"Built In USA\" Acceleration Program and Initiates Conditional Approval Application, Will Roll Out New Robot Product in Q1 2027",
-     "url": "https://finviz.com/news/396820/ff-eai-robotics-ecosystem-inc-fka-aixcrypto-holdings-inc-to-acquire-ff-robotics-business-for-standalone-listing-faraday-future-unveils-new-execution-plans-for-built-in-usa-acceleration-program-and-initiates-conditional-approval-application-will-roll-out-new-robot-product-in-q1-2027",
-     "fuente": "PR Newswire"
-    }
-   ],
+   "noticias": [],
    "municion": {
-    "venta90": true,
-    "s3": null,
-    "s1": "2026-09-09",
-    "ventas_12m": 0,
-    "aviso_bolsa": true,
-    "contrasplits_2a": 5,
+    "venta90": false,
+    "s3": "2026-07-30",
+    "s1": null,
+    "ventas_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
     "ultimas_ventas": [
      {
       "form": "424B4",
-      "fecha": "2024-09-06",
-      "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315224035279/form424b4.htm"
+      "fecha": "2026-02-11",
+      "url": "https://www.sec.gov/Archives/edgar/data/1916331/000121390026014624/ea0244201-10.htm"
      },
      {
-      "form": "424B5",
-      "fecha": "2021-12-01",
-      "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315221030175/form424b5.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2020-12-18",
-      "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315220023894/form424b5.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2020-10-02",
-      "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315220018835/form424b5.htm"
+      "form": "424B4",
+      "fecha": "2024-04-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1916331/000121390024035783/ea0202567-03.htm"
      }
     ],
     "atm": false,
     "toxica": false,
-    "going_concern": true,
-    "warrants": [
-     0.05,
-     1.5,
-     2.0,
-     2.47,
-     5.82,
-     6.5,
-     13.0,
-     82.5
-    ],
+    "going_concern": false,
+    "warrants": [],
     "informe": {
-     "form": "10-Q",
-     "fecha": "2026-08-07",
-     "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315226036658/form10-q.htm"
+     "form": "20-F",
+     "fecha": "2026-04-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1916331/000121390026050005/ea0286052-20f_neoconcept.htm"
     },
     "eloc": false,
-    "warrants_en_dinero": true
+    "warrants_en_dinero": false
    },
-   "venta_hoy": false,
    "costes": {
-    "locate_1c_R": 0.027
-   },
-   "estad": {
-    "R": 0.09,
-    "WR": 0.65,
-    "gan": 0.57,
-    "perd": -0.76,
-    "PF": 1.35,
-    "n": 138,
-    "squeeze": 0.1,
-    "fuente": "base mecánica, humo + gap 20-50 % + precio ≥ $1 · VAL 2022-26 (DEV: +0.02R, 99 casos) · base pequeña (ronda 6)"
+    "locate_1c_R": 0.02
    },
    "avisos": [
-    "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)"
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
    ]
+  }
+ ],
+ "descartadas": [
+  {
+   "sym": "FRGT",
+   "nombre": "Freight Technologies, Inc.",
+   "sector": "Arrangement of  Transportation of  Freight & Cargo",
+   "precio": 0.5001,
+   "cierre_prev": 0.30300000309944153,
+   "gap": 0.6505,
+   "cap": 173067,
+   "acciones": 572125,
+   "vol_pre": 1177248,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "nota": "Sube sin noticia: la herramienta no encontró titulares en Finviz ni Yahoo desde el 28-sep 16:00 y en EDGAR lo último son Forms 4 del 1-2 sep. Precio < $1 ($0.51); solo ~572 000 acciones (2 contrasplits en 2 años); convertible tóxica y going concern.",
+    "fuentes_abiertas": [
+     "noticias Finviz/Yahoo vía herramienta (0 titulares)",
+     "EDGAR submissions (último: Form 4 del 2-sep)"
+    ],
+    "tipo_es": "Sin noticia"
+   },
+   "motivo": "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5)",
+   "docs_hoy": []
+  },
+  {
+   "sym": "LGHL",
+   "nombre": "Lion Group Holding Ltd.",
+   "sector": "Security Brokers, Dealers & Flotation Companies",
+   "precio": 7.13,
+   "cierre_prev": 4.510000228881836,
+   "gap": 0.5809,
+   "cap": 208109,
+   "acciones": 45878,
+   "vol_pre": 67021,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "F",
+    "frase_en": "At the closing of the Subsequent Offering, the Company sold to the Buyer the Subsequent Offering Note in the principal amount of $3,000,000.",
+    "frase_es": "Al cierre de la oferta adicional, la empresa vendió al comprador un pagaré (nota convertible) por un principal de 3 000 000 dólares.",
+    "cifra": "$3,000,000 (dólares) en nota convertible senior garantizada a un comprador institucional",
+    "nota": "6-K del 29-sep 5:15 (antes de la sesión de ayer); hoy no hay noticia nueva (Finviz/Yahoo vía herramienta, EDGAR a mano). Solo ~45 900 acciones según Yahoo; convertible tóxica en el último informe; warrants desde $0.16 (en dinero).",
+    "fuentes_abiertas": [
+     "EDGAR 6-K 29-sep (nota convertible $3 M)",
+     "noticias Finviz/Yahoo vía herramienta (0 titulares)"
+    ],
+    "tipo_es": "Financiación"
+   },
+   "motivo": "Financiación: históricamente malo para el corto (PF 0.72)",
+   "docs_hoy": []
   }
  ],
  "resultados": null,
@@ -656,5 +986,6 @@
    ]
   },
   "forzada": false
- }
+ },
+ "convertida_v1": true
 }

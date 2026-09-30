@@ -4,15 +4,15 @@
  "replay": true,
  "desde": "2026-09-18 16:00",
  "corte": "2026-09-21 09:10",
+ "version": 2,
  "reglas": {
-  "gap_lista": 0.5,
-  "gap_vigilar": 0.2,
+  "gap_minimo": 0.2,
   "stop": 0.3,
   "deslizamiento": 0.05,
   "coste": 0.01,
   "riesgo_accion": 0.3750000000000002
  },
- "lista": [
+ "acciones": [
   {
    "sym": "GRML",
    "nombre": "Greenland Mines Ltd",
@@ -21,8 +21,9 @@
    "cierre_prev": 2.8499999046325684,
    "gap": 1.5719,
    "cap": 1164375169.21,
+   "acciones": null,
    "vol_pre": null,
-   "nivel": "VIGILAR",
+   "bolsa": "",
    "clasif": {
     "tipo": "O",
     "frase_en": "CRML, GLND, GRML Surge Overnight After Trump Unveils Permanent US Security Deal For Greenland",
@@ -31,6 +32,108 @@
     "nota": "Día de tema (Groenlandia). Sin noticia propia ni 8-K. Corregido en la auditoría: antes figuraba como 'sin noticia'.",
     "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
     "tipo_es": "Otros"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 53,
+    "tercio": "Media",
+    "pred_R": 0.076,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": true,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": true,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Catalizador 'otros': es la base del modelo (peso 0)",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 77,
+    "R": 0.04,
+    "WR": 0.62,
+    "gan": 0.74,
+    "perd": -1.11,
+    "PF": 1.1,
+    "dev": 0.07
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 8.2,
+    "pml": 4.4,
+    "pmh_hora": "08:31",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 9300000,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1907223/000121390026090821/",
+    "flujo_operativo": -11825021,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 1970837,
+    "autonomia_meses": 4.7
    },
    "catalizadores": [],
    "docs_hoy": [],
@@ -81,19 +184,8 @@
     "eloc": false,
     "warrants_en_dinero": true
    },
-   "venta_hoy": false,
    "costes": {
     "locate_1c_R": 0.005
-   },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
    },
    "avisos": []
   },
@@ -105,8 +197,9 @@
    "cierre_prev": 1.2000000476837158,
    "gap": 1.5167,
    "cap": 132065185.88,
+   "acciones": null,
    "vol_pre": null,
-   "nivel": "VIGILAR",
+   "bolsa": "",
    "clasif": {
     "tipo": "O",
     "frase_en": "CRML, GLND, GRML Surge Overnight After Trump Unveils Permanent US Security Deal For Greenland",
@@ -115,6 +208,108 @@
     "nota": "Día de tema (Groenlandia / tierras raras). No hay noticia propia de la empresa ni 8-K. Stocktwits 20-sep 21:50 y GuruFocus 21-sep 8:25.",
     "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
     "tipo_es": "Otros"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 44,
+    "tercio": "Media",
+    "pred_R": 0.062,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": true,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Catalizador 'otros': es la base del modelo (peso 0)",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 77,
+    "R": 0.04,
+    "WR": 0.62,
+    "gan": 0.74,
+    "perd": -1.11,
+    "PF": 1.1,
+    "dev": 0.07
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 3.85,
+    "pml": 2.67,
+    "pmh_hora": "04:00",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 37423185,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "Cash",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/2093507/000182912626008774/",
+    "flujo_operativo": -4601131,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 766855,
+    "autonomia_meses": 48.8
    },
    "catalizadores": [],
    "docs_hoy": [],
@@ -150,77 +345,663 @@
     "eloc": false,
     "warrants_en_dinero": false
    },
-   "venta_hoy": false,
    "costes": {
     "locate_1c_R": 0.011
-   },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
    },
    "avisos": []
   },
   {
-   "sym": "BTTC",
-   "nombre": "Black Titan Corp",
-   "sector": "Services-Computer Programming Services",
-   "precio": 0.644,
-   "cierre_prev": 0.36500000953674316,
-   "gap": 0.7644,
-   "cap": 4974011.28,
+   "sym": "PRTH",
+   "nombre": "Priority Technology Holdings, Inc.",
+   "sector": "Services-Business Services, NEC",
+   "precio": 7.785,
+   "cierre_prev": 5.829999923706055,
+   "gap": 0.3353,
+   "cap": null,
+   "acciones": null,
    "vol_pre": null,
-   "nivel": "VIGILAR",
+   "bolsa": "",
    "clasif": {
-    "tipo": "N",
-    "nota": "Sin 8-K ni noticias en la ventana.",
-    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
     "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 7,
+    "tercio": "Baja",
+    "pred_R": -0.04,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 183,
+    "R": -0.05,
+    "WR": 0.54,
+    "gan": 0.48,
+    "perd": -0.67,
+    "PF": 0.85,
+    "dev": 0.04
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 7.89,
+    "pml": 5.87,
+    "pmh_hora": "08:05",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 120261000,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1653558/000165355826000130/",
+    "flujo_operativo": 55345000,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6
+   },
+   "catalizadores": [],
+   "docs_hoy": [
+    {
+     "form": "DEFA14A",
+     "hora": "2026-09-21 07:42",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1653558/000121390026101653/ea0306047-8k_priority.htm",
+     "items_es": ""
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-09-21 07:40",
+     "items": "1.01,5.02,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1653558/000121390026101651/ea0306047-8k_priority.htm",
+     "items_es": "1.01 acuerdo firmado; 5.02 directivos; 8.01 otros hechos; 9.01 anexos"
+    }
+   ],
+   "noticias": [],
+   "municion": {},
+   "costes": {
+    "locate_1c_R": 0.004
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
+   ]
+  },
+  {
+   "sym": "SVRN",
+   "nombre": "OceanPal Inc.",
+   "sector": "Deep Sea Foreign Transportation of  Freight",
+   "precio": 26.36,
+   "cierre_prev": 20.31999969482422,
+   "gap": 0.2972,
+   "cap": null,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "clasif": {
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 7,
+    "tercio": "Baja",
+    "pred_R": -0.04,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 183,
+    "R": -0.05,
+    "WR": 0.54,
+    "gan": 0.48,
+    "perd": -0.67,
+    "PF": 0.85,
+    "dev": 0.04
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 26.37,
+    "pml": 21.36,
+    "pmh_hora": "09:28",
+    "hasta": "09:28"
+   },
+   "caja": {
+    "caja": 25765000,
+    "inversiones": 0,
+    "caja_fecha": "2025-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "6-K",
+    "url": "https://www.sec.gov/Archives/edgar/data/1869467/000114036125033915/",
+    "flujo_operativo": -1071000,
+    "flujo_desde": "2025-01-01",
+    "flujo_hasta": "2025-06-30",
+    "meses": 6,
+    "quema_mes": 178500,
+    "autonomia_meses": 144.3
    },
    "catalizadores": [],
    "docs_hoy": [],
    "noticias": [],
-   "municion": {
-    "venta90": false,
-    "s3": null,
-    "s1": "2026-05-12",
-    "ventas_12m": 0,
-    "aviso_bolsa": false,
-    "contrasplits_2a": 0,
-    "ultimas_ventas": [],
-    "atm": false,
-    "toxica": false,
-    "going_concern": true,
-    "warrants": [],
-    "informe": {
-     "form": "20-F",
-     "fecha": "2025-11-28",
-     "url": "https://www.sec.gov/Archives/edgar/data/2034400/000149315225025421/form20-f.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
+   "municion": {},
    "costes": {
-    "locate_1c_R": 0.052
-   },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
+    "locate_1c_R": 0.001
    },
    "avisos": [
-    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
+   ]
+  },
+  {
+   "sym": "AVAT",
+   "nombre": "Avalanche Treasury Corp",
+   "sector": "Finance Services",
+   "precio": 1.4,
+   "cierre_prev": 1.0800000429153442,
+   "gap": 0.2963,
+   "cap": null,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "clasif": {
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 7,
+    "tercio": "Baja",
+    "pred_R": -0.04,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 183,
+    "R": -0.05,
+    "WR": 0.54,
+    "gan": 0.48,
+    "perd": -0.67,
+    "PF": 0.85,
+    "dev": 0.04
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 1.42,
+    "pml": 1.2,
+    "pmh_hora": "09:20",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 3370858,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "Cash",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/2092446/000110465926098819/",
+    "flujo_operativo": -19390701,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 3231784,
+    "autonomia_meses": 1.0
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {},
+   "costes": {
+    "locate_1c_R": 0.024
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
+   ]
+  },
+  {
+   "sym": "MX",
+   "nombre": "MAGNACHIP SEMICONDUCTOR Corp",
+   "sector": "Semiconductors & Related Devices",
+   "precio": 3.47,
+   "cierre_prev": 2.75,
+   "gap": 0.2618,
+   "cap": null,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "clasif": {
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 7,
+    "tercio": "Baja",
+    "pred_R": -0.04,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 183,
+    "R": -0.05,
+    "WR": 0.54,
+    "gan": 0.48,
+    "perd": -0.67,
+    "PF": 0.85,
+    "dev": 0.04
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 3.55,
+    "pml": 2.8,
+    "pmh_hora": "08:36",
+    "hasta": "09:14"
+   },
+   "caja": {
+    "caja": 87936000,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1325702/000119312526342416/",
+    "flujo_operativo": -2946,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 491,
+    "autonomia_meses": 179095.7
+   },
+   "catalizadores": [],
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-21 07:05",
+     "items": "1.01,3.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1325702/000119312526396059/mx-20260729.htm",
+     "items_es": "1.01 acuerdo firmado; 3.02 venta privada de acciones; 7.01 nota de prensa; 9.01 anexos"
+    }
+   ],
+   "noticias": [],
+   "municion": {},
+   "costes": {
+    "locate_1c_R": 0.01
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
+   ]
+  },
+  {
+   "sym": "CISS",
+   "nombre": "C3is Inc.",
+   "sector": "Deep Sea Foreign Transportation of  Freight",
+   "precio": 1.56,
+   "cierre_prev": 1.2899999618530273,
+   "gap": 0.2093,
+   "cap": null,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "clasif": {
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 7,
+    "tercio": "Baja",
+    "pred_R": -0.04,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 183,
+    "R": -0.05,
+    "WR": 0.54,
+    "gan": 0.48,
+    "perd": -0.67,
+    "PF": 0.85,
+    "dev": 0.04
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 1.8,
+    "pml": 1.31,
+    "pmh_hora": "07:31",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 616640,
+    "inversiones": 0,
+    "caja_fecha": "2025-12-31",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "20-F",
+    "url": "https://www.sec.gov/Archives/edgar/data/1951067/000119312526170448/",
+    "flujo_operativo": 4001822,
+    "flujo_desde": "2025-01-01",
+    "flujo_hasta": "2025-12-31",
+    "meses": 12
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {},
+   "costes": {
+    "locate_1c_R": 0.021
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
    ]
   },
   {
@@ -231,13 +1012,116 @@
    "cierre_prev": 8.579999923706055,
    "gap": 0.69,
    "cap": 8330279.0,
+   "acciones": null,
    "vol_pre": null,
-   "nivel": "VIGILAR",
+   "bolsa": "",
    "clasif": {
     "tipo": "N",
     "nota": "Sin 8-K ni noticias en la ventana.",
     "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
     "tipo_es": "Sin noticia"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 2,
+    "tercio": "Baja",
+    "pred_R": -0.063,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": true,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": true,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 74,
+    "R": -0.11,
+    "WR": 0.54,
+    "gan": 0.6,
+    "perd": -0.96,
+    "PF": 0.74,
+    "dev": -0.07
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 15.6297,
+    "pml": 9.32,
+    "pmh_hora": "09:04",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 3929427,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "Cash",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1855509/000173112226001024/",
+    "flujo_operativo": -3271122,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 545187,
+    "autonomia_meses": 7.2
    },
    "catalizadores": [],
    "docs_hoy": [],
@@ -292,32 +1176,50 @@
     "eloc": false,
     "warrants_en_dinero": true
    },
-   "venta_hoy": false,
    "costes": {
     "locate_1c_R": 0.002
    },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
-   },
    "avisos": [
-    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
    ]
   }
  ],
- "vigilar": [
+ "descartadas": [
+  {
+   "sym": "BTTC",
+   "nombre": "Black Titan Corp",
+   "sector": "Services-Computer Programming Services",
+   "precio": 0.644,
+   "cierre_prev": 0.36500000953674316,
+   "gap": 0.7644,
+   "cap": 4974011.28,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "clasif": {
+    "tipo": "N",
+    "nota": "Sin 8-K ni noticias en la ventana.",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
+    "tipo_es": "Sin noticia"
+   },
+   "motivo": "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5)",
+   "docs_hoy": []
+  },
   {
    "sym": "LOBO",
    "nombre": "LOBO TECHNOLOGIES LTD.",
+   "sector": "Motorcycles, Bicycles & Parts",
    "precio": 0.709,
+   "cierre_prev": 0.5299999713897705,
    "gap": 0.3377,
    "cap": null,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "clasif": {
+    "tipo_es": "Sin noticia"
+   },
+   "motivo": "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5)",
    "docs_hoy": [
     {
      "form": "6-K",
@@ -326,74 +1228,23 @@
      "url": "https://www.sec.gov/Archives/edgar/data/1932072/000149315226043339/form6-k.htm",
      "items_es": ""
     }
-   ],
-   "tipo": null
-  },
-  {
-   "sym": "PRTH",
-   "nombre": "Priority Technology Holdings, Inc.",
-   "precio": 7.785,
-   "gap": 0.3353,
-   "cap": null,
-   "docs_hoy": [
-    {
-     "form": "DEFA14A",
-     "hora": "2026-09-21 07:42",
-     "items": "",
-     "url": "https://www.sec.gov/Archives/edgar/data/1653558/000121390026101653/ea0306047-8k_priority.htm",
-     "items_es": ""
-    },
-    {
-     "form": "8-K",
-     "hora": "2026-09-21 07:40",
-     "items": "1.01,5.02,8.01,9.01",
-     "url": "https://www.sec.gov/Archives/edgar/data/1653558/000121390026101651/ea0306047-8k_priority.htm",
-     "items_es": "1.01 acuerdo firmado; 5.02 directivos; 8.01 otros hechos; 9.01 anexos"
-    }
-   ],
-   "tipo": null
-  },
-  {
-   "sym": "SVRN",
-   "nombre": "OceanPal Inc.",
-   "precio": 26.36,
-   "gap": 0.2972,
-   "cap": null,
-   "docs_hoy": [],
-   "tipo": null
-  },
-  {
-   "sym": "AVAT",
-   "nombre": "Avalanche Treasury Corp",
-   "precio": 1.4,
-   "gap": 0.2963,
-   "cap": null,
-   "docs_hoy": [],
-   "tipo": null
-  },
-  {
-   "sym": "MX",
-   "nombre": "MAGNACHIP SEMICONDUCTOR Corp",
-   "precio": 3.47,
-   "gap": 0.2618,
-   "cap": null,
-   "docs_hoy": [
-    {
-     "form": "8-K",
-     "hora": "2026-09-21 07:05",
-     "items": "1.01,3.02,7.01,9.01",
-     "url": "https://www.sec.gov/Archives/edgar/data/1325702/000119312526396059/mx-20260729.htm",
-     "items_es": "1.01 acuerdo firmado; 3.02 venta privada de acciones; 7.01 nota de prensa; 9.01 anexos"
-    }
-   ],
-   "tipo": null
+   ]
   },
   {
    "sym": "INV",
    "nombre": "Innventure, Inc.",
+   "sector": "Blank Checks",
    "precio": 0.731,
+   "cierre_prev": 0.5979999899864197,
    "gap": 0.2224,
    "cap": null,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "clasif": {
+    "tipo_es": "Sin noticia"
+   },
+   "motivo": "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5)",
    "docs_hoy": [
     {
      "form": "8-K",
@@ -402,17 +1253,7 @@
      "url": "https://www.sec.gov/Archives/edgar/data/2001557/000200155726000175/innv-20260918.htm",
      "items_es": "5.02 directivos; 8.01 otros hechos"
     }
-   ],
-   "tipo": null
-  },
-  {
-   "sym": "CISS",
-   "nombre": "C3is Inc.",
-   "precio": 1.56,
-   "gap": 0.2093,
-   "cap": null,
-   "docs_hoy": [],
-   "tipo": null
+   ]
   }
  ],
  "resultados": {
@@ -458,5 +1299,6 @@
   "avisos": [],
   "cobertura": null,
   "forzada": false
- }
+ },
+ "convertida_v1": true
 }

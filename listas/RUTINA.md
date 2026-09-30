@@ -17,7 +17,7 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
    anterior a hoy sin carpeta `listas/m1/AAAA-MM-DD/` (Yahoo solo guarda ~30 días de velas de 1 min), ejecutar
    `python3 herramientas/ruptura_930.py guardar --fecha AAAA-MM-DD`; después `python3 herramientas/ruptura_930.py medir`.
    Se sube con el commit del paso 7 (`git add listas/m1 listas/ruptura_930.csv`). En el mensaje final (paso 8), UNA línea aparte,
-   marcada como estudio: resultado de ayer por acción y acumulado por nivel (n, R, WR, PF). Nada de esto va a la página ni al push.
+   marcada como estudio: resultado de ayer por acción y acumulado por clase (tesis alta ≥ 50 %, media/baja, 20-50 %, descartadas) (n, R, WR, PF). Nada de esto va a la página ni al push.
 4. Escanear: `python3 herramientas/lista_diaria.py escanear` → `listas/datos/HOY_candidatos.json`.
    El escáner usa DOS fuentes para el cierre de ayer: Yahoo (histórico diario) y **Massive** (antes Polygon; credencial en el entorno,
    1 consulta). Una acción entra como candidata si supera el 20 % contra cualquiera de las dos. Si los cierres difieren > 2 %,
@@ -48,16 +48,19 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
    - `finalizar` ejecuta un control automático (cobertura del escáner ≥ 97 %, todo clasificado, sin `N` con titulares sin abrir,
      frase + traducción + cifra presentes, munición analizada). Si da ERROR, corregir y repetir; `--forzar` solo si el tiempo se acaba,
      y decirlo en el mensaje final.
-6. Finalizar: `python3 herramientas/lista_diaria.py finalizar` (actualiza precios del premarket y asigna nivel/plan) y guardar
+6. Finalizar: `python3 herramientas/lista_diaria.py finalizar` (actualiza precios del premarket; aplica el filtro de campo, calcula la
+   puntuación de la tesis 0-100 de la ronda 12, el riesgo estructural, la caja, el PMH y guarda el texto de los 8-K; las descartadas
+   quedan aparte con su motivo; **desde el 30-sep no hay letras A/B/Vigilar/NO/Nunca**, pedido del usuario) y guardar
    `listas/datos/HOY.json` en la base de datos (`ArtifactData set`, colección `listas`, `doc_id` = HOY).
 7. `git add listas/datos listas/m1 listas/ruptura_930.csv && git commit -m "Lista diaria HOY" && git push -u origin claude/analisis-cuantitativo-45j7qe`
    (con las líneas de atribución de siempre).
-8. Mensaje final en español: niveles de la lista (A/B/Vigilar/NO/Nunca con tickers), catalizador (frase original + traducción + cifra),
-   munición y base estadística de cada una, resultado de base del día anterior y enlace a la página.
+8. Mensaje final en español: tabla del screener ordenada por tesis (ticker, tesis 0-100 y tercio, riesgo, gap, precio, catalizador),
+   de cada una la frase original + traducción + cifra y la munición; las descartadas en una línea con su motivo; resultado de base
+   del día anterior por tercio y enlace a la página.
    **Solo trabajo de campo (selección).** NO dar instrucciones de ejecución (entrada, stop, tamaño, salida): la ejecución es discrecional
    del usuario. El análisis de ejecución se trata aparte, en conversaciones de formación y estudios, nunca en la lista del día.
 9. **Notificación push** (pedida por el usuario el 28-sep; probada y funciona): herramienta `PushNotification`, una línea < 200
-   caracteres, sin formato, p. ej. `Radar 29-sep listo: A → … · B → SOAR +111 %, GYGY +64 % · Vigilar → KOD · Nunca → LFCR · Control OK`.
+   caracteres, sin formato, p. ej. `Radar 1-oct listo: CNTB 80 alta · FFR 61 · VBIO 26 (riesgo extremo) · fuera: LGHL, FRGT · Control OK`.
    Si la auditoría retrasa la lista o falla algo, avisar también por push (`Radar 29-sep RETRASADO: <motivo>`).
 
-No cambiar reglas, niveles ni estadísticas: solo lo validado en `smallcaps/INFORME_SELECCION.md`. No crear otras rutinas.
+No cambiar reglas, pesos ni estadísticas: solo lo validado en `smallcaps/INFORME_SELECCION.md`. No crear otras rutinas.

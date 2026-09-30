@@ -4,15 +4,15 @@
  "replay": true,
  "desde": "2026-09-22 16:00",
  "corte": "2026-09-23 09:10",
+ "version": 2,
  "reglas": {
-  "gap_lista": 0.5,
-  "gap_vigilar": 0.2,
+  "gap_minimo": 0.2,
   "stop": 0.3,
   "deslizamiento": 0.05,
   "coste": 0.01,
   "riesgo_accion": 0.3750000000000002
  },
- "lista": [
+ "acciones": [
   {
    "sym": "BENF",
    "nombre": "Beneficient",
@@ -21,8 +21,9 @@
    "cierre_prev": 0.5379999876022339,
    "gap": 4.4275,
    "cap": null,
+   "acciones": null,
    "vol_pre": null,
-   "nivel": "A",
+   "bolsa": "",
    "clasif": {
     "tipo": "H",
     "frase_en": "formulated and is implementing a comprehensive strategy intended to eliminate both the fraudulent indebtedness asserted by HCLP",
@@ -31,16 +32,119 @@
     "nota": "8-K Item 7.01 (nota de prensa). Verbos de intención: 'strategy intended to'. Lección 15.",
     "tipo_es": "Humo / cosmético"
    },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 97,
+    "tercio": "Alta",
+    "pred_R": 0.197,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": true,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": true,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": true,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 160,
+    "R": 0.26,
+    "WR": 0.69,
+    "gan": 0.82,
+    "perd": -1.0,
+    "PF": 1.86,
+    "dev": 0.17
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 2.95,
+    "pml": 0.5101,
+    "pmh_hora": "09:29",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 5582000,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1775734/000177573426000030/",
+    "flujo_operativo": -4105000,
+    "flujo_desde": "2026-04-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 3,
+    "quema_mes": 1368333,
+    "autonomia_meses": 4.1
+   },
    "catalizadores": [
     {
      "form": "8-K",
      "hora": "2026-09-23 07:35",
      "items": "7.01,9.01",
+     "items_es": "7.01 nota de prensa; 9.01 anexos",
      "url": "https://www.sec.gov/Archives/edgar/data/1775734/000149315226043806/form8-k.htm",
-     "anexos": [
+     "partes": [
       {
        "archivo": "ex99-1.htm",
-       "url": "https://www.sec.gov/Archives/edgar/data/1775734/000149315226043806/ex99-1.htm"
+       "url": "https://www.sec.gov/Archives/edgar/data/1775734/000149315226043806/ex99-1.htm",
+       "texto": "Beneficient Announces Strategy to Eliminate HCLP Debt and Heppner Equity Interests DALLAS, September 23, 2026 (GLOBE NEWSWIRE) — Beneficient (NASDAQ: BENF) (the “Company”), a technology-enabled platform providing exit opportunities and primary capital solutions and related trust and custody services to holders of alternative assets, today announced that it has formulated and is implementing a comprehensive strategy intended to eliminate both the fraudulent indebtedness asserted by HCLP Nominees, L.L.C. (“HCLP”) and the equity interests in Beneficient and its subsidiaries held by the Company’s former Chief Executive Officer, Brad Heppner, and his affiliated entities (“Heppner Equity Interests”). Through the strategy, the Company also seeks to terminate all other remaining agreements with Heppner or his affiliated entities (“Heppner Agreements”) and have all amounts purportedly owed to them by Beneficient or its subsidiaries under those agreements or otherwise deemed void and unenforceable. The strategy follows Heppner’s May 2026 federal fraud conviction and is a significant component of the Company’s broader effort to transform its balance sheet, simplify its capital structure, and unlock its potential. The Company continues to operate its business and pursue its long-term growth objectives while implementing the strategy. As previously disclosed, Heppner was convicted on May 7, 2026, of securities fraud, wire fraud and related charges in connection with a fraudulent scheme to enrich himself. The criminal trial revealed overwhelming evidence that Heppner fraudulently conceal"
       }
      ]
     }
@@ -120,22 +224,11 @@
     "eloc": true,
     "warrants_en_dinero": false
    },
-   "venta_hoy": false,
    "costes": {
     "locate_1c_R": 0.011
    },
-   "estad": {
-    "R": 0.45,
-    "WR": 0.75,
-    "gan": 0.94,
-    "perd": -1.03,
-    "PF": 2.74,
-    "n": 56,
-    "squeeze": 0.09,
-    "fuente": "base mecánica, humo + gap ≥100 % + precio ≥ $1 · VAL 2022-26 (DEV 2015-21: +0.42R, 18 casos) · corte provisional (ronda 5)"
-   },
    "avisos": [
-    "Convertible de precio variable (tóxica) en el último informe"
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
    ]
   },
   {
@@ -146,13 +239,114 @@
    "cierre_prev": 1.8700000047683716,
    "gap": 1.7834,
    "cap": 10053811.44,
+   "acciones": null,
    "vol_pre": null,
-   "nivel": "VIGILAR",
+   "bolsa": "",
    "clasif": {
     "tipo": "N",
     "nota": "Sin 8-K ni noticias en la ventana (la subida viene de los contra-splits encadenados, ver lección 12).",
     "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (auditoría de días de prueba)",
     "tipo_es": "Sin noticia"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 80,
+    "tercio": "Alta",
+    "pred_R": 0.111,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": true,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 160,
+    "R": 0.26,
+    "WR": 0.69,
+    "gan": 0.82,
+    "perd": -1.0,
+    "PF": 1.86,
+    "dev": 0.17
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 8.54,
+    "pml": 3.31,
+    "pmh_hora": "04:23",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 31873000,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1527541/000152754126000251/",
+    "flujo_operativo": 12465000,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6
    },
    "catalizadores": [],
    "docs_hoy": [],
@@ -181,378 +375,11 @@
     "eloc": false,
     "warrants_en_dinero": false
    },
-   "venta_hoy": false,
    "costes": {
     "locate_1c_R": 0.006
    },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
-   },
    "avisos": [
-    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
-   ]
-  },
-  {
-   "sym": "VTGN",
-   "nombre": "Vistagen Therapeutics, Inc.",
-   "sector": "Pharmaceutical Preparations",
-   "precio": 0.39,
-   "cierre_prev": 0.25,
-   "gap": 0.56,
-   "cap": 17306995.29,
-   "vol_pre": null,
-   "nivel": "VIGILAR",
-   "clasif": {
-    "tipo": "B",
-    "frase_en": "Preliminary Positive Data from Open-Label Extension Portion of PALISADE-4 Phase 3 Study",
-    "frase_es": "datos preliminares positivos de la extensión abierta del estudio de fase 3 PALISADE-4",
-    "cifra": "sin cifra; datos de seguridad a 12 meses",
-    "nota": "Dato clínico real, pero de una extensión abierta (sin placebo).",
-    "tipo_es": "Biotech real (FDA / datos)"
-   },
-   "catalizadores": [
-    {
-     "form": "8-K",
-     "hora": "2026-09-22 16:22",
-     "items": "8.01,9.01",
-     "url": "https://www.sec.gov/Archives/edgar/data/1411685/000162828026063046/vtgn-20260922.htm",
-     "anexos": [
-      {
-       "archivo": "ex99120260922.htm",
-       "url": "https://www.sec.gov/Archives/edgar/data/1411685/000162828026063046/ex99120260922.htm"
-      }
-     ]
-    }
-   ],
-   "docs_hoy": [
-    {
-     "form": "8-K",
-     "hora": "2026-09-22 16:22",
-     "items": "8.01,9.01",
-     "url": "https://www.sec.gov/Archives/edgar/data/1411685/000162828026063046/vtgn-20260922.htm",
-     "items_es": "8.01 otros hechos; 9.01 anexos"
-    }
-   ],
-   "noticias": [],
-   "municion": {
-    "venta90": false,
-    "s3": "2024-02-13",
-    "s1": null,
-    "ventas_12m": 0,
-    "aviso_bolsa": true,
-    "contrasplits_2a": 0,
-    "ultimas_ventas": [
-     {
-      "form": "424B5",
-      "fecha": "2025-06-17",
-      "url": "https://www.sec.gov/Archives/edgar/data/1411685/000141168525000044/vtgn424b52025_06x17.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2023-10-03",
-      "url": "https://www.sec.gov/Archives/edgar/data/1411685/000143774923027529/vtgn20230921_424b5.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2023-08-08",
-      "url": "https://www.sec.gov/Archives/edgar/data/1411685/000143774923022393/vtgn20230807_424b5.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2023-06-30",
-      "url": "https://www.sec.gov/Archives/edgar/data/1411685/000143774923019024/vtgn20230629_424b5.htm"
-     }
-    ],
-    "atm": true,
-    "toxica": false,
-    "going_concern": true,
-    "warrants": [
-     5.38,
-     6.42,
-     7.3,
-     8.88
-    ],
-    "informe": {
-     "form": "10-Q",
-     "fecha": "2026-08-14",
-     "url": "https://www.sec.gov/Archives/edgar/data/1411685/000162828026057116/vtgn-20260630.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.085
-   },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
-   },
-   "avisos": []
-  }
- ],
- "vigilar": [
-  {
-   "sym": "DCOY",
-   "nombre": "Decoy Therapeutics Inc.",
-   "sector": "Pharmaceutical Preparations",
-   "precio": 4.4,
-   "cierre_prev": 3.0999999046325684,
-   "gap": 0.4194,
-   "cap": 2882814.0,
-   "vol_pre": null,
-   "nivel": "NO",
-   "clasif": {
-    "tipo": "F",
-    "frase_en": "The New Warrants are not subject to stockholder approval and will become exercisable immediately upon issuance",
-    "frase_es": "los nuevos warrants no necesitan aprobación de los accionistas y se podrán ejercer de inmediato",
-    "cifra": "2 368 868 acciones en warrants nuevos a $3.25 (precio de la acción: $4.40); $3.85 M (dólares) recaudados",
-    "nota": "Warrant inducement anunciado el 22-sep a las 12:50 (en plena sesión) y corregido a las 18:14. Financiación = munición inmediata (lección 6). 8-K presentado el 23-sep a las 17:02.",
-    "tipo_es": "Financiación"
-   },
-   "catalizadores": [],
-   "docs_hoy": [],
-   "noticias": [
-    {
-     "hora": "2026-09-22 18:14",
-     "titular": "Decoy Therapeutics, Inc. Issues Correction to Warrant Inducement Transaction Press Release",
-     "url": "https://finviz.com/news/394513/decoy-therapeutics-inc-issues-correction-to-warrant-inducement-transaction-press-release",
-     "fuente": "PR Newswire"
-    }
-   ],
-   "municion": {
-    "venta90": true,
-    "s3": "2025-08-15",
-    "s1": "2026-07-10",
-    "ventas_12m": 1,
-    "aviso_bolsa": true,
-    "contrasplits_2a": 4,
-    "ultimas_ventas": [
-     {
-      "form": "424B4",
-      "fecha": "2025-11-12",
-      "url": "https://www.sec.gov/Archives/edgar/data/1615219/000162828025051365/slrxdecoyfinal424b4.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2025-08-22",
-      "url": "https://www.sec.gov/Archives/edgar/data/1615219/000162828025041046/slrxatmprospectus.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2025-03-11",
-      "url": "https://www.sec.gov/Archives/edgar/data/1615219/000161521925000029/salarius-atmprospectussupp.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2024-07-25",
-      "url": "https://www.sec.gov/Archives/edgar/data/1615219/000161521924000066/salarius-atmprospectussupp.htm"
-     }
-    ],
-    "atm": true,
-    "toxica": false,
-    "going_concern": true,
-    "warrants": [
-     5.91,
-     6.0,
-     27.9
-    ],
-    "informe": {
-     "form": "10-Q",
-     "fecha": "2026-08-12",
-     "url": "https://www.sec.gov/Archives/edgar/data/1615219/000119312526346852/dcoy-20260630.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.008
-   },
-   "estad": {
-    "R": -0.12,
-    "WR": 0.49,
-    "gan": null,
-    "perd": null,
-    "PF": 0.65,
-    "n": null,
-    "squeeze": null,
-    "fuente": "resultados / financiación / avisos de bolsa: PF 0.6-0.7"
-   },
-   "avisos": []
-  },
-  {
-   "sym": "MSS",
-   "nombre": "Maison Solutions Inc.",
-   "sector": "Retail-Grocery Stores",
-   "precio": 2.06,
-   "cierre_prev": 1.559999942779541,
-   "gap": 0.3205,
-   "cap": 35947980.56,
-   "vol_pre": null,
-   "nivel": "VIGILAR",
-   "clasif": {
-    "tipo": "N",
-    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
-    "nota": "Sin noticias desde el 26-ago. Munición: convertible tóxica y warrants en dinero ($0.26-0.78). El trader pagó locate de $0.016/acción.",
-    "tipo_es": "Sin noticia"
-   },
-   "catalizadores": [],
-   "docs_hoy": [],
-   "noticias": [],
-   "municion": {
-    "venta90": false,
-    "s3": null,
-    "s1": "2025-12-11",
-    "ventas_12m": 0,
-    "aviso_bolsa": true,
-    "contrasplits_2a": 3,
-    "ultimas_ventas": [
-     {
-      "form": "424B4",
-      "fecha": "2023-10-05",
-      "url": "https://www.sec.gov/Archives/edgar/data/1892292/000101376223002201/f424b41023_maison.htm"
-     }
-    ],
-    "atm": false,
-    "toxica": true,
-    "going_concern": true,
-    "warrants": [
-     0.26,
-     0.28,
-     0.78
-    ],
-    "informe": {
-     "form": "10-Q",
-     "fecha": "2026-03-17",
-     "url": "https://www.sec.gov/Archives/edgar/data/1892292/000121390026029204/ea0281006-10q_maison.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": true
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.016
-   },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
-   },
-   "avisos": [
-    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar",
-    "Convertible de precio variable (tóxica) en el último informe"
-   ]
-  },
-  {
-   "sym": "BFRG",
-   "nombre": "BullFrog AI Holdings, Inc.",
-   "sector": "Pharmaceutical Preparations",
-   "precio": 0.782,
-   "cierre_prev": 0.6000000238418579,
-   "gap": 0.3033,
-   "cap": 14499571.082,
-   "vol_pre": null,
-   "nivel": "VIGILAR",
-   "clasif": {
-    "tipo": "N",
-    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
-    "nota": "Solo dos Form 4 (22-sep 16:45). Sin noticias. Precio < $1.",
-    "tipo_es": "Sin noticia"
-   },
-   "catalizadores": [],
-   "docs_hoy": [
-    {
-     "form": "4",
-     "hora": "2026-09-22 16:46",
-     "items": "",
-     "url": "https://www.sec.gov/Archives/edgar/data/1829247/000162828026063056/xslF345X06/wk-form4_1790109961.xml",
-     "items_es": ""
-    },
-    {
-     "form": "4",
-     "hora": "2026-09-22 16:45",
-     "items": "",
-     "url": "https://www.sec.gov/Archives/edgar/data/1829247/000162828026063054/xslF345X06/wk-form4_1790109920.xml",
-     "items_es": ""
-    }
-   ],
-   "noticias": [],
-   "municion": {
-    "venta90": true,
-    "s3": "2024-08-15",
-    "s1": "2026-05-29",
-    "ventas_12m": 2,
-    "aviso_bolsa": true,
-    "contrasplits_2a": 1,
-    "ultimas_ventas": [
-     {
-      "form": "424B5",
-      "fecha": "2026-04-01",
-      "url": "https://www.sec.gov/Archives/edgar/data/1829247/000149315226014685/form424b5.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2025-11-07",
-      "url": "https://www.sec.gov/Archives/edgar/data/1829247/000149315225021283/form424b5.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2025-04-25",
-      "url": "https://www.sec.gov/Archives/edgar/data/1829247/000164117225006297/form424b5.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2024-10-21",
-      "url": "https://www.sec.gov/Archives/edgar/data/1829247/000149315224041774/form424b5.htm"
-     }
-    ],
-    "atm": true,
-    "toxica": false,
-    "going_concern": true,
-    "warrants": [],
-    "informe": {
-     "form": "10-Q",
-     "fecha": "2026-08-14",
-     "url": "https://www.sec.gov/Archives/edgar/data/1829247/000162828026057121/bfrg-20260630.htm"
-    },
-    "eloc": true,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.043
-   },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
-   },
-   "avisos": [
-    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
    ]
   },
   {
@@ -563,13 +390,116 @@
    "cierre_prev": 0.8650000095367432,
    "gap": 0.2832,
    "cap": 16621497.420000002,
+   "acciones": null,
    "vol_pre": null,
-   "nivel": "VIGILAR",
+   "bolsa": "",
    "clasif": {
     "tipo": "N",
     "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
     "nota": "Sin noticia antes de las 9:10. A las 9:17 publicó una LOI (carta de intención no vinculante) para comprar Roboticom por $30 M = humo, pero llegó después del corte.",
     "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 17,
+    "tercio": "Baja",
+    "pred_R": -0.025,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": true,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 183,
+    "R": -0.05,
+    "WR": 0.54,
+    "gan": 0.48,
+    "perd": -0.67,
+    "PF": 0.85,
+    "dev": 0.04
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 1.24,
+    "pml": 0.8503,
+    "pmh_hora": "09:23",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 1906000,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1839285/000121390026089241/",
+    "flujo_operativo": -7697000,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 1282833,
+    "autonomia_meses": 1.5
    },
    "catalizadores": [],
    "docs_hoy": [],
@@ -615,23 +545,259 @@
     "eloc": true,
     "warrants_en_dinero": false
    },
-   "venta_hoy": false,
    "costes": {
     "locate_1c_R": 0.03
    },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)",
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
+   ]
+  },
+  {
+   "sym": "MSS",
+   "nombre": "Maison Solutions Inc.",
+   "sector": "Retail-Grocery Stores",
+   "precio": 2.06,
+   "cierre_prev": 1.559999942779541,
+   "gap": 0.3205,
+   "cap": 35947980.56,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "clasif": {
+    "tipo": "N",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
+    "nota": "Sin noticias desde el 26-ago. Munición: convertible tóxica y warrants en dinero ($0.26-0.78). El trader pagó locate de $0.016/acción.",
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 7,
+    "tercio": "Baja",
+    "pred_R": -0.04,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
    "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
+    "n": 183,
+    "R": -0.05,
+    "WR": 0.54,
+    "gan": 0.48,
+    "perd": -0.67,
+    "PF": 0.85,
+    "dev": 0.04
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 3.17,
+    "pml": 1.5103,
+    "pmh_hora": "09:04",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 1070802,
+    "inversiones": 0,
+    "caja_fecha": "2025-07-31",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1892292/000121390025090145/",
+    "flujo_operativo": 911790,
+    "flujo_desde": "2025-05-01",
+    "flujo_hasta": "2026-01-31",
+    "meses": 9
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": "2025-12-11",
+    "ventas_12m": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 3,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2023-10-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1892292/000101376223002201/f424b41023_maison.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     0.26,
+     0.28,
+     0.78
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-03-17",
+     "url": "https://www.sec.gov/Archives/edgar/data/1892292/000121390026029204/ea0281006-10q_maison.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": true
+   },
+   "costes": {
+    "locate_1c_R": 0.016
    },
    "avisos": [
-    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar",
-    "Convertible de precio variable (tóxica) en el último informe"
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)",
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
+   ]
+  }
+ ],
+ "descartadas": [
+  {
+   "sym": "VTGN",
+   "nombre": "Vistagen Therapeutics, Inc.",
+   "sector": "Pharmaceutical Preparations",
+   "precio": 0.39,
+   "cierre_prev": 0.25,
+   "gap": 0.56,
+   "cap": 17306995.29,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "clasif": {
+    "tipo": "B",
+    "frase_en": "Preliminary Positive Data from Open-Label Extension Portion of PALISADE-4 Phase 3 Study",
+    "frase_es": "datos preliminares positivos de la extensión abierta del estudio de fase 3 PALISADE-4",
+    "cifra": "sin cifra; datos de seguridad a 12 meses",
+    "nota": "Dato clínico real, pero de una extensión abierta (sin placebo).",
+    "tipo_es": "Biotech real (FDA / datos)"
+   },
+   "motivo": "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5)",
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-22 16:22",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1411685/000162828026063046/vtgn-20260922.htm",
+     "items_es": "8.01 otros hechos; 9.01 anexos"
+    }
+   ]
+  },
+  {
+   "sym": "DCOY",
+   "nombre": "Decoy Therapeutics Inc.",
+   "sector": "Pharmaceutical Preparations",
+   "precio": 4.4,
+   "cierre_prev": 3.0999999046325684,
+   "gap": 0.4194,
+   "cap": 2882814.0,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "clasif": {
+    "tipo": "F",
+    "frase_en": "The New Warrants are not subject to stockholder approval and will become exercisable immediately upon issuance",
+    "frase_es": "los nuevos warrants no necesitan aprobación de los accionistas y se podrán ejercer de inmediato",
+    "cifra": "2 368 868 acciones en warrants nuevos a $3.25 (precio de la acción: $4.40); $3.85 M (dólares) recaudados",
+    "nota": "Warrant inducement anunciado el 22-sep a las 12:50 (en plena sesión) y corregido a las 18:14. Financiación = munición inmediata (lección 6). 8-K presentado el 23-sep a las 17:02.",
+    "tipo_es": "Financiación"
+   },
+   "motivo": "Financiación: históricamente malo para el corto (PF 0.72)",
+   "docs_hoy": []
+  },
+  {
+   "sym": "BFRG",
+   "nombre": "BullFrog AI Holdings, Inc.",
+   "sector": "Pharmaceutical Preparations",
+   "precio": 0.782,
+   "cierre_prev": 0.6000000238418579,
+   "gap": 0.3033,
+   "cap": 14499571.082,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "clasif": {
+    "tipo": "N",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
+    "nota": "Solo dos Form 4 (22-sep 16:45). Sin noticias. Precio < $1.",
+    "tipo_es": "Sin noticia"
+   },
+   "motivo": "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5)",
+   "docs_hoy": [
+    {
+     "form": "4",
+     "hora": "2026-09-22 16:46",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1829247/000162828026063056/xslF345X06/wk-form4_1790109961.xml",
+     "items_es": ""
+    },
+    {
+     "form": "4",
+     "hora": "2026-09-22 16:45",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1829247/000162828026063054/xslF345X06/wk-form4_1790109920.xml",
+     "items_es": ""
+    }
    ]
   }
  ],
@@ -707,5 +873,6 @@
   ],
   "cobertura": null,
   "forzada": false
- }
+ },
+ "convertida_v1": true
 }

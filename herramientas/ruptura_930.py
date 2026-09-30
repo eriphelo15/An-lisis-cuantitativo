@@ -20,6 +20,11 @@ COSTE, RIESGO_MIN = 0.005, 0.02
 def acciones(fecha):
     L = json.load(open(os.path.join(RAIZ, "datos", f"{fecha}.json")))
     out = []
+    for x in L.get("acciones", []) + L.get("descartadas", []):     # formato nuevo (desde el 30-sep): sin letras
+        p = x.get("puntuacion") or {}
+        out.append(dict(sym=x["sym"], nivel="DESCARTADA" if "motivo" in x else "TESIS " + p.get("tercio", "?").upper(),
+                        gap=x.get("gap"), precio=x.get("precio"), grupo="gap ≥ 50 %" if x["gap"] >= 0.5 else "gap 20-50 %",
+                        replay=bool(L.get("replay"))))
     for grupo in ("lista", "vigilar"):
         for x in L.get(grupo) or []:
             out.append(dict(sym=x["sym"], nivel=x.get("nivel") or "SIN CLASIFICAR", gap=x.get("gap"), precio=x.get("precio"),
@@ -87,9 +92,12 @@ def medir():
         v = v.dropna(); g, p = v[v > 0], v[v <= 0]
         return pd.Series(dict(n=len(v), R=v.mean(), WR=(v > 0).mean(), gan=g.mean(), perd=p.mean(),
                               PF=g.sum() / -p.sum() if p.sum() < 0 else np.nan, dolares_riesgo_20=20 * v.sum()))
-    X["clase"] = np.select([X.nivel.isin(["A", "B"]) & (X.grupo == "gap ≥ 50 %"),
+    X["clase"] = np.select([X.nivel.isin(["DESCARTADA", "NO", "NUNCA"]),
+                            X.nivel.eq("TESIS ALTA") & (X.grupo == "gap ≥ 50 %"),
+                            X.nivel.isin(["TESIS MEDIA", "TESIS BAJA"]) & (X.grupo == "gap ≥ 50 %"),
+                            X.nivel.isin(["A", "B"]) & (X.grupo == "gap ≥ 50 %"),
                             (X.grupo == "gap ≥ 50 %") & (X.precio >= 1) & (X.nivel == "VIGILAR"),
-                            X.grupo == "gap 20-50 %"], ["A/B", "Vigilar ≥ 50 % (≥ $1)", "20-50 %"], "otras (< $1, NO, Nunca)")
+                            X.grupo == "gap 20-50 %"], ["descartadas / NO / Nunca", "Tesis alta ≥ 50 %", "Tesis media/baja ≥ 50 %", "A/B", "Vigilar ≥ 50 % (≥ $1)", "20-50 %"], "otras (< $1)")
     T = X[X.estado.isin(["stop", "11:30"])].groupby("clase").R.apply(met).unstack()
     pd.set_option("display.width", 200)
     print(f"días: {X.fecha.nunique()} ({X.fecha.min()} → {X.fecha.max()}) · acciones: {len(X)} · "

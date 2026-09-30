@@ -6,7 +6,8 @@ Pasos (cada mañana, día hábil de EE. UU.):
   2) Claude lee cada catalizador y escribe listas/datos/AAAA-MM-DD_clasif.json:
      {"TICKER": {"tipo": "H|K|B|R|F|S|C|O|N", "frase_en": "...", "frase_es": "...", "cifra": "...", "nota": "..."}}
      (definiciones: smallcaps/HIPOTESIS_SELECCION.md, ronda 2b; N = no se encontró ninguna noticia)
-  3) python3 herramientas/lista_diaria.py finalizar           → listas/datos/AAAA-MM-DD.json (nivel, plan, estadística)
+  3) python3 herramientas/lista_diaria.py finalizar           → listas/datos/AAAA-MM-DD.json (filtro de campo, puntuación de la
+     tesis 0-100 validada en la ronda 12, riesgo estructural aparte, caja, premarket, textos de los 8-K; descartadas con su motivo)
   4) python3 herramientas/lista_diaria.py resultados --fecha D → resultado real (setup A) de la lista del día D
 
 Prueba con días pasados: añadir --replay --fecha AAAA-MM-DD (usa la apertura real como "premarket", EDGAR hasta las 9:10
@@ -28,24 +29,11 @@ FERIADOS = {  # NYSE, cerrado todo el día
     "2026-11-26", "2026-12-25", "2027-01-01", "2027-01-18", "2027-02-15", "2027-03-26", "2027-05-31", "2027-06-18",
     "2027-07-05", "2027-09-06", "2027-11-25", "2027-12-24"}
 GAP_LISTA, GAP_VIGILAR, PRECIO_MIN = 0.50, 0.20, 0.30
-GAP_A, PRECIO_OPERABLE = 1.00, 1.00      # ronda 5: A = gap ≥ 100 %; < $1 no operable (el locate en centavos se come la ventaja)
+PRECIO_OPERABLE = 1.00      # ronda 5: < $1 no operable (el locate en centavos se come la ventaja)
 STOP, DESL, COSTE = 0.30, 0.05, 0.01
 RIESGO_ACCION = (1 + STOP) * (1 + DESL) - 1 + COSTE          # ≈ 0.375 del precio de entrada si salta el stop con deslizamiento
 
-# Estadística histórica por nivel (setup A: corto a la apertura, stop +30 %, 5 % desliz., coste 1 %). Fuente: INFORME_SELECCION.md
-ESTAD = {
-    "A": dict(R=0.45, WR=0.75, gan=0.94, perd=-1.03, PF=2.74, n=56, squeeze=0.09,
-              fuente="base mecánica, humo + gap ≥100 % + precio ≥ $1 · VAL 2022-26 (DEV 2015-21: +0.42R, 18 casos) · corte provisional (ronda 5)"),
-    "B": dict(R=-0.02, WR=0.60, gan=0.67, perd=-1.05, PF=0.96, n=60, squeeze=0.18,
-              fuente="base mecánica, humo + gap 50-100 % + precio ≥ $1 · VAL 2022-26 (DEV: +0.01R, 47 casos) · la ventaja depende de la ejecución"),
-    "H20": dict(R=0.09, WR=0.65, gan=0.57, perd=-0.76, PF=1.35, n=138, squeeze=0.10,
-                fuente="base mecánica, humo + gap 20-50 % + precio ≥ $1 · VAL 2022-26 (DEV: +0.02R, 99 casos) · base pequeña (ronda 6)"),
-    "H<1": dict(R=0.26, WR=0.70, gan=0.90, perd=-1.25, PF=1.68, n=40, squeeze=0.28,
-                fuente="base mecánica, humo + gap ≥50 % + precio < $1 · VAL 2022-26 · ANTES del locate: con $0.02 por acción queda en −0.14R (ronda 5)"),
-    "VIGILAR": dict(R=0.01, WR=0.60, gan=None, perd=None, PF=1.05, n=None, squeeze=None, fuente="contrato real / FDA / otros ≈ 0R"),
-    "NO": dict(R=-0.12, WR=0.49, gan=None, perd=None, PF=0.65, n=None, squeeze=None, fuente="resultados / financiación / avisos de bolsa: PF 0.6-0.7"),
-    "NUNCA": dict(R=-0.04, WR=0.08, gan=None, perd=None, PF=0.23, n=13, squeeze=0.0, fuente="compra en efectivo: el precio queda anclado"),
-}
+# (desde el 30-sep-2026 no hay letras A/B/Vigilar: el nivel lo sustituye la puntuación de la tesis, ronda 12, más abajo)
 TIPOS = {"H": "Humo / cosmético", "K": "Contrato real con cifra", "B": "Biotech real (FDA / datos)", "R": "Resultados",
          "F": "Financiación", "S": "Corporativo / bolsa", "C": "Compra en efectivo", "O": "Otros", "N": "Sin noticia"}
 ITEMS = {"1.01": "acuerdo firmado", "1.02": "fin de acuerdo", "2.01": "compra/venta de activos", "2.02": "resultados",
@@ -329,7 +317,7 @@ def texto_catalizador(cik, p):
         t = get(f"https://www.sec.gov/Archives/edgar/data/{cik}/{p['acc']}/{n}", sec=True)
         if t:
             partes.append(dict(archivo=n, url=f"https://www.sec.gov/Archives/edgar/data/{cik}/{p['acc']}/{n}",
-                               texto=resumen_doc(limpiar(t))))
+                               texto=resumen_doc(limpiar(t), 15000)))
     return partes
 
 
@@ -341,6 +329,7 @@ def municion(cik, pres, desde, sym, precio):
              s3=next((p["fecha"] for p in ant if p["form"] in ("S-3", "S-3/A", "F-3", "F-3/A", "S-3ASR") and dias(p) <= 3 * 365), None),
              s1=next((p["fecha"] for p in ant if p["form"] in ("S-1", "S-1/A", "F-1", "F-1/A") and dias(p) <= 365), None),
              ventas_12m=sum(1 for p in ant if p["form"] in ("424B4", "424B5") and dias(p) <= 365),
+             p424_12m=sum(1 for p in ant if p["form"].startswith("424B") and dias(p) <= 365),   # 'serie' del histórico (11_seleccion.py)
              aviso_bolsa=any("3.01" in p["items"] for p in ant if dias(p) <= 365),
              contrasplits_2a=sum(1 for p in ant if "5.03" in p["items"] and dias(p) <= 730))
     m["ultimas_ventas"] = [dict(form=p["form"], fecha=p["fecha"], url=p["url"]) for p in ant if p["form"] in ("424B4", "424B5")][:4]
@@ -457,21 +446,6 @@ def escanear(fecha, replay, corte_hhmm=None):
     print("→", ruta(fecha, "_candidatos"))
 
 
-def nivel(c, cl):
-    t = cl.get("tipo", "N")
-    if c["gap"] < GAP_LISTA:
-        return "VIGILAR"
-    if t == "C":
-        return "NUNCA"
-    if t in ("R", "F", "S") or c.get("venta_hoy"):
-        return "NO"
-    if t == "H":
-        if (c.get("precio") or 0) < PRECIO_OPERABLE:
-            return "VIGILAR"
-        return "A" if c["gap"] >= GAP_A else "B"
-    return "VIGILAR"
-
-
 TIPOS_OK = set("CFRBKHSON")
 
 
@@ -519,19 +493,149 @@ def auditar(C, CL, replay):
     return err, av
 
 
-def finalizar(fecha, replay, forzar=False):
+# ------------------------------------------------------------------ puntuación de la tesis (ronda 12, validada 30-sep-2026)
+PESOS_F = os.path.join(RAIZ, "smallcaps", "puntuacion_pesos.json")
+FACTORES = [("gap_50_100", "Gap 50-100 %"), ("gap_100", "Gap ≥ 100 %"), ("cat_H", "Catalizador humo / cosmético"),
+            ("cat_B", "Catalizador biotech real (FDA / datos)"), ("cat_K", "Contrato real con cifra"),
+            ("venta90", "Vendió acciones (424B) en los últimos 90 días"), ("s3", "Shelf S-3 / F-3 registrado (3 años)"),
+            ("serie", "Diluidor en serie (≥ 3 folletos 424B en 12 meses)"), ("solo_pr", "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)")]
+# Resultado histórico del setup base (corto a la apertura, stop +30 % con 5 % de deslizamiento, coste 1 %, salida al cierre) por tramo
+# de gap y tercio de puntuación. VAL 2022-26 con pesos congelados de DEV 2015-21 (smallcaps/INFORME_SELECCION.md, ronda 12).
+ESTAD_TERCIO = {
+    ("≥ 50 %", "Alta"): dict(n=160, R=0.26, WR=0.69, gan=0.82, perd=-1.00, PF=1.86, dev=0.17),
+    ("≥ 50 %", "Media"): dict(n=77, R=0.04, WR=0.62, gan=0.74, perd=-1.11, PF=1.10, dev=0.07),
+    ("≥ 50 %", "Baja"): dict(n=74, R=-0.11, WR=0.54, gan=0.60, perd=-0.96, PF=0.74, dev=-0.07),
+    ("20-50 %", "Alta"): dict(n=90, R=-0.04, WR=0.54, gan=0.42, perd=-0.58, PF=0.86, dev=0.15),
+    ("20-50 %", "Media"): dict(n=137, R=-0.02, WR=0.58, gan=0.51, perd=-0.75, PF=0.95, dev=-0.02),
+    ("20-50 %", "Baja"): dict(n=183, R=-0.05, WR=0.54, gan=0.48, perd=-0.67, PF=0.85, dev=0.04),
+}
+DESCARTE = {"C": "Compra en efectivo: el precio queda anclado a la oferta (PF histórico 0.23). No se shortea nunca",
+            "R": "Resultados trimestrales: históricamente malo para el corto (PF 0.61)",
+            "F": "Financiación: históricamente malo para el corto (PF 0.72)",
+            "S": "Aviso de bolsa / corporativo: históricamente malo para el corto (PF 0.64)"}
+_PESOS = None
+
+
+def puntuar(c, cl):
+    global _PESOS
+    if _PESOS is None:
+        _PESOS = json.load(open(PESOS_F))
+    w, ref = _PESOS["pesos"], _PESOS["ref_dev"]
+    t, g, m = cl.get("tipo", "N"), c["gap"], c.get("municion") or {}
+    k8 = [d for d in c.get("docs_hoy", []) if d["form"] in ("8-K", "8-K/A")]      # como en el histórico: solo 8-K (un 6-K cuenta como 'sin 8-K')
+    its = [i.strip() for d in k8 for i in (d.get("items") or "").split(",")]
+    serie = m.get("p424_12m", m.get("ventas_12m")) or 0
+    f = dict(gap_50_100=0.5 <= g < 1, gap_100=g >= 1, cat_H=t == "H", cat_B=t == "B", cat_K=t == "K",
+             venta90=bool(m.get("venta90")), s3=bool(m.get("s3")), serie=serie >= 3,
+             solo_pr=bool(k8) and all(i in ("7.01", "8.01", "9.01", "") for i in its))
+    pred = w["constante"] + sum(w[k] for k, v in f.items() if v)
+    valor = round(sum(1 for r in ref if r <= pred + 1e-12) / len(ref) * 100)
+    tercio = "Alta" if valor > 200 / 3 else "Media" if valor > 100 / 3 else "Baja"
+    notas = []
+    if t == "N":
+        notas.append("Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'")
+    if t == "O":
+        notas.append("Catalizador 'otros': es la base del modelo (peso 0)")
+    if "p424_12m" not in m:
+        notas.append("Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)")
+    return dict(valor=valor, tercio=tercio, pred_R=round(pred, 3),
+                factores=[dict(clave=k, nombre=n, activo=bool(f[k]), peso=w[k]) for k, n in FACTORES],
+                base=w["constante"], notas=notas)
+
+
+def riesgo_estructural(c, m):
+    """Riesgo de squeeze / coste, APARTE de la tesis. NO validado como filtro (ronda 11): sirve para limitar el tamaño."""
+    motivos, n = [], 0
+    acc, vol = c.get("acciones"), c.get("vol_pre")
+    rot = vol / acc if acc and vol else None
+    if acc and acc < 1e6:
+        n = 2; motivos.append(f"Solo {acc / 1e6:.2f} M de acciones en circulación")
+    elif acc and acc < 5e6:
+        n = max(n, 1); motivos.append(f"Pocas acciones en circulación ({acc / 1e6:.2f} M)")
+    if rot is not None and rot > 3:
+        n = 2; motivos.append(f"Rotación premarket {rot:.1f}× las acciones en circulación")
+    elif rot is not None and rot > 1:
+        n = max(n, 1); motivos.append(f"Rotación premarket {rot:.1f}× las acciones en circulación")
+    if m and not (m.get("venta90") or m.get("s3") or m.get("atm") or m.get("eloc") or m.get("warrants_en_dinero")) and acc and acc < 5e6:
+        n = max(n, 1); motivos.append("Pocas acciones y sin munición activa: perfil de squeeze (caso APUS)")
+    return dict(nivel=["Normal", "Alto", "Extremo"][n], motivos=motivos, rotacion_pre=round(rot, 2) if rot is not None else None,
+                validado=False)
+
+
+def premarket_1m(s, sym, fecha):
+    """Máximo, mínimo y volumen del premarket (4:00-9:30) con velas de 1 min de Yahoo (solo ~30 días hacia atrás)."""
+    d = dt.date.fromisoformat(fecha)
+    a = int(dt.datetime.combine(d, dt.time(4, 0), NY).timestamp()); b = int(dt.datetime.combine(d, dt.time(9, 30), NY).timestamp())
+    try:
+        r = s.get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}",
+                  params=dict(period1=a, period2=b, interval="1m", includePrePost="true"), timeout=20).json()["chart"]["result"][0]
+        q = r["indicators"]["quote"][0]
+        v = [(t, h, l, vo) for t, h, l, vo in zip(r.get("timestamp") or [], q["high"], q["low"], q["volume"]) if h and a <= t < b]
+        if not v:
+            return {}
+        i = max(range(len(v)), key=lambda k: v[k][1])
+        return dict(pmh=round(max(x[1] for x in v), 4), pml=round(min(x[2] for x in v), 4),
+                    pmh_hora=dt.datetime.fromtimestamp(v[i][0], NY).strftime("%H:%M"),
+                    hasta=dt.datetime.fromtimestamp(v[-1][0], NY).strftime("%H:%M"))
+    except Exception:
+        return {}
+
+
+def caja(cik):
+    """Caja y quema de caja del último informe (XBRL de la SEC). Informativo: no entra en la puntuación (no hay histórico medido)."""
+    d = get(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json", sec=True, js=True, timeout=40) or {}
+    F = d.get("facts", {})
+    def ult(tags, duracion):
+        mejor = None
+        for ns in ("us-gaap", "ifrs-full"):
+            for tg in tags:
+                for u, vals in (F.get(ns, {}).get(tg, {}).get("units") or {}).items():
+                    if u != "USD":
+                        continue
+                    for x in vals:
+                        if x.get("form") not in ("10-Q", "10-K", "10-Q/A", "10-K/A", "20-F", "6-K") or ("start" in x) != duracion:
+                            continue
+                        clave = (x["end"], (dt.date.fromisoformat(x["end"]) - dt.date.fromisoformat(x["start"])).days if duracion else 0)
+                        if mejor is None or clave > mejor[0]:
+                            mejor = (clave, dict(x, etiqueta=tg))
+        return mejor[1] if mejor else None
+    ca = ult(["CashAndCashEquivalentsAtCarryingValue", "CashAndCashEquivalents", "Cash"], False)
+    fo = ult(["NetCashProvidedByUsedInOperatingActivities", "CashFlowsFromUsedInOperatingActivities"], True)
+    if not ca:
+        return None
+    inv = ult(["ShortTermInvestments", "MarketableSecuritiesCurrent", "AvailableForSaleSecuritiesDebtSecuritiesCurrent"], False)
+    inv = inv["val"] if inv and inv["end"] == ca["end"] else 0
+    out = dict(caja=ca["val"], inversiones=inv, caja_fecha=ca["end"], caja_etiqueta=ca["etiqueta"], form=ca.get("form"),
+               url=f"https://www.sec.gov/Archives/edgar/data/{cik}/{ca['accn'].replace('-', '')}/")
+    if fo:
+        meses = max(round((dt.date.fromisoformat(fo["end"]) - dt.date.fromisoformat(fo["start"])).days / 30.44), 1)   # 3, 6, 9 o 12
+        out.update(flujo_operativo=fo["val"], flujo_desde=fo["start"], flujo_hasta=fo["end"], meses=meses)
+        if fo["val"] < 0:
+            q = -fo["val"] / meses
+            out.update(quema_mes=round(q), autonomia_meses=round((ca["val"] + inv) / q, 1))
+    return out
+
+
+def finalizar(fecha, replay, forzar=False, sin_actualizar=False):
     C = json.load(open(ruta(fecha, "_candidatos")))
     cl_f = ruta(fecha, "_clasif")
     CL = json.load(open(cl_f)) if os.path.exists(cl_f) else {}
-    if not replay and C["candidatos"]:                       # precio del premarket actualizado
+    y = None
+    try:
+        y = Yahoo()
+    except Exception as e:
+        print("Yahoo no disponible:", e)
+    if not replay and not sin_actualizar and C["candidatos"] and y:   # precio del premarket actualizado
         try:
-            q = {x["symbol"]: x for x in Yahoo().cotizaciones([c["sym"] for c in C["candidatos"]])}
+            q = {x["symbol"]: x for x in y.cotizaciones([c["sym"] for c in C["candidatos"]])}
             for c in C["candidatos"]:
                 x = q.get(c["sym"], {})
                 # con el mercado abierto, el gap es el de la apertura (como en escanear), no el cambio del momento
                 px = x.get("preMarketPrice") if x.get("marketState") in ("PRE", "PREPRE") else x.get("regularMarketOpen") or x.get("regularMarketPrice")
                 if px:
                     c["precio"] = round(px, 4); c["gap"] = round(px / c["cierre_prev"] - 1, 4)
+                if x.get("preMarketVolume"):
+                    c["vol_pre"] = x["preMarketVolume"]
         except Exception as e:
             print("sin actualizar precios:", e)
     err, av = auditar(C, CL, replay)
@@ -541,60 +645,58 @@ def finalizar(fecha, replay, forzar=False):
         print("aviso:", a)
     if err and not forzar:
         sys.exit("Auditoría con errores: lista NO generada. Corregir y repetir (o --forzar si es imposible corregir a tiempo).")
-    lista, vigilar = [], []
-    orden = {"A": 0, "B": 1, "VIGILAR": 2, "NO": 3, "NUNCA": 4}
+    acciones, descartadas = [], []
     for c in C["candidatos"]:
         cl = CL.get(c["sym"], {})
         t = cl.get("tipo", "N")
-        if c["gap"] < GAP_LISTA:     # 20-50 %: ficha completa, nivel solo informativo (NO/Nunca si el catalizador lo indica)
-            nv = "NUNCA" if t == "C" else "NO" if (t in ("R", "F", "S") or c.get("venta_hoy")) else "VIGILAR"
-        else:
-            nv = nivel(c, cl)
+        m = c.get("municion") or {}
+        base = dict(sym=c["sym"], nombre=c["nombre"], sector=c.get("sector", ""), precio=c["precio"], cierre_prev=c["cierre_prev"],
+                    gap=c["gap"], cap=c.get("cap"), acciones=c.get("acciones"), vol_pre=c.get("vol_pre"), bolsa=c.get("bolsa"),
+                    clasif=dict(cl, tipo_es=TIPOS.get(t, "")))
+        # filtro de campo: lo que el histórico dice que NO se shortea queda fuera de la vista (se guarda con su motivo)
+        motivo = DESCARTE.get(t) or ("424B presentado HOY: la empresa está vendiendo acciones en esta subida (financiación del día)"
+                                     if c.get("venta_hoy") else None) \
+            or ("Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5)"
+                if (c.get("precio") or 0) < PRECIO_OPERABLE else None) \
+            or ("Split del día: el gap no es real" if c.get("split_hoy") else None)
+        if motivo:
+            descartadas.append(dict(base, motivo=motivo, docs_hoy=c.get("docs_hoy", []))); continue
         avisos = []
-        # (aviso de capitalización < $30 M retirado el 28-sep: era un artefacto de precios ajustados por splits, ronda 5)
-        if c.get("venta_hoy"):
-            avisos.append("424B presentado HOY: la empresa está vendiendo acciones en esta subida")
-        if cl.get("tipo") == "H" and (c.get("precio") or 0) < PRECIO_OPERABLE:
-            avisos.append("Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5) → no operable")
-        if cl.get("tipo") == "H" and not c.get("catalizadores"):
+        if t == "H" and not c.get("catalizadores"):
             avisos.append("Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)")
-        if cl.get("tipo") == "N":
-            avisos.append("Sube sin ninguna noticia encontrada: caso no medido → solo vigilar")
-        m = c.get("municion", {})
+        if t == "N":
+            avisos.append("Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)")
         if m.get("toxica"):
-            avisos.append("Convertible de precio variable (tóxica) en el último informe")
-        # avisos informativos de la ronda 11 (29-sep, caso BKYI): NO validados → no cambian el nivel
-        acc = c.get("acciones")          # acciones en circulación de Yahoo (sin estimar desde la capitalización: BKYI salía 0.82 M vs 1.44 M)
-        if acc and acc < 5e6:
-            avisos.append(f"Muy pocas acciones en circulación ({acc / 1e6:.2f} M): cualquier volumen dispara la rotación "
-                          "(rotación > 10× = el corto pierde, validado). Como filtro previo NO validado (ronda 11)")
-        if m and t not in ("F", "C") and not (m.get("venta90") or m.get("s3") or m.get("atm") or m.get("eloc") or m.get("warrants_en_dinero")):
-            avisos.append("Sin munición activa (sin venta 424B en 90 días, sin S-3, ATM, ELOC ni warrants por debajo del precio): "
-                          "no hay vendedor de acciones de la empresa. Como filtro NO validado (ronda 11)")
-        entrada = c["precio"]
-        if c["gap"] < GAP_LISTA:
-            est = ESTAD["H20"] if t == "H" and (entrada or 0) >= PRECIO_OPERABLE else ESTAD[nv]
-        elif nv == "VIGILAR" and t == "H" and (entrada or 0) < PRECIO_OPERABLE:
-            est = ESTAD["H<1"]
-        else:
-            est = ESTAD[nv]
-        (lista if c["gap"] >= GAP_LISTA else vigilar).append(dict(sym=c["sym"], nombre=c["nombre"], sector=c.get("sector", ""), precio=entrada, cierre_prev=c["cierre_prev"],
-                          gap=c["gap"], cap=c.get("cap"), acciones=acc, vol_pre=c.get("vol_pre"), nivel=nv, clasif=dict(cl, tipo_es=TIPOS.get(cl.get("tipo", "N"), "")),
-                          catalizadores=[dict(form=k["form"], hora=k["hora"], items=k["items"], url=k["url"],
-                                              anexos=[dict(archivo=p["archivo"], url=p["url"]) for p in k["partes"]]) for k in c.get("catalizadores", [])],
-                          docs_hoy=c.get("docs_hoy", []), noticias=c.get("noticias", []), municion=m, venta_hoy=c.get("venta_hoy", False),
-                          # referencia de costes (información de campo, no instrucción de ejecución):
-                          # cuánto R de la base mecánica consume cada $0.01 de locate por acción
-                          costes=dict(locate_1c_R=round(0.01 / (STOP * entrada), 3) if entrada else None),
-                          estad=est, avisos=avisos))
-    lista.sort(key=lambda x: (orden[x["nivel"]], -x["gap"]))
-    vigilar.sort(key=lambda x: -x["gap"])
+            avisos.append("Convertible de precio variable (tóxica) en el último informe: munición continua")
+        pm = premarket_1m(y.s, c["sym"], fecha) if y else {}
+        cat = []
+        for k in c.get("catalizadores", []):
+            partes = []
+            for p in k.get("partes", []):
+                txt = p.get("texto", "")
+                if len(txt) <= 1600 and not replay:          # listas antiguas guardaban solo 1 600 caracteres: se relee completo
+                    t2 = get(p["url"], sec=True)
+                    txt = resumen_doc(limpiar(t2), 15000) if t2 else txt
+                partes.append(dict(archivo=p["archivo"], url=p["url"], texto=txt))
+            cat.append(dict(form=k["form"], hora=k["hora"], items=k["items"],
+                            items_es="; ".join(f"{i} {ITEMS.get(i, '')}" for i in (k["items"] or "").split(",") if i),
+                            url=k["url"], partes=partes))
+        tramo = "≥ 50 %" if c["gap"] >= GAP_LISTA else "20-50 %"
+        pt = puntuar(c, cl)
+        acciones.append(dict(base, tramo=tramo, puntuacion=pt, estad=ESTAD_TERCIO[(tramo, pt["tercio"])],
+                             riesgo=riesgo_estructural(c, m), premarket=pm, caja=caja(c["cik"]) if c.get("cik") else None,
+                             catalizadores=cat, docs_hoy=c.get("docs_hoy", []), noticias=c.get("noticias", []), municion=m,
+                             costes=dict(locate_1c_R=round(0.01 / (STOP * c["precio"]), 3) if c.get("precio") else None),
+                             avisos=avisos))
+    acciones.sort(key=lambda x: (-x["puntuacion"]["valor"], -x["gap"]))
+    descartadas.sort(key=lambda x: -x["gap"])
     out = dict(fecha=fecha, generado=dt.datetime.now(NY).strftime("%Y-%m-%d %H:%M"), replay=replay, desde=C["desde"], corte=C["corte"],
-               reglas=dict(gap_lista=GAP_LISTA, gap_vigilar=GAP_VIGILAR, stop=STOP, deslizamiento=DESL, coste=COSTE, riesgo_accion=RIESGO_ACCION),
-               lista=lista, vigilar=vigilar, resultados=None,
+               version=2, reglas=dict(gap_minimo=GAP_VIGILAR, stop=STOP, deslizamiento=DESL, coste=COSTE, riesgo_accion=RIESGO_ACCION),
+               acciones=acciones, descartadas=descartadas, resultados=None,
                auditoria=dict(errores=err, avisos=av, cobertura=C.get("cobertura"), forzada=bool(err and forzar)))
     json.dump(out, open(ruta(fecha), "w"), ensure_ascii=False, indent=1, default=str)
-    print("→", ruta(fecha), "|", ", ".join(f"{x['sym']}:{x['nivel']}" for x in lista), "| vigilar", len(vigilar))
+    print("→", ruta(fecha), "|", ", ".join(f"{x['sym']}:{x['puntuacion']['valor']}({x['riesgo']['nivel']})" for x in acciones),
+          "| descartadas:", ", ".join(x["sym"] for x in descartadas))
 
 
 def resultados(fecha):
@@ -603,7 +705,8 @@ def resultados(fecha):
     L = json.load(open(ruta(fecha)))
     d = dt.date.fromisoformat(fecha)
     res = {}
-    for x in L["lista"] + [v for v in L.get("vigilar", []) if "precio" in v]:
+    todas = L.get("acciones", []) + L.get("descartadas", []) + L.get("lista", []) + L.get("vigilar", [])   # v2 y listas antiguas
+    for x in [v for v in todas if v.get("precio")]:
         try:
             h = yf.download(x["sym"], start=d.isoformat(), end=(d + dt.timedelta(days=5)).isoformat(), progress=False, auto_adjust=False)
             if hasattr(h.columns, "levels"):
@@ -630,6 +733,7 @@ if __name__ == "__main__":
     ap.add_argument("--replay", action="store_true")
     ap.add_argument("--corte", help="HH:MM: solo documentos/noticias hasta esa hora (para rehacer un día ya abierto)")
     ap.add_argument("--forzar", action="store_true", help="publicar aunque la auditoría tenga errores (queda anotado)")
+    ap.add_argument("--sin_actualizar", action="store_true", help="rehacer una lista ya publicada con los precios que tenía")
     a = ap.parse_args()
-    {"escanear": lambda: escanear(a.fecha, a.replay, a.corte), "finalizar": lambda: finalizar(a.fecha, a.replay, a.forzar),
+    {"escanear": lambda: escanear(a.fecha, a.replay, a.corte), "finalizar": lambda: finalizar(a.fecha, a.replay, a.forzar, a.sin_actualizar),
      "resultados": lambda: resultados(a.fecha)}[a.paso]()

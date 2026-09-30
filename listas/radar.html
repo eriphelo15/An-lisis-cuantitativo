@@ -3,48 +3,61 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <style>
+/* Layout: terminal de trabajo — tabla de screener a todo lo ancho; al pulsar una fila se abre la ficha en un panel lateral (hoja completa en el móvil). */
 :root{
   color-scheme:dark;
-  --bg:#0d1117;--panel:#141a23;--panel2:#19212c;--line:#253040;--line2:#2f3c4f;
+  --bg:#0d1117;--panel:#141a23;--panel2:#19212c;--line:#253040;--line2:#2f3c4f;--hover:#1d2733;--sel:#232f3e;
   --tx:#e4e8ee;--mut:#8d98a8;--dim:#5f6b7c;
-  --acc:#e9a23b;--acc-tx:#1a1206;
-  --lvA:#f0604d;--lvB:#e9a23b;--lvV:#6ea7d8;--lvNO:#8792a2;--lvNU:#c0648c;
+  --acc:#e9a23b;--acc-tx:#1a1206;--acc-soft:#3a2a12;
+  --link:#6ea7d8;
   --pos:#3fbf7f;--neg:#ef5b5b;--warn:#e9a23b;
   --chip-on:#1f3326;--chip-on-tx:#7fdca8;--chip-off:#1b222d;--chip-bad:#3a1f22;--chip-bad-tx:#ff9b9b;
-  --quote:#11161e;
+  --quote:#11161e;--shade:rgba(3,6,10,.6);
   --f-disp:"Barlow Semi Condensed","Arial Narrow",system-ui,sans-serif;
   --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 }
 @media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
   color-scheme:light;
-  --bg:#f3f4f6;--panel:#ffffff;--panel2:#f7f8fa;--line:#dde2e9;--line2:#c9d0da;
+  --bg:#f3f4f6;--panel:#ffffff;--panel2:#f7f8fa;--line:#dde2e9;--line2:#c9d0da;--hover:#f1f4f8;--sel:#e8edf4;
   --tx:#141a23;--mut:#586273;--dim:#8a94a3;
-  --acc:#b8700f;--acc-tx:#ffffff;
-  --lvA:#c73a28;--lvB:#b8700f;--lvV:#2f6fa8;--lvNO:#6b7584;--lvNU:#9b3f67;
-  --pos:#1f8a55;--neg:#c73a3a;--warn:#b8700f;
+  --acc:#b8700f;--acc-tx:#ffffff;--acc-soft:#f7ead6;
+  --link:#2f6fa8;
+  --pos:#1f8a55;--neg:#c73a3a;--warn:#a8650c;
   --chip-on:#e3f4ea;--chip-on-tx:#17693f;--chip-off:#eef1f5;--chip-bad:#fbe7e7;--chip-bad-tx:#a32b2b;
-  --quote:#f5f6f8;
+  --quote:#f5f6f8;--shade:rgba(20,26,35,.35);
 }}
 :root[data-theme="light"]{
   color-scheme:light;
-  --bg:#f3f4f6;--panel:#ffffff;--panel2:#f7f8fa;--line:#dde2e9;--line2:#c9d0da;
+  --bg:#f3f4f6;--panel:#ffffff;--panel2:#f7f8fa;--line:#dde2e9;--line2:#c9d0da;--hover:#f1f4f8;--sel:#e8edf4;
   --tx:#141a23;--mut:#586273;--dim:#8a94a3;
-  --acc:#b8700f;--acc-tx:#ffffff;
-  --lvA:#c73a28;--lvB:#b8700f;--lvV:#2f6fa8;--lvNO:#6b7584;--lvNU:#9b3f67;
-  --pos:#1f8a55;--neg:#c73a3a;--warn:#b8700f;
+  --acc:#b8700f;--acc-tx:#ffffff;--acc-soft:#f7ead6;
+  --link:#2f6fa8;
+  --pos:#1f8a55;--neg:#c73a3a;--warn:#a8650c;
   --chip-on:#e3f4ea;--chip-on-tx:#17693f;--chip-off:#eef1f5;--chip-bad:#fbe7e7;--chip-bad-tx:#a32b2b;
-  --quote:#f5f6f8;
+  --quote:#f5f6f8;--shade:rgba(20,26,35,.35);
 }
-:root[data-theme="dark"]{color-scheme:dark}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0d1117;--panel:#141a23;--panel2:#19212c;--line:#253040;--line2:#2f3c4f;--hover:#1d2733;--sel:#232f3e;
+  --tx:#e4e8ee;--mut:#8d98a8;--dim:#5f6b7c;
+  --acc:#e9a23b;--acc-tx:#1a1206;--acc-soft:#3a2a12;
+  --link:#6ea7d8;
+  --pos:#3fbf7f;--neg:#ef5b5b;--warn:#e9a23b;
+  --chip-on:#1f3326;--chip-on-tx:#7fdca8;--chip-off:#1b222d;--chip-bad:#3a1f22;--chip-bad-tx:#ff9b9b;
+  --quote:#11161e;--shade:rgba(3,6,10,.6);
+}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{background:var(--bg);color:var(--tx);font-family:var(--f-body);font-size:14px;line-height:1.5;margin:0}
-.wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:18px 60px}
-a{color:var(--lvV);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1400px;margin:0 auto;padding-inline:16px;padding-block:18px 60px}
+a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}
 .mono,.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
 h1,h2,h3{font-family:var(--f-disp);letter-spacing:.01em;margin:0;text-wrap:balance}
 button,input,select,textarea{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.pos{color:var(--pos)}.neg{color:var(--neg)}.mut{color:var(--mut)}.dim{color:var(--dim)}
+.note{color:var(--mut);font-size:12.5px}
 
 /* barra superior */
 .top{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px}
@@ -54,305 +67,408 @@ button,input,select,textarea{font:inherit;color:inherit}
 .ctrls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .field{display:flex;align-items:center;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:4px 8px}
 .field label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut)}
-.field input,.field select{background:transparent;border:0;outline:0;font-family:var(--f-mono);font-size:13px;width:auto}
-.field input{width:72px}
+.field select{background:transparent;border:0;outline:0;font-family:var(--f-mono);font-size:13px}
 .field select option{background:var(--panel);color:var(--tx)}
-
-/* estado */
-.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--mut);font-size:12.5px;margin:12px 0 4px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--mut);font-size:12.5px;margin:10px 0 0}
 .meta b{color:var(--tx);font-weight:500}
-.banner{border:1px solid var(--warn);color:var(--warn);background:transparent;border-radius:6px;padding:8px 12px;font-size:13px;margin-top:10px}
+.banner{border:1px solid var(--warn);color:var(--warn);border-radius:6px;padding:8px 12px;font-size:13px;margin-top:10px}
 
-/* resumen por nivel */
-.levels{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:14px 0 6px}
-.lvbox{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 12px;border-top:3px solid var(--c)}
-.lvbox .k{font-family:var(--f-disp);font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--c)}
-.lvbox .n{font-family:var(--f-mono);font-size:26px;font-weight:700;line-height:1.1}
-.lvbox .d{color:var(--mut);font-size:11.5px}
+/* resumen del día */
+.sum{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:14px 0 4px}
+.sbox{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 12px;min-width:0}
+.sbox .k{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim);font-weight:600}
+.sbox .n{font-family:var(--f-mono);font-size:24px;font-weight:700;line-height:1.15}
+.sbox .d{color:var(--mut);font-size:11.5px}
 
 /* pestañas */
-.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-top:16px;overflow-x:auto}
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-top:14px;overflow-x:auto}
 .tab{background:transparent;border:0;padding:10px 14px;cursor:pointer;color:var(--mut);font-family:var(--f-disp);font-weight:600;font-size:16px;letter-spacing:.04em;text-transform:uppercase;border-bottom:2px solid transparent;white-space:nowrap}
 .tab[aria-selected="true"]{color:var(--tx);border-bottom-color:var(--acc)}
 .tab .cnt{font-family:var(--f-mono);font-size:12px;color:var(--dim);margin-left:4px}
-.pane{padding-top:16px}
+.pane{padding-top:14px}
 
-/* tarjeta de acción */
-.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;margin-bottom:14px;overflow:hidden;border-left:4px solid var(--c)}
-.chead{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--panel2)}
-.tk{font-family:var(--f-mono);font-size:24px;font-weight:700;letter-spacing:.02em}
-.nm{color:var(--mut);font-size:13px;max-width:320px}
-.badge{font-family:var(--f-disp);font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:4px;background:var(--c);color:var(--bg)}
-.kpis{display:flex;flex-wrap:wrap;gap:6px 18px;margin-left:auto}
-.kpi{display:flex;flex-direction:column;align-items:flex-end}
-.kpi .l{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim)}
-.kpi .v{font-family:var(--f-mono);font-size:15px;font-weight:500}
-.kpi .v.up{color:var(--pos)}
-.cbody{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:0}
-.col{padding:14px 16px;border-right:1px solid var(--line);min-width:0}
-.col:last-child{border-right:0}
-.sec{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin:0 0 8px;font-weight:600}
-.sec + .sec,.blk + .sec{margin-top:14px}
-.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;border:1px solid var(--line2);margin-bottom:8px}
-.pill.H{border-color:var(--lvA);color:var(--lvA)}
-.q{background:var(--quote);border:1px solid var(--line);border-radius:6px;padding:8px 10px;margin:6px 0}
-.q .en{font-family:var(--f-mono);font-size:12.5px;color:var(--tx)}
+/* filtros del screener */
+.fbar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-bottom:10px}
+.seg{display:inline-flex;border:1px solid var(--line2);border-radius:6px;overflow:hidden}
+.seg button{background:var(--panel);border:0;padding:5px 11px;font-size:12.5px;cursor:pointer;color:var(--mut)}
+.seg button+button{border-left:1px solid var(--line2)}
+.seg button[aria-pressed="true"]{background:var(--acc-soft);color:var(--tx);font-weight:600}
+.fbar .note{margin-left:auto}
+
+/* tabla */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap;vertical-align:middle}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim);font-weight:600;background:var(--panel2);position:sticky;top:0}
+th.sort{cursor:pointer;user-select:none}
+th.sort:hover{color:var(--tx)}
+th .ar{color:var(--acc);margin-left:3px}
+td.n,th.n{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+table.scr tbody tr{cursor:pointer}
+table.scr tbody tr:hover td{background:var(--hover)}
+table.scr tbody tr.on td{background:var(--sel)}
+table.scr td.tkc,table.scr th.tkc{position:sticky;left:0;background:var(--panel);z-index:1}
+table.scr th.tkc{background:var(--panel2);z-index:2}
+table.scr tbody tr:hover td.tkc{background:var(--hover)}
+table.scr tbody tr.on td.tkc{background:var(--sel)}
+.tk{font-family:var(--f-mono);font-weight:700;font-size:14px;letter-spacing:.02em}
+.nm{display:block;color:var(--dim);font-size:11px;max-width:170px;overflow:hidden;text-overflow:ellipsis}
+.rank{color:var(--dim);font-family:var(--f-mono);font-size:12px}
+.score{display:flex;align-items:center;gap:8px}
+.score .bar{width:54px;height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin:0}
+.score .bar i{display:block;height:100%;background:var(--acc)}
+.score b{font-family:var(--f-mono);font-size:14px;min-width:24px;text-align:right}
+.ter{font-size:11px;color:var(--mut)}
+.ter.Alta{color:var(--acc);font-weight:600}
+.risk{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:999px;border:1px solid var(--line2);color:var(--mut)}
+.risk.Alto{border-color:var(--warn);color:var(--warn)}
+.risk.Extremo{background:var(--chip-bad);border-color:transparent;color:var(--chip-bad-tx)}
+.cat{display:inline-block;font-size:11.5px;padding:2px 7px;border-radius:4px;background:var(--chip-off);color:var(--mut);border:1px solid var(--line)}
+.cat.H{background:var(--acc-soft);color:var(--tx);border-color:transparent}
+.mc{display:inline-flex;gap:3px}
+.mc span{font-family:var(--f-mono);font-size:10.5px;padding:1px 4px;border-radius:3px;background:var(--chip-off);color:var(--dim)}
+.mc span.on{background:var(--chip-on);color:var(--chip-on-tx)}
+.mc span.bad{background:var(--chip-bad);color:var(--chip-bad-tx)}
+.doc8{font-family:var(--f-mono);font-size:11.5px}
+.empty{color:var(--mut);padding:18px;border:1px dashed var(--line2);border-radius:10px;text-align:center}
+.desc{margin-top:14px}
+.desc summary{cursor:pointer;color:var(--mut);font-size:12.5px}
+.desc .tbl-wrap{margin-top:8px}
+.desc td.why{white-space:normal;min-width:260px;color:var(--mut)}
+
+/* ficha (panel lateral) */
+.shade{position:fixed;inset:0;background:var(--shade);z-index:20}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(760px,100%);background:var(--bg);border-left:1px solid var(--line);z-index:21;display:flex;flex-direction:column;box-shadow:-18px 0 40px rgba(0,0,0,.25)}
+.dhead{padding:calc(12px + env(safe-area-inset-top,0px)) 18px 12px;border-bottom:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column;gap:10px}
+.drow{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
+.drow .tk{font-size:26px}
+.drow .nm2{color:var(--mut);font-size:13px;min-width:0;flex:1}
+.x{background:transparent;border:1px solid var(--line2);border-radius:6px;padding:4px 10px;cursor:pointer;color:var(--mut)}
+.kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.kpi{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:5px 8px;min-width:0}
+.kpi .l{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim)}
+.kpi .v{font-family:var(--f-mono);font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dbody{overflow-y:auto;padding:14px 18px calc(40px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:14px}
+.blk{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
+.blk h3{font-size:15px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;color:var(--mut);font-weight:700}
+.blk h3 .r{float:right;font-family:var(--f-mono);font-size:12px;color:var(--dim);letter-spacing:0;text-transform:none;font-weight:400}
+.big{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.big b{font-family:var(--f-mono);font-size:34px;line-height:1}
+.big .ter{font-size:14px}
+.fac{display:grid;grid-template-columns:18px 1fr auto;gap:3px 8px;font-size:13px;margin-top:10px}
+.fac .i{color:var(--dim);font-family:var(--f-mono)}
+.fac .i.on{color:var(--acc)}
+.fac .t.off{color:var(--dim)}
+.fac .w{font-family:var(--f-mono);font-size:12px;text-align:right}
+.fac .w.off{color:var(--dim)}
+.stat{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:10px}
+.stat>div{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:6px 4px;text-align:center;min-width:0}
+.stat .l{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--dim)}
+.stat .v{font-family:var(--f-mono);font-size:13px;font-weight:600;white-space:nowrap}
+.fuente{font-size:11.5px;color:var(--dim);margin-top:8px}
+.q{background:var(--quote);border:1px solid var(--line);border-radius:6px;padding:8px 10px;margin:8px 0}
+.q .en{font-family:var(--f-mono);font-size:12.5px}
 .q .es{color:var(--mut);font-size:13px;margin-top:4px}
 .cifra{font-size:13px;margin:6px 0}
 .cifra b{color:var(--acc)}
-.note{color:var(--mut);font-size:12.5px}
-.src{font-size:12.5px;display:flex;flex-direction:column;gap:3px;margin-top:6px}
+.src{font-size:12.5px;display:flex;flex-direction:column;gap:4px;margin-top:8px}
 .src .t{font-family:var(--f-mono);color:var(--dim);margin-right:6px}
+.doc{border:1px solid var(--line);border-radius:8px;margin-top:8px;overflow:hidden}
+.doc .dh{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;padding:7px 10px;background:var(--panel2);font-size:12.5px}
+.doc .dh .it{color:var(--mut)}
+.doc .txt{max-height:340px;overflow-y:auto;padding:10px 12px;font-size:13px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-size:12px;padding:3px 8px;border-radius:4px;background:var(--chip-off);color:var(--mut);border:1px solid var(--line)}
 .chip.on{background:var(--chip-on);color:var(--chip-on-tx);border-color:transparent}
 .chip.bad{background:var(--chip-bad);color:var(--chip-bad-tx);border-color:transparent}
-dl.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0;font-size:13px}
-dl.kv dt{color:var(--mut)}
+dl.kv{display:grid;grid-template-columns:1fr auto;gap:4px 12px;margin:10px 0 0;font-size:13px}
+dl.kv dt{color:var(--mut);min-width:0}
 dl.kv dd{margin:0;font-family:var(--f-mono);text-align:right}
-.big{font-size:18px;font-weight:700;color:var(--acc)}
-.stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(52px,1fr));gap:6px;margin-top:4px}
-.stat div{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:6px 4px;text-align:center}
-.stat .l{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--dim)}
-.stat .v{font-family:var(--f-mono);font-size:12.5px;font-weight:600;white-space:nowrap}
-.fuente{font-size:11.5px;color:var(--dim);margin-top:6px}
-.warns{padding:10px 16px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
+.warns{display:flex;flex-direction:column;gap:4px}
 .warns div{font-size:13px;color:var(--warn)}
 .warns div::before{content:"▲ ";font-size:10px}
-.cfoot{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;padding:10px 16px;border-top:1px solid var(--line);background:var(--panel2)}
-.res{font-family:var(--f-mono);font-size:13px;color:var(--mut)}
-.res b.pos{color:var(--pos)}.res b.neg{color:var(--neg)}
+.en-l{font-family:var(--f-mono);font-size:11.5px;color:var(--dim)}
 .btn{background:var(--acc);color:var(--acc-tx);border:0;border-radius:6px;padding:7px 14px;font-weight:600;cursor:pointer;font-size:13px}
 .btn.ghost{background:transparent;color:var(--tx);border:1px solid var(--line2)}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .logged{font-size:12.5px;color:var(--pos)}
-
-/* diario (formulario) */
-form.dj{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;padding:14px 16px;border-top:1px solid var(--line)}
-form.dj .f{display:flex;flex-direction:column;gap:4px}
+form.dj{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
+form.dj .f{display:flex;flex-direction:column;gap:4px;min-width:0}
 form.dj label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut)}
-form.dj input,form.dj select,form.dj textarea{background:var(--bg);border:1px solid var(--line2);border-radius:6px;padding:6px 8px;font-family:var(--f-mono);font-size:13px;width:100%}
+form.dj input,form.dj select{background:var(--bg);border:1px solid var(--line2);border-radius:6px;padding:6px 8px;font-family:var(--f-mono);font-size:13px;width:100%}
 form.dj .wide{grid-column:span 4}
-form.dj .acts{grid-column:span 2;display:flex;gap:8px;align-items:flex-end;justify-content:flex-end}
+form.dj .acts{grid-column:span 4;display:flex;gap:8px;align-items:center;justify-content:flex-end}
 .msg{font-size:12.5px;color:var(--mut)}
 
-/* tablas */
-.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
-table{border-collapse:collapse;width:100%;font-size:13px}
-th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
-th{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim);font-weight:600;background:var(--panel2)}
-td.n,th.n{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
-tr:last-child td{border-bottom:0}
-.pos{color:var(--pos)}.neg{color:var(--neg)}
-.lvl{font-family:var(--f-disp);font-weight:700;letter-spacing:.06em;color:var(--c)}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+/* diario y rendimiento */
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
 .panel h3{font-size:18px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em}
 .tiles{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
 .tile{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
 .tile .l{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim)}
 .tile .v{font-family:var(--f-mono);font-size:18px;font-weight:700}
-.empty{color:var(--mut);padding:18px;border:1px dashed var(--line2);border-radius:10px;text-align:center}
-.rules{color:var(--mut);font-size:12.5px;margin-top:22px;border-top:1px solid var(--line);padding-top:12px}
+.rules{color:var(--mut);font-size:12.5px;margin-top:22px;border-top:1px solid var(--line);padding-top:12px;max-width:110ch}
 .rules b{color:var(--tx);font-weight:500}
-
 @media (max-width:900px){
-  .cbody{grid-template-columns:1fr}
-  .col{border-right:0;border-bottom:1px solid var(--line)}
-  .col:last-child{border-bottom:0}
-  .levels{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .grid2{grid-template-columns:1fr}
+  .sum{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .kpi .v{font-size:12.5px}
+  .drow .tk{font-size:22px}
+  .stat{grid-template-columns:repeat(3,minmax(0,1fr))}
   .tiles{grid-template-columns:repeat(3,minmax(0,1fr))}
   form.dj{grid-template-columns:repeat(2,minmax(0,1fr))}
   form.dj .wide,form.dj .acts{grid-column:span 2}
-  .kpis{margin-left:0;width:100%;justify-content:space-between}
-  .kpi{align-items:flex-start}
+  .fbar .note{margin-left:0}
+  .drawer{border-left:0}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
-
 <div class="wrap">
   <header class="top">
     <div class="brand">
       <h1>Radar de Cortos</h1>
-      <span class="sub">Gappers del premarket · selección validada con datos</span>
+      <span class="sub">Screener de gappers del premarket · trabajo de campo SEC + catalizador + munición</span>
     </div>
     <div class="ctrls">
       <div class="field"><label for="selFecha">Día</label><select id="selFecha"></select></div>
     </div>
   </header>
-
   <div class="meta" id="meta"></div>
   <div id="banner"></div>
-  <div class="levels" id="levels"></div>
-
+  <div class="sum" id="sum"></div>
   <nav class="tabs" role="tablist">
-    <button class="tab" role="tab" id="t-lista" aria-selected="true" data-p="lista">Lista <span class="cnt" id="c-lista"></span></button>
-    <button class="tab" role="tab" id="t-vigilar" aria-selected="false" data-p="vigilar">Vigilar 20–50 % <span class="cnt" id="c-vigilar"></span></button>
+    <button class="tab" role="tab" id="t-scr" aria-selected="true" data-p="scr">Screener <span class="cnt" id="c-scr"></span></button>
     <button class="tab" role="tab" id="t-diario" aria-selected="false" data-p="diario">Mi diario <span class="cnt" id="c-diario"></span></button>
     <button class="tab" role="tab" id="t-rend" aria-selected="false" data-p="rend">Rendimiento</button>
   </nav>
-  <section class="pane" id="p-lista"></section>
-  <section class="pane" id="p-vigilar" hidden></section>
+  <section class="pane" id="p-scr"></section>
   <section class="pane" id="p-diario" hidden></section>
   <section class="pane" id="p-rend" hidden></section>
-
   <div class="rules">
-    <b>Cómo se construye:</b> gap del premarket ≥ 50 % → lista; 20–50 % → vigilar. Catalizador leído en EDGAR (8-K/6-K desde el cierre anterior) y agencias de noticias.
-    <b>A</b> = humo + gap ≥ 100 % + precio ≥ $1 · <b>B</b> = humo + gap 50–100 % + precio ≥ $1 · <b>Vigilar</b> = humo con precio &lt; $1, contrato real, FDA, otros o sin noticia ·
-    <b>NO</b> = resultados, financiación, avisos de bolsa o 424B hoy · <b>Nunca</b> = compra en efectivo.
-    La letra indica la fuerza de la <b>base estadística</b> (resultado histórico sin ejecución: corto a la apertura, stop +30 %, salida al cierre). No es una instrucción de ejecución: la ejecución es tuya.
-    Confirma en los enlaces y confirma el locate en tu bróker antes de operar.
+    <b>Qué entra:</b> gap del premarket ≥ 20 % y precio ≥ $1 que pasa el filtro de campo. <b>Qué queda fuera</b> (se guarda con su motivo): compra en efectivo, resultados, financiación, avisos de bolsa, 424B presentado hoy y precio &lt; $1.
+    <b>Tesis 0–100</b> = puntuación de la ronda 12 (pesos de 2015-21, validada en 2022-26): ordena por la fuerza histórica de la tesis bajista (gap, tipo de catalizador, ventas recientes de acciones, shelf, 8-K solo nota de prensa). La ventaja medida está en el tercio alto con gap ≥ 50 %; en 20–50 % la puntuación aún no separa.
+    <b>Riesgo</b> = riesgo de squeeze aparte (acciones en circulación, rotación del premarket), no validado como filtro: sirve para decidir el tamaño.
+    La estadística es la base mecánica (corto a la apertura, stop +30 %, salida al cierre), no una instrucción de ejecución. Confirma en los enlaces y el locate en tu bróker.
   </div>
 </div>
-
+<div class="shade" id="shade" hidden></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTk" hidden></aside>
 <script id="respaldo" type="application/json">{}</script>
 <script>
 (function(){
 "use strict";
 const $=s=>document.querySelector(s);
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const LV={A:{c:"var(--lvA)",n:"A",d:"Humo + gap ≥ 100 % + ≥ $1"},B:{c:"var(--lvB)",n:"B",d:"Humo + gap 50–100 % + ≥ $1"},VIGILAR:{c:"var(--lvV)",n:"Vigilar",d:"< $1, contrato, FDA, otros, sin noticia"},NO:{c:"var(--lvNO)",n:"NO",d:"Resultados, financiación, bolsa"},NUNCA:{c:"var(--lvNU)",n:"Nunca",d:"Compra en efectivo"}};
-const ORD=["A","B","VIGILAR","NO","NUNCA"];
-const st={listas:{},fechas:[],fecha:null,diario:{},db:null,abierto:null,pane:"lista"};
+const st={listas:{},fechas:[],fecha:null,diario:{},db:null,abierto:null,pane:"scr",orden:{k:"tesis",d:-1},tramo:"todos",verDesc:false};
 const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:v}catch(e){return d}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
-
 const pct=(x,d=0)=>x==null||isNaN(x)?"—":(x>=0?"+":"")+(x*100).toFixed(d)+" %";
 const usd=x=>{if(x==null||isNaN(x))return "—";const a=Math.abs(x);return (x<0?"-":"")+(a>=1e9?"$"+(a/1e9).toFixed(2)+" B":a>=1e6?"$"+(a/1e6).toFixed(1)+" M":a>=1e3?"$"+(a/1e3).toFixed(0)+" k":"$"+a.toFixed(2))};
 const px=x=>x==null?"—":"$"+(x>=10?x.toFixed(2):x>=1?x.toFixed(3):x.toFixed(4));
+const cnt=x=>{if(x==null||isNaN(x))return "—";const a=Math.abs(x);return a>=1e9?(x/1e9).toFixed(2)+" B":a>=1e6?(x/1e6).toFixed(2)+" M":a>=1e3?(x/1e3).toFixed(0)+" k":String(Math.round(x))};
 const R=x=>x==null||isNaN(x)?"—":(x>=0?"+":"")+x.toFixed(2)+"R";
-
+const PF=x=>x==null?"—":x===Infinity?"∞":x.toFixed(2);
+const WRp=x=>x==null?"—":Math.round(x*100)+" %";
+const TIPOS={H:"Humo / cosmético",K:"Contrato real",B:"Biotech real",R:"Resultados",F:"Financiación",S:"Corporativo / bolsa",C:"Compra en efectivo",O:"Otros",N:"Sin noticia"};
+const LETRA={A:"A",B:"B",VIGILAR:"Vigilar",NO:"NO",NUNCA:"Nunca"};
 function metrics(rs){
   const v=rs.filter(x=>x!=null&&!isNaN(x));const g=v.filter(x=>x>0),p=v.filter(x=>x<=0);
   const sg=g.reduce((a,b)=>a+b,0),sp=p.reduce((a,b)=>a+b,0);
   return {n:v.length,R:v.length?v.reduce((a,b)=>a+b,0)/v.length:null,WR:v.length?g.length/v.length:null,gan:g.length?sg/g.length:null,perd:p.length?sp/p.length:null,PF:sp<0?sg/-sp:(g.length?Infinity:null)};
 }
-
 function lista(){return st.listas[st.fecha]||null}
+// listas antiguas (con letras, antes del 30-sep) se muestran igual, sin puntuación
+function filas(L){if(!L)return [];if(L.acciones)return L.acciones;return (L.lista||[]).concat(L.vigilar||[]).filter(x=>x.clasif||x.municion)}
+function descartadas(L){return L&&L.descartadas?L.descartadas:[]}
+function rot(x){return x.riesgo&&x.riesgo.rotacion_pre!=null?x.riesgo.rotacion_pre:(x.vol_pre&&x.acciones?x.vol_pre/x.acciones:null)}
+function score(x){return x.puntuacion?x.puntuacion.valor:null}
+function tercio(x){return x.puntuacion?x.puntuacion.tercio:null}
 
 function renderMeta(){
   const L=lista();
-  if(!L){$("#meta").innerHTML="";return}
-  $("#meta").innerHTML=`<span>Lista del <b>${esc(L.fecha)}</b></span><span>Generada <b class="mono">${esc(L.generado)}</b> (hora de Nueva York)</span><span>Documentos EDGAR desde <b class="mono">${esc(L.desde)}</b> hasta <b class="mono">${esc(L.corte)}</b></span>`;
-  $("#banner").innerHTML=L.replay?`<div class="banner">Día pasado reconstruido para probar el sistema: el "premarket" es la apertura real y no hay noticias de agencias (solo EDGAR hasta las 9:10).</div>`:"";
+  if(!L){$("#meta").innerHTML="";$("#banner").innerHTML="";return}
+  const cob=(L.auditoria||{}).cobertura;
+  $("#meta").innerHTML=`<span>Lista del <b>${esc(L.fecha)}</b></span><span>Generada <b class="mono">${esc(L.generado)}</b> (Nueva York)</span><span>EDGAR desde <b class="mono">${esc(L.desde)}</b> hasta <b class="mono">${esc(L.corte)}</b></span>${cob?`<span>Universo <b class="mono">${cob.universo}</b> · cotizadas <b class="mono">${(cob.pct*100).toFixed(1)} %</b></span>`:""}`;
+  const b=[];
+  if(L.replay)b.push(`Día pasado reconstruido para probar el sistema: el "premarket" es la apertura real y no hay noticias de agencias (solo EDGAR hasta las 9:10).`);
+  if(!L.acciones)b.push(`Lista antigua con letras (antes del 30-sep): sin puntuación de la tesis.`);
+  if(L.convertida_v1)b.push(`Lista rehecha el 30-sep con la puntuación nueva, con los mismos precios que se publicaron ese día. La caja es la del último informe disponible hoy.`);
+  if((L.auditoria||{}).forzada)b.push(`Publicada con errores de auditoría: ${esc((L.auditoria.errores||[]).join(" · "))}`);
+  $("#banner").innerHTML=b.map(t=>`<div class="banner">${t}</div>`).join("");
 }
-
-function renderLevels(){
-  const L=lista();const cnt={};ORD.forEach(k=>cnt[k]=0);
-  (L?L.lista:[]).forEach(x=>cnt[x.nivel]=(cnt[x.nivel]||0)+1);
-  $("#levels").innerHTML=ORD.map(k=>`<div class="lvbox" style="--c:${LV[k].c}"><div class="k">${LV[k].n}</div><div class="n">${cnt[k]}</div><div class="d">${LV[k].d}</div></div>`).join("");
-  $("#c-lista").textContent=L?L.lista.length:0;
-  $("#c-vigilar").textContent=L?L.vigilar.length:0;
+function renderSum(){
+  const L=lista();const F=filas(L);const D=descartadas(L);
+  const alta=F.filter(x=>tercio(x)==="Alta");const alta50=alta.filter(x=>x.gap>=0.5);
+  const ext=F.filter(x=>x.riesgo&&x.riesgo.nivel!=="Normal");
+  $("#sum").innerHTML=[
+    ["Pasan el filtro",F.length,`de ${F.length+D.length} gappers ≥ 20 %`],
+    ["Tesis alta",alta.length,alta.length?alta.map(x=>x.sym).join(" · "):"ninguna hoy"],
+    ["Tesis alta y gap ≥ 50 %",alta50.length,"base 2022-26: +0.26R · PF 1.86"],
+    ["Riesgo alto o extremo",ext.length,ext.length?ext.map(x=>x.sym+" ("+x.riesgo.nivel.toLowerCase()+")").join(" · "):"ninguna"]
+  ].map(([k,n,d])=>`<div class="sbox"><div class="k">${k}</div><div class="n">${n}</div><div class="d">${esc(d)}</div></div>`).join("");
+  $("#c-scr").textContent=F.length;
 }
-
-function chip(on,txt,bad){return `<span class="chip ${on?(bad?"bad":"on"):""}">${esc(txt)}</span>`}
-
-function card(x,L){
-  const lv=LV[x.nivel]||LV.VIGILAR;const cl=x.clasif||{};const m=x.municion||{};const e=x.estad||{};const co=x.costes||{};
-  const res=L.resultados&&L.resultados[x.sym];
-  const dj=st.diario[L.fecha+"_"+x.sym];
-  const fuentes=(x.catalizadores||[]).map(k=>`<div><span class="t">${esc(k.hora.slice(11))}</span><a href="${esc(k.url)}" target="_blank" rel="noopener">${esc(k.form)}</a> · Items ${esc(k.items||"—")}${(k.anexos||[]).map(a=>` · <a href="${esc(a.url)}" target="_blank" rel="noopener">anexo</a>`).join("")}</div>`).join("");
-  const news=(x.noticias||[]).map(n=>`<div><span class="t">${esc((n.hora||"").slice(11))}</span><a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.titular)}</a> <span class="note">(${esc(n.fuente)})</span></div>`).join("");
+const COLS=[
+  {k:"tesis",t:"Tesis",n:false,v:x=>score(x)??-1},
+  {k:"riesgo",t:"Riesgo",v:x=>x.riesgo?{Normal:0,Alto:1,Extremo:2}[x.riesgo.nivel]:-1},
+  {k:"gap",t:"Gap",n:true,v:x=>x.gap},
+  {k:"precio",t:"Precio",n:true,v:x=>x.precio},
+  {k:"pmh",t:"PMH",n:true,v:x=>x.premarket&&x.premarket.pmh},
+  {k:"cierre",t:"Cierre ant.",n:true,v:x=>x.cierre_prev},
+  {k:"vol",t:"Vol. pre",n:true,v:x=>x.vol_pre},
+  {k:"acc",t:"Acciones",n:true,v:x=>x.acciones},
+  {k:"rot",t:"Rot. pre",n:true,v:x=>rot(x)},
+  {k:"cap",t:"Cap.",n:true,v:x=>x.cap},
+  {k:"caja",t:"Autonomía",n:true,v:x=>x.caja&&x.caja.autonomia_meses},
+  {k:"cat",t:"Catalizador",v:x=>(x.clasif||{}).tipo||""},
+  {k:"k8",t:"8-K / 6-K",v:x=>(x.catalizadores||[]).length},
+  {k:"mun",t:"Munición",v:x=>nMun(x)},
+  {k:"res",t:"Base hoy",n:true,v:x=>{const r=(lista().resultados||{})[x.sym];return r?r.R:null}}
+];
+function nMun(x){const m=x.municion||{};return [m.venta90,m.s3,m.atm,m.eloc,m.warrants_en_dinero].filter(Boolean).length}
+function mc(x){const m=x.municion||{};const s=(on,t,ti,bad)=>`<span class="${on?(bad?"bad":"on"):""}" title="${esc(ti)}">${t}</span>`;
+  return `<span class="mc">${s(m.venta90,"424B","Vendió acciones (424B) en 90 días")}${s(!!m.s3,"S-3","Shelf S-3/F-3 registrado")}${s(m.atm,"ATM","Programa ATM en el último informe")}${s(m.eloc,"ELOC","Línea de capital (ELOC/SEPA)")}${s(m.warrants_en_dinero,"W$","Warrants con precio de ejercicio bajo el precio actual")}${m.toxica?s(true,"TÓX","Convertible de precio variable",true):""}</span>`}
+function fila(x,i,L){
+  const cl=x.clasif||{};const p=x.puntuacion;const r=(L.resultados||{})[x.sym];const k=(x.catalizadores||[])[0];const ro=rot(x);const cj=x.caja;
+  return `<tr data-sym="${esc(x.sym)}" class="${st.abierto===x.sym?"on":""}" tabindex="0">
+  <td class="tkc"><span class="rank">${i+1}</span> <span class="tk">${esc(x.sym)}</span><span class="nm">${esc(x.nombre)}</span></td>
+  <td>${p?`<span class="score"><span class="bar"><i style="width:${p.valor}%"></i></span><b>${p.valor}</b></span><span class="ter ${esc(p.tercio)}">${esc(p.tercio)}</span>`:`<span class="ter">${esc(LETRA[x.nivel]||"—")}</span>`}</td>
+  <td>${x.riesgo?`<span class="risk ${esc(x.riesgo.nivel)}">${esc(x.riesgo.nivel)}</span>`:"—"}</td>
+  <td class="n pos">${pct(x.gap)}</td>
+  <td class="n">${px(x.precio)}</td>
+  <td class="n">${x.premarket&&x.premarket.pmh?px(x.premarket.pmh):"—"}</td>
+  <td class="n">${px(x.cierre_prev)}</td>
+  <td class="n">${cnt(x.vol_pre)}</td>
+  <td class="n">${cnt(x.acciones)}</td>
+  <td class="n ${ro>3?"neg":""}">${ro!=null?ro.toFixed(1)+"×":"—"}</td>
+  <td class="n">${usd(x.cap)}</td>
+  <td class="n ${cj&&cj.autonomia_meses!=null&&cj.autonomia_meses<6?"neg":""}">${cj&&cj.autonomia_meses!=null?cj.autonomia_meses.toFixed(1)+" m":cj&&cj.flujo_operativo>=0?"genera":"—"}</td>
+  <td><span class="cat ${esc(cl.tipo||"")}">${esc(cl.tipo_es||TIPOS[cl.tipo]||"Sin clasificar")}</span></td>
+  <td class="doc8">${k?`${esc(k.form)} <span class="dim">${esc(k.items||"")}</span>`:'<span class="dim">—</span>'}</td>
+  <td>${mc(x)}</td>
+  <td class="n ${r?(r.R>0?"pos":"neg"):""}">${r?R(r.R):'<span class="dim">—</span>'}</td>
+  </tr>`;
+}
+function renderScr(){
+  const L=lista();const el=$("#p-scr");
+  if(!L){el.innerHTML=`<div class="empty">Aún no hay ninguna lista guardada. La primera aparece cada día hábil antes de las 9:10 (Nueva York).</div>`;return}
+  let F=filas(L).slice();
+  if(st.tramo==="50")F=F.filter(x=>x.gap>=0.5);if(st.tramo==="20")F=F.filter(x=>x.gap<0.5);
+  const c=COLS.find(c=>c.k===st.orden.k)||COLS[0];
+  F.sort((a,b)=>{const va=c.v(a),vb=c.v(b);if(va==null&&vb==null)return 0;if(va==null)return 1;if(vb==null)return -1;return (va>vb?1:va<vb?-1:0)*st.orden.d||(b.gap-a.gap)});
+  const D=descartadas(L);
+  el.innerHTML=`<div class="fbar">
+    <div class="seg" role="group" aria-label="Tramo de gap">${[["todos","Todos"],["50","Gap ≥ 50 %"],["20","Gap 20–50 %"]].map(([k,t])=>`<button type="button" data-tramo="${k}" aria-pressed="${st.tramo===k}">${t}</button>`).join("")}</div>
+    <span class="note">Pulsa una fila para abrir la ficha · pulsa una columna para ordenar</span>
+  </div>
+  ${F.length?`<div class="tbl-wrap"><table class="scr"><thead><tr><th class="tkc">Ticker</th>${COLS.map(c=>`<th class="sort ${c.n?"n":""}" data-sort="${c.k}">${c.t}${st.orden.k===c.k?`<span class="ar">${st.orden.d<0?"▼":"▲"}</span>`:""}</th>`).join("")}</tr></thead>
+  <tbody>${F.map((x,i)=>fila(x,i,L)).join("")}</tbody></table></div>`:`<div class="empty">${filas(L).length?"Ninguna acción en este tramo.":"Hoy ninguna acción pasa el filtro de campo."}</div>`}
+  ${D.length?`<details class="desc" ${st.verDesc?"open":""}><summary>${D.length} descartada${D.length>1?"s":""} por el filtro de campo (${D.map(d=>esc(d.sym)).join(", ")})</summary>
+  <div class="tbl-wrap"><table><thead><tr><th>Ticker</th><th class="n">Gap</th><th class="n">Precio</th><th>Catalizador</th><th>Motivo</th><th class="n">Base hoy</th></tr></thead><tbody>
+  ${D.map(d=>{const r=(L.resultados||{})[d.sym];return `<tr><td><span class="tk">${esc(d.sym)}</span><span class="nm">${esc(d.nombre)}</span></td><td class="n">${pct(d.gap)}</td><td class="n">${px(d.precio)}</td><td><span class="cat">${esc((d.clasif||{}).tipo_es||"—")}</span></td><td class="why">${esc(d.motivo)}</td><td class="n ${r?(r.R>0?"pos":"neg"):""}">${r?R(r.R):"—"}</td></tr>`}).join("")}
+  </tbody></table></div><p class="note">"Base hoy" de las descartadas sirve para comprobar en vivo que el filtro acierta.</p></details>`:""}`;
+}
+function statRow(e){
+  if(!e)return "";
+  return `<div class="stat">${[["Esper.",R(e.R)],["WR",WRp(e.WR)],["Gan. media",R(e.gan)],["Pérd. media",R(e.perd)],["PF",PF(e.PF)],["$ por op.",e.R!=null?usd(e.R*20):"—"]].map(([l,v])=>`<div><div class="l">${l}</div><div class="v">${v}</div></div>`).join("")}</div>`;
+}
+function ficha(x,L){
+  const cl=x.clasif||{};const m=x.municion||{};const p=x.puntuacion;const rk=x.riesgo;const e=x.estad||{};const pm=x.premarket||{};const cj=x.caja;
+  const r=(L.resultados||{})[x.sym];const dj=st.diario[L.fecha+"_"+x.sym];const ro=rot(x);
+  const kp=[["Gap",pct(x.gap)],["Precio",px(x.precio)],["PMH",pm.pmh?px(pm.pmh):"—"],["Cierre ant.",px(x.cierre_prev)],["Vol. pre",cnt(x.vol_pre)],["Acciones",cnt(x.acciones)],["Rot. pre",ro!=null?ro.toFixed(1)+"×":"—"],["Cap.",usd(x.cap)],["Mín. pre",pm.pml?px(pm.pml):"—"],["Hora PMH",pm.pmh_hora||"—"],["Tesis",p?p.valor+" · "+p.tercio:(LETRA[x.nivel]||"—")],["Riesgo",rk?rk.nivel:"—"]];
+  const tesis=p?`<div class="blk"><h3>Tesis bajista <span class="r">predicción ${R(p.pred_R)} por op.</span></h3>
+    <div class="big"><b>${p.valor}</b><span class="ter ${esc(p.tercio)}">tesis ${esc(p.tercio.toLowerCase())} · gap ${esc(x.tramo||"")}</span></div>
+    <div class="fac"><span class="i dim">·</span><span class="t off">Punto de partida (catalizador 'otros', gap 20–50 %)</span><span class="w off">${R(p.base)}</span>
+    ${p.factores.map(f=>`<span class="i ${f.activo?"on":""}">${f.activo?"●":"○"}</span><span class="t ${f.activo?"":"off"}">${esc(f.nombre)}</span><span class="w ${f.activo?(f.peso>0?"pos":"neg"):"off"}">${R(f.peso)}</span>`).join("")}</div>
+    ${(p.notas||[]).map(n=>`<div class="fuente">${esc(n)}</div>`).join("")}
+    <div class="fuente" style="margin-top:12px">Resultado histórico de este grupo (gap ${esc(x.tramo)}, tesis ${esc(p.tercio.toLowerCase())}) · 2022-26 · ${e.n||"—"} casos · 2015-21: ${R(e.dev)}</div>
+    ${statRow(e)}
+    <div class="fuente">Base mecánica: corto a la apertura, stop +30 % con 5 % de deslizamiento, coste 1 %, salida al cierre. En dólares con tu riesgo de $20 por operación. No incluye tu ejecución.</div></div>`:"";
+  const riesgo=rk?`<div class="blk"><h3>Riesgo estructural <span class="r">no validado como filtro</span></h3>
+    <span class="risk ${esc(rk.nivel)}">${esc(rk.nivel)}</span>
+    ${rk.motivos.length?`<div class="warns" style="margin-top:8px">${rk.motivos.map(t=>`<div>${esc(t)}</div>`).join("")}</div>`:`<div class="note" style="margin-top:6px">Sin señales de squeeze por acciones en circulación ni por rotación del premarket.</div>`}
+    ${x.costes&&x.costes.locate_1c_R!=null?`<div class="note" style="margin-top:8px">Coste del locate: cada $0.01 por acción equivale a <b class="mono">${x.costes.locate_1c_R.toFixed(2)}R</b> de la base.</div>`:""}
+    <div class="fuente">Rotación = volumen del premarket ÷ acciones en circulación (Yahoo). Durante el día, rotación &gt; 10× = el corto a la apertura pierde (validado).</div></div>`:"";
+  const quote=cl.frase_en?`<div class="q"><div class="en">“${esc(cl.frase_en)}”</div><div class="es">${esc(cl.frase_es||"")}</div></div>`:"";
+  const news=(x.noticias||[]).map(n=>`<div><span class="t">${esc((n.hora||"").slice(11))}</span><a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.titular)}</a> <span class="dim">(${esc(n.fuente)})</span></div>`).join("");
+  const docs=(x.catalizadores||[]).map(k=>`<div class="doc"><div class="dh"><a href="${esc(k.url)}" target="_blank" rel="noopener"><b>${esc(k.form)}</b></a><span class="mono dim">${esc(k.hora)}</span><span class="it">${esc(k.items_es||("Items "+(k.items||"—")))}</span></div>
+    ${(k.partes||[]).map(pa=>`<div class="dh"><a href="${esc(pa.url)}" target="_blank" rel="noopener">${esc(pa.archivo)}</a><span class="dim">${pa.texto?Math.round(pa.texto.length/100)/10+" mil caracteres":""}</span></div>${pa.texto?`<div class="txt">${esc(pa.texto)}</div>`:""}`).join("")||(k.anexos||[]).map(a=>`<div class="dh"><a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.archivo)}</a></div>`).join("")}</div>`).join("");
   const FN={"4":"Form 4 (compra/venta de insiders)","3":"Form 3 (nuevo insider)","SC 13G":"13G (accionista > 5 %)","SC 13D":"13D (accionista > 5 %)"};
   const ot=(x.docs_hoy||[]).filter(d=>!/^(8-K|6-K)/.test(d.form));const grp={};ot.forEach(d=>{(grp[d.form]=grp[d.form]||[]).push(d)});
-  const otros=Object.entries(grp).map(([f,ds])=>`<div><span class="t">${esc(ds[ds.length-1].hora.slice(11))}</span><a href="${esc(ds[0].url)}" target="_blank" rel="noopener">${esc(FN[f]||f)}</a>${ds.length>1?` <span class="note">×${ds.length}</span>`:""}</div>`).join("");
-  const quote=cl.frase_en?`<div class="q"><div class="en">“${esc(cl.frase_en)}”</div><div class="es">${esc(cl.frase_es||"")}</div></div>`:"";
-  return `<article class="card" style="--c:${lv.c}" id="card-${esc(x.sym)}">
-  <div class="chead">
-    <span class="tk">${esc(x.sym)}</span><span class="badge">${lv.n}</span><span class="nm">${esc(x.nombre)}${x.sector?" · "+esc(x.sector):""}</span>
-    <div class="kpis">
-      <div class="kpi"><span class="l">Gap</span><span class="v up">${pct(x.gap)}</span></div>
-      <div class="kpi"><span class="l">Precio</span><span class="v">${px(x.precio)}</span></div>
-      <div class="kpi"><span class="l">Cierre ant.</span><span class="v">${px(x.cierre_prev)}</span></div>
-      <div class="kpi"><span class="l">Cap.</span><span class="v">${usd(x.cap)}</span></div>
-      <div class="kpi"><span class="l">Vol. pre</span><span class="v">${x.vol_pre?Number(x.vol_pre).toLocaleString("es"):"—"}</span></div>
-    </div>
+  const otros=Object.entries(grp).map(([f,ds])=>`<div><span class="t">${esc(ds[ds.length-1].hora.slice(11))}</span><a href="${esc(ds[0].url)}" target="_blank" rel="noopener">${esc(FN[f]||f)}</a>${ds.length>1?` <span class="dim">×${ds.length}</span>`:""}</div>`).join("");
+  const chip=(on,t,bad)=>`<span class="chip ${on?(bad?"bad":"on"):""}">${esc(t)}</span>`;
+  const caja=cj?`<div class="blk"><h3>Caja <span class="r">${esc(cj.form||"")} · ${esc(cj.caja_fecha)}</span></h3>
+    <dl class="kv">
+      <dt>Caja y equivalentes<br><span class="en-l">Cash and cash equivalents</span></dt><dd>${usd(cj.caja)}</dd>
+      ${cj.inversiones?`<dt>Inversiones a corto plazo<br><span class="en-l">Short-term investments</span></dt><dd>${usd(cj.inversiones)}</dd>`:""}
+      ${cj.flujo_operativo!=null?`<dt>Flujo de caja operativo, ${cj.meses} meses (${esc(cj.flujo_desde)} → ${esc(cj.flujo_hasta)})<br><span class="en-l">Net cash ${cj.flujo_operativo<0?"used in":"provided by"} operating activities</span></dt><dd class="${cj.flujo_operativo<0?"neg":"pos"}">${usd(cj.flujo_operativo)}</dd>`:""}
+      ${cj.quema_mes?`<dt>Quema de caja al mes</dt><dd>${usd(cj.quema_mes)}</dd><dt>Autonomía (caja + inversiones ÷ quema)</dt><dd class="${cj.autonomia_meses<6?"neg":""}">${cj.autonomia_meses.toFixed(1)} meses</dd>`:cj.flujo_operativo>=0?`<dt>Autonomía</dt><dd>genera caja</dd>`:""}
+    </dl>
+    <div class="fuente">Datos XBRL del <a href="${esc(cj.url)}" target="_blank" rel="noopener">último informe</a> (busca las frases en inglés con Ctrl+F). No incluye ventas de acciones posteriores al informe. Informativo: no entra en la puntuación porque aún no está medido.</div></div>`:"";
+  return `<div class="dhead">
+    <div class="drow"><span class="tk" id="dTk">${esc(x.sym)}</span><span class="nm2">${esc(x.nombre)}${x.sector?" · "+esc(x.sector):""}${x.bolsa?" · "+esc(x.bolsa):""}</span><button type="button" class="x" data-cerrar>Cerrar ✕</button></div>
+    <div class="kpis">${kp.map(([l,v])=>`<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div></div>`).join("")}</div>
   </div>
-  <div class="cbody">
-    <div class="col">
-      <div class="sec">Catalizador</div>
-      <span class="pill ${esc(cl.tipo||"")}">${esc(cl.tipo_es||"Sin clasificar")}</span>
+  <div class="dbody">
+    ${(x.avisos||[]).length?`<div class="blk"><div class="warns">${x.avisos.map(a=>`<div>${esc(a)}</div>`).join("")}</div></div>`:""}
+    ${tesis}
+    <div class="blk"><h3>Catalizador</h3>
+      <span class="cat ${esc(cl.tipo||"")}">${esc(cl.tipo_es||"Sin clasificar")}</span>
       ${quote}
       ${cl.cifra?`<div class="cifra">Cifra: <b>${esc(cl.cifra)}</b></div>`:""}
       ${cl.nota?`<div class="note">${esc(cl.nota)}</div>`:""}
-      ${fuentes||news||otros?`<div class="src">${fuentes}${news}${otros}</div>`:`<div class="note">Sin documentos en EDGAR ni noticias desde el cierre anterior.</div>`}
+      ${news?`<div class="src">${news}</div>`:""}
+      ${docs||`<div class="note" style="margin-top:8px">Sin 8-K ni 6-K desde el cierre anterior.</div>`}
+      ${otros?`<div class="src"><span class="dim">Otros documentos de hoy</span>${otros}</div>`:""}
     </div>
-    <div class="col">
-      <div class="sec">Munición (EDGAR)</div>
-      <div class="chips">
-        ${chip(m.venta90,"424B en 90 días")}${chip(!!m.s3,"Shelf S-3"+(m.s3?" "+m.s3:""))}${chip(m.atm,"ATM")}${chip(m.eloc,"ELOC")}
-        ${chip(m.warrants_en_dinero,"Warrants en dinero")}${chip(x.venta_hoy,"424B HOY",true)}${chip(m.toxica,"Convertible tóxica",true)}
-        ${chip(m.going_concern,"Going concern")}${chip(m.aviso_bolsa,"Aviso de bolsa 12 m")}
-      </div>
-      <div class="sec" style="margin-top:14px">Historial</div>
+    ${riesgo}
+    <div class="blk"><h3>Munición</h3>
+      <div class="chips">${chip(m.venta90,"424B en 90 días")}${chip(!!m.s3,"Shelf S-3"+(m.s3?" "+m.s3:""))}${chip(m.atm,"ATM")}${chip(m.eloc,"ELOC")}${chip(m.warrants_en_dinero,"Warrants en dinero")}${chip(m.toxica,"Convertible tóxica",true)}${chip(m.going_concern,"Going concern")}${chip(m.aviso_bolsa,"Aviso de bolsa 12 m")}</div>
       <dl class="kv">
-        <dt>Ventas de acciones (424B4/5, 12 m)</dt><dd>${m.ventas_12m??"—"}</dd>
-        <dt>Cambios de estatutos 5.03 (2 años, suelen ser contra-splits)</dt><dd>${m.contrasplits_2a??"—"}</dd>
-        <dt>Warrants (precios)</dt><dd>${(m.warrants||[]).slice(0,4).map(v=>"$"+v).join(" ")||"—"}</dd>
+        <dt>Folletos 424B en 12 meses</dt><dd>${m.p424_12m??m.ventas_12m??"—"}</dd>
+        <dt>Cambios de estatutos 5.03 en 2 años (suelen ser contra-splits)</dt><dd>${m.contrasplits_2a??"—"}</dd>
+        <dt>Precios de ejercicio de warrants</dt><dd>${(m.warrants||[]).slice(0,5).map(v=>"$"+v).join(" ")||"—"}</dd>
       </dl>
       ${m.informe?`<div class="fuente">Último informe: <a href="${esc(m.informe.url)}" target="_blank" rel="noopener">${esc(m.informe.form)} ${esc(m.informe.fecha)}</a></div>`:""}
-      ${(m.ultimas_ventas||[]).length?`<div class="fuente">Ventas: ${(m.ultimas_ventas||[]).slice(0,3).map(v=>`<a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.form)} ${esc(v.fecha)}</a>`).join(" · ")}</div>`:""}
+      ${(m.ultimas_ventas||[]).length?`<div class="fuente">Últimas ventas: ${m.ultimas_ventas.slice(0,4).map(v=>`<a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.form)} ${esc(v.fecha)}</a>`).join(" · ")}</div>`:""}
+      <div class="fuente">Warrants sin ajustar por contra-splits posteriores: compruébalos en el informe.</div>
     </div>
-    <div class="col">
-      <div class="sec">Base estadística del nivel</div>
-      <div class="stat">
-        <div><div class="l">Esper.</div><div class="v">${R(e.R)}</div></div>
-        <div><div class="l">WR</div><div class="v">${e.WR!=null?Math.round(e.WR*100)+"%":"—"}</div></div>
-        <div><div class="l">Gan.</div><div class="v">${e.gan!=null?R(e.gan):"—"}</div></div>
-        <div><div class="l">Pérd.</div><div class="v">${e.perd!=null?R(e.perd):"—"}</div></div>
-        <div><div class="l">PF</div><div class="v">${e.PF!=null?e.PF.toFixed(2):"—"}</div></div>
-      </div>
-      <div class="fuente">${esc(e.fuente||"")}${e.n?" · "+e.n+" casos":""}${e.squeeze!=null?" · squeeze >+50 %: "+Math.round(e.squeeze*100)+" %":""}</div>
-      ${co.locate_1c_R!=null?`<div class="sec" style="margin-top:14px">Referencia de costes</div><div class="note">Cada $0.01 de locate por acción equivale a <b class="mono">${co.locate_1c_R.toFixed(2)}R</b> de la base (con stop +30 %).</div>`:""}
+    ${caja}
+    <div class="blk"><h3>Resultado y diario</h3>
+      ${r?`<div class="note">Base mecánica del día: apertura ${px(r.apertura)} · máx ${px(r.maximo)} (${pct(r.subida_max)}) · cierre ${px(r.cierre)} → <b class="${r.R>0?"pos":"neg"}">${R(r.R)}</b></div>`:`<div class="note">El resultado de base se añade al día siguiente.</div>`}
+      ${dj?`<div class="logged" style="margin-top:6px">✓ En tu diario: ${dj.operada==="si"?R(djR(dj))+" · "+usd(djUSD(dj)):"no operada ("+esc(dj.motivo||"—")+")"}</div>`:""}
+      ${st.db?formDiario(x,dj):`<div class="note" style="margin-top:6px">El diario necesita la base de datos de la página, que ahora no está disponible.</div>`}
     </div>
-  </div>
-  ${(x.avisos||[]).length?`<div class="warns">${x.avisos.map(a=>`<div>${esc(a)}</div>`).join("")}</div>`:""}
-  <div class="cfoot">
-    ${res?`<span class="res">Resultado de base (mecánico): apertura ${px(res.apertura)} · máx ${px(res.maximo)} (${pct(res.subida_max)}) · cierre ${px(res.cierre)} → <b class="${res.R>0?"pos":"neg"}">${R(res.R)}</b></span>`:`<span class="res">Resultado de base: se añade al día siguiente</span>`}
-    <span style="margin-left:auto"></span>
-    ${dj?`<span class="logged">✓ En tu diario: ${dj.operada==="si"?R(djR(dj))+" · "+usd(djUSD(dj)):"no operada ("+esc(dj.motivo||"—")+")"}</span>`:""}
-    <button class="btn ${dj?"ghost":""}" data-dj="${esc(x.sym)}" ${st.db?"":"disabled title='El diario necesita la base de datos de la página'"}>${dj?"Editar diario":"Registrar en el diario"}</button>
-  </div>
-  ${st.abierto===x.sym?formDiario(x,L,dj):""}
-  </article>`;
+  </div>`;
 }
-
 function djR(d){const e=+d.entrada,s=+d.salida,sp=+d.stop;if(!(e>0&&s>0&&sp>e))return null;return (e-s)/(sp-e)}
 function djUSD(d){const e=+d.entrada,s=+d.salida,n=+d.acciones;if(!(e>0&&s>0&&n>0))return null;return (e-s)*n-(+d.costes||0)}
-
-function formDiario(x,L,d){
-  d=d||{};const v=(k,def="")=>esc(d[k]??def);
-  return `<form class="dj" data-sym="${esc(x.sym)}">
-    <div class="f"><label for="dj-op-${esc(x.sym)}">¿Operada?</label><select id="dj-op-${esc(x.sym)}" name="operada"><option value="si" ${d.operada!=="no"?"selected":""}>Sí</option><option value="no" ${d.operada==="no"?"selected":""}>No</option></select></div>
-    <div class="f"><label for="dj-loc-${esc(x.sym)}">Locate</label><select id="dj-loc-${esc(x.sym)}" name="locate"><option value="si" ${d.locate!=="no"&&d.locate!=="caro"?"selected":""}>Sí</option><option value="caro" ${d.locate==="caro"?"selected":""}>Caro</option><option value="no" ${d.locate==="no"?"selected":""}>No había</option></select></div>
-    <div class="f"><label for="dj-e-${esc(x.sym)}">Entrada $</label><input id="dj-e-${esc(x.sym)}" name="entrada" type="number" step="0.0001" value="${v("entrada")}"></div>
-    <div class="f"><label for="dj-s-${esc(x.sym)}">Salida $</label><input id="dj-s-${esc(x.sym)}" name="salida" type="number" step="0.0001" value="${v("salida")}"></div>
-    <div class="f"><label for="dj-st-${esc(x.sym)}">Stop usado $</label><input id="dj-st-${esc(x.sym)}" name="stop" type="number" step="0.0001" value="${v("stop")}"></div>
-    <div class="f"><label for="dj-n-${esc(x.sym)}">Acciones</label><input id="dj-n-${esc(x.sym)}" name="acciones" type="number" step="1" value="${v("acciones")}"></div>
-    <div class="f"><label for="dj-c-${esc(x.sym)}">Costes $ (locate + comisión)</label><input id="dj-c-${esc(x.sym)}" name="costes" type="number" step="0.01" value="${v("costes")}"></div>
-    <div class="f"><label for="dj-m-${esc(x.sym)}">Si no operaste: motivo</label><input id="dj-m-${esc(x.sym)}" name="motivo" type="text" value="${v("motivo")}"></div>
-    <div class="f wide"><label for="dj-no-${esc(x.sym)}">Notas de ejecución</label><input id="dj-no-${esc(x.sym)}" name="notas" type="text" value="${v("notas")}"></div>
-    <div class="acts"><span class="msg" id="msg-${esc(x.sym)}"></span><button type="button" class="btn ghost" data-cerrar>Cerrar</button><button type="submit" class="btn">Guardar</button></div>
+function formDiario(x,d){
+  d=d||{};const v=(k,def="")=>esc(d[k]??def);const s=esc(x.sym);
+  return `<form class="dj" data-sym="${s}">
+    <div class="f"><label for="dj-op-${s}">¿Operada?</label><select id="dj-op-${s}" name="operada"><option value="si" ${d.operada!=="no"?"selected":""}>Sí</option><option value="no" ${d.operada==="no"?"selected":""}>No</option></select></div>
+    <div class="f"><label for="dj-loc-${s}">Locate</label><select id="dj-loc-${s}" name="locate"><option value="si" ${d.locate!=="no"&&d.locate!=="caro"?"selected":""}>Sí</option><option value="caro" ${d.locate==="caro"?"selected":""}>Caro</option><option value="no" ${d.locate==="no"?"selected":""}>No había</option></select></div>
+    <div class="f"><label for="dj-e-${s}">Entrada $</label><input id="dj-e-${s}" name="entrada" type="number" step="0.0001" value="${v("entrada")}"></div>
+    <div class="f"><label for="dj-s-${s}">Salida $</label><input id="dj-s-${s}" name="salida" type="number" step="0.0001" value="${v("salida")}"></div>
+    <div class="f"><label for="dj-st-${s}">Stop usado $</label><input id="dj-st-${s}" name="stop" type="number" step="0.0001" value="${v("stop")}"></div>
+    <div class="f"><label for="dj-n-${s}">Acciones</label><input id="dj-n-${s}" name="acciones" type="number" step="1" value="${v("acciones")}"></div>
+    <div class="f"><label for="dj-c-${s}">Costes $ (locate + comisión)</label><input id="dj-c-${s}" name="costes" type="number" step="0.01" value="${v("costes")}"></div>
+    <div class="f"><label for="dj-m-${s}">Si no operaste: motivo</label><input id="dj-m-${s}" name="motivo" type="text" value="${v("motivo")}"></div>
+    <div class="f wide"><label for="dj-no-${s}">Notas de ejecución</label><input id="dj-no-${s}" name="notas" type="text" value="${v("notas")}"></div>
+    <div class="acts"><span class="msg" id="msg-${s}"></span><button type="submit" class="btn">${d.fecha?"Guardar cambios":"Guardar en el diario"}</button></div>
   </form>`;
 }
-
-function renderLista(){
-  const L=lista();const el=$("#p-lista");
-  if(!L){el.innerHTML=`<div class="empty">Aún no hay ninguna lista guardada.</div>`;return}
-  el.innerHTML=L.lista.length?L.lista.map(x=>card(x,L)).join(""):`<div class="empty">Hoy no hay gappers ≥ 50 % en el premarket.</div>`;
+function abrir(sym){
+  const L=lista();const x=filas(L).find(y=>y.sym===sym);if(!x)return;
+  st.abierto=sym;const dr=$("#drawer");dr.innerHTML=ficha(x,L);dr.hidden=false;$("#shade").hidden=false;dr.querySelector(".dbody").scrollTop=0;
+  document.querySelectorAll("table.scr tbody tr").forEach(t=>t.classList.toggle("on",t.dataset.sym===sym));
+  const b=dr.querySelector("[data-cerrar]");if(b)b.focus({preventScroll:true});
 }
-
-function renderVigilar(){
-  const L=lista();const el=$("#p-vigilar");
-  if(!L||!L.vigilar.length){el.innerHTML=`<div class="empty">Sin acciones entre +20 % y +50 %.</div>`;return}
-  const viejo=L.vigilar.some(v=>!v.municion&&!v.clasif);   // listas antiguas: solo tabla simple
-  if(viejo){el.innerHTML=`<div class="tbl-wrap"><table><thead><tr><th>Ticker</th><th>Empresa</th><th class="n">Gap</th><th class="n">Precio</th><th class="n">Cap.</th><th>Documentos desde el cierre</th></tr></thead><tbody>
-  ${L.vigilar.map(v=>`<tr><td class="mono"><b>${esc(v.sym)}</b></td><td>${esc(v.nombre)}</td><td class="n pos">${pct(v.gap)}</td><td class="n">${px(v.precio)}</td><td class="n">${usd(v.cap)}</td><td>${(v.docs_hoy||[]).map(d=>`<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.form)}</a> <span class="note">${esc(d.hora.slice(11))} ${esc(d.items_es||"")}</span>`).join(" · ")||'<span class="note">—</span>'}</td></tr>`).join("")}
-  </tbody></table></div>`;return}
-  el.innerHTML=`<p class="note" style="margin:0 0 12px">Gappers de +20 % a +50 % con el mismo trabajo de campo que la lista (catalizador, munición, base estadística). No entran en A/B: ${"humo 20-50 % tiene base pequeña (+0.09R en 2022-26)"}.</p>`+L.vigilar.map(x=>card(x,L)).join("");
-}
-function rerender(){renderLista();renderVigilar()}
-
+function refrescarFicha(){if(!st.abierto)return;const L=lista();const x=filas(L).find(y=>y.sym===st.abierto);if(!x){cerrar();return}
+  const dr=$("#drawer");const top=dr.querySelector(".dbody")?dr.querySelector(".dbody").scrollTop:0;dr.innerHTML=ficha(x,L);dr.querySelector(".dbody").scrollTop=top}
+function cerrar(){const s=st.abierto;st.abierto=null;$("#drawer").hidden=true;$("#shade").hidden=true;
+  document.querySelectorAll("table.scr tbody tr").forEach(t=>t.classList.remove("on"));
+  const tr=s&&document.querySelector(`table.scr tbody tr[data-sym="${CSS.escape(s)}"]`);if(tr)tr.focus({preventScroll:true})}
 function renderDiario(){
   const el=$("#p-diario");const rows=Object.entries(st.diario).map(([k,d])=>Object.assign({id:k},d)).sort((a,b)=>(b.fecha||"").localeCompare(a.fecha||""));
   $("#c-diario").textContent=rows.filter(r=>r.operada==="si").length||"";
@@ -360,61 +476,65 @@ function renderDiario(){
   const op=rows.filter(r=>r.operada==="si");const m=metrics(op.map(djR));
   const tot=op.map(djUSD).filter(x=>x!=null).reduce((a,b)=>a+b,0);
   el.innerHTML=`<div class="tiles">
-    ${tile("Operaciones",m.n)}${tile("Esperanza",R(m.R))}${tile("WR",m.WR!=null?Math.round(m.WR*100)+" %":"—")}${tile("Gan. media",R(m.gan))}${tile("Pérd. media",R(m.perd))}${tile("PF",m.PF==null?"—":m.PF===Infinity?"∞":m.PF.toFixed(2))}
+    ${tile("Operaciones",m.n)}${tile("Esperanza",R(m.R))}${tile("WR",WRp(m.WR))}${tile("Gan. media",R(m.gan))}${tile("Pérd. media",R(m.perd))}${tile("PF",PF(m.PF))}
   </div>
   <p class="note" style="margin:10px 0 14px">Resultado total: <b class="mono ${tot>=0?"pos":"neg"}">${usd(tot)}</b>. Meta acordada: 50–100 operaciones antes de subir el riesgo; 5 % solo con ventaja ≥ +0.20R validada.</p>
-  ${rows.length?`<div class="tbl-wrap"><table><thead><tr><th>Día</th><th>Ticker</th><th>Nivel</th><th>¿Operada?</th><th>Locate</th><th class="n">Entrada</th><th class="n">Salida</th><th class="n">Acciones</th><th class="n">R</th><th class="n">$</th><th>Notas</th></tr></thead><tbody>
-  ${rows.map(r=>{const rr=djR(r),u=djUSD(r);return `<tr><td class="mono">${esc(r.fecha)}</td><td class="mono"><b>${esc(r.sym)}</b></td><td><span class="lvl" style="--c:${(LV[r.nivel]||LV.VIGILAR).c}">${esc((LV[r.nivel]||{}).n||r.nivel||"")}</span></td><td>${r.operada==="si"?"Sí":"No"}</td><td>${esc(r.locate||"")}</td><td class="n">${r.entrada?px(+r.entrada):"—"}</td><td class="n">${r.salida?px(+r.salida):"—"}</td><td class="n">${esc(r.acciones||"—")}</td><td class="n ${rr>0?"pos":rr<0?"neg":""}">${r.operada==="si"?R(rr):"—"}</td><td class="n ${u>0?"pos":u<0?"neg":""}">${r.operada==="si"?usd(u):"—"}</td><td>${esc(r.operada==="si"?r.notas:r.motivo)}</td></tr>`}).join("")}
-  </tbody></table></div>`:`<div class="empty">Todavía no has registrado ninguna operación. Usa "Registrar en el diario" en cada acción de la lista.</div>`}`;
+  ${rows.length?`<div class="tbl-wrap"><table><thead><tr><th>Día</th><th>Ticker</th><th>Tesis</th><th>Riesgo</th><th>¿Operada?</th><th>Locate</th><th class="n">Entrada</th><th class="n">Salida</th><th class="n">Acciones</th><th class="n">R</th><th class="n">$</th><th>Notas</th></tr></thead><tbody>
+  ${rows.map(r=>{const rr=djR(r),u=djUSD(r);return `<tr><td class="mono">${esc(r.fecha)}</td><td class="tk">${esc(r.sym)}</td><td>${r.puntuacion!=null&&r.puntuacion!==""?`<span class="mono">${esc(r.puntuacion)}</span> <span class="ter ${esc(r.tercio||"")}">${esc(r.tercio||"")}</span>`:`<span class="ter">${esc(LETRA[r.nivel]||r.nivel||"—")}</span>`}</td><td>${r.riesgo?`<span class="risk ${esc(r.riesgo)}">${esc(r.riesgo)}</span>`:"—"}</td><td>${r.operada==="si"?"Sí":"No"}</td><td>${esc(r.locate||"")}</td><td class="n">${r.entrada?px(+r.entrada):"—"}</td><td class="n">${r.salida?px(+r.salida):"—"}</td><td class="n">${esc(r.acciones||"—")}</td><td class="n ${rr>0?"pos":rr<0?"neg":""}">${r.operada==="si"?R(rr):"—"}</td><td class="n ${u>0?"pos":u<0?"neg":""}">${r.operada==="si"?usd(u):"—"}</td><td>${esc(r.operada==="si"?r.notas:r.motivo)}</td></tr>`}).join("")}
+  </tbody></table></div>`:`<div class="empty">Todavía no has registrado ninguna operación. Abre la ficha de una acción en el screener y usa "Guardar en el diario".</div>`}`;
 }
 function tile(l,v){return `<div class="tile"><div class="l">${l}</div><div class="v">${v??"—"}</div></div>`}
-
+const HIST={"≥ 50 %|Alta":"+0.26R · PF 1.86","≥ 50 %|Media":"+0.04R · PF 1.10","≥ 50 %|Baja":"−0.11R · PF 0.74","20-50 %|Alta":"−0.04R · PF 0.86","20-50 %|Media":"−0.02R · PF 0.95","20-50 %|Baja":"−0.05R · PF 0.85"};
 function renderRend(){
-  const el=$("#p-rend");const por={};ORD.forEach(k=>por[k]=[]);let dias=0;const v20h=[],v20o=[];
-  st.fechas.forEach(f=>{const L=st.listas[f];if(!L||!L.resultados)return;dias++;L.lista.forEach(x=>{const r=L.resultados[x.sym];if(r)por[x.nivel].push(r.R)});(L.vigilar||[]).forEach(x=>{const r=L.resultados[x.sym];if(r&&x.municion){(x.clasif&&x.clasif.tipo==="H"?v20h:v20o).push(r.R)}})});
-  el.innerHTML=`<div class="panel"><h3>Rendimiento de la propia lista</h3>
-  <p class="note" style="margin:0 0 10px">Resultado de base de cada acción listada (mecánico: corto a la apertura, stop +30 %, deslizamiento y costes incluidos), en ${dias} día(s) con resultado. Sirve para comprobar que la selección se comporta como en las pruebas históricas y, junto a tu diario, para ver cuánto añade tu ejecución.</p>
-  <div class="tbl-wrap"><table><thead><tr><th>Nivel</th><th class="n">Casos</th><th class="n">Esperanza</th><th class="n">WR</th><th class="n">Gan. media</th><th class="n">Pérd. media</th><th class="n">PF</th><th class="n">Base histórica</th></tr></thead><tbody>
-  ${ORD.map(k=>{const m=metrics(por[k]);const h={A:"+0.45R · PF 2.74",B:"≈ 0R · PF 0.96",VIGILAR:"≈ 0R (humo < $1: +0.26R antes del locate)",NO:"PF 0.6–0.7",NUNCA:"WR 8 %"}[k];return `<tr><td><span class="lvl" style="--c:${LV[k].c}">${LV[k].n}</span></td><td class="n">${m.n}</td><td class="n ${m.R>0?"pos":m.R<0?"neg":""}">${R(m.R)}</td><td class="n">${m.WR!=null?Math.round(m.WR*100)+" %":"—"}</td><td class="n">${R(m.gan)}</td><td class="n">${R(m.perd)}</td><td class="n">${m.PF==null?"—":m.PF===Infinity?"∞":m.PF.toFixed(2)}</td><td class="n">${h}</td></tr>`}).join("")}
-  ${[["Vigilar 20-50 % · humo",v20h,"+0.09R · PF 1.35"],["Vigilar 20-50 % · resto",v20o,"−0.12R · PF 0.57"]].map(([n,v,h])=>{const m=metrics(v);return `<tr><td><span class="lvl" style="--c:var(--lvV)">${n}</span></td><td class="n">${m.n}</td><td class="n ${m.R>0?"pos":m.R<0?"neg":""}">${R(m.R)}</td><td class="n">${m.WR!=null?Math.round(m.WR*100)+" %":"—"}</td><td class="n">${R(m.gan)}</td><td class="n">${R(m.perd)}</td><td class="n">${m.PF==null?"—":m.PF===Infinity?"∞":m.PF.toFixed(2)}</td><td class="n">${h}</td></tr>`}).join("")}
+  const el=$("#p-rend");const g={};Object.keys(HIST).forEach(k=>g[k]=[]);const desc=[];let dias=0;
+  st.fechas.forEach(f=>{const L=st.listas[f];if(!L||!L.resultados||!L.acciones)return;dias++;
+    L.acciones.forEach(x=>{const r=L.resultados[x.sym];if(r&&x.puntuacion)g[(x.gap>=0.5?"≥ 50 %":"20-50 %")+"|"+x.puntuacion.tercio].push(r.R)});
+    (L.descartadas||[]).forEach(x=>{const r=L.resultados[x.sym];if(r)desc.push(r.R)})});
+  const row=(n,v,h)=>{const m=metrics(v);return `<tr><td>${n}</td><td class="n">${m.n}</td><td class="n ${m.R>0?"pos":m.R<0?"neg":""}">${R(m.R)}</td><td class="n">${WRp(m.WR)}</td><td class="n">${R(m.gan)}</td><td class="n">${R(m.perd)}</td><td class="n">${PF(m.PF)}</td><td class="n">${h}</td></tr>`};
+  el.innerHTML=`<div class="panel"><h3>Rendimiento en vivo de la selección</h3>
+  <p class="note" style="margin:0 0 10px">Base mecánica de cada acción (corto a la apertura, stop +30 %, deslizamiento y costes incluidos) en ${dias} día(s) con resultado, por tramo de gap y tercio de la tesis. Sirve para comprobar que la puntuación se comporta como en el histórico y, junto a tu diario, para ver cuánto añade tu ejecución.</p>
+  <div class="tbl-wrap"><table><thead><tr><th>Grupo</th><th class="n">Casos</th><th class="n">Esperanza</th><th class="n">WR</th><th class="n">Gan. media</th><th class="n">Pérd. media</th><th class="n">PF</th><th class="n">Histórico 2022-26</th></tr></thead><tbody>
+  ${Object.keys(HIST).map(k=>{const [t,te]=k.split("|");return row(`Gap ${t} · tesis ${te.toLowerCase()}`,g[k],HIST[k])}).join("")}
+  ${row("Descartadas por el filtro",desc,"PF 0.2–0.7 según el motivo")}
   </tbody></table></div>
-  <p class="note" style="margin-top:10px">Con pocos días los números bailan mucho: hacen falta decenas de casos por nivel para sacar conclusiones.</p></div>`;
+  <p class="note" style="margin-top:10px">Con pocos días los números bailan mucho: hacen falta decenas de casos por grupo para sacar conclusiones. Las listas antiguas con letras no entran en esta tabla.</p></div>`;
 }
-
-function renderAll(){renderMeta();renderLevels();renderLista();renderVigilar();renderDiario();renderRend()}
-
+function renderAll(){renderMeta();renderSum();renderScr();renderDiario();renderRend();refrescarFicha()}
 function selectPane(p){
+  if(!["scr","diario","rend"].includes(p))p="scr";
   st.pane=p;document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.p===p?"true":"false"));
-  ["lista","vigilar","diario","rend"].forEach(k=>$("#p-"+k).hidden=k!==p);store.set("radar.pane",p);
+  ["scr","diario","rend"].forEach(k=>$("#p-"+k).hidden=k!==p);store.set("radar.pane2",p);
 }
 document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>selectPane(t.dataset.p)));
-
 function fillFechas(){
-  const sel=$("#selFecha");sel.innerHTML=st.fechas.map(f=>`<option value="${esc(f)}" ${f===st.fecha?"selected":""}>${esc(f)}${st.listas[f]&&st.listas[f].replay?" (prueba)":""}</option>`).join("");
+  $("#selFecha").innerHTML=st.fechas.map(f=>`<option value="${esc(f)}" ${f===st.fecha?"selected":""}>${esc(f)}${st.listas[f]&&st.listas[f].replay?" (prueba)":""}</option>`).join("");
 }
-$("#selFecha").addEventListener("change",e=>{st.fecha=e.target.value;st.abierto=null;renderAll()});
-
+$("#selFecha").addEventListener("change",e=>{st.fecha=e.target.value;cerrar();renderAll()});
 document.addEventListener("click",e=>{
-  const b=e.target.closest("[data-dj]");if(b){st.abierto=st.abierto===b.dataset.dj?null:b.dataset.dj;rerender();return}
-  if(e.target.closest("[data-cerrar]")){st.abierto=null;rerender()}
+  if(e.target.closest("[data-cerrar]")||e.target===$("#shade")){cerrar();return}
+  const th=e.target.closest("th[data-sort]");if(th){const k=th.dataset.sort;st.orden=st.orden.k===k?{k,d:-st.orden.d}:{k,d:-1};renderScr();return}
+  const sb=e.target.closest("[data-tramo]");if(sb){st.tramo=sb.dataset.tramo;renderScr();return}
+  const tr=e.target.closest("table.scr tbody tr");if(tr&&!e.target.closest("a")){abrir(tr.dataset.sym)}
+});
+document.addEventListener("toggle",e=>{if(e.target.classList&&e.target.classList.contains("desc"))st.verDesc=e.target.open},true);
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&st.abierto){cerrar();return}
+  const tr=e.target.closest&&e.target.closest("table.scr tbody tr");if(tr&&(e.key==="Enter"||e.key===" ")){e.preventDefault();abrir(tr.dataset.sym)}
 });
 document.addEventListener("submit",async e=>{
   const f=e.target.closest("form.dj");if(!f)return;e.preventDefault();
-  const L=lista();const sym=f.dataset.sym;const x=L.lista.find(y=>y.sym===sym)||(L.vigilar||[]).find(y=>y.sym===sym);const msg=$("#msg-"+sym);
+  const L=lista();const sym=f.dataset.sym;const x=filas(L).find(y=>y.sym===sym);const msg=$("#msg-"+sym);
   const d=Object.fromEntries(new FormData(f).entries());
-  Object.assign(d,{fecha:L.fecha,sym,nivel:x?x.nivel:"",tipo:x&&x.clasif?x.clasif.tipo||"":"",precio_lista:x?x.precio:null,actualizado:new Date().toISOString()});
+  Object.assign(d,{fecha:L.fecha,sym,nivel:x&&x.nivel?x.nivel:"",puntuacion:x&&x.puntuacion?x.puntuacion.valor:"",tercio:x&&x.puntuacion?x.puntuacion.tercio:"",
+    riesgo:x&&x.riesgo?x.riesgo.nivel:"",gap:x?x.gap:null,tipo:x&&x.clasif?x.clasif.tipo||"":"",precio_lista:x?x.precio:null,actualizado:new Date().toISOString()});
   if(!st.db){msg.textContent="La base de datos no está disponible.";return}
   msg.textContent="Guardando…";
-  try{await st.db.doc("diario/"+L.fecha+"_"+sym).set(d);msg.textContent="Guardado";st.abierto=null;rerender();renderDiario()}
+  try{await st.db.doc("diario/"+L.fecha+"_"+sym).set(d);msg.textContent="Guardado"}
   catch(err){msg.textContent=err&&err.code==="invalid_argument"?"No tienes permiso para escribir en esta página.":"No se pudo guardar. Inténtalo de nuevo."}
 });
-
 function adopt(L){if(!L||!L.fecha)return;st.listas[L.fecha]=L;st.fechas=Object.keys(st.listas).sort().reverse()}
-
-// arranque: respaldo incrustado, luego base de datos
 try{adopt(JSON.parse($("#respaldo").textContent||"{}"))}catch(e){}
-st.fecha=st.fechas[0]||null;fillFechas();selectPane(store.get("radar.pane","lista"));renderAll();
-
+st.fecha=st.fechas[0]||null;fillFechas();selectPane(store.get("radar.pane2","scr"));renderAll();
 (async()=>{
   const db=window.claude&&window.claude.use?await window.claude.use("db"):null;
   if(!db){renderDiario();return}
@@ -424,7 +544,7 @@ st.fecha=st.fechas[0]||null;fillFechas();selectPane(store.get("radar.pane","list
     if(!st.fecha||st.fecha===prev)st.fecha=st.fechas[0];
     fillFechas();renderAll();
   },()=>{});
-  db.collection("diario").limit(1000).onSnapshot(s=>{st.diario={};s.docs.forEach(d=>st.diario[d.id]=d.data());rerender();renderDiario()},()=>{});
+  db.collection("diario").limit(1000).onSnapshot(s=>{st.diario={};s.docs.forEach(d=>st.diario[d.id]=d.data());renderDiario();renderScr();refrescarFicha()},()=>{});
 })();
 })();
 </script>

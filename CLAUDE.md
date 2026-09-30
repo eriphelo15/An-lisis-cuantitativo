@@ -33,9 +33,12 @@
   (base de datos: `listas/AAAA-MM-DD` = lista del día; `diario/FECHA_TICKER` = diario del usuario, no tocar). Generador `herramientas/lista_diaria.py`
   (escanear → Claude clasifica en `_clasif.json` → finalizar → resultados al día siguiente; `--replay` para días pasados). Rutina programada
   (pedida por el usuario) `trig_01LxzygdMnVhjKcap2MrESi5`: L-V 8:17 Nueva York, se ejecuta en ESTA sesión (session_01Y3DyUXFtmwsaxpZC7KkFLE) siguiendo `listas/RUTINA.md`. Al terminar envía notificación push con el resumen (pedida y probada el 28-sep). Una sesión nueva por disparo NO sirve: arranca sin repositorio ni base de datos de la página (probado el 28-sep).
-  Niveles (desde el 28-sep, aprobados por el usuario): A = humo + gap ≥ 100 % + precio ≥ $1 (base +0.45R VAL, +0.42R DEV; corte provisional);
-  B = humo + gap 50-100 % + precio ≥ $1 (base ≈ 0R: la ventaja depende de la ejecución); Vigilar (humo < $1 por coste del locate, contrato real,
-  FDA, otros, sin noticia); NO (resultados/financiación/bolsa/424B hoy); Nunca (compra en efectivo). La letra = fuerza de la base estadística.
+  **Desde el 30-sep (pedido por el usuario: "algo verdaderamente profesional"): SCREENER SIN LETRAS.** Letras A/B solo para estrategias de
+  ejecución con backtest completo (ninguna aún). La página es una tabla ordenada por la **tesis 0-100** (ronda 12, `smallcaps/puntuacion_pesos.json`;
+  tercios Alta/Media/Baja; la ventaja medida está en tesis alta + gap ≥ 50 %: VAL +0.26R PF 1.86; en 20-50 % no separa) + **riesgo estructural**
+  aparte (Normal/Alto/Extremo: acciones < 1 M / < 5 M, rotación premarket > 3× / > 1×, pocas acciones sin munición; NO validado, sirve para el tamaño)
+  + PMH (Yahoo 1 min), caja/quema/autonomía (XBRL, informativo, verificado a mano en CNTB) y el texto del 8-K legible en la ficha (clic en la fila).
+  Descartadas ocultas con su motivo (C, R, F, S, 424B hoy, precio < $1, split). Listas 21-30 sep rehechas al formato nuevo (`version: 2`) con sus precios.
   Desde el 29-sep (pedido por el usuario): trabajo de campo completo (catalizador + munición + noticias) también para los gappers de 20-50 %,
   con ficha completa en la pestaña 'Vigilar 20-50 %' (no entran en A/B). `escanear --corte HH:MM` rehace un día ya abierto.
   **Reparto acordado:** el Radar entrega SOLO selección (SEC, catalizador, munición, estadística de base). Sin plan de ejecución, stop ni tamaño:

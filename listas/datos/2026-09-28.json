@@ -4,273 +4,15 @@
  "replay": false,
  "desde": "2026-09-25 16:00",
  "corte": "2026-09-28 09:10",
+ "version": 2,
  "reglas": {
-  "gap_lista": 0.5,
-  "gap_vigilar": 0.2,
+  "gap_minimo": 0.2,
   "stop": 0.3,
   "deslizamiento": 0.05,
   "coste": 0.01,
   "riesgo_accion": 0.3750000000000002
  },
- "lista": [
-  {
-   "sym": "GYGY",
-   "nombre": "Game Your Game, Inc.",
-   "sector": "Services-Prepackaged Software",
-   "precio": 1.215,
-   "cierre_prev": 0.7396,
-   "gap": 0.6428,
-   "cap": 12557020,
-   "vol_pre": 112295061,
-   "nivel": "B",
-   "clasif": {
-    "tipo": "H",
-    "frase_en": "The launch follows an initial limited release and marks the platform's transition to full commercial availability.",
-    "frase_es": "El lanzamiento sigue a una versión inicial limitada y marca el paso de la plataforma a la disponibilidad comercial completa.",
-    "cifra": "sin cifra de ventas ni en dólares; empresa de ~$14 M de capitalización",
-    "nota": "Fuente: Benzinga vía Yahoo (6:10). Lanzamiento de producto (GameGolf KZN AI) sin ventas = humo; el anuncio original es del 23-sep, reciclado hoy. Sin 8-K. Munición: venta 424B4 del 29-jul (IPO reciente), S-1 del 4-sep (reventa) y convertible de precio variable en el último informe. Corregido tras comparar con el informe de Cowork: la primera clasificación fue 'sin noticia' por no abrir el artículo.",
-    "tipo_es": "Humo / cosmético"
-   },
-   "catalizadores": [],
-   "docs_hoy": [],
-   "noticias": [
-    {
-     "hora": "2026-09-28 06:10",
-     "titular": "Why Is Game Your Game Stock Gaining Monday?",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/why-game-game-stock-gaining-101055870.html?.tsrc=rss",
-     "fuente": "Yahoo"
-    }
-   ],
-   "municion": {
-    "venta90": true,
-    "s3": null,
-    "s1": "2026-09-04",
-    "ventas_12m": 1,
-    "aviso_bolsa": false,
-    "contrasplits_2a": 0,
-    "ultimas_ventas": [
-     {
-      "form": "424B4",
-      "fecha": "2026-07-29",
-      "url": "https://www.sec.gov/Archives/edgar/data/2111846/000121390026082494/ea0275919-11.htm"
-     }
-    ],
-    "atm": false,
-    "toxica": true,
-    "going_concern": true,
-    "warrants": [
-     6.8,
-     8.0
-    ],
-    "informe": {
-     "form": "10-Q",
-     "fecha": "2026-08-21",
-     "url": "https://www.sec.gov/Archives/edgar/data/2111846/000121390026092694/ea0300679-10q_game.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.027
-   },
-   "estad": {
-    "R": -0.02,
-    "WR": 0.6,
-    "gan": 0.67,
-    "perd": -1.05,
-    "PF": 0.96,
-    "n": 60,
-    "squeeze": 0.18,
-    "fuente": "base mecánica, humo + gap 50-100 % + precio ≥ $1 · VAL 2022-26 (DEV: +0.01R, 47 casos) · la ventaja depende de la ejecución"
-   },
-   "avisos": [
-    "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)",
-    "Convertible de precio variable (tóxica) en el último informe"
-   ]
-  },
-  {
-   "sym": "NAMI",
-   "nombre": "Jinxin Technology Holding Company",
-   "sector": "Services-Educational Services",
-   "precio": 2.4399,
-   "cierre_prev": 1.61,
-   "gap": 0.5155,
-   "cap": 8500339,
-   "vol_pre": 46239913,
-   "nivel": "B",
-   "clasif": {
-    "tipo": "H",
-    "frase_en": "Pearson and Namibox Sign Strategic Cooperation Memorandum, Join Forces to Shape a New Global Learning and Education Landscape in the AI Era",
-    "frase_es": "Pearson y Namibox firman un memorando de cooperación estratégica y unen fuerzas para dar forma a un nuevo panorama global del aprendizaje y la educación en la era de la IA",
-    "cifra": "sin cifra en dólares: memorando (MOU), no un contrato; empresa de ~$8 M de capitalización",
-    "nota": "Nota de prensa (PR Newswire, 9:00) sin 6-K en la SEC por ahora (empresa china, presenta 6-K en vez de 8-K). Memorando + giro IA + 'tercera fase' de una relación que existe desde 2018 = humo. Sin ventas de acciones en 90 días (última 424B4 dic-2024); shelf F-3/S-3 de dic-2025.",
-    "tipo_es": "Humo / cosmético"
-   },
-   "catalizadores": [],
-   "docs_hoy": [],
-   "noticias": [
-    {
-     "hora": "2026-09-28 09:00",
-     "titular": "Pearson and Namibox Sign Strategic Cooperation Memorandum, Join Forces to Shape a New Global Learning and Education Landscape in the AI Era",
-     "url": "https://finance.yahoo.com/technology/ai/articles/pearson-namibox-sign-strategic-cooperation-130000335.html?.tsrc=rss",
-     "fuente": "Yahoo"
-    }
-   ],
-   "municion": {
-    "venta90": false,
-    "s3": "2025-12-29",
-    "s1": null,
-    "ventas_12m": 0,
-    "aviso_bolsa": false,
-    "contrasplits_2a": 0,
-    "ultimas_ventas": [
-     {
-      "form": "424B4",
-      "fecha": "2024-12-06",
-      "url": "https://www.sec.gov/Archives/edgar/data/1967631/000121390024106418/ea0200131-21.htm"
-     }
-    ],
-    "atm": false,
-    "toxica": false,
-    "going_concern": false,
-    "warrants": [],
-    "informe": {
-     "form": "20-F",
-     "fecha": "2026-04-28",
-     "url": "https://www.sec.gov/Archives/edgar/data/1967631/000121390026048243/ea0287299-20f_jinxin.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.014
-   },
-   "estad": {
-    "R": -0.02,
-    "WR": 0.6,
-    "gan": 0.67,
-    "perd": -1.05,
-    "PF": 0.96,
-    "n": 60,
-    "squeeze": 0.18,
-    "fuente": "base mecánica, humo + gap 50-100 % + precio ≥ $1 · VAL 2022-26 (DEV: +0.01R, 47 casos) · la ventaja depende de la ejecución"
-   },
-   "avisos": [
-    "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)"
-   ]
-  },
-  {
-   "sym": "SOAR",
-   "nombre": "Volato Group, Inc.",
-   "sector": "Air Transportation, Nonscheduled",
-   "precio": 0.3788,
-   "cierre_prev": 0.1795,
-   "gap": 1.1103,
-   "cap": 17098280,
-   "vol_pre": 972188181,
-   "nivel": "VIGILAR",
-   "clasif": {
-    "tipo": "H",
-    "frase_en": "its Alignment Engine subsidiary has entered into two four-year, take-or-pay orders with a large AI customer, representing $1.17 billion in aggregate contract value",
-    "frase_es": "su filial Alignment Engine firmó dos pedidos a cuatro años con un gran cliente de IA, por un valor total de 1.170 millones de dólares",
-    "cifra": "$1.17 B (dólares) de valor de contrato; cliente SIN nombre; empresa de $21 M de capitalización",
-    "nota": "Hay 8-K con Item 1.01 (acuerdo firmado), pero el cliente no se identifica y el pedido es ~55 veces el tamaño de la empresa. Giro hacia IA. Por las definiciones registradas (contrato real = contraparte identificada + cifra) cuenta como humo.",
-    "tipo_es": "Humo / cosmético"
-   },
-   "catalizadores": [
-    {
-     "form": "8-K",
-     "hora": "2026-09-28 04:05",
-     "items": "1.01,7.01,9.01",
-     "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226044456/form8-k.htm",
-     "anexos": [
-      {
-       "archivo": "ex99-1.htm",
-       "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226044456/ex99-1.htm"
-      }
-     ]
-    }
-   ],
-   "docs_hoy": [
-    {
-     "form": "8-K",
-     "hora": "2026-09-28 04:05",
-     "items": "1.01,7.01,9.01",
-     "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226044456/form8-k.htm",
-     "items_es": "1.01 acuerdo firmado; 7.01 nota de prensa; 9.01 anexos"
-    }
-   ],
-   "noticias": [
-    {
-     "hora": "2026-09-28 08:05",
-     "titular": "Volato Group’s Alignment Engine Subsidiary Signs $1.2 Billion in AI Infrastructure Orders with Large AI Customer",
-     "url": "https://finance.yahoo.com/technology/ai/articles/volato-group-alignment-engine-subsidiary-120500289.html?.tsrc=rss",
-     "fuente": "Yahoo"
-    }
-   ],
-   "municion": {
-    "venta90": true,
-    "s3": "2026-06-18",
-    "s1": null,
-    "ventas_12m": 3,
-    "aviso_bolsa": true,
-    "contrasplits_2a": 2,
-    "ultimas_ventas": [
-     {
-      "form": "424B5",
-      "fecha": "2026-07-01",
-      "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226031391/form424b5.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2026-03-30",
-      "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226013361/form424b5.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2025-12-08",
-      "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315225026674/form424b5.htm"
-     },
-     {
-      "form": "424B4",
-      "fecha": "2021-12-02",
-      "url": "https://www.sec.gov/Archives/edgar/data/1853070/000114036121040097/nt10025000x13_424b4.htm"
-     }
-    ],
-    "atm": true,
-    "toxica": false,
-    "going_concern": true,
-    "warrants": [
-     287.5
-    ],
-    "informe": {
-     "form": "10-Q",
-     "fecha": "2026-08-14",
-     "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226038025/form10-q.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.088
-   },
-   "estad": {
-    "R": 0.26,
-    "WR": 0.7,
-    "gan": 0.9,
-    "perd": -1.25,
-    "PF": 1.68,
-    "n": 40,
-    "squeeze": 0.28,
-    "fuente": "base mecánica, humo + gap ≥50 % + precio < $1 · VAL 2022-26 · ANTES del locate: con $0.02 por acción queda en −0.14R (ronda 5)"
-   },
-   "avisos": [
-    "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5) → no operable"
-   ]
-  },
+ "acciones": [
   {
    "sym": "KOD",
    "nombre": "Kodiak Sciences Inc.",
@@ -279,8 +21,9 @@
    "cierre_prev": 32.35,
    "gap": 0.9074,
    "cap": 5651422720,
+   "acciones": null,
    "vol_pre": 38398805,
-   "nivel": "VIGILAR",
+   "bolsa": "NasdaqGM",
    "clasif": {
     "tipo": "B",
     "frase_en": "Zenkuda (tarcocimab tedromer) met the primary endpoint (p-value of 0.0007)",
@@ -289,16 +32,119 @@
     "nota": "Catalizador real (biotech). Capitalización $5.5 B: no es small cap.",
     "tipo_es": "Biotech real (FDA / datos)"
    },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 85,
+    "tercio": "Alta",
+    "pred_R": 0.13,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": true,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": true,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": true,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 160,
+    "R": 0.26,
+    "WR": 0.69,
+    "gan": 0.82,
+    "perd": -1.0,
+    "PF": 1.86,
+    "dev": 0.17
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 66.98,
+    "pml": 31.56,
+    "pmh_hora": "08:48",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 125903000,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312526349251/",
+    "flujo_operativo": -86247000,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 14374500,
+    "autonomia_meses": 8.8
+   },
    "catalizadores": [
     {
      "form": "8-K",
      "hora": "2026-09-28 04:53",
      "items": "8.01,9.01",
+     "items_es": "8.01 otros hechos; 9.01 anexos",
      "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312526403481/d185059d8k.htm",
-     "anexos": [
+     "partes": [
       {
        "archivo": "d185059dex991.htm",
-       "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312526403481/d185059dex991.htm"
+       "url": "https://www.sec.gov/Archives/edgar/data/1468748/000119312526403481/d185059dex991.htm",
+       "texto": "Zenkuda and tabirafusp-ted Meet Primary Endpoints in Pivotal DAYBREAK Trial in wAMD, with Zenkuda Demonstrating a Potential New Standard-of-Care Profile with Strong Immediacy and Sustained Clinical Effect with Majority of Patients on 24-week Dosing Interval Using Strict Treat-to-Dryness Real World Retreatment Criteria. • Zenkuda (tarcocimab tedromer) met the primary endpoint (p-value of 0.0007) demonstrating meaningful vision gains as well as rapid and sustained retinal drying with the majority of patients (54%) on 6-month dosing, establishing a first-line benchmark in wet age-related macular degeneration (wAMD) • Zenkuda multi-indication biologics license application (BLA) planned for the fourth quarter of 2026 to include five positive Phase 3 studies across wAMD, diabetic retinopathy and retinal vein occlusion • Tabirafusp alfa tedromer (tabirafusp-ted) met the vision primary endpoint (p-value of 0.0036) and anatomical key secondary endpoint (p-value of <0.0001) • Post-hoc analyses to identify which treatment naïve wAMD patient sub-groups can benefit from IL-6 inhibition are planned. Tabirafusp-ted development program is accelerating in diabetic macular edema and actively enrolling in the ALTO Phase 3 Study • Zenkuda and tabirafusp-ted demonstrated safety consistent with the established safety profile of aflibercept PALO ALTO, Calif., September 28, 2026 /PRNewswire/ — Kodiak Sciences Inc. (Nasdaq: KOD), a precommercial retina-focused biotechnology company committed to researching, developing and commercializing transformative therapeutics, today announced that the primary endpoints were met for both Zenkuda (tarcocimab tedromer) and tabirafusp-ted (KSI-501) in the Phase 3 DAYBREAK study in patients with wet age-related macular degeneration (wAMD). The DAYBREAK study in wAMD demonstrated that both Zenkuda and tabirafusp-ted achieved non-inferiority in vision gains compared to aflibercept at year one. In DAYBREAK, Zenkuda demonstrated strong immediacy of clinical effect, matching and/or exceeding that of the aflibercept comparator through the loading phase. Zenkuda also demonstrated strong durability of clinical effect, with 54% of patients achieving 6-month durability at year one, while employing strict treat-to-dryness real world retreatment criteria. Zenkuda demonstrated favorable safety and was well tolerated in the study with a 0% intraocular inflammation rate and a 0.5% cataract adverse event rate (vs 0.9% with aflibercept comparator). Tabirafusp-ted also demonstrated favorable safety and was well tolerated in the study with a 0.4% intraocular inflammation rate and a 0% cataract adverse event rate (vs 0.9% with aflibercept). Kodiak plans to submit Zenkuda data to regulatory authorities in 4Q2026 from five positive Phase 3 studies, DAYBREAK and DAYLIGHT in wAMD, GLOW and GLOW2 in diabetic retinopathy (DR) and BEACON in macular edema following retinal vein occlusion (RVO). “The strength of these DAYBREAK data positions us for the next stage of Kodiak’s evolution, as we prepare for the planned commercialization of Zenkuda as a potential best-in-class therapy for patients with wet AMD, diabetic retinopathy and retinal vein occlusion,” said Victor Perlroth, M.D., Chief Executive Officer of Kodiak Sciences. “The results generated in DAYBREAK with tabirafusp-ted are also highly encouraging, and we are enthusiastic to explore the potential for tabirafusp-ted to demonstrate superiority in patients with diabetic macular edema (DME) in the ongoing Phase 3 ALTO pivotal program. Our third late-stage asset, KSI-101, is being developed for macular edema secondary to inflammation, or MESI, with our first topline readout from its Phase 3 program expected in December 2026. Together, these three assets reflect the breadth of our late-stage opportunity and ambition to build a leading retinal medicines company with multiple therapies capable of providing meaningful and durable benefits to patients,” continued Dr. Perlroth. “These strong DAYBREAK data also have important ramifications for our ABC pipeline programs, as they reinforce the potential of our science and our ABC Platform to support a widening portfolio of proprietary and multi-functional medicines,” concluded Dr. Perlroth. “Today’s results are deeply satisfying,” said J. Pablo Velazquez-Martin, M.D., Chief Medical Officer. “Four years and seven months after our first Phase 3 readout, Zenkuda’s profile has come fully into focus through rigorous science, disciplined learning and thoughtful execution. DAYBREAK demonstrated the attributes we designed Zenkuda to achieve: rapid disease control in wet AMD and the potential for six-month durability under stringent treat-to-dryness retreatment criteria. Together with our Phase 3 results in diabetic retinopathy and macular edema secondary to retinal vein occlusion, we now have five successful pivotal studies supporting Zenkuda’s broad potential across major retinal vascular diseases.” “We plan to submit the BLA for Zenkuda later this year. We also look forward to reporting Phase 3 results from the first MESI study of KSI-101, and we are advancing tabirafusp-ted in diabetic macular edema, a high-inflammation disease, through the ongoing Phase 3 ALTO pivotal program.” continued Dr. Velazquez-Martin. Charles Wykoff, M.D., Ph.D., Chairman of Research, Retina Consultants of Texas, Professor of Clinical Ophthalmology and Deputy Chair of Ophthalmology, Blanton Eye Institute, Houston Methodist Hospital, said: “The Zenkuda results exceeded my expectations, delivering the clinical profile retina specialists are seeking: rapid vision and anatomic improvements comparable to aflibercept during loading, followed by meaningfully longer intervals between treatment for a majority of patients, while maintaining optimal fluid control. More than half of patients reached a 24-week dosing interval using strict treat-to-dry retreatment criteria. This combination of immediacy, flexibility and true durability is unique and differentiated.” “The observed safety profile also appears consistent with expectations for aflibercept. Kodiak persevered through real challenges with the tarcocimab development program, incorporating multiple lessons learned, culminating in a successful DAYBREAK trial. These findings add to an extensive Phase 3 dataset across wet AMD, diabetic retinopathy and retinal vein occlusion. I look forward to the possibility of having Zenkuda available for patients.” “Twenty years after Lucentis (ranibizumab) was approved for wet AMD, the holy grail remains the same: robust anatomic disease control and maximal visual gains, sustained with less frequent dosing,” said David M. Brown, MD, Chief Medical Officer, Retina Consultants of America. “The DAYBREAK results with Zenkuda are truly impressive. Under an AI-guided retreatment algorithm that closely mirrors the zero-fluid-tolerance approach we use in clinic, more than half of patients were maintained on 24-week dosing through year one.” “Zenkuda pairs free protein for immediate disease control with antibody conjugated to a high-molecular-weight biopolymer, giving a mean ocular half-life of about 20 days in humans, roughly three times that of approved therapies. We advocated for DAYBREAK’s rigorous criteria which require retreatment for any detectable fluid on OCT. Those criteria also recognize that patients differ: some clear drug faster, while others sustain control much longer. The goal is not one-size-fits-all dosing, but extending each patient to the longest effective interval their biology allows.” “These Zenkuda data bring us closer to the best possible outcomes with fewer injections. I look forward to offering Zenkuda to my patients, if approved,” concluded Dr. Brown. Detailed DAYBREAK study results will be presented and discussed together with Dr. C. Wykoff and Dr. D. Brown at a company Webex at 8:30am ET on September 28, 2026. The webcast can be accessed at the following link DAYBREAK Topline Results Webcast or from the Events and Presentations page on Kodiak’s website at https://ir.kodiak.com/events-and-presentations/events. About Zenkuda ™ (tarcocimab tedromer) Zenkuda (tarcocimab tedromer) is an investigational anti-vascular endothelial growth factor (VEGF) biopharmaceutical built on Kodiak’s proprietary antibody biopolymer conjugate (ABC ® ) platform for intravitreal administration. Zenkuda has a mean ocular half-life in humans of 20 days, approximately three times longer than approved anti-VEGF therapies and is designed to maintain potent and effective drug levels in ocular tissues for longer. Zenkuda is being developed as a mainstay intravitreal biologic monotherapy that provides rapid initial effect and real-world durability, driven by the ABC ® platform and Kodiak’s science of durability, with the ultimate objective of providing, once approved, a flexible 1-month through 6-month label for all patients with retinal vascular disease (treatment-naïve, treatment-experienced, mild patients, and severe patients). Zenkuda has completed five successful Phase 3 pivotal studies: the Phase 3 DAYBREAK and DAYLIGHT studies in wet AMD, the Phase 3 GLOW1 and GLOW2 studies in diabetic retinopathy (DR) and the Phase 3 BEACON study in retinal vein occlusion (RVO). In the DAYBREAK study, Zenkuda successfully treated wAMD patients with strong immediacy of clinical effect, similar vision outcomes and a 6-month dosing interval in the majority of patients using strict treat-to-dryness, i.e. real-world, retreatment criteria. In the GLOW1 and GLOW2 studies, Zenkuda successfully treated DR patients and prevented disease progression with 100% of patients on extended 6-month dosing at Year 1. In the BEACON study, during the first 6 months, Zenkuda-treated patients were dosed at 8-week interval (as opposed to 4-week intervals for aflibercept). In the second 6 months, identical retreatment criteria were used for the Zenkuda and aflibercept arms, and nearly half of Zenkuda patients did not require any treatment while achieving similar vision and anatomical outcomes as the aflibercept group at one year. The company is planning to submit a three-indication BLA for Zenkuda in 4Q2026. About DAYBREAK (and Zenkuda) The Phase 3 DAYBREAK study is a non-inferiority study evaluating parallel investigational arms of Zenkuda and KSI-501 against active comparator aflibercept. Patients randomized to Zenkuda received individualized dosing every 4 to 24 weeks on an as needed basis following four monthly loading doses. Patients randomized to aflibercept were dosed per label. The individualized dosing of Zenkuda was determined by a treat-to-dryness proactive approach using the presence of retinal fluid as a disease activity marker, which resembles retina specialists’ practice and optimizes each patient’s treatment, instead of using a combination of central subfield thickness and vision loss. Specific objectives for Zenkuda in DAYBREAK were (1) to assess safety, (2) to meet the primary endpoint of non-inferiority of best corrected visual acuity, (3) to explore the strength of fluid control vision gain through the loading phase, and (4) to demonstrate a differentiated, real-world durability profile. General objectives for Zenkuda in DAYBREAK are to strengthen its competitive position in wet AMD and bolster the possible regulatory application package for the program. DAYBREAK was designed to showcase the potential for Zenkuda to be a mainstay biologic for VEGF-driven retinal vascular diseases with both a strong efficacy/immediacy (driven by its enhanced formulation) and a strong durability (driven by its ABC design and science of durability). The Phase 3 DAYBREAK study met the one-year primary endpoint of non-inferiority of best corrected visual acuity in September 2026. About tabirafusp alfa tedromer (KSI-501) Tabirafusp-ted is an investigational anti-IL-6, VEGF-trap bispecific therapy built on the ABC platform and is being developed for high prevalence retinal vascular diseases to address the leading unmet needs of extended durability and targeting disease biology beyond VEGF for differentiated efficacy. Tabirafusp-ted is designed to provide high immediacy/efficacy, driven by the enhanced formulation, and high durability, driven by the ABC platform and our science of durability. Kodiak advanced tabirafusp-ted into the registrational Phase 3 DAYBREAK study to evaluate its efficacy and safety in wet AMD. DAYBREAK uses tabirafusp-ted’s enhanced 50 mg/mL formulation containing both conjugated and unconjugated antibody that is intended to balance immediacy and durability. In the DAYBREAK study, tabirafusp-ted met the vision primary endpoint (p-value of 0.0036) and anatomical key secondary endpoint (p-value of <0.0001). Post-hoc analyses to identify which treatment naïve wAMD patient sub-groups can benefit from IL-6 inhibition are planned. Kodiak has also advanced tabirafusp-ted into the registrational Phase 3 ALTO study designed to explore the superiority of bispecific tabirafusp-ted (anti-VEGF, anti-IL-6) versus monospecific aflibercept (anti-VEGF) in patients with diabetic macular edema. The ALTO study is now enrolling patients. About DAYBREAK (and tabirafusp-ted) The DAYBREAK study is a non-inferiority study evaluating parallel investigational arms of KSI-501 and Zenkuda against active comparator aflibercept. Patients randomized to KSI-501 received fixed every 8-week dosing with additional individualized dosing (up to monthly dosing) on an as needed basis after four monthly loading doses. Patients randomized to aflibercept were dosed per label. Using the same treat-to-dryness approach as Zenkuda, coupled with fixed intensive proactive dosing, the goal was to maximize both the probability of meeting the primary endpoint as well as the probability of demonstrating additional efficacy benefits. The primary endpoint was non-inferiority in change in visual acuity from baseline to the average of Week 40, 44 and 48. The objective for KSI-501 in DAYBREAK was to explore the efficacy potential of bispecific IL-6 and VEGF inhibition in a broad treatment-naïve wet AMD population. Additional information about DAYBREAK can be found on www.clinicaltrials.gov under Trial Identifier NCT06556368 (https://clinicaltrials.gov/study/NCT06556368). About ALTO The ALTO Study is a global, multicenter, randomized, double-masked, active comparator-controlled Phase 3 study evaluating the efficacy and safety of intravitreal tabirafusp-ted 5 mg compared with intravitreal aflibercept 2 mg in patients with visual impairment secondary to center-involved DME. Approximately 910 patients, treatment-naïve or previously treated, will be randomized 5:3:5 to one of three arms: (A) tabirafusp-ted 5 mg every 8 weeks, with monthly assessment for additional individualized dosing, following six monthly loading doses; (B) tabirafusp-ted 5 mg on an individualized regimen of every 4 to 24 weeks, following six monthly loading doses; and (C) aflibercept 2 mg every 8 weeks, f"
       }
      ]
     }
@@ -361,537 +207,177 @@
     "eloc": false,
     "warrants_en_dinero": false
    },
-   "venta_hoy": false,
    "costes": {
     "locate_1c_R": 0.001
    },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
-   },
    "avisos": []
   },
   {
-   "sym": "CLRO",
-   "nombre": "ClearOne, Inc.",
-   "sector": "Telephone & Telegraph Apparatus",
-   "precio": 5.81,
-   "cierre_prev": 3.5228,
-   "gap": 0.6493,
-   "cap": 13644601,
-   "vol_pre": 28097304,
-   "nivel": "VIGILAR",
-   "clasif": {
-    "tipo": "N",
-    "fuentes_abiertas": "Finviz (quote) + Yahoo RSS + EDGAR, revisados a mano 28-sep",
-    "nota": "Confirmado a mano: sin 8-K ni noticias desde el cierre del viernes. Última noticia: 2-jul-2026 (fusión con Cortigent, filial de Vivani). Munición: S-3 (25-jun), S-1 (4-sep), ATM.",
-    "tipo_es": "Sin noticia"
-   },
-   "catalizadores": [],
-   "docs_hoy": [],
-   "noticias": [],
-   "municion": {
-    "venta90": false,
-    "s3": "2026-06-25",
-    "s1": "2026-09-04",
-    "ventas_12m": 0,
-    "aviso_bolsa": true,
-    "contrasplits_2a": 3,
-    "ultimas_ventas": [
-     {
-      "form": "424B5",
-      "fecha": "2020-09-15",
-      "url": "https://www.sec.gov/Archives/edgar/data/840715/000175392620000295/MainDocument.htm"
-     }
-    ],
-    "atm": true,
-    "toxica": false,
-    "going_concern": true,
-    "warrants": [
-     5.0,
-     10.0,
-     35.33
-    ],
-    "informe": {
-     "form": "10-Q",
-     "fecha": "2026-08-14",
-     "url": "https://www.sec.gov/Archives/edgar/data/840715/000175392626001521/clro-20260630.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": true
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.006
-   },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
-   },
-   "avisos": [
-    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
-   ]
-  },
-  {
-   "sym": "LFCR",
-   "nombre": "Lifecore Biomedical, Inc.",
-   "sector": "Pharmaceutical Preparations",
-   "precio": 6.52,
-   "cierre_prev": 4.2,
-   "gap": 0.5524,
-   "cap": 246801952,
-   "vol_pre": 4003471,
-   "nivel": "NUNCA",
-   "clasif": {
-    "tipo": "C",
-    "frase_en": "Lifecore Common Stockholders to Receive $6.28 per Share in Cash at Closing",
-    "frase_es": "los accionistas recibirán 6,28 dólares por acción en efectivo al cerrar la compra",
-    "cifra": "$6.28 por acción en efectivo (+ CVR de hasta $3.39)",
-    "nota": "Compra en efectivo: el precio queda anclado cerca de $6.28. Nunca shortear.",
-    "tipo_es": "Compra en efectivo"
-   },
-   "catalizadores": [
-    {
-     "form": "8-K",
-     "hora": "2026-09-28 04:53",
-     "items": "1.01,7.01,9.01",
-     "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037767/ef20082009_8k.htm",
-     "anexos": [
-      {
-       "archivo": "ef20082009_ex99-1.htm",
-       "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037767/ef20082009_ex99-1.htm"
-      },
-      {
-       "archivo": "ef20082009_ex99-2.htm",
-       "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037767/ef20082009_ex99-2.htm"
-      }
-     ]
-    }
-   ],
-   "docs_hoy": [
-    {
-     "form": "DEFA14A",
-     "hora": "2026-09-28 04:56",
-     "items": "",
-     "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037768/ef20082009_defa14a.htm",
-     "items_es": ""
-    },
-    {
-     "form": "8-K",
-     "hora": "2026-09-28 04:53",
-     "items": "1.01,7.01,9.01",
-     "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037767/ef20082009_8k.htm",
-     "items_es": "1.01 acuerdo firmado; 7.01 nota de prensa; 9.01 anexos"
-    }
-   ],
-   "noticias": [
-    {
-     "hora": "2026-09-28 08:45",
-     "titular": "Lifecore Biomedical to be Acquired by Webster Equity Partners",
-     "url": "https://finance.yahoo.com/healthcare/articles/lifecore-biomedical-acquired-webster-equity-124500829.html?.tsrc=rss",
-     "fuente": "Yahoo"
-    }
-   ],
-   "municion": {
-    "venta90": false,
-    "s3": "2025-09-23",
-    "s1": null,
-    "ventas_12m": 0,
-    "aviso_bolsa": false,
-    "contrasplits_2a": 0,
-    "ultimas_ventas": [],
-    "atm": false,
-    "toxica": false,
-    "going_concern": false,
-    "warrants": [],
-    "informe": {
-     "form": "10-Q",
-     "fecha": "2026-08-05",
-     "url": "https://www.sec.gov/Archives/edgar/data/1005286/000100528626000033/lfcr-20260630.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.005
-   },
-   "estad": {
-    "R": -0.04,
-    "WR": 0.08,
-    "gan": null,
-    "perd": null,
-    "PF": 0.23,
-    "n": 13,
-    "squeeze": 0.0,
-    "fuente": "compra en efectivo: el precio queda anclado"
-   },
-   "avisos": []
-  }
- ],
- "vigilar": [
-  {
-   "sym": "MIMI",
-   "nombre": "Mint Incorporation Limited",
-   "sector": "Services-Business Services, NEC",
-   "precio": 1.0394,
-   "cierre_prev": 0.7712,
-   "gap": 0.3478,
-   "cap": 13339985,
-   "vol_pre": 26747853,
-   "nivel": "VIGILAR",
-   "clasif": {
-    "tipo": "N",
-    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano 28-sep",
-    "nota": "Sin 8-K/6-K ni noticias desde el cierre del viernes (última noticia: 15-sep, licencia con Pudgy Penguins). Historial reciente de humo: MOU de robótica (9-sep), tokenización de acciones (3-sep, +49 %).",
-    "tipo_es": "Sin noticia"
-   },
-   "catalizadores": [],
-   "docs_hoy": [],
-   "noticias": [],
-   "municion": {
-    "venta90": true,
-    "s3": "2026-05-19",
-    "s1": null,
-    "ventas_12m": 1,
-    "aviso_bolsa": false,
-    "contrasplits_2a": 0,
-    "ultimas_ventas": [
-     {
-      "form": "424B5",
-      "fecha": "2026-08-28",
-      "url": "https://www.sec.gov/Archives/edgar/data/1998560/000121390026094900/ea0303716-424b5_mint.htm"
-     },
-     {
-      "form": "424B4",
-      "fecha": "2025-01-10",
-      "url": "https://www.sec.gov/Archives/edgar/data/1998560/000121390025002315/ea0201201-11.htm"
-     }
-    ],
-    "atm": false,
-    "toxica": false,
-    "going_concern": false,
-    "warrants": [],
-    "informe": {
-     "form": "20-F",
-     "fecha": "2026-08-14",
-     "url": "https://www.sec.gov/Archives/edgar/data/1998560/000121390026090165/ea0300620-20f_mint.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.032
-   },
-   "estad": {
-    "R": 0.01,
-    "WR": 0.6,
-    "gan": null,
-    "perd": null,
-    "PF": 1.05,
-    "n": null,
-    "squeeze": null,
-    "fuente": "contrato real / FDA / otros ≈ 0R"
-   },
-   "avisos": [
-    "Sube sin ninguna noticia encontrada: caso no medido → solo vigilar"
-   ]
-  },
-  {
-   "sym": "WBUY",
-   "nombre": "WEBUY GLOBAL LTD.",
-   "sector": "Retail-Miscellaneous Retail",
-   "precio": 1.04,
-   "cierre_prev": 0.8039,
-   "gap": 0.2937,
-   "cap": 4932993,
-   "vol_pre": 37592808,
-   "nivel": "NO",
-   "clasif": {
-    "tipo": "R",
-    "frase_en": "Revenue from continuing operations increased 94.4% year-over-year to US$14.31 million, while gross profit increased 131.7% to US$1.83 million",
-    "frase_es": "los ingresos de las operaciones continuadas subieron un 94,4 % interanual hasta 14,31 millones de dólares, y el beneficio bruto un 131,7 % hasta 1,83 millones",
-    "cifra": "$14.31 M (dólares) de ingresos del semestre; pérdida neta $3.32 M",
-    "nota": "Resultados semestrales (6-K 2:31 + nota de prensa 4:30). Empresa ~$5 M de capitalización, ELOC activa y going concern.",
-    "tipo_es": "Resultados"
-   },
-   "catalizadores": [
-    {
-     "form": "6-K",
-     "hora": "2026-09-28 02:31",
-     "items": "",
-     "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390026103727/ea0306044-6k_webuy.htm",
-     "anexos": [
-      {
-       "archivo": "ea030604401ex99-1.htm",
-       "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390026103727/ea030604401ex99-1.htm"
-      },
-      {
-       "archivo": "ea030604401ex99-2.htm",
-       "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390026103727/ea030604401ex99-2.htm"
-      }
-     ]
-    }
-   ],
-   "docs_hoy": [
-    {
-     "form": "6-K",
-     "hora": "2026-09-28 02:31",
-     "items": "",
-     "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390026103727/ea0306044-6k_webuy.htm",
-     "items_es": ""
-    }
-   ],
-   "noticias": [
-    {
-     "hora": "2026-09-28 04:30",
-     "titular": "WEBUY GLOBAL LTD. Nearly Doubles First-Half 2026 Revenue to US$14.3 Million as Gross Profit Increases 132%",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/webuy-global-ltd-nearly-doubles-083000007.html?.tsrc=rss",
-     "fuente": "Yahoo"
-    }
-   ],
-   "municion": {
-    "venta90": false,
-    "s3": "2026-05-18",
-    "s1": "2026-05-06",
-    "ventas_12m": 0,
-    "aviso_bolsa": false,
-    "contrasplits_2a": 0,
-    "ultimas_ventas": [
-     {
-      "form": "424B4",
-      "fecha": "2025-07-31",
-      "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390025070089/ea0251040-424b4_webuy.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2024-12-17",
-      "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390024109783/ea0225039-424b5_webuy.htm"
-     },
-     {
-      "form": "424B4",
-      "fecha": "2024-04-30",
-      "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390024037877/ea0204966-424b4_webuyglo.htm"
-     },
-     {
-      "form": "424B4",
-      "fecha": "2023-10-19",
-      "url": "https://www.sec.gov/Archives/edgar/data/1946703/000164033423001918/webuy_424b4.htm"
-     }
-    ],
-    "atm": false,
-    "toxica": false,
-    "going_concern": true,
-    "warrants": [],
-    "informe": {
-     "form": "20-F",
-     "fecha": "2026-04-29",
-     "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390026049395/ea0286498-20f_webuy.htm"
-    },
-    "eloc": true,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.032
-   },
-   "estad": {
-    "R": -0.12,
-    "WR": 0.49,
-    "gan": null,
-    "perd": null,
-    "PF": 0.65,
-    "n": null,
-    "squeeze": null,
-    "fuente": "resultados / financiación / avisos de bolsa: PF 0.6-0.7"
-   },
-   "avisos": []
-  },
-  {
-   "sym": "MEDS",
-   "nombre": "DataMEDS AI, Inc.",
-   "sector": "Wholesale-Drugs, Proprietaries & Druggists' Sundries",
-   "precio": 3.97,
-   "cierre_prev": 3.11,
-   "gap": 0.2765,
-   "cap": 12182982,
-   "vol_pre": 33265665,
-   "nivel": "VIGILAR",
+   "sym": "GYGY",
+   "nombre": "Game Your Game, Inc.",
+   "sector": "Services-Prepackaged Software",
+   "precio": 1.215,
+   "cierre_prev": 0.7396,
+   "gap": 0.6428,
+   "cap": 12557020,
+   "acciones": null,
+   "vol_pre": 112295061,
+   "bolsa": "NasdaqCM",
    "clasif": {
     "tipo": "H",
-    "frase_en": "DataMeds AI and Tollo Health Announce Launch of 'Health Lives Here' Mobile Application",
-    "frase_es": "DataMeds AI y Tollo Health anuncian el lanzamiento de la aplicación móvil 'Health Lives Here'",
-    "cifra": "sin cifra de ventas ni en dólares",
-    "nota": "Lanzamiento de app (telemedicina/GLP-1) sin ventas ni contrato con cifra, sin 8-K = humo. Munición: ATM, ELOC, S-1 (7-ago), warrants en dinero ($0.41/$0.50), going concern.",
+    "frase_en": "The launch follows an initial limited release and marks the platform's transition to full commercial availability.",
+    "frase_es": "El lanzamiento sigue a una versión inicial limitada y marca el paso de la plataforma a la disponibilidad comercial completa.",
+    "cifra": "sin cifra de ventas ni en dólares; empresa de ~$14 M de capitalización",
+    "nota": "Fuente: Benzinga vía Yahoo (6:10). Lanzamiento de producto (GameGolf KZN AI) sin ventas = humo; el anuncio original es del 23-sep, reciclado hoy. Sin 8-K. Munición: venta 424B4 del 29-jul (IPO reciente), S-1 del 4-sep (reventa) y convertible de precio variable en el último informe. Corregido tras comparar con el informe de Cowork: la primera clasificación fue 'sin noticia' por no abrir el artículo.",
     "tipo_es": "Humo / cosmético"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 70,
+    "tercio": "Alta",
+    "pred_R": 0.097,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": true,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": true,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 160,
+    "R": 0.26,
+    "WR": 0.69,
+    "gan": 0.82,
+    "perd": -1.0,
+    "PF": 1.86,
+    "dev": 0.17
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 1.72,
+    "pml": 1.19,
+    "pmh_hora": "07:34",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 15991,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/2111846/000121390026092694/",
+    "flujo_operativo": -796585,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 132764,
+    "autonomia_meses": 0.1
    },
    "catalizadores": [],
    "docs_hoy": [],
    "noticias": [
     {
-     "hora": "2026-09-28 06:00",
-     "titular": "DataMeds AI and Tollo Health Announce Launch of 'Health Lives Here' Mobile Application",
-     "url": "https://finance.yahoo.com/healthcare/articles/datameds-ai-tollo-health-announce-100000976.html?.tsrc=rss",
+     "hora": "2026-09-28 06:10",
+     "titular": "Why Is Game Your Game Stock Gaining Monday?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/why-game-game-stock-gaining-101055870.html?.tsrc=rss",
      "fuente": "Yahoo"
     }
    ],
    "municion": {
-    "venta90": false,
-    "s3": "2026-04-15",
-    "s1": "2026-08-07",
-    "ventas_12m": 1,
-    "aviso_bolsa": true,
-    "contrasplits_2a": 2,
-    "ultimas_ventas": [
-     {
-      "form": "424B4",
-      "fecha": "2025-09-29",
-      "url": "https://www.sec.gov/Archives/edgar/data/2030763/000149315225015899/form424b4.htm"
-     },
-     {
-      "form": "424B4",
-      "fecha": "2025-02-21",
-      "url": "https://www.sec.gov/Archives/edgar/data/2030763/000149315225007800/form424b4.htm"
-     }
-    ],
-    "atm": true,
-    "toxica": false,
-    "going_concern": true,
-    "warrants": [
-     0.41,
-     0.5,
-     20.5,
-     36.0
-    ],
-    "informe": {
-     "form": "10-Q",
-     "fecha": "2026-08-17",
-     "url": "https://www.sec.gov/Archives/edgar/data/2030763/000149315226038581/form10-q.htm"
-    },
-    "eloc": true,
-    "warrants_en_dinero": true
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.008
-   },
-   "estad": {
-    "R": 0.09,
-    "WR": 0.65,
-    "gan": 0.57,
-    "perd": -0.76,
-    "PF": 1.35,
-    "n": 138,
-    "squeeze": 0.1,
-    "fuente": "base mecánica, humo + gap 20-50 % + precio ≥ $1 · VAL 2022-26 (DEV: +0.02R, 99 casos) · base pequeña (ronda 6)"
-   },
-   "avisos": [
-    "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)"
-   ]
-  },
-  {
-   "sym": "COLA",
-   "nombre": "Columbus Acquisition Corp",
-   "sector": "Blank Checks",
-   "precio": 12.95,
-   "cierre_prev": 10.45,
-   "gap": 0.2392,
-   "cap": 47810944,
-   "vol_pre": 13130,
-   "nivel": "NO",
-   "clasif": {
-    "tipo": "S",
-    "frase_en": "today announced that it reconvened its Extraordinary General Meeting of the Shareholders and, without conducting any business, adjourned the Meeting to 9:00 a.m. Eastern Time on September 29, 2026",
-    "frase_es": "hoy anunció que reanudó su junta extraordinaria de accionistas y, sin tratar ningún asunto, la aplazó al 29 de septiembre de 2026 a las 9:00",
-    "cifra": "sin cifra; aplazamiento de la junta que vota la fusión con WISeSat.Space",
-    "nota": "SPAC (empresa de adquisición): el precio suele estar ligado al dinero en fideicomiso; evento corporativo.",
-    "tipo_es": "Corporativo / bolsa"
-   },
-   "catalizadores": [
-    {
-     "form": "8-K",
-     "hora": "2026-09-28 05:21",
-     "items": "8.01,9.01",
-     "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026103784/ea0306809-8k_columbus.htm",
-     "anexos": [
-      {
-       "archivo": "ea030680901ex99-1.htm",
-       "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026103784/ea030680901ex99-1.htm"
-      }
-     ]
-    }
-   ],
-   "docs_hoy": [
-    {
-     "form": "DEFA14A",
-     "hora": "2026-09-28 05:24",
-     "items": "",
-     "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026103788/ea0306809-8k_columbus.htm",
-     "items_es": ""
-    },
-    {
-     "form": "8-K",
-     "hora": "2026-09-28 05:21",
-     "items": "8.01,9.01",
-     "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026103784/ea0306809-8k_columbus.htm",
-     "items_es": "8.01 otros hechos; 9.01 anexos"
-    }
-   ],
-   "noticias": [],
-   "municion": {
-    "venta90": false,
+    "venta90": true,
     "s3": null,
-    "s1": null,
-    "ventas_12m": 0,
-    "aviso_bolsa": true,
-    "contrasplits_2a": 2,
+    "s1": "2026-09-04",
+    "ventas_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
     "ultimas_ventas": [
      {
       "form": "424B4",
-      "fecha": "2025-01-24",
-      "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390025006259/ea0207942-09.htm"
+      "fecha": "2026-07-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/2111846/000121390026082494/ea0275919-11.htm"
      }
     ],
     "atm": false,
-    "toxica": false,
+    "toxica": true,
     "going_concern": true,
-    "warrants": [],
+    "warrants": [
+     6.8,
+     8.0
+    ],
     "informe": {
      "form": "10-Q",
-     "fecha": "2026-08-04",
-     "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026085116/ea0299941-10q_columbus.htm"
+     "fecha": "2026-08-21",
+     "url": "https://www.sec.gov/Archives/edgar/data/2111846/000121390026092694/ea0300679-10q_game.htm"
     },
     "eloc": false,
     "warrants_en_dinero": false
    },
-   "venta_hoy": false,
    "costes": {
-    "locate_1c_R": 0.003
+    "locate_1c_R": 0.027
    },
-   "estad": {
-    "R": -0.12,
-    "WR": 0.49,
-    "gan": null,
-    "perd": null,
-    "PF": 0.65,
-    "n": null,
-    "squeeze": null,
-    "fuente": "resultados / financiación / avisos de bolsa: PF 0.6-0.7"
-   },
-   "avisos": []
+   "avisos": [
+    "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)",
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
+   ]
   },
   {
    "sym": "LABT",
@@ -901,8 +387,9 @@
    "cierre_prev": 1.67,
    "gap": 0.2335,
    "cap": 2725141,
+   "acciones": null,
    "vol_pre": 34886641,
-   "nivel": "VIGILAR",
+   "bolsa": "NasdaqCM",
    "clasif": {
     "tipo": "H",
     "frase_en": "MIC testing analysis of Nu-3 assessed in vitro activity against recent clinical isolates",
@@ -910,6 +397,107 @@
     "cifra": "sin cifra; datos in vitro + primer paciente dosificado en fase 2a (resultados en el 1T 2027)",
     "nota": "Datos de laboratorio y 'primer paciente dosificado' sin resultados clínicos = humo (preclínico). Munición: venta 424B en 90 días, S-1 (18-sep), convertible tóxica, going concern.",
     "tipo_es": "Humo / cosmético"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 61,
+    "tercio": "Media",
+    "pred_R": 0.086,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": true,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 137,
+    "R": -0.02,
+    "WR": 0.58,
+    "gan": 0.51,
+    "perd": -0.75,
+    "PF": 0.95,
+    "dev": -0.02
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 3.77,
+    "pml": 1.6,
+    "pmh_hora": "08:13",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 2584774,
+    "inversiones": 2000000,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/2079272/000121390026089380/",
+    "flujo_operativo": -2453721,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 408954,
+    "autonomia_meses": 11.2
    },
    "catalizadores": [],
    "docs_hoy": [],
@@ -960,23 +548,803 @@
     "eloc": false,
     "warrants_en_dinero": false
    },
-   "venta_hoy": false,
    "costes": {
     "locate_1c_R": 0.016
    },
-   "estad": {
-    "R": 0.09,
-    "WR": 0.65,
-    "gan": 0.57,
-    "perd": -0.76,
-    "PF": 1.35,
-    "n": 138,
-    "squeeze": 0.1,
-    "fuente": "base mecánica, humo + gap 20-50 % + precio ≥ $1 · VAL 2022-26 (DEV: +0.02R, 99 casos) · base pequeña (ronda 6)"
-   },
    "avisos": [
     "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)",
-    "Convertible de precio variable (tóxica) en el último informe"
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
+   ]
+  },
+  {
+   "sym": "NAMI",
+   "nombre": "Jinxin Technology Holding Company",
+   "sector": "Services-Educational Services",
+   "precio": 2.4399,
+   "cierre_prev": 1.61,
+   "gap": 0.5155,
+   "cap": 8500339,
+   "acciones": null,
+   "vol_pre": 46239913,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "H",
+    "frase_en": "Pearson and Namibox Sign Strategic Cooperation Memorandum, Join Forces to Shape a New Global Learning and Education Landscape in the AI Era",
+    "frase_es": "Pearson y Namibox firman un memorando de cooperación estratégica y unen fuerzas para dar forma a un nuevo panorama global del aprendizaje y la educación en la era de la IA",
+    "cifra": "sin cifra en dólares: memorando (MOU), no un contrato; empresa de ~$8 M de capitalización",
+    "nota": "Nota de prensa (PR Newswire, 9:00) sin 6-K en la SEC por ahora (empresa china, presenta 6-K en vez de 8-K). Memorando + giro IA + 'tercera fase' de una relación que existe desde 2018 = humo. Sin ventas de acciones en 90 días (última 424B4 dic-2024); shelf F-3/S-3 de dic-2025.",
+    "tipo_es": "Humo / cosmético"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 29,
+    "tercio": "Baja",
+    "pred_R": 0.026,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": true,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": true,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 74,
+    "R": -0.11,
+    "WR": 0.54,
+    "gan": 0.6,
+    "perd": -0.96,
+    "PF": 0.74,
+    "dev": -0.07
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 2.7799,
+    "pml": 1.5483,
+    "pmh_hora": "09:04",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 9190000,
+    "inversiones": 2145000,
+    "caja_fecha": "2025-12-31",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "20-F",
+    "url": "https://www.sec.gov/Archives/edgar/data/1967631/000121390026048243/",
+    "flujo_operativo": -3514000,
+    "flujo_desde": "2025-01-01",
+    "flujo_hasta": "2025-12-31",
+    "meses": 12,
+    "quema_mes": 292833,
+    "autonomia_meses": 38.7
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [
+    {
+     "hora": "2026-09-28 09:00",
+     "titular": "Pearson and Namibox Sign Strategic Cooperation Memorandum, Join Forces to Shape a New Global Learning and Education Landscape in the AI Era",
+     "url": "https://finance.yahoo.com/technology/ai/articles/pearson-namibox-sign-strategic-cooperation-130000335.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": "2025-12-29",
+    "s1": null,
+    "ventas_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2024-12-06",
+      "url": "https://www.sec.gov/Archives/edgar/data/1967631/000121390024106418/ea0200131-21.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-04-28",
+     "url": "https://www.sec.gov/Archives/edgar/data/1967631/000121390026048243/ea0287299-20f_jinxin.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.014
+   },
+   "avisos": [
+    "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)"
+   ]
+  },
+  {
+   "sym": "MEDS",
+   "nombre": "DataMEDS AI, Inc.",
+   "sector": "Wholesale-Drugs, Proprietaries & Druggists' Sundries",
+   "precio": 3.97,
+   "cierre_prev": 3.11,
+   "gap": 0.2765,
+   "cap": 12182982,
+   "acciones": null,
+   "vol_pre": 33265665,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "H",
+    "frase_en": "DataMeds AI and Tollo Health Announce Launch of 'Health Lives Here' Mobile Application",
+    "frase_es": "DataMeds AI y Tollo Health anuncian el lanzamiento de la aplicación móvil 'Health Lives Here'",
+    "cifra": "sin cifra de ventas ni en dólares",
+    "nota": "Lanzamiento de app (telemedicina/GLP-1) sin ventas ni contrato con cifra, sin 8-K = humo. Munición: ATM, ELOC, S-1 (7-ago), warrants en dinero ($0.41/$0.50), going concern.",
+    "tipo_es": "Humo / cosmético"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 26,
+    "tercio": "Baja",
+    "pred_R": 0.015,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": true,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 183,
+    "R": -0.05,
+    "WR": 0.54,
+    "gan": 0.48,
+    "perd": -0.67,
+    "PF": 0.85,
+    "dev": 0.04
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 4.87,
+    "pml": 3.0,
+    "pmh_hora": "06:52",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 2456373,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/2030763/000149315226038581/",
+    "flujo_operativo": -6307328,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 1051221,
+    "autonomia_meses": 2.3
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [
+    {
+     "hora": "2026-09-28 06:00",
+     "titular": "DataMeds AI and Tollo Health Announce Launch of 'Health Lives Here' Mobile Application",
+     "url": "https://finance.yahoo.com/healthcare/articles/datameds-ai-tollo-health-announce-100000976.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": "2026-04-15",
+    "s1": "2026-08-07",
+    "ventas_12m": 1,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 2,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-09-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/2030763/000149315225015899/form424b4.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2025-02-21",
+      "url": "https://www.sec.gov/Archives/edgar/data/2030763/000149315225007800/form424b4.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     0.41,
+     0.5,
+     20.5,
+     36.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-17",
+     "url": "https://www.sec.gov/Archives/edgar/data/2030763/000149315226038581/form10-q.htm"
+    },
+    "eloc": true,
+    "warrants_en_dinero": true
+   },
+   "costes": {
+    "locate_1c_R": 0.008
+   },
+   "avisos": [
+    "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)"
+   ]
+  },
+  {
+   "sym": "MIMI",
+   "nombre": "Mint Incorporation Limited",
+   "sector": "Services-Business Services, NEC",
+   "precio": 1.0394,
+   "cierre_prev": 0.7712,
+   "gap": 0.3478,
+   "cap": 13339985,
+   "acciones": null,
+   "vol_pre": 26747853,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano 28-sep",
+    "nota": "Sin 8-K/6-K ni noticias desde el cierre del viernes (última noticia: 15-sep, licencia con Pudgy Penguins). Historial reciente de humo: MOU de robótica (9-sep), tokenización de acciones (3-sep, +49 %).",
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 18,
+    "tercio": "Baja",
+    "pred_R": -0.013,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 183,
+    "R": -0.05,
+    "WR": 0.54,
+    "gan": 0.48,
+    "perd": -0.67,
+    "PF": 0.85,
+    "dev": 0.04
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 1.12,
+    "pml": 0.86,
+    "pmh_hora": "04:00",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 964142,
+    "inversiones": 0,
+    "caja_fecha": "2026-03-31",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "20-F",
+    "url": "https://www.sec.gov/Archives/edgar/data/1998560/000121390026090165/",
+    "flujo_operativo": -858394,
+    "flujo_desde": "2025-04-01",
+    "flujo_hasta": "2026-03-31",
+    "meses": 12,
+    "quema_mes": 71533,
+    "autonomia_meses": 13.5
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": true,
+    "s3": "2026-05-19",
+    "s1": null,
+    "ventas_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-08-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1998560/000121390026094900/ea0303716-424b5_mint.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2025-01-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1998560/000121390025002315/ea0201201-11.htm"
+     }
+    ],
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1998560/000121390026090165/ea0300620-20f_mint.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.032
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
+   ]
+  },
+  {
+   "sym": "CLRO",
+   "nombre": "ClearOne, Inc.",
+   "sector": "Telephone & Telegraph Apparatus",
+   "precio": 5.81,
+   "cierre_prev": 3.5228,
+   "gap": 0.6493,
+   "cap": 13644601,
+   "acciones": null,
+   "vol_pre": 28097304,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "fuentes_abiertas": "Finviz (quote) + Yahoo RSS + EDGAR, revisados a mano 28-sep",
+    "nota": "Confirmado a mano: sin 8-K ni noticias desde el cierre del viernes. Última noticia: 2-jul-2026 (fusión con Cortigent, filial de Vivani). Munición: S-3 (25-jun), S-1 (4-sep), ATM.",
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 5,
+    "tercio": "Baja",
+    "pred_R": -0.052,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": true,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
+     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+    ]
+   },
+   "estad": {
+    "n": 74,
+    "R": -0.11,
+    "WR": 0.54,
+    "gan": 0.6,
+    "perd": -0.96,
+    "PF": 0.74,
+    "dev": -0.07
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 7.2997,
+    "pml": 5.0,
+    "pmh_hora": "04:24",
+    "hasta": "09:29"
+   },
+   "caja": {
+    "caja": 75000,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/840715/000175392626001521/",
+    "flujo_operativo": -2568000,
+    "flujo_desde": "2025-01-01",
+    "flujo_hasta": "2025-06-30",
+    "meses": 6,
+    "quema_mes": 428000,
+    "autonomia_meses": 0.2
+   },
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": "2026-06-25",
+    "s1": "2026-09-04",
+    "ventas_12m": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 3,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2020-09-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/840715/000175392620000295/MainDocument.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     5.0,
+     10.0,
+     35.33
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/840715/000175392626001521/clro-20260630.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": true
+   },
+   "costes": {
+    "locate_1c_R": 0.006
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
+   ]
+  }
+ ],
+ "descartadas": [
+  {
+   "sym": "SOAR",
+   "nombre": "Volato Group, Inc.",
+   "sector": "Air Transportation, Nonscheduled",
+   "precio": 0.3788,
+   "cierre_prev": 0.1795,
+   "gap": 1.1103,
+   "cap": 17098280,
+   "acciones": null,
+   "vol_pre": 972188181,
+   "bolsa": "NYSE American",
+   "clasif": {
+    "tipo": "H",
+    "frase_en": "its Alignment Engine subsidiary has entered into two four-year, take-or-pay orders with a large AI customer, representing $1.17 billion in aggregate contract value",
+    "frase_es": "su filial Alignment Engine firmó dos pedidos a cuatro años con un gran cliente de IA, por un valor total de 1.170 millones de dólares",
+    "cifra": "$1.17 B (dólares) de valor de contrato; cliente SIN nombre; empresa de $21 M de capitalización",
+    "nota": "Hay 8-K con Item 1.01 (acuerdo firmado), pero el cliente no se identifica y el pedido es ~55 veces el tamaño de la empresa. Giro hacia IA. Por las definiciones registradas (contrato real = contraparte identificada + cifra) cuenta como humo.",
+    "tipo_es": "Humo / cosmético"
+   },
+   "motivo": "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5)",
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 04:05",
+     "items": "1.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1853070/000149315226044456/form8-k.htm",
+     "items_es": "1.01 acuerdo firmado; 7.01 nota de prensa; 9.01 anexos"
+    }
+   ]
+  },
+  {
+   "sym": "LFCR",
+   "nombre": "Lifecore Biomedical, Inc.",
+   "sector": "Pharmaceutical Preparations",
+   "precio": 6.52,
+   "cierre_prev": 4.2,
+   "gap": 0.5524,
+   "cap": 246801952,
+   "acciones": null,
+   "vol_pre": 4003471,
+   "bolsa": "NasdaqGS",
+   "clasif": {
+    "tipo": "C",
+    "frase_en": "Lifecore Common Stockholders to Receive $6.28 per Share in Cash at Closing",
+    "frase_es": "los accionistas recibirán 6,28 dólares por acción en efectivo al cerrar la compra",
+    "cifra": "$6.28 por acción en efectivo (+ CVR de hasta $3.39)",
+    "nota": "Compra en efectivo: el precio queda anclado cerca de $6.28. Nunca shortear.",
+    "tipo_es": "Compra en efectivo"
+   },
+   "motivo": "Compra en efectivo: el precio queda anclado a la oferta (PF histórico 0.23). No se shortea nunca",
+   "docs_hoy": [
+    {
+     "form": "DEFA14A",
+     "hora": "2026-09-28 04:56",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037768/ef20082009_defa14a.htm",
+     "items_es": ""
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 04:53",
+     "items": "1.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1005286/000114036126037767/ef20082009_8k.htm",
+     "items_es": "1.01 acuerdo firmado; 7.01 nota de prensa; 9.01 anexos"
+    }
+   ]
+  },
+  {
+   "sym": "WBUY",
+   "nombre": "WEBUY GLOBAL LTD.",
+   "sector": "Retail-Miscellaneous Retail",
+   "precio": 1.04,
+   "cierre_prev": 0.8039,
+   "gap": 0.2937,
+   "cap": 4932993,
+   "acciones": null,
+   "vol_pre": 37592808,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "R",
+    "frase_en": "Revenue from continuing operations increased 94.4% year-over-year to US$14.31 million, while gross profit increased 131.7% to US$1.83 million",
+    "frase_es": "los ingresos de las operaciones continuadas subieron un 94,4 % interanual hasta 14,31 millones de dólares, y el beneficio bruto un 131,7 % hasta 1,83 millones",
+    "cifra": "$14.31 M (dólares) de ingresos del semestre; pérdida neta $3.32 M",
+    "nota": "Resultados semestrales (6-K 2:31 + nota de prensa 4:30). Empresa ~$5 M de capitalización, ELOC activa y going concern.",
+    "tipo_es": "Resultados"
+   },
+   "motivo": "Resultados trimestrales: históricamente malo para el corto (PF 0.61)",
+   "docs_hoy": [
+    {
+     "form": "6-K",
+     "hora": "2026-09-28 02:31",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1946703/000121390026103727/ea0306044-6k_webuy.htm",
+     "items_es": ""
+    }
+   ]
+  },
+  {
+   "sym": "COLA",
+   "nombre": "Columbus Acquisition Corp",
+   "sector": "Blank Checks",
+   "precio": 12.95,
+   "cierre_prev": 10.45,
+   "gap": 0.2392,
+   "cap": 47810944,
+   "acciones": null,
+   "vol_pre": 13130,
+   "bolsa": "NasdaqGM",
+   "clasif": {
+    "tipo": "S",
+    "frase_en": "today announced that it reconvened its Extraordinary General Meeting of the Shareholders and, without conducting any business, adjourned the Meeting to 9:00 a.m. Eastern Time on September 29, 2026",
+    "frase_es": "hoy anunció que reanudó su junta extraordinaria de accionistas y, sin tratar ningún asunto, la aplazó al 29 de septiembre de 2026 a las 9:00",
+    "cifra": "sin cifra; aplazamiento de la junta que vota la fusión con WISeSat.Space",
+    "nota": "SPAC (empresa de adquisición): el precio suele estar ligado al dinero en fideicomiso; evento corporativo.",
+    "tipo_es": "Corporativo / bolsa"
+   },
+   "motivo": "Aviso de bolsa / corporativo: históricamente malo para el corto (PF 0.64)",
+   "docs_hoy": [
+    {
+     "form": "DEFA14A",
+     "hora": "2026-09-28 05:24",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026103788/ea0306809-8k_columbus.htm",
+     "items_es": ""
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-09-28 05:21",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/2028201/000121390026103784/ea0306809-8k_columbus.htm",
+     "items_es": "8.01 otros hechos; 9.01 anexos"
+    }
    ]
   },
   {
@@ -987,8 +1355,9 @@
    "cierre_prev": 2.4995,
    "gap": 0.2202,
    "cap": 7978800,
+   "acciones": null,
    "vol_pre": 1871557,
-   "nivel": "NO",
+   "bolsa": "NasdaqCM",
    "clasif": {
     "tipo": "S",
     "frase_en": "Delixy Holdings Limited Announces 1-for-5 Reverse Share Split Effective September 28, 2026",
@@ -998,50 +1367,8 @@
     "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano 28-sep",
     "tipo_es": "Corporativo / bolsa"
    },
-   "catalizadores": [],
-   "docs_hoy": [],
-   "noticias": [],
-   "municion": {
-    "venta90": false,
-    "s3": null,
-    "s1": null,
-    "ventas_12m": 0,
-    "aviso_bolsa": false,
-    "contrasplits_2a": 0,
-    "ultimas_ventas": [
-     {
-      "form": "424B4",
-      "fecha": "2025-07-09",
-      "url": "https://www.sec.gov/Archives/edgar/data/2025218/000121390025062254/ea0207238-23.htm"
-     }
-    ],
-    "atm": false,
-    "toxica": false,
-    "going_concern": false,
-    "warrants": [],
-    "informe": {
-     "form": "20-F",
-     "fecha": "2026-04-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/2025218/000121390026050402/ea0287803-20f_delixy.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "venta_hoy": false,
-   "costes": {
-    "locate_1c_R": 0.011
-   },
-   "estad": {
-    "R": -0.12,
-    "WR": 0.49,
-    "gan": null,
-    "perd": null,
-    "PF": 0.65,
-    "n": null,
-    "squeeze": null,
-    "fuente": "resultados / financiación / avisos de bolsa: PF 0.6-0.7"
-   },
-   "avisos": []
+   "motivo": "Aviso de bolsa / corporativo: históricamente malo para el corto (PF 0.64)",
+   "docs_hoy": []
   }
  ],
  "resultados": {
@@ -1163,5 +1490,6 @@
    "pct": 0.9998
   },
   "forzada": false
- }
+ },
+ "convertida_v1": true
 }
