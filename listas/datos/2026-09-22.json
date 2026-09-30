@@ -94,9 +94,7 @@
      }
     ],
     "base": -0.0395,
-    "notas": [
-     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
-    ]
+    "notas": []
    },
    "estad": {
     "n": 160,
@@ -148,6 +146,7 @@
     "s3": null,
     "s1": "2026-08-27",
     "ventas_12m": 1,
+    "p424_12m": 1,
     "aviso_bolsa": false,
     "contrasplits_2a": 0,
     "ultimas_ventas": [
@@ -264,9 +263,7 @@
      }
     ],
     "base": -0.0395,
-    "notas": [
-     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
-    ]
+    "notas": []
    },
    "estad": {
     "n": 160,
@@ -318,6 +315,7 @@
     "s3": "2025-08-15",
     "s1": "2026-07-10",
     "ventas_12m": 1,
+    "p424_12m": 2,
     "aviso_bolsa": true,
     "contrasplits_2a": 4,
     "ultimas_ventas": [
@@ -446,9 +444,7 @@
      }
     ],
     "base": -0.0395,
-    "notas": [
-     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
-    ]
+    "notas": []
    },
    "estad": {
     "n": 160,
@@ -496,7 +492,7 @@
       {
        "archivo": "ea0305363-8k_quanome.htm",
        "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101830/ea0305363-8k_quanome.htm",
-       "texto": "Item 5.02 Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers; Compensatory Arrangements of Certain Officers. Resignation of Director On September 21, 2026, the Board of Directors (the “Board”) of Quanome Technologies, Inc. (the “Company”) accepted Ms. Xiaoou Li’s resignation as a member of the Board of Directors (the “Board”), effective immediately (the “Effective Date”). Ms. Li’s resignation from the Board is not due to any disagreement with the Company on any matter relating to its operations, policies or practices. Appointment of Director On September 21, 2026, the Board elected Ms. Chao Liu to become a new independent director of the Board, effective immediately, to fill the vacancy created by Ms. Li's resignation. In connection with the election of Ms. Liu, the Board now consists of five members, composed of a majority of independent directors under the Nasdaq Marketplace Rules. Ms. Chao Liu, age 44, brings more than a decade of leadership experience across investment, real estate and non-profit organizations. Ms. Liu has served as President of Prosperity Alliance Singapore, an affiliate of the United Nations Institute for Training and Research (UNITAR) since 2025, as Chief Executive Officer of The HLW Investment (Singapore) since 2023, and as Chief Executive Officer of The HLW Investment USA since 2013, where Ms. Liu is responsible for real estate investment and property management. Ms. Liu founded the Brotherhood Cup Foundation USA in November 2021 and served as founder of the Brotherhood Cup (China), a charity organiza"
+       "texto": "Item 5.02 Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers; Compensatory Arrangements of Certain Officers. Resignation of Director On September 21, 2026, the Board of Directors (the “Board”) of Quanome Technologies, Inc. (the “Company”) accepted Ms. Xiaoou Li’s resignation as a member of the Board of Directors (the “Board”), effective immediately (the “Effective Date”). Ms. Li’s resignation from the Board is not due to any disagreement with the Company on any matter relating to its operations, policies or practices. Appointment of Director On September 21, 2026, the Board elected Ms. Chao Liu to become a new independent director of the Board, effective immediately, to fill the vacancy created by Ms. Li's resignation. In connection with the election of Ms. Liu, the Board now consists of five members, composed of a majority of independent directors under the Nasdaq Marketplace Rules. Ms. Chao Liu, age 44, brings more than a decade of leadership experience across investment, real estate and non-profit organizations. Ms. Liu has served as President of Prosperity Alliance Singapore, an affiliate of the United Nations Institute for Training and Research (UNITAR) since 2025, as Chief Executive Officer of The HLW Investment (Singapore) since 2023, and as Chief Executive Officer of The HLW Investment USA since 2013, where Ms. Liu is responsible for real estate investment and property management. Ms. Liu founded the Brotherhood Cup Foundation USA in November 2021 and served as founder of the Brotherhood Cup (China), a charity organization, from 2008 to 2019. Ms. Liu received a Bachelor’s degree in Tourism and Hospitality Management from the University of Surrey in the United Kingdom and a Master’s degree in Human Resource Management from the University of Sydney in Australia. The Board has determined that Ms. Liu is independent under the corporate governance requirements of Nasdaq, the Company’s Corporate Governance Principles, Rule 10A-3 of the Securities Exchange Act of 1934, as amended (the “Exchange Act”) and Rule 10C-1 of the Exchange Act. The Board has also determined that Ms. Liu qualifies as a “Non-Employee Director” under Rule 16b-3 of the Exchange Act. Ms. Liu will serve on the Audit Committee, Compensation Committee, and the Nominating and Corporate Governance Committee of the Board. Ms. Liu’s compensation will be consistent with that of other non-employee directors as previously disclosed in the Company’s Proxy Statement filed with the Securities and Exchange Commission on January 30, 2026. There are no arrangements or understandings between Ms. Liu and any other person pursuant to which Ms. Liu was selected as a director and there are no related party transactions between the Company and Ms. Liu that would require disclosure under Item 404(a) of Regulation S-K. 1 SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Dated: September 21, 2026 Quanome Technologies, Inc. By: /s/ Yang Li Yang Li Chief Executive Officer 2"
       }
      ]
     },
@@ -510,7 +506,7 @@
       {
        "archivo": "ea0306012-8k_quanome.htm",
        "url": "https://www.sec.gov/Archives/edgar/data/1996192/000121390026101812/ea0306012-8k_quanome.htm",
-       "texto": "Item 1.01 Entry into a Material Definitive Agreement. Purchase and Sale Agreement On September 16, 2026, Quanome Technologies, Inc. (the “Company”) entered into a Purchase and Sale Agreement and related purchase order (collectively, the “Purchase Agreement”) with Compal Electronics, Inc. (the “Supplier”) for the purchase of 32 GPU server units for an aggregate purchase price of approximately US$18.8 million. Under the Purchase Agreement, the Company is required to make an initial payment equal to 20% of the aggregate purchase price following acceptance of the purchase order, with the remaining 80% payable prior to shipment, subject to the satisfaction of the applicable delivery and other conditions set forth in the Purchase Agreement. The GPU servers are expected to be delivered to a designated data center location in the United States. The Purchase Agreement contains customary provisions relating to delivery, title and risk of loss, inspection and acceptance, warranty coverage, remedies for non-conforming products, and termination and refund rights in certain circumstances. The Supplier is also required to provide certain commercially customary warranty and replacement support with respect to the GPU servers, subject to the terms and limitations set forth in the Purchase Agreement. The completion of the purchase remains subject to a number of conditions, including the Company’s payment obligations, the Supplier’s ability to complete production and delivery, applicable product registration and supply-chain requirements, and other customary commercial and operational conditi"
+       "texto": "Item 1.01 Entry into a Material Definitive Agreement. Purchase and Sale Agreement On September 16, 2026, Quanome Technologies, Inc. (the “Company”) entered into a Purchase and Sale Agreement and related purchase order (collectively, the “Purchase Agreement”) with Compal Electronics, Inc. (the “Supplier”) for the purchase of 32 GPU server units for an aggregate purchase price of approximately US$18.8 million. Under the Purchase Agreement, the Company is required to make an initial payment equal to 20% of the aggregate purchase price following acceptance of the purchase order, with the remaining 80% payable prior to shipment, subject to the satisfaction of the applicable delivery and other conditions set forth in the Purchase Agreement. The GPU servers are expected to be delivered to a designated data center location in the United States. The Purchase Agreement contains customary provisions relating to delivery, title and risk of loss, inspection and acceptance, warranty coverage, remedies for non-conforming products, and termination and refund rights in certain circumstances. The Supplier is also required to provide certain commercially customary warranty and replacement support with respect to the GPU servers, subject to the terms and limitations set forth in the Purchase Agreement. The completion of the purchase remains subject to a number of conditions, including the Company’s payment obligations, the Supplier’s ability to complete production and delivery, applicable product registration and supply-chain requirements, and other customary commercial and operational conditions. The foregoing description of the Purchase Agreement does not purport to be complete and is qualified in its entirety by reference to the full text of the Purchase Agreement, which the Company intends to file as an exhibit to its Quarterly Report on Form 10-Q for the quarter ending September 30, 2026. Separately, the Company currently intends to deploy the GPU servers in connection with the development of its artificial intelligence computing infrastructure business. Forward-Looking Statements This Current Report on Form 8-K contains forward-looking statements, including, without limitation, statements regarding the anticipated purchase, delivery, deployment and utilization of the GPU servers and the Company’s plans for its artificial intelligence computing infrastructure business. These forward-looking statements are based on the Company’s current plans, assumptions, beliefs and expectations and involve risks and uncertainties. Actual results and the timing of events could differ materially from those anticipated in such forward-looking statements as a result of these risks and uncertainties, which include, without limitation, risks relating to financing availability, supplier performance, production and delivery conditions, regulatory requirements, technical or operational matters, third-party performance, and other conditions relating to the transaction. There can be no assurance that the GPU servers will be delivered on the anticipated schedule, that the transactions contemplated by the Purchase Agreement will be completed as currently contemplated, or that the Company will successfully deploy or utilize the GPU servers for their intended purposes. Additional information regarding risks and uncertainties faced by the Company is and will continue to be contained in the Company’s filings with the Securities and Exchange Commission. The Company undertakes no obligation to update or revise any forward-looking statements, whether as a result of new information, future events or otherwise, except as required by applicable law. 1 SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Dated: September 21, 2026 Quanome Technologies, Inc. By: /s/ Yang Li Yang Li Chief Executive Officer 2"
       }
      ]
     }
@@ -537,6 +533,7 @@
     "s3": "2026-09-02",
     "s1": null,
     "ventas_12m": 0,
+    "p424_12m": 0,
     "aviso_bolsa": true,
     "contrasplits_2a": 2,
     "ultimas_ventas": [
@@ -570,189 +567,6 @@
    ]
   },
   {
-   "sym": "TOPS",
-   "nombre": "TOP SHIPS INC.",
-   "sector": "Deep Sea Foreign Transportation of  Freight",
-   "precio": 1.29,
-   "cierre_prev": 0.7200000286102295,
-   "gap": 0.7917,
-   "cap": 13280428.74,
-   "acciones": null,
-   "vol_pre": null,
-   "bolsa": "",
-   "clasif": {
-    "tipo": "N",
-    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
-    "nota": "Solo un 13D/A (21-sep 16:06). La empresa publicó 'Response to Unusual Market Action' a las 9:25, después del corte de las 9:10.",
-    "tipo_es": "Sin noticia"
-   },
-   "tramo": "≥ 50 %",
-   "puntuacion": {
-    "valor": 20,
-    "tercio": "Baja",
-    "pred_R": -0.003,
-    "factores": [
-     {
-      "clave": "gap_50_100",
-      "nombre": "Gap 50-100 %",
-      "activo": true,
-      "peso": 0.0103
-     },
-     {
-      "clave": "gap_100",
-      "nombre": "Gap ≥ 100 %",
-      "activo": false,
-      "peso": 0.1016
-     },
-     {
-      "clave": "cat_H",
-      "nombre": "Catalizador humo / cosmético",
-      "activo": false,
-      "peso": 0.0774
-     },
-     {
-      "clave": "cat_B",
-      "nombre": "Catalizador biotech real (FDA / datos)",
-      "activo": false,
-      "peso": 0.1275
-     },
-     {
-      "clave": "cat_K",
-      "nombre": "Contrato real con cifra",
-      "activo": false,
-      "peso": 0.1442
-     },
-     {
-      "clave": "venta90",
-      "nombre": "Vendió acciones (424B) en los últimos 90 días",
-      "activo": true,
-      "peso": 0.0485
-     },
-     {
-      "clave": "s3",
-      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
-      "activo": true,
-      "peso": -0.0224
-     },
-     {
-      "clave": "serie",
-      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
-      "activo": false,
-      "peso": -0.0118
-     },
-     {
-      "clave": "solo_pr",
-      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
-      "activo": false,
-      "peso": 0.0319
-     }
-    ],
-    "base": -0.0395,
-    "notas": [
-     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
-     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
-    ]
-   },
-   "estad": {
-    "n": 74,
-    "R": -0.11,
-    "WR": 0.54,
-    "gan": 0.6,
-    "perd": -0.96,
-    "PF": 0.74,
-    "dev": -0.07
-   },
-   "riesgo": {
-    "nivel": "Normal",
-    "motivos": [],
-    "rotacion_pre": null,
-    "validado": false
-   },
-   "premarket": {
-    "pmh": 1.62,
-    "pml": 1.14,
-    "pmh_hora": "05:42",
-    "hasta": "09:14"
-   },
-   "caja": {
-    "caja": 20372000,
-    "inversiones": 0,
-    "caja_fecha": "2025-12-31",
-    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
-    "form": "20-F",
-    "url": "https://www.sec.gov/Archives/edgar/data/1296484/000114036126012456/",
-    "flujo_operativo": 26431000,
-    "flujo_desde": "2025-01-01",
-    "flujo_hasta": "2025-12-31",
-    "meses": 12
-   },
-   "catalizadores": [],
-   "docs_hoy": [
-    {
-     "form": "SCHEDULE 13D/A",
-     "hora": "2026-09-21 16:06",
-     "items": "",
-     "url": "https://www.sec.gov/Archives/edgar/data/1296484/000117184326006133/xslSCHEDULE_13D_X02/primary_doc.xml",
-     "items_es": ""
-    }
-   ],
-   "noticias": [],
-   "municion": {
-    "venta90": true,
-    "s3": "2025-09-30",
-    "s1": "2026-05-13",
-    "ventas_12m": 0,
-    "aviso_bolsa": false,
-    "contrasplits_2a": 0,
-    "ultimas_ventas": [
-     {
-      "form": "424B5",
-      "fecha": "2024-05-24",
-      "url": "https://www.sec.gov/Archives/edgar/data/1296484/000114036124027446/ny20029887x1_424b5.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2023-02-16",
-      "url": "https://www.sec.gov/Archives/edgar/data/1296484/000117184323001010/f424b5_021523.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2022-06-07",
-      "url": "https://www.sec.gov/Archives/edgar/data/1296484/000117184322004183/f424b5_060622.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2022-04-15",
-      "url": "https://www.sec.gov/Archives/edgar/data/1296484/000117184322002613/f424b5_041522.htm"
-     }
-    ],
-    "atm": true,
-    "toxica": true,
-    "going_concern": false,
-    "warrants": [
-     16.2,
-     24.0,
-     50.0,
-     81.0,
-     120.0
-    ],
-    "informe": {
-     "form": "20-F",
-     "fecha": "2026-04-01",
-     "url": "https://www.sec.gov/Archives/edgar/data/1296484/000114036126012456/ef20060828_20f.htm"
-    },
-    "eloc": false,
-    "warrants_en_dinero": false
-   },
-   "costes": {
-    "locate_1c_R": 0.026
-   },
-   "avisos": [
-    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)",
-    "Convertible de precio variable (tóxica) en el último informe: munición continua"
-   ]
-  },
-  {
    "sym": "GDC",
    "nombre": "GD Culture Group Ltd",
    "sector": "Wholesale-Metals & Minerals (No Petroleum)",
@@ -771,7 +585,7 @@
    },
    "tramo": "20-50 %",
    "puntuacion": {
-    "valor": 18,
+    "valor": 19,
     "tercio": "Baja",
     "pred_R": -0.013,
     "factores": [
@@ -832,8 +646,7 @@
     ],
     "base": -0.0395,
     "notas": [
-     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
-     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
     ]
    },
    "estad": {
@@ -879,6 +692,7 @@
     "s3": "2026-01-26",
     "s1": null,
     "ventas_12m": 2,
+    "p424_12m": 2,
     "aviso_bolsa": false,
     "contrasplits_2a": 1,
     "ultimas_ventas": [
@@ -920,6 +734,188 @@
    },
    "avisos": [
     "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
+   ]
+  },
+  {
+   "sym": "TOPS",
+   "nombre": "TOP SHIPS INC.",
+   "sector": "Deep Sea Foreign Transportation of  Freight",
+   "precio": 1.29,
+   "cierre_prev": 0.7200000286102295,
+   "gap": 0.7917,
+   "cap": 13280428.74,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "",
+   "clasif": {
+    "tipo": "N",
+    "fuentes_abiertas": "Finviz + Yahoo + EDGAR revisados a mano el 28-sep (día de prueba)",
+    "nota": "Solo un 13D/A (21-sep 16:06). La empresa publicó 'Response to Unusual Market Action' a las 9:25, después del corte de las 9:10.",
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 18,
+    "tercio": "Baja",
+    "pred_R": -0.015,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": true,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": true,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
+    ]
+   },
+   "estad": {
+    "n": 74,
+    "R": -0.11,
+    "WR": 0.54,
+    "gan": 0.6,
+    "perd": -0.96,
+    "PF": 0.74,
+    "dev": -0.07
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 1.62,
+    "pml": 1.14,
+    "pmh_hora": "05:42",
+    "hasta": "09:14"
+   },
+   "caja": {
+    "caja": 20372000,
+    "inversiones": 0,
+    "caja_fecha": "2025-12-31",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "20-F",
+    "url": "https://www.sec.gov/Archives/edgar/data/1296484/000114036126012456/",
+    "flujo_operativo": 26431000,
+    "flujo_desde": "2025-01-01",
+    "flujo_hasta": "2025-12-31",
+    "meses": 12
+   },
+   "catalizadores": [],
+   "docs_hoy": [
+    {
+     "form": "SCHEDULE 13D/A",
+     "hora": "2026-09-21 16:06",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1296484/000117184326006133/xslSCHEDULE_13D_X02/primary_doc.xml",
+     "items_es": ""
+    }
+   ],
+   "noticias": [],
+   "municion": {
+    "venta90": true,
+    "s3": "2025-09-30",
+    "s1": "2026-05-13",
+    "ventas_12m": 0,
+    "p424_12m": 8,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2024-05-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1296484/000114036124027446/ny20029887x1_424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2023-02-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1296484/000117184323001010/f424b5_021523.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2022-06-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1296484/000117184322004183/f424b5_060622.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2022-04-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1296484/000117184322002613/f424b5_041522.htm"
+     }
+    ],
+    "atm": true,
+    "toxica": true,
+    "going_concern": false,
+    "warrants": [
+     16.2,
+     24.0,
+     81.0,
+     120.0
+    ],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-04-01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1296484/000114036126012456/ef20060828_20f.htm"
+    },
+    "eloc": false,
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.026
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)",
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
    ]
   }
  ],
@@ -983,16 +979,11 @@
    "cierre": 0.8889999985694885,
    "R": 0.967,
    "subida_max": 0.055,
-   "caida_cierre": -0.3
-  },
-  "QNME": {
-   "apertura": 1.3200000524520874,
-   "maximo": 1.399999976158142,
-   "minimo": 0.7839999794960022,
-   "cierre": 0.8510000109672546,
-   "R": 1.151,
-   "subida_max": 0.061,
-   "caida_cierre": -0.355
+   "caida_cierre": -0.3,
+   "gap_apertura": 1.933,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 96,
+   "tercio_apertura": "Alta"
   },
   "DCOY": {
    "apertura": 5.150000095367432,
@@ -1001,7 +992,37 @@
    "cierre": 3.0999999046325684,
    "R": -1.25,
    "subida_max": 0.478,
-   "caida_cierre": -0.398
+   "caida_cierre": -0.398,
+   "gap_apertura": 1.0117,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 93,
+   "tercio_apertura": "Alta"
+  },
+  "QNME": {
+   "apertura": 1.3200000524520874,
+   "maximo": 1.399999976158142,
+   "minimo": 0.7839999794960022,
+   "cierre": 0.8510000109672546,
+   "R": 1.151,
+   "subida_max": 0.061,
+   "caida_cierre": -0.355,
+   "gap_apertura": 1.0625,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 83,
+   "tercio_apertura": "Alta"
+  },
+  "GDC": {
+   "apertura": 1.8300000429153442,
+   "maximo": 2.140000104904175,
+   "minimo": 1.475000023841858,
+   "cierre": 1.600000023841858,
+   "R": 0.386,
+   "subida_max": 0.169,
+   "caida_cierre": -0.126,
+   "gap_apertura": 0.2534,
+   "tramo_apertura": "20-50 %",
+   "puntuacion_apertura": 19,
+   "tercio_apertura": "Baja"
   },
   "TOPS": {
    "apertura": 1.2899999618530273,
@@ -1010,13 +1031,17 @@
    "cierre": 0.8700000047683716,
    "R": 1.052,
    "subida_max": 0.0,
-   "caida_cierre": -0.326
+   "caida_cierre": -0.326,
+   "gap_apertura": 0.7917,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 18,
+   "tercio_apertura": "Baja"
   },
   "FBGL": {
-   "apertura": 0.6359999775886536,
-   "maximo": 0.6359999775886536,
-   "minimo": 0.3700000047683716,
-   "cierre": 0.46000000834465027,
+   "apertura": 6.360000133514404,
+   "maximo": 6.360000133514404,
+   "minimo": 3.700000047683716,
+   "cierre": 4.599999904632568,
    "R": 0.889,
    "subida_max": 0.0,
    "caida_cierre": -0.277
@@ -1029,15 +1054,6 @@
    "R": -1.25,
    "subida_max": 0.327,
    "caida_cierre": 0.051
-  },
-  "GDC": {
-   "apertura": 1.8300000429153442,
-   "maximo": 2.140000104904175,
-   "minimo": 1.475000023841858,
-   "cierre": 1.600000023841858,
-   "R": 0.386,
-   "subida_max": 0.169,
-   "caida_cierre": -0.126
   }
  },
  "auditoria": {

@@ -488,11 +488,13 @@ const HIST={"≥ 50 %|Alta":"+0.26R · PF 1.86","≥ 50 %|Media":"+0.04R · PF 1
 function renderRend(){
   const el=$("#p-rend");const g={};Object.keys(HIST).forEach(k=>g[k]=[]);const desc=[];let dias=0;
   st.fechas.forEach(f=>{const L=st.listas[f];if(!L||!L.resultados||!L.acciones)return;dias++;
-    L.acciones.forEach(x=>{const r=L.resultados[x.sym];if(r&&x.puntuacion)g[(x.gap>=0.5?"≥ 50 %":"20-50 %")+"|"+x.puntuacion.tercio].push(r.R)});
+    L.acciones.forEach(x=>{const r=L.resultados[x.sym];if(!r||!x.puntuacion)return;
+      // como en el histórico: gap y tesis con la APERTURA cuando están disponibles
+      const gp=r.gap_apertura!=null?r.gap_apertura:x.gap,te=r.tercio_apertura||x.puntuacion.tercio;g[(gp>=0.5?"≥ 50 %":"20-50 %")+"|"+te].push(r.R)});
     (L.descartadas||[]).forEach(x=>{const r=L.resultados[x.sym];if(r)desc.push(r.R)})});
   const row=(n,v,h)=>{const m=metrics(v);return `<tr><td>${n}</td><td class="n">${m.n}</td><td class="n ${m.R>0?"pos":m.R<0?"neg":""}">${R(m.R)}</td><td class="n">${WRp(m.WR)}</td><td class="n">${R(m.gan)}</td><td class="n">${R(m.perd)}</td><td class="n">${PF(m.PF)}</td><td class="n">${h}</td></tr>`};
   el.innerHTML=`<div class="panel"><h3>Rendimiento en vivo de la selección</h3>
-  <p class="note" style="margin:0 0 10px">Base mecánica de cada acción (corto a la apertura, stop +30 %, deslizamiento y costes incluidos) en ${dias} día(s) con resultado, por tramo de gap y tercio de la tesis. Sirve para comprobar que la puntuación se comporta como en el histórico y, junto a tu diario, para ver cuánto añade tu ejecución.</p>
+  <p class="note" style="margin:0 0 10px">Base mecánica de cada acción (corto a la apertura, stop +30 %, deslizamiento y costes incluidos) en ${dias} día(s) con resultado, por tramo de gap y tesis calculados con la apertura (como en el histórico). Sirve para comprobar que la puntuación se comporta como en el histórico y, junto a tu diario, para ver cuánto añade tu ejecución.</p>
   <div class="tbl-wrap"><table><thead><tr><th>Grupo</th><th class="n">Casos</th><th class="n">Esperanza</th><th class="n">WR</th><th class="n">Gan. media</th><th class="n">Pérd. media</th><th class="n">PF</th><th class="n">Histórico 2022-26</th></tr></thead><tbody>
   ${Object.keys(HIST).map(k=>{const [t,te]=k.split("|");return row(`Gap ${t} · tesis ${te.toLowerCase()}`,g[k],HIST[k])}).join("")}
   ${row("Descartadas por el filtro",desc,"PF 0.2–0.7 según el motivo")}

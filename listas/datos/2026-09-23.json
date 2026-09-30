@@ -34,9 +34,9 @@
    },
    "tramo": "≥ 50 %",
    "puntuacion": {
-    "valor": 97,
+    "valor": 96,
     "tercio": "Alta",
-    "pred_R": 0.197,
+    "pred_R": 0.186,
     "factores": [
      {
       "clave": "gap_50_100",
@@ -83,7 +83,7 @@
      {
       "clave": "serie",
       "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
-      "activo": false,
+      "activo": true,
       "peso": -0.0118
      },
      {
@@ -94,9 +94,7 @@
      }
     ],
     "base": -0.0395,
-    "notas": [
-     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
-    ]
+    "notas": []
    },
    "estad": {
     "n": 160,
@@ -144,7 +142,7 @@
       {
        "archivo": "ex99-1.htm",
        "url": "https://www.sec.gov/Archives/edgar/data/1775734/000149315226043806/ex99-1.htm",
-       "texto": "Beneficient Announces Strategy to Eliminate HCLP Debt and Heppner Equity Interests DALLAS, September 23, 2026 (GLOBE NEWSWIRE) — Beneficient (NASDAQ: BENF) (the “Company”), a technology-enabled platform providing exit opportunities and primary capital solutions and related trust and custody services to holders of alternative assets, today announced that it has formulated and is implementing a comprehensive strategy intended to eliminate both the fraudulent indebtedness asserted by HCLP Nominees, L.L.C. (“HCLP”) and the equity interests in Beneficient and its subsidiaries held by the Company’s former Chief Executive Officer, Brad Heppner, and his affiliated entities (“Heppner Equity Interests”). Through the strategy, the Company also seeks to terminate all other remaining agreements with Heppner or his affiliated entities (“Heppner Agreements”) and have all amounts purportedly owed to them by Beneficient or its subsidiaries under those agreements or otherwise deemed void and unenforceable. The strategy follows Heppner’s May 2026 federal fraud conviction and is a significant component of the Company’s broader effort to transform its balance sheet, simplify its capital structure, and unlock its potential. The Company continues to operate its business and pursue its long-term growth objectives while implementing the strategy. As previously disclosed, Heppner was convicted on May 7, 2026, of securities fraud, wire fraud and related charges in connection with a fraudulent scheme to enrich himself. The criminal trial revealed overwhelming evidence that Heppner fraudulently conceal"
+       "texto": "Beneficient Announces Strategy to Eliminate HCLP Debt and Heppner Equity Interests DALLAS, September 23, 2026 (GLOBE NEWSWIRE) — Beneficient (NASDAQ: BENF) (the “Company”), a technology-enabled platform providing exit opportunities and primary capital solutions and related trust and custody services to holders of alternative assets, today announced that it has formulated and is implementing a comprehensive strategy intended to eliminate both the fraudulent indebtedness asserted by HCLP Nominees, L.L.C. (“HCLP”) and the equity interests in Beneficient and its subsidiaries held by the Company’s former Chief Executive Officer, Brad Heppner, and his affiliated entities (“Heppner Equity Interests”). Through the strategy, the Company also seeks to terminate all other remaining agreements with Heppner or his affiliated entities (“Heppner Agreements”) and have all amounts purportedly owed to them by Beneficient or its subsidiaries under those agreements or otherwise deemed void and unenforceable. The strategy follows Heppner’s May 2026 federal fraud conviction and is a significant component of the Company’s broader effort to transform its balance sheet, simplify its capital structure, and unlock its potential. The Company continues to operate its business and pursue its long-term growth objectives while implementing the strategy. As previously disclosed, Heppner was convicted on May 7, 2026, of securities fraud, wire fraud and related charges in connection with a fraudulent scheme to enrich himself. The criminal trial revealed overwhelming evidence that Heppner fraudulently concealed his control of HCLP and fabricated the purported HCLP debt. The Company believes the conviction provides substantial support for its position that the purported HCLP debt is invalid and unenforceable. The Company further believes that Heppner’s fraud and other misconduct support substantial claims for damages and other relief, including the elimination of the Heppner Equity Interests and the termination of the Heppner Agreements. The Company is actively pursuing a consensual resolution with Heppner, with the objective of completing it before his sentencing, currently scheduled for October 21, 2026. The proposed resolution is designed to achieve a complete separation from Heppner, assist him in making restitution to other victims of his criminal conduct, and would include: ● the elimination of the contested HCLP debt, including approximately $130 million of principal and accrued interest; ● the conversion and exchange of all the Heppner Equity Interests, including preferred equity of a Company subsidiary with an aggregate liquidation preference of approximately $850 million, into an aggregate of 162,132 shares of the Company’s Class A common stock; ● the termination or voiding of all remaining contractual arrangements involving Heppner or his affiliated entities and the extinguishment, without payment, of all amounts purportedly owed under those arrangements or otherwise, totaling approximately $88 million. If completed, the resolution would eliminate substantially all of the Company’s debt; end Heppner’s ownership of the Company’s Class B common stock and his associated super-voting, board-appointment, and consent rights; and resolve the substantial dilution overhang associated with his preferred equity interests. As part of the consensual resolution, the Company would provide customary releases to Heppner and his affiliated entities. If an acceptable resolution cannot be reached with Heppner, the Company is prepared to swiftly and decisively pursue all available claims and remedies against Heppner, HCLP, and other Heppner-affiliated entities and individuals who received proceeds derived from his fraudulent conduct. The Company has cooperated fully and transparently with the government’s investigation and prosecution of Heppner and will continue to cooperate, including in connection with the forfeiture or disposition of his or his entities’ assets and efforts to provide restitution to victims. “Since the conviction, we have focused on pursuing a resolution that fully addresses Mr. Heppner’s misconduct and the harm it caused Beneficient,” said James G. Silk, Chief Executive Officer. “Our objective is a complete separation through the elimination of the purported HCLP debt and all of Mr. Heppner’s remaining equity, contractual and governance interests in the Company. We believe that outcome is both just and necessary to protect Beneficient from further harm. Achieving it would transform our balance sheet, unlock substantial value for our stockholders, and position the Company and its operations to realize its full potential.” The Company has not entered into a definitive agreement with respect to the proposed resolution, and there can be no assurance that a consensual resolution will be reached or, if litigation becomes necessary, that the Company will achieve its objectives. The Company continues to dispute the validity, enforceability, ownership, amount and value of the purported HCLP debt and all other claims and interests asserted by Heppner or his affiliated entities and will disclose material developments as appropriate. About Beneficient Beneficient (Nasdaq: BENF) – Ben, for short – is on a mission to democratize the global alternative asset investment market by providing traditionally underserved investors − mid-to-high net worth individuals, small-to-midsized institutions and General Partners seeking exit options, anchor commitments and preferred liquidity services for their funds − with solutions that could help them unlock the value in their alternative assets. Its subsidiary, Beneficient Fiduciary Financial, L.L.C., received its charter under the State of Kansas’ Technology-Enabled Fiduciary Financial Institution (TEFFI) Act and is subject to regulatory oversight by the Office of the State Bank Commissioner. For more information, visit www.trustben.com or follow us on LinkedIn . Contacts Matt Kreps: 214-597-8200, mkreps@darrowir.com Michael Wetherington: 214-284-1199, mwetherington@darrowir.com Investor Relations: investors@beneficient.com Forward Looking Statements This press release contains forward-looking statements within the meaning of the “safe harbor” provisions of the Private Securities Litigation Reform Act of 1995. Forward-looking statements include, but are not limited to, statements regarding the Company’s strategy and objectives concerning the HCLP debt and other Heppner-related interests; the Company’s ability to obtain a judgment or other binding resolution declaring the purported HCLP debt and related liens void, invalid or unenforceable; the potential conversion and exchange of Heppner-related equity interests; and the anticipated effects of these efforts on the Company’s liabilities, collateral, capital structure, financial flexibility, legacy matters and stockholders. The words “anticipate,” “believe,” “continue,” “could,” “estimate,” “expect,” “intend,” “may,” “might,” “plan,” “possible,” “potential,” “predict,” “project,” “seek,” “should,” “target,” “will,” “would” and similar expressions may identify forward-looking statements, but the absence of these words does not mean that a statement is not forward-looking. Forward-looking statements are based on management’s current expectations, beliefs, assumptions and information and are not guarantees of future performance or results. Important factors that could cause actual results to differ materially from those expressed or implied by the forward-looking statements include, among others, the outcome and timing of litigation, negotiations and other proceedings involving Heppner, HCLP and related parties; the ability to enter into a definitive agreement with respect to a proposed resolution; the outcome of any appeal or other proceeding relating to Mr. Heppner’s conviction; the risk that the Company is unable to obtain the relief it seeks or otherwise implement its strategy; disputes concerning the validity, enforceability, ownership, amount, value or conversion of the HCLP claims or other Heppner-related interests; the need for third-party or governmental actions, consents or approvals; the accounting and tax treatment of any resolution; the costs and diversion of management’s attention and resources associated with these matters; and the other risks, uncertainties and factors set forth under “Risk Factors” in the Company’s most recent Annual Report on Form 10-K and its subsequently filed Quarterly Reports on Form 10-Q and Current Reports on Form 8-K. These factors should not be construed as exhaustive and should be read together with the other cautionary statements included in this press release and the Company’s filings with the U.S. Securities and Exchange Commission. Forward-looking statements speak only as of the date they are made. The Company assumes no obligation to update or revise forward-looking statements to reflect actual results, subsequent events or circumstances, except as required by applicable law."
       }
      ]
     }
@@ -205,6 +203,7 @@
     "s3": "2024-09-24",
     "s1": "2026-07-29",
     "ventas_12m": 0,
+    "p424_12m": 9,
     "aviso_bolsa": true,
     "contrasplits_2a": 9,
     "ultimas_ventas": [],
@@ -212,7 +211,6 @@
     "toxica": true,
     "going_concern": true,
     "warrants": [
-     4.16,
      7.0,
      21.04
     ],
@@ -250,9 +248,9 @@
    },
    "tramo": "≥ 50 %",
    "puntuacion": {
-    "valor": 80,
+    "valor": 76,
     "tercio": "Alta",
-    "pred_R": 0.111,
+    "pred_R": 0.099,
     "factores": [
      {
       "clave": "gap_50_100",
@@ -299,7 +297,7 @@
      {
       "clave": "serie",
       "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
-      "activo": false,
+      "activo": true,
       "peso": -0.0118
      },
      {
@@ -311,8 +309,7 @@
     ],
     "base": -0.0395,
     "notas": [
-     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
-     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
     ]
    },
    "estad": {
@@ -356,6 +353,7 @@
     "s3": null,
     "s1": null,
     "ventas_12m": 0,
+    "p424_12m": 130,
     "aviso_bolsa": false,
     "contrasplits_2a": 12,
     "ultimas_ventas": [],
@@ -462,8 +460,7 @@
     ],
     "base": -0.0395,
     "notas": [
-     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
-     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
     ]
    },
    "estad": {
@@ -509,6 +506,7 @@
     "s3": "2026-07-06",
     "s1": "2026-07-10",
     "ventas_12m": 3,
+    "p424_12m": 5,
     "aviso_bolsa": false,
     "contrasplits_2a": 4,
     "ultimas_ventas": [
@@ -572,9 +570,9 @@
    },
    "tramo": "20-50 %",
    "puntuacion": {
-    "valor": 7,
+    "valor": 12,
     "tercio": "Baja",
-    "pred_R": -0.04,
+    "pred_R": -0.039,
     "factores": [
      {
       "clave": "gap_50_100",
@@ -633,8 +631,7 @@
     ],
     "base": -0.0395,
     "notas": [
-     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
-     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
     ]
    },
    "estad": {
@@ -678,6 +675,7 @@
     "s3": null,
     "s1": "2025-12-11",
     "ventas_12m": 0,
+    "p424_12m": 2,
     "aviso_bolsa": true,
     "contrasplits_2a": 3,
     "ultimas_ventas": [
@@ -690,18 +688,14 @@
     "atm": false,
     "toxica": true,
     "going_concern": true,
-    "warrants": [
-     0.26,
-     0.28,
-     0.78
-    ],
+    "warrants": [],
     "informe": {
      "form": "10-Q",
      "fecha": "2026-03-17",
      "url": "https://www.sec.gov/Archives/edgar/data/1892292/000121390026029204/ea0281006-10q_maison.htm"
     },
     "eloc": false,
-    "warrants_en_dinero": true
+    "warrants_en_dinero": false
    },
    "costes": {
     "locate_1c_R": 0.016
@@ -809,7 +803,11 @@
    "cierre": 2.9000000953674316,
    "R": -0.011,
    "subida_max": 0.079,
-   "caida_cierre": -0.007
+   "caida_cierre": -0.007,
+   "gap_apertura": 4.4275,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 96,
+   "tercio_apertura": "Alta"
   },
   "WHLR": {
    "apertura": 5.204999923706055,
@@ -818,7 +816,37 @@
    "cierre": 5.440000057220459,
    "R": -1.25,
    "subida_max": 0.673,
-   "caida_cierre": 0.045
+   "caida_cierre": 0.045,
+   "gap_apertura": 1.7834,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 76,
+   "tercio_apertura": "Alta"
+  },
+  "HCTI": {
+   "apertura": 1.1100000143051147,
+   "maximo": 3.1500000953674316,
+   "minimo": 0.8899999856948853,
+   "cierre": 0.9110000133514404,
+   "R": -1.25,
+   "subida_max": 1.838,
+   "caida_cierre": -0.179,
+   "gap_apertura": 0.2832,
+   "tramo_apertura": "20-50 %",
+   "puntuacion_apertura": 17,
+   "tercio_apertura": "Baja"
+  },
+  "MSS": {
+   "apertura": 2.059999942779541,
+   "maximo": 2.950000047683716,
+   "minimo": 1.809999942779541,
+   "cierre": 2.0999999046325684,
+   "R": -1.25,
+   "subida_max": 0.432,
+   "caida_cierre": 0.019,
+   "gap_apertura": 0.3205,
+   "tramo_apertura": "20-50 %",
+   "puntuacion_apertura": 12,
+   "tercio_apertura": "Baja"
   },
   "VTGN": {
    "apertura": 0.38999998569488525,
@@ -838,15 +866,6 @@
    "subida_max": 0.07,
    "caida_cierre": -0.125
   },
-  "MSS": {
-   "apertura": 2.059999942779541,
-   "maximo": 2.950000047683716,
-   "minimo": 1.809999942779541,
-   "cierre": 2.0999999046325684,
-   "R": -1.25,
-   "subida_max": 0.432,
-   "caida_cierre": 0.019
-  },
   "BFRG": {
    "apertura": 0.7820000052452087,
    "maximo": 1.0499999523162842,
@@ -855,15 +874,6 @@
    "R": -1.25,
    "subida_max": 0.343,
    "caida_cierre": 0.215
-  },
-  "HCTI": {
-   "apertura": 1.1100000143051147,
-   "maximo": 3.1500000953674316,
-   "minimo": 0.8899999856948853,
-   "cierre": 0.9110000133514404,
-   "R": -1.25,
-   "subida_max": 1.838,
-   "caida_cierre": -0.179
   }
  },
  "auditoria": {

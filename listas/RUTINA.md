@@ -8,6 +8,9 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
 ## Pasos
 1. Código: `git fetch origin claude/analisis-cuantitativo-45j7qe && git checkout -B claude/analisis-cuantitativo-45j7qe origin/claude/analisis-cuantitativo-45j7qe`.
    Si falta algún paquete: `pip install -q yfinance requests`.
+1b. Descarga de Massive (estudio de la ronda 10, aprobado): los reinicios del contenedor la matan. Si `grep -q FIN /home/user/data/massive/log.txt`
+   falla y `ps -eo args | grep -c "[p]ython3 -u 24_massive"` da 0 → `cd /home/user/data/massive && (nohup setsid bash vigilante.sh >/dev/null 2>&1 &)`.
+   (Si falta `/home/user/data/massive`, no relanzar: avisar en el mensaje final.)
 2. ¿Día hábil? `python3 -c "import sys;sys.path.insert(0,'herramientas');import lista_diaria as l,datetime as d;print(l.es_habil(d.datetime.now(l.NY).date()))"`.
    Si es `False`, terminar sin hacer nada más.
 3. Resultados de días anteriores: para cada `listas/datos/AAAA-MM-DD.json` anterior a hoy con `"resultados": null`, ejecutar

@@ -40,7 +40,7 @@
   + PMH (Yahoo 1 min), caja/quema/autonomía (XBRL, informativo, verificado a mano en CNTB) y el texto del 8-K legible en la ficha (clic en la fila).
   Descartadas ocultas con su motivo (C, R, F, S, 424B hoy, precio < $1, split). Listas 21-30 sep rehechas al formato nuevo (`version: 2`) con sus precios.
   Desde el 29-sep (pedido por el usuario): trabajo de campo completo (catalizador + munición + noticias) también para los gappers de 20-50 %,
-  con ficha completa en la pestaña 'Vigilar 20-50 %' (no entran en A/B). `escanear --corte HH:MM` rehace un día ya abierto.
+  (desde el 30-sep van en la misma tabla del screener). `escanear --corte HH:MM` rehace un día ya abierto.
   **Reparto acordado:** el Radar entrega SOLO selección (SEC, catalizador, munición, estadística de base). Sin plan de ejecución, stop ni tamaño:
   la ejecución es discrecional del usuario. El análisis de ejecución/estrategias sigue, pero en conversaciones de formación, no en la lista diaria.
   Medido en la ronda 6 (sin 8-K ≈ 0R); casos de prueba del caso "sube sin ninguna noticia" (días de prueba, revisados a mano: BTTC −1.25R, VEEE −1.25R, WHLR −1.25R, WETO +0.73R, SKYE +1.35R; GRML NO era "sin noticia": noticia de tema Groenlandia).
@@ -96,6 +96,17 @@
 18. El catalizador del gap es lo publicado desde el cierre anterior. Una financiación o noticia de ayer es munición/contexto, no el motivo:
     clasificar N (LGHL 30-sep: 6-K de la convertible del 29-sep 5:15; detectado al comparar con las posiciones de Edu; MSGY y DLXY igual).
     Control automático en `auditar` (ERROR si tipo ≠ N sin ningún documento ni noticia en la ventana).
+19. **Revisión completa del 30-sep (pedida por el usuario), errores encontrados y corregidos:** (a) puntuación en vivo hasta 4.8 puntos distinta
+    del histórico (pesos redondeados + empates) → pesos exactos en `puntuacion_pesos.json`, comprobado caso a caso: 1 222/1 222 iguales;
+    (b) 'diluidor en serie' contaba solo 424B4/5 y el histórico todas las 424B → corregido (GYGY 28-sep pasa de Alta a Media);
+    (c) el anexo EX-99 no se leía si el archivo tenía un nombre raro (CNTB 'a991.htm') → se busca por su tipo en el índice de la SEC;
+    (d) 'warrants' incluía precios de OPCIONES de empleados (CNTB $2.14, MSS, CLRO $35.33) → solo frases con 'warrant';
+    (e) antes de abrir, sin volumen premarket se usaba el volumen de AYER (rotación falsa) → solo preMarketVolume;
+    (f) tickers nuevos sin CIK (FFR = antes AIXC) → búsqueda de texto de EDGAR ("Nasdaq: FFR");
+    (g) el rendimiento en vivo se agrupaba con el gap de las 9:05 y el histórico usa el de la APERTURA (BKYI +71 % → +105 %) → resultados
+    guardan gap/tesis de la apertura; (h) el texto de la rutina automática aún pedía letras → actualizado; (i) la descarga de Massive
+    muere con cada reinicio del contenedor → paso 1b de RUTINA.md. Verificado: resultados guardados = Massive en 30/30 casos.
+
 ### Mercado y datos propios
 - Gappers >100 %: el día 1 cierra bajo su apertura el 76 %; el día 2 supera el máximo del día 1 solo el 11 %; corto apertura día 1 → cierre día 2 gana el 80 % (mediana +29 %), pero en el peor 10 % hay subidas de +117 % en contra.
 - Día típico (gap ≥50 %, velas 5 min): máximo del día antes de las 10:00 el 60 %, antes de las 11:00 el 78 %; subida mediana apertura→máximo +18 % (p90 +107 %); caída mediana desde el máximo −41 %; 72 % del volumen en la primera hora.

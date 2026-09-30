@@ -227,8 +227,8 @@ def escanear_vivo():
         if (gap >= GAP_VIGILAR or (cm and px / cm - 1 >= GAP_VIGILAR)) and px >= PRECIO_MIN:
             cand.append(dict(sym=q["symbol"], nombre=q.get("longName") or q.get("shortName") or "", precio=round(px, 4),
                              cierre_prev=prev, cierre_massive=cm, gap=round(gap, 4), cap=q.get("marketCap"),
-                             vol_pre=q.get("preMarketVolume") or q.get("regularMarketVolume"), acciones=q.get("sharesOutstanding"),
-                             bolsa=q.get("fullExchangeName"), estado=estado, split_hoy=split))
+                             vol_pre=q.get("preMarketVolume") if pre else q.get("regularMarketVolume"),   # (antes de abrir, el de ayer no vale)
+                             acciones=q.get("sharesOutstanding"), bolsa=q.get("fullExchangeName"), estado=estado, split_hoy=split))
     # 3) segunda fuente de gappers: TradingView. Lo que TradingView ve con ≥ 20 % y el escáner no, se verifica y se añade.
     TV = tradingview_premarket()
     escanear_vivo.cobertura["tradingview"] = None if TV is None else len(TV)
@@ -254,8 +254,8 @@ def escanear_vivo():
             solo_tv.append(f"{sym} +{chg:.0f} % en TradingView pero {gap:+.0%} con el cierre oficial"); continue
         cand.append(dict(sym=sym, nombre=q.get("longName") or q.get("shortName") or "", precio=round(px, 4),
                          cierre_prev=prev, cierre_massive=cm, gap=round(gap, 4), cap=q.get("marketCap"),
-                         vol_pre=q.get("preMarketVolume") or q.get("regularMarketVolume"), acciones=q.get("sharesOutstanding"),
-                         bolsa=q.get("fullExchangeName"), estado=q.get("marketState"), fuente="TradingView"))
+                         vol_pre=q.get("preMarketVolume") if q.get("marketState") in ("PRE", "PREPRE") else q.get("regularMarketVolume"),
+                         acciones=q.get("sharesOutstanding"), bolsa=q.get("fullExchangeName"), estado=q.get("marketState"), fuente="TradingView"))
         solo_tv.append(f"{sym} +{gap:.0%}: AÑADIDA (solo la veía TradingView; revisar por qué Yahoo no)")
     escanear_vivo.cobertura["solo_tradingview"] = solo_tv
     return cand
@@ -288,7 +288,24 @@ def cik_de(sym):
     global _TK
     if _TK is None:
         _TK = {v["ticker"].upper(): (v["cik_str"], v["title"]) for v in (get("https://www.sec.gov/files/company_tickers.json", sec=True, js=True) or {}).values()}
-    return _TK.get(sym.upper().replace("-", "."), _TK.get(sym.upper(), (None, None)))
+    r = _TK.get(sym.upper().replace("-", "."), _TK.get(sym.upper(), (None, None)))
+    if r[0] is None:            # 30-sep (FFR = AIXC con ticker nuevo ese día): búsqueda de texto de EDGAR ("Nasdaq: FFR" en su 8-K)
+        hoy = dt.date.today()
+        for bolsa in ("Nasdaq", "NASDAQ", "NYSE American", "NYSE"):
+            q = urllib.parse.quote(f'"{bolsa}: {sym.upper()}"')
+            d = get(f"https://efts.sec.gov/LATEST/search-index?q={q}&startdt={hoy - dt.timedelta(days=120)}&enddt={hoy}", sec=True, js=True) or {}
+            ciks = {c for h in d.get("hits", {}).get("hits", []) for c in h["_source"].get("ciks", [])}
+            if len(ciks) == 1:
+                r = (int(ciks.pop()), None); break
+    if r[0] is None:            # segunda opción: Massive
+        try:
+            import requests
+            d = requests.get(f"https://api.polygon.io/v3/reference/tickers/{sym}", timeout=(10, 30)).json().get("results") or {}
+            if d.get("cik"):
+                r = (int(d["cik"]), d.get("name"))
+        except Exception:
+            pass
+    return r
 
 
 def presentaciones(cik):
@@ -311,7 +328,15 @@ def presentaciones(cik):
 def texto_catalizador(cik, p):
     idx = get(f"https://www.sec.gov/Archives/edgar/data/{cik}/{p['acc']}/index.json", sec=True, js=True) or {}
     docs = [i["name"] for i in idx.get("directory", {}).get("item", []) if i["name"].lower().endswith((".htm", ".html", ".txt"))]
-    ex = [n for n in docs if re.search(r"ex[-_]?99|ex991|exhibit99|dex99", n.lower())]
+    # 30-sep: el anexo se busca por su TIPO (EX-99.x) en la página índice; por el nombre se perdía (CNTB: 'a991.htm')
+    acc_g = f"{p['acc'][:10]}-{p['acc'][10:12]}-{p['acc'][12:]}"
+    ih = get(f"https://www.sec.gov/Archives/edgar/data/{cik}/{p['acc']}/{acc_g}-index.html", sec=True) or ""
+    ex = []
+    for fila in re.findall(r"(?is)<tr[^>]*>(.*?)</tr>", ih):
+        a = re.search(r'href="[^"]*/([^"/]+\.html?)"', fila); tp = re.findall(r"<td[^>]*>\s*([^<]*?)\s*</td>", fila)
+        if a and any(x.upper().startswith("EX-99") for x in tp):
+            ex.append(a.group(1))
+    ex = [n for n in ex if n in docs] or [n for n in docs if re.search(r"ex[-_]?99|ex991|exhibit99|dex99|(^|[^0-9])a?99[1-9]?\.htm", n.lower())]
     partes = []
     for n in (ex[:2] or [p["doc"]]):
         t = get(f"https://www.sec.gov/Archives/edgar/data/{cik}/{p['acc']}/{n}", sec=True)
@@ -343,7 +368,12 @@ def municion(cik, pres, desde, sym, precio):
         m["eloc"] = bool(re.search(r"equity line|equity purchase agreement|standby equity|purchase agreement with (lincoln park|yorkville|ya ii)", t, re.I))
         m["toxica"] = bool(re.search(r"not determinable|variable conversion|% of the (average of the )?(three |five )?lowest|lowest (daily )?(vwap|trading price)", t, re.I))
         m["going_concern"] = bool(re.search(r"substantial doubt", t, re.I))
-        ej = sorted({round(float(x), 2) for x in re.findall(r"exercise price[^$.]{0,60}\$\s?([0-9]+(?:\.[0-9]+)?)", t, re.I) if 0.01 < float(x) < 10000})
+        ej = set()
+        for mm in re.finditer(r"exercise price[^$.]{0,60}\$\s?([0-9]+(?:\.[0-9]+)?)", t, re.I):
+            antes = t[max(0, mm.start() - 250):mm.start()].lower()     # 30-sep: CNTB $2.14 era el precio medio de OPCIONES
+            if "warrant" in antes and antes.rfind("warrant") > antes.rfind("option") and 0.01 < float(mm.group(1)) < 10000:
+                ej.add(round(float(mm.group(1)), 2))
+        ej = sorted(ej)
         m["warrants"] = ej[:8]
         m["warrants_en_dinero"] = bool(precio and any(e < precio for e in ej))   # ojo: sin ajustar por contra-splits posteriores
     return m
@@ -526,7 +556,7 @@ def puntuar(c, cl):
     global _PESOS
     if _PESOS is None:
         _PESOS = json.load(open(PESOS_F))
-    w, ref = _PESOS["pesos"], _PESOS["ref_dev"]
+    w, ref = _PESOS.get("pesos_exactos") or _PESOS["pesos"], _PESOS["ref_dev"]   # exactos: sin redondeo, como en el histórico
     t, g, m = cl.get("tipo", "N"), c["gap"], c.get("municion") or {}
     k8 = [d for d in c.get("docs_hoy", []) if d["form"] in ("8-K", "8-K/A")]      # como en el histórico: solo 8-K (un 6-K cuenta como 'sin 8-K')
     its = [i.strip() for d in k8 for i in (d.get("items") or "").split(",")]
@@ -535,8 +565,11 @@ def puntuar(c, cl):
              venta90=bool(m.get("venta90")), s3=bool(m.get("s3")), serie=serie >= 3,
              solo_pr=bool(k8) and all(i in ("7.01", "8.01", "9.01", "") for i in its))
     pred = w["constante"] + sum(w[k] for k, v in f.items() if v)
-    valor = round(sum(1 for r in ref if r <= pred + 1e-12) / len(ref) * 100)
-    tercio = "Alta" if valor > 200 / 3 else "Media" if valor > 100 / 3 else "Baja"
+    # pesos exactos (30-sep): con los redondeados a 4 decimales la puntuación salía hasta 4.8 puntos por debajo del histórico en 268 de
+    # 1 222 casos, porque los empates (combinaciones iguales de factores) no contaban enteros. Comprobado contra res_27_puntuacion.csv
+    pct = sum(1 for r in ref if r <= pred + 1e-9) / len(ref) * 100
+    valor = round(pct)
+    tercio = "Alta" if pct > 200 / 3 else "Media" if pct > 100 / 3 else "Baja"
     notas = []
     if t == "N":
         notas.append("Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'")
@@ -545,8 +578,8 @@ def puntuar(c, cl):
     if "p424_12m" not in m:
         notas.append("Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)")
     return dict(valor=valor, tercio=tercio, pred_R=round(pred, 3),
-                factores=[dict(clave=k, nombre=n, activo=bool(f[k]), peso=w[k]) for k, n in FACTORES],
-                base=w["constante"], notas=notas)
+                factores=[dict(clave=k, nombre=n, activo=bool(f[k]), peso=round(w[k], 4)) for k, n in FACTORES],
+                base=round(w["constante"], 4), notas=notas)
 
 
 def riesgo_estructural(c, m):
@@ -725,6 +758,13 @@ def resultados(fecha):
             R = -((stop * (1 + DESL) - o) / o + COSTE) / STOP if hi >= stop else ((o - cl) / o - COSTE) / STOP
             res[x["sym"]] = dict(apertura=o, maximo=hi, minimo=lo, cierre=cl, R=round(R, 3), subida_max=round(hi / o - 1, 3),
                                  caida_cierre=round(cl / o - 1, 3))
+            # 30-sep: el histórico se midió con el gap de la APERTURA (la lista usa el del premarket, p. ej. BKYI 29-sep: +71 % a las
+            # 9:05 y +105 % a la apertura) → para comparar en vivo, puntuación y tramo también con la apertura
+            if x.get("puntuacion") and x.get("cierre_prev"):
+                g = o / x["cierre_prev"] - 1
+                p = puntuar(dict(x, gap=g), x.get("clasif") or {})
+                res[x["sym"]].update(gap_apertura=round(g, 4), tramo_apertura="≥ 50 %" if g >= GAP_LISTA else "20-50 %",
+                                     puntuacion_apertura=p["valor"], tercio_apertura=p["tercio"])
         except Exception as e:
             print(x["sym"], e)
     L["resultados"] = res

@@ -34,7 +34,7 @@
    },
    "tramo": "≥ 50 %",
    "puntuacion": {
-    "valor": 38,
+    "valor": 40,
     "tercio": "Media",
     "pred_R": 0.048,
     "factores": [
@@ -94,9 +94,7 @@
      }
     ],
     "base": -0.0395,
-    "notas": [
-     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
-    ]
+    "notas": []
    },
    "estad": {
     "n": 77,
@@ -148,6 +146,7 @@
     "s3": null,
     "s1": "2025-11-21",
     "ventas_12m": 0,
+    "p424_12m": 1,
     "aviso_bolsa": true,
     "contrasplits_2a": 1,
     "ultimas_ventas": [
@@ -223,9 +222,9 @@
    },
    "tramo": "20-50 %",
    "puntuacion": {
-    "valor": 7,
+    "valor": 12,
     "tercio": "Baja",
-    "pred_R": -0.04,
+    "pred_R": -0.039,
     "factores": [
      {
       "clave": "gap_50_100",
@@ -284,8 +283,7 @@
     ],
     "base": -0.0395,
     "notas": [
-     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'",
-     "Diluidor en serie contado solo con 424B4/424B5 (lista generada antes del 30-sep)"
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
     ]
    },
    "estad": {
@@ -331,6 +329,7 @@
     "s3": null,
     "s1": null,
     "ventas_12m": 0,
+    "p424_12m": 0,
     "aviso_bolsa": false,
     "contrasplits_2a": 0,
     "ultimas_ventas": [
@@ -437,7 +436,24 @@
    "cierre": 3.119999885559082,
    "R": -1.25,
    "subida_max": 0.383,
-   "caida_cierre": -0.074
+   "caida_cierre": -0.074,
+   "gap_apertura": 1.006,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 90,
+   "tercio_apertura": "Alta"
+  },
+  "MSGY": {
+   "apertura": 3.940000057220459,
+   "maximo": 4.769999980926514,
+   "minimo": 3.200000047683716,
+   "cierre": 4.440000057220459,
+   "R": -0.456,
+   "subida_max": 0.211,
+   "caida_cierre": 0.127,
+   "gap_apertura": 0.2588,
+   "tramo_apertura": "20-50 %",
+   "puntuacion_apertura": 12,
+   "tercio_apertura": "Baja"
   },
   "SSTI": {
    "apertura": 8.300000190734863,
@@ -456,15 +472,6 @@
    "R": -0.02,
    "subida_max": 0.022,
    "caida_cierre": -0.004
-  },
-  "MSGY": {
-   "apertura": 3.940000057220459,
-   "maximo": 4.769999980926514,
-   "minimo": 3.200000047683716,
-   "cierre": 4.440000057220459,
-   "R": -0.456,
-   "subida_max": 0.211,
-   "caida_cierre": 0.127
   }
  },
  "auditoria": {
