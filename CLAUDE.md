@@ -142,6 +142,13 @@
 - **Ronda 11 (29-sep, caso BKYI; `smallcaps/26_avisos_acciones_municion.py`):** < 5 M acciones y 'sin munición' (sin 424B 90 d ni S-3) NO validados como filtro
   (signos opuestos DEV/VAL; las dos juntas DEV +0.48R / VAL −0.40R, n 36/50). Añadidos al Radar como avisos informativos sin tocar el nivel
   (acciones = sharesOutstanding de Yahoo; 'sin munición' no se muestra si el catalizador es F o C).
+- **Ronda 12 (30-sep, `smallcaps/27_puntuacion_tesis.py`): PUNTUACIÓN GLOBAL DE LA TESIS VALIDADA.** Pesos de DEV (gap ≥100 %, humo, biotech,
+  contrato, 424B 90 d, solo nota; S-3 y serie ≈ 0) → VAL: tercio alto +0.15R PF 1.53, bajo −0.07R PF 0.81 (t 2.97, Spearman p 0.003);
+  en gap ≥ 50 % tercio alto +0.26R PF 1.86. Pesos en `smallcaps/puntuacion_pesos.json`.
+- **Decisiones del usuario (30-sep):** fuera las letras A/B/Vigilar/NO/Nunca. El Radar pasa a ser un SCREENER profesional: solo las acciones que
+  pasan el filtro de campo (descartadas guardadas pero ocultas: compra en efectivo, resultados, financiación del día, avisos de bolsa, < $1),
+  ordenadas por puntuación 0-100 (gap = un factor más) + riesgo estructural aparte (acciones, locate, < $1, rotación) que limita el tamaño;
+  ficha al hacer clic con todo el detalle y documentos legibles. Sesgo por defecto bajista; la ejecución es del usuario.
 - Conclusión: la ventaja debe venir de selección (catalizador + munición activa) + ejecución fina en 1-5 min + gestión del riesgo; se medirá con el diario de operaciones del usuario y, si hace falta, datos de 1 min de pago con deslistadas.
 
 ## Mapa del repositorio

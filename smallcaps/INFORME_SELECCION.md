@@ -280,3 +280,18 @@ Gap ≥ 50 %, precio real ≥ $1, setup base (corto apertura, stop 30 %, cierre)
 | Las dos juntas | 36 · +0.48 · 75 % · 2.54 | 50 · −0.40 · 40 % · 0.36 |
 Holm: ninguna validada (HX2 VAL t −1.51, HX1 −0.51; en DEV el signo es el contrario). Dentro del humo tampoco empeoran.
 Decisión (pre-registrada): se muestran como AVISOS informativos en la ficha, sin cambiar el nivel.
+
+## Ronda 12 — puntuación global de la tesis (30-sep-2026, `27_puntuacion_tesis.py`; pesos en `puntuacion_pesos.json`)
+Universo: 1 222 catalizadores clasificados a mano, gap ≥ 20 %, precio ≥ $1, sin C/R/F/S. Pesos de DEV 2015-21 (regresión lineal de R):
+gap ≥ 100 % +0.10 · gap 50-100 % +0.01 · humo +0.08 · biotech +0.13 · contrato +0.14 · venta 424B 90 d +0.05 · 8-K solo nota +0.03 ·
+S-3 −0.02 · diluidor en serie −0.01 (base: otros catalizadores, gap 20-50 %).
+| Tercio de puntuación | DEV 2015-21: n · R · WR · PF | VAL 2022-26: n · R · WR · Gan · Pérd · PF |
+|---|---|---|
+| Alto | 168 · +0.16 · 72 % · 1.71 | 250 · **+0.15** · 64 % · +0.70 · −0.81 · **1.53** |
+| Medio | 176 · +0.01 · 65 % · 1.04 | 214 · +0.01 · 60 % · +0.59 · −0.87 · 1.01 |
+| Bajo | 157 · +0.01 · 62 % · 1.03 | 257 · −0.07 · 54 % · +0.52 · −0.76 · 0.81 |
+Dentro de gap ≥ 50 %: tercio alto VAL **+0.26R**, WR 69 %, PF 1.86 (n 160); bajo −0.11R, PF 0.74.
+**HS1 validada** (Spearman VAL ρ 0.11, p 0.003) · **HS2 validada** (alto − bajo VAL +0.22R, t 2.97).
+Cautelas: (1) los pesos de biotech y contrato vienen de 2015-21, cuando funcionaban; en 2022-26 esos grupos dan ≈ 0R por separado → vigilar;
+(2) algunos factores se eligieron en rondas anteriores que ya miraron 2022-26 (humo, 424B), así que VAL no es del todo virgen;
+(3) mide el setup base (corto a la apertura), no tu ejecución. Siguiente validación: en vivo, cada día.
