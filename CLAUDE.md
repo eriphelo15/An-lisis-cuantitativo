@@ -197,6 +197,9 @@
   de la colocación = peor para el corto (VAL t −2.83 con la puntuación como control, n 45). No se usa sin pre-registro nuevo.
   **Error de datos encontrado:** Yahoo omite contra-splits en su lista de eventos (CRIS 1:20 29-sep-2023, SVRE ADS 1:13.33); el "precio real"
   de la ronda 5 acierta en el 94 % de casos recientes (R no cambia). Radar: `splits_de` une Yahoo + Massive (caso de oro 23).
+  **Comprobación (decidida por Claude, el usuario delegó el criterio):** rondas 5/11/12 con precio corregido (`29_sensibilidad_precio.py`):
+  mejor estimación (precio exacto de Massive si existe; si no, Yahoo, que acierta más cuando discrepan) = mismos resultados (tesis alta + gap
+  ≥ 50 % VAL +0.26R PF 1.86; pesos sin cambios). Margen por precios dudosos (1 288 de 8 604): +0.15R a +0.26R (PF 1.43-1.86). Ronda 11 igual.
 - **Decisiones del usuario (30-sep):** fuera las letras A/B/Vigilar/NO/Nunca. El Radar pasa a ser un SCREENER profesional: solo las acciones que
   pasan el filtro de campo (descartadas guardadas pero ocultas: compra en efectivo, resultados, financiación del día, avisos de bolsa, < $1),
   ordenadas por puntuación 0-100 (gap = un factor más) + riesgo estructural aparte (acciones, locate, < $1, rotación) que limita el tamaño;

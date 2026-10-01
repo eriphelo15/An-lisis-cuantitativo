@@ -324,3 +324,17 @@ usarlo haría falta un pre-registro nuevo. Colocaciones privadas (8-K 3.02) no m
 **Hallazgo de datos:** la lista de splits de Yahoo omite contra-splits que sí aplica a sus precios (CRIS 1:20 29-sep-2023; SVRE ADS 1:13.33
 21-feb-2025). El "precio real" de la ronda 5 acierta ±3 % en el 94 % de 2 313 casos recientes comprobados con Massive sin ajustar. El R no
 cambia; sí el filtro de precio ≥ $1 en ~6 % de casos. Corregido en el Radar (`splits_de` une Yahoo + Massive; caso de oro 23).
+
+## Comprobación de precios (1-oct-2026, `29_sensibilidad_precio.py`): ¿cambian las rondas 5, 11 y 12 con el precio real corregido?
+8 604 casos: precio exacto conocido (apertura sin ajustar de Massive, oct-24 en adelante) en 2 313; Yahoo y Massive coinciden ±3 % en 7 133;
+dudosos (no coinciden y sin precio exacto) 1 288. Con precio exacto: Yahoo acierta 94 %, Massive 93 %; cuando NO coinciden, acierta Yahoo
+99 veces, Massive 75, ninguno 9 → mejor estimación = precio exacto si existe; si no, Yahoo.
+| Variante | Ronda 12 VAL: Spearman p · alto − bajo (t) | Tesis alta + gap ≥ 50 % (VAL): n · R · PF | Humo gap ≥ 50 % VAL: ≥ $1 · < $1 |
+|---|---|---|---|
+| Original | 0.003 · +0.22R (2.97) | 160 · +0.26R · 1.86 | +0.21R · +0.26R |
+| **Mejor estimación (exacto; dudosos = Yahoo)** | **0.003 · +0.21R (2.90)** | **166 · +0.26R · 1.86** | +0.18R · +0.34R |
+| Dudosos = Massive | 0.007 · +0.15R (2.00) | 176 · +0.20R · 1.59 | +0.14R · +0.49R |
+| Dudosos fuera | 0.021 · +0.12R (1.61) | 224 · +0.15R · 1.43 | +0.18R · +0.38R |
+Conclusión: con la mejor estimación nada cambia (pesos de la ronda 12 se mantienen). La puntuación ordena en las 4 variantes; la cifra de la
+tesis alta + gap ≥ 50 % tiene un margen de incertidumbre por precios de +0.15R a +0.26R (PF 1.43-1.86). Ronda 11 con precios corregidos:
+sigue sin validarse (HX1 t −0.45, HX2 t −1.69). En vivo el Radar usa precios reales del día: no le afecta.
