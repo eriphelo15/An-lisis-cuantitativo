@@ -261,7 +261,14 @@ Comprobación con los casos medidos antes con Yahoo: BENF −0.09R (igual), LHSW
 | VAL oct-25 → sep-26 | 517 | **−0.06** | −1.13 | 35 % | +2.59 | −1.51 | 0.93 | −0.6 | −0.18 |
 Con coste 1 %: −0.04R / −0.17R. Por tramo: 50-100 % +0.03 / −0.19R; ≥ 100 % +0.11 / +0.14R (t < 1). Humo (etiqueta 2b, n 60): −0.10R.
 Los stops cuestan de media −1.61R (salir al cierre de una vela sobre la apertura sobrepasa el nivel); las salidas a las 11:30, +2.22R.
-**Holm: HB1 no validada** (VAL t −0.57). HB2 pendiente (faltan los 20-50 %, en descarga).
+**Holm: HB1 no validada** (VAL t −0.57).
+**HB2 — PARCIAL (1-oct, 61 % de los 20-50 % descargados; la descarga va por dic-2025, así que en VAL solo hay oct-dic 2025):**
+| Gap 20-50 %, precio ≥ $1 | Operaciones | R | WR | Gan. media | Pérd. media | PF | t | $ (a $20/R) |
+|---|---|---|---|---|---|---|---|---|
+| DEV oct-24 → sep-25 | 1 090 | **−0.27** | 33 % | +2.01 | −1.39 | 0.71 | −4.4 | −$5 899 |
+| VAL oct-25 → dic-25 (parcial) | 265 | **−0.41** | 29 % | +1.97 | −1.39 | 0.58 | −3.3 | −$2 175 |
+Diferencia ≥ 50 % menos 20-50 %: DEV +0.33R; VAL t 2.04 (p 0.042) → aún NO pasa Holm (necesita p < 0.025 al ser la 2.ª de 3).
+Lectura: en gaps de 20-50 % la regla pierde claramente (coincide con el seguimiento en vivo: 17 op. −0.66R). Cerrar cuando termine la descarga.
 **HB3 mal planteada en el pre-registro (error mío):** la referencia se midió solo en los días en que la regla entró (días que ya rompieron el mínimo
 = días que caen) → sesgo a favor de la referencia (+0.20R / +0.13R). Medida en TODOS los días de gap ≥ 50 %: corto a la apertura, stop +30 %,
 salida 11:30 = +0.055R (DEV, PF 1.16) / −0.017R (VAL, PF 0.95). La regla contando los días sin ruptura como 0: +0.05R / −0.06R. Ambas ≈ 0R.

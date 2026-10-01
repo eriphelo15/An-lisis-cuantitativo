@@ -44,7 +44,7 @@
   + PMH (Yahoo 1 min), caja/quema/autonomía (XBRL, informativo, verificado a mano en CNTB) y el texto del 8-K legible en la ficha (clic en la fila).
   Descartadas ocultas con su motivo (C, R, F, S, 424B hoy, precio < $1, split). Listas 21-30 sep rehechas al formato nuevo (`version: 2`) con sus precios.
   Desde el 29-sep (pedido por el usuario): trabajo de campo completo (catalizador + munición + noticias) también para los gappers de 20-50 %,
-  (desde el 30-sep van en la misma tabla del screener). `escanear --corte HH:MM` rehace un día ya abierto.
+  (desde el 30-sep van en la misma tabla del screener). `escanear --corte HH:MM` rehace un día ya abierto; `finalizar --sin_actualizar` rehace una lista publicada conservando sus precios, gap y premarket (corregido 1-oct: antes los cambiaba; caso de oro 22).
   **Reparto acordado:** el Radar entrega SOLO selección (SEC, catalizador, munición, estadística de base). Sin plan de ejecución, stop ni tamaño:
   la ejecución es discrecional del usuario. El análisis de ejecución/estrategias sigue, pero en conversaciones de formación, no en la lista diaria.
   Medido en la ronda 6 (sin 8-K ≈ 0R); casos de prueba del caso "sube sin ninguna noticia" (días de prueba, revisados a mano: BTTC −1.25R, VEEE −1.25R, WHLR −1.25R, WETO +0.73R, SKYE +1.35R; GRML NO era "sin noticia": noticia de tema Groenlandia).
@@ -174,6 +174,8 @@
   **Ronda 10 (backtest con Massive, 29-sep, `smallcaps/25_ruptura_massive.py`):** 2 años, 1 121 operaciones en gap ≥ 50 % (≥ $1, con deslistadas):
   DEV +0.06R / VAL −0.06R (WR 40/35 %, PF 1.07/0.93, stops medios −1.61R) → NO validada. ≥ 100 %: +0.11/+0.14R (t < 1). Corto a la apertura
   (stop 30 %, fuera 11:30) en todos los días: +0.055/−0.017R. Días que no rompen el mínimo de las 9:30 (~13 %): el corto a la apertura pierde ~−1R.
+  HB2 parcial (1-oct, 61 % de los 20-50 %): la regla en gap 20-50 % pierde: DEV −0.27R (1 090 op., WR 33 %, PF 0.71) / VAL parcial −0.41R
+  (265, PF 0.58); diferencia con ≥ 50 % VAL t 2.04, aún no pasa Holm. Repetir al terminar la descarga.
   Error propio corregido: comparar con la referencia solo en los días con entrada sesga a favor de la referencia.
   **Credencial de Massive** guardada en el entorno (API credentials, api.polygon.io y api.massive.com; funciona en esta sesión). Plan gratis:
   1 min sin ajustar desde 29-sep-2024, 5 consultas/min. Datos en /home/user/data/massive (se regeneran con `24_massive_descarga.py`).

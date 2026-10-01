@@ -938,7 +938,7 @@
     "fuentes_abiertas": "Finviz (tabla de noticias) + Yahoo + EDGAR revisados a mano 1-oct 8:30",
     "tipo_es": "Resultados"
    },
-   "motivo": "Resultados trimestrales: históricamente malo para el corto (PF 0.61)",
+   "motivo": "Resultados o cifras de ventas (trimestrales, anuales o preliminares): históricamente malo para el corto (PF 0.61)",
    "docs_hoy": []
   },
   {
@@ -1034,5 +1034,6 @@
    "solo_tradingview": []
   },
   "forzada": false
- }
+ },
+ "rehecho": "2026-10-01 15:38"
 }

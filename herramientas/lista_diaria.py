@@ -788,7 +788,7 @@ ESTAD_TERCIO = {
     ("20-50 %", "Baja"): dict(n=183, R=-0.05, WR=0.54, gan=0.48, perd=-0.67, PF=0.85, dev=0.04),
 }
 DESCARTE = {"C": "Compra en efectivo: el precio queda anclado a la oferta (PF histórico 0.23). No se shortea nunca",
-            "R": "Resultados trimestrales: históricamente malo para el corto (PF 0.61)",
+            "R": "Resultados o cifras de ventas (trimestrales, anuales o preliminares): históricamente malo para el corto (PF 0.61)",
             "F": "Financiación: históricamente malo para el corto (PF 0.72)",
             "S": "Aviso de bolsa / corporativo: históricamente malo para el corto (PF 0.64)"}
 _PESOS = None
@@ -925,6 +925,18 @@ def finalizar(fecha, replay, forzar=False, sin_actualizar=False):
                     c["vol_pre"] = x["preMarketVolume"]
         except Exception as e:
             print("sin actualizar precios:", e)
+    prev = {}
+    if sin_actualizar and os.path.exists(ruta(fecha)):
+        # 1-oct-2026: rehacer una lista publicada debe conservar SUS precios, gap y premarket (antes se tomaban los del escaneo y el
+        # premarket se recalculaba a la hora del rehecho: VEEA pasó de gap 56 % a 44 % y perdió su tramo)
+        L0 = json.load(open(ruta(fecha)))
+        prev = {x["sym"]: x for x in L0.get("acciones", []) + L0.get("descartadas", [])}
+        for c in C["candidatos"]:
+            p0 = prev.get(c["sym"])
+            if p0:
+                c["precio"], c["gap"] = p0["precio"], p0["gap"]
+                if p0.get("vol_pre") is not None:
+                    c["vol_pre"] = p0["vol_pre"]
     err, av = auditar(C, CL, replay)
     for e in err:
         print("ERROR:", e)
@@ -955,7 +967,7 @@ def finalizar(fecha, replay, forzar=False, sin_actualizar=False):
             avisos.append("Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)")
         if m.get("toxica"):
             avisos.append("Convertible de precio variable (tóxica) en el último informe: munición continua")
-        pm = premarket_1m(y.s, c["sym"], fecha) if y else {}
+        pm = prev[c["sym"]].get("premarket", {}) if c["sym"] in prev else (premarket_1m(y.s, c["sym"], fecha) if y else {})
         cat = []
         for k in c.get("catalizadores", []):
             partes = []
@@ -996,6 +1008,8 @@ def finalizar(fecha, replay, forzar=False, sin_actualizar=False):
                version=2, reglas=dict(gap_minimo=GAP_VIGILAR, stop=STOP, deslizamiento=DESL, coste=COSTE, riesgo_accion=RIESGO_ACCION),
                acciones=acciones, descartadas=descartadas, resultados=None,
                auditoria=dict(errores=err, avisos=av, cobertura=C.get("cobertura"), forzada=bool(err and forzar)))
+    if prev:      # rehecha: se conserva la hora de publicación original y se anota la del rehecho
+        out["rehecho"], out["generado"] = out["generado"], L0.get("generado", out["generado"])
     json.dump(out, open(ruta(fecha), "w"), ensure_ascii=False, indent=1, default=str)
     print("→", ruta(fecha), "|", ", ".join(f"{x['sym']}:{x['puntuacion']['valor']}({x['riesgo']['nivel']})" for x in acciones),
           "| descartadas:", ", ".join(x["sym"] for x in descartadas))

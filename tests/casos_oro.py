@@ -216,6 +216,30 @@ def _():
         assert s in U, s
 
 
+@caso("Rehacer una lista publicada (--sin_actualizar) conserva sus precios, gap y premarket (VEEA 1-oct pasaba de 56 % a 44 %)")
+def _():
+    import shutil, tempfile
+    tmp, antes = tempfile.mkdtemp(), l.DATOS
+    for suf in ("", "_candidatos", "_clasif", "_verificacion"):
+        src = os.path.join(antes, f"2026-10-01{suf}.json")
+        if os.path.exists(src):
+            shutil.copy(src, tmp)
+    L0 = json.load(open(os.path.join(tmp, "2026-10-01.json")))
+    try:
+        l.DATOS = tmp
+        l.finalizar("2026-10-01", False, sin_actualizar=True)
+    finally:
+        l.DATOS = antes
+    L1 = json.load(open(os.path.join(tmp, "2026-10-01.json")))
+    a = {x["sym"]: x for x in L0["acciones"] + L0["descartadas"]}
+    b = {x["sym"]: x for x in L1["acciones"] + L1["descartadas"]}
+    assert set(a) == set(b) and {x["sym"] for x in L0["acciones"]} == {x["sym"] for x in L1["acciones"]}, (sorted(a), sorted(b))
+    for s_ in a:
+        for k in ("precio", "gap", "premarket"):
+            assert a[s_].get(k) == b[s_].get(k), (s_, k, a[s_].get(k), b[s_].get(k))
+    assert L1["generado"] == L0["generado"] and L1.get("rehecho"), (L0["generado"], L1["generado"])
+
+
 if __name__ == "__main__":
     rapidas = "--rapidas" in sys.argv
     fallos = 0
