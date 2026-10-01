@@ -333,6 +333,25 @@ def _():
         assert len(x) == 1 and abs(x.precio_T.iloc[0] / v - 1) < 0.01, (s_, x.to_dict("records"))
 
 
+@caso("Registro de pasos del trabajo de criterio: la auditoría bloquea si falta algo o si hay fuentes/anexos sin leer (desde el 2-oct)", red=False)
+def _():
+    C = json.load(open(os.path.join(l.DATOS, "2026-10-01_candidatos.json")))
+    CL = json.load(open(os.path.join(l.DATOS, "2026-10-01_clasif.json")))
+    C = dict(C, fecha="2026-10-02")                                   # mismas acciones, como si fuera un día con la regla activa
+    err, _a = l.auditar(C, CL, False)
+    assert sum("pasos." in e for e in err) >= len(C["candidatos"]), err   # sin pasos → bloquea cada acción
+    c = next(x for x in C["candidatos"] if x["sym"] == "VEEA")
+    partes = sum(len(k.get("partes", [])) for k in c.get("catalizadores", []))
+    bien = dict(fuentes=["x"] * (len(c.get("catalizadores", [])) + len(c.get("noticias", []))), anexos_leidos=partes,
+                negativos="ninguno, revisado", historial="14-sep fusión potencial −x %", municion="ATM Roth, ELOC", caja="agotada")
+    assert l.revisar_pasos(c, dict(pasos=bien)) == []
+    assert l.revisar_pasos(c, dict(pasos=dict(bien, fuentes=[]))), "fuentes vacías debe fallar"
+    if partes:
+        assert l.revisar_pasos(c, dict(pasos=dict(bien, anexos_leidos=partes - 1))), "un anexo sin leer debe fallar"
+    if c.get("historial"):
+        assert l.revisar_pasos(c, dict(pasos=dict(bien, historial="sin historial"))), "historial ignorado debe fallar"
+
+
 if __name__ == "__main__":
     rapidas = "--rapidas" in sys.argv
     fallos = 0

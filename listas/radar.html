@@ -427,6 +427,7 @@ function ficha(x,L){
       ${quote}
       ${cl.cifra?`<div class="cifra">Cifra: <b>${esc(cl.cifra)}</b></div>`:""}
       ${cl.nota?`<div class="note">${esc(cl.nota)}</div>`:""}
+      ${cl.pasos?`<div class="fuente"><b>Pasos comprobados</b> · fuentes abiertas: ${esc((Array.isArray(cl.pasos.fuentes)?cl.pasos.fuentes:[cl.pasos.fuentes]).join(" · "))} · anexos leídos: ${esc(cl.pasos.anexos_leidos)} · negativos: ${esc(cl.pasos.negativos)} · historial: ${esc(cl.pasos.historial)} · munición: ${esc(cl.pasos.municion)} · caja: ${esc(cl.pasos.caja)}</div>`:""}
       ${news?`<div class="src">${news}</div>`:""}
       ${docs||`<div class="note" style="margin-top:8px">Sin 8-K ni 6-K desde el cierre anterior.</div>`}
       ${otros?`<div class="src"><span class="dim">Otros documentos de hoy</span>${otros}</div>`:""}

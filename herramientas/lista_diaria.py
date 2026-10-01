@@ -812,7 +812,40 @@ def auditar(C, CL, replay):
                 av.append(f"{s}: en los últimos 120 días hubo un catalizador con caída de {peor:+.0%} (ver historial en la ficha)")
         if t == "N" and not replay and not cl.get("fuentes_abiertas"):
             av.append(f"{s}: sin ninguna noticia; confirmar a mano en Finviz/Yahoo")
+        if not replay and C.get("fecha", "") >= PASOS_DESDE:
+            err += [f"{s}: {e}" for e in revisar_pasos(c, cl)]
     return err, av
+
+
+# 1-oct-2026 (pedido por el usuario): registro de pasos del trabajo de criterio, comprobado como el automático. Cada acción del
+# escaneo lleva en _clasif.json "pasos" = qué se abrió y revisó; `finalizar` bloquea la lista si falta algo (desde el 2-oct).
+PASOS_DESDE = "2026-10-02"
+PASOS = {"fuentes": "lista de lo abierto y leído (cada 8-K/6-K con su hora y cada titular de noticias)",
+         "anexos_leidos": "número de anexos/partes leídos (EX-99.1, EX-99.2…)",
+         "negativos": "lo que NO dice el titular (objetivos fallidos, 'up to', no vinculante…) o 'ninguno, revisado'",
+         "historial": "catalizadores de los 120 días y cómo reaccionó el precio, o 'sin historial'",
+         "municion": "shelves/ATM/reventas/ELOC/424B/warrants revisados en la ficha (resumen)",
+         "caja": "caja a hoy y going concern revisados (resumen)"}
+
+
+def revisar_pasos(c, cl):
+    p = cl.get("pasos") or {}
+    e = [f"falta 'pasos.{k}' ({v})" for k, v in PASOS.items() if p.get(k) in (None, "", [])]
+    if e:
+        return e
+    docs = len(c.get("catalizadores", [])); notis = len(c.get("noticias", []))
+    partes = sum(len(k.get("partes", [])) for k in c.get("catalizadores", []))
+    fu = p["fuentes"] if isinstance(p["fuentes"], list) else [p["fuentes"]]
+    if len(fu) < docs + notis:
+        e.append(f"'pasos.fuentes' tiene {len(fu)} y hay {docs} documento(s) + {notis} noticia(s): abrir y anotar TODOS")
+    try:
+        if int(p["anexos_leidos"]) < partes:
+            e.append(f"'pasos.anexos_leidos' = {p['anexos_leidos']} y los documentos tienen {partes} partes/anexos: leerlos todos")
+    except (TypeError, ValueError):
+        e.append("'pasos.anexos_leidos' debe ser un número")
+    if c.get("historial") and str(p["historial"]).strip().lower().startswith("sin historial"):
+        e.append(f"'pasos.historial' dice 'sin historial' pero la ficha tiene {len(c['historial'])} catalizador(es) en 120 días")
+    return e
 
 
 # ------------------------------------------------------------------ puntuación de la tesis (ronda 12, validada 30-sep-2026)

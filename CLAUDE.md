@@ -141,6 +141,11 @@
     Pruebas por modo (replay, finalizar --replay, resultados contra Massive) en casos_oro: 28 casos. Replay usa la apertura sin ajustar de
     Massive (`massive_dia_sin_ajustar`). Listas 21-23 sep comprobadas contra Massive: 25/25 precios iguales.
 
+24. **Registro de pasos del trabajo de criterio (1-oct, pedido por el usuario: "como un robot que cada día sigue los mismos patrones"):**
+    desde el 2-oct cada acción lleva en `_clasif.json` `pasos` = fuentes abiertas, anexos leídos, negativos, historial, munición y caja;
+    `auditar` (función `revisar_pasos`) bloquea la lista si falta alguno, si hay menos fuentes que documentos + noticias, menos anexos que
+    partes, o "sin historial" con historial en la ficha. Se ve en la ficha de la página ("Pasos comprobados"). Caso de oro 29.
+
 ### Mercado y datos propios
 - Gappers >100 %: el día 1 cierra bajo su apertura el 76 %; el día 2 supera el máximo del día 1 solo el 11 %; corto apertura día 1 → cierre día 2 gana el 80 % (mediana +29 %), pero en el peor 10 % hay subidas de +117 % en contra.
 - Día típico (gap ≥50 %, velas 5 min): máximo del día antes de las 10:00 el 60 %, antes de las 11:00 el 78 %; subida mediana apertura→máximo +18 % (p90 +107 %); caída mediana desde el máximo −41 %; 72 % del volumen en la primera hora.

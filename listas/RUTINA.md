@@ -39,6 +39,11 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
    - **S** corporativo/bolsa: contra-split, aviso o recuperación de cumplimiento de Nasdaq, juntas, auditor.
    - **O** otros. · **N** no se encontró ninguna noticia ni documento.
    Método acordado con el usuario: frase original en inglés + traducción + cifra con su unidad. Ser honesto si hay dudas (anotarlo en `nota`).
+   **Registro de pasos (obligatorio desde el 2-oct, pedido por el usuario):** cada acción lleva además `"pasos"` con lo que se hizo:
+   `{"fuentes": ["8-K 07:05 + EX-99.1", "Finviz 8:00 GlobeNewswire «titular»", …], "anexos_leidos": 2, "negativos": "…" o "ninguno, revisado",
+   "historial": "…" o "sin historial", "municion": "resumen de shelves/ATM/reventas/ELOC/424B/warrants revisados", "caja": "caja a hoy / going concern"}`.
+   `finalizar` comprueba que no falte ninguno, que haya al menos una fuente por documento y por noticia de la ventana, que los anexos
+   leídos no sean menos que los de los documentos y que no diga "sin historial" si la ficha tiene historial. Si falta algo, la lista NO se publica.
 5b. **Auditoría antes de publicar (obligatoria, nada se entrega sin ella):**
    - Cada titular y cada 8-K/6-K de las acciones con gap ≥ 20 % abierto y leído (no basta el titular). Mirar si la noticia es vieja reciclada.
    - `N` solo si se revisaron a mano Finviz, Yahoo y EDGAR sin encontrar nada → anotar `"fuentes_abiertas"` en el `_clasif.json`.
