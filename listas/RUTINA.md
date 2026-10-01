@@ -11,6 +11,8 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
 1b. Descarga de Massive (estudio de la ronda 10, aprobado): los reinicios del contenedor la matan. Si `grep -q FIN /home/user/data/massive/log.txt`
    falla y `ps -eo args | grep -c "[p]ython3 -u 24_massive"` da 0 → `cd /home/user/data/massive && (nohup setsid bash vigilante.sh >/dev/null 2>&1 &)`.
    (Si falta `/home/user/data/massive`, no relanzar: avisar en el mensaje final.)
+1c. **Casos de oro (obligatorio desde el 1-oct):** `python3 tests/casos_oro.py`. Si falla alguno, NO seguir con datos dudosos: arreglar la
+   causa (o, si es una caída de una fuente externa, comprobar que la de respaldo funciona) y avisar por push si retrasa la lista.
 2. ¿Día hábil? `python3 -c "import sys;sys.path.insert(0,'herramientas');import lista_diaria as l,datetime as d;print(l.es_habil(d.datetime.now(l.NY).date()))"`.
    Si es `False`, terminar sin hacer nada más.
 3. Resultados de días anteriores: para cada `listas/datos/AAAA-MM-DD.json` anterior a hoy con `"resultados": null`, ejecutar
@@ -55,6 +57,10 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
    - `finalizar` ejecuta un control automático (cobertura del escáner ≥ 97 %, todo clasificado, sin `N` con titulares sin abrir,
      frase + traducción + cifra presentes, munición analizada). Si da ERROR, corregir y repetir; `--forzar` solo si el tiempo se acaba,
      y decirlo en el mensaje final.
+5c. **Verificador independiente (obligatorio desde el 1-oct, `listas/VERIFICADOR.md`):** para cada acción con gap ≥ 50 % o tesis alta,
+   lanzar en paralelo un agente nuevo (Agent, general-purpose, en segundo plano) con el encargo de VERIFICADOR.md, sin acceso a nuestras
+   conclusiones. Comparar su JSON con nuestra ficha, resolver cada diferencia leyendo la fuente, añadir a `tests/casos_oro.py` todo error
+   nuestro que destape, y guardar `listas/datos/HOY_verificacion.json`. `finalizar` bloquea la lista si falta.
 6. Finalizar: `python3 herramientas/lista_diaria.py finalizar` (actualiza precios del premarket; aplica el filtro de campo, calcula la
    puntuación de la tesis 0-100 de la ronda 12, el riesgo estructural, la caja, el PMH y guarda el texto de los 8-K; las descartadas
    quedan aparte con su motivo; **desde el 30-sep no hay letras A/B/Vigilar/NO/Nunca**, pedido del usuario) y guardar

@@ -188,6 +188,13 @@ dl.kv dd{margin:0;font-family:var(--f-mono);text-align:right}
 .warns{display:flex;flex-direction:column;gap:4px}
 .warns div{font-size:13px;color:var(--warn)}
 .warns div::before{content:"▲ ";font-size:10px}
+.negs{display:flex;flex-direction:column;gap:4px;padding:8px 10px;border-bottom:1px solid var(--line)}
+.neg-i{font-size:12px;color:var(--mut)}
+.neg-i.fuerte{color:var(--neg)}
+.neg-t{font-weight:600;text-transform:uppercase;font-size:10.5px;letter-spacing:.06em}
+.neg-f{font-family:var(--f-mono);font-size:11.5px}
+.shelf{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;padding:6px 0;border-top:1px solid var(--line);font-size:12.5px}
+.shelf .en-l{flex-basis:100%}
 .en-l{font-family:var(--f-mono);font-size:11.5px;color:var(--dim)}
 .btn{background:var(--acc);color:var(--acc-tx);border:0;border-radius:6px;padding:7px 14px;font-weight:600;cursor:pointer;font-size:13px}
 .btn.ghost{background:transparent;color:var(--tx);border:1px solid var(--line2)}
@@ -266,6 +273,7 @@ const pct=(x,d=0)=>x==null||isNaN(x)?"—":(x>=0?"+":"")+(x*100).toFixed(d)+" %"
 const usd=x=>{if(x==null||isNaN(x))return "—";const a=Math.abs(x);return (x<0?"-":"")+(a>=1e9?"$"+(a/1e9).toFixed(2)+" B":a>=1e6?"$"+(a/1e6).toFixed(1)+" M":a>=1e3?"$"+(a/1e3).toFixed(0)+" k":"$"+a.toFixed(2))};
 const px=x=>x==null?"—":"$"+(x>=10?x.toFixed(2):x>=1?x.toFixed(3):x.toFixed(4));
 const cnt=x=>{if(x==null||isNaN(x))return "—";const a=Math.abs(x);return a>=1e9?(x/1e9).toFixed(2)+" B":a>=1e6?(x/1e6).toFixed(2)+" M":a>=1e3?(x/1e3).toFixed(0)+" k":String(Math.round(x))};
+const M$=x=>x==null?'—':'$'+(x>=1e9?(x/1e9).toFixed(2)+' B':(x/1e6).toFixed(1)+' M');
 const R=x=>x==null||isNaN(x)?"—":(x>=0?"+":"")+x.toFixed(2)+"R";
 const PF=x=>x==null?"—":x===Infinity?"∞":x.toFixed(2);
 const WRp=x=>x==null?"—":Math.round(x*100)+" %";
@@ -319,7 +327,7 @@ const COLS=[
   {k:"acc",t:"Acciones",n:true,v:x=>x.acciones},
   {k:"rot",t:"Rot. pre",n:true,v:x=>rot(x)},
   {k:"cap",t:"Cap.",n:true,v:x=>x.cap},
-  {k:"caja",t:"Autonomía",n:true,v:x=>x.caja&&x.caja.autonomia_meses},
+  {k:"caja",t:"Caja (meses hoy)",n:true,v:x=>x.caja&&(x.caja.autonomia_hoy??x.caja.autonomia_meses)},
   {k:"cat",t:"Catalizador",v:x=>(x.clasif||{}).tipo||""},
   {k:"k8",t:"8-K / 6-K",v:x=>(x.catalizadores||[]).length},
   {k:"mun",t:"Munición",v:x=>nMun(x)},
@@ -342,7 +350,7 @@ function fila(x,i,L){
   <td class="n">${cnt(x.acciones)}</td>
   <td class="n ${ro>3?"neg":""}">${ro!=null?ro.toFixed(1)+"×":"—"}</td>
   <td class="n">${usd(x.cap)}</td>
-  <td class="n ${cj&&cj.autonomia_meses!=null&&cj.autonomia_meses<6?"neg":""}">${cj&&cj.autonomia_meses!=null?cj.autonomia_meses.toFixed(1)+" m":cj&&cj.flujo_operativo>=0?"genera":"—"}</td>
+  <td class="n ${cj&&(cj.autonomia_hoy??cj.autonomia_meses)!=null&&(cj.autonomia_hoy??cj.autonomia_meses)<6?"neg":""}">${cj&&(cj.autonomia_hoy??cj.autonomia_meses)!=null?(cj.autonomia_hoy??cj.autonomia_meses).toFixed(1)+" m":cj&&cj.flujo_operativo>=0?"genera":"—"}</td>
   <td><span class="cat ${esc(cl.tipo||"")}">${esc(cl.tipo_es||TIPOS[cl.tipo]||"Sin clasificar")}</span></td>
   <td class="doc8">${k?`${esc(k.form)} <span class="dim">${esc(k.items||"")}</span>`:'<span class="dim">—</span>'}</td>
   <td>${mc(x)}</td>
@@ -392,7 +400,7 @@ function ficha(x,L){
   const quote=cl.frase_en?`<div class="q"><div class="en">“${esc(cl.frase_en)}”</div><div class="es">${esc(cl.frase_es||"")}</div></div>`:"";
   const news=(x.noticias||[]).map(n=>`<div><span class="t">${esc((n.hora||"").slice(11))}</span><a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.titular)}</a> <span class="dim">(${esc(n.fuente)})</span></div>`).join("");
   const docs=(x.catalizadores||[]).map(k=>`<div class="doc"><div class="dh"><a href="${esc(k.url)}" target="_blank" rel="noopener"><b>${esc(k.form)}</b></a><span class="mono dim">${esc(k.hora)}</span><span class="it">${esc(k.items_es||("Items "+(k.items||"—")))}</span></div>
-    ${(k.partes||[]).map(pa=>`<div class="dh"><a href="${esc(pa.url)}" target="_blank" rel="noopener">${esc(pa.archivo)}</a><span class="dim">${pa.texto?Math.round(pa.texto.length/100)/10+" mil caracteres":""}</span></div>${pa.texto?`<div class="txt">${esc(pa.texto)}</div>`:""}`).join("")||(k.anexos||[]).map(a=>`<div class="dh"><a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.archivo)}</a></div>`).join("")}</div>`).join("");
+    ${(k.partes||[]).map(pa=>{const ng=(pa.negativos||[]);return `<div class="dh"><a href="${esc(pa.url)}" target="_blank" rel="noopener">${esc(pa.archivo)}</a><span class="dim">${pa.texto?Math.round(pa.texto.length/100)/10+" mil caracteres"+(pa.recortado?" (recortado: ver original)":""):""}</span></div>${ng.length?`<div class="negs">${ng.map(n=>`<div class="neg-i ${n.tipo==="dato clínico fallido"?"fuerte":""}"><span class="neg-t">${esc(n.tipo)}</span> <span class="neg-f">…${esc(n.frase)}…</span></div>`).join("")}</div>`:""}${pa.texto?`<div class="txt">${esc(pa.texto)}</div>`:""}`}).join("")||(k.anexos||[]).map(a=>`<div class="dh"><a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.archivo)}</a></div>`).join("")}</div>`).join("");
   const FN={"4":"Form 4 (compra/venta de insiders)","3":"Form 3 (nuevo insider)","SC 13G":"13G (accionista > 5 %)","SC 13D":"13D (accionista > 5 %)"};
   const ot=(x.docs_hoy||[]).filter(d=>!/^(8-K|6-K)/.test(d.form));const grp={};ot.forEach(d=>{(grp[d.form]=grp[d.form]||[]).push(d)});
   const otros=Object.entries(grp).map(([f,ds])=>`<div><span class="t">${esc(ds[ds.length-1].hora.slice(11))}</span><a href="${esc(ds[0].url)}" target="_blank" rel="noopener">${esc(FN[f]||f)}</a>${ds.length>1?` <span class="dim">×${ds.length}</span>`:""}</div>`).join("");
@@ -402,7 +410,7 @@ function ficha(x,L){
       <dt>Caja y equivalentes<br><span class="en-l">Cash and cash equivalents</span></dt><dd>${usd(cj.caja)}</dd>
       ${cj.inversiones?`<dt>Inversiones a corto plazo<br><span class="en-l">Short-term investments</span></dt><dd>${usd(cj.inversiones)}</dd>`:""}
       ${cj.flujo_operativo!=null?`<dt>Flujo de caja operativo, ${cj.meses} meses (${esc(cj.flujo_desde)} → ${esc(cj.flujo_hasta)})<br><span class="en-l">Net cash ${cj.flujo_operativo<0?"used in":"provided by"} operating activities</span></dt><dd class="${cj.flujo_operativo<0?"neg":"pos"}">${usd(cj.flujo_operativo)}</dd>`:""}
-      ${cj.quema_mes?`<dt>Quema de caja al mes</dt><dd>${usd(cj.quema_mes)}</dd><dt>Autonomía (caja + inversiones ÷ quema)</dt><dd class="${cj.autonomia_meses<6?"neg":""}">${cj.autonomia_meses.toFixed(1)} meses</dd>`:cj.flujo_operativo>=0?`<dt>Autonomía</dt><dd>genera caja</dd>`:""}
+      ${cj.quema_mes?`<dt>Quema de caja al mes</dt><dd>${usd(cj.quema_mes)}</dd><dt>Autonomía a la fecha del informe (${esc(cj.caja_fecha)})</dt><dd>${cj.autonomia_meses.toFixed(1)} meses</dd>${cj.autonomia_hoy!=null?`<dt><b>Autonomía que queda HOY</b> (${cj.meses_desde_informe} meses después, misma quema, sin dinero nuevo)</dt><dd class="${cj.autonomia_hoy<6?"neg":""}"><b>${cj.autonomia_hoy.toFixed(1)} meses</b> · caja ≈ ${usd(cj.caja_estimada_hoy)}</dd>`:""}`:cj.flujo_operativo>=0?`<dt>Autonomía</dt><dd>genera caja</dd>`:""}
     </dl>
     <div class="fuente">Datos XBRL del <a href="${esc(cj.url)}" target="_blank" rel="noopener">último informe</a> (busca las frases en inglés con Ctrl+F). No incluye ventas de acciones posteriores al informe. Informativo: no entra en la puntuación porque aún no está medido.</div></div>`:"";
   return `<div class="dhead">
@@ -410,6 +418,7 @@ function ficha(x,L){
     <div class="kpis">${kp.map(([l,v])=>`<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div></div>`).join("")}</div>
   </div>
   <div class="dbody">
+    ${x.verificacion?`<div class="blk"><h3>Verificación independiente <span class="r">${esc(x.verificacion.hora||"")}</span></h3><span class="risk ${x.verificacion.estado==="ok"?"":x.verificacion.estado==="pendiente"?"Extremo":"Alto"}">${esc({ok:"Coincide",corregido:"Corregido tras verificar",pendiente:"Pendiente"}[x.verificacion.estado]||x.verificacion.estado)}</span>${(x.verificacion.diferencias||[]).length?`<div class="warns" style="margin-top:8px">${x.verificacion.diferencias.map(d=>`<div>${esc(d)}</div>`).join("")}</div>`:""}</div>`:""}
     ${(x.avisos||[]).length?`<div class="blk"><div class="warns">${x.avisos.map(a=>`<div>${esc(a)}</div>`).join("")}</div></div>`:""}
     ${tesis}
     <div class="blk"><h3>Catalizador</h3>
@@ -420,6 +429,10 @@ function ficha(x,L){
       ${news?`<div class="src">${news}</div>`:""}
       ${docs||`<div class="note" style="margin-top:8px">Sin 8-K ni 6-K desde el cierre anterior.</div>`}
       ${otros?`<div class="src"><span class="dim">Otros documentos de hoy</span>${otros}</div>`:""}
+      ${(x.historial||[]).length?`<div class="src"><span class="dim">Catalizadores de los últimos 120 días y reacción del precio ese día</span>
+        <div class="tbl-wrap" style="margin-top:4px"><table><thead><tr><th>Fecha</th><th>Doc.</th><th>Titular</th><th class="n">Apertura</th><th class="n">Cierre</th></tr></thead><tbody>
+        ${x.historial.map(h=>`<tr><td class="mono">${esc(h.fecha.slice(0,10))}</td><td><a href="${esc(h.url)}" target="_blank" rel="noopener">${esc(h.form)}</a> <span class="dim">${esc(h.items||"")}</span></td><td style="white-space:normal;min-width:220px">${esc(h.titular)}</td><td class="n ${h.reaccion&&h.reaccion.apertura<0?"neg":"pos"}">${h.reaccion?pct(h.reaccion.apertura):"—"}</td><td class="n ${h.reaccion&&h.reaccion.cierre<0?"neg":"pos"}">${h.reaccion?pct(h.reaccion.cierre):"—"}</td></tr>`).join("")}
+        </tbody></table></div></div>`:""}
     </div>
     ${riesgo}
     <div class="blk"><h3>Munición</h3>
@@ -429,6 +442,14 @@ function ficha(x,L){
         <dt>Cambios de estatutos 5.03 en 2 años (suelen ser contra-splits)</dt><dd>${m.contrasplits_2a??"—"}</dd>
         <dt>Precios de ejercicio de warrants</dt><dd>${(m.warrants||[]).slice(0,5).map(v=>"$"+v).join(" ")||"—"}</dd>
       </dl>
+      ${(m.shelves||[]).filter(x=>!x.repetida).length?`<div class="src"><span class="dim">Registros para vender acciones (3 años): de la empresa o reventa de terceros</span>
+        ${(m.shelves||[]).filter(x=>!x.repetida).map(x=>`<div class="shelf"><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.form)} ${esc(x.fecha)}</a>
+          <span class="chip ${x.tipo==="reventa"?"":"on"}">${x.tipo==="reventa"?(x.eloc?"Reventa · línea de capital (ELOC)":"Reventa de terceros"):"De la empresa"}</span>
+          ${x.base_usd?`<span class="mono">base ${M$(x.base_usd)}</span>`:""}${x.atm_usd?` <span class="chip bad">ATM ${M$(x.atm_usd)}${x.atm_agente?" · "+esc(x.atm_agente):""}</span>`:""}${x.acciones_reventa?` <span class="mono">${cnt(x.acciones_reventa_hoy??x.acciones_reventa)} acciones${x.ajuste_splits?` (registradas ${cnt(x.acciones_reventa)}, ajustadas por splits posteriores)`:""}</span>`:""}
+          ${x.frase_atm||x.frase?`<div class="en-l">“…${esc(x.frase_atm||x.frase)}…”</div>`:""}${x.frase_sin_uso?`<div class="en-l">“${esc(x.frase_sin_uso)}”</div>`:""}</div>`).join("")}
+        ${m.reventa_acciones?`<div class="note">Acciones registradas para reventa en 12 meses: <b class="mono">${cnt(m.reventa_acciones)}</b> (pueden venderse en la subida: otro vendedor, aparte de la empresa)</div>`:""}
+        ${(m.uso_atm||[]).length?`<div class="note">Uso de la ATM según el último informe:</div>${m.uso_atm.map(u=>`<div class="en-l">“${esc(u)}”</div>`).join("")}`:""}
+      </div>`:""}
       ${m.informe?`<div class="fuente">Último informe: <a href="${esc(m.informe.url)}" target="_blank" rel="noopener">${esc(m.informe.form)} ${esc(m.informe.fecha)}</a></div>`:""}
       ${(m.ultimas_ventas||[]).length?`<div class="fuente">Últimas ventas: ${m.ultimas_ventas.slice(0,4).map(v=>`<a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.form)} ${esc(v.fecha)}</a>`).join(" · ")}</div>`:""}
       <div class="fuente">Warrants sin ajustar por contra-splits posteriores: compruébalos en el informe.</div>

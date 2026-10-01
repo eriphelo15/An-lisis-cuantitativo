@@ -111,6 +111,21 @@
     guardan gap/tesis de la apertura; (h) el texto de la rutina automática aún pedía letras → actualizado; (i) la descarga de Massive
     muere con cada reinicio del contenedor → paso 1b de RUTINA.md. Verificado: resultados guardados = Massive en 30/30 casos.
 
+20. **Contraste con David Veprek (@veptrader) en CNTB 30-sep: él vio 4 cosas que nosotros no** (verificado en la SEC): (a) el secundario clave
+    (función pulmonar día 7) NO significativo, escondido en la presentación EX-99.2; (b) el 15-sep (asma) cayó −32 % y esa medida era el
+    "proposed primary endpoint for Phase 3"; (c) shelf F-3 de $300 M con **ATM de $150 M con Cantor sin usar** (el Radar decía "sin ATM":
+    solo miraba el 10-Q); (d) caja a HOY ≈ 2.9 meses (mostrábamos 5.9 a la fecha del informe). Nosotros vimos que el F-3 de may-2026 es
+    REVENTA de 6.13 M acciones (que antes contábamos como shelf de la empresa). Corregido el 1-oct: shelves empresa/reventa con importes,
+    ATM y agente; ELOC dentro de reventas (FFR: 55 M "VWAP Shares"); reventas ajustadas por contra-splits (VBIO); todos los EX-99 + frases
+    negativas automáticas; historial de catalizadores 120 días con reacción; caja a hoy; universo con 2.ª fuente SEC (nasdaqtrader nos
+    bloqueó el 30-sep por la noche).
+21. **Sistema anti-errores (1-oct, pedido por el usuario):** (1) `tests/casos_oro.py` = cada error real es una prueba permanente; la rutina
+    no sigue si falla (paso 1c). (2) Verificador independiente (`listas/VERIFICADOR.md`, paso 5c): agente nuevo y ciego rehace el trabajo
+    de campo de cada acción con gap ≥ 50 % o tesis alta; las diferencias se resuelven antes de publicar; `finalizar` bloquea sin él.
+    (3) Contraste externo con otros traders → casos de oro nuevos. (4) Nunca decir "todo revisado": decir qué se comprobó y qué no.
+    Causa raíz de los fallos: la revisión del 30-sep comprobó el código contra su propia intención y contra el histórico, NO la cobertura
+    del análisis frente a un experto; y quien revisa era quien construyó (mismos puntos ciegos).
+
 ### Mercado y datos propios
 - Gappers >100 %: el día 1 cierra bajo su apertura el 76 %; el día 2 supera el máximo del día 1 solo el 11 %; corto apertura día 1 → cierre día 2 gana el 80 % (mediana +29 %), pero en el peor 10 % hay subidas de +117 % en contra.
 - Día típico (gap ≥50 %, velas 5 min): máximo del día antes de las 10:00 el 60 %, antes de las 11:00 el 78 %; subida mediana apertura→máximo +18 % (p90 +107 %); caída mediana desde el máximo −41 %; 72 % del volumen en la primera hora.

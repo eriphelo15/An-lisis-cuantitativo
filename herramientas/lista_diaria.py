@@ -109,6 +109,18 @@ def universo():
             if any(w in nombre for w in (" warrant", " unit", " right", "preferred", " notes")) and "ordinary" not in nombre:
                 continue
             syms.add(s)          # las ADS (acciones extranjeras, p. ej. chinas: NAMI) SÍ entran; las de preferentes ya caen por "preferred"
+    # 1-oct-2026: nasdaqtrader.com bloqueó nuestras descargas (protección anti-bots "Incapsula") → segunda fuente SIEMPRE: la lista
+    # oficial de la SEC con la bolsa de cada ticker (Nasdaq / NYSE, incluye NYSE American). Se suman las dos.
+    universo.fuentes = {"nasdaqtrader": len(syms)}
+    d = get("https://www.sec.gov/files/company_tickers_exchange.json", sec=True, js=True, tries=4) or {}
+    n_sec = 0
+    for cik_, nombre, tk, bolsa in d.get("data", []):
+        if bolsa in ("Nasdaq", "NYSE") and tk and re.fullmatch(r"[A-Z]{1,5}", tk):
+            nm = (nombre or "").lower()
+            if any(w in nm for w in (" warrant", " unit", " right", "preferred", " notes")) and "ordinary" not in nm:
+                continue
+            syms.add(tk); n_sec += 1
+    universo.fuentes["sec"] = n_sec
     # fuera warrants/derechos/unidades de 5 letras cuya raíz de 4 letras también cotiza (RGTIW, ABCDR, ABCDU)
     return sorted(s for s in syms if not (len(s) == 5 and s[-1] in "WRU" and s[:4] in syms))
 
@@ -188,7 +200,7 @@ def escanear_vivo():
     U = universo()
     cot = y.cotizaciones(U)
     escanear_vivo.cobertura = dict(universo=len(U), cotizadas=len(cot), pct=round(len(cot) / max(len(U), 1), 4),
-                                   ficheros_faltan=list(universo.faltan))
+                                   ficheros_faltan=list(universo.faltan), fuentes_universo=dict(getattr(universo, "fuentes", {})))
     hoy = dt.datetime.now(NY).date()
     MS = massive_cierres(dia_habil_anterior(hoy))
     escanear_vivo.cobertura["massive"] = len(MS)
@@ -338,12 +350,153 @@ def texto_catalizador(cik, p):
             ex.append(a.group(1))
     ex = [n for n in ex if n in docs] or [n for n in docs if re.search(r"ex[-_]?99|ex991|exhibit99|dex99|(^|[^0-9])a?99[1-9]?\.htm", n.lower())]
     partes = []
-    for n in (ex[:2] or [p["doc"]]):
+    for n in (ex[:4] or [p["doc"]]):          # 1-oct: TODOS los anexos (CNTB: el fallo del secundario estaba en la presentación EX-99.2)
         t = get(f"https://www.sec.gov/Archives/edgar/data/{cik}/{p['acc']}/{n}", sec=True)
         if t:
+            completo = resumen_doc(limpiar(t), 10 ** 7)
             partes.append(dict(archivo=n, url=f"https://www.sec.gov/Archives/edgar/data/{cik}/{p['acc']}/{n}",
-                               texto=resumen_doc(limpiar(t), 15000)))
+                               texto=completo[:30000], recortado=len(completo) > 30000, negativos=negativos(completo)))
     return partes
+
+
+# Frases que la empresa no pone en el titular: resultados fallidos, condiciones, acuerdos no vinculantes (1-oct-2026, caso CNTB)
+NEGATIVOS = [
+    ("dato clínico fallido", r"not statistically significant|did not (?:reach|achieve|meet) (?:statistical )?significance|statistical significance (?:was )?not (?:achieved|reached)|\bNot Significant\b|p\s*[-=]\s*NS\b|did not meet (?:its|the) (?:primary|secondary|key)|failed to (?:meet|achieve|demonstrate)|did not demonstrate|no statistically significant"),
+    ("objetivo secundario / clave", r"key secondary|secondary endpoint"),
+    ("no vinculante / preliminar", r"non-binding|nonbinding|letter of intent|memorandum of understanding|\bMOU\b|\bLOI\b|subject to (?:the )?(?:execution|negotiation|completion) of (?:a )?definitive"),
+    ("cifra 'hasta' / potencial", r"\bup to \$|potential(?:ly)? (?:worth|value|revenue)|could generate|aggregate potential"),
+    ("dilución / financiación", r"registered direct|private placement|warrants? to purchase|convertible (?:note|debenture|preferred)|at[- ]the[- ]market|equity line"),
+]
+
+
+def negativos(texto):
+    out = []
+    for etiqueta, pat in NEGATIVOS:
+        for mm in list(re.finditer(pat, texto, re.I))[:3]:
+            out.append(dict(tipo=etiqueta, frase=texto[max(0, mm.start() - 220):mm.end() + 220].strip()))
+    return out
+
+
+def historial_catalizadores(cik, pres, desde, sym, dias=120, maximo=6):
+    """8-K/6-K de los últimos `dias` antes de hoy con su titular y la reacción del precio ese día (Yahoo diario).
+    1-oct-2026: el 15-sep CNTB había caído −32 % con otro dato clínico y no lo miramos."""
+    ant = [p for p in pres if p["hora"] < desde and p["form"] in ("8-K", "6-K") and (desde.date() - p["hora"].date()).days <= dias
+           and (p["form"] == "6-K" or re.search(r"7\.01|8\.01|1\.01|2\.02", p["items"] or ""))][:maximo]
+    if not ant:
+        return []
+    serie = {}
+    try:
+        r = get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}?range=1y&interval=1d", js=True)["chart"]["result"][0]
+        q = r["indicators"]["quote"][0]
+        serie = {dt.datetime.fromtimestamp(t, NY).date(): (o, c) for t, o, c in zip(r["timestamp"], q["open"], q["close"]) if c}
+    except Exception:
+        pass
+    dias_ord = sorted(serie)
+    out = []
+    for p in ant:
+        h = p["hora"]
+        d = h.date() if h.time() < dt.time(16, 0) else h.date() + dt.timedelta(days=1)
+        d = next((x for x in dias_ord if x >= d), None)
+        reac = None
+        if d and dias_ord.index(d) > 0:
+            prev = serie[dias_ord[dias_ord.index(d) - 1]][1]; o, c = serie[d]
+            reac = dict(dia=d.isoformat(), apertura=round(o / prev - 1, 4) if o else None, cierre=round(c / prev - 1, 4))
+        titular = ""
+        try:
+            partes = texto_catalizador(cik, p)
+            titular = re.sub(r"^(Document\s+)?Exhibit\s*99\.\d\s*", "", (partes[0]["texto"] if partes else ""))[:220]
+        except Exception:
+            pass
+        out.append(dict(form=p["form"], fecha=h.strftime("%Y-%m-%d %H:%M"), items=p["items"], url=p["url"], titular=titular, reaccion=reac))
+    return out
+
+
+# ------------------------------------------------------------------ shelves y ATM (1-oct-2026, caso CNTB: la ATM de $150 M con Cantor
+# estaba en el F-3 de junio de 2025 y el Radar decía "sin ATM" porque solo miraba el último 10-Q; y el F-3 de mayo de 2026 era una
+# REVENTA de terceros que contábamos como shelf de la empresa)
+AGENTES = r"(Cantor Fitzgerald|H\.C\. Wainwright|Maxim Group|Jefferies|TD Cowen|Cowen and Company|Leerink|B\. Riley|Roth Capital|ThinkEquity|A\.G\.P\.|Ladenburg|EF Hutton|Aegis Capital|BTIG|Oppenheimer|Piper Sandler|Mizuho|Stifel|Canaccord|Lake Street|Dawson James|Craig-Hallum|Spartan Capital|Univest|D\. Boral|Virtu|Guggenheim|Evercore|Raymond James|JonesTrading|Wedbush|Titan Partners|Rodman|Chardan|Alliance Global|Laidlaw|Benchmark|Northland|Needham|Truist|Citizens JMP|JMP Securities|Barclays|Goldman Sachs|Morgan Stanley|BofA|Citigroup|UBS|Wells Fargo|Yorkville|Lincoln Park|Keystone Capital|White Lion|Tumim|Alumni Capital|Arena Business|Clearthink)"
+
+
+def _usd(num, escala):
+    v = float(num.replace(",", ""))
+    return v * (1e6 if escala and escala.lower().startswith("m") else 1e9 if escala and escala.lower().startswith("b") else 1)
+
+
+def analizar_shelf(p):
+    """Lee un S-3/F-3/POS AM/424B5 y dice: de la empresa o REVENTA de terceros, importe base, ATM (importe y agente), frase literal."""
+    t = limpiar(get(p["url"], sec=True) or "")
+    if not t:
+        return None
+    cab = t[:15000]
+    reventa = bool(re.search(r"selling (security ?holders?|shareholders?|stockholders?|holders?)", cab, re.I) and
+                   (re.search(r"(will not|do not|shall not) receive any (of the )?proceeds", cab, re.I) or
+                    re.search(r"relates to the (?:proposed )?(?:offer and )?(?:re)?sale[^.]{0,250}by the selling", cab, re.I)))
+    o = dict(form=p["form"], fecha=p["fecha"], url=p["url"], tipo="reventa" if reventa else "empresa")
+    if reventa:
+        # 1-oct (FFR): una reventa de un inversor que compra con descuento a petición de la empresa = línea de capital (ELOC)
+        el = re.search(r"VWAP Shares?|equity line|equity purchase agreement|standby equity|purchase agreement[^.]{0,200}(?:from time to time|at our (?:sole )?discretion)|committed equity facility", cab, re.I)
+        if el:
+            o["eloc"] = True; o["frase_eloc"] = cab[max(0, el.start() - 200):el.end() + 200]
+        m = re.search(r"up to ([0-9][0-9,]{3,}) (?:ordinary shares|shares of (?:our )?common stock|shares|American Depositary Shares|ADSs)", cab, re.I)
+        if m:
+            o["acciones_reventa"] = int(m.group(1).replace(",", ""))
+            o["frase"] = t[max(0, m.start() - 160):m.end() + 60]
+        return o
+    m = re.search(r"up to \$\s?([0-9][0-9,.]*)\s*(million|billion)?\s*(?:in the )?aggregate", t, re.I) or \
+        re.search(r"PROSPECTUS \$\s?([0-9][0-9,.]*)\s*(million|billion)?", t, re.I)
+    if m and p["form"] in ("S-3", "S-3/A", "F-3", "F-3/A", "S-3ASR", "POS AM"):
+        o["base_usd"] = _usd(m.group(1), m.group(2)); o["frase_base"] = t[max(0, m.start() - 120):m.end() + 120]
+    a = re.search(r"aggregate offering price of up to \$\s?([0-9][0-9,.]*)\s*(million|billion)?", t, re.I)
+    atm_ctx = re.search(r"at[- ]the[- ]market|sales agreement|equity distribution agreement|ATM [Aa]greement", t, re.I)
+    if a and atm_ctx:
+        o["atm_usd"] = _usd(a.group(1), a.group(2))
+        ventana = t[max(0, a.start() - 600):a.end() + 900]
+        ag = re.search(AGENTES, ventana)
+        o["atm_agente"] = ag.group(1) if ag else None
+        o["frase_atm"] = t[max(0, a.start() - 200):a.end() + 220]
+        nv = re.search(r"(we have not (?:yet )?sold any[^.]{0,120}\.)", t, re.I)
+        if nv:
+            o["frase_sin_uso"] = nv.group(1)
+    return o
+
+
+def uso_atm(texto_informe):
+    """Frases del último 10-Q/10-K/20-F sobre ventas bajo la ATM (importe vendido, restante)."""
+    out = []
+    for mm in re.finditer(r"[^.]{0,300}(?:Sales Agreement|ATM (?:Program|Agreement|offering)|at-the-market (?:offering|program))[^.]{0,400}\.", texto_informe, re.I):
+        fr = mm.group(0).strip()
+        if re.search(r"\bsold\b|net proceeds|remain(?:ing|ed)? available|no (?:shares|sales)", fr, re.I) and len(out) < 4:
+            out.append(fr[:700])
+    return out
+
+
+def splits_de(sym):
+    """[(fecha, factor)] de los splits de los últimos 5 años (factor = nuevas/antiguas; 1:25 → 0.04)."""
+    try:
+        r = get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}?range=5y&interval=1mo&events=split", js=True)["chart"]["result"][0]
+        return sorted((dt.datetime.fromtimestamp(v["date"], NY).date(), v["numerator"] / v["denominator"])
+                      for v in (r.get("events", {}).get("splits") or {}).values())
+    except Exception:
+        return []
+
+
+def shelves(cik, pres, desde):
+    ant = [p for p in pres if p["hora"] < desde and (desde.date() - p["hora"].date()).days <= 3 * 365]
+    cand = [p for p in ant if p["form"] in ("S-3", "S-3/A", "F-3", "F-3/A", "S-3ASR", "POS AM", "S-1", "S-1/A", "F-1", "F-1/A")
+            or (p["form"] == "424B5" and (desde.date() - p["hora"].date()).days <= 3 * 365)]
+    out = []
+    for p in cand[:10]:                     # los más recientes primero
+        try:
+            o = analizar_shelf(p)
+        except Exception as e:
+            o = dict(form=p["form"], fecha=p["fecha"], url=p["url"], error=str(e)[:80])
+        if o and (o.get("tipo") == "reventa" or o.get("base_usd") or o.get("atm_usd") or p["form"].startswith(("S-3", "F-3"))):
+            # las enmiendas (/A, POS AM) repiten la misma reventa: no se suman dos veces (GYGY: 3 × 16 M)
+            if o.get("acciones_reventa") and any(x.get("acciones_reventa") == o["acciones_reventa"] for x in out):
+                o["repetida"] = True
+            out.append(o)
+    return out
+
 
 
 def municion(cik, pres, desde, sym, precio):
@@ -358,6 +511,24 @@ def municion(cik, pres, desde, sym, precio):
              aviso_bolsa=any("3.01" in p["items"] for p in ant if dias(p) <= 365),
              contrasplits_2a=sum(1 for p in ant if "5.03" in p["items"] and dias(p) <= 730))
     m["ultimas_ventas"] = [dict(form=p["form"], fecha=p["fecha"], url=p["url"]) for p in ant if p["form"] in ("424B4", "424B5")][:4]
+    m["shelves"] = shelves(cik, pres, desde)
+    m["shelf_empresa"] = any(x.get("tipo") == "empresa" and x["form"] != "424B5" for x in m["shelves"])
+    # acciones de cada reventa ajustadas por los splits POSTERIORES al registro (VBIO 30-sep: 51 M "registradas" con 0.89 M en
+    # circulación: eran acciones de antes de un contra-split 1:25). Fuente: historial de splits de Yahoo
+    spl = splits_de(sym)
+    for x in m["shelves"]:
+        if x.get("acciones_reventa"):
+            fx = 1.0
+            for fecha_s, fac in spl:
+                if fecha_s > dt.date.fromisoformat(x["fecha"]):
+                    fx *= fac
+            x["acciones_reventa_hoy"] = int(x["acciones_reventa"] * fx)
+            if fx != 1.0:
+                x["ajuste_splits"] = round(fx, 6)
+    # reventas de los últimos 12 meses (más atrás, los contra-splits cambian el número de acciones y la suma no tiene sentido)
+    m["reventa_acciones"] = sum(x.get("acciones_reventa_hoy") or 0 for x in m["shelves"] if x.get("tipo") == "reventa" and not x.get("repetida")
+                                and (hoy - dt.date.fromisoformat(x["fecha"])).days <= 365)
+    m["atm_shelf"] = next((x for x in m["shelves"] if x.get("atm_usd")), None)
     # último 10-Q/10-K: ATM, convertible tóxica, going concern, warrants (texto)
     per = [p for p in ant if p["form"] in ("10-Q", "10-K", "10-Q/A", "10-K/A", "20-F")]
     m.update(atm=False, toxica=False, going_concern=False, warrants=[])
@@ -368,6 +539,7 @@ def municion(cik, pres, desde, sym, precio):
         m["eloc"] = bool(re.search(r"equity line|equity purchase agreement|standby equity|purchase agreement with (lincoln park|yorkville|ya ii)", t, re.I))
         m["toxica"] = bool(re.search(r"not determinable|variable conversion|% of the (average of the )?(three |five )?lowest|lowest (daily )?(vwap|trading price)", t, re.I))
         m["going_concern"] = bool(re.search(r"substantial doubt", t, re.I))
+        m["uso_atm"] = uso_atm(t)
         ej = set()
         for mm in re.finditer(r"exercise price[^$.]{0,60}\$\s?([0-9]+(?:\.[0-9]+)?)", t, re.I):
             antes = t[max(0, mm.start() - 250):mm.start()].lower()     # 30-sep: CNTB $2.14 era el precio medio de OPCIONES
@@ -376,6 +548,8 @@ def municion(cik, pres, desde, sym, precio):
         ej = sorted(ej)
         m["warrants"] = ej[:8]
         m["warrants_en_dinero"] = bool(precio and any(e < precio for e in ej))   # ojo: sin ajustar por contra-splits posteriores
+    m["atm"] = bool(m.get("atm") or m.get("atm_shelf"))      # la ATM puede estar solo en la shelf (CNTB 30-sep)
+    m["eloc"] = bool(m.get("eloc") or any(x.get("eloc") and (hoy - dt.date.fromisoformat(x["fecha"])).days <= 730 for x in m["shelves"]))
     return m
 
 
@@ -459,6 +633,8 @@ def escanear(fecha, replay, corte_hhmm=None):
                     c["catalizadores"].append(dict(form=p["form"], hora=p["hora"].strftime("%Y-%m-%d %H:%M"), items=p["items"],
                                                    url=p["url"], partes=texto_catalizador(cik, p)))
             c["venta_hoy"] = any(p["form"].startswith("424B") for p in hoy)
+            if profundo:
+                c["historial"] = historial_catalizadores(cik, pres, desde, c["sym"])
             c["municion"] = municion(cik, pres, desde, c["sym"], c["precio"]) if profundo else {}
             if c.get("cap") is None and profundo:
                 fr = get(f"https://data.sec.gov/api/xbrl/companyconcept/CIK{cik:010d}/dei/EntityCommonStockSharesOutstanding.json", sec=True, js=True)
@@ -486,11 +662,14 @@ def auditar(C, CL, replay):
     if not replay:
         if not cob:
             err.append("Sin dato de cobertura del escáner: repetir 'escanear'")
-        elif cob.get("ficheros_faltan") or cob["universo"] < 5000:
+        elif cob["universo"] < 5000 or (cob.get("ficheros_faltan") and (cob.get("fuentes_universo") or {}).get("sec", 0) < 6000):
             err.append(f"Universo incompleto ({cob['universo']} tickers; faltan {cob.get('ficheros_faltan')}): repetir 'escanear' "
                        "(29-sep: faltó el fichero de NYSE/NYSE American y se perdió SLND)")
         elif cob["pct"] < 0.97:
             err.append(f"Cobertura del escáner {cob['pct']:.1%} ({cob['cotizadas']}/{cob['universo']}): faltan cotizaciones, repetir 'escanear'")
+    if not replay and cob and cob.get("ficheros_faltan") and (cob.get("fuentes_universo") or {}).get("sec", 0) >= 6000:
+        av.append(f"nasdaqtrader no se descargó ({cob['ficheros_faltan']}): universo cubierto con la lista de la SEC "
+                  f"({cob['fuentes_universo']['sec']} tickers Nasdaq/NYSE); los tickers MUY nuevos pueden faltar → TradingView los cubre")
     if not replay and cob and cob.get("tradingview") is None:
         av.append("TradingView no respondió: gappers sin contrastar con la segunda fuente")
     for x in (cob or {}).get("solo_tradingview", []):
@@ -524,6 +703,18 @@ def auditar(C, CL, replay):
             err.append(f"{s}: clasificado '{t}' pero no hay ningún 8-K/6-K ni noticia desde el cierre anterior: si el documento es "
                        "anterior, el tipo es N y lo viejo va en 'nota'; si la noticia existe pero la herramienta no la vio, anotar "
                        "'fuente_fuera_herramienta' con el enlace y la hora")
+        neg = [n for k in c.get("catalizadores", []) for pa in k.get("partes", []) for n in (pa.get("negativos") or negativos(pa.get("texto", "")))]
+        fallidos = [n for n in neg if n["tipo"] == "dato clínico fallido"]
+        if fallidos and not cl.get("negativos_revisados"):
+            err.append(f"{s}: el documento dice que algo NO fue significativo / no se cumplió ({len(fallidos)} frase(s), p. ej. "
+                       f"«{fallidos[0]['frase'][180:300]}»): leerlo y anotar 'negativos_revisados' con lo que falló (caso CNTB 30-sep)")
+        if t == "K" and any(n["tipo"] == "no vinculante / preliminar" for n in neg) and not cl.get("negativos_revisados"):
+            err.append(f"{s}: clasificado 'contrato real' pero el documento habla de acuerdo no vinculante / LOI / MOU: revisar (¿humo?) "
+                       "y anotar 'negativos_revisados'")
+        if t in ("B", "K", "H") and c.get("historial") and not cl.get("historial_revisado") and not replay:
+            peor = min((h["reaccion"]["cierre"] for h in c["historial"] if h.get("reaccion")), default=0)
+            if peor <= -0.2:
+                av.append(f"{s}: en los últimos 120 días hubo un catalizador con caída de {peor:+.0%} (ver historial en la ficha)")
         if t == "N" and not replay and not cl.get("fuentes_abiertas"):
             av.append(f"{s}: sin ninguna noticia; confirmar a mano en Finviz/Yahoo")
     return err, av
@@ -620,7 +811,7 @@ def premarket_1m(s, sym, fecha):
         return {}
 
 
-def caja(cik):
+def caja(cik, hoy=None):
     """Caja y quema de caja del último informe (XBRL de la SEC). Informativo: no entra en la puntuación (no hay histórico medido)."""
     d = get(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json", sec=True, js=True, timeout=40) or {}
     F = d.get("facts", {})
@@ -652,6 +843,12 @@ def caja(cik):
         if fo["val"] < 0:
             q = -fo["val"] / meses
             out.update(quema_mes=round(q), autonomia_meses=round((ca["val"] + inv) / q, 1))
+            # 1-oct (caso CNTB): lo que queda A HOY, no a la fecha del informe (5.9 meses al 30-jun = ~2.9 meses al 30-sep),
+            # suponiendo la misma quema y sin dinero nuevo desde el informe (las ventas posteriores se ven en la munición)
+            if hoy:
+                pasados = (hoy - dt.date.fromisoformat(ca["end"])).days / 30.44
+                out.update(meses_desde_informe=round(pasados, 1), autonomia_hoy=round(out["autonomia_meses"] - pasados, 1),
+                           caja_estimada_hoy=round(ca["val"] + inv - q * pasados))
     return out
 
 
@@ -716,18 +913,33 @@ def finalizar(fecha, replay, forzar=False, sin_actualizar=False):
                 if len(txt) <= 1600 and not replay:          # listas antiguas guardaban solo 1 600 caracteres: se relee completo
                     t2 = get(p["url"], sec=True)
                     txt = resumen_doc(limpiar(t2), 15000) if t2 else txt
-                partes.append(dict(archivo=p["archivo"], url=p["url"], texto=txt))
+                partes.append(dict(archivo=p["archivo"], url=p["url"], texto=txt, recortado=p.get("recortado", False),
+                                   negativos=p.get("negativos") if "negativos" in p else negativos(txt)))
             cat.append(dict(form=k["form"], hora=k["hora"], items=k["items"],
                             items_es="; ".join(f"{i} {ITEMS.get(i, '')}" for i in (k["items"] or "").split(",") if i),
                             url=k["url"], partes=partes))
         tramo = "≥ 50 %" if c["gap"] >= GAP_LISTA else "20-50 %"
         pt = puntuar(c, cl)
         acciones.append(dict(base, tramo=tramo, puntuacion=pt, estad=ESTAD_TERCIO[(tramo, pt["tercio"])],
-                             riesgo=riesgo_estructural(c, m), premarket=pm, caja=caja(c["cik"]) if c.get("cik") else None,
+                             riesgo=riesgo_estructural(c, m), premarket=pm, caja=caja(c["cik"], dt.date.fromisoformat(fecha)) if c.get("cik") else None,
+                             historial=c.get("historial", []),
                              catalizadores=cat, docs_hoy=c.get("docs_hoy", []), noticias=c.get("noticias", []), municion=m,
                              costes=dict(locate_1c_R=round(0.01 / (STOP * c["precio"]), 3) if c.get("precio") else None),
                              avisos=avisos))
     acciones.sort(key=lambda x: (-x["puntuacion"]["valor"], -x["gap"]))
+    # 1-oct-2026: verificador independiente obligatorio (listas/VERIFICADOR.md) para gap ≥ 50 % o tesis alta
+    vf = ruta(fecha, "_verificacion")
+    V = json.load(open(vf)) if os.path.exists(vf) else {}
+    for x in acciones:
+        if (x["gap"] >= GAP_LISTA or x["puntuacion"]["tercio"] == "Alta"):
+            v = V.get(x["sym"])
+            x["verificacion"] = v or dict(estado="pendiente")
+            if not replay and not v and not forzar:
+                err.append(f"{x['sym']}: falta la verificación independiente (listas/VERIFICADOR.md → {os.path.basename(vf)})")
+    if err and not forzar:
+        for e in err:
+            print("ERROR:", e)
+        sys.exit("Auditoría con errores: lista NO generada (verificación pendiente). Corregir y repetir (o --forzar).")
     descartadas.sort(key=lambda x: -x["gap"])
     out = dict(fecha=fecha, generado=dt.datetime.now(NY).strftime("%Y-%m-%d %H:%M"), replay=replay, desde=C["desde"], corte=C["corte"],
                version=2, reglas=dict(gap_minimo=GAP_VIGILAR, stop=STOP, deslizamiento=DESL, coste=COSTE, riesgo_accion=RIESGO_ACCION),

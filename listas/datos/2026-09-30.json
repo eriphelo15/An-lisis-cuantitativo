@@ -29,7 +29,9 @@
     "frase_en": "Rademikibart significantly reduced the rate of treatment failure by 81% through Week 4 compared to placebo (p=0.0122)",
     "frase_es": "Rademikibart redujo de forma significativa la tasa de fracaso del tratamiento un 81 % hasta la semana 4 frente a placebo (p=0.0122)",
     "cifra": "−81 % de fracaso del tratamiento (objetivo principal cumplido, p = 0.0122); ensayo de fase 2 con 159 pacientes; sin cifra en dólares",
-    "nota": "8-K Items 7.01/8.01 del 30-sep 3:05 + nota de prensa 7:00. Datos clínicos con resultado (objetivo principal) = biotech real. S-3 del 15-may-2026 presentado (munición disponible); warrants a $2.14 (por encima del precio).",
+    "nota": "8-K Items 7.01/8.01 del 30-sep 3:05 + nota de prensa 7:00. Datos clínicos con resultado (objetivo principal) = biotech real. S-3 del 15-may-2026 presentado (munición disponible); warrants a $2.14 (por encima del precio). | 1-oct: munición completada: shelf F-3 de $300 M con ATM de $150 M con Cantor Fitzgerald sin usar («we have not sold any Ordinary Shares under the Sales Agreement»); el F-3 de may-2026 es REVENTA de 6 130 000 acciones de la colocación privada del 31-mar-2026.",
+    "negativos_revisados": "EX-99.2 (presentación), diapositiva 9: «Key Secondary Endpoint – Post-Bronchodilator FEV1 on Day 7 Not Significant» = objetivo secundario clave (función pulmonar al día 7) NO significativo: Δ0 mL vs placebo. Es la medida que el 15-sep la empresa llamó «the proposed primary endpoint for Phase 3» (objetivo principal propuesto para la fase 3). La nota de prensa (EX-99.1) no lo dice en el titular. Añadido el 1-oct tras compararlo con el análisis de David Veprek (@veptrader).",
+    "historial_revisado": "15-sep 7:06 8-K: datos de asma (principal no significativo, p=0.153); la acción cayó −32 % (cierre 1.725 → 1.17).",
     "tipo_es": "Biotech real (FDA / datos)"
    },
    "tramo": "≥ 50 %",
@@ -129,8 +131,37 @@
     "flujo_hasta": "2026-06-30",
     "meses": 6,
     "quema_mes": 5321167,
-    "autonomia_meses": 5.9
+    "autonomia_meses": 5.9,
+    "meses_desde_informe": 3.0,
+    "autonomia_hoy": 2.9,
+    "caja_estimada_hoy": 15403630
    },
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-09-15 07:06",
+     "items": "7.01,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1835268/000183526826000034/cntb-20260915.htm",
+     "titular": "Connect Biopharma Announces Positive Preliminary Topline Data from its Global Phase 2 Study of Rademikibart as an Add-on Treatment for Acute Exacerbations in Adult and Adolescent Participants with Asthma and Type 2 Infla",
+     "reaccion": {
+      "dia": "2026-09-15",
+      "apertura": -0.2638,
+      "cierre": -0.3217
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-12 16:13",
+     "items": "2.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1835268/000183526826000027/cntb-20260812.htm",
+     "titular": "Connect Biopharma Reports Second Quarter 2026 Financial Results and Provides Business Update – Completed enrollment in Phase 2 Seabreeze STAT studies for acute exacerbations in asthma and COPD – – Expect to report toplin",
+     "reaccion": {
+      "dia": "2026-08-13",
+      "apertura": 0.0,
+      "cierre": 0.0901
+     }
+    }
+   ],
    "catalizadores": [
     {
      "form": "8-K",
@@ -142,12 +173,50 @@
       {
        "archivo": "a991.htm",
        "url": "https://www.sec.gov/Archives/edgar/data/1835268/000183526826000038/a991.htm",
-       "texto": "Document Exhibit 99.1 Connect Biopharma Announces Positive Preliminary Topline Data from its Global Phase 2 Study of Rademikibart as an Add-on Treatment for Acute Exacerbations in Adults with COPD and Type 2 Inflammation – Rademikibart significantly reduced the rate of treatment failure compared to placebo through one month by 81% (p=0.0122) – – Rademikibart significantly reduced the rate of new moderate to severe COPD exacerbations through one month by 85% (p=0.030) – – Rademikibart significantly reduced the rate of hospitalizations or emergency department visits for new acute COPD exacerbations by 100% (p=0.0137) – – Rademikibart was well tolerated in COPD patients experiencing an acute exacerbation with a lower incidence of adverse events than placebo – – Connect plans to engage with the U.S. Food and Drug Administration (FDA) to gain alignment on a Phase 3 program – – Company to host a conference call to discuss the data today, September 30 at 8:00 a.m. ET – SAN DIEGO, SEPTEMBER 30, 2026 (GLOBE NEWSWIRE) -- Connect Biopharma Holdings Limited (Nasdaq: CNTB) (Connect Biopharma, Connect or the Company), a clinical-stage biopharmaceutical company focused on transforming care for the treatment of inflammatory diseases, today announced topline results from its global Phase 2 study evaluating rademikibart, the Company’s next-generation, potentially best-in-class anti-interleukin-4-receptor alpha (IL-4Rα) antibody as an add-on treatment for acute exacerbations in adult participants with chronic obstructive pulmonary disease (COPD) and type 2 inflammation. “Topline data from our Seabreeze STAT COPD trial for rademikibart provides overwhelming evidence of the potential benefit early treatment with rademikibart may provide to COPD patients experiencing an acute exacerbation,” said Barry Quart, Pharm.D., CEO and Director of Connect Biopharma. “2025 claims data indicate that COPD patients going to the emergency department (ED) due to an acute exacerbation generate approximately $6 billion in healthcare costs in the following 30 days due to return visits to the ED or hospital. This study demonstrated that rademikibart completely eliminated those return visits while decreasing new moderate to severe COPD exacerbations by 85% compared to placebo. These groundbreaking results provide a unique opportunity to differentiate rademikibart in COPD from all other approved biologics. We plan to engage with the FDA as soon as feasible regarding a Phase 3 registrational development program for rademikibart as add-on treatment for COPD.” “Acute exacerbations continue to be a major driver of morbidity in COPD, and there remains a need for therapies that can improve outcomes following these events,” said Surya Bhatt, MD, Director of the University of Alabama at Birmingham, UAB Center for Lung Analytics and Imaging Research (CLAIR) in Birmingham, Alabama. “The reduction in COPD exacerbations is compelling, and the clinically meaningful increase in pulmonary function provides a very important improvement over standard-of-care and supports the potential for rademikibart to improve outcomes for COPD patients following an acute exacerbation and for chronic maintenance.” Mario Castro MD, MPH, Professor of Medicine and Chief of the Division of Pulmonary, Critical Care and Sleep Medicine at the University of Kansas School of Medicine added, “One of the greatest challenges in COPD management is helping patients recover from an acute exacerbation and remain stable once they leave the hospital. The reductions in hospitalizations seen with rademikibart address a critical period when patients are at particularly high risk for worsening disease. By helping stabilize patients during the vulnerable post-exacerbation period, rademikibart has the potential to provide benefit in both acute and long-term disease management and meaningfully improve patient care.” The Phase 2 Seabreeze STAT COPD study (CBP-201-207) is a randomized, double-blind, placebo-controlled study evaluating the safety and efficacy of rademikibart as an adjunct to standard of care for acute exacerbations in participants with COPD and type 2 inflammation. The study enrolled 159 participants globally with an eosinophil count of ≥300 cells/μL who have experienced an acute COPD exacerbation. Participants were randomized 1:1 to receive either a single dose of rademikibart or placebo, administered subcutaneously in addition to standard of care. The primary endpoint was treatment failure, defined as death due to any cause, (re)admission to a hospital for COPD, emergency department (ED) (re)visit or unscheduled medical visit for worsening of COPD symptoms, or the necessity to intensify pharmacologic treatment within 28 days after randomization. Secondary endpoints included post-bronchodilator (post-BD) FEV 1 at Week 1 (key secondary), rate and time to new moderate and severe COPD exacerbations, change-from-baseline in clinical respiratory symptoms of COPD, post-BD FEV 1 at other timepoints, and incidence of adverse events for 8 weeks after dosing. For more information, please visit clinicaltrials.gov (identifier NCT06940154). Key topline results include: • Rademikibart significantly reduced the rate of treatment failure by 81% through Week 4 compared to placebo (p=0.0122) • Rademikibart significantly reduced the rate of new moderate to severe COPD exacerbations by 85% through Week 4 compared to placebo (p=0.030) • Rademikibart significantly reduced new visits to emergency departments and hospital admissions for new exacerbations by 100% through Week 4 compared to placebo (p=0.0137) • Rademikibart significantly reduced the use of rescue inhalers from Week 2 through Week 7 and significantly improved COPD symptoms at Week 2 compared to placebo (Total Score, p=0.0197) • Clinically meaningful 70 mL greater improvement in FEV 1 at Week 4 with rademikibart compared to placebo (p=0.1607) • Rademikibart was well tolerated and no new safety signals were observed through the end of the study. The safety profile was comparable to placebo, with a lower incidence of adverse events and serious adverse events reported in the rademikibart arm compared to the placebo arm. Company-Hosted Conference Call and Webcast Connect will host a conference call and webcast today, September 30, 2026, at 8:00 a.m. ET. To access the conference call, please pre-register through here to receive dial-in information and a personal PIN to access the live call. Participants may access the live webcast here or from the Investors section of the Connect website at investors.connectbiopharma.com. An archive of the webcast and presentation will be available for approximately 90 days after the event. About Rademikibart Rademikibart is a fully human monoclonal antibody targeting interleukin-4 receptor alpha (IL-4Rα), a common subunit of interleukin-4 receptor (IL-4) and interleukin-13 receptor (IL-13). We believe that by binding with IL-4Rα, rademikibart can block the functions of IL-4 and IL-13 effectively, thereby blocking the T helper 2 (Th2) inflammatory pathway to achieving the goal of treating Th2 related inflammatory diseases such as atopic dermatitis, asthma and COPD. About Connect Biopharma Connect Biopharma is a clinical-stage biopharmaceutical company dedicated to transforming care for asthma and COPD. Headquartered in San Diego, California, the Company is advancing rademikibart, a next-generation, potentially best-in-class antibody designed to target IL-4Rα. The Company is currently conducting global clinical studies of rademikibart for the treatment of acute exacerbations of asthma and COPD, areas with significant unmet need. Connect has granted an exclusive license to Simcere Pharmaceutical Co., Ltd., for rademikibart in Greater China. Under the exclusive license and collaboration agreement, Connect is eligible to receive remaining milestone payments up to an aggregate amount of approximately $99 million upon the achievement of certain development, regulatory and commercial milestones. Connect is also eligible to receive royalties at tiered percentage rates up to low double-digit percentages on net sales in Greater China. For more information visit www.connectbiopharma.com. Forward-Looking Statements This press release contains “forward-looking statements” within the meaning of the Private Securities Litigation Reform Act of 1995, as amended. Forward-looking statements are statements that are not of historical fact and include, without limitation, statements regarding future events, our future financial and operating results and related expectations, business strategy and plans, prospective products (as well as their potential to achieve a differentiated, competitive, or favorable benefit or profile or trend, including on safety, tolerability, improvement, maintenance, clinical response, dosing, efficacy and/or convenience), statements regarding the timing or results of any interim analysis or interim, topline or preliminary data and whether such analysis or data is indicative of safety, efficacy, final trial results or likelihood of regulatory approval for our product candidates, planned or expected meetings with the FDA or any other regulatory authorities, planned or expected product approval applications or approvals, anticipated milestones and milestone payments, expected data readouts and enrollments and the timing thereof, research and development plans and costs, potential future partnerships, expectations about existing partnerships, timing and likelihood of success, objectives of management for future operations, future results of anticipated product development efforts, adequacy of existing cash and potential partnership funding to fund operations and capital expenditure requirements, anticipated patient populations, market opportunities and potential pricing strategies for our prospective products, if approved, our plans for rademikibart, including potential indications, as well as statements regarding industry trends. These statements are based on management’s current expectations of future events only as of the date of this press release and are inherently subject to a number of risks, uncertainties and assumptions, some of which cannot be predicted or quantified and some of which are beyond our control, including, among other things: the ability of our clinical trials to demonstrate safety and efficacy of our product candidates and other positive results; whether we will need expanded or additional trials in order to obtain regulatory approval for our product candidates; the timing and outcome of any meetings with the FDA or other regulatory authorities regarding further development of our product candidates, including with respect to a potential Phase 3 program for rademikibart; our ability to obtain and maintain regulatory approval of our product candidates; existing regulations and regulatory developments in the U.S., the People’s Republic of China, Europe and other jurisdictions; our plans and ability to obtain, maintain, protect and enforce our intellectual property rights and our proprietary technologies, including extensions of existing patent terms where available; our continued reliance on third parties to conduct additional clinical trials of our product candidates, and for the manufacture of our product candidates for preclinical studies and clinical trials; the degree of market acceptance of our product candidates, if approved, by physicians, patients, healthcare payors and others in the medical community; the impact on our business of adverse global macroeconomic and geopolitical conditions, including high interest rates, the inflationary environment, recessionary fears, foreign exchange rate volatility, instability in financial institutions, government shutdowns, changes in monetary policy, changes in trade policies, including tariffs and other trade restrictions or the threat of such actions, and rising geopolitical instability, including the conflicts in the Middle East and the related volatility in the price of oil and other commodity prices; as well as the risks and uncertainties described in Part I, “Item 1A. Risk Factors” of our Annual Report on Form 10-K for the year ended December 31, 2025, our subsequent Quarterly Reports on Form 10-Q and our other filings with the SEC . Words such as “aim,” “anticipate,” “believe,” “commitments,” “continue,” “could,” “design,” “estimate,” “expect,” “feel,” “goal,” “intend,” “may,” “might,” “objective,” “optimistic,” “plan,” “potential,” “predict,” “promising,” “seek,” “should,” “target,” “will,” “would,” and similar expressions are intended to identify forward-looking statements, though not all forward-looking statements necessarily contain these identifying words. The inclusion of forward-looking statements should not be regarded as a representation by Connect Biopharma that any of its expectations, projections or plans will be achieved. Actual results or outcomes, or the timing of such results or outcomes, may differ materially from those expressed or implied in our forward-looking statements due to the risks and uncertainties described above. These forward-looking statements should not be taken as forecasts or promises nor should they be taken as implying any indication, assurance or guarantee that the assumptions on which such forward-looking statements have been made are correct or exhaustive or, in the case of the assumptions, fully stated herein. Drug development and commercialization involve a high degree of risk, and only a small number of research and development programs result in commercialization of a product. Results in early-stage clinical trials may not be indicative of full results or results from later stage or larger scale clinical trials and do not ensure regulatory approval. You are cautioned not to place undue reliance on the scientific data presented or these forward-looking statements, which speak only as of the date hereof. Except as required by law, Connect Biopharma undertakes no obligation to publicly update any forward-looking statements, whether because of new information, future events or otherwise. This press release discusses our product candidate, rademikibart, which is under clinical investigation and has not yet been approved for marketing by the FDA, the National Medical Products Administration, or by any other regulatory agency. No representation is made as to the safety or effectiveness of rademikibart for the uses for which it is being studied. The trademarks included herein are the property of the owners thereof and are used for reference purposes only. Investor Relations Contact: Alex Lobo Precision AQ Alex.lobo@precisionaq.com (212) 698-8802 Media Contact: Ignacio Guerrero-Ros, Ph.D., or David Schull Russo Partners, LLC Ignacio.guerrero-ros@russopartnersllc.com David.schull@russopartnersllc.com (858) 717-2310 or (646) 942-5604"
+       "texto": "Document Exhibit 99.1 Connect Biopharma Announces Positive Preliminary Topline Data from its Global Phase 2 Study of Rademikibart as an Add-on Treatment for Acute Exacerbations in Adults with COPD and Type 2 Inflammation – Rademikibart significantly reduced the rate of treatment failure compared to placebo through one month by 81% (p=0.0122) – – Rademikibart significantly reduced the rate of new moderate to severe COPD exacerbations through one month by 85% (p=0.030) – – Rademikibart significantly reduced the rate of hospitalizations or emergency department visits for new acute COPD exacerbations by 100% (p=0.0137) – – Rademikibart was well tolerated in COPD patients experiencing an acute exacerbation with a lower incidence of adverse events than placebo – – Connect plans to engage with the U.S. Food and Drug Administration (FDA) to gain alignment on a Phase 3 program – – Company to host a conference call to discuss the data today, September 30 at 8:00 a.m. ET – SAN DIEGO, SEPTEMBER 30, 2026 (GLOBE NEWSWIRE) -- Connect Biopharma Holdings Limited (Nasdaq: CNTB) (Connect Biopharma, Connect or the Company), a clinical-stage biopharmaceutical company focused on transforming care for the treatment of inflammatory diseases, today announced topline results from its global Phase 2 study evaluating rademikibart, the Company’s next-generation, potentially best-in-class anti-interleukin-4-receptor alpha (IL-4Rα) antibody as an add-on treatment for acute exacerbations in adult participants with chronic obstructive pulmonary disease (COPD) and type 2 inflammation. “Topline data from our Seabreeze STAT COPD trial for rademikibart provides overwhelming evidence of the potential benefit early treatment with rademikibart may provide to COPD patients experiencing an acute exacerbation,” said Barry Quart, Pharm.D., CEO and Director of Connect Biopharma. “2025 claims data indicate that COPD patients going to the emergency department (ED) due to an acute exacerbation generate approximately $6 billion in healthcare costs in the following 30 days due to return visits to the ED or hospital. This study demonstrated that rademikibart completely eliminated those return visits while decreasing new moderate to severe COPD exacerbations by 85% compared to placebo. These groundbreaking results provide a unique opportunity to differentiate rademikibart in COPD from all other approved biologics. We plan to engage with the FDA as soon as feasible regarding a Phase 3 registrational development program for rademikibart as add-on treatment for COPD.” “Acute exacerbations continue to be a major driver of morbidity in COPD, and there remains a need for therapies that can improve outcomes following these events,” said Surya Bhatt, MD, Director of the University of Alabama at Birmingham, UAB Center for Lung Analytics and Imaging Research (CLAIR) in Birmingham, Alabama. “The reduction in COPD exacerbations is compelling, and the clinically meaningful increase in pulmonary function provides a very important improvement over standard-of-care and supports the potential for rademikibart to improve outcomes for COPD patients following an acute exacerbation and for chronic maintenance.” Mario Castro MD, MPH, Professor of Medicine and Chief of the Division of Pulmonary, Critical Care and Sleep Medicine at the University of Kansas School of Medicine added, “One of the greatest challenges in COPD management is helping patients recover from an acute exacerbation and remain stable once they leave the hospital. The reductions in hospitalizations seen with rademikibart address a critical period when patients are at particularly high risk for worsening disease. By helping stabilize patients during the vulnerable post-exacerbation period, rademikibart has the potential to provide benefit in both acute and long-term disease management and meaningfully improve patient care.” The Phase 2 Seabreeze STAT COPD study (CBP-201-207) is a randomized, double-blind, placebo-controlled study evaluating the safety and efficacy of rademikibart as an adjunct to standard of care for acute exacerbations in participants with COPD and type 2 inflammation. The study enrolled 159 participants globally with an eosinophil count of ≥300 cells/μL who have experienced an acute COPD exacerbation. Participants were randomized 1:1 to receive either a single dose of rademikibart or placebo, administered subcutaneously in addition to standard of care. The primary endpoint was treatment failure, defined as death due to any cause, (re)admission to a hospital for COPD, emergency department (ED) (re)visit or unscheduled medical visit for worsening of COPD symptoms, or the necessity to intensify pharmacologic treatment within 28 days after randomization. Secondary endpoints included post-bronchodilator (post-BD) FEV 1 at Week 1 (key secondary), rate and time to new moderate and severe COPD exacerbations, change-from-baseline in clinical respiratory symptoms of COPD, post-BD FEV 1 at other timepoints, and incidence of adverse events for 8 weeks after dosing. For more information, please visit clinicaltrials.gov (identifier NCT06940154). Key topline results include: • Rademikibart significantly reduced the rate of treatment failure by 81% through Week 4 compared to placebo (p=0.0122) • Rademikibart significantly reduced the rate of new moderate to severe COPD exacerbations by 85% through Week 4 compared to placebo (p=0.030) • Rademikibart significantly reduced new visits to emergency departments and hospital admissions for new exacerbations by 100% through Week 4 compared to placebo (p=0.0137) • Rademikibart significantly reduced the use of rescue inhalers from Week 2 through Week 7 and significantly improved COPD symptoms at Week 2 compared to placebo (Total Score, p=0.0197) • Clinically meaningful 70 mL greater improvement in FEV 1 at Week 4 with rademikibart compared to placebo (p=0.1607) • Rademikibart was well tolerated and no new safety signals were observed through the end of the study. The safety profile was comparable to placebo, with a lower incidence of adverse events and serious adverse events reported in the rademikibart arm compared to the placebo arm. Company-Hosted Conference Call and Webcast Connect will host a conference call and webcast today, September 30, 2026, at 8:00 a.m. ET. To access the conference call, please pre-register through here to receive dial-in information and a personal PIN to access the live call. Participants may access the live webcast here or from the Investors section of the Connect website at investors.connectbiopharma.com. An archive of the webcast and presentation will be available for approximately 90 days after the event. About Rademikibart Rademikibart is a fully human monoclonal antibody targeting interleukin-4 receptor alpha (IL-4Rα), a common subunit of interleukin-4 receptor (IL-4) and interleukin-13 receptor (IL-13). We believe that by binding with IL-4Rα, rademikibart can block the functions of IL-4 and IL-13 effectively, thereby blocking the T helper 2 (Th2) inflammatory pathway to achieving the goal of treating Th2 related inflammatory diseases such as atopic dermatitis, asthma and COPD. About Connect Biopharma Connect Biopharma is a clinical-stage biopharmaceutical company dedicated to transforming care for asthma and COPD. Headquartered in San Diego, California, the Company is advancing rademikibart, a next-generation, potentially best-in-class antibody designed to target IL-4Rα. The Company is currently conducting global clinical studies of rademikibart for the treatment of acute exacerbations of asthma and COPD, areas with significant unmet need. Connect has granted an exclusive license to Simcere Pharmaceutical Co., Ltd., for rademikibart in Greater China. Under the exclusive license and collaboration agreement, Connect is eligible to receive remaining milestone payments up to an aggregate amount of approximately $99 million upon the achievement of certain development, regulatory and commercial milestones. Connect is also eligible to receive royalties at tiered percentage rates up to low double-digit percentages on net sales in Greater China. For more information visit www.connectbiopharma.com. Forward-Looking Statements This press release contains “forward-looking statements” within the meaning of the Private Securities Litigation Reform Act of 1995, as amended. Forward-looking statements are statements that are not of historical fact and include, without limitation, statements regarding future events, our future financial and operating results and related expectations, business strategy and plans, prospective products (as well as their potential to achieve a differentiated, competitive, or favorable benefit or profile or trend, including on safety, tolerability, improvement, maintenance, clinical response, dosing, efficacy and/or convenience), statements regarding the timing or results of any interim analysis or interim, topline or preliminary data and whether such analysis or data is indicative of safety, efficacy, final trial results or likelihood of regulatory approval for our product candidates, planned or expected meetings with the FDA or any other regulatory authorities, planned or expected product approval applications or approvals, anticipated milestones and milestone payments, expected data readouts and enrollments and the timing thereof, research and development plans and costs, potential future partnerships, expectations about existing partnerships, timing and likelihood of success, objectives of management for future operations, future results of anticipated product development efforts, adequacy of existing cash and potential partnership funding to fund operations and capital expenditure requirements, anticipated patient populations, market opportunities and potential pricing strategies for our prospective products, if approved, our plans for rademikibart, including potential indications, as well as statements regarding industry trends. These statements are based on management’s current expectations of future events only as of the date of this press release and are inherently subject to a number of risks, uncertainties and assumptions, some of which cannot be predicted or quantified and some of which are beyond our control, including, among other things: the ability of our clinical trials to demonstrate safety and efficacy of our product candidates and other positive results; whether we will need expanded or additional trials in order to obtain regulatory approval for our product candidates; the timing and outcome of any meetings with the FDA or other regulatory authorities regarding further development of our product candidates, including with respect to a potential Phase 3 program for rademikibart; our ability to obtain and maintain regulatory approval of our product candidates; existing regulations and regulatory developments in the U.S., the People’s Republic of China, Europe and other jurisdictions; our plans and ability to obtain, maintain, protect and enforce our intellectual property rights and our proprietary technologies, including extensions of existing patent terms where available; our continued reliance on third parties to conduct additional clinical trials of our product candidates, and for the manufacture of our product candidates for preclinical studies and clinical trials; the degree of market acceptance of our product candidates, if approved, by physicians, patients, healthcare payors and others in the medical community; the impact on our business of adverse global macroeconomic and geopolitical conditions, including high interest rates, the inflationary environment, recessionary fears, foreign exchange rate volatility, instability in financial institutions, government shutdowns, changes in monetary policy, changes in trade policies, including tariffs and other trade restrictions or the threat of such actions, and rising geopolitical instability, including the conflicts in the Middle East and the related volatility in the price of oil and other commodity prices; as well as the risks and uncertainties described in Part I, “Item 1A. Risk Factors” of our Annual Report on Form 10-K for the year ended December 31, 2025, our subsequent Quarterly Reports on Form 10-Q and our other filings with the SEC . Words such as “aim,” “anticipate,” “believe,” “commitments,” “continue,” “could,” “design,” “estimate,” “expect,” “feel,” “goal,” “intend,” “may,” “might,” “objective,” “optimistic,” “plan,” “potential,” “predict,” “promising,” “seek,” “should,” “target,” “will,” “would,” and similar expressions are intended to identify forward-looking statements, though not all forward-looking statements necessarily contain these identifying words. The inclusion of forward-looking statements should not be regarded as a representation by Connect Biopharma that any of its expectations, projections or plans will be achieved. Actual results or outcomes, or the timing of such results or outcomes, may differ materially from those expressed or implied in our forward-looking statements due to the risks and uncertainties described above. These forward-looking statements should not be taken as forecasts or promises nor should they be taken as implying any indication, assurance or guarantee that the assumptions on which such forward-looking statements have been made are correct or exhaustive or, in the case of the assumptions, fully stated herein. Drug development and commercialization involve a high degree of risk, and only a small number of research and development programs result in commercialization of a product. Results in early-stage clinical trials may not be indicative of full results or results from later stage or larger scale clinical trials and do not ensure regulatory approval. You are cautioned not to place undue reliance on the scientific data presented or these forward-looking statements, which speak only as of the date hereof. Except as required by law, Connect Biopharma undertakes no obligation to publicly update any forward-looking statements, whether because of new information, future events or otherwise. This press release discusses our product candidate, rademikibart, which is under clinical investigation and has not yet been approved for marketing by the FDA, the National Medical Products Administration, or by any other regulatory agency. No representation is made as to the safety or effectiveness of rademikibart for the uses for which it is being studied. The trademarks included herein are the property of the owners thereof and are used for reference purposes only. Investor Relations Contact: Alex Lobo Precision AQ Alex.lobo@precisionaq.com (212) 698-8802 Media Contact: Ignacio Guerrero-Ros, Ph.D., or David Schull Russo Partners, LLC Ignacio.guerrero-ros@russopartnersllc.com David.schull@russopartnersllc.com (858) 717-2310 or (646) 942-5604",
+       "recortado": false,
+       "negativos": [
+        {
+         "tipo": "objetivo secundario / clave",
+         "frase": "dmission to a hospital for COPD, emergency department (ED) (re)visit or unscheduled medical visit for worsening of COPD symptoms, or the necessity to intensify pharmacologic treatment within 28 days after randomization. Secondary endpoints included post-bronchodilator (post-BD) FEV 1 at Week 1 (key secondary), rate and time to new moderate and severe COPD exacerbations, change-from-baseline in clinical respiratory symptoms of COPD, post-BD FEV 1 at other"
+        },
+        {
+         "tipo": "objetivo secundario / clave",
+         "frase": "heduled medical visit for worsening of COPD symptoms, or the necessity to intensify pharmacologic treatment within 28 days after randomization. Secondary endpoints included post-bronchodilator (post-BD) FEV 1 at Week 1 (key secondary), rate and time to new moderate and severe COPD exacerbations, change-from-baseline in clinical respiratory symptoms of COPD, post-BD FEV 1 at other timepoints, and incidence of adverse events for 8 weeks after dosing."
+        }
+       ]
       },
       {
        "archivo": "a992.htm",
        "url": "https://www.sec.gov/Archives/edgar/data/1835268/000183526826000038/a992.htm",
-       "texto": "a992 CBP-201-207 Rademikibart Add-on Treatment of an Acute COPD Exacerbation Preliminary Results (Seabreeze STAT COPD) Exhibit 99.2 2 This presentation contains “forward-looking statements” within the meaning of the Private Securities Litigation Reform Act of 1995, as amended (the “Act”). Forward-looking statements are statements that are not of historical fact and include, without limitation, statements regarding future events, our future financial condition, results of operations, business strategy and plans, prospective products (as well as their potential to achieve a differentiated, competitive, or favorable benefit or profile or trend, including on safety, tolerability, improvement, maintenance, clinical response, dosing, efficacy and/or convenience), planned or expected product approval applications or approvals, anticipated milestones, expected data readouts and enrollments, research and development plans and costs, potential future partnerships, expectations about existing partnerships, timing and likelihood of success, objectives of management for future operations, future results of anticipated product development efforts, and adequacy of existing cash and potential partnership funding to fund operations and capital expenditure requirements, as well as statements regarding industry trends. These statements are based on management’s current expectations of future events only as of the date of this presentation and are inherently subject to a number of risks, uncertainties and assumptions, some of which cannot be predicted or quantified and some of which are beyond our control, including, among other things: the ability of our clinical trials to demonstrate safety and efficacy of our product candidates and other positive results; whether we will need expanded or additional trials in order to obtain regulatory approval for our product candidates; our ability to obtain and maintain regulatory approval of our product candidates; existing regulations and regulatory developments in the U.S., the UK, the PRC, Europe and other jurisdictions; the ability of our current cash and investments position to support planned operations; our plans and ability to obtain, maintain, protect and enforce our intellectual property rights and our proprietary technologies, including extensions of existing patent terms where available; our continued reliance on third parties to conduct additional clinical trials of our product candidates, and for the manufacture of our product candidates for preclinical studies and clinical trials; and the degree of market acceptance of our product candidates, if approved, by physicians, patients, healthcare payors and others in the medical community. Words such as “aim,” “anticipate,” “believe,” “could,” “expect,” “feel,” “goal,” “intend,” “may,” “optimistic,” “plan,” “potential,” “promising,” “will,” and similar expressions are intended to identify forward-looking statements, though not all forward-looking statements necessarily contain these identifying words. The inclusion of forward-looking statements should not be regarded as a representation by Connect that any of its expectations, projections or plans will be achieved. Actual results may differ materially due to the risks and uncertainties inherent in Connect’s business and other risks described in Connect’s filings with the SEC. Further information regarding these and other risks is included under the heading “Risk Factors” in Connect’s annual and periodic reports filed with the SEC. These forward-looking statements should not be taken as forecasts or promises nor should they be taken as implying any indication, assurance or guarantee that the assumptions on which such forward-looking statements have been made are correct or exhaustive or, in the case of the assumptions, fully stated in this presentation. You are cautioned not to place undue reliance on the scientific data presented or these forward-looking statements, which speak only as of the date of this presentation. Except as required by law, Connect undertakes no obligation to publicly update any forward-looking statements, whether because of new information, future events or otherwise. Connect claims the protection of the safe harbor for forward-looking statements contained in the Act for all forward-looking statements. This presentation discusses product candidates that are under clinical study, and which have not yet been approved for marketing by the U.S. Food and Drug Administration, the National Medical Products Administration or by any other regulatory agency. No representation is made as to the safety or effectiveness of these product candidates for the use for which such product candidates are being studied. The trademarks included herein are the property of the owners thereof and are used for reference purposes only. Such use should not be construed as an endorsement of such products. Forward-Looking Statements 3 Phase 2 Clinical Trial of Rademikibart for Treatment of Acute COPD Exacerbations Abbreviations: COPD = Chronic obstructive pulmonary disease; FEV1 = forced expiratory volume in 1 second; PRO =patient-reported outcome; SC = subcutaneous; SOC = standard of care: SOC + Placebo SC (n=81) Assessment of Treatment Failure Day 0 Single SC dose SOC + Rademikibart 600mg SC (n=78) Primary endpoint Treatment Failure 4-week follow-up period Week 8 Study Completion 4-week assessment period STAT COPD STUDY DESIGN 1:1 R Population Primary Endpoint Secondary Endpoints Key Exploratory Endpoints Seabreeze STAT COPD Adolescents and adults at urgent outpatient visit, ED or hospital Eosinophil count of ≥ 300 cells/µL and ≥1 exacerbation in prior ~12 months Treatment Failure (28 days after randomization) includes: • death (any cause), • (re)admission to hospital, • urgent visit to outpatient/ED provider for symptom worsening, or • necessity to intensify pharmacologic treatment. •KEY: Absolute change from baseline in post-bronchodilator (BD) FEV1 at Wk 1; •Rate of exacerbations in 4 weeks •Time to new exacerbation in 4 weeks •Absolute change in post-BD FEV1 at Day 3 & Wk 4 •Mean change in respiratory symptoms. •Safety •Time to ready for discharge in hospitalized patients •Disease specific- PROs 4Phase 2 Seabreeze STAT COPD Study Participant Disposition S C R E E N E D 325 S C R E E N F A I L E D 166 Reasons (participants may have >1) Did Not Meet Eligibility Criteria 99 (59.6%) No Exacerbation During Screening 63 (38.0%) Physician Decision 2 (1.2%) Participant Withdrew Consent 9 (5.4%) Lost to Follow-up 2 (1.2%) 0 Death 1 R A N D O M I Z E D 159 P L A C E B O n = 81 R A D E M I K I B A R T n = 78 Note: A participant may be counted for more than one reason for screen failure. Study Terminated 5 Placebo (N=81) n (%) Rademikibart (N=78) n (%) Age (years): Mean (SD); Min, Max 66.6 (7.94); 45, 80 64.9 (9.26); 40, 80 Sex: Male Female 52 (64.2%) 29 (35.8%) 45 (57.7%) 33 (42.3%) Ethnicity: Not Hispanic 68 (84.0%) 70 (89.7%) Race: White Black Pacific Islander 81 (100.0%) 0 0 74 (94.9%) 4 (5.1%) 1 (1.3%) Smoking Status: Former Current 43 (53.1%) 38 (46.9%) 43 (55.1%) 35 (44.9%) Exacerbations in Prior 12 mos: Mean (SD) 1.5 (1.00) 1.6 (1.21) Baseline Eosinophil Count (cells/µL): Mean (SD) 454 (245) 472 (212) Baseline FeNO (ppb): 23.6 (20.00) 24.3 (23.32) Country: Serbia Georgia USA Argentina Australia Great Britain 39 (48.1%) 24 (29.6%) 10 (12.4%) 5 (6.2%) 3 (3.7%) 0 43 (55.1%) 25 (32.0%) 8 (10.3%) 2 (2.6%) 0 0 Phase 2 Seabreeze STAT COPD Demographics and Baseline Characteristics 6 81% Reduction in TxF with Rademikibart & 100% Reduction in Hospital/ED Returns in One Month after Randomization Placebo (n=81) Rademikibart (n=78) P-value (Preliminary) Treatment Failure Rate* 11 (13.6%) 2 (2.6%) 81% reduction p=0.0122 Death 0 0 Admission or readmission to hospital for COPD 4 (4.9%) 0 ED visit for worsening COPD symptoms 3 (3.7%) 0 Unscheduled Medical Visit Only 2 (2.5%) 2 (2.6%) Intensified pharmacologic treatment no admission/ED/unscheduled medical visit 2 (2.5%) 0 Patients returning to the hospital or ED 7 (8.6%) 0 p = 0.0137** *Treatment failures counted through Day 28 visit which may have been +/-3 days from Day 28 per protocol. Treatment Failure Rate in 28 days statistically significant in favor of rademikibart with a 77% reduction in events compared to placebo (p= 0.0373). **.Preliminary p-values based on Fisher’s Exact ED – Emergency Department. 7Time to Treatment Failure 0.60 0.80 1.00 0 7 14 21 28 Pr ob ab ili ty o f n ot e xp er ie nc in g a tr ea tm en t f ai lu re Days following IP administration Time to Treatment Failure Through Week 4 Visit* Placebo (n=81) Rademikibart (n=78) Censored (placebo) Censored (rademikibart) * Per protocol, ±3-day window is used for Day 28 visit Time to the first new asthma exacerbation in the 4 weeks after randomization could not be calculated. 8Rate of New Exacerbations Also Lower in Study 207 Placebo (n=81) Rademikibart (n=78) P-value Rate of new exacerbations through Week 4 visit 7 (8.6%) 1 (1.3%) 85% reduction 0.0301 Note: Study 207 was powered based on Treatment Failure primary endpoint and not secondary endpoints. Rate of new COPD exacerbations in exactly 28 days after randomization was 79% lower (p=0.105). 9 Key Secondary Endpoint – Post-Bronchodilator FEV1 on Day 7 Not Significant Preliminary Topline Results 0 20 40 60 80 100 120 140 160 C ha ng e fro m B as el in e in P os t-B D F EV 1 (m L) Change from Baseline in Post-Bronchodilator FEV1 * Rademikibart (n=78) Placebo (n=81) Δ0 mL p - NS Δ70 mL p=0.1607 Δ20 mL p - NS Δ-10 mL p - NS BD – Bronchodilator *LSM change from baseline Table 14.2.2.1 10 Significant Decrease in Rescue Inhaler Use Starting Week 2 Preliminary Topline Results 0 0.05 0.1 0.15 0.2 0.25 0.3 Av er ag e D ai ly P uf fs o f R es cu e In ha le r Average Daily Puffs of Rescue Inhaler Rademikibart (n=78) Placebo (n = 81) p=0.016 p = 0.245 *p-values comparing rademikibart to placebo are based on an ANCOVA model adjusting for stratification factors p=0.015 p=0.018 p=0.061 p=0.024 p=0.035p=0.029 11EXACT PRO Total Score and Individual Symptom Scores Lower at All Timepoints in Study 207 EXACT PRO Total Score Placebo (n=81) Rademikibart (n=78) P-value Week 1 Mean (SD) LSMD 38.01 (10.885) 34.88 (11.428) -4.18 (1.947) 0.0334 Week 2 Mean (SD) LSMD 33.84 (12.318) 29.82 (12.859) -5.39 (2.282) 0.0197 Week 4 Mean (SD) LSMD 32.56 (12.646) 29.68 (12.847) -4.28 (2.297) 0.0643 COPD score, Breathlessness subscale, Cough and Sputum subscale, and Chest Symptoms subscale were also lower at all visits compared to placebo with statistical significance at Week 2 for all scales. Statistical significance also achieved at additional timepoints for COPD score (Week 4), breathlessness subscale (Weeks 1 and 4), Cough and Sputum subscale (Week 1). E-RS: COPD score calculated as sum of 10 respiratory components of EXACT-PRO averaged over 7 days; total score ranges from 0-36; higher values represent more severe symptoms. Breathlessness subscale includes 5 items; ranges from 0-17. Cough and Sputum subscale includes 3 items; ranges from 0-7. Chest Symptoms subscale includes 3 items; ranges from 0-12. EXACT total score all 14 items of EXACT-PRO. Abbreviations: CFB, change from baseline; E-RS, E-RS = Evaluating Respiratory Symptom; EXACT-PRO = Exacerbations of Chronic Pulmonary Disease Tool - Patient-Reported Outcome; LSMD, least squares mean difference; NS, not significant; SD, standard deviation Note: Study 206 was powered based on Treatment Failure primary endpoint and not secondary endpoints. 12 Placebo (N=81) n (%) Rademikibart (N=78) n (%) Any TEAE 21 (25.9%) 11 (14.1%) SAE 7 (8.6%) 2 (2.6%) TEAEs possibly related to IP 1 (1.2%) 0 TEAEs ≥Grade 3 7 (8.6%) 1 (1.3%) AESIs 0 0 TEAEs of DILI 0 0 TEAEs leading to IP discontinuation 0 0 TEAEs leading to trial withdrawal 0 0 Phase 2 Seabreeze STAT COPD Study Adverse Event Summary Abbreviations: AESI, adverse event of special interest; CPK, creatine phosphokinase; DILI, drug-induced liver injury; GFR, glomerular filtration rate; IP, investigational product; SAE, serious adverse event; TEAE, treatment-emergent adverse event. Note: AESIs include conjunctivitis, keratitis, severe (Grade 3) injection site reactions persisting >24 hrs, parasitic and opportunistic infections, and anaphylaxis 13 Placebo (N=81) Rademikibart (N=78) COPD (n=6; exacerbation) Atrial fibrillation* (n=1) Pneumonia (n=1)  SAE  Grade ≥3 TEAE Death of unknown cause** (n=1; Day 37)  SAE  Grade ≥3 TEAE Injection site reaction (n=1)  Possibly related TEAE COPD (n=1; exacerbation, Day 39)  SAE COPD (n=6; exacerbation) Urinary tract infection (n=2) Mitral valve incompetence (n=2) Tricuspid valve incompetence (n=2)  Most common TEAE COPD (n=4; exacerbation)  Most common TEAE Phase 2 Seabreeze STAT COPD Study Adverse Event Details Abbreviations: AESI, adverse event of special interest; SAE, serious adverse event; TEAE, treatment-emergent adverse event * Atrial fibrillation occurred in participant who also had worsening of index exacerbation that required hospitalization ** Death was not related to COPD; participant with a medical history of ventricular arrhythmias woke up during the night, fell and hit her head, then died. Notes: No AEs of ‘eosinophil count increased’ or ‘eosinophilia’ reported in the study. The protocol required eosinophil counts ≥1500 cells/μL or if symptomatic to be reported as an AE. COPD exacerbations reported as an Adverse Event only if more severe than Index Exacerbation or more frequent than expected for participant. 2025 US National Claims Data Patients Aged 40 and Over Distribution of Emergency Visits for COPD with Costs Acute COPD exacerbation 3,457,573 ER visits/yr Not type 2–high · 1,863,632 · 53.9% not carried forward Type 2–high 1,593,941 46.1% 50% of the 90-day downstream spend lands in the first month. H O W T H E V I S I T E N D S … Treat + Release discharged from the ER Observation held, not admitted Admitted inpatient stay Type 2–high visits a year 533,652 33.5% 122,255 7.7% 938,034 58.9% W H A T H A P P E N S I N T H E F I R S T 3 0 D A Y S … Returned to ER or was admitted ≤30 days 11.4%60,570 13.5%16,443 20.0%187,138 ↳ mean cost of one such return $19,264 $23,687 $29,209 30-day cost for returning patients $1.17B $389M $5.47B Cost savings with 81% reduction in 30-day returns $954M $1,788 per Treated and Released visit $315M $2,577 per Observation visit $4.44B $4,730 per Admitted visit ER = emergency room; type 2–high = latest blood eosinophil >150 cells/µL or a documented non-asthma atopic condition; allowed amount = billed and allowed by the plan, before the plan’s share is netted out Visit volume: Komodo Healthcare Map, age 40+, CY2025. The locked national projection figure is 3,457,573 COPD-related ER visits on 1,924,002 patients (x1.8 visits per patient per year). Case finding: an acute COPD code on the visit, or, absent that, airway-directed treatment or coded acute respiratory failure; the like-for-like tier (2.04M)"
+       "texto": "a992 CBP-201-207 Rademikibart Add-on Treatment of an Acute COPD Exacerbation Preliminary Results (Seabreeze STAT COPD) Exhibit 99.2 2 This presentation contains “forward-looking statements” within the meaning of the Private Securities Litigation Reform Act of 1995, as amended (the “Act”). Forward-looking statements are statements that are not of historical fact and include, without limitation, statements regarding future events, our future financial condition, results of operations, business strategy and plans, prospective products (as well as their potential to achieve a differentiated, competitive, or favorable benefit or profile or trend, including on safety, tolerability, improvement, maintenance, clinical response, dosing, efficacy and/or convenience), planned or expected product approval applications or approvals, anticipated milestones, expected data readouts and enrollments, research and development plans and costs, potential future partnerships, expectations about existing partnerships, timing and likelihood of success, objectives of management for future operations, future results of anticipated product development efforts, and adequacy of existing cash and potential partnership funding to fund operations and capital expenditure requirements, as well as statements regarding industry trends. These statements are based on management’s current expectations of future events only as of the date of this presentation and are inherently subject to a number of risks, uncertainties and assumptions, some of which cannot be predicted or quantified and some of which are beyond our control, including, among other things: the ability of our clinical trials to demonstrate safety and efficacy of our product candidates and other positive results; whether we will need expanded or additional trials in order to obtain regulatory approval for our product candidates; our ability to obtain and maintain regulatory approval of our product candidates; existing regulations and regulatory developments in the U.S., the UK, the PRC, Europe and other jurisdictions; the ability of our current cash and investments position to support planned operations; our plans and ability to obtain, maintain, protect and enforce our intellectual property rights and our proprietary technologies, including extensions of existing patent terms where available; our continued reliance on third parties to conduct additional clinical trials of our product candidates, and for the manufacture of our product candidates for preclinical studies and clinical trials; and the degree of market acceptance of our product candidates, if approved, by physicians, patients, healthcare payors and others in the medical community. Words such as “aim,” “anticipate,” “believe,” “could,” “expect,” “feel,” “goal,” “intend,” “may,” “optimistic,” “plan,” “potential,” “promising,” “will,” and similar expressions are intended to identify forward-looking statements, though not all forward-looking statements necessarily contain these identifying words. The inclusion of forward-looking statements should not be regarded as a representation by Connect that any of its expectations, projections or plans will be achieved. Actual results may differ materially due to the risks and uncertainties inherent in Connect’s business and other risks described in Connect’s filings with the SEC. Further information regarding these and other risks is included under the heading “Risk Factors” in Connect’s annual and periodic reports filed with the SEC. These forward-looking statements should not be taken as forecasts or promises nor should they be taken as implying any indication, assurance or guarantee that the assumptions on which such forward-looking statements have been made are correct or exhaustive or, in the case of the assumptions, fully stated in this presentation. You are cautioned not to place undue reliance on the scientific data presented or these forward-looking statements, which speak only as of the date of this presentation. Except as required by law, Connect undertakes no obligation to publicly update any forward-looking statements, whether because of new information, future events or otherwise. Connect claims the protection of the safe harbor for forward-looking statements contained in the Act for all forward-looking statements. This presentation discusses product candidates that are under clinical study, and which have not yet been approved for marketing by the U.S. Food and Drug Administration, the National Medical Products Administration or by any other regulatory agency. No representation is made as to the safety or effectiveness of these product candidates for the use for which such product candidates are being studied. The trademarks included herein are the property of the owners thereof and are used for reference purposes only. Such use should not be construed as an endorsement of such products. Forward-Looking Statements 3 Phase 2 Clinical Trial of Rademikibart for Treatment of Acute COPD Exacerbations Abbreviations: COPD = Chronic obstructive pulmonary disease; FEV1 = forced expiratory volume in 1 second; PRO =patient-reported outcome; SC = subcutaneous; SOC = standard of care: SOC + Placebo SC (n=81) Assessment of Treatment Failure Day 0 Single SC dose SOC + Rademikibart 600mg SC (n=78) Primary endpoint Treatment Failure 4-week follow-up period Week 8 Study Completion 4-week assessment period STAT COPD STUDY DESIGN 1:1 R Population Primary Endpoint Secondary Endpoints Key Exploratory Endpoints Seabreeze STAT COPD Adolescents and adults at urgent outpatient visit, ED or hospital Eosinophil count of ≥ 300 cells/µL and ≥1 exacerbation in prior ~12 months Treatment Failure (28 days after randomization) includes: • death (any cause), • (re)admission to hospital, • urgent visit to outpatient/ED provider for symptom worsening, or • necessity to intensify pharmacologic treatment. •KEY: Absolute change from baseline in post-bronchodilator (BD) FEV1 at Wk 1; •Rate of exacerbations in 4 weeks •Time to new exacerbation in 4 weeks •Absolute change in post-BD FEV1 at Day 3 & Wk 4 •Mean change in respiratory symptoms. •Safety •Time to ready for discharge in hospitalized patients •Disease specific- PROs 4Phase 2 Seabreeze STAT COPD Study Participant Disposition S C R E E N E D 325 S C R E E N F A I L E D 166 Reasons (participants may have >1) Did Not Meet Eligibility Criteria 99 (59.6%) No Exacerbation During Screening 63 (38.0%) Physician Decision 2 (1.2%) Participant Withdrew Consent 9 (5.4%) Lost to Follow-up 2 (1.2%) 0 Death 1 R A N D O M I Z E D 159 P L A C E B O n = 81 R A D E M I K I B A R T n = 78 Note: A participant may be counted for more than one reason for screen failure. Study Terminated 5 Placebo (N=81) n (%) Rademikibart (N=78) n (%) Age (years): Mean (SD); Min, Max 66.6 (7.94); 45, 80 64.9 (9.26); 40, 80 Sex: Male Female 52 (64.2%) 29 (35.8%) 45 (57.7%) 33 (42.3%) Ethnicity: Not Hispanic 68 (84.0%) 70 (89.7%) Race: White Black Pacific Islander 81 (100.0%) 0 0 74 (94.9%) 4 (5.1%) 1 (1.3%) Smoking Status: Former Current 43 (53.1%) 38 (46.9%) 43 (55.1%) 35 (44.9%) Exacerbations in Prior 12 mos: Mean (SD) 1.5 (1.00) 1.6 (1.21) Baseline Eosinophil Count (cells/µL): Mean (SD) 454 (245) 472 (212) Baseline FeNO (ppb): 23.6 (20.00) 24.3 (23.32) Country: Serbia Georgia USA Argentina Australia Great Britain 39 (48.1%) 24 (29.6%) 10 (12.4%) 5 (6.2%) 3 (3.7%) 0 43 (55.1%) 25 (32.0%) 8 (10.3%) 2 (2.6%) 0 0 Phase 2 Seabreeze STAT COPD Demographics and Baseline Characteristics 6 81% Reduction in TxF with Rademikibart & 100% Reduction in Hospital/ED Returns in One Month after Randomization Placebo (n=81) Rademikibart (n=78) P-value (Preliminary) Treatment Failure Rate* 11 (13.6%) 2 (2.6%) 81% reduction p=0.0122 Death 0 0 Admission or readmission to hospital for COPD 4 (4.9%) 0 ED visit for worsening COPD symptoms 3 (3.7%) 0 Unscheduled Medical Visit Only 2 (2.5%) 2 (2.6%) Intensified pharmacologic treatment no admission/ED/unscheduled medical visit 2 (2.5%) 0 Patients returning to the hospital or ED 7 (8.6%) 0 p = 0.0137** *Treatment failures counted through Day 28 visit which may have been +/-3 days from Day 28 per protocol. Treatment Failure Rate in 28 days statistically significant in favor of rademikibart with a 77% reduction in events compared to placebo (p= 0.0373). **.Preliminary p-values based on Fisher’s Exact ED – Emergency Department. 7Time to Treatment Failure 0.60 0.80 1.00 0 7 14 21 28 Pr ob ab ili ty o f n ot e xp er ie nc in g a tr ea tm en t f ai lu re Days following IP administration Time to Treatment Failure Through Week 4 Visit* Placebo (n=81) Rademikibart (n=78) Censored (placebo) Censored (rademikibart) * Per protocol, ±3-day window is used for Day 28 visit Time to the first new asthma exacerbation in the 4 weeks after randomization could not be calculated. 8Rate of New Exacerbations Also Lower in Study 207 Placebo (n=81) Rademikibart (n=78) P-value Rate of new exacerbations through Week 4 visit 7 (8.6%) 1 (1.3%) 85% reduction 0.0301 Note: Study 207 was powered based on Treatment Failure primary endpoint and not secondary endpoints. Rate of new COPD exacerbations in exactly 28 days after randomization was 79% lower (p=0.105). 9 Key Secondary Endpoint – Post-Bronchodilator FEV1 on Day 7 Not Significant Preliminary Topline Results 0 20 40 60 80 100 120 140 160 C ha ng e fro m B as el in e in P os t-B D F EV 1 (m L) Change from Baseline in Post-Bronchodilator FEV1 * Rademikibart (n=78) Placebo (n=81) Δ0 mL p - NS Δ70 mL p=0.1607 Δ20 mL p - NS Δ-10 mL p - NS BD – Bronchodilator *LSM change from baseline Table 14.2.2.1 10 Significant Decrease in Rescue Inhaler Use Starting Week 2 Preliminary Topline Results 0 0.05 0.1 0.15 0.2 0.25 0.3 Av er ag e D ai ly P uf fs o f R es cu e In ha le r Average Daily Puffs of Rescue Inhaler Rademikibart (n=78) Placebo (n = 81) p=0.016 p = 0.245 *p-values comparing rademikibart to placebo are based on an ANCOVA model adjusting for stratification factors p=0.015 p=0.018 p=0.061 p=0.024 p=0.035p=0.029 11EXACT PRO Total Score and Individual Symptom Scores Lower at All Timepoints in Study 207 EXACT PRO Total Score Placebo (n=81) Rademikibart (n=78) P-value Week 1 Mean (SD) LSMD 38.01 (10.885) 34.88 (11.428) -4.18 (1.947) 0.0334 Week 2 Mean (SD) LSMD 33.84 (12.318) 29.82 (12.859) -5.39 (2.282) 0.0197 Week 4 Mean (SD) LSMD 32.56 (12.646) 29.68 (12.847) -4.28 (2.297) 0.0643 COPD score, Breathlessness subscale, Cough and Sputum subscale, and Chest Symptoms subscale were also lower at all visits compared to placebo with statistical significance at Week 2 for all scales. Statistical significance also achieved at additional timepoints for COPD score (Week 4), breathlessness subscale (Weeks 1 and 4), Cough and Sputum subscale (Week 1). E-RS: COPD score calculated as sum of 10 respiratory components of EXACT-PRO averaged over 7 days; total score ranges from 0-36; higher values represent more severe symptoms. Breathlessness subscale includes 5 items; ranges from 0-17. Cough and Sputum subscale includes 3 items; ranges from 0-7. Chest Symptoms subscale includes 3 items; ranges from 0-12. EXACT total score all 14 items of EXACT-PRO. Abbreviations: CFB, change from baseline; E-RS, E-RS = Evaluating Respiratory Symptom; EXACT-PRO = Exacerbations of Chronic Pulmonary Disease Tool - Patient-Reported Outcome; LSMD, least squares mean difference; NS, not significant; SD, standard deviation Note: Study 206 was powered based on Treatment Failure primary endpoint and not secondary endpoints. 12 Placebo (N=81) n (%) Rademikibart (N=78) n (%) Any TEAE 21 (25.9%) 11 (14.1%) SAE 7 (8.6%) 2 (2.6%) TEAEs possibly related to IP 1 (1.2%) 0 TEAEs ≥Grade 3 7 (8.6%) 1 (1.3%) AESIs 0 0 TEAEs of DILI 0 0 TEAEs leading to IP discontinuation 0 0 TEAEs leading to trial withdrawal 0 0 Phase 2 Seabreeze STAT COPD Study Adverse Event Summary Abbreviations: AESI, adverse event of special interest; CPK, creatine phosphokinase; DILI, drug-induced liver injury; GFR, glomerular filtration rate; IP, investigational product; SAE, serious adverse event; TEAE, treatment-emergent adverse event. Note: AESIs include conjunctivitis, keratitis, severe (Grade 3) injection site reactions persisting >24 hrs, parasitic and opportunistic infections, and anaphylaxis 13 Placebo (N=81) Rademikibart (N=78) COPD (n=6; exacerbation) Atrial fibrillation* (n=1) Pneumonia (n=1)  SAE  Grade ≥3 TEAE Death of unknown cause** (n=1; Day 37)  SAE  Grade ≥3 TEAE Injection site reaction (n=1)  Possibly related TEAE COPD (n=1; exacerbation, Day 39)  SAE COPD (n=6; exacerbation) Urinary tract infection (n=2) Mitral valve incompetence (n=2) Tricuspid valve incompetence (n=2)  Most common TEAE COPD (n=4; exacerbation)  Most common TEAE Phase 2 Seabreeze STAT COPD Study Adverse Event Details Abbreviations: AESI, adverse event of special interest; SAE, serious adverse event; TEAE, treatment-emergent adverse event * Atrial fibrillation occurred in participant who also had worsening of index exacerbation that required hospitalization ** Death was not related to COPD; participant with a medical history of ventricular arrhythmias woke up during the night, fell and hit her head, then died. Notes: No AEs of ‘eosinophil count increased’ or ‘eosinophilia’ reported in the study. The protocol required eosinophil counts ≥1500 cells/μL or if symptomatic to be reported as an AE. COPD exacerbations reported as an Adverse Event only if more severe than Index Exacerbation or more frequent than expected for participant. 2025 US National Claims Data Patients Aged 40 and Over Distribution of Emergency Visits for COPD with Costs Acute COPD exacerbation 3,457,573 ER visits/yr Not type 2–high · 1,863,632 · 53.9% not carried forward Type 2–high 1,593,941 46.1% 50% of the 90-day downstream spend lands in the first month. H O W T H E V I S I T E N D S … Treat + Release discharged from the ER Observation held, not admitted Admitted inpatient stay Type 2–high visits a year 533,652 33.5% 122,255 7.7% 938,034 58.9% W H A T H A P P E N S I N T H E F I R S T 3 0 D A Y S … Returned to ER or was admitted ≤30 days 11.4%60,570 13.5%16,443 20.0%187,138 ↳ mean cost of one such return $19,264 $23,687 $29,209 30-day cost for returning patients $1.17B $389M $5.47B Cost savings with 81% reduction in 30-day returns $954M $1,788 per Treated and Released visit $315M $2,577 per Observation visit $4.44B $4,730 per Admitted visit ER = emergency room; type 2–high = latest blood eosinophil >150 cells/µL or a documented non-asthma atopic condition; allowed amount = billed and allowed by the plan, before the plan’s share is netted out Visit volume: Komodo Healthcare Map, age 40+, CY2025. The locked national projection figure is 3,457,573 COPD-related ER visits on 1,924,002 patients (x1.8 visits per patient per year). Case finding: an acute COPD code on the visit, or, absent that, airway-directed treatment or coded acute respiratory failure; the like-for-like tier (2.04M) reproduces the 2025-equivalent NEDS range of 1.9–2.4M. Costs: imputed allowed amounts; averages, not medians; rates from the claims reference and only unit prices from the cost fabric. Type 2–high 46.1% is estimated at full testing (latest stable-state eosinophil >150 cells/µL or a hard atopic condition, asthma excluded). Total savings if every T2-high patient received rademikibart = $6,000,000,000 15 • Through 4 weeks rademikibart significantly reduced: • Treatment Failure (TxF) by 81% (p=0.0122) • New moderate to severe exacerbations by 85% (p=0.030) • ED and hospital admissions for exacerbations by 100% (0.014) • Clinically meaningful increase in post-bronchodilator FEV1 of 70 mL compared to placebo observed at Week 4 • Favorable safety profile • Larger US market than previously projected with an estimated $6B in savings with the use of rademikibart in the ED for acute exacerbations • Plan to meet with the FDA to discuss Phase 3 acute and chronic COPD pathways Study 207 Topline Results - Conclusions",
+       "recortado": false,
+       "negativos": [
+        {
+         "tipo": "dato clínico fallido",
+         "frase": "Treatment Failure primary endpoint and not secondary endpoints. Rate of new COPD exacerbations in exactly 28 days after randomization was 79% lower (p=0.105). 9 Key Secondary Endpoint – Post-Bronchodilator FEV1 on Day 7 Not Significant Preliminary Topline Results 0 20 40 60 80 100 120 140 160 C ha ng e fro m B as el in e in P os t-B D F EV 1 (m L) Change from Baseline in Post-Bronchodilator FEV1 * Rademikibart (n=78) Placebo (n=81) Δ0 mL p - NS Δ70 mL"
+        },
+        {
+         "tipo": "dato clínico fallido",
+         "frase": "t Significant Preliminary Topline Results 0 20 40 60 80 100 120 140 160 C ha ng e fro m B as el in e in P os t-B D F EV 1 (m L) Change from Baseline in Post-Bronchodilator FEV1 * Rademikibart (n=78) Placebo (n=81) Δ0 mL p - NS Δ70 mL p=0.1607 Δ20 mL p - NS Δ-10 mL p - NS BD – Bronchodilator *LSM change from baseline Table 14.2.2.1 10 Significant Decrease in Rescue Inhaler Use Starting Week 2 Preliminary Topline Results 0 0.05 0.1 0.15 0.2 0.2"
+        },
+        {
+         "tipo": "dato clínico fallido",
+         "frase": "ine Results 0 20 40 60 80 100 120 140 160 C ha ng e fro m B as el in e in P os t-B D F EV 1 (m L) Change from Baseline in Post-Bronchodilator FEV1 * Rademikibart (n=78) Placebo (n=81) Δ0 mL p - NS Δ70 mL p=0.1607 Δ20 mL p - NS Δ-10 mL p - NS BD – Bronchodilator *LSM change from baseline Table 14.2.2.1 10 Significant Decrease in Rescue Inhaler Use Starting Week 2 Preliminary Topline Results 0 0.05 0.1 0.15 0.2 0.25 0.3 Av er ag e D ai ly P uf"
+        },
+        {
+         "tipo": "objetivo secundario / clave",
+         "frase": "ay 0 Single SC dose SOC + Rademikibart 600mg SC (n=78) Primary endpoint Treatment Failure 4-week follow-up period Week 8 Study Completion 4-week assessment period STAT COPD STUDY DESIGN 1:1 R Population Primary Endpoint Secondary Endpoints Key Exploratory Endpoints Seabreeze STAT COPD Adolescents and adults at urgent outpatient visit, ED or hospital Eosinophil count of ≥ 300 cells/µL and ≥1 exacerbation in prior ~12 months Treatment Failure (28 days afte"
+        },
+        {
+         "tipo": "objetivo secundario / clave",
+         "frase": "Study 207 Placebo (n=81) Rademikibart (n=78) P-value Rate of new exacerbations through Week 4 visit 7 (8.6%) 1 (1.3%) 85% reduction 0.0301 Note: Study 207 was powered based on Treatment Failure primary endpoint and not secondary endpoints. Rate of new COPD exacerbations in exactly 28 days after randomization was 79% lower (p=0.105). 9 Key Secondary Endpoint – Post-Bronchodilator FEV1 on Day 7 Not Significant Preliminary Topline Results 0 20 40 60 80 100"
+        },
+        {
+         "tipo": "objetivo secundario / clave",
+         "frase": "85% reduction 0.0301 Note: Study 207 was powered based on Treatment Failure primary endpoint and not secondary endpoints. Rate of new COPD exacerbations in exactly 28 days after randomization was 79% lower (p=0.105). 9 Key Secondary Endpoint – Post-Bronchodilator FEV1 on Day 7 Not Significant Preliminary Topline Results 0 20 40 60 80 100 120 140 160 C ha ng e fro m B as el in e in P os t-B D F EV 1 (m L) Change from Baseline in Post-Bronchodilator"
+        }
+       ]
       }
      ]
     }
@@ -184,7 +253,56 @@
       "url": "https://www.sec.gov/Archives/edgar/data/1835268/000119312521087643/d295873d424b4.htm"
      }
     ],
-    "atm": false,
+    "shelves": [
+     {
+      "form": "F-3",
+      "fecha": "2026-05-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1835268/000119312526225436/d85019df3.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 6130000,
+      "frase": "S 6,130,000 Ordinary Shares This prospectus relates to the proposed resale or other disposition by the selling securityholders identified in this prospectus of up to 6,130,000 ordinary shares, par value $0.000174 per share, of Connect Biopharma Holdin",
+      "acciones_reventa_hoy": 6130000
+     },
+     {
+      "form": "POS AM",
+      "fecha": "2025-09-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1835268/000119312525200186/d94748dposam.htm",
+      "tipo": "empresa",
+      "base_usd": 300000000.0,
+      "frase_base": "NTB”. This registration statement contains: • A base prospectus, which covers the offering, issuance and sales by us of up to $300,000,000 in the aggregate of our securities from time to time in one or more offerings; and • A sales agreement prospectus covering the offering,",
+      "atm_usd": 150000000.0,
+      "atm_agente": "Cantor Fitzgerald",
+      "frase_atm": " up to $300,000,000 in the aggregate of our securities from time to time in one or more offerings; and • A sales agreement prospectus covering the offering, issuance and sale by us of up to a maximum aggregate offering price of up to $150,000,000 of the Ordinary Shares that may be issued and sold from time to time under a sales agreement (the “Sales Agreement”) with Cantor Fitzgerald & Co. (“Cantor”). The base prospectus immediately follows this explanatory note.",
+      "frase_sin_uso": "we have not sold any Ordinary Shares under the Sales Agreement."
+     },
+     {
+      "form": "F-3",
+      "fecha": "2025-06-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1835268/000119312525138482/d925389df3.htm",
+      "tipo": "empresa",
+      "base_usd": 300000000.0,
+      "frase_base": "s representing Ordinary Shares Preferred Shares Debt Securities Warrants Purchase Contracts Units We may offer and sell up to $300,000,000 in the aggregate of the securities identified above from time to time in one or more offerings. This prospectus provides you with a gene",
+      "atm_usd": 150000000.0,
+      "atm_agente": "Cantor Fitzgerald",
+      "frase_atm": " up to $300,000,000 in the aggregate of our securities from time to time in one or more offerings; and • A sales agreement prospectus covering the offering, issuance and sale by us of up to a maximum aggregate offering price of up to $150,000,000 of the ADSs that may be issued and sold from time to time under a sales agreement (the “Sales Agreement”) with Cantor Fitzgerald & Co. (“Cantor”). The base prospectus immediately follows this explanatory note. The specif",
+      "frase_sin_uso": "We have not sold any securities pursuant to General Instruction I."
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 6130000,
+    "atm_shelf": {
+     "form": "POS AM",
+     "fecha": "2025-09-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1835268/000119312525200186/d94748dposam.htm",
+     "tipo": "empresa",
+     "base_usd": 300000000.0,
+     "frase_base": "NTB”. This registration statement contains: • A base prospectus, which covers the offering, issuance and sales by us of up to $300,000,000 in the aggregate of our securities from time to time in one or more offerings; and • A sales agreement prospectus covering the offering,",
+     "atm_usd": 150000000.0,
+     "atm_agente": "Cantor Fitzgerald",
+     "frase_atm": " up to $300,000,000 in the aggregate of our securities from time to time in one or more offerings; and • A sales agreement prospectus covering the offering, issuance and sale by us of up to a maximum aggregate offering price of up to $150,000,000 of the Ordinary Shares that may be issued and sold from time to time under a sales agreement (the “Sales Agreement”) with Cantor Fitzgerald & Co. (“Cantor”). The base prospectus immediately follows this explanatory note.",
+     "frase_sin_uso": "we have not sold any Ordinary Shares under the Sales Agreement."
+    },
+    "atm": true,
     "toxica": false,
     "going_concern": false,
     "warrants": [],
@@ -194,6 +312,7 @@
      "url": "https://www.sec.gov/Archives/edgar/data/1835268/000183526826000028/cntb-20260630.htm"
     },
     "eloc": false,
+    "uso_atm": [],
     "warrants_en_dinero": false
    },
    "costes": {
@@ -317,8 +436,65 @@
     "flujo_hasta": "2026-06-30",
     "meses": 6,
     "quema_mes": 1323318,
-    "autonomia_meses": 0.4
+    "autonomia_meses": 0.4,
+    "meses_desde_informe": 3.0,
+    "autonomia_hoy": -2.6,
+    "caja_estimada_hoy": -3422188
    },
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-09-28 17:47",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315226044666/form8-k.htm",
+     "titular": "",
+     "reaccion": {
+      "dia": "2026-09-29",
+      "apertura": 0.0482,
+      "cierre": -0.3916
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-18 09:15",
+     "items": "7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315226038912/form8-k.htm",
+     "titular": "AIxC Announces Strategic Pivot to Physical AI and Robotic Operations Commercialization; RoboShare Completes First Paid Commercial Order Company plans orderly exit from Digital Asset Treasury strategy and intends to focus",
+     "reaccion": null
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-07 17:20",
+     "items": "2.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315226036659/form8-k.htm",
+     "titular": "AIxCrypto Holdings Reports Second Quarter 2026 Results RoboShare Introduced Successfully and Designated Top Operating Priority for the Second Half of 2026; Operating Expenses Decline 32% Sequentially ● Introduced RoboSha",
+     "reaccion": null
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-07-31 16:05",
+     "items": "1.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315226035628/form8-k.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. On July 29, 2026, AIxCrypto Holdings, Inc. (the “Company”), a Delaware corporation, entered into a Consulting Agreement (the “Agreement”) with Aibot US Operation Inc ",
+     "reaccion": null
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-06-23 16:05",
+     "items": "7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315226029782/form8-k.htm",
+     "titular": "Item 7.01 Regulation FD Disclosure. On June 22, 2026, AIxCrypto Holdings, Inc. (the “Company”) issued a press release announcing its debut at Automate 2026, North America’s largest automation and robotics exhibition, hel",
+     "reaccion": null
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-06-17 16:30",
+     "items": "1.01,3.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315226029096/form8-k.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. Capitalized terms used but not otherwise defined herein shall have the meanings ascribed to such terms in the Purchase Agreement (as defined below). On June 16, 2026,",
+     "reaccion": null
+    }
+   ],
    "catalizadores": [],
    "docs_hoy": [],
    "noticias": [
@@ -359,6 +535,84 @@
       "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315220018835/form424b5.htm"
      }
     ],
+    "shelves": [
+     {
+      "form": "S-1/A",
+      "fecha": "2026-09-09",
+      "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315226041886/forms-1a.htm",
+      "tipo": "reventa",
+      "eloc": true,
+      "frase_eloc": "e offer and resale, from time to time, by Gold King Arthur Holding Limited, a Hong Kong limited liability company (the “Investor,” “GKA” or the “Selling Stockholder”), of up to 4,044,975 shares (the “VWAP Shares”) of common stock, par value $0.001 per share (“Common Stock”) of AIxCrypto Holdings, Inc. (the “Company,” “we,” “us” or “our”), in connection with the Common Shares Purchase Agreement that we entere",
+      "acciones_reventa": 4044975,
+      "frase": "ng an offer to buy these securities in any state where the offer or sale is not permitted. SUBJECT TO COMPLETION PRELIMINARY PROSPECTUS DATED September 9, 2026 UP TO 4,044,975 SHARES OF COMMON STOCK AIxCrypto Holdings, Inc. This prospectus relates to the off",
+      "acciones_reventa_hoy": 4044975
+     },
+     {
+      "form": "S-1/A",
+      "fecha": "2026-09-04",
+      "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315226041428/forms-1a.htm",
+      "tipo": "reventa",
+      "eloc": true,
+      "frase_eloc": "e offer and resale, from time to time, by Gold King Arthur Holding Limited, a Hong Kong limited liability company (the “Investor,” “GKA” or the “Selling Stockholder”), of up to 4,044,975 shares (the “VWAP Shares”) of common stock, par value $0.001 per share (“Common Stock”) of AIxCrypto Holdings, Inc. (the “Company,” “we,” “us” or “our”), in connection with the Common Shares Purchase Agreement that we entere",
+      "acciones_reventa": 4044975,
+      "frase": "ng an offer to buy these securities in any state where the offer or sale is not permitted. SUBJECT TO COMPLETION PRELIMINARY PROSPECTUS DATED September 4, 2026 UP TO 4,044,975 SHARES OF COMMON STOCK AIxCrypto Holdings, Inc. This prospectus relates to the off",
+      "repetida": true,
+      "acciones_reventa_hoy": 4044975
+     },
+     {
+      "form": "S-1/A",
+      "fecha": "2026-08-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315226039049/forms-1a.htm",
+      "tipo": "reventa",
+      "eloc": true,
+      "frase_eloc": "e offer and resale, from time to time, by Gold King Arthur Holding Limited, a Hong Kong limited liability company (the “Investor,” “GKA” or the “Selling Stockholder”), of up to 4,044,975 shares (the “VWAP Shares”) of common stock, par value $0.001 per share (“Common Stock”) of AIxCrypto Holdings, Inc. (the “Company,” “we,” “us” or “our”), in connection with the Common Shares Purchase Agreement that we entere",
+      "acciones_reventa": 4044975,
+      "frase": "ting an offer to buy these securities in any state where the offer or sale is not permitted. SUBJECT TO COMPLETION PRELIMINARY PROSPECTUS DATED August 18, 2026 UP TO 4,044,975 SHARES OF COMMON STOCK AIxCrypto Holdings, Inc. This prospectus relates to the off",
+      "repetida": true,
+      "acciones_reventa_hoy": 4044975
+     },
+     {
+      "form": "S-1",
+      "fecha": "2026-07-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315226034816/forms-1.htm",
+      "tipo": "reventa",
+      "eloc": true,
+      "frase_eloc": " offer and resale, from time to time, by Gold King Arthur Holding Limited, a Hong Kong limited liability company (the “Investor,” “GKA” or the “Selling Stockholder”), of up to 55,000,000 shares (the “VWAP Shares”) of common stock, par value $0.001 per share (“Common Stock”) of AIxCrypto Holdings, Inc. (the “Company,” “we,” “us” or “our”), in connection with the Common Shares Purchase Agreement that we entere",
+      "acciones_reventa": 55000000,
+      "frase": " resale, from time to time, by Gold King Arthur Holding Limited, a Hong Kong limited liability company (the “Investor,” “GKA” or the “Selling Stockholder”), of up to 55,000,000 shares (the “VWAP Shares”) of common stock, par value $0.001 per s",
+      "acciones_reventa_hoy": 55000000
+     },
+     {
+      "form": "S-1",
+      "fecha": "2025-12-04",
+      "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315225026046/forms-1.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 18121496,
+      "frase": "ffers to buy these securities in any jurisdiction where the offer or sale is not permitted. Preliminary Prospectus Subject to Completion Dated December 3, 2025 Up to 18,121,496 Shares of Common Stock Including 17,784,064 Shares of Common Stock Underlying 39,9",
+      "acciones_reventa_hoy": 18121496
+     },
+     {
+      "form": "S-1",
+      "fecha": "2025-09-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315225013721/forms-1.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 3214292,
+      "frase": "ers to buy these securities in any jurisdiction where the offer or sale is not permitted. Preliminary Prospectus Subject to Completion Dated September 16, 2025 Up to 3,214,292 Shares of Common Stock Underlying 4,500 Shares of Series A-3 Preferred Stock This ",
+      "acciones_reventa_hoy": 3214292
+     },
+     {
+      "form": "S-1",
+      "fecha": "2024-12-09",
+      "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315224049319/forms-1.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 3436281,
+      "frase": "fers to buy these securities in any jurisdiction where the offer or sale is not permitted. Preliminary Prospectus Subject to Completion Dated December 9, 2024. Up to 3,436,281 Shares of Common Stock Underlying the Series A-2 Preferred Stock This prospectus r",
+      "acciones_reventa_hoy": 3436281
+     }
+    ],
+    "shelf_empresa": false,
+    "reventa_acciones": 77166471,
+    "atm_shelf": null,
     "atm": false,
     "toxica": false,
     "going_concern": true,
@@ -377,7 +631,8 @@
      "fecha": "2026-08-07",
      "url": "https://www.sec.gov/Archives/edgar/data/1460702/000149315226036658/form10-q.htm"
     },
-    "eloc": false,
+    "eloc": true,
+    "uso_atm": [],
     "warrants_en_dinero": true
    },
    "costes": {
@@ -505,8 +760,85 @@
     "flujo_hasta": "2026-06-30",
     "meses": 6,
     "quema_mes": 1715333,
-    "autonomia_meses": 1.2
+    "autonomia_meses": 1.2,
+    "meses_desde_informe": 3.0,
+    "autonomia_hoy": -1.8,
+    "caja_estimada_hoy": -3076319
    },
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-09-23 08:00",
+     "items": "5.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1787740/000168316826007300/valion_8k.htm",
+     "titular": ", DATED SEPTEMBER 23, 2026. Exhibit 99.1 Valion Appoints Life Sciences Veteran Dean Zikria as Interim CEO and Announces Board Leadership Transitions Leadership changes strengthen alignment and execution as Company advanc",
+     "reaccion": {
+      "dia": "2026-09-23",
+      "apertura": -0.0161,
+      "cierre": 0.0964
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-01 06:00",
+     "items": "1.01,3.02,5.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1787740/000168316826006848/valion_8k.htm",
+     "titular": "DATED 8-31-26 Exhibit 99.1 FOR IMMEDIATE RELEASE Valion Bio Announces Changes to Management and Board of Directors Current CFO, Lisa Wolf named President and COO, assuming expanded executive and operational leadership. J",
+     "reaccion": {
+      "dia": "2026-09-01",
+      "apertura": -0.098,
+      "cierre": -0.1401
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-27 08:30",
+     "items": "3.03,5.03,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1787740/000168316826006742/valion_8k.htm",
+     "titular": "Valion Bio Announces Reverse Stock Split SAN ANTONIO, TX – August 27, 2026 – Valion Bio, Inc. (Nasdaq: VBIO) (“Valion Bio” or the “Company) announced today that its Board of Directors has declared a 1-for-25 reverse stoc",
+     "reaccion": {
+      "dia": "2026-08-27",
+      "apertura": -0.0256,
+      "cierre": -0.2115
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-17 06:04",
+     "items": "3.02,5.02,5.07,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1787740/000168316826006501/valion_8k.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement The Company and 3i, LP (“3i”) are parties to that certain Securities Purchase Agreement, dated April 29, 2025 (as assigned and amended as of December 9, 2025, the “Ser",
+     "reaccion": {
+      "dia": "2026-08-17",
+      "apertura": -0.0995,
+      "cierre": -0.0419
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-06 16:06",
+     "items": "1.01,3.02,8.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1787740/000168316826006049/valion_8k.htm",
+     "titular": " INTRODUCTORY NOTE As previously disclosed in that Current Report on Form 8-K (the “Prior 8-K”) filed by Valion Bio, Inc. (formerly known as Tivic Health Systems, Inc.) (the “Company”) with the Securities and Exchange Co",
+     "reaccion": {
+      "dia": "2026-08-07",
+      "apertura": 0.0291,
+      "cierre": 0.0364
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-07-14 07:45",
+     "items": "7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1787740/000168316826005497/valion_8k.htm",
+     "titular": "Valion Bio Advances Integrated Biodefense and Immunology Platform Through Continued Government Engagement, Domestic Manufacturing and Oncology Expansion Strategic execution across multiple initiatives positions the Entol",
+     "reaccion": {
+      "dia": "2026-07-14",
+      "apertura": -0.0315,
+      "cierre": -0.0768
+     }
+    }
+   ],
    "catalizadores": [],
    "docs_hoy": [],
    "noticias": [
@@ -547,6 +879,93 @@
       "url": "https://www.sec.gov/Archives/edgar/data/1787740/000119312523206265/d496179d424b5.htm"
      }
     ],
+    "shelves": [
+     {
+      "form": "S-1",
+      "fecha": "2026-04-13",
+      "url": "https://www.sec.gov/Archives/edgar/data/1787740/000168316826002867/tivic_s1.htm",
+      "tipo": "reventa"
+     },
+     {
+      "form": "S-3",
+      "fecha": "2025-12-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1787740/000168316825009390/tivicpreferred_s3.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 36135295,
+      "frase": "Common Stock This prospectus relates to the offer and resale by the selling stockholders named in this prospectus (collectively, the “Selling Stockholders”) of up to 36,135,295 shares of common stock, par value $0.0001 per share, of Tivic Health Systems, Inc.",
+      "acciones_reventa_hoy": 1445411,
+      "ajuste_splits": 0.04
+     },
+     {
+      "form": "S-3",
+      "fecha": "2025-12-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1787740/000168316825009388/tivichealth_s3.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 13659638,
+      "frase": "PROSPECTUS SUBJECT TO COMPLETION DATED DECEMBER 29, 2025 13,659,638 Shares of Common Stock This prospectus relates to the offer and resale from time to time of up to 13,659,638 shares of common stock, par value $0.0001 per share, of Tivic Health Systems, Inc.",
+      "acciones_reventa_hoy": 546385,
+      "ajuste_splits": 0.04
+     },
+     {
+      "form": "S-3",
+      "fecha": "2025-10-17",
+      "url": "https://www.sec.gov/Archives/edgar/data/1787740/000168316825007643/tivic_s3.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 1580437,
+      "frase": "Common Stock This prospectus relates to the offer and resale by the selling stockholders named in this prospectus (collectively, the “Selling Stockholders”) of up to 1,580,437 shares of common stock, par value $0.0001 per share, of Tivic Health Systems, Inc.",
+      "acciones_reventa_hoy": 63217,
+      "ajuste_splits": 0.04
+     },
+     {
+      "form": "S-3",
+      "fecha": "2025-08-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1787740/000168316825006582/tivic_s3.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 1592135,
+      "frase": "Common Stock This prospectus relates to the offer and resale by the selling stockholders named in this prospectus (collectively, the “Selling Stockholders”) of up to 1,592,135 shares of common stock, par value $0.0001 per share, of Tivic Health Systems, Inc.",
+      "acciones_reventa_hoy": 63685,
+      "ajuste_splits": 0.04
+     },
+     {
+      "form": "S-3",
+      "fecha": "2025-08-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/1787740/000168316825005809/tivic_s3.htm",
+      "tipo": "reventa"
+     },
+     {
+      "form": "S-3",
+      "fecha": "2025-08-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/1787740/000168316825005807/tivic_s3.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 605023,
+      "frase": " 605,023 Shares of Common Stock This prospectus relates to the offer and resale by Helena Global Investment Opportunities 1 Ltd. (the “Selling Stockholder”) of up to 605,023 shares of common stock, par value $0.0001 per share, of Tivic Health Systems, Inc.",
+      "acciones_reventa_hoy": 24200,
+      "ajuste_splits": 0.04
+     },
+     {
+      "form": "S-1/A",
+      "fecha": "2025-07-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1787740/000168316825005421/tivic_s1a1.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 602245,
+      "frase": " 602,245 Shares of Common Stock This prospectus relates to the offer and resale by Helena Global Investment Opportunities 1 Ltd. (the “Selling Stockholder”) of up to 602,245 shares of common stock, par value $0.0001 per share, of Tivic Health Systems, Inc.",
+      "acciones_reventa_hoy": 24089,
+      "ajuste_splits": 0.04
+     },
+     {
+      "form": "S-1",
+      "fecha": "2025-06-06",
+      "url": "https://www.sec.gov/Archives/edgar/data/1787740/000168316825004306/tivic_s1.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 8438949,
+      "frase": ",438,949 Shares of Common Stock This prospectus relates to the offer and resale by Helena Global Investment Opportunities 1 Ltd. (the “Selling Stockholder”) of up to 8,438,949 shares of common stock, par value $0.0001 per share, of Tivic Health Systems, Inc.",
+      "acciones_reventa_hoy": 337557,
+      "ajuste_splits": 0.04
+     }
+    ],
+    "shelf_empresa": false,
+    "reventa_acciones": 2055013,
+    "atm_shelf": null,
     "atm": true,
     "toxica": true,
     "going_concern": true,
@@ -566,6 +985,7 @@
      "url": "https://www.sec.gov/Archives/edgar/data/1787740/000143774926028069/vbio20260630c_10q.htm"
     },
     "eloc": true,
+    "uso_atm": [],
     "warrants_en_dinero": true
    },
    "costes": {
@@ -701,6 +1121,80 @@
     "flujo_hasta": "2025-12-31",
     "meses": 6
    },
+   "historial": [
+    {
+     "form": "6-K",
+     "fecha": "2026-09-18 17:00",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026101470/ea0305941-6k_wetour.htm",
+     "titular": "DATED SEPTEMBER 17, 2026 Exhibit 99.1 Wetour Robotics Launches Vantrapower to Expand into Intelligent Power Infrastructure for AI Industrial and Energy Markets in Texas New subsidiary will pursue transformer and power in",
+     "reaccion": {
+      "dia": "2026-09-21",
+      "apertura": -0.0473,
+      "cierre": -0.0237
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-09-04 17:01",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026097747/ea0304709-6k_wetour.htm",
+     "titular": " Information contained in this Current Report on Form 6-K Amendments to Memorandum On February 27, 2026, Wetour Robotics Limited (the “Company”) held an extraordinary general meeting at which shareholders passed an ordin",
+     "reaccion": {
+      "dia": "2026-09-08",
+      "apertura": -0.0667,
+      "cierre": -0.0039
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-09-04 16:30",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026097694/ea0304689-6k_wetour.htm",
+     "titular": "DATED SEPTEMBER 1, 2026 Exhibit 99.1 Wetour Robotics Demonstrates sEMG-Vision System Targeting Force and Occlusion Blind Spots in Physical AI Training Dual-modal approach combines muscle activity and first-person vision ",
+     "reaccion": {
+      "dia": "2026-09-08",
+      "apertura": -0.0667,
+      "cierre": -0.0039
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-08-26 08:00",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026093731/ea0303201-6k_wetour.htm",
+     "titular": " Information contained in this Current Report on Form 6-K Entry into Sales Agreement On August 26, 2026, Wetour Robotics Limited (the “Company”) entered into a certain sales agreement (the “Sales Agreement”) with Rodman ",
+     "reaccion": {
+      "dia": "2026-08-26",
+      "apertura": -0.1816,
+      "cierre": -0.3896
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-08-25 09:30",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026093281/ea0303305-6k_wetour.htm",
+     "titular": "WETOUR ROBOTICS LIMITED EGM RESULTS Exhibit 99.1 WETOUR ROBOTICS LIMITED Extraordinary General Meeting OF THE SHAREHOLDERS MEETING RESULTS On August 24, 2026, Wetour Robotics Limited (the “Company”) held its Extraordinar",
+     "reaccion": {
+      "dia": "2026-08-25",
+      "apertura": 0.0123,
+      "cierre": 0.0261
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-08-24 17:01",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026093107/ea0302894-6k_wetour.htm",
+     "titular": " Information contained in this Current Report on Form 6-K On August 19, 2026, Wetour Robotics Limited (the “Company”) suspended sales of its ordinary shares, par value $0.01 per share (“Ordinary Shares”), pursuant to tha",
+     "reaccion": {
+      "dia": "2026-08-25",
+      "apertura": 0.0123,
+      "cierre": 0.0261
+     }
+    }
+   ],
    "catalizadores": [],
    "docs_hoy": [],
    "noticias": [],
@@ -734,7 +1228,53 @@
       "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026057982/ea0290010-424b5_wetour.htm"
      }
     ],
-    "atm": false,
+    "shelves": [
+     {
+      "form": "424B5",
+      "fecha": "2026-08-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026093723/ea0303200-424b5_wetour.htm",
+      "tipo": "empresa",
+      "atm_usd": 75000000.0,
+      "atm_agente": "Rodman",
+      "frase_atm": "e (“Ordinary Shares”), offered by this prospectus supplement and the accompanying prospectus. In accordance with the terms of the Sales Agreement, we may offer and sell our Ordinary Shares, having an aggregate offering price of up to $75,000,000 from time to time through or to Rodman as sales agent or principal. Sales of our Ordinary Shares, if any, under this prospectus supplement may be made in sales deemed to be “at the market offerings” as defined in Rule 41",
+      "frase_sin_uso": "we have not sold any securities pursuant to General Instruction I."
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-05-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026057982/ea0290010-424b5_wetour.htm",
+      "tipo": "empresa",
+      "atm_usd": 17000000.0,
+      "atm_agente": null,
+      "frase_atm": "e (“Ordinary Shares”), offered by this prospectus supplement and the accompanying prospectus. In accordance with the terms of the Sales Agreement, we may offer and sell our Ordinary Shares, having an aggregate offering price of up to $17,000,000 from time to time through or to Chaince as sales agent or principal. Sales of our Ordinary Shares, if any, under this prospectus supplement may be made in sales deemed to be “at the market offerings” as defined in Rule 4",
+      "frase_sin_uso": "We have not sold any securities pursuant to General Instruction I."
+     },
+     {
+      "form": "F-3",
+      "fecha": "2026-04-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026050290/ea0288018-f3_wetour.htm",
+      "tipo": "reventa"
+     },
+     {
+      "form": "F-3",
+      "fecha": "2026-03-17",
+      "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026029040/ea0278314-01.htm",
+      "tipo": "empresa"
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": {
+     "form": "424B5",
+     "fecha": "2026-08-26",
+     "url": "https://www.sec.gov/Archives/edgar/data/1941158/000121390026093723/ea0303200-424b5_wetour.htm",
+     "tipo": "empresa",
+     "atm_usd": 75000000.0,
+     "atm_agente": "Rodman",
+     "frase_atm": "e (“Ordinary Shares”), offered by this prospectus supplement and the accompanying prospectus. In accordance with the terms of the Sales Agreement, we may offer and sell our Ordinary Shares, having an aggregate offering price of up to $75,000,000 from time to time through or to Rodman as sales agent or principal. Sales of our Ordinary Shares, if any, under this prospectus supplement may be made in sales deemed to be “at the market offerings” as defined in Rule 41",
+     "frase_sin_uso": "we have not sold any securities pursuant to General Instruction I."
+    },
+    "atm": true,
     "toxica": false,
     "going_concern": false,
     "warrants": [
@@ -746,6 +1286,7 @@
      "url": "https://www.sec.gov/Archives/edgar/data/1941158/000157587225000653/weto-20250630.htm"
     },
     "eloc": false,
+    "uso_atm": [],
     "warrants_en_dinero": false
    },
    "costes": {
@@ -880,8 +1421,85 @@
     "flujo_hasta": "2025-12-31",
     "meses": 12,
     "quema_mes": 293641,
-    "autonomia_meses": 68.5
+    "autonomia_meses": 68.5,
+    "meses_desde_informe": 9.0,
+    "autonomia_hoy": 59.5,
+    "caja_estimada_hoy": 17490785
    },
+   "historial": [
+    {
+     "form": "6-K",
+     "fecha": "2026-09-29 09:15",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1806524/000121390026104356/ea0306667-6k_liongroup.htm",
+     "titular": " Information Contained in this Form 6-K Report Subsequent Offering under Purchase Agreement. On September 28, 2025, Lion Group Holdings Ltd. (the “Company”) consummated its subsequent offering (“Subsequent Offering”) of ",
+     "reaccion": {
+      "dia": "2026-09-29",
+      "apertura": -0.0017,
+      "cierre": -0.2197
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-09-23 21:18",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1806524/000121390026102774/ea0306185-6k_lion.htm",
+     "titular": ", DATED SEPTEMBER 23, 2026 Exhibit 99.1 Lion Group Notes Progress on Proposed Restructuring of Skyfame Realty (Holdings) Limited (In Liquidation) SINGAPORE, September 23, 2026/ PRNewswire/ – Lion Group Holding Ltd. (NASD",
+     "reaccion": {
+      "dia": "2026-09-24",
+      "apertura": -0.0643,
+      "cierre": 0.0294
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-09-21 09:15",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1806524/000121390026101676/ea0306083-6k_lion.htm",
+     "titular": ", DATED SEPTEMBER 21, 2026 Exhibit 99.1 Lion Group Holding Ltd. Reaffirms Long-Term Commitment to Hyperliquid (HYPE) Holdings SINGAPORE, September 21, 2026 /PRNewswire/ — Lion Group Holding Ltd. (NASDAQ: LGHL) (“Lion Gro",
+     "reaccion": {
+      "dia": "2026-09-21",
+      "apertura": 0.0228,
+      "cierre": 0.088
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-09-03 06:44",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1806524/000121390026096917/ea0304517-6k_lion.htm",
+     "titular": " Share Capital Reduction and Reorganization. As previously disclosed, on July 13, 2026, Lion Group Holding Ltd. (Nasdaq: LGHL) (the “Company”) held its Annual General Meeting of Shareholders, where shareholders approved ",
+     "reaccion": {
+      "dia": "2026-09-03",
+      "apertura": 0.0316,
+      "cierre": 0.068
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-08-24 09:15",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1806524/000121390026092835/ea0303141-6k_lion.htm",
+     "titular": ", DATED AUGUST 24, 2026 Exhibit 99.1 Lion Group Holding Ltd. Reaffirms Long-Term Commitment to Hyperliquid (HYPE) Holdings SINGAPORE, August 24, 2026 /PRNewswire/ — Lion Group Holding Ltd. (NASDAQ: LGHL) (“Lion Group” or",
+     "reaccion": {
+      "dia": "2026-08-24",
+      "apertura": 0.0987,
+      "cierre": 0.0345
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-08-18 08:00",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1806524/000121390026090989/ea0302341-6k_lion.htm",
+     "titular": "LION GROUP HOLDING LTD. 2026 SHARE INCENTIVE PLAN NO. 2 Exhibit 99.1 LION GROUP HOLDING LTD. 2026 SHARE INCENTIVE PLAN NO. 2 ARTICLE 1 PURPOSE The purpose of this Lion Group Holding Ltd. 2026 Share Incentive Plan (the “P",
+     "reaccion": {
+      "dia": "2026-08-18",
+      "apertura": -0.1927,
+      "cierre": -0.248
+     }
+    }
+   ],
    "catalizadores": [],
    "docs_hoy": [],
    "noticias": [],
@@ -894,6 +1512,23 @@
     "aviso_bolsa": false,
     "contrasplits_2a": 0,
     "ultimas_ventas": [],
+    "shelves": [
+     {
+      "form": "F-3/A",
+      "fecha": "2025-11-12",
+      "url": "https://www.sec.gov/Archives/edgar/data/1806524/000121390025109172/ea0259849-f3a1_liongroup.htm",
+      "tipo": "reventa"
+     },
+     {
+      "form": "F-3",
+      "fecha": "2025-08-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1806524/000121390025079899/ea0251032-f3_liongroup.htm",
+      "tipo": "reventa"
+     }
+    ],
+    "shelf_empresa": false,
+    "reventa_acciones": 0,
+    "atm_shelf": null,
     "atm": false,
     "toxica": true,
     "going_concern": true,
@@ -913,6 +1548,7 @@
      "url": "https://www.sec.gov/Archives/edgar/data/1806524/000121390026050410/ea0288087-20f_lion.htm"
     },
     "eloc": false,
+    "uso_atm": [],
     "warrants_en_dinero": true
    },
    "costes": {
@@ -1048,6 +1684,68 @@
     "flujo_hasta": "2025-12-31",
     "meses": 12
    },
+   "historial": [
+    {
+     "form": "6-K",
+     "fecha": "2026-09-16 09:40",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1916331/000118518526004053/nci6k090926.htm",
+     "titular": "NEO-CONCEPT INTERNATIONAL GROUP HOLDINGS LIMITED (Incorporated in the Cayman Islands with limited liability) (NASDAQ Ticker: NCI) NOTICE OF ANNUAL GENERAL MEETING to be held on September 28, 2026 (or any adjourned meetin",
+     "reaccion": {
+      "dia": "2026-09-16",
+      "apertura": -0.0031,
+      "cierre": 0.0298
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-08-26 06:15",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1916331/000118518526003715/nci6k082526.htm",
+     "titular": " Issuance of Class B Ordinary Shares On August 25, 2026, the board of directors (the “Board”) of Neo-Concept International Group Holdings Ltd (the “Company”) approved the allotment and issuance of 140,000 class B ordinar",
+     "reaccion": {
+      "dia": "2026-08-26",
+      "apertura": -0.0406,
+      "cierre": -0.0996
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-08-19 06:30",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1916331/000118518526003613/nci6k081426.htm",
+     "titular": " Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers; Compensatory Arrangements of Certain Officers. Effective August 18, 2026 (the “Effective Date”), Ms. Eva Yuk Yin Siu (“",
+     "reaccion": {
+      "dia": "2026-08-19",
+      "apertura": -0.004,
+      "cierre": -0.012
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-07-08 09:45",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1916331/000118518526002831/nci6k070626.htm",
+     "titular": " Departure of Directors or Certain Officers; Appointment of Certain Officers. Effective July 8, 2026, Mr. Patrick Kwok Fai Lau (“Mr. Lau”) resigned as Chief Financial Officer of Neo-Concept International Group Holdings L",
+     "reaccion": {
+      "dia": "2026-07-08",
+      "apertura": -0.0222,
+      "cierre": 0.0395
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-12 08:00",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1916331/000118518526002482/nci6k061026.htm",
+     "titular": "Neo-Concept International Group Holdings Limited 思宏國際集團控股有限公司 2026 Incentive Securities Plan ADOPTED on June 12, 2026 TABLE OF CONTENTS 1. PURPOSE 1 2. DEFINITIONS 1 3. SHARES SUBJECT TO THE INCENTIVE SECURITIES PLAN 6 4",
+     "reaccion": {
+      "dia": "2026-06-12",
+      "apertura": -0.0137,
+      "cierre": -0.0128
+     }
+    }
+   ],
    "catalizadores": [],
    "docs_hoy": [],
    "noticias": [],
@@ -1071,6 +1769,46 @@
       "url": "https://www.sec.gov/Archives/edgar/data/1916331/000121390024035783/ea0202567-03.htm"
      }
     ],
+    "shelves": [
+     {
+      "form": "F-3/A",
+      "fecha": "2026-07-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1916331/000118518526003174/ncif3a1073026.htm",
+      "tipo": "empresa"
+     },
+     {
+      "form": "F-3",
+      "fecha": "2026-07-23",
+      "url": "https://www.sec.gov/Archives/edgar/data/1916331/000118518526003102/ncif3062626.htm",
+      "tipo": "empresa",
+      "base_usd": 100000000.0,
+      "frase_base": "se securities in any jurisdiction where such offer or sale is not permitted. SUBJECT TO COMPLETION DATED July 23 , 2026 PROSPECTUS $100,000,000 of Class A Ordinary Shares Debt Securities Warrants Rights and Units NEO-CONCEPT INTERNATIONAL GROUP HOLDINGS LIMITED Th"
+     },
+     {
+      "form": "F-1/A",
+      "fecha": "2024-03-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1916331/000121390024026048/ea0202567-01.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 2320000,
+      "frase": "on Statement contains two prospectuses, as set forth below. • Public Offering Prospectus . A prospectus to be used for the public offering by the Registrant of up to 2,320,000 ordinary shares of the Registrant (the “Public Offering Prospectus”) throug",
+      "acciones_reventa_hoy": 58000,
+      "ajuste_splits": 0.025
+     },
+     {
+      "form": "F-1/A",
+      "fecha": "2024-01-17",
+      "url": "https://www.sec.gov/Archives/edgar/data/1916331/000121390024004036/ff12024a5_neoconcept.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 2320000,
+      "frase": "on Statement contains two prospectuses, as set forth below. • Public Offering Prospectus . A prospectus to be used for the public offering by the Registrant of up to 2,320,000 ordinary shares of the Registrant (the “Public Offering Prospectus”) throug",
+      "repetida": true,
+      "acciones_reventa_hoy": 58000,
+      "ajuste_splits": 0.025
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": null,
     "atm": false,
     "toxica": false,
     "going_concern": false,
@@ -1081,6 +1819,7 @@
      "url": "https://www.sec.gov/Archives/edgar/data/1916331/000121390026050005/ea0286052-20f_neoconcept.htm"
     },
     "eloc": false,
+    "uso_atm": [],
     "warrants_en_dinero": false
    },
    "costes": {
@@ -1121,14 +1860,14 @@
  ],
  "resultados": {
   "CNTB": {
-   "apertura": 1.8899999856948853,
+   "apertura": 1.8849999904632568,
    "maximo": 1.8899999856948853,
    "minimo": 1.0700000524520874,
    "cierre": 1.100000023841858,
-   "R": 1.36,
-   "subida_max": 0.0,
-   "caida_cierre": -0.418,
-   "gap_apertura": 0.9052,
+   "R": 1.355,
+   "subida_max": 0.003,
+   "caida_cierre": -0.416,
+   "gap_apertura": 0.9002,
    "tramo_apertura": "≥ 50 %",
    "puntuacion_apertura": 80,
    "tercio_apertura": "Alta"
@@ -1160,27 +1899,27 @@
    "tercio_apertura": "Baja"
   },
   "WETO": {
-   "apertura": 1.3600000143051147,
+   "apertura": 1.350000023841858,
    "maximo": 1.3600000143051147,
    "minimo": 0.9929999709129333,
    "cierre": 1.0099999904632568,
-   "R": 0.825,
-   "subida_max": 0.0,
-   "caida_cierre": -0.257,
-   "gap_apertura": 0.2364,
+   "R": 0.806,
+   "subida_max": 0.007,
+   "caida_cierre": -0.252,
+   "gap_apertura": 0.2273,
    "tramo_apertura": "20-50 %",
    "puntuacion_apertura": 17,
    "tercio_apertura": "Baja"
   },
   "LGHL": {
-   "apertura": 6.610000133514404,
+   "apertura": 6.599999904632568,
    "maximo": 6.630000114440918,
    "minimo": 3.25,
    "cierre": 5.679999828338623,
-   "R": 0.436,
-   "subida_max": 0.003,
-   "caida_cierre": -0.141,
-   "gap_apertura": 0.4656,
+   "R": 0.431,
+   "subida_max": 0.005,
+   "caida_cierre": -0.139,
+   "gap_apertura": 0.4634,
    "tramo_apertura": "20-50 %",
    "puntuacion_apertura": 5,
    "tercio_apertura": "Baja"
