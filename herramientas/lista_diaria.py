@@ -814,6 +814,11 @@ def auditar(C, CL, replay):
             av.append(f"{s}: sin ninguna noticia; confirmar a mano en Finviz/Yahoo")
         if not replay and C.get("fecha", "") >= PASOS_DESDE:
             err += [f"{s}: {e}" for e in revisar_pasos(c, cl)]
+            ec = comprobar_cita(c, cl)
+            if ec and cl.get("cita_no_comprobable"):
+                av.append(f"{s}: cita NO comprobada por programa ({cl['cita_no_comprobable']}); revisada a mano")
+            else:
+                err += [f"{s}: cita: {e}" for e in ec]
     return err, av
 
 
@@ -845,6 +850,54 @@ def revisar_pasos(c, cl):
         e.append("'pasos.anexos_leidos' debe ser un número")
     if c.get("historial") and str(p["historial"]).strip().lower().startswith("sin historial"):
         e.append(f"'pasos.historial' dice 'sin historial' pero la ficha tiene {len(c['historial'])} catalizador(es) en 120 días")
+    return e
+
+
+# 1-oct-2026 (pedido por el usuario): comprobación automática de citas = el Ctrl+F hecho por un programa. La frase en inglés tiene que
+# estar LITERAL en la fuente (documento de la SEC guardado o la página de 'frase_url' / de las noticias) y algún número de la cifra
+# tiene que aparecer en la fuente. Si no, la lista no se publica (desde PASOS_DESDE).
+def _norm(t):
+    t = html.unescape(t or "").lower()
+    for a, b in (("\u2019", "'"), ("\u2018", "'"), ("\u201c", '"'), ("\u201d", '"'), ("\u2013", "-"), ("\u2014", "-"), ("\xa0", " ")):
+        t = t.replace(a, b)
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def _num(t):
+    return set(re.sub(r"[,\s]", "", m) for m in re.findall(r"\d{1,3}(?:[,\s]\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?", t or ""))
+
+
+_CITAS = {}
+
+
+def textos_fuente(c, cl):
+    out = [p.get("texto", "") for k in c.get("catalizadores", []) for p in k.get("partes", [])]
+    urls = ([cl["frase_url"]] if cl.get("frase_url") else []) + [n["url"] for n in c.get("noticias", []) if n.get("url")]
+    for u in urls:
+        if u not in _CITAS:
+            _CITAS[u] = limpiar(get(u, sec="sec.gov" in u) or "")
+        out.append(_CITAS[u])
+    return out
+
+
+def comprobar_cita(c, cl):
+    fe = cl.get("frase_en") or ""
+    if not fe.strip():
+        return []
+    fuente = _norm(" ".join(textos_fuente(c, cl)))
+    if not fuente:
+        return ["no hay texto de la fuente para comprobar la cita: anotar 'frase_url' con una copia legible (8-K/EX-99 de la SEC o Yahoo); "
+                "si ninguna web se deja leer, 'cita_no_comprobable' con el motivo (sale como aviso en la línea de salud)"]
+    e = []
+    trozos = [t.strip(" .,;:\"'") for t in re.split(r"…|\.\.\.|\[…\]", _norm(fe))]
+    falta = [t for t in trozos if len(t) >= 12 and t not in fuente]
+    if falta:
+        e.append(f"la frase en inglés NO aparece literal en la fuente («{falta[0][:90]}…»): copiarla exacta o anotar 'frase_url'")
+    nums_fuente = _num(fuente)
+    nc = set() if _norm(cl.get("cifra")).startswith(("sin cifra", "ninguna cifra")) else _num(cl.get("cifra"))
+    if nc and not (nc & nums_fuente) and not cl.get("cifra_calculada"):
+        e.append(f"ningún número de la cifra ({', '.join(sorted(nc)[:4])}) aparece en la fuente: revisar unidad/cifra o anotar "
+                 "'cifra_calculada' explicando la cuenta")
     return e
 
 
@@ -1086,11 +1139,45 @@ def finalizar(fecha, replay, forzar=False, sin_actualizar=False):
                version=2, reglas=dict(gap_minimo=GAP_VIGILAR, stop=STOP, deslizamiento=DESL, coste=COSTE, riesgo_accion=RIESGO_ACCION),
                acciones=acciones, descartadas=descartadas, resultados=None,
                auditoria=dict(errores=err, avisos=av, cobertura=C.get("cobertura"), forzada=bool(err and forzar)))
+    if not replay:
+        out["salud"] = salud(fecha, C, CL, err, av, acciones, descartadas, bool(err and forzar))
+        print(out["salud"]["linea"])
     if prev:      # rehecha: se conserva la hora de publicación original y se anota la del rehecho
         out["rehecho"], out["generado"] = out["generado"], L0.get("generado", out["generado"])
     json.dump(out, open(ruta(fecha), "w"), ensure_ascii=False, indent=1, default=str)
     print("→", ruta(fecha), "|", ", ".join(f"{x['sym']}:{x['puntuacion']['valor']}({x['riesgo']['nivel']})" for x in acciones),
           "| descartadas:", ", ".join(x["sym"] for x in descartadas))
+
+
+def salud(fecha, C, CL, err, av, acciones, descartadas, forzada):
+    """Línea de salud de la mañana (1-oct-2026, pedida por el usuario): ¿funcionó el robot como siempre?"""
+    pr = {}
+    try:
+        pr = json.load(open(ruta("_pruebas")))
+    except Exception:
+        pass
+    cob = C.get("cobertura") or {}
+    fu = cob.get("fuentes_universo") or {}
+    todas = acciones + descartadas
+    citas = [x for x in todas if (x.get("clasif") or {}).get("frase_en")]
+    nocomp = [x["sym"] for x in todas if (x.get("clasif") or {}).get("cita_no_comprobable")]
+    verif_nec = [x["sym"] for x in acciones if x["gap"] >= GAP_LISTA or (x.get("puntuacion") or {}).get("tercio") == "Alta"]
+    verif_ok = [s_ for s_ in verif_nec if any(y["sym"] == s_ and y.get("verificacion") for y in acciones)]
+    d = dict(pruebas=(f"{pr['total'] - pr['fallos']}/{pr['total']}" if pr.get("fecha") == fecha else "NO EJECUTADAS HOY"),
+             pruebas_ok=pr.get("fecha") == fecha and pr.get("fallos") == 0,
+             universo=cob.get("universo"), cobertura=cob.get("pct"),
+             nasdaqtrader="ok" if not cob.get("ficheros_faltan") else f"falta {', '.join(cob['ficheros_faltan'])} (cubierto con la SEC)",
+             sec=fu.get("sec"), massive=bool(cob.get("massive")), tradingview=cob.get("tradingview") is not None,
+             candidatos=len(C.get("candidatos", [])), verificadas=f"{len(verif_ok)}/{len(verif_nec)}",
+             citas_comprobadas=(f"{len(citas) - len(nocomp)}/{len(citas)}" if fecha >= PASOS_DESDE else "comprobación no activa (antes del 2-oct)"),
+             citas_no_comprobables=nocomp,
+             errores=len(err), avisos=len(av), forzada=forzada)
+    d["linea"] = (f"Salud: pruebas {d['pruebas']} · universo {d['universo']} ({(d['cobertura'] or 0):.1%} cotizadas) · "
+                  f"nasdaqtrader {d['nasdaqtrader']} · Massive {'ok' if d['massive'] else 'NO'} · TradingView {'ok' if d['tradingview'] else 'NO'} · "
+                  f"candidatos {d['candidatos']} · verificadas {d['verificadas']} · citas comprobadas {d['citas_comprobadas']}"
+                  + (f" (no comprobables: {', '.join(nocomp)})" if nocomp else "") + f" · auditoría {d['errores']} errores, {d['avisos']} avisos"
+                  + (" · PUBLICADA FORZADA" if forzada else ""))
+    return d
 
 
 def resultados(fecha):

@@ -146,6 +146,14 @@
     `auditar` (función `revisar_pasos`) bloquea la lista si falta alguno, si hay menos fuentes que documentos + noticias, menos anexos que
     partes, o "sin historial" con historial en la ficha. Se ve en la ficha de la página ("Pasos comprobados"). Caso de oro 29.
 
+25. **Comprobación automática de citas + línea de salud (1-oct, pedido por el usuario):** desde el 2-oct `comprobar_cita` busca cada
+    `frase_en` LITERAL en la fuente (partes de 8-K/6-K, páginas de noticias, `frase_url`) y algún número de `cifra` en la fuente; si no,
+    la lista no se publica (`cifra_calculada` para cuentas propias; `cita_no_comprobable` solo si ninguna web se deja leer → aviso).
+    Finviz/GlobeNewswire/BusinessWire no se dejan leer por programa → usar el 8-K/EX-99 de la SEC o Yahoo como `frase_url`.
+    `finalizar` guarda `salud` (pruebas del día leídas de `listas/datos/_pruebas.json`, universo, fuentes, verificadas, citas, auditoría)
+    y la imprime; es la PRIMERA línea del mensaje de la mañana y se ve en la página. Casos de oro 30-31. **V1 NO congelada:** el usuario
+    la congelará cuando tenga la plataforma con identidad propia ("su piel, nuestro cerebro").
+
 ### Mercado y datos propios
 - Gappers >100 %: el día 1 cierra bajo su apertura el 76 %; el día 2 supera el máximo del día 1 solo el 11 %; corto apertura día 1 → cierre día 2 gana el 80 % (mediana +29 %), pero en el peor 10 % hay subidas de +117 % en contra.
 - Día típico (gap ≥50 %, velas 5 min): máximo del día antes de las 10:00 el 60 %, antes de las 11:00 el 78 %; subida mediana apertura→máximo +18 % (p90 +107 %); caída mediana desde el máximo −41 %; 72 % del volumen en la primera hora.

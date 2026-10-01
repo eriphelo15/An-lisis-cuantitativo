@@ -65,14 +65,19 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
    `listas/datos/HOY.json` en la base de datos (`ArtifactData set`, colección `listas`, `doc_id` = HOY).
 7. `git add listas/datos && git commit -m "Lista diaria HOY" && git push -u origin claude/analisis-cuantitativo-45j7qe`
    (con las líneas de atribución de siempre).
-8. Mensaje final en español: tabla del screener ordenada por tesis (ticker, tesis 0-100 y tercio, riesgo, gap, precio, catalizador),
+   **Comprobación de citas (automática desde el 2-oct):** `finalizar` busca cada `frase_en` LITERAL en la fuente (8-K/6-K y anexos guardados,
+   las páginas de las noticias y `frase_url`) y algún número de `cifra` en la fuente. Si la cita sale de una página que no está entre
+   ellas, anotar `"frase_url"` con una copia legible (el 8-K/EX-99 de la SEC o Yahoo); si la cifra es una cuenta propia, `"cifra_calculada"`
+   con la cuenta. Solo si ninguna web se deja leer: `"cita_no_comprobable"` con el motivo (sale como aviso en la línea de salud).
+8. **Primera línea del mensaje = la línea de salud** que imprime `finalizar` (pruebas, universo y cobertura, fuentes, verificadas, citas
+   comprobadas, errores/avisos de la auditoría; está también en `HOY.json` → `salud`). Después: tabla del screener ordenada por tesis (ticker, tesis 0-100 y tercio, riesgo, gap, precio, catalizador),
    de cada una la frase original + traducción + cifra y la munición; las descartadas en una línea con su motivo; referencia de base
    del día anterior por tercio (es REFERENCIA, no validación: lo que valida es el diario del usuario; si hay operaciones nuevas en `diario`,
    sus resultados reales van primero) y enlace a la página.
    **Solo trabajo de campo (selección).** NO dar instrucciones de ejecución (entrada, stop, tamaño, salida): la ejecución es discrecional
    del usuario. El análisis de ejecución se trata aparte, en conversaciones de formación y estudios, nunca en la lista del día.
 9. **Notificación push** (pedida por el usuario el 28-sep; probada y funciona): herramienta `PushNotification`, una línea < 200
-   caracteres, sin formato, p. ej. `Radar 1-oct listo: CNTB 80 alta · FFR 61 · VBIO 26 (riesgo extremo) · fuera: LGHL, FRGT · Control OK`.
+   caracteres, sin formato, p. ej. `Radar 1-oct listo: CNTB 80 alta · FFR 61 · VBIO 26 (riesgo extremo) · fuera: LGHL, FRGT · Salud OK (pruebas 31/31, citas 3/3)`.
    Si la auditoría retrasa la lista o falla algo, avisar también por push (`Radar 29-sep RETRASADO: <motivo>`).
 
 No cambiar reglas, pesos ni estadísticas: solo lo validado en `smallcaps/INFORME_SELECCION.md`. No crear otras rutinas.

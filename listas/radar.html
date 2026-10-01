@@ -302,6 +302,7 @@ function renderMeta(){
   if(!L.acciones)b.push(`Lista antigua con letras (antes del 30-sep): sin puntuación de la tesis.`);
   if(L.convertida_v1)b.push(`Lista rehecha el 30-sep con la puntuación nueva, con los mismos precios que se publicaron ese día. La caja es la del último informe disponible hoy.`);
   if((L.auditoria||{}).forzada)b.push(`Publicada con errores de auditoría: ${esc((L.auditoria.errores||[]).join(" · "))}`);
+  const sl=(lista()||{}).salud; if(sl&&sl.linea)b.unshift(esc(sl.linea));
   $("#banner").innerHTML=b.map(t=>`<div class="banner">${t}</div>`).join("");
 }
 function renderSum(){

@@ -352,6 +352,29 @@ def _():
         assert l.revisar_pasos(c, dict(pasos=dict(bien, historial="sin historial"))), "historial ignorado debe fallar"
 
 
+@caso("Comprobación de citas: la frase en inglés tiene que estar LITERAL en la fuente y la cifra también (Ctrl+F automático, desde el 2-oct)")
+def _():
+    C = json.load(open(os.path.join(l.DATOS, "2026-09-30_candidatos.json")))
+    CL = json.load(open(os.path.join(l.DATOS, "2026-09-30_clasif.json")))
+    c = next(x for x in C["candidatos"] if x["sym"] == "CNTB"); cl = CL["CNTB"]
+    assert l.comprobar_cita(c, cl) == [], l.comprobar_cita(c, cl)                                   # cita real del 8-K → pasa
+    assert l.comprobar_cita(c, dict(cl, frase_en="the company announced a definitive agreement worth $500 million"))   # inventada
+    assert l.comprobar_cita(c, dict(cl, cifra="$987 654 321"))                                      # cifra que no está
+    assert l.comprobar_cita(c, dict(cl, frase_en=cl["frase_en"].replace("81%", "18%")))             # número cambiado
+    C1 = json.load(open(os.path.join(l.DATOS, "2026-10-01_candidatos.json")))
+    CL1 = json.load(open(os.path.join(l.DATOS, "2026-10-01_clasif.json")))
+    v = next(x for x in C1["candidatos"] if x["sym"] == "VEEA")
+    assert l.comprobar_cita(v, CL1["VEEA"]) == []                                                   # nota de prensa (Yahoo) → pasa
+
+
+@caso("Línea de salud: pruebas, universo, fuentes, verificaciones y citas en el mensaje de cada mañana", red=False)
+def _():
+    C = json.load(open(os.path.join(l.DATOS, "2026-10-01_candidatos.json")))
+    d = l.salud("2026-10-01", C, {}, [], ["x"], [], [], False)
+    assert d["linea"].startswith("Salud: ") and "universo 6472" in d["linea"] and "1 avisos" in d["linea"], d["linea"]
+    assert d["pruebas"] in ("NO EJECUTADAS HOY",) or "/" in d["pruebas"]
+
+
 if __name__ == "__main__":
     rapidas = "--rapidas" in sys.argv
     fallos = 0
@@ -366,4 +389,8 @@ if __name__ == "__main__":
             print("FALLA ", nombre, "→", (str(e) or type(e).__name__)[:300], flush=True)
             traceback.print_exc(limit=1)
     print(f"\n{len(CASOS) - fallos if not rapidas else '-'} bien · {fallos} fallos")
+    if not rapidas:   # la línea de salud del Radar lee este resultado (1-oct-2026)
+        hoy = dt.datetime.now(l.NY)
+        json.dump(dict(fecha=hoy.date().isoformat(), hora=hoy.strftime("%H:%M"), total=len(CASOS), fallos=fallos),
+                  open(os.path.join(l.DATOS, "_pruebas.json"), "w"))
     sys.exit(1 if fallos else 0)
