@@ -320,6 +320,14 @@ def cik_de(sym):
     return r
 
 
+def hora_oficial(cik, acc_guiones):
+    """Hora de aceptación oficial (Nueva York) de la cabecera de la presentación: ACCEPTANCE-DATETIME AAAAMMDDhhmmss."""
+    a = acc_guiones.replace("-", "")
+    h = get(f"https://www.sec.gov/Archives/edgar/data/{cik}/{a}/{acc_guiones}-index-headers.html", sec=True) or ""
+    m = re.search(r"ACCEPTANCE-DATETIME>\s*(\d{14})", h)
+    return dt.datetime.strptime(m.group(1), "%Y%m%d%H%M%S").replace(tzinfo=NY) if m else None
+
+
 def presentaciones(cik):
     d = get(f"https://data.sec.gov/submissions/CIK{cik:010d}.json", sec=True, js=True) or {}
     r = d.get("filings", {}).get("recent", {})
@@ -331,6 +339,13 @@ def presentaciones(cik):
         except Exception:
             continue
         acc = r["accessionNumber"][i].replace("-", "")
+        # 1-oct-2026 (lo destapó el verificador independiente): en las presentaciones del MISMO día (y quizá del anterior) el JSON de la
+        # SEC da la hora de Nueva York con una "Z" falsa (CNTB 8-K: JSON 07:05:05Z, oficial 07:05:05 NY); días después la corrige a UTC.
+        # Muestra del 30-sep: 5/5 del mismo día mal, 49/49 anteriores bien → para los últimos 3 días se usa la hora oficial de la cabecera.
+        if (dt.date.today() - dt.date.fromisoformat(r["filingDate"][i])).days <= 3:
+            ho = hora_oficial(cik, r["accessionNumber"][i])
+            if ho:
+                hora = ho
         out.append(dict(form=r["form"][i], hora=hora, fecha=r["filingDate"][i], items=r.get("items", [""] * 99999)[i] or "",
                         acc=acc, doc=r["primaryDocument"][i],
                         url=f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc}/{r['primaryDocument'][i]}"))
@@ -446,6 +461,9 @@ def analizar_shelf(p):
         re.search(r"PROSPECTUS \$\s?([0-9][0-9,.]*)\s*(million|billion)?", t, re.I)
     if m and p["form"] in ("S-3", "S-3/A", "F-3", "F-3/A", "S-3ASR", "POS AM"):
         o["base_usd"] = _usd(m.group(1), m.group(2)); o["frase_base"] = t[max(0, m.start() - 120):m.end() + 120]
+    bs = re.search(r"General Instruction I\.B\.[56]", t)
+    if bs:
+        o["baby_shelf"] = True; o["frase_baby"] = t[max(0, bs.start() - 400):bs.end() + 250]
     a = re.search(r"aggregate offering price of up to \$\s?([0-9][0-9,.]*)\s*(million|billion)?", t, re.I)
     atm_ctx = re.search(r"at[- ]the[- ]market|sales agreement|equity distribution agreement|ATM [Aa]greement", t, re.I)
     if a and atm_ctx:
@@ -467,6 +485,24 @@ def uso_atm(texto_informe):
         fr = mm.group(0).strip()
         if re.search(r"\bsold\b|net proceeds|remain(?:ing|ed)? available|no (?:shares|sales)", fr, re.I) and len(out) < 4:
             out.append(fr[:700])
+    return out
+
+
+def colocaciones(cik, ant, hoy):
+    """Colocaciones privadas / registered direct de 12 meses con su precio por acción (1-oct, verificador: CNTB 6.13 M a $3.25 en mar-2026;
+    quien compró caro y está en pérdidas es otro vendedor posible)."""
+    out = []
+    for p in [p for p in ant if p["form"] in ("8-K", "6-K") and (hoy - p["hora"].date()).days <= 365
+              and ("3.02" in (p["items"] or "") or p["form"] == "6-K")][:6]:
+        t = limpiar(get(p["url"], sec=True) or "")
+        if p["form"] == "6-K" and not re.search(r"private placement|registered direct|securities purchase agreement", t, re.I):
+            continue
+        mm = re.search(r"(?:at|for) a (?:purchase |offering )?price of \$\s?([0-9]+(?:\.[0-9]+)?) per (?:share|Share|ordinary share|unit)", t)
+        na = re.search(r"([0-9][0-9,]{4,}) (?:shares|ordinary shares|Shares|units)", t)
+        if mm or na:
+            out.append(dict(form=p["form"], fecha=p["fecha"], url=p["url"], precio=float(mm.group(1)) if mm else None,
+                            acciones=int(na.group(1).replace(",", "")) if na else None,
+                            frase=t[max(0, (mm or na).start() - 250):(mm or na).end() + 150]))
     return out
 
 
@@ -512,6 +548,7 @@ def municion(cik, pres, desde, sym, precio):
              contrasplits_2a=sum(1 for p in ant if "5.03" in p["items"] and dias(p) <= 730))
     m["ultimas_ventas"] = [dict(form=p["form"], fecha=p["fecha"], url=p["url"]) for p in ant if p["form"] in ("424B4", "424B5")][:4]
     m["shelves"] = shelves(cik, pres, desde)
+    m["colocaciones"] = colocaciones(cik, ant, hoy)
     m["shelf_empresa"] = any(x.get("tipo") == "empresa" and x["form"] != "424B5" for x in m["shelves"])
     # acciones de cada reventa ajustadas por los splits POSTERIORES al registro (VBIO 30-sep: 51 M "registradas" con 0.89 M en
     # circulación: eran acciones de antes de un contra-split 1:25). Fuente: historial de splits de Yahoo
@@ -540,6 +577,9 @@ def municion(cik, pres, desde, sym, precio):
         m["toxica"] = bool(re.search(r"not determinable|variable conversion|% of the (average of the )?(three |five )?lowest|lowest (daily )?(vwap|trading price)", t, re.I))
         m["going_concern"] = bool(re.search(r"substantial doubt", t, re.I))
         m["uso_atm"] = uso_atm(t)
+        # lo que la propia empresa dice de su caja (CNTB: "sufficient ... for at least one year" frente a ~2.9 meses con la quema medida)
+        su = re.search(r"[^.]{0,250}(?:sufficient|enough) to (?:fund|meet|finance)[^.]{0,250}(?:one year|twelve months|12 months|into (?:the )?(?:first|second|third|fourth) (?:quarter|half) of 20\d\d|through 20\d\d)[^.]{0,150}\.", t, re.I)
+        m["empresa_dice_caja"] = su.group(0).strip()[:600] if su else None
         ej = set()
         for mm in re.finditer(r"exercise price[^$.]{0,60}\$\s?([0-9]+(?:\.[0-9]+)?)", t, re.I):
             antes = t[max(0, mm.start() - 250):mm.start()].lower()     # 30-sep: CNTB $2.14 era el precio medio de OPCIONES

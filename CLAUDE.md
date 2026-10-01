@@ -126,6 +126,14 @@
     Causa raíz de los fallos: la revisión del 30-sep comprobó el código contra su propia intención y contra el histórico, NO la cobertura
     del análisis frente a un experto; y quien revisa era quien construyó (mismos puntos ciegos).
 
+22. **Primera prueba del verificador independiente (CNTB 30-sep, a ciegas, 4 min):** encontró los 4 puntos de Veprek y más (colocación
+    privada a $3.25, baby shelf I.B.5, la empresa dice caja para "at least one year", 81 % del titular = 77 % a 28 días exactos) y destapó
+    un error grave nuestro: **el JSON de submissions de la SEC da la hora de NY con una "Z" falsa en las presentaciones del mismo día**
+    (CNTB 8-K: JSON 07:05Z, oficial 07:05 NY; muestra 5/5 mismo día mal, 49/49 antiguas bien). El Radar ponía esas horas 4 h antes.
+    Corregido: para los últimos 3 días se usa la hora oficial de la cabecera (`hora_oficial`). Los estudios históricos NO están afectados
+    (datos bajados semanas después, ya corregidos por la SEC). En las listas 28-30 sep: COLA contó un 8-K de las 9:21 (ya descartada);
+    ningún catalizador perdido. El verificador también se equivocó en una hora (al revés) → regla de horas en VERIFICADOR.md.
+
 ### Mercado y datos propios
 - Gappers >100 %: el día 1 cierra bajo su apertura el 76 %; el día 2 supera el máximo del día 1 solo el 11 %; corto apertura día 1 → cierre día 2 gana el 80 % (mediana +29 %), pero en el peor 10 % hay subidas de +117 % en contra.
 - Día típico (gap ≥50 %, velas 5 min): máximo del día antes de las 10:00 el 60 %, antes de las 11:00 el 78 %; subida mediana apertura→máximo +18 % (p90 +107 %); caída mediana desde el máximo −41 %; 72 % del volumen en la primera hora.

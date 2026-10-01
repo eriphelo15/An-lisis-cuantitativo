@@ -1,0 +1,16 @@
+{
+ "CNTB": {
+  "estado": "corregido",
+  "hora": "1-oct (prueba a posteriori)",
+  "diferencias": [
+   "Verificador: secundario clave (FEV1 día 7) NO significativo en EX-99.2 → nosotros no lo teníamos: añadido (negativos_revisados)",
+   "Verificador: ATM $150 M con Cantor sin usar (F-3 jun-2025, POS AM sep-2025) → nosotros 'sin ATM': corregido",
+   "Verificador: colocación privada 6 130 000 acciones a $3.25 (30-mar-2026), compradores en pérdida a $1.10 → añadido",
+   "Verificador: baby shelf (I.B.5) → añadido",
+   "Verificador: la empresa dice caja para 'at least one year' frente a ~2.9 meses con la quema del 1S → se muestran las dos",
+   "Verificador: el 81 % del titular es 77 % (p 0.037) a 28 días exactos; nuevas exacerbaciones p 0.105; estudio sin potencia para secundarias",
+   "Verificador: hora del 8-K 07:05 NY; nosotros 03:05 (la 'Z' falsa de la SEC en presentaciones del mismo día) → corregido en el código",
+   "Coinciden: catalizador 7.01/8.01 sin 1.01, principal −81 % p 0.0122, reventa 6.13 M, caja $27.0 M + $4.5 M, quema $5.3 M/mes, 62 974 309 acciones, sin warrants"
+  ]
+ }
+}

@@ -18,6 +18,8 @@ marcando esas acciones como "verificación pendiente" y terminarla después.
 > Cabecera obligatoria para la SEC: `User-Agent: research eriphelo15 contact@example.com`. No uses ningún archivo de `listas/` ni `fichas/`
 > (no debes ver conclusiones previas). Acción: **TICKER**. Día: **FECHA**. Ventana del catalizador: desde **VENTANA** (cierre anterior, 16:00 NY) hasta las 9:10.
 > Devuelve SOLO un JSON con estas claves, cada dato con la **frase original en inglés**, su **URL** y la **cifra con unidad** (dólares o acciones):
+> Horas de la SEC: usa SIEMPRE la hora 'Accepted' de la página índice de cada presentación (`…-index.html`), que es hora de Nueva York;
+> el `acceptanceDateTime` del JSON de submissions trae a veces la hora de NY con una 'Z' falsa (presentaciones del mismo día) y otras veces UTC.
 > 1. `catalizador`: documentos 8-K/6-K/notas de prensa DENTRO de la ventana; qué anuncian; si es acuerdo firmado (Item 1.01) o solo nota (7.01/8.01).
 > 2. `negativos`: lo que NO dice el titular — leer TODOS los anexos (EX-99.1, EX-99.2 presentación…): objetivos no significativos o no cumplidos,
 >    condiciones, "non-binding", cifras "up to", cliente sin nombre, financiación incluida.
@@ -45,3 +47,10 @@ marcando esas acciones como "verificación pendiente" y terminarla después.
 - Contraste externo: cada vez que el usuario traiga el análisis de otro trader (Edu, Veprek, DilutionTracker…), comparar punto por punto;
   cada cosa que ellos vieron y nosotros no → caso de oro nuevo.
 - Lenguaje: nunca decir "todo revisado". Decir exactamente qué se comprobó, contra qué y qué NO se comprobó.
+
+## Registro de pruebas del verificador
+- 30-sep CNTB (prueba del 1-oct, a ciegas): encontró los 4 puntos de Veprek (secundario no significativo en EX-99.2, asma 15-sep −32 %,
+  ATM $150 M Cantor sin usar, caja ≈ 2.9 meses) y además: colocación privada de 6.13 M acciones a **$3.25** (mar-2026), baby shelf
+  (I.B.5), la empresa dice tener caja para "at least one year", el 81 % del titular es 77 % (p 0.037) a 28 días exactos, la población es
+  48-55 % Serbia. Destapó un error nuestro grave: horas de la SEC del mismo día 4 h antes (la "Z" falsa). Error suyo: tomó la hora del
+  JSON como hora de NY en una presentación antigua (15-sep "11:06"; oficial 07:06). → Regla de horas añadida arriba.

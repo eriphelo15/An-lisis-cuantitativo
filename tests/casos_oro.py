@@ -89,6 +89,15 @@ def _():
 
 
 # ---------------------------------------------------------------- con red
+@caso("Hora oficial de la SEC (el JSON de las presentaciones del mismo día trae la hora NY con una 'Z' falsa; CNTB 8-K = 07:05 NY)")
+def _():
+    assert l.hora_oficial(1835268, "0001835268-26-000038").strftime("%Y-%m-%d %H:%M") == "2026-09-30 07:05"
+    pres, _ = cntb()
+    # las antiguas (corregidas por la SEC) siguen bien con la conversión UTC → NY
+    p = next(x for x in pres if x["acc"] == "000183526826000028")
+    assert p["hora"].strftime("%Y-%m-%d %H:%M") == "2026-08-12 16:16", p["hora"]
+
+
 @caso("ATM en la shelf aunque el 10-Q no la mencione: CNTB $150 M con Cantor Fitzgerald, sin usar")
 def _():
     _, m = cntb()
@@ -134,6 +143,19 @@ def _():
     c = l.caja(1835268, dt.date(2026, 9, 30))
     assert c["caja"] == 27015000 and c["inversiones"] == 4471000, c
     assert 2.6 <= c["autonomia_hoy"] <= 3.2, c
+
+
+@caso("Colocación privada con precio (CNTB 30-mar-2026: 6 130 000 acciones a $3.25) — lo vio el verificador, no el Radar")
+def _():
+    _, m = cntb()
+    assert any(c["precio"] == 3.25 and c["acciones"] == 6130000 for c in m["colocaciones"]), m["colocaciones"]
+
+
+@caso("Baby shelf detectada (CNTB F-3 jun-2025, General Instruction I.B.5) y lo que la empresa DICE de su caja ('at least one year')")
+def _():
+    _, m = cntb()
+    assert any(x.get("baby_shelf") for x in m["shelves"]), [x.get("baby_shelf") for x in m["shelves"]]
+    assert m["empresa_dice_caja"] and "at least one year" in m["empresa_dice_caja"], m["empresa_dice_caja"]
 
 
 @caso("ELOC escondida en una reventa: FFR 55 000 000 'VWAP Shares' de Gold King Arthur")
