@@ -240,6 +240,15 @@ def _():
     assert L1["generado"] == L0["generado"] and L1.get("rehecho"), (L0["generado"], L1["generado"])
 
 
+@caso("Splits: la lista de Yahoo omite contra-splits → se une con Massive (CRIS 1:20 del 29-sep-2023; SVRE ADS 1:13.33 del 21-feb-2025)")
+def _():
+    import datetime as _dt
+    c = dict(l.splits_de("CRIS")); v = dict(l.splits_de("SVRE"))
+    assert any(abs((d - _dt.date(2023, 9, 29)).days) <= 5 and abs(f - 0.05) < 1e-6 for d, f in c.items()), c
+    assert any(abs((d - _dt.date(2025, 2, 21)).days) <= 5 and abs(f - 1 / 13.33) < 1e-3 for d, f in v.items()), v
+    assert sum(1 for d in c if abs((d - _dt.date(2026, 7, 6)).days) <= 5) == 1, c          # el mismo split no se cuenta dos veces
+
+
 if __name__ == "__main__":
     rapidas = "--rapidas" in sys.argv
     fallos = 0

@@ -506,14 +506,37 @@ def colocaciones(cik, ant, hoy):
     return out
 
 
+_SPLITS_M = {}
+
+
 def splits_de(sym):
-    """[(fecha, factor)] de los splits de los últimos 5 años (factor = nuevas/antiguas; 1:25 → 0.04)."""
+    """[(fecha, factor)] de los splits de los últimos 5 años (factor = nuevas/antiguas; 1:25 → 0.04).
+    1-oct-2026: la lista de eventos de Yahoo OMITE contra-splits que sí aplica a sus precios (CRIS 1:20 del 29-sep-2023; SVRE
+    cambio de ratio ADS 1:13.33 del 21-feb-2025) → se une con la de Massive (antes Polygon); duplicados (±5 días) se cuentan una vez."""
+    out = []
     try:
         r = get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}?range=5y&interval=1mo&events=split", js=True)["chart"]["result"][0]
-        return sorted((dt.datetime.fromtimestamp(v["date"], NY).date(), v["numerator"] / v["denominator"])
-                      for v in (r.get("events", {}).get("splits") or {}).values())
+        out = [(dt.datetime.fromtimestamp(v["date"], NY).date(), v["numerator"] / v["denominator"])
+               for v in (r.get("events", {}).get("splits") or {}).values()]
     except Exception:
-        return []
+        pass
+    try:
+        import requests
+        hoy = dt.datetime.now(NY).date()
+        if sym not in _SPLITS_M:
+            for k in range(5):              # plan gratis: 5 consultas/min → espera y reintenta
+                r = requests.get("https://api.polygon.io/v3/reference/splits", params=dict(ticker=sym, limit=100), timeout=(10, 30))
+                if r.status_code == 429 or "exceeded" in r.text[:300]:
+                    time.sleep(13); continue
+                _SPLITS_M[sym] = r.json().get("results") or []
+                break
+        for x in _SPLITS_M.get(sym, []):
+            d = dt.date.fromisoformat(x["execution_date"])
+            if (hoy - d).days <= 5 * 365 and d <= hoy and not any(abs((d - e).days) <= 5 for e, _ in out):
+                out.append((d, x["split_to"] / x["split_from"]))
+    except Exception:
+        pass
+    return sorted(out)
 
 
 def shelves(cik, pres, desde):

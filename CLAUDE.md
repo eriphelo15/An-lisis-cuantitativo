@@ -167,7 +167,7 @@
 - **Edu, listas de YouTube (Patrones/Aprendizaje/Trades, 51 vídeos 2018-23; `EDUTRADES.md`):** confirma ciclo pump-dump, 1.ª hora, rotación = peligro (su umbral ≈ 1×, el nuestro medido > 10×), dilución como munición. Sus setups diarios ya dan ≈ 0R (ronda 8). Hipótesis propuestas: E1-E5. **Ronda 9 (`smallcaps/22_ronda9_edu.py`, aprobada y medida 29-sep):** E1 overextended gap down: A DEV +0.07R / VAL −0.06R (PF 0.79), B (stop sobre el cierre anterior) DEV +0.12R / VAL −0.23R; no mejor que abrir sobre el cierre. E2 historial de spikes rojos: raro (4 %) y sin mejora (VAL −0.09R vs +0.01R). Ninguna validada. Quedan sin medir E3 (escalones de rotación), E4 (precio sobre colocación), E5 (instituciones).
 - **Ruptura de la vela de 1 min de las 9:30, solo cortos (idea del usuario, 29-sep, `smallcaps/23_ruptura_930.py`, EXPLORATORIO):** gap ≥ 50 %: 1 min (27 días) +1.12R, WR 44 %, PF 2.18 pero −0.22R sin los 3 mejores días; 5 min (75) +0.21R, −0.14R sin los 3 mejores; gap 20-50 % pierde (−0.64R / −0.18R). Colas de −9/−10R (TURB, GRML). No validado: faltan meses de datos de 1 min.
   Reglas reales del usuario (1 solo intento por acción, entrada hasta 11:00, todo fuera a las 11:30; `23b_ruptura_930_usuario.py`): gap ≥ 50 % 1 min (27) +0.31R, WR 44 %, PF 1.38 (−0.57R sin los 3 mejores); 5 min (75) +0.14R, WR 55 %, PF 1.26 (−0.07R); gap 20-50 % negativo en ambos (−0.26R / −0.21R). Día 28-sep (Radar): B +3.15R, todo +8.37R. Salir por cierre de vela puede costar > 1R (MEDS −2R).
-  **Seguimiento en vivo (aprobado por el usuario 29-sep):** `herramientas/ruptura_930.py` guarda cada día las velas de 1 min de las acciones del
+  **Seguimiento en vivo (aprobado 29-sep; RETIRADO el 1-oct):** `herramientas/ruptura_930.py` guarda cada día las velas de 1 min de las acciones del
   Radar en `listas/m1/` (paso 3b de RUTINA.md, dentro de la rutina existente) y mide la regla → `listas/ruptura_930.csv`. Estudio aparte, no va a la página.
   Inicio (21, 22, 23 y 28-sep; los 3 primeros son listas reconstruidas): A/B 5 op. +0.72R WR 40 % PF 2.15; Vigilar ≥ 50 % ≥ $1 5 op. +0.46R;
   20-50 % 17 op. −0.66R WR 12 % PF 0.39. Objetivo: ~100 operaciones en gap ≥ 50 % antes de decidir.
@@ -175,7 +175,8 @@
   DEV +0.06R / VAL −0.06R (WR 40/35 %, PF 1.07/0.93, stops medios −1.61R) → NO validada. ≥ 100 %: +0.11/+0.14R (t < 1). Corto a la apertura
   (stop 30 %, fuera 11:30) en todos los días: +0.055/−0.017R. Días que no rompen el mínimo de las 9:30 (~13 %): el corto a la apertura pierde ~−1R.
   HB2 parcial (1-oct, 61 % de los 20-50 %): la regla en gap 20-50 % pierde: DEV −0.27R (1 090 op., WR 33 %, PF 0.71) / VAL parcial −0.41R
-  (265, PF 0.58); diferencia con ≥ 50 % VAL t 2.04, aún no pasa Holm. Repetir al terminar la descarga.
+  (265, PF 0.58); diferencia con ≥ 50 % VAL t 2.04. **Estudio CERRADO el 1-oct por decisión del usuario** (no rentable tal cual): descarga de
+  Massive detenida, pasos 1b/3b retirados de RUTINA.md y de la rutina; no dedicar más tiempo a la ruptura de las 9:30.
   Error propio corregido: comparar con la referencia solo en los días con entrada sesga a favor de la referencia.
   **Credencial de Massive** guardada en el entorno (API credentials, api.polygon.io y api.massive.com; funciona en esta sesión). Plan gratis:
   1 min sin ajustar desde 29-sep-2024, 5 consultas/min. Datos en /home/user/data/massive (se regeneran con `24_massive_descarga.py`).
@@ -191,6 +192,11 @@
 - **Ronda 12 (30-sep, `smallcaps/27_puntuacion_tesis.py`): PUNTUACIÓN GLOBAL DE LA TESIS VALIDADA.** Pesos de DEV (gap ≥100 %, humo, biotech,
   contrato, 424B 90 d, solo nota; S-3 y serie ≈ 0) → VAL: tercio alto +0.15R PF 1.53, bajo −0.07R PF 0.81 (t 2.97, Spearman p 0.003);
   en gap ≥ 50 % tercio alto +0.26R PF 1.86. Pesos en `smallcaps/puntuacion_pesos.json`.
+- **Ronda 13 (1-oct, `smallcaps/28_precio_colocacion.py`): E4 de Edu (precio del gap ÷ precio de la última colocación 424B) NO validada**
+  y al revés de la idea: ratio ≥ 2 frente a < 1 → DEV −0.19R / VAL −0.42R (t −1.68); 281 casos con precio fiable. Exploratorio: muy por encima
+  de la colocación = peor para el corto (VAL t −2.83 con la puntuación como control, n 45). No se usa sin pre-registro nuevo.
+  **Error de datos encontrado:** Yahoo omite contra-splits en su lista de eventos (CRIS 1:20 29-sep-2023, SVRE ADS 1:13.33); el "precio real"
+  de la ronda 5 acierta en el 94 % de casos recientes (R no cambia). Radar: `splits_de` une Yahoo + Massive (caso de oro 23).
 - **Decisiones del usuario (30-sep):** fuera las letras A/B/Vigilar/NO/Nunca. El Radar pasa a ser un SCREENER profesional: solo las acciones que
   pasan el filtro de campo (descartadas guardadas pero ocultas: compra en efectivo, resultados, financiación del día, avisos de bolsa, < $1),
   ordenadas por puntuación 0-100 (gap = un factor más) + riesgo estructural aparte (acciones, locate, < $1, rotación) que limita el tamaño;

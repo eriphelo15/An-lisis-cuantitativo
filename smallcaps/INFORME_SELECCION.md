@@ -268,7 +268,8 @@ Los stops cuestan de media −1.61R (salir al cierre de una vela sobre la apertu
 | DEV oct-24 → sep-25 | 1 090 | **−0.27** | 33 % | +2.01 | −1.39 | 0.71 | −4.4 | −$5 899 |
 | VAL oct-25 → dic-25 (parcial) | 265 | **−0.41** | 29 % | +1.97 | −1.39 | 0.58 | −3.3 | −$2 175 |
 Diferencia ≥ 50 % menos 20-50 %: DEV +0.33R; VAL t 2.04 (p 0.042) → aún NO pasa Holm (necesita p < 0.025 al ser la 2.ª de 3).
-Lectura: en gaps de 20-50 % la regla pierde claramente (coincide con el seguimiento en vivo: 17 op. −0.66R). Cerrar cuando termine la descarga.
+Lectura: en gaps de 20-50 % la regla pierde claramente (coincide con el seguimiento en vivo: 17 op. −0.66R).
+**Ronda 10 CERRADA el 1-oct por decisión del usuario:** la regla tal cual no es rentable; descarga de Massive y seguimiento en vivo detenidos (los datos bajados se conservan).
 **HB3 mal planteada en el pre-registro (error mío):** la referencia se midió solo en los días en que la regla entró (días que ya rompieron el mínimo
 = días que caen) → sesgo a favor de la referencia (+0.20R / +0.13R). Medida en TODOS los días de gap ≥ 50 %: corto a la apertura, stop +30 %,
 salida 11:30 = +0.055R (DEV, PF 1.16) / −0.017R (VAL, PF 0.95). La regla contando los días sin ruptura como 0: +0.05R / −0.06R. Ambas ≈ 0R.
@@ -302,3 +303,24 @@ Dentro de gap ≥ 50 %: tercio alto VAL **+0.26R**, WR 69 %, PF 1.86 (n 160); ba
 Cautelas: (1) los pesos de biotech y contrato vienen de 2015-21, cuando funcionaban; en 2022-26 esos grupos dan ≈ 0R por separado → vigilar;
 (2) algunos factores se eligieron en rondas anteriores que ya miraron 2022-26 (humo, 424B), así que VAL no es del todo virgen;
 (3) mide el setup base (corto a la apertura), no tu ejecución. Siguiente validación: en vivo, cada día.
+
+## Ronda 13 — E4 de Edu: precio del gap frente al precio de la última colocación (1-oct-2026, `28_precio_colocacion.py`)
+Gap ≥ 50 %, precio real ≥ $1, setup base (corto apertura, stop +30 % con 5 % de deslizamiento, coste 1 %, cierre). 2 089 casos; 1 117 con un
+folleto 424B1/4/5 en los 365 días anteriores (951 folletos leídos). Con precio legible + precio de mercado citado en el folleto + filtro de
+calidad: **281 casos** (DEV 108 / VAL 173). Control de calidad: 1.ª muestra de 20 → 3 errores (warrant SPAC, recompra, reventa) → lector
+corregido; 2.ª muestra → 1 error (corregido); emparejamiento fecha/precio de mercado 20/20 correcto.
+| Ratio apertura ÷ colocación | DEV: n · R · WR · PF | VAL: n · R · WR · PF |
+|---|---|---|
+| < 1 (compradores en pérdida) | 23 · +0.20 · 70 % · 1.72 | 97 · +0.02 · 60 % · 1.06 |
+| 1-1.5 | 33 · −0.13 · 58 % · 0.72 | 37 · +0.12 · 68 % · 1.42 |
+| 1.5-2 | 23 · −0.09 · 52 % · 0.79 | 19 · −0.26 · 47 % · 0.54 |
+| 2-4 | 19 · +0.14 · 74 % · 1.43 | 13 · −0.28 · 46 % · 0.58 |
+| ≥ 4 | 10 · −0.22 · 40 % · 0.56 | 7 · −0.61 · 29 % · 0.18 |
+**HE4a NO validada** (≥ 2 frente a < 1: DEV −0.19R, VAL −0.42R, t −1.68: va AL REVÉS de la hipótesis). **HE4b NO validada** (Spearman VAL −0.09).
+Descriptivo: colocación sin precio (ATM) ≈ 0R; sin colocación en 365 días DEV +0.21R / VAL +0.01R. Dentro de los casos que el Radar no
+descarta (n 40/45) y con la puntuación de la ronda 12 como control, el ratio alto es PEOR en los dos periodos (VAL t −2.83). Exploratorio:
+una acción muy por encima de su última colocación sería peor para el corto (posible: tendencia fuerte), no mejor. Muestra pequeña; para
+usarlo haría falta un pre-registro nuevo. Colocaciones privadas (8-K 3.02) no medidas.
+**Hallazgo de datos:** la lista de splits de Yahoo omite contra-splits que sí aplica a sus precios (CRIS 1:20 29-sep-2023; SVRE ADS 1:13.33
+21-feb-2025). El "precio real" de la ronda 5 acierta ±3 % en el 94 % de 2 313 casos recientes comprobados con Massive sin ajustar. El R no
+cambia; sí el filtro de precio ≥ $1 en ~6 % de casos. Corregido en el Radar (`splits_de` une Yahoo + Massive; caso de oro 23).

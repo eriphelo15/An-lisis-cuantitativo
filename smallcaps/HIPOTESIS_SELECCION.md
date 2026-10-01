@@ -267,3 +267,15 @@ Holm sobre HE4a-HE4b (VAL). Descriptivo (no valida): tramos < 1, 1-1.5, 1.5-2, 2
 (ATM); dentro de los casos que el Radar no descarta (etiqueta 2b ≠ C/R/F/S, donde exista); efecto añadido a la puntuación de la ronda 12
 (regresión con la puntuación como control). Colocaciones privadas (8-K Item 3.02) NO entran (no hay lector histórico fiable): limitación.
 Si se valida, se propondrá al usuario como factor nuevo de la puntuación (pesos de DEV); no se cambia nada sin su aprobación.
+**Enmienda (1-oct, ANTES de ver ningún resultado de R; la salida de una medición de prueba se borró sin leer):** el ajuste por
+`splits.parquet` no es fiable: Yahoo omite contra-splits en su lista de eventos aunque los aplica a sus precios (CRIS 1:20 del 29-sep-2023,
+SVRE cambio de ratio ADS 1:13.33 del 21-feb-2025; comprobado con Massive). Contra velas sin ajustar de Massive (2 313 casos oct-24→sep-26),
+el "precio real" de la ronda 5 acierta (±3 %) el 94 % y un ajuste con la lista de splits de Massive el 93 %, con errores distintos.
+**Método nuevo, sin listas de splits:** todo en la serie ajustada de Yahoo. El propio folleto dice el último precio de mercado ("last
+reported sale price … on [fecha] was $X"); factor k = cierre ajustado de Yahoo de esa fecha ÷ X; colocación ajustada = precio de la
+colocación × k; **ratio = apertura ajustada del gap ÷ colocación ajustada**. Folletos sin esa frase (sobre todo salidas a bolsa, sin mercado
+previo) = sin precio comparable, se cuentan aparte. Hipótesis, tramos y criterios NO cambian.
+Control de calidad añadido: comparar la fecha y el precio de mercado extraídos en 20 folletos al azar (≤ 2 errores).
+Filtro de calidad (decidido ANTES de ver R, mirando solo precios): se usa la colocación solo si precio de colocación ÷ precio de mercado del
+folleto está entre 0.3 y 1.3 (rango normal de una colocación registrada; mediana medida 0.885). Fuera de ese rango casi siempre es una lectura
+mezclada (precio por ADS frente a acción ordinaria, valor nominal $0.0001 leído como precio, colocaciones antiguas citadas): 31 de 280.
