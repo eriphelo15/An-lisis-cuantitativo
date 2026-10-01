@@ -410,7 +410,7 @@ function ficha(x,L){
       <dt>Caja y equivalentes<br><span class="en-l">Cash and cash equivalents</span></dt><dd>${usd(cj.caja)}</dd>
       ${cj.inversiones?`<dt>Inversiones a corto plazo<br><span class="en-l">Short-term investments</span></dt><dd>${usd(cj.inversiones)}</dd>`:""}
       ${cj.flujo_operativo!=null?`<dt>Flujo de caja operativo, ${cj.meses} meses (${esc(cj.flujo_desde)} → ${esc(cj.flujo_hasta)})<br><span class="en-l">Net cash ${cj.flujo_operativo<0?"used in":"provided by"} operating activities</span></dt><dd class="${cj.flujo_operativo<0?"neg":"pos"}">${usd(cj.flujo_operativo)}</dd>`:""}
-      ${cj.quema_mes?`<dt>Quema de caja al mes</dt><dd>${usd(cj.quema_mes)}</dd><dt>Autonomía a la fecha del informe (${esc(cj.caja_fecha)})</dt><dd>${cj.autonomia_meses.toFixed(1)} meses</dd>${cj.autonomia_hoy!=null?`<dt><b>Autonomía que queda HOY</b> (${cj.meses_desde_informe} meses después, misma quema, sin dinero nuevo)</dt><dd class="${cj.autonomia_hoy<6?"neg":""}"><b>${cj.autonomia_hoy.toFixed(1)} meses</b> · caja ≈ ${usd(cj.caja_estimada_hoy)}</dd>`:""}`:cj.flujo_operativo>=0?`<dt>Autonomía</dt><dd>genera caja</dd>`:""}
+      ${cj.quema_mes?`<dt>Quema de caja al mes</dt><dd>${usd(cj.quema_mes)}</dd><dt>Autonomía a la fecha del informe (${esc(cj.caja_fecha)})</dt><dd>${cj.autonomia_meses.toFixed(1)} meses</dd>${cj.autonomia_hoy!=null?`<dt><b>Autonomía que queda HOY</b> (${cj.meses_desde_informe} meses después, misma quema, sin dinero nuevo)</dt><dd class="${cj.autonomia_hoy<6?"neg":""}"><b>${cj.autonomia_hoy>0?cj.autonomia_hoy.toFixed(1)+" meses":"agotada"}</b>${cj.autonomia_hoy>0?" · caja ≈ "+usd(cj.caja_estimada_hoy):" · con esa quema ya no le quedaría caja: si sigue operando, ha conseguido dinero nuevo después del informe (mirar ventas y ATM)"}</dd>`:""}`:cj.flujo_operativo>=0?`<dt>Autonomía</dt><dd>genera caja</dd>`:""}
     </dl>
     ${m.empresa_dice_caja?`<div class="note" style="margin-top:8px"><b>Lo que dice la empresa:</b></div><div class="en-l">“${esc(m.empresa_dice_caja)}”</div><div class="note">Si choca con la estimación de arriba, la estimación supone la misma quema; la empresa puede prever gastar menos (p. ej. al terminar ensayos).</div>`:""}
     <div class="fuente">Datos XBRL del <a href="${esc(cj.url)}" target="_blank" rel="noopener">último informe</a> (busca las frases en inglés con Ctrl+F). No incluye ventas de acciones posteriores al informe. Informativo: no entra en la puntuación porque aún no está medido.</div></div>`:"";
@@ -441,7 +441,7 @@ function ficha(x,L){
       <dl class="kv">
         <dt>Folletos 424B en 12 meses</dt><dd>${m.p424_12m??m.ventas_12m??"—"}</dd>
         <dt>Cambios de estatutos 5.03 en 2 años (suelen ser contra-splits)</dt><dd>${m.contrasplits_2a??"—"}</dd>
-        <dt>Precios de ejercicio de warrants</dt><dd>${(m.warrants||[]).slice(0,5).map(v=>"$"+v).join(" ")||"—"}</dd>
+        <dt>Precios de ejercicio de warrants${m.ajuste_splits_warrants?` (ajustados ×${m.ajuste_splits_warrants} por contra-split posterior al informe)`:""}</dt><dd>${(m.warrants||[]).slice(0,5).map(v=>"$"+v).join(" ")||"—"}</dd>
       </dl>
       ${(m.shelves||[]).filter(x=>!x.repetida).length?`<div class="src"><span class="dim">Registros para vender acciones (3 años): de la empresa o reventa de terceros</span>
         ${(m.shelves||[]).filter(x=>!x.repetida).map(x=>`<div class="shelf"><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.form)} ${esc(x.fecha)}</a>
@@ -454,7 +454,7 @@ function ficha(x,L){
       </div>`:""}
       ${m.informe?`<div class="fuente">Último informe: <a href="${esc(m.informe.url)}" target="_blank" rel="noopener">${esc(m.informe.form)} ${esc(m.informe.fecha)}</a></div>`:""}
       ${(m.ultimas_ventas||[]).length?`<div class="fuente">Últimas ventas: ${m.ultimas_ventas.slice(0,4).map(v=>`<a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.form)} ${esc(v.fecha)}</a>`).join(" · ")}</div>`:""}
-      <div class="fuente">Warrants sin ajustar por contra-splits posteriores: compruébalos en el informe.</div>
+      <div class="fuente">Precios de ejercicio leídos del último informe${m.ajuste_splits_warrants?" y ajustados por los contra-splits posteriores":""}: compruébalos en el informe.</div>
     </div>
     ${caja}
     <div class="blk"><h3>Resultado y diario</h3>

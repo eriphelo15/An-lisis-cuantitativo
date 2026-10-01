@@ -1,0 +1,58 @@
+{
+ "RZAI": {
+  "tipo": "N",
+  "fuentes_abiertas": "Finviz (tabla de noticias) + Yahoo + EDGAR revisados a mano 1-oct 8:30",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
+  "nota": "Sin noticia desde el cierre del 30-sep. Empezó a cotizar en Nasdaq el 29-sep (nota del 29-sep 6:30: 'Expected to Begin Trading on Nasdaq on September 29'). Documento en la ventana = F-1 del 30-sep 16:06 que NO explica la subida: «This prospectus relates to the registration of the resale of up to 19,814,230 of the common shares… by the Selling Shareholders» = reventa de hasta 19 814 230 acciones (18 750 000 de la conversión de preferentes Clase C emitidas el 28-sep a inversores + 1 064 230 de un asesor); la empresa no recibe dinero. Munición/oferta futura, no catalizador. Acción recién listada: el histórico no cubre este caso. | Verificado (agente independiente + SEC): listado DIRECTO en Nasdaq el 29-sep (cierre 29-sep $17.17 según el F-1); preferente Clase C tóxica: «The conversion price will be equal to the lower of (i) $8.00… or (ii) 80% of the lowest closing sale price… for the five consecutive trading days» (suelo $4.00 que baja a $1.00 en 120 días; $10 M colocados a $8.00 el 28-sep); 4 260 000 warrants a $8.00 (muy dentro del dinero); going concern («material uncertainty… significant doubt on our ability to continue as a going concern»); ingresos 2025 $2.30 M vs $8.23 M en 2024; el CEO controla el 58 % de los votos. Pico después del cierre del 30-sep hasta ~$70 (velas de 5 min de Yahoo) sin documento positivo."
+ },
+ "VEEA": {
+  "tipo": "H",
+  "frase_en": "today announced an agreement with TROLLEE Holdings Limited for the phased deployment of VeeaONE solutions across 1,000 unattended stores, beginning with up to 50 locations",
+  "frase_es": "hoy anunció un acuerdo con TROLLEE Holdings para desplegar VeeaONE POR FASES en 1 000 tiendas sin personal, empezando con HASTA 50 tiendas",
+  "cifra": "precio «estimated» de $1 000–$2 000 (dólares) por tienda → arranque ≤ 50 tiendas ≈ ≤ $100 000; las 1 000 tiendas serían como mucho ~$1-2 M; sin importe firmado",
+  "nota": "Nota de prensa GlobeNewswire 1-oct 8:00, SIN 8-K. Socio ya existente (ampliación de junio), despliegue por fases, cifras 'up to' y 'estimated' = humo. Historial: 14-sep 'potential merger' con NovaGen (8-K 8.01); 26-ago contra-split (−19 %); 13-ago acuerdo ATM.",
+  "fuentes_abiertas": "Finviz (tabla de noticias) + Yahoo + EDGAR revisados a mano 1-oct 8:30"
+ },
+ "MEDS": {
+  "tipo": "R",
+  "frase_en": "Corexa Pharmacy recorded preliminary, unaudited revenue of more than $1 million for September 2026, an increase of more than 66 percent from revenue reported for July 2026",
+  "frase_es": "Corexa Pharmacy registró ingresos preliminares, sin auditar, de más de 1 millón de dólares en septiembre de 2026, más de un 66 % por encima de julio",
+  "cifra": "> $1 M (dólares) de ingresos de UN mes, preliminares y sin auditar; +66 % vs julio",
+  "nota": "Nota de prensa ACCESS Newswire 1-oct 6:00, sin 8-K. Cifras preliminares de ventas = R (resultados) por la definición registrada → descartada. Contexto: el 28-sep subió con la app 'Health Lives Here' (humo).",
+  "fuentes_abiertas": "Finviz (tabla de noticias) + Yahoo + EDGAR revisados a mano 1-oct 8:30"
+ },
+ "GIPR": {
+  "tipo": "N",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
+  "fuentes_abiertas": "Finviz (tabla de noticias) + Yahoo + EDGAR revisados a mano 1-oct 8:30",
+  "nota": "Sin noticia desde el 30-sep 16:00 (última: 25-sep, recompra de preferentes). Precio < $1 → descartada."
+ },
+ "SDEV": {
+  "tipo": "N",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
+  "fuentes_abiertas": "Finviz (tabla de noticias) + Yahoo + EDGAR revisados a mano 1-oct 8:30",
+  "nota": "Sin noticia desde el cierre. El 29-sep 16:17 la empresa publicó un 8-K de 'unusual trading activity': «is not aware of any material non-public information… that could be causing the trading activity» (no sabe de ninguna noticia que explique el movimiento); el 30-sep cayó −21 %. Hoy rebota sin noticia."
+ },
+ "SCKT": {
+  "tipo": "N",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
+  "fuentes_abiertas": "Finviz (tabla de noticias) + Yahoo + EDGAR revisados a mano 1-oct 8:30",
+  "nota": "Sin noticia desde el cierre (última: 24-ago). Precio < $1 → descartada."
+ },
+ "PMAX": {
+  "tipo": "N",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
+  "fuentes_abiertas": "Finviz (tabla de noticias) + Yahoo + EDGAR revisados a mano 1-oct 8:30",
+  "nota": "Sin noticia desde el cierre. Contexto: 28-sep 6-K Item 1.01, intercambio de acciones por un 1.5 % de Blackrod (Remington Firearms) (ese día abrió +9 % y cerró −22 %). Precio justo en $1.00."
+ }
+}

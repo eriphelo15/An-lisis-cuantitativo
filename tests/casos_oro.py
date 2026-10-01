@@ -186,6 +186,27 @@ def _():
     assert m["reventa_acciones"] == 16072730, m["reventa_acciones"]
 
 
+@caso("Registro de reventa presentado DENTRO de la ventana también cuenta (RZAI 30-sep 16:06: F-1 de 19 814 230 acciones)")
+def _():
+    pres, *_ = l.presentaciones(2075335)
+    m = l.municion(2075335, pres, NY("2026-09-30"), "RZAI", 37.5)
+    assert any(x.get("tipo") == "reventa" and x.get("acciones_reventa") == 19814230 for x in m["shelves"]), m["shelves"]
+
+
+@caso("Recién listada sin 10-Q: se lee el folleto (RZAI: preferente Clase C a precio variable = tóxica; warrants a $8.00)")
+def _():
+    pres, *_ = l.presentaciones(2075335)
+    m = l.municion(2075335, pres, NY("2026-09-30"), "RZAI", 37.5)
+    assert m["toxica"] and 8.0 in m["warrants"] and m["going_concern"], (m["toxica"], m["warrants"], m["going_concern"])
+
+
+@caso("Warrants ajustados por contra-split posterior al informe (VEEA: 10-Q 12-ago, contra-split 1:20 el 31-ago → $0.05 = $1.00)")
+def _():
+    pres, *_ = l.presentaciones(1840317)
+    m = l.municion(1840317, pres, NY("2026-09-30"), "VEEA", 3.1)
+    assert m.get("ajuste_splits_warrants") == 20 and 1.0 in m["warrants"] and 0.05 not in m["warrants"], (m.get("ajuste_splits_warrants"), m["warrants"])
+
+
 @caso("Universo completo: NASDAQ + NYSE/NYSE American (SLND 29-sep se perdió por faltar un fichero)")
 def _():
     U = l.universo()

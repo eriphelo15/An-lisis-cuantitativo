@@ -1,0 +1,14 @@
+{
+ "RZAI": {
+  "estado": "corregido",
+  "hora": "08:30",
+  "diferencias": [
+   "Coinciden: sin noticia en la ventana (tipo N); F-1 de reventa de 19 814 230 acciones aceptado el 30-sep 16:06 NY",
+   "Verificador: preferente Clase C a precio variable (80 % del cierre más bajo de 5 días, suelo $4 → $1) = tóxica → nuestra herramienta no la veía (sin 10-Q): corregido, ahora lee el folleto",
+   "Verificador: 4 260 000 warrants a $8.00 → corregido igual",
+   "Verificador: going concern, ingresos 2025 $2.30 M vs $8.23 M, CEO con el 58 % de los votos, listado directo (no OPV) → anotado en la ficha",
+   "Nuestro: el F-1 de la ventana no se contaba como munición (solo registros anteriores al cierre) → corregido + caso de oro",
+   "Sin verificar (dicho por el verificador): caja a hoy (último estado dic-2025), float real (Finviz 24.5 M vs 13.9 M registradas)"
+  ]
+ }
+}

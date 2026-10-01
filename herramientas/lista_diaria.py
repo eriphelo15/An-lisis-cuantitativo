@@ -452,7 +452,7 @@ def analizar_shelf(p):
         el = re.search(r"VWAP Shares?|equity line|equity purchase agreement|standby equity|purchase agreement[^.]{0,200}(?:from time to time|at our (?:sole )?discretion)|committed equity facility", cab, re.I)
         if el:
             o["eloc"] = True; o["frase_eloc"] = cab[max(0, el.start() - 200):el.end() + 200]
-        m = re.search(r"up to ([0-9][0-9,]{3,}) (?:ordinary shares|shares of (?:our )?common stock|shares|American Depositary Shares|ADSs)", cab, re.I)
+        m = re.search(r"up to ([0-9][0-9,]{3,}) (?:of (?:the|our) )?(?:ordinary shares|common shares|shares of (?:our )?(?:class a )?common stock|shares|American Depositary Shares|ADSs)", cab, re.I)
         if m:
             o["acciones_reventa"] = int(m.group(1).replace(",", ""))
             o["frase"] = t[max(0, m.start() - 160):m.end() + 60]
@@ -547,7 +547,8 @@ def municion(cik, pres, desde, sym, precio):
              aviso_bolsa=any("3.01" in p["items"] for p in ant if dias(p) <= 365),
              contrasplits_2a=sum(1 for p in ant if "5.03" in p["items"] and dias(p) <= 730))
     m["ultimas_ventas"] = [dict(form=p["form"], fecha=p["fecha"], url=p["url"]) for p in ant if p["form"] in ("424B4", "424B5")][:4]
-    m["shelves"] = shelves(cik, pres, desde)
+    # 1-oct (RZAI): un registro presentado DENTRO de la ventana (ayer 16:06, reventa de 19.8 M acciones) también es munición
+    m["shelves"] = shelves(cik, pres, desde + dt.timedelta(hours=17, minutes=10))
     m["colocaciones"] = colocaciones(cik, ant, hoy)
     m["shelf_empresa"] = any(x.get("tipo") == "empresa" and x["form"] != "424B5" for x in m["shelves"])
     # acciones de cada reventa ajustadas por los splits POSTERIORES al registro (VBIO 30-sep: 51 M "registradas" con 0.89 M en
@@ -568,6 +569,8 @@ def municion(cik, pres, desde, sym, precio):
     m["atm_shelf"] = next((x for x in m["shelves"] if x.get("atm_usd")), None)
     # último 10-Q/10-K: ATM, convertible tóxica, going concern, warrants (texto)
     per = [p for p in ant if p["form"] in ("10-Q", "10-K", "10-Q/A", "10-K/A", "20-F")]
+    if not per:   # 1-oct (RZAI, listada hace 3 días): sin informes periódicos → leer el último folleto (preferente tóxica, warrants a $8)
+        per = [p for p in pres if p["form"] in ("424B4", "424B3", "F-1", "F-1/A", "S-1", "S-1/A") and p["hora"] <= desde + dt.timedelta(hours=17, minutes=10)]
     m.update(atm=False, toxica=False, going_concern=False, warrants=[])
     if per:
         t = limpiar(get(per[0]["url"], sec=True) or "")
@@ -585,6 +588,14 @@ def municion(cik, pres, desde, sym, precio):
             antes = t[max(0, mm.start() - 250):mm.start()].lower()     # 30-sep: CNTB $2.14 era el precio medio de OPCIONES
             if "warrant" in antes and antes.rfind("warrant") > antes.rfind("option") and 0.01 < float(mm.group(1)) < 10000:
                 ej.add(round(float(mm.group(1)), 2))
+        # 1-oct (VEEA, lección 9): precios de ejercicio del informe AJUSTADOS por contra-splits posteriores al informe (1:20 → ×20)
+        fx = 1.0
+        for fecha_s, fac in splits_de(sym):
+            if fecha_s > dt.date.fromisoformat(per[0]["fecha"]) and fecha_s <= hoy:
+                fx *= fac
+        if fx != 1.0:
+            m["warrants_sin_ajustar"] = sorted(ej)[:8]; m["ajuste_splits_warrants"] = round(1 / fx, 4)
+            ej = {round(e / fx, 2) for e in ej}
         ej = sorted(ej)
         m["warrants"] = ej[:8]
         m["warrants_en_dinero"] = bool(precio and any(e < precio for e in ej))   # ojo: sin ajustar por contra-splits posteriores
