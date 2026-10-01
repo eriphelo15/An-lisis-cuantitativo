@@ -245,3 +245,25 @@ Factores que el Radar ve hoy pero NO existen en el histórico (ATM, ELOC, warran
 se mostrarán en la ficha, pero con peso 0 hasta que se puedan medir. El riesgo estructural (acciones < 5 M, precio, rotación) NO entra
 en la puntuación: va aparte y limita el tamaño.
 Si HS1 y HS2 no se cumplen, la puntuación se usa solo para ordenar la lista, marcada "no validada".
+
+## Ronda 13 — E4 de Edu: precio del gap frente al precio de la última colocación (pre-registro, ANTES de ver resultados, 1-oct-2026)
+Aprobado por el usuario el 1-oct. Origen: CNTB 30-sep (compradores a $3.25, acción a $1.10 = en pérdida) y RZAI 1-oct (preferentes a $8,
+acción a $37 = muy en ganancia). Idea: si quien compró en la última colocación está muy en ganancia, tiene incentivo a vender en el pump
+(más oferta → mejor para el corto); si está en pérdida, no.
+**Universo:** base de la ronda 5/11 (`res_18_precio_real.csv`): gap ≥ 50 %, precio real ≥ $1, ambiguos fuera (2 089 casos). Resultado = R del
+setup base (corto a la apertura, stop +30 % con 5 % de deslizamiento, coste 1 %, salida al cierre). DEV 2015-21 / VAL 2022-26.
+**Última colocación:** el último folleto con precio (424B1, 424B4 o 424B5) aceptado en los 365 días anteriores, ANTES del cierre previo
+(16:00 del día hábil anterior; lo del mismo día es "financiación de hoy", que el Radar descarta). Precio = primera frase de la portada del
+tipo "public offering price of $X per share" / "offering price … $X per share" (incluye "combined … per share and accompanying warrant").
+Folletos sin precio fijo (ATM "at-the-market") o sin frase legible = sin precio (se cuentan aparte, no entran en HE).
+Precio ajustado por los splits entre la colocación y el gap (`splits.parquet`); si hay un split en el mismo mes de la colocación o del gap,
+el caso es ambiguo y queda fuera. **Ratio = precio de apertura real ÷ precio de la colocación ajustado.**
+Control de calidad ANTES de medir: leer a mano 20 folletos al azar y comprobar el precio extraído; si hay > 2 errores, corregir el lector.
+| # | Hipótesis | Criterio |
+|---|---|---|
+| HE4a | Ratio ≥ 2 (compradores muy en ganancia) → corto MEJOR que ratio < 1 (compradores en pérdida) | mismo signo DEV y VAL, VAL t > 2 |
+| HE4b | El ratio ordena: correlación de rangos ratio-R > 0 (casos con precio) | VAL p < 0.05 (Spearman), mismo signo en DEV |
+Holm sobre HE4a-HE4b (VAL). Descriptivo (no valida): tramos < 1, 1-1.5, 1.5-2, 2-4, ≥ 4; sin colocación en 365 días; colocación sin precio
+(ATM); dentro de los casos que el Radar no descarta (etiqueta 2b ≠ C/R/F/S, donde exista); efecto añadido a la puntuación de la ronda 12
+(regresión con la puntuación como control). Colocaciones privadas (8-K Item 3.02) NO entran (no hay lector histórico fiable): limitación.
+Si se valida, se propondrá al usuario como factor nuevo de la puntuación (pesos de DEV); no se cambia nada sin su aprobación.

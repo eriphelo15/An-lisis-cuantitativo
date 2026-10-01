@@ -8,9 +8,6 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
 ## Pasos
 1. Código: `git fetch origin claude/analisis-cuantitativo-45j7qe && git checkout -B claude/analisis-cuantitativo-45j7qe origin/claude/analisis-cuantitativo-45j7qe`.
    Si falta algún paquete: `pip install -q yfinance requests`.
-1b. Descarga de Massive (estudio de la ronda 10, aprobado): los reinicios del contenedor la matan. Si `grep -q FIN /home/user/data/massive/log.txt`
-   falla y `ps -eo args | grep -c "[p]ython3 -u 24_massive"` da 0 → `cd /home/user/data/massive && (nohup setsid bash vigilante.sh >/dev/null 2>&1 &)`.
-   (Si falta `/home/user/data/massive`, no relanzar: avisar en el mensaje final.)
 1c. **Casos de oro (obligatorio desde el 1-oct):** `python3 tests/casos_oro.py`. Si falla alguno, NO seguir con datos dudosos: arreglar la
    causa (o, si es una caída de una fuente externa, comprobar que la de respaldo funciona) y avisar por push si retrasa la lista.
 2. ¿Día hábil? `python3 -c "import sys;sys.path.insert(0,'herramientas');import lista_diaria as l,datetime as d;print(l.es_habil(d.datetime.now(l.NY).date()))"`.
@@ -18,11 +15,7 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
 3. Resultados de días anteriores: para cada `listas/datos/AAAA-MM-DD.json` anterior a hoy con `"resultados": null`, ejecutar
    `python3 herramientas/lista_diaria.py resultados --fecha AAAA-MM-DD` y guardar ese archivo en la base de datos
    (`ArtifactData set`, colección `listas`, `doc_id` = fecha, `file_path` = el JSON).
-3b. **Estudio ruptura 9:30 (pedido por el usuario el 29-sep; es un ESTUDIO, no parte de la lista):** para cada `listas/datos/AAAA-MM-DD.json`
-   anterior a hoy sin carpeta `listas/m1/AAAA-MM-DD/` (Yahoo solo guarda ~30 días de velas de 1 min), ejecutar
-   `python3 herramientas/ruptura_930.py guardar --fecha AAAA-MM-DD`; después `python3 herramientas/ruptura_930.py medir`.
-   Se sube con el commit del paso 7 (`git add listas/m1 listas/ruptura_930.csv`). En el mensaje final (paso 8), UNA línea aparte,
-   marcada como estudio: resultado de ayer por acción y acumulado por clase (tesis alta ≥ 50 %, media/baja, 20-50 %, descartadas) (n, R, WR, PF). Nada de esto va a la página ni al push.
+(3b, estudio de la ruptura de las 9:30, y 1b, descarga de Massive: RETIRADOS el 1-oct por decisión del usuario — la regla no es rentable.)
 4. Escanear: `python3 herramientas/lista_diaria.py escanear` → `listas/datos/HOY_candidatos.json`.
    El escáner usa DOS fuentes para el cierre de ayer: Yahoo (histórico diario) y **Massive** (antes Polygon; credencial en el entorno,
    1 consulta). Una acción entra como candidata si supera el 20 % contra cualquiera de las dos. Si los cierres difieren > 2 %,
@@ -65,7 +58,7 @@ catalizadores sin clasificar que ninguna) y seguir clasificando después.
    puntuación de la tesis 0-100 de la ronda 12, el riesgo estructural, la caja, el PMH y guarda el texto de los 8-K; las descartadas
    quedan aparte con su motivo; **desde el 30-sep no hay letras A/B/Vigilar/NO/Nunca**, pedido del usuario) y guardar
    `listas/datos/HOY.json` en la base de datos (`ArtifactData set`, colección `listas`, `doc_id` = HOY).
-7. `git add listas/datos listas/m1 listas/ruptura_930.csv && git commit -m "Lista diaria HOY" && git push -u origin claude/analisis-cuantitativo-45j7qe`
+7. `git add listas/datos && git commit -m "Lista diaria HOY" && git push -u origin claude/analisis-cuantitativo-45j7qe`
    (con las líneas de atribución de siempre).
 8. Mensaje final en español: tabla del screener ordenada por tesis (ticker, tesis 0-100 y tercio, riesgo, gap, precio, catalizador),
    de cada una la frase original + traducción + cifra y la munición; las descartadas en una línea con su motivo; referencia de base
