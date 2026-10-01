@@ -311,7 +311,7 @@ function renderSum(){
   $("#sum").innerHTML=[
     ["Pasan el filtro",F.length,`de ${F.length+D.length} gappers ≥ 20 %`],
     ["Tesis alta",alta.length,alta.length?alta.map(x=>x.sym).join(" · "):"ninguna hoy"],
-    ["Tesis alta y gap ≥ 50 %",alta50.length,"base 2022-26: +0.26R · PF 1.86"],
+    ["Tesis alta y gap ≥ 50 %",alta50.length,"base 2022-26: +0.25R · PF 1.81"],
     ["Riesgo alto o extremo",ext.length,ext.length?ext.map(x=>x.sym+" ("+x.riesgo.nivel.toLowerCase()+")").join(" · "):"ninguna"]
   ].map(([k,n,d])=>`<div class="sbox"><div class="k">${k}</div><div class="n">${n}</div><div class="d">${esc(d)}</div></div>`).join("");
   $("#c-scr").textContent=F.length;
@@ -507,7 +507,7 @@ function renderDiario(){
   </tbody></table></div>`:`<div class="empty">Todavía no has registrado ninguna operación. Abre la ficha de una acción en el screener y usa "Guardar en el diario".</div>`}`;
 }
 function tile(l,v){return `<div class="tile"><div class="l">${l}</div><div class="v">${v??"—"}</div></div>`}
-const HIST={"≥ 50 %|Alta":"+0.26R · PF 1.86","≥ 50 %|Media":"+0.04R · PF 1.10","≥ 50 %|Baja":"−0.11R · PF 0.74","20-50 %|Alta":"−0.04R · PF 0.86","20-50 %|Media":"−0.02R · PF 0.95","20-50 %|Baja":"−0.05R · PF 0.85"};
+const HIST={"≥ 50 %|Alta":"+0.25R · PF 1.81","≥ 50 %|Media":"+0.08R · PF 1.19","≥ 50 %|Baja":"−0.15R · PF 0.69","20-50 %|Alta":"−0.03R · PF 0.88","20-50 %|Media":"−0.06R · PF 0.84","20-50 %|Baja":"−0.02R · PF 0.92"};
 function renderRend(){
   const el=$("#p-rend");const g={};Object.keys(HIST).forEach(k=>g[k]=[]);const desc=[];let dias=0;
   st.fechas.forEach(f=>{const L=st.listas[f];if(!L||!L.resultados||!L.acciones)return;dias++;

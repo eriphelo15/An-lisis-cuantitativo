@@ -277,9 +277,30 @@ def escanear_replay(fecha):
     import pandas as pd
     E = pd.read_parquet("/home/user/data/smallcaps/eventos_gappers.parquet")
     E = E[E.date == pd.Timestamp(fecha)]
-    f = {s: factor_split(s, fecha) for s in E.sym}          # Yahoo ajusta por splits posteriores → precio real del día
+    # Yahoo ajusta por splits posteriores → precio real del día. 1-oct-2026: la lista de splits de Yahoo omite algunos (CRIS, SVRE) →
+    # primero la apertura SIN ajustar de Massive (1 consulta para todo el mercado); si no la tiene, ajustado × splits de Yahoo
+    M = massive_dia_sin_ajustar(fecha)
+    f = {}
+    for r in E.itertuples():
+        m = M.get(r.sym)
+        f[r.sym] = m["o"] / float(r.open) if m and m.get("o") and abs(m["o"] / (float(r.open) * factor_split(r.sym, fecha)) - 1) > 0.03 \
+            else factor_split(r.sym, fecha)
     return [dict(sym=r.sym, nombre="", precio=round(float(r.open) * f[r.sym], 4), cierre_prev=float(r.pc) * f[r.sym], gap=round(float(r.gap), 4),
                  cap=None, vol_pre=None, bolsa="", estado="REPLAY") for r in E.itertuples() if r.open * f[r.sym] >= PRECIO_MIN]
+
+
+def massive_dia_sin_ajustar(dia):
+    """{ticker: barra diaria SIN ajustar} de todo el mercado en `dia` (Massive, plan gratis: ~2 años). {} si no está disponible."""
+    import requests
+    for k in range(6):
+        try:
+            r = requests.get(f"https://api.polygon.io/v2/aggs/grouped/locale/us/market/stocks/{dia}", params=dict(adjusted="false"), timeout=(15, 60))
+            if r.status_code == 429 or "exceeded" in r.text[:300]:
+                time.sleep(13); continue
+            return {x["T"]: x for x in r.json().get("results") or []}
+        except Exception:
+            time.sleep(3)
+    return {}
 
 
 def factor_split(sym, fecha):
@@ -802,13 +823,14 @@ FACTORES = [("gap_50_100", "Gap 50-100 %"), ("gap_100", "Gap ≥ 100 %"), ("cat_
             ("serie", "Diluidor en serie (≥ 3 folletos 424B en 12 meses)"), ("solo_pr", "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)")]
 # Resultado histórico del setup base (corto a la apertura, stop +30 % con 5 % de deslizamiento, coste 1 %, salida al cierre) por tramo
 # de gap y tercio de puntuación. VAL 2022-26 con pesos congelados de DEV 2015-21 (smallcaps/INFORME_SELECCION.md, ronda 12).
-ESTAD_TERCIO = {
-    ("≥ 50 %", "Alta"): dict(n=160, R=0.26, WR=0.69, gan=0.82, perd=-1.00, PF=1.86, dev=0.17),
-    ("≥ 50 %", "Media"): dict(n=77, R=0.04, WR=0.62, gan=0.74, perd=-1.11, PF=1.10, dev=0.07),
-    ("≥ 50 %", "Baja"): dict(n=74, R=-0.11, WR=0.54, gan=0.60, perd=-0.96, PF=0.74, dev=-0.07),
-    ("20-50 %", "Alta"): dict(n=90, R=-0.04, WR=0.54, gan=0.42, perd=-0.58, PF=0.86, dev=0.15),
-    ("20-50 %", "Media"): dict(n=137, R=-0.02, WR=0.58, gan=0.51, perd=-0.75, PF=0.95, dev=-0.02),
-    ("20-50 %", "Baja"): dict(n=183, R=-0.05, WR=0.54, gan=0.48, perd=-0.67, PF=0.85, dev=0.04),
+ESTAD_TERCIO = {   # 1-oct-2026: ronda 12 con datos corregidos (precio real exacto/calibrado + festivos), `30_ronda12_corregida.py`;
+    # coincide con la réplica a ciegas del verificador (VERIFICADOR_ESTUDIOS.md). Versión anterior: puntuacion_pesos_v1_30sep.json
+    ("≥ 50 %", "Alta"): dict(n=157, R=0.25, WR=0.69, gan=0.80, perd=-0.98, PF=1.81, dev=0.15),
+    ("≥ 50 %", "Media"): dict(n=80, R=0.08, WR=0.64, gan=0.77, perd=-1.14, PF=1.19, dev=0.14),
+    ("≥ 50 %", "Baja"): dict(n=84, R=-0.15, WR=0.52, gan=0.63, perd=-1.00, PF=0.69, dev=-0.09),
+    ("20-50 %", "Alta"): dict(n=97, R=-0.03, WR=0.56, gan=0.44, perd=-0.62, PF=0.88, dev=0.14),
+    ("20-50 %", "Media"): dict(n=122, R=-0.06, WR=0.54, gan=0.53, perd=-0.75, PF=0.84, dev=0.05),
+    ("20-50 %", "Baja"): dict(n=198, R=-0.02, WR=0.57, gan=0.47, perd=-0.66, PF=0.92, dev=-0.01),
 }
 DESCARTE = {"C": "Compra en efectivo: el precio queda anclado a la oferta (PF histórico 0.23). No se shortea nunca",
             "R": "Resultados o cifras de ventas (trimestrales, anuales o preliminares): históricamente malo para el corto (PF 0.61)",

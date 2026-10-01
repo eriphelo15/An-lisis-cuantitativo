@@ -4,6 +4,7 @@ import glob, html, json, os, re, sys, time, urllib.request
 import numpy as np
 import pandas as pd
 from scipy import stats
+from comun import dia_habil_anterior
 
 S, D = "/home/user/data/sec", "/home/user/data/smallcaps"
 P = f"{S}/prosp"
@@ -28,7 +29,7 @@ def eventos():
     filas = []
     for r in g.itertuples():
         x = subs.get(r.cik)
-        pc = (r.date - pd.offsets.BDay(1)) + pd.Timedelta(hours=16)
+        pc = dia_habil_anterior(r.date) + pd.Timedelta(hours=16)      # con festivos (PROTOCOLO_ESTUDIOS.md)
         y = x[(x.t < pc) & (x.t >= pc - pd.Timedelta(days=365))] if x is not None else None
         if y is None or y.empty:
             filas.append(dict(sym=r.sym, date=r.date, acc=None)); continue

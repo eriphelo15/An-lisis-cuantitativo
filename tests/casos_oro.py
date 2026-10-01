@@ -42,19 +42,14 @@ def cntb():
 
 
 # ---------------------------------------------------------------- sin red
-@caso("Puntuación en vivo = histórico en los 1 222 casos (30-sep: hasta 4.8 puntos de diferencia por pesos redondeados)", red=False)
+@caso("Puntuación en vivo = histórico en todos los casos (30-sep: pesos redondeados; 1-oct: datos corregidos, 1 242 casos)", red=False)
 def _():
     import pandas as pd
-    S = os.path.join(RAIZ, "smallcaps")
-    X = pd.read_csv(os.path.join(S, "res_18_precio_real.csv"), parse_dates=["date"])
-    E = pd.read_csv(os.path.join(S, "clasificacion_catalizador.csv")).rename(columns={"cat": "tipo"})
-    Z = E.merge(X, on=["sym", "fecha"])
-    Z = Z[~Z.ambiguo & (Z.precio >= 1) & ~Z.tipo.isin(["C", "R", "F", "S"])]
-    Z = Z.merge(pd.read_csv(os.path.join(S, "res_27_puntuacion.csv"))[["sym", "fecha", "puntuacion", "tercio"]], on=["sym", "fecha"])
-    assert len(Z) == 1222, len(Z)
+    Z = pd.read_csv(os.path.join(RAIZ, "smallcaps", "res_30_ronda12_corregida.csv"))
+    assert len(Z) == 1242, len(Z)
     peor, ter = 0, 0
     for r in Z.itertuples():
-        items = "7.01,9.01" if r.solo_pr else ("1.01" if not r.cat.startswith("sin") else "")
+        items = "7.01,9.01" if r.solo_pr else ""
         p = l.puntuar(dict(gap=r.gap, municion=dict(venta90=bool(r.venta90), s3="x" if r.s3 else None, p424_12m=3 if r.serie else 0),
                            docs_hoy=[dict(form="8-K", items=items)] if items else []), dict(tipo=r.tipo))
         peor = max(peor, abs(p["valor"] - r.puntuacion))
@@ -247,6 +242,95 @@ def _():
     assert any(abs((d - _dt.date(2023, 9, 29)).days) <= 5 and abs(f - 0.05) < 1e-6 for d, f in c.items()), c
     assert any(abs((d - _dt.date(2025, 2, 21)).days) <= 5 and abs(f - 1 / 13.33) < 1e-3 for d, f in v.items()), v
     assert sum(1 for d in c if abs((d - _dt.date(2026, 7, 6)).days) <= 5) == 1, c          # el mismo split no se cuenta dos veces
+
+
+# ---------------------------------------------------------------- pruebas por MODO del programa (1-oct-2026, mejora 1 del sistema)
+# Cada forma de usar lista_diaria.py se ejercita con un día real conocido y se contrasta con una SEGUNDA FUENTE (Massive sin ajustar).
+def _copia(fecha, sufijos=("", "_candidatos", "_clasif", "_verificacion")):
+    import shutil, tempfile
+    tmp = tempfile.mkdtemp()
+    for suf in sufijos:
+        p = os.path.join(l.DATOS, f"{fecha}{suf}.json")
+        if os.path.exists(p):
+            shutil.copy(p, tmp)
+    return tmp
+
+
+@caso("Modo días pasados (escanear --replay): precio real del día = apertura SIN ajustar de Massive (21, 22 y 23-sep)")
+def _():
+    for fecha in ("2026-09-21", "2026-09-22", "2026-09-23"):
+        M = l.massive_dia_sin_ajustar(fecha)
+        assert M, f"Massive no responde para {fecha}"
+        for c in l.escanear_replay(fecha):
+            m = M.get(c["sym"])
+            if m:
+                assert abs(c["precio"] / m["o"] - 1) <= 0.03, (fecha, c["sym"], c["precio"], m["o"])   # ±3 % = redondeo de Yahoo (VTGN 0.39 / 0.3861)
+    U = {c["sym"] for c in l.escanear_replay("2026-09-23")}
+    assert {"BENF", "WHLR", "HCTI", "MSS", "DCOY"} <= U, U
+
+
+@caso("Modo días pasados (finalizar --replay) reproduce la lista publicada del 23-sep (acciones, precios, tesis, riesgo, motivos)")
+def _():
+    tmp, antes = _copia("2026-09-23"), l.DATOS
+    L0 = json.load(open(os.path.join(tmp, "2026-09-23.json")))
+    try:
+        l.DATOS = tmp
+        l.finalizar("2026-09-23", True)
+    finally:
+        l.DATOS = antes
+    L1 = json.load(open(os.path.join(tmp, "2026-09-23.json")))
+    a = {x["sym"]: x for x in L0["acciones"] + L0["descartadas"]}
+    b = {x["sym"]: x for x in L1["acciones"] + L1["descartadas"]}
+    assert [x["sym"] for x in L0["acciones"]] == [x["sym"] for x in L1["acciones"]] and set(a) == set(b), (sorted(a), sorted(b))
+    for s_ in a:
+        for k in ("precio", "gap", "motivo"):
+            assert a[s_].get(k) == b[s_].get(k), (s_, k, a[s_].get(k), b[s_].get(k))
+        # (la puntuación no se compara: la lista se publicó con los pesos del 30-sep; la vigila su propia prueba)
+        assert (a[s_].get("riesgo") or {}).get("nivel") == (b[s_].get("riesgo") or {}).get("nivel"), s_
+
+
+@caso("Modo resultados: R de cada acción (Yahoo) = R recalculado con Massive sin ajustar (29 y 30-sep, 11 acciones)")
+def _():
+    for fecha in ("2026-09-29", "2026-09-30"):
+        tmp, antes = _copia(fecha, ("",)), l.DATOS
+        try:
+            l.DATOS = tmp
+            l.resultados(fecha)
+        finally:
+            l.DATOS = antes
+        R = json.load(open(os.path.join(tmp, f"{fecha}.json")))["resultados"]
+        M = l.massive_dia_sin_ajustar(fecha)
+        assert len(R) >= 4 and M, (fecha, len(R))
+        for s_, v in R.items():
+            m = M[s_]; o, h, c = m["o"], m["h"], m["c"]; st = o * (1 + l.STOP)
+            Rm = -((st * (1 + l.DESL) - o) / o + l.COSTE) / l.STOP if h >= st else ((o - c) / o - l.COSTE) / l.STOP
+            assert abs(v["R"] - Rm) <= 0.05, (fecha, s_, v["R"], round(Rm, 3))
+
+
+@caso("Estudios: día hábil anterior CON festivos (GNPX 21-ene-2020 y UUU 2-sep-2025 perdían el 8-K del viernes; lo vio el verificador)", red=False)
+def _():
+    import pandas as pd
+    sys.path.insert(0, os.path.join(RAIZ, "smallcaps"))
+    import comun
+    assert comun.dia_habil_anterior("2020-01-21") == pd.Timestamp("2020-01-17")
+    assert comun.dia_habil_anterior("2025-09-02") == pd.Timestamp("2025-08-29")
+    assert comun.dia_habil_anterior("2026-09-29") == pd.Timestamp("2026-09-28")
+    Z = pd.read_csv(os.path.join(RAIZ, "smallcaps", "res_30_ronda12_corregida.csv"))
+    g = Z[(Z.sym == "GNPX") & (Z.fecha == "2020-01-21")]
+    assert len(g) == 1 and not bool(g.solo_pr.iloc[0]), g          # el 8-K del 17-ene (Item 1.01) cuenta → no es 'solo nota'
+    import glob
+    malos = [f for f in glob.glob(os.path.join(RAIZ, "smallcaps", "2[8-9]_*.py")) + glob.glob(os.path.join(RAIZ, "smallcaps", "3*_*.py"))
+             if "offsets.BDay(1)) + pd.Timedelta(hours=16)" in open(f).read()]
+    assert not malos, malos                                           # estudios nuevos: nunca BDay para la ventana
+
+
+@caso("Estudios: precio real verificado (CPOP 10-sep-2025 = $2.10 y YAAS 27-abr-2026 = $1.445, no $0.14 / $0.29)", red=False)
+def _():
+    import pandas as pd
+    P = pd.read_csv(os.path.join(RAIZ, "smallcaps", "res_29_precios.csv"))
+    for s_, d, v in (("CPOP", "2025-09-10", 2.10), ("YAAS", "2026-04-27", 1.445)):
+        x = P[(P.sym == s_) & (P.fecha == d)]
+        assert len(x) == 1 and abs(x.precio_T.iloc[0] / v - 1) < 0.01, (s_, x.to_dict("records"))
 
 
 if __name__ == "__main__":

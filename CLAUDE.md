@@ -39,7 +39,7 @@
   (pedida por el usuario) `trig_01LxzygdMnVhjKcap2MrESi5`: L-V 8:17 Nueva York, se ejecuta en ESTA sesión (session_01Y3DyUXFtmwsaxpZC7KkFLE) siguiendo `listas/RUTINA.md`. Al terminar envía notificación push con el resumen (pedida y probada el 28-sep). Una sesión nueva por disparo NO sirve: arranca sin repositorio ni base de datos de la página (probado el 28-sep).
   **Desde el 30-sep (pedido por el usuario: "algo verdaderamente profesional"): SCREENER SIN LETRAS.** Letras A/B solo para estrategias de
   ejecución con backtest completo (ninguna aún). La página es una tabla ordenada por la **tesis 0-100** (ronda 12, `smallcaps/puntuacion_pesos.json`;
-  tercios Alta/Media/Baja; la ventaja medida está en tesis alta + gap ≥ 50 %: VAL +0.26R PF 1.86; en 20-50 % no separa) + **riesgo estructural**
+  tercios Alta/Media/Baja; la ventaja medida está en tesis alta + gap ≥ 50 %: VAL +0.25R PF 1.81 (corregida y verificada a ciegas el 1-oct); en 20-50 % no separa) + **riesgo estructural**
   aparte (Normal/Alto/Extremo: acciones < 1 M / < 5 M, rotación premarket > 3× / > 1×, pocas acciones sin munición; NO validado, sirve para el tamaño)
   + PMH (Yahoo 1 min), caja/quema/autonomía (XBRL, informativo, verificado a mano en CNTB) y el texto del 8-K legible en la ficha (clic en la fila).
   Descartadas ocultas con su motivo (C, R, F, S, 424B hoy, precio < $1, split). Listas 21-30 sep rehechas al formato nuevo (`version: 2`) con sus precios.
@@ -134,6 +134,13 @@
     (datos bajados semanas después, ya corregidos por la SEC). En las listas 28-30 sep: COLA contó un 8-K de las 9:21 (ya descartada);
     ningún catalizador perdido. El verificador también se equivocó en una hora (al revés) → regla de horas en VERIFICADOR.md.
 
+23. **Verificador independiente de ESTUDIOS (1-oct, `smallcaps/VERIFICADOR_ESTUDIOS.md` + `PROTOCOLO_ESTUDIOS.md` + `comun.py`):** réplica
+    a ciegas de la ronda 12 → 2 errores nuestros antiguos: ventana sin festivos (`BDay`; GNPX/UUU) y splits recientes que Yahoo lista pero no
+    aplica (CPOP, YAAS). Conclusión intacta: tesis alta + gap ≥ 50 % VAL +0.25R PF 1.81 (corregido) vs +0.24R PF 1.74 (verificador).
+    Radar con pesos corregidos desde el 2-oct (ESTAD_TERCIO y página actualizados). Nunca `pd.offsets.BDay` para ventanas; usar `comun`.
+    Pruebas por modo (replay, finalizar --replay, resultados contra Massive) en casos_oro: 28 casos. Replay usa la apertura sin ajustar de
+    Massive (`massive_dia_sin_ajustar`). Listas 21-23 sep comprobadas contra Massive: 25/25 precios iguales.
+
 ### Mercado y datos propios
 - Gappers >100 %: el día 1 cierra bajo su apertura el 76 %; el día 2 supera el máximo del día 1 solo el 11 %; corto apertura día 1 → cierre día 2 gana el 80 % (mediana +29 %), pero en el peor 10 % hay subidas de +117 % en contra.
 - Día típico (gap ≥50 %, velas 5 min): máximo del día antes de las 10:00 el 60 %, antes de las 11:00 el 78 %; subida mediana apertura→máximo +18 % (p90 +107 %); caída mediana desde el máximo −41 %; 72 % del volumen en la primera hora.
@@ -191,7 +198,7 @@
   (acciones = sharesOutstanding de Yahoo; 'sin munición' no se muestra si el catalizador es F o C).
 - **Ronda 12 (30-sep, `smallcaps/27_puntuacion_tesis.py`): PUNTUACIÓN GLOBAL DE LA TESIS VALIDADA.** Pesos de DEV (gap ≥100 %, humo, biotech,
   contrato, 424B 90 d, solo nota; S-3 y serie ≈ 0) → VAL: tercio alto +0.15R PF 1.53, bajo −0.07R PF 0.81 (t 2.97, Spearman p 0.003);
-  en gap ≥ 50 % tercio alto +0.26R PF 1.86. Pesos en `smallcaps/puntuacion_pesos.json`.
+  en gap ≥ 50 % tercio alto +0.26R PF 1.86 (corregida 1-oct: +0.25R PF 1.81, n 157). Pesos en `smallcaps/puntuacion_pesos.json`.
 - **Ronda 13 (1-oct, `smallcaps/28_precio_colocacion.py`): E4 de Edu (precio del gap ÷ precio de la última colocación 424B) NO validada**
   y al revés de la idea: ratio ≥ 2 frente a < 1 → DEV −0.19R / VAL −0.42R (t −1.68); 281 casos con precio fiable. Exploratorio: muy por encima
   de la colocación = peor para el corto (VAL t −2.83 con la puntuación como control, n 45). No se usa sin pre-registro nuevo.

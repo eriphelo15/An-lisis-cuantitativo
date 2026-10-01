@@ -338,3 +338,14 @@ dudosos (no coinciden y sin precio exacto) 1 288. Con precio exacto: Yahoo acier
 Conclusión: con la mejor estimación nada cambia (pesos de la ronda 12 se mantienen). La puntuación ordena en las 4 variantes; la cifra de la
 tesis alta + gap ≥ 50 % tiene un margen de incertidumbre por precios de +0.15R a +0.26R (PF 1.43-1.86). Ronda 11 con precios corregidos:
 sigue sin validarse (HX1 t −0.45, HX2 t −1.69). En vivo el Radar usa precios reales del día: no le afecta.
+
+## Ronda 12 corregida tras el verificador independiente (1-oct-2026, `30_ronda12_corregida.py`)
+Correcciones: precio real exacto (Massive 1 min) o calibrado por acción; ventana del catalizador con festivos. 1 242 casos (DEV 504 / VAL 738).
+| VAL 2022-26 | n | R | WR | Gan. media | Pérd. media | PF |
+|---|---|---|---|---|---|---|
+| Tercio alto | 254 | +0.14 | 64 % | +0.68 | −0.81 | 1.48 |
+| Tercio medio | 202 | −0.00 | 58 % | +0.64 | −0.88 | 0.99 |
+| Tercio bajo | 282 | −0.06 | 55 % | +0.52 | −0.77 | 0.83 |
+| **Alto + gap ≥ 50 %** | **157** | **+0.25** | **69 %** | **+0.80** | **−0.98** | **1.81** |
+Spearman VAL p 0.0016; alto − bajo +0.20R (t 2.77). Coincide con la réplica a ciegas (alto + gap ≥ 50 %: +0.24R, PF 1.74). Pesos nuevos
+en `puntuacion_pesos.json` (usados por el Radar desde el 2-oct). E4 (ronda 13) rehecha con festivos: igual (no validada).
