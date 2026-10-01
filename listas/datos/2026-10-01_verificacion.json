@@ -10,5 +10,14 @@
    "Nuestro: el F-1 de la ventana no se contaba como munición (solo registros anteriores al cierre) → corregido + caso de oro",
    "Sin verificar (dicho por el verificador): caja a hoy (último estado dic-2025), float real (Finviz 24.5 M vs 13.9 M registradas)"
   ]
+ },
+ "VEEA": {
+  "estado": "ok",
+  "hora": "08:35",
+  "diferencias": [
+   "Coinciden: humo sin 8-K (fases, 'up to 50', precio 'estimated' $1 000–2 000 por tienda → máx. ~$2 M); S-3 de $75 M baby shelf; ATM Roth $4 353 000; ELOC White Lion; convertibles tóxicas (90 % del VWAP más bajo de 10 días); warrants $230 y $10.20 ajustados por el contra-split 1:20; caja del 30-jun agotada con la quema de $1.85 M/mes",
+   "Verificador añade: pump del 14-15 sep (hoja de términos NO vinculante con NovaGen: +47 % y +149 %) devuelto entero en 2 semanas; plazo de aprobación de accionistas para White Lion vencía el 30-sep (resultado sin verificar)",
+   "Sin verificar por ninguno: ventas del ATM desde el 13-ago, acciones exactas hoy tras el contra-split"
+  ]
  }
 }

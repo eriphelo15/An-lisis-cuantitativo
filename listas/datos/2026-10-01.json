@@ -1,0 +1,1038 @@
+{
+ "fecha": "2026-10-01",
+ "generado": "2026-10-01 08:29",
+ "replay": false,
+ "desde": "2026-09-30 16:00",
+ "corte": "2026-10-01 08:19",
+ "version": 2,
+ "reglas": {
+  "gap_minimo": 0.2,
+  "stop": 0.3,
+  "deslizamiento": 0.05,
+  "coste": 0.01,
+  "riesgo_accion": 0.3750000000000002
+ },
+ "acciones": [
+  {
+   "sym": "VEEA",
+   "nombre": "Veea Inc.",
+   "sector": "Services-Computer Integrated Systems Design",
+   "precio": 3.3915,
+   "cierre_prev": 2.1700000762939453,
+   "gap": 0.5629,
+   "cap": 6750236,
+   "acciones": 3110708,
+   "vol_pre": null,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "H",
+    "frase_en": "today announced an agreement with TROLLEE Holdings Limited for the phased deployment of VeeaONE solutions across 1,000 unattended stores, beginning with up to 50 locations",
+    "frase_es": "hoy anunció un acuerdo con TROLLEE Holdings para desplegar VeeaONE POR FASES en 1 000 tiendas sin personal, empezando con HASTA 50 tiendas",
+    "cifra": "precio «estimated» de $1 000–$2 000 (dólares) por tienda → arranque ≤ 50 tiendas ≈ ≤ $100 000; las 1 000 tiendas serían como mucho ~$1-2 M; sin importe firmado",
+    "nota": "Nota de prensa GlobeNewswire 1-oct 8:00, SIN 8-K. Socio ya existente (ampliación de junio), despliegue por fases, cifras 'up to' y 'estimated' = humo. Historial: 14-sep 'potential merger' con NovaGen (8-K 8.01); 26-ago contra-split (−19 %); 13-ago acuerdo ATM. | Verificado: el pump del 14-15 sep (hoja de términos NO vinculante con NovaGen, +47 % y +149 %) se devolvió entero; caja del 30-jun ($886 966) agotada con la quema de $1.85 M/mes → necesita vender acciones (ATM Roth $4.35 M, ELOC White Lion).",
+    "fuentes_abiertas": "Finviz (tabla de noticias) + Yahoo + EDGAR revisados a mano 1-oct 8:30",
+    "tipo_es": "Humo / cosmético"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 52,
+    "tercio": "Media",
+    "pred_R": 0.074,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": true,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": true,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": []
+   },
+   "estad": {
+    "n": 77,
+    "R": 0.04,
+    "WR": 0.62,
+    "gan": 0.74,
+    "perd": -1.11,
+    "PF": 1.1,
+    "dev": 0.07
+   },
+   "riesgo": {
+    "nivel": "Alto",
+    "motivos": [
+     "Pocas acciones en circulación (3.11 M)"
+    ],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 3.51,
+    "pml": 2.18,
+    "pmh_hora": "08:28",
+    "hasta": "08:29"
+   },
+   "caja": {
+    "caja": 886966,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "Cash",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026087946/",
+    "flujo_operativo": -11122601,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 1853767,
+    "autonomia_meses": 0.5,
+    "meses_desde_informe": 3.1,
+    "autonomia_hoy": -2.6,
+    "caja_estimada_hoy": -4776645
+   },
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-09-16 12:01",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026100507/ea0305721-8k_veea.htm",
+     "titular": "DATED SEPTEMBER 14, 2026 Exhibit 99.1 Veea Inc. and NovaGen announce potential merger to launch an Edge AI-Powered Global Health Platform Proposed combination seeks to establish a Nasdaq-listed longevity and precision-he",
+     "reaccion": {
+      "dia": "2026-09-16",
+      "apertura": -0.0385,
+      "cierre": 0.0683
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-26 16:30",
+     "items": "1.01,2.03,3.03,5.03,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026093996/ea0303433-8k_veea.htm",
+     "titular": "DATED AUGUST 26, 2026 Exhibit 99.1 Veea Inc. announces reverse stock split New York, New York, August 26, 2026 (GLOBE NEWSWIRE) – Veea Inc. (Nasdaq: “VEEA”, “Veea” or the “Company”), today announced that it will proceed ",
+     "reaccion": {
+      "dia": "2026-08-27",
+      "apertura": -0.1707,
+      "cierre": -0.187
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-13 08:05",
+     "items": "1.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026088713/ea0301833-8k_veea.htm",
+     "titular": "Item 1.01. Entry into a Material Definitive Agreement. ATM Agreement On August 13, 2026, Veea Inc., a Delaware corporation (the “ Company ”), entered into an At Market Issuance Sales Agreement (the “ ATM Agreement ”) wit",
+     "reaccion": {
+      "dia": "2026-08-13",
+      "apertura": -0.0556,
+      "cierre": 0.0159
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-10 17:20",
+     "items": "1.01,2.03,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026087343/ea0301389-8k_veeainc.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. Amendment, Waiver and Warrant Cancellation Agreement As previously disclosed on the current report on Form 8-K filed by Veea Inc., a Delaware corporation (the “ Compa",
+     "reaccion": {
+      "dia": "2026-08-11",
+      "apertura": -0.1329,
+      "cierre": -0.2025
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-05 17:00",
+     "items": "1.01,2.03,5.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026085763/ea0300722-8k_veeainc.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. On July 30, 2026 and July 31, 2026, NLabs Inc, a Delaware corporation (“ NLabs ”) made unsecured loans to Veea Inc., a Delaware corporation (the “ Company ”). NLabs i",
+     "reaccion": {
+      "dia": "2026-08-06",
+      "apertura": -0.0307,
+      "cierre": -0.0184
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-06-26 16:10",
+     "items": "1.01,3.02,5.03,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026072610/ea0296031-8k_veea.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. Note Conversion Agreement On June 25, 2026, Veea Inc., a Delaware corporation (the “ Company ”), entered into a Note Conversion Agreement (the “ Note Conversion Agree",
+     "reaccion": {
+      "dia": "2026-06-29",
+      "apertura": -0.2578,
+      "cierre": 0.0156
+     }
+    }
+   ],
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [
+    {
+     "hora": "2026-10-01 08:00",
+     "titular": "Veea Announces TROLLEE Agreement for Phased Deployment of VeeaONE to 1,000 Unattended Stores",
+     "url": "https://finance.yahoo.com/technology/ai/articles/veea-announces-trollee-agreement-phased-120000280.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "municion": {
+    "venta90": true,
+    "s3": "2026-06-26",
+    "s1": "2026-05-08",
+    "ventas_12m": 1,
+    "p424_12m": 1,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 3,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-08-13",
+      "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026088706/ea0301578-424b5_veea.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2025-08-14",
+      "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390025076086/ea0253131-424b4_veeainc.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2021-03-17",
+      "url": "https://www.sec.gov/Archives/edgar/data/1840317/000119312521084016/d121187d424b4.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "424B5",
+      "fecha": "2026-08-13",
+      "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026088706/ea0301578-424b5_veea.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "commissions or discounts. We have also agreed to provide indemnification and contribution to the Agent with respect to certain liabilities, including liabilities under the Securities Act or the Securities Exchange Act of 1934, as amended, or the Exchange Act. As of the date of this prospectus supplement, the aggregate market value of our outstanding common stock held by non-affiliates pursuant to General Instruction I.B.6 of Form S-3 was $13,061,451, which was calculated based on 62,214,156 shares of common stock outstanding, as of August 11, 2026, of which 36,959,400 shares were held by non-affiliates, and a price per share of $0.3534, which was the closing sale pri",
+      "atm_usd": 4353000.0,
+      "atm_agente": "Roth Capital",
+      "frase_atm": ".0001 per share, offered by this prospectus supplement. In accordance with the terms of such Sales Agreement and this prospectus supplement, we may offer and sell shares of our common stock having an aggregate offering price of up to $4,353,000 from time to time through or to the Agent, acting as our agent or principal. Our shares of common stock and public warrants are traded on the Nasdaq Capital Market, under the symbols “VEEA” and “VEEAW”, respectively. The",
+      "frase_sin_uso": "we have not sold any securities pursuant to General Instruction I."
+     },
+     {
+      "form": "S-3",
+      "fecha": "2026-06-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026072701/ea0295954-s3_veea.htm",
+      "tipo": "empresa",
+      "base_usd": 75000000.0,
+      "frase_base": "urisdiction where the offer or sale is not permitted. PRELIMINARY PROSPECTUS SUBJECT TO COMPLETION, DATED JUNE 26, 2026 PROSPECTUS $75,000,000.00 Common Stock Preferred Stock Debt Securities Warrants Subscription Rights Units Veea Inc. We may offer, issue and sell f",
+      "baby_shelf": true,
+      "frase_baby": "de to seek a listing of any preferred stock, warrants, debt securities, subscription rights or units offered by this prospectus, the related prospectus supplement will disclose the exchange or market on which the securities will be listed, if any, or where we have made an application for listing, if any. The aggregate market value of our outstanding common stock held by non-affiliates pursuant to General Instruction I.B.6 of Form S-3 was $20,529,470, which was calculated based on 55,116,953 shares of common stock outstanding, as of June 24, 2026, of which 29,602,697 shares were held by non-affiliates, and a price per share of $0.6935 which was the closing sale price "
+     },
+     {
+      "form": "POS AM",
+      "fecha": "2026-05-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026053995/ea0289384-posam_veeainc.htm",
+      "tipo": "reventa",
+      "eloc": true,
+      "frase_eloc": "025 and further amended by Amendment No. 2 to the ELOC Purchase Agreement dated as of January 14, 2026, by and between us and White Lion (as amended, the “ ELOC Purchase Agreement ”), establishing an equity line of credit. Such shares of our Common Stock include up to (i) 9,166,081 shares of Common Stock (assuming the shares to be issued are sold at a price of $2.73 per share) that we may elect, in our sole ",
+      "acciones_reventa": 9193579,
+      "frase": "s of Common Stock This prospectus relates to the offer and sale from time to time by White Lion Capital, LLC (“ White Lion ” or the “ selling stockholder ”) of up to 9,193,579 shares of common stock of Veea Inc. (“ we ,” “ us ,” “ our ,” the “ Company ,” or ",
+      "acciones_reventa_hoy": 459678,
+      "ajuste_splits": 0.05
+     },
+     {
+      "form": "S-1/A",
+      "fecha": "2026-05-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026053967/ea0288866-s1a1_veea.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 15306748,
+      "frase": "ing offers to buy these securities in any jurisdiction where the offer or sale is not permitted. Preliminary Prospectus Subject to Completion Dated May 8, 2026 Up to 15,306,748 Shares of Common Stock This prospectus relates to the resale from time to time by ",
+      "acciones_reventa_hoy": 765337,
+      "ajuste_splits": 0.05
+     },
+     {
+      "form": "S-1",
+      "fecha": "2026-02-17",
+      "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026017472/ea0277211-s1_veea.htm",
+      "tipo": "reventa",
+      "eloc": true,
+      "frase_eloc": "ock upon exercise of an outstanding warrant issued to White Lion by the Company on January 14, 2026 and such similar warrants to be issued to White Lion by the Company pursuant to the White Lion Note Purchase Agreement (such warrants, the “ Noteholder Warrant ”) from time to time; and (ii) 306,748 shares of common stock issued to a service provider identified in the “ Selling Stockholders ” section for services to the Company. The Selling Stockholders and any of their pledgee",
+      "acciones_reventa": 15306748,
+      "frase": "fers to buy these securities in any jurisdiction where the offer or sale is not permitted. Preliminary Prospectus Subject to Completion Dated February 17, 2026 Up to 15,306,748 Shares of Common Stock This prospectus relates to the offer and sale from time to ",
+      "repetida": true,
+      "acciones_reventa_hoy": 765337,
+      "ajuste_splits": 0.05
+     },
+     {
+      "form": "S-1/A",
+      "fecha": "2025-01-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390025002716/ea0227229-s1a1_veeainc.htm",
+      "tipo": "reventa",
+      "eloc": true,
+      "frase_eloc": "be issued by us to White Lion pursuant to that certain Common Stock Purchase Agreement, dated as of December 2, 2024, by and between us and White Lion (the “ELOC Purchase Agreement”), establishing an equity line of credit. Such shares of our Common Stock include up to (i) 9,166,081 shares of Common Stock (assuming the shares to be issued are sold at a price of $2.73 per share) that we may elect, in our sole ",
+      "acciones_reventa": 9193579,
+      "frase": "hares of Common Stock This prospectus relates to the offer and sale from time to time by White Lion Capital, LLC (“White Lion” or the “selling stockholder”) of up to 9,193,579 shares of common stock of Veea Inc. (“we,” “us,” “our,” the “Company,” or “Veea”),",
+      "repetida": true,
+      "acciones_reventa_hoy": 459678,
+      "ajuste_splits": 0.05
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "8-K",
+      "fecha": "2026-06-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026072610/ea0296031-8k_veea.htm",
+      "precio": null,
+      "acciones": 41329,
+      "frase": " as practicable thereafter but no later than one business day following the execution of the Note Conversion Agreement. On June 25, 2026, the Demand Notes having an aggregate of $4,132,910.49 in principal and accrued interest were exchanged into (i) 41,329 shares of Series A-1 Preferred Stock, and Common Warrants to purchase up to 13,331,969 shares of the Common Stock at an exercise price of $0.31 per share, w"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-06-11",
+      "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026067858/ea0294499-8k_veea.htm",
+      "precio": null,
+      "acciones": 1891388,
+      "frase": "are Price ”) as soon as practicable thereafter but no later than one business day following the execution of the Note Conversion Agreements. On June 8, 2026, Notes having an aggregate of $750,000 in principal and accrued interest were converted into 1,891,388 shares of Common Stock (the “ Conversion Shares ”). Under the terms of the Note Conversion Agreements, the Note Conversion Investors have been granted certa"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-04-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026038861/ea0284040-8k_veea.htm",
+      "precio": null,
+      "acciones": 168764,
+      "frase": " soon as practicable thereafter but no later than one business day following the execution of the Note Conversion Agreement. On March 30, 2026, the Demand Notes having an aggregate of $16,876,400 in principal and accrued interest were converted into 168,764 shares of Preferred Stock. Under the terms of the Note Conversion Agreement, NLabs is entitled to certain registration rights with respect to the shares of "
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-01-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026005692/ea0273267-8k_veea.htm",
+      "precio": null,
+      "acciones": 990099,
+      "frase": ", par value $0.0001 per share (“ Common Stock ”). The first closing occurred on January 14, 2026 (the “ First Closing ”) at which the Company issued, and White Lion purchased, a Convertible Note with a face amount of $555,556 and Warrant to purchase 990,099 shares of Common Stock (the “ Warrant Shares ”) with an exercise price of $0.505 per share. At the First Closing, the Company received cash proceeds of $475"
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 1225015,
+    "atm_shelf": {
+     "form": "424B5",
+     "fecha": "2026-08-13",
+     "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026088706/ea0301578-424b5_veea.htm",
+     "tipo": "empresa",
+     "baby_shelf": true,
+     "frase_baby": "commissions or discounts. We have also agreed to provide indemnification and contribution to the Agent with respect to certain liabilities, including liabilities under the Securities Act or the Securities Exchange Act of 1934, as amended, or the Exchange Act. As of the date of this prospectus supplement, the aggregate market value of our outstanding common stock held by non-affiliates pursuant to General Instruction I.B.6 of Form S-3 was $13,061,451, which was calculated based on 62,214,156 shares of common stock outstanding, as of August 11, 2026, of which 36,959,400 shares were held by non-affiliates, and a price per share of $0.3534, which was the closing sale pri",
+     "atm_usd": 4353000.0,
+     "atm_agente": "Roth Capital",
+     "frase_atm": ".0001 per share, offered by this prospectus supplement. In accordance with the terms of such Sales Agreement and this prospectus supplement, we may offer and sell shares of our common stock having an aggregate offering price of up to $4,353,000 from time to time through or to the Agent, acting as our agent or principal. Our shares of common stock and public warrants are traded on the Nasdaq Capital Market, under the symbols “VEEA” and “VEEAW”, respectively. The",
+     "frase_sin_uso": "we have not sold any securities pursuant to General Instruction I."
+    },
+    "atm": true,
+    "toxica": true,
+    "going_concern": false,
+    "warrants": [
+     1.0,
+     6.2,
+     10.0,
+     10.2,
+     13.6,
+     22.0,
+     230.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-12",
+     "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026087946/ea0301195-10q_veea.htm"
+    },
+    "eloc": true,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_sin_ajustar": [
+     0.05,
+     0.31,
+     0.5,
+     0.51,
+     0.68,
+     1.1,
+     11.5
+    ],
+    "ajuste_splits_warrants": 20.0,
+    "warrants_en_dinero": true
+   },
+   "costes": {
+    "locate_1c_R": 0.01
+   },
+   "avisos": [
+    "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)",
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
+   ],
+   "verificacion": {
+    "estado": "ok",
+    "hora": "08:35",
+    "diferencias": [
+     "Coinciden: humo sin 8-K (fases, 'up to 50', precio 'estimated' $1 000–2 000 por tienda → máx. ~$2 M); S-3 de $75 M baby shelf; ATM Roth $4 353 000; ELOC White Lion; convertibles tóxicas (90 % del VWAP más bajo de 10 días); warrants $230 y $10.20 ajustados por el contra-split 1:20; caja del 30-jun agotada con la quema de $1.85 M/mes",
+     "Verificador añade: pump del 14-15 sep (hoja de términos NO vinculante con NovaGen: +47 % y +149 %) devuelto entero en 2 semanas; plazo de aprobación de accionistas para White Lion vencía el 30-sep (resultado sin verificar)",
+     "Sin verificar por ninguno: ventas del ATM desde el 13-ago, acciones exactas hoy tras el contra-split"
+    ]
+   }
+  },
+  {
+   "sym": "RZAI",
+   "nombre": "Roze AI Inc. Common Shares",
+   "sector": "Services-Computer Integrated Systems Design",
+   "precio": 35.73,
+   "cierre_prev": 21.8799991607666,
+   "gap": 0.633,
+   "cap": 1217477248,
+   "acciones": 55643389,
+   "vol_pre": null,
+   "bolsa": "NasdaqGM",
+   "clasif": {
+    "tipo": "N",
+    "fuentes_abiertas": "Finviz (tabla de noticias) + Yahoo + EDGAR revisados a mano 1-oct 8:30",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "nota": "Sin noticia desde el cierre del 30-sep. Empezó a cotizar en Nasdaq el 29-sep (nota del 29-sep 6:30: 'Expected to Begin Trading on Nasdaq on September 29'). Documento en la ventana = F-1 del 30-sep 16:06 que NO explica la subida: «This prospectus relates to the registration of the resale of up to 19,814,230 of the common shares… by the Selling Shareholders» = reventa de hasta 19 814 230 acciones (18 750 000 de la conversión de preferentes Clase C emitidas el 28-sep a inversores + 1 064 230 de un asesor); la empresa no recibe dinero. Munición/oferta futura, no catalizador. Acción recién listada: el histórico no cubre este caso. | Verificado (agente independiente + SEC): listado DIRECTO en Nasdaq el 29-sep (cierre 29-sep $17.17 según el F-1); preferente Clase C tóxica: «The conversion price will be equal to the lower of (i) $8.00… or (ii) 80% of the lowest closing sale price… for the five consecutive trading days» (suelo $4.00 que baja a $1.00 en 120 días; $10 M colocados a $8.00 el 28-sep); 4 260 000 warrants a $8.00 (muy dentro del dinero); going concern («material uncertainty… significant doubt on our ability to continue as a going concern»); ingresos 2025 $2.30 M vs $8.23 M en 2024; el CEO controla el 58 % de los votos. Pico después del cierre del 30-sep hasta ~$70 (velas de 5 min de Yahoo) sin documento positivo.",
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 27,
+    "tercio": "Baja",
+    "pred_R": 0.019,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": true,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
+    ]
+   },
+   "estad": {
+    "n": 74,
+    "R": -0.11,
+    "WR": 0.54,
+    "gan": 0.6,
+    "perd": -0.96,
+    "PF": 0.74,
+    "dev": -0.07
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 53.46,
+    "pml": 35.5,
+    "pmh_hora": "04:00",
+    "hasta": "08:29"
+   },
+   "caja": null,
+   "historial": [],
+   "catalizadores": [],
+   "docs_hoy": [
+    {
+     "form": "F-1",
+     "hora": "2026-09-30 16:06",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/2075335/000121390026105222/ea0306952-f1_roze.htm",
+     "items_es": ""
+    }
+   ],
+   "noticias": [],
+   "municion": {
+    "venta90": true,
+    "s3": null,
+    "s1": "2026-09-16",
+    "ventas_12m": 1,
+    "p424_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2026-09-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/2075335/000121390026104150/ea0306875-424b4_roze.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "F-1",
+      "fecha": "2026-09-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/2075335/000121390026105222/ea0306952-f1_roze.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 19814230,
+      "frase": "O COMPLETION PRELIMINARY PROSPECTUS DATED SEPTEMBER 30, 2026 ROZE AI INC. 19,814,230 Common Shares This prospectus relates to the registration of the resale of up to 19,814,230 of the common shares, no par value (the “Common Shares”) of Roze AI Inc. by the ",
+      "acciones_reventa_hoy": 19814230
+     }
+    ],
+    "colocaciones": [],
+    "shelf_empresa": false,
+    "reventa_acciones": 19814230,
+    "atm_shelf": null,
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     8.0
+    ],
+    "informe": {
+     "form": "F-1",
+     "fecha": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/2075335/000121390026105222/ea0306952-f1_roze.htm"
+    },
+    "eloc": false,
+    "uso_atm": [],
+    "empresa_dice_caja": "We believe that our current cash and anticipated cash flow from operations, will be sufficient to meet our anticipated cash needs for the next 12 months, including for working capital and capital expenditures.",
+    "warrants_en_dinero": true
+   },
+   "costes": {
+    "locate_1c_R": 0.001
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)",
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
+   ],
+   "verificacion": {
+    "estado": "corregido",
+    "hora": "08:30",
+    "diferencias": [
+     "Coinciden: sin noticia en la ventana (tipo N); F-1 de reventa de 19 814 230 acciones aceptado el 30-sep 16:06 NY",
+     "Verificador: preferente Clase C a precio variable (80 % del cierre más bajo de 5 días, suelo $4 → $1) = tóxica → nuestra herramienta no la veía (sin 10-Q): corregido, ahora lee el folleto",
+     "Verificador: 4 260 000 warrants a $8.00 → corregido igual",
+     "Verificador: going concern, ingresos 2025 $2.30 M vs $8.23 M, CEO con el 58 % de los votos, listado directo (no OPV) → anotado en la ficha",
+     "Nuestro: el F-1 de la ventana no se contaba como munición (solo registros anteriores al cierre) → corregido + caso de oro",
+     "Sin verificar (dicho por el verificador): caja a hoy (último estado dic-2025), float real (Finviz 24.5 M vs 13.9 M registradas)"
+    ]
+   }
+  },
+  {
+   "sym": "SDEV",
+   "nombre": "Stablecoin Development Corporat",
+   "sector": "Finance Services",
+   "precio": 3.3501,
+   "cierre_prev": 2.5899999141693115,
+   "gap": 0.2935,
+   "cap": 131093976,
+   "acciones": 50615437,
+   "vol_pre": null,
+   "bolsa": "NYSE American",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "fuentes_abiertas": "Finviz (tabla de noticias) + Yahoo + EDGAR revisados a mano 1-oct 8:30",
+    "nota": "Sin noticia desde el cierre. El 29-sep 16:17 la empresa publicó un 8-K de 'unusual trading activity': «is not aware of any material non-public information… that could be causing the trading activity» (no sabe de ninguna noticia que explique el movimiento); el 30-sep cayó −21 %. Hoy rebota sin noticia.",
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 5,
+    "tercio": "Baja",
+    "pred_R": -0.062,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0103
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.1016
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0774
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1275
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1442
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.0485
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0224
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0118
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0319
+     }
+    ],
+    "base": -0.0395,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
+    ]
+   },
+   "estad": {
+    "n": 183,
+    "R": -0.05,
+    "WR": 0.54,
+    "gan": 0.48,
+    "perd": -0.67,
+    "PF": 0.85,
+    "dev": 0.04
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 3.84,
+    "pml": 2.72,
+    "pmh_hora": "05:06",
+    "hasta": "08:29"
+   },
+   "caja": {
+    "caja": 6968000,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926025065/",
+    "flujo_operativo": -7769000,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 1294833,
+    "autonomia_meses": 5.4,
+    "meses_desde_informe": 3.1,
+    "autonomia_hoy": 2.3,
+    "caja_estimada_hoy": 3012037
+   },
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-09-29 16:17",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926031464/sdev20260929_8k.htm",
+     "titular": "Item 8.01 Other Events On September 29, 2026, Stablecoin Development Corporation (the “Company”) became aware of unusual trading activity in its common stock, par value $0.01 per share, on the NYSE American. The Company ",
+     "reaccion": {
+      "dia": "2026-09-30",
+      "apertura": -0.1743,
+      "cierre": -0.208
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-07-31 08:44",
+     "items": "2.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926025172/nby20260729_8k.htm",
+     "titular": "ex_995199.htm Exhibit 99.1 Stablecoin Development Corporation Reports Second Quarter 2026 Financial Results • Staking revenue of $2.2 million for the quarter and $4.7 million for the first half of 2026 • SDEV grew its SK",
+     "reaccion": {
+      "dia": "2026-07-31",
+      "apertura": 0.0763,
+      "cierre": -0.0254
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-06-17 16:29",
+     "items": "1.01,3.03,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926020980/nby20260617c_8k.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement Amendment to October 2025 Pre-Funded Warrants On June 12, 2026, Stablecoin Development Corporation (the “Company”) agreed with R01 Fund LP (“R01”), and on June 15, 202",
+     "reaccion": {
+      "dia": "2026-06-18",
+      "apertura": -0.0084,
+      "cierre": 0.0252
+     }
+    }
+   ],
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": "2026-09-16",
+    "s1": null,
+    "ventas_12m": 1,
+    "p424_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 6,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-01-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926001489/nby20260120_424b5.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2024-07-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774924023641/nby20240726_424b4.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2021-05-14",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774921012350/nby20210512_424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2020-06-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774920013080/nby20200612_424b5.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "S-3/A",
+      "fecha": "2026-09-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926030554/sdev20260914_s3a.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 167539227,
+      "frase": "s not permitted. PRELIMINARY PROSPECTUS - SUBJECT TO COMPLETION - DATED SEPTEMBER 16, 2026 STABLECOIN DEVELOPMENT CORPORATION 45,337,032 shares of Common Stock Up to 167,539,227 shares of Common Stock Underlying January 2026 Pre-Funded Warrants This prospectus",
+      "acciones_reventa_hoy": 167539227
+     },
+     {
+      "form": "S-3",
+      "fecha": "2026-08-11",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926027018/nby20260806_s3.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 167539227,
+      "frase": "e is not permitted. PRELIMINARY PROSPECTUS — SUBJECT TO COMPLETION — DATED AUGUST 11, 2026 STABLECOIN DEVELOPMENT CORPORATION 45,337,032 shares of Common Stock Up to 167,539,227 shares of Common Stock Underlying January 2026 Pre-Funded Warrants This prospectus",
+      "repetida": true,
+      "acciones_reventa_hoy": 167539227
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-01-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926001489/nby20260120_424b5.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": ", where applicable. As of November 24, 2025, the aggregate market value of our outstanding common stock held by non-affiliates is approximately $5.9 million, based on 126,010,749 shares of outstanding common stock, of which approximately 6,007,881 shares are held by non-affiliates, and a per share price of $0.99 based on the closing sale price of our common stock on November 20, 2025. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell the securities described in this prospectus in a primary public offering with a value exceeding more than one-third of the aggregate market value of our common stock held by non-affiliates in the twelve-month pe",
+      "atm_usd": 100000000.0,
+      "atm_agente": "Virtu",
+      "frase_atm": "ENT (To Prospectus Dated November 26, 2025) $100,000,000 NOVABAY PHARMACEUTICALS, INC. Common Stock This prospectus supplement relates to the issuance and sale of shares of our common stock having an aggregate offering price of up to $100,000,000 from time to time through or to our sales agent, Virtu Americas LLC (“Virtu”). We have entered into an ATM Sales Agreement, or the sales agreement, with Virtu relating to the shares of our common stock offered by this pr"
+     },
+     {
+      "form": "S-3/A",
+      "fecha": "2025-11-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774925036354/nby20251121_s3a.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": ", where applicable. As of November 24, 2025, the aggregate market value of our outstanding common stock held by non-affiliates is approximately $5.9 million, based on 126,010,749 shares of outstanding common stock, of which approximately 6,007,881 shares are held by non-affiliates, and a per share price of $0.99 based on the closing sale price of our common stock on November 20, 2025. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell the securities described in this prospectus in a primary public offering with a value exceeding more than one-third of the aggregate market value of our common stock held by non-affiliates in the twelve-month pe"
+     },
+     {
+      "form": "S-3",
+      "fecha": "2025-10-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000182912625007885/novabay_s3.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "ies, where applicable. As of October 1, 2025, the aggregate market value of our outstanding common stock held by non-affiliates is approximately $25.3 million, based on 6,010,749 shares of outstanding common stock, of which approximately 6,005,132 shares are held by non-affiliates, and a per share price of $4.22 based on the closing sale price of our common stock on September 4, 2025. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell the securities described in this prospectus in a primary public offering with a value exceeding more than one-third of the aggregate market value of our common stock held by non-affiliates in the twelve-month pe"
+     },
+     {
+      "form": "S-1",
+      "fecha": "2024-06-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774924020830/nby20240619_s1.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 298355,
+      "frase": "urities and Exchange Commission (the “ SEC ”), using a “shelf” registration process. By using a shelf registration statement, the Selling Stockholders may sell up to 298,355 shares of Common Stock received upon exercise or conversion (as the case may be) o",
+      "acciones_reventa_hoy": 59671,
+      "ajuste_splits": 0.2
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "8-K",
+      "fecha": "2026-01-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926001459/nby20260116_8k.htm",
+      "precio": null,
+      "acciones": 837696130,
+      "frase": "d LP, Framework Ventures IV L.P., Tether Investments, S.A. de C.V. and Sky Frontier Foundation (together, the “Purchasers”). Pursuant to the SPA, the Company issued and sold pre-funded warrants (the “Pre-Funded Warrants”) to purchase an aggregate of 837,696,130 shares of the Company’s common stock, par value $0.01 per share (the “Common Stock”) for aggregate gross proceeds of approximately $134 million. The purchas"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2025-10-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000182912625008237/novabay_8k.htm",
+      "precio": null,
+      "acciones": 441325,
+      "frase": "ement (the “SPA”) with R01 Fund LP and Framework Ventures IV L.P. (“Framework,” and together with R01, the “Purchasers”). Pursuant to the SPA, Mr. Lazar received an aggregate purchase price of $9,850,000 to (i) sell to the Purchasers an aggregate of 441,325 shares of the Company’s Series D Non-Voting Convertible Preferred Stock, par value $0.01 per share (the “Series D Preferred Stock”), and (ii) assign to the "
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 167539227,
+    "atm_shelf": {
+     "form": "424B5",
+     "fecha": "2026-01-20",
+     "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926001489/nby20260120_424b5.htm",
+     "tipo": "empresa",
+     "baby_shelf": true,
+     "frase_baby": ", where applicable. As of November 24, 2025, the aggregate market value of our outstanding common stock held by non-affiliates is approximately $5.9 million, based on 126,010,749 shares of outstanding common stock, of which approximately 6,007,881 shares are held by non-affiliates, and a per share price of $0.99 based on the closing sale price of our common stock on November 20, 2025. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell the securities described in this prospectus in a primary public offering with a value exceeding more than one-third of the aggregate market value of our common stock held by non-affiliates in the twelve-month pe",
+     "atm_usd": 100000000.0,
+     "atm_agente": "Virtu",
+     "frase_atm": "ENT (To Prospectus Dated November 26, 2025) $100,000,000 NOVABAY PHARMACEUTICALS, INC. Common Stock This prospectus supplement relates to the issuance and sale of shares of our common stock having an aggregate offering price of up to $100,000,000 from time to time through or to our sales agent, Virtu Americas LLC (“Virtu”). We have entered into an ATM Sales Agreement, or the sales agreement, with Virtu relating to the shares of our common stock offered by this pr"
+    },
+    "atm": true,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [
+     0.05,
+     1.0,
+     3.3,
+     5.5
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-07-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926025065/nby20260630_10q.htm"
+    },
+    "eloc": false,
+    "uso_atm": [
+     "Subsequent to June 30, 2026 and through July 27, 2026, the Company sold an aggregate of 24,714 shares of common stock under the ATM Program (as defined in Note 8, “Financing Activities”) for aggregate net proceeds of approximately $ 26 thousand.",
+     "5 million of common stock remained available for issuance under the ATM Program.",
+     "Under the Sales Agreement, the Company has agreed to pay Virtu a commission of up to 2 % of the gross proceeds of any shares sold through the ATM Program.",
+     "During the three months ended June 30, 2026, the Company sold 1,258,934 shares of common stock under the ATM Program for aggregate gross proceeds of $ 1."
+    ],
+    "empresa_dice_caja": "on funds available as of June 30, 2026, management believes that the Company's existing cash and cash equivalents, together with its ability, if needed, to monetize a portion of its unencumbered, exchange-traded SKY token holdings are expected to be sufficient to fund its planned operating expenses for at least twelve months from the issuance of these financial statements.",
+    "warrants_en_dinero": true
+   },
+   "costes": {
+    "locate_1c_R": 0.01
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
+   ]
+  }
+ ],
+ "descartadas": [
+  {
+   "sym": "MEDS",
+   "nombre": "DataMEDS AI, Inc.",
+   "sector": "Wholesale-Drugs, Proprietaries & Druggists' Sundries",
+   "precio": 4.1399,
+   "cierre_prev": 3.1700000762939453,
+   "gap": 0.306,
+   "cap": 10136497,
+   "acciones": 3197633,
+   "vol_pre": null,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "R",
+    "frase_en": "Corexa Pharmacy recorded preliminary, unaudited revenue of more than $1 million for September 2026, an increase of more than 66 percent from revenue reported for July 2026",
+    "frase_es": "Corexa Pharmacy registró ingresos preliminares, sin auditar, de más de 1 millón de dólares en septiembre de 2026, más de un 66 % por encima de julio",
+    "cifra": "> $1 M (dólares) de ingresos de UN mes, preliminares y sin auditar; +66 % vs julio",
+    "nota": "Nota de prensa ACCESS Newswire 1-oct 6:00, sin 8-K. Cifras preliminares de ventas = R (resultados) por la definición registrada → descartada. Contexto: el 28-sep subió con la app 'Health Lives Here' (humo).",
+    "fuentes_abiertas": "Finviz (tabla de noticias) + Yahoo + EDGAR revisados a mano 1-oct 8:30",
+    "tipo_es": "Resultados"
+   },
+   "motivo": "Resultados trimestrales: históricamente malo para el corto (PF 0.61)",
+   "docs_hoy": []
+  },
+  {
+   "sym": "SCKT",
+   "nombre": "Socket Mobile, Inc.",
+   "sector": "Electronic Computers",
+   "precio": 0.5803,
+   "cierre_prev": 0.44999998807907104,
+   "gap": 0.2896,
+   "cap": 3700577,
+   "acciones": 8291681,
+   "vol_pre": null,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "fuentes_abiertas": "Finviz (tabla de noticias) + Yahoo + EDGAR revisados a mano 1-oct 8:30",
+    "nota": "Sin noticia desde el cierre (última: 24-ago). Precio < $1 → descartada.",
+    "tipo_es": "Sin noticia"
+   },
+   "motivo": "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5)",
+   "docs_hoy": []
+  },
+  {
+   "sym": "GIPR",
+   "nombre": "Generation Income Properties, Inc.",
+   "sector": "Real Estate Investment Trusts",
+   "precio": 0.5026,
+   "cierre_prev": 0.39899998903274536,
+   "gap": 0.2596,
+   "cap": 1212217,
+   "acciones": 3038140,
+   "vol_pre": null,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "fuentes_abiertas": "Finviz (tabla de noticias) + Yahoo + EDGAR revisados a mano 1-oct 8:30",
+    "nota": "Sin noticia desde el 30-sep 16:00 (última: 25-sep, recompra de preferentes). Precio < $1 → descartada.",
+    "tipo_es": "Sin noticia"
+   },
+   "motivo": "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5)",
+   "docs_hoy": []
+  },
+  {
+   "sym": "PMAX",
+   "nombre": "Powell Max Limited",
+   "sector": "Services-Miscellaneous Business Services",
+   "precio": 0.8997,
+   "cierre_prev": 0.8199999928474426,
+   "gap": 0.0972,
+   "cap": 3002811,
+   "acciones": 1308311,
+   "vol_pre": null,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "fuentes_abiertas": "Finviz (tabla de noticias) + Yahoo + EDGAR revisados a mano 1-oct 8:30",
+    "nota": "Sin noticia desde el cierre. Contexto: 28-sep 6-K Item 1.01, intercambio de acciones por un 1.5 % de Blackrod (Remington Firearms) (ese día abrió +9 % y cerró −22 %). Precio justo en $1.00.",
+    "tipo_es": "Sin noticia"
+   },
+   "motivo": "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5)",
+   "docs_hoy": []
+  }
+ ],
+ "resultados": null,
+ "auditoria": {
+  "errores": [],
+  "avisos": [
+   "nasdaqtrader no se descargó (['otherlisted.txt']): universo cubierto con la lista de la SEC (7113 tickers Nasdaq/NYSE); los tickers MUY nuevos pueden faltar → TradingView los cubre",
+   "VEEA: en los últimos 120 días hubo un catalizador con caída de -20% (ver historial en la ficha)"
+  ],
+  "cobertura": {
+   "universo": 6472,
+   "cotizadas": 6464,
+   "pct": 0.9988,
+   "ficheros_faltan": [
+    "otherlisted.txt"
+   ],
+   "fuentes_universo": {
+    "nasdaqtrader": 3441,
+    "sec": 7113
+   },
+   "massive": 12613,
+   "tradingview": 10,
+   "solo_tradingview": []
+  },
+  "forzada": false
+ }
+}
