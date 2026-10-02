@@ -1,0 +1,662 @@
+{
+ "fecha": "2026-10-02",
+ "generado": "2026-10-02 08:20",
+ "replay": false,
+ "desde": "2026-10-01 16:00",
+ "corte": "2026-10-02 08:19",
+ "cobertura": {
+  "universo": 6475,
+  "cotizadas": 6466,
+  "pct": 0.9986,
+  "ficheros_faltan": [
+   "otherlisted.txt"
+  ],
+  "fuentes_universo": {
+   "nasdaqtrader": 3439,
+   "sec": 7115
+  },
+  "massive": 12594,
+  "tradingview": 9,
+  "solo_tradingview": [
+   "NIVF +59 % (sin cierre anterior o precio < $0.3)"
+  ]
+ },
+ "candidatos": [
+  {
+   "sym": "AMOD",
+   "nombre": "Alpha Modus Holdings, Inc.",
+   "precio": 2.43,
+   "cierre_prev": 1.1699999570846558,
+   "cierre_massive": 1.17,
+   "gap": 1.0769,
+   "cap": 5811177,
+   "vol_pre": null,
+   "acciones": 4966818,
+   "bolsa": "NasdaqCM",
+   "estado": "PRE",
+   "split_hoy": null,
+   "cik": 1862463,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Patent Owners & Lessors",
+   "venta_hoy": false,
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-10-01 11:30",
+     "items": "2.01,8.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226045296/form8-k.htm",
+     "titular": "Item 2.01. Completion of Acquisition or Disposition of Assets. As disclosed in the Current Report on Form 8-K filed on August 27, 2026, by Alpha Modus Holdings, Inc. (the “ Company ”), on August 26, 2026, the Company ent",
+     "reaccion": {
+      "dia": "2026-10-01",
+      "apertura": -0.0129,
+      "cierre": -0.2452
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-27 12:53",
+     "items": "1.01,3.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226040333/form8-k.htm",
+     "titular": "Alpha Modus Advances Transaction to Add More Than $200 Million in Bitcoin Assets to Its Balance Sheet Bitcoin valued at $71,000 per BTC under contemplated transaction; management believes transaction would materially str",
+     "reaccion": {
+      "dia": "2026-08-27",
+      "apertura": -0.1732,
+      "cierre": -0.2546
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-07-22 11:00",
+     "items": "1.01,5.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226034163/form8-k.htm",
+     "titular": "Item 1.01. Entry into a Material Definitive Agreement. The disclosure in Item 5.02 below is incorporated by reference into this Item 1.01. Item 5.02. Departure of Directors or Certain Officers; Election of Directors; App",
+     "reaccion": {
+      "dia": "2026-07-22",
+      "apertura": 0.0,
+      "cierre": -0.0078
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-07-02 20:20",
+     "items": "1.01,2.03,3.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226031897/form8-k.htm",
+     "titular": "Item 1.01. Entry into a Material Definitive Agreement. Effective June 30, 2026, Alpha Modus Holdings, Inc. (the “ Company ”) entered into a securities purchase agreement (the “ SPA ”) with Streeterville Capital, LLC (the",
+     "reaccion": {
+      "dia": "2026-07-06",
+      "apertura": 0.0112,
+      "cierre": -0.0561
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-06-30 19:00",
+     "items": "8.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226031265/form8-k.htm",
+     "titular": "Item 8.01. Other Events. As disclosed in the Current Report on Form 8-K filed on January 16, 2026, Alpha Modus Holdings, Inc. (the “ Company ”) received on January 12, 2026, a written notice (the “ Notice ”) from the Lis",
+     "reaccion": {
+      "dia": "2026-07-01",
+      "apertura": -0.0423,
+      "cierre": 0.1221
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-06-15 12:00",
+     "items": "8.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226028613/form8-k.htm",
+     "titular": "Item 8.01. Other Events. On or about June 11, 2026, the Company notified H.C. Wainwright & Co., LLC, of its election to terminate sales of shares of Class A common stock pursuant to the Company’s At The Market Offering A",
+     "reaccion": {
+      "dia": "2026-06-15",
+      "apertura": 0.0902,
+      "cierre": 0.0752
+     }
+    }
+   ],
+   "municion": {
+    "venta90": true,
+    "s3": "2026-01-07",
+    "s1": "2026-07-17",
+    "ventas_12m": 0,
+    "p424_12m": 9,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 3,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2021-09-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/1862463/000119312521264569/d81934d424b4.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "S-3",
+      "fecha": "2026-01-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226000852/forms-3.htm",
+      "tipo": "empresa",
+      "base_usd": 250000000.0,
+      "frase_base": "s Holdings, Inc., a Delaware corporation (the “Company,” “Alpha Modus,” “we,” “us” or “Alpha Modus Holdings, Inc.”), of up to $250,000,000 in the aggregate of the Company’s Class A common stock, par value $0.0001 per share (the “common stock”), warrants, or units. From time ",
+      "baby_shelf": true,
+      "frase_baby": "ively. On January 2, 2026, the last reported sales price of our common stock and public warrants was $0.462 and $0.0535, respectively. The applicable prospectus supplement will contain information, where applicable, as to any other listing on The Nasdaq Capital Market or any securities market or other exchange of the securities, if any, covered by the applicable prospectus supplement. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell our securities in a public primary offering (including the AMOD Offering) with a value exceeding more than one-third of our public float in any 12-month period so long as our public float remains below $75.0 mil",
+      "atm_usd": 3500000.0,
+      "atm_agente": "H.C. Wainwright",
+      "frase_atm": "rdance with the terms of the Sales Agreement, under this prospectus supplement and the accompanying prospectus we may offer and sell shares of our common stock, $0.0001 par value per share, having an aggregate offering price of up to $3,500,000 from time to time through or to the Sales Agent. Our common stock and public warrants are listed on The Nasdaq Capital Market under the symbols “AMOD” and “AMODW,” respectively. On January 2, 2026, the last reported sale"
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "8-K",
+      "fecha": "2026-08-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226040333/form8-k.htm",
+      "precio": null,
+      "acciones": 51621560,
+      "frase": "ities purchase agreement (the “ SPA ”) with the non-U.S. investors named therein (the “ Investors ”), pursuant to which the Company agreed to issue and sell to the Investors, and the Investors agreed to purchase from the Company, an aggregate of (i) 51,621,560 shares of Class A Common Stock (the “ Shares ”), and (ii) warrants to purchase an additional 51,621,560 shares for a $4.36/share exercise price (the “ Warra"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-07-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226031897/form8-k.htm",
+      "precio": null,
+      "acciones": 430000,
+      "frase": "ge, or transfer their shares of Company stock until such time as the Investor has been fully paid and all financing agreements between the Investor and the Company are terminated. The Subordination Agreement also requires Chris Chumas to convert the 430,000 shares of Series C Preferred Stock of the Company beneficially owned by him prior to June 29, 2026, into 304,412 Common Shares (the “ Chumas Common Shares ”"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-04-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226016183/form8-k.htm",
+      "precio": null,
+      "acciones": 3870000,
+      "frase": "ent. On April 8, 2026, Alpha Modus Holdings, Inc. (the “ Company ”) entered into an exchange agreement (the “ Exchange Agreement ”) with the family trust of the Company’s CEO, William Alessi, pursuant to which the trust will exchange an aggregate of 3,870,000 shares of Series C Preferred Stock (the “ Preferred Shares ”) for an aggregate of 109,588,265 shares of Class A common stock (the “ Common Shares ”). In the"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-01-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226003623/form8-k.htm",
+      "precio": null,
+      "acciones": 45817,
+      "frase": "ded transition period for complying with any new or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act. ☐ Item 3.02. Unregistered Sales of Equity Securities. On or about January 20, 2026, the Company issued 45,817 shares of Class A common stock to each of the four non-employee directors of the Company (William Ullman, Greg Richter, Michael Garel, and Scott Wattenberg)"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2025-10-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315225019374/form8-k.htm",
+      "precio": null,
+      "acciones": 407166,
+      "frase": " development services to the Company, and the Company would issue Black Marble 1,628,664 restricted shares of Class A common stock, which shall be subject to the following vesting requirements: (i) the shares shall vest in four equal installments of 407,166 shares on January 1, 2026, April 1, 2026, July 1, 2026, and October 1, 2026, and (ii) notwithstanding the vesting schedule, no shares shall vest until the C"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2025-10-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315225019310/form8-k.htm",
+      "precio": null,
+      "acciones": 250000,
+      "frase": "on Group LLC (“Leron”), pursuant to which Rucus and Leron would provide marketing and sales services to the Company in connection with the rollout of the Company’s financial services kiosks with a major US retailer, and the Company would issue Rucus 250,000 shares of Class A common stock, and the Company would issue Leron 4,000,000 shares of Class A common stock. The services of Rucus and Leron have been crucia"
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": {
+     "form": "S-3",
+     "fecha": "2026-01-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226000852/forms-3.htm",
+     "tipo": "empresa",
+     "base_usd": 250000000.0,
+     "frase_base": "s Holdings, Inc., a Delaware corporation (the “Company,” “Alpha Modus,” “we,” “us” or “Alpha Modus Holdings, Inc.”), of up to $250,000,000 in the aggregate of the Company’s Class A common stock, par value $0.0001 per share (the “common stock”), warrants, or units. From time ",
+     "baby_shelf": true,
+     "frase_baby": "ively. On January 2, 2026, the last reported sales price of our common stock and public warrants was $0.462 and $0.0535, respectively. The applicable prospectus supplement will contain information, where applicable, as to any other listing on The Nasdaq Capital Market or any securities market or other exchange of the securities, if any, covered by the applicable prospectus supplement. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell our securities in a public primary offering (including the AMOD Offering) with a value exceeding more than one-third of our public float in any 12-month period so long as our public float remains below $75.0 mil",
+     "atm_usd": 3500000.0,
+     "atm_agente": "H.C. Wainwright",
+     "frase_atm": "rdance with the terms of the Sales Agreement, under this prospectus supplement and the accompanying prospectus we may offer and sell shares of our common stock, $0.0001 par value per share, having an aggregate offering price of up to $3,500,000 from time to time through or to the Sales Agent. Our common stock and public warrants are listed on The Nasdaq Capital Market under the symbols “AMOD” and “AMODW,” respectively. On January 2, 2026, the last reported sale"
+    },
+    "atm": true,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     11.5,
+     460.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226038220/form10-q.htm"
+    },
+    "eloc": false,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "SDEV",
+   "nombre": "Stablecoin Development Corporat",
+   "precio": 5.1895,
+   "cierre_prev": 3.6600000858306885,
+   "cierre_massive": 3.66,
+   "gap": 0.4179,
+   "cap": 185252496,
+   "vol_pre": null,
+   "acciones": 50615437,
+   "bolsa": "NYSE American",
+   "estado": "PRE",
+   "split_hoy": null,
+   "cik": 1389545,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Finance Services",
+   "venta_hoy": false,
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-09-29 16:17",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926031464/sdev20260929_8k.htm",
+     "titular": "Item 8.01 Other Events On September 29, 2026, Stablecoin Development Corporation (the “Company”) became aware of unusual trading activity in its common stock, par value $0.01 per share, on the NYSE American. The Company ",
+     "reaccion": {
+      "dia": "2026-09-30",
+      "apertura": -0.1743,
+      "cierre": -0.208
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-07-31 08:44",
+     "items": "2.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926025172/nby20260729_8k.htm",
+     "titular": "ex_995199.htm Exhibit 99.1 Stablecoin Development Corporation Reports Second Quarter 2026 Financial Results • Staking revenue of $2.2 million for the quarter and $4.7 million for the first half of 2026 • SDEV grew its SK",
+     "reaccion": {
+      "dia": "2026-07-31",
+      "apertura": 0.0763,
+      "cierre": -0.0254
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-06-17 16:29",
+     "items": "1.01,3.03,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926020980/nby20260617c_8k.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement Amendment to October 2025 Pre-Funded Warrants On June 12, 2026, Stablecoin Development Corporation (the “Company”) agreed with R01 Fund LP (“R01”), and on June 15, 202",
+     "reaccion": {
+      "dia": "2026-06-18",
+      "apertura": -0.0084,
+      "cierre": 0.0252
+     }
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": "2026-09-16",
+    "s1": null,
+    "ventas_12m": 1,
+    "p424_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 6,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-01-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926001489/nby20260120_424b5.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2024-07-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774924023641/nby20240726_424b4.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2021-05-14",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774921012350/nby20210512_424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2020-06-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774920013080/nby20200612_424b5.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "S-3/A",
+      "fecha": "2026-09-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926030554/sdev20260914_s3a.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 167539227,
+      "frase": "s not permitted. PRELIMINARY PROSPECTUS - SUBJECT TO COMPLETION - DATED SEPTEMBER 16, 2026 STABLECOIN DEVELOPMENT CORPORATION 45,337,032 shares of Common Stock Up to 167,539,227 shares of Common Stock Underlying January 2026 Pre-Funded Warrants This prospectus",
+      "acciones_reventa_hoy": 167539227
+     },
+     {
+      "form": "S-3",
+      "fecha": "2026-08-11",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926027018/nby20260806_s3.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 167539227,
+      "frase": "e is not permitted. PRELIMINARY PROSPECTUS — SUBJECT TO COMPLETION — DATED AUGUST 11, 2026 STABLECOIN DEVELOPMENT CORPORATION 45,337,032 shares of Common Stock Up to 167,539,227 shares of Common Stock Underlying January 2026 Pre-Funded Warrants This prospectus",
+      "repetida": true,
+      "acciones_reventa_hoy": 167539227
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-01-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926001489/nby20260120_424b5.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": ", where applicable. As of November 24, 2025, the aggregate market value of our outstanding common stock held by non-affiliates is approximately $5.9 million, based on 126,010,749 shares of outstanding common stock, of which approximately 6,007,881 shares are held by non-affiliates, and a per share price of $0.99 based on the closing sale price of our common stock on November 20, 2025. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell the securities described in this prospectus in a primary public offering with a value exceeding more than one-third of the aggregate market value of our common stock held by non-affiliates in the twelve-month pe",
+      "atm_usd": 100000000.0,
+      "atm_agente": "Virtu",
+      "frase_atm": "ENT (To Prospectus Dated November 26, 2025) $100,000,000 NOVABAY PHARMACEUTICALS, INC. Common Stock This prospectus supplement relates to the issuance and sale of shares of our common stock having an aggregate offering price of up to $100,000,000 from time to time through or to our sales agent, Virtu Americas LLC (“Virtu”). We have entered into an ATM Sales Agreement, or the sales agreement, with Virtu relating to the shares of our common stock offered by this pr"
+     },
+     {
+      "form": "S-3/A",
+      "fecha": "2025-11-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774925036354/nby20251121_s3a.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": ", where applicable. As of November 24, 2025, the aggregate market value of our outstanding common stock held by non-affiliates is approximately $5.9 million, based on 126,010,749 shares of outstanding common stock, of which approximately 6,007,881 shares are held by non-affiliates, and a per share price of $0.99 based on the closing sale price of our common stock on November 20, 2025. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell the securities described in this prospectus in a primary public offering with a value exceeding more than one-third of the aggregate market value of our common stock held by non-affiliates in the twelve-month pe"
+     },
+     {
+      "form": "S-3",
+      "fecha": "2025-10-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000182912625007885/novabay_s3.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "ies, where applicable. As of October 1, 2025, the aggregate market value of our outstanding common stock held by non-affiliates is approximately $25.3 million, based on 6,010,749 shares of outstanding common stock, of which approximately 6,005,132 shares are held by non-affiliates, and a per share price of $4.22 based on the closing sale price of our common stock on September 4, 2025. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell the securities described in this prospectus in a primary public offering with a value exceeding more than one-third of the aggregate market value of our common stock held by non-affiliates in the twelve-month pe"
+     },
+     {
+      "form": "S-1",
+      "fecha": "2024-06-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774924020830/nby20240619_s1.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 298355,
+      "frase": "urities and Exchange Commission (the “ SEC ”), using a “shelf” registration process. By using a shelf registration statement, the Selling Stockholders may sell up to 298,355 shares of Common Stock received upon exercise or conversion (as the case may be) o",
+      "acciones_reventa_hoy": 59671,
+      "ajuste_splits": 0.2
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "8-K",
+      "fecha": "2026-01-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926001459/nby20260116_8k.htm",
+      "precio": null,
+      "acciones": 837696130,
+      "frase": "d LP, Framework Ventures IV L.P., Tether Investments, S.A. de C.V. and Sky Frontier Foundation (together, the “Purchasers”). Pursuant to the SPA, the Company issued and sold pre-funded warrants (the “Pre-Funded Warrants”) to purchase an aggregate of 837,696,130 shares of the Company’s common stock, par value $0.01 per share (the “Common Stock”) for aggregate gross proceeds of approximately $134 million. The purchas"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2025-10-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000182912625008237/novabay_8k.htm",
+      "precio": null,
+      "acciones": 441325,
+      "frase": "ement (the “SPA”) with R01 Fund LP and Framework Ventures IV L.P. (“Framework,” and together with R01, the “Purchasers”). Pursuant to the SPA, Mr. Lazar received an aggregate purchase price of $9,850,000 to (i) sell to the Purchasers an aggregate of 441,325 shares of the Company’s Series D Non-Voting Convertible Preferred Stock, par value $0.01 per share (the “Series D Preferred Stock”), and (ii) assign to the "
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 167539227,
+    "atm_shelf": {
+     "form": "424B5",
+     "fecha": "2026-01-20",
+     "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926001489/nby20260120_424b5.htm",
+     "tipo": "empresa",
+     "baby_shelf": true,
+     "frase_baby": ", where applicable. As of November 24, 2025, the aggregate market value of our outstanding common stock held by non-affiliates is approximately $5.9 million, based on 126,010,749 shares of outstanding common stock, of which approximately 6,007,881 shares are held by non-affiliates, and a per share price of $0.99 based on the closing sale price of our common stock on November 20, 2025. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell the securities described in this prospectus in a primary public offering with a value exceeding more than one-third of the aggregate market value of our common stock held by non-affiliates in the twelve-month pe",
+     "atm_usd": 100000000.0,
+     "atm_agente": "Virtu",
+     "frase_atm": "ENT (To Prospectus Dated November 26, 2025) $100,000,000 NOVABAY PHARMACEUTICALS, INC. Common Stock This prospectus supplement relates to the issuance and sale of shares of our common stock having an aggregate offering price of up to $100,000,000 from time to time through or to our sales agent, Virtu Americas LLC (“Virtu”). We have entered into an ATM Sales Agreement, or the sales agreement, with Virtu relating to the shares of our common stock offered by this pr"
+    },
+    "atm": true,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [
+     0.05,
+     1.0,
+     3.3,
+     5.5
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-07-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926025065/nby20260630_10q.htm"
+    },
+    "eloc": false,
+    "uso_atm": [
+     "Subsequent to June 30, 2026 and through July 27, 2026, the Company sold an aggregate of 24,714 shares of common stock under the ATM Program (as defined in Note 8, “Financing Activities”) for aggregate net proceeds of approximately $ 26 thousand.",
+     "5 million of common stock remained available for issuance under the ATM Program.",
+     "Under the Sales Agreement, the Company has agreed to pay Virtu a commission of up to 2 % of the gross proceeds of any shares sold through the ATM Program.",
+     "During the three months ended June 30, 2026, the Company sold 1,258,934 shares of common stock under the ATM Program for aggregate gross proceeds of $ 1."
+    ],
+    "empresa_dice_caja": "on funds available as of June 30, 2026, management believes that the Company's existing cash and cash equivalents, together with its ability, if needed, to monetize a portion of its unencumbered, exchange-traded SKY token holdings are expected to be sufficient to fund its planned operating expenses for at least twelve months from the issuance of these financial statements.",
+    "warrants_en_dinero": true
+   }
+  },
+  {
+   "sym": "AIXI",
+   "nombre": "Xiao-I Corporation",
+   "precio": 1.6699,
+   "cierre_prev": 1.215000033378601,
+   "cierre_massive": 1.215,
+   "gap": 0.3744,
+   "cap": 159788,
+   "vol_pre": null,
+   "acciones": 131513,
+   "bolsa": "NasdaqGM",
+   "estado": "PRE",
+   "split_hoy": null,
+   "cik": 1935172,
+   "catalizadores": [
+    {
+     "form": "6-K",
+     "hora": "2026-10-01 16:31",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026105823/ea0306791-6k_xiao1.htm",
+     "partes": [
+      {
+       "archivo": "ea030679101ex99-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026105823/ea030679101ex99-1.htm",
+       "texto": "aixi-20260630 Exhibit 99.1 XIAO-I CORPORATION INDEX TO UNAUDITED CONDENSED CONSOLIDATED FINANCIAL STATEMENTS CONTENTS PAGE(S) CONDENSED CONSOLIDATED BALANCE SHEETS AS OF DECEMBER 31, 2025 AND JUNE 30, 2026 (UNAUDITED) F-2 UNAUDITED CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS AND COMPREHENSIVE LOSS FOR THE SIX MONTHS ENDED JUNE 30, 2025 AND 2026 F-3 UNAUDITED CONDENSED CONSOLIDATED STATEMENTS OF CHANGES IN DEFICIT FOR THE SIX MONTHS ENDED JUNE 30, 2025 AND 2026 F-4 UNAUDITED CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS FOR THE SIX MONTHS ENDED JUNE 30, 2025 AND 2026 F-5 NOTES TO UNAUDITED CONDENSED CONSOLIDATED FINANCIAL STATEMENTS F-6 F- 1 XIAO-I CORPORATION CONDENSED CONSOLIDATED BALANCE SHEETS (In U.S. dollars, except for share and per share data, or otherwise noted) As of June 30, As of December 31, 2026 2025 Assets (Unaudited) Current assets: Cash and cash equivalents $ 3,452,133 $ 2,319,453 Restricted cash 167,026 116,866 Accounts receivable, net 834,672 6,309,476 Amounts due from related parties, current - 21,356 Contract costs 226,636 1,799,951 Advance to suppliers 121,099 36,478 Prepaid expenses and other current assets, net 1,302,341 1,323,636 Total current assets 6,103,907 11,927,216 Non-current assets: Property and equipment, net 26,013 141,805 Intangible assets, net 2,639 114,442 Right of use assets 42,984 61,981 Prepaid expenses and other non-current assets - 3,655,687 Total non-current assets 71,636 3,973,915 TOTAL ASSETS $ 6,175,543 $ 15,901,131 Liabilities Current liabilities: Short-term borrowings $ 30,093,864 $ 29,214,396 Accounts payable 40,612,026 39,197,211 Amount due to related parties, current 72,150 70,004 Deferred revenue 2,043,884 2,842,878 Convertible loans 542,907 2,006,119 Accrued expenses and other current liabilities 32,324,835 29,917,735 Lease liabilities, current 39,002 40,098 Total current liabilities 105,728,668 103,288,441 Non-current liabilities: Amount due to a related party, non-current 7,973,375 7,602,043 Accrued liabilities, non-current 8,829,889 8,469,103 Long-term borrowing 1,429,603 1,387,082 Lease liabilities, non-current 1,993 18,390 Total non-current liabilities 18,234,860 17,476,618 TOTAL LIABILITIES 123,963,528 120,765,059 Commitments and Contingencies - - Shareholders’ deficit Ordinary shares (par value of $ 0.00005 per share; 1,000,000,000 shares and 1,000,000,000 shares authorized as of December 31, 2025 and June 30, 2026, respectively; 55,235,284 shares and 237,388,531 shares issued and outstanding as of December 31, 2025 and June 30, 2026, respectively) 11,870 2,762 Preferred shares (par value of $ 0.00005 per share; 3,700,000 and 3,700,000 preferred shares authorized as of December 31, 2025 and June 30, 2026, respectively; 3,700,000 and 3,700,000 preferred shares issued and outstanding as of December 31, 2025 and June 30, 2026, respectively) 185 185 Additional paid-in capital 134,432,112 130,134,778 Statutory reserve 237,486 237,486 Accumulated deficit ( 239,598,159 ) ( 226,559,555 ) Accumulated other comprehensive loss ( 8,542,106 ) ( 4,370,415 ) XIAO-I CORPORATION shareholders’ deficit ( 113,458,612 ) ( 100,554,759 ) Non-controlling interests ( 4,329,373 ) ( 4,309,169 ) Total shareholders’ deficit ( 117,787,985 ) ( 104,863,928 ) TOTAL LIABILITIES AND SHAREHOLDERS’ DEFICIT $ 6,175,543 $ 15,901,131 The accompanying notes are an integral part of these unaudited condensed consolidated financial statements. F- 2 XIAO-I CORPORATION UNAUDITED CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS AND COMPREHENSIVE LOSS (In U.S. dollars, except for share and per share data, or otherwise noted) For the six months ended June 30, 2026 2025 (Unaudited) Sale of software products $ 142,820 $ 348,625 Sale of hardware products - 273,863 Technology development service 342,004 2,271,952 M&S service 487,815 822,760 Sale of cloud platform products 68,530 7,799,708 Net revenues 1,041,169 11,516,908 Cost of sale of software products ( 558,965 ) ( 181,048 ) Cost of sale of hardware products - ( 635,671 ) Cost of technology development service ( 974,746 ) ( 1,525,099 ) Cost of M&S service ( 118,384 ) ( 77,444 ) Cost of sale of cloud platform products - ( 2,406,334 ) Cost of revenues ( 1,652,095 ) ( 4,825,596 ) Gross (loss) profit ( 610,926 ) 6,691,312 Operating expenses: Selling expenses ( 496,873 ) ( 702,930 ) General and administrative expenses ( 10,231,290 ) ( 11,270,966 ) Research and development expenses ( 745,240 ) ( 24,070,939 ) Total operating expenses ( 11,473,403 ) ( 36,044,835 ) Loss from operations ( 12,084,329 ) ( 29,353,523 ) Other expenses Investment loss - ( 17,221 ) Interest expenses, net ( 1,473,406 ) ( 1,224,040 ) Other income, net 510,689 204,973 Total other expenses ( 962,717 ) ( 1,036,288 ) Loss before income tax expense ( 13,047,046 ) ( 30,389,811 ) Income tax expense - - Net loss $ ( 13,047,046 ) $ ( 30,389,811 ) Net loss attributable to non-controlling interests ( 8,442 ) ( 264,362 ) Net loss attributable to XIAO-I CORPORATION shareholders ( 13,038,604 ) ( 30,125,449 ) Other comprehensive income Foreign currency translation change, net of nil income taxes ( 4,183,453 ) ( 451,711 ) Total other comprehensive loss ( 4,183,453 ) ( 451,711 ) Total comprehensive loss $ ( 17,230,499 ) $ ( 30,841,522 ) Total comprehensive loss attributable to non-controlling interests ( 20,204 ) ( 369,058 ) Total comprehensive loss attributable to XIAO-I CORPORATION shareholders ( 17,210,295 ) ( 30,472,464 ) Loss per ordinary share attributable to XIAO-I CORPORATION shareholders Basic ( 0.11 ) ( 0.84 ) Diluted ( 0.11 ) ( 0.84 ) Weighted average number of ordinary shares outstanding Basic 119,676,456 35,972,462 Diluted 119,676,456 35,972,462 Note: (1) Share-based compensation expenses were allocated as follows: For the six months ended June 30, 2026 2025 (Unaudited) Selling expenses $ 127,880 $ 1,093 General and administrative expenses ( 1,208,337 ) 4,991,788 R&D expenses 267 - Total $ ( 1,080,190 ) $ 4,992,881 The accompanying notes are an integral part of these unaudited condensed consolidated financial statements F- 3 XIAO-I CORPORATION UNAUDITED CONDENSED CONSOLIDATED STATEMENTS OF CHANGES IN DEFICIT (In U.S. dollars, except for share and per share data, or otherwise noted) Ordinary shares Preferred shares Additional paid-in Statutory Accumulated Accumulated other comprehensive Total shareholders’ Non- controlling Total Share Amount Share* Amount capital reserve deficit loss deficit interests deficit Balance as of December 31, 2024 31,949,038 $ 1,598 3,700,000 $ 185 $ 115,745,140 $ 237,486 $ ( 125,338,509 ) $ ( 2,848,314 ) $ ( 12,202,414 ) $ ( 3,565,559 ) $ ( 15,767,973 ) Net loss - - - - - - ( 30,125,449 ) - ( 30,125,449 ) ( 264,362 ) ( 30,389,811 ) Foreign currency translation adjustment - - - - - - - ( 347,015 ) ( 347,015 ) ( 104,696 ) ( 451,711 ) Conversion of convertible loans 4,140,987 207 - - 4,753,912 - - - 4,754,119 - 4,754,119 Cancellation of ordinary shares ( 9 ) - - - - - - - - - - Share-based compensation expenses 4,268,316 214 - - 5,074,079 - - - 5,074,293 - 5,074,293 Balance as of June 30, 2025 (unaudited) 40,358,332 $ 2,019 3,700,000 $ 185 $ 125,573,131 $ 237,486 $ ( 155,463,958 ) $ ( 3,195,329 ) $ ( 32,846,466 ) $ ( 3,934,617 ) $ ( 36,781,083 ) Balance as of December 31, 2025 55,235,284 $ 2,762 3,700,000 $ 185 $ 130,134,778 $ 237,486 $ ( 226,559,555 ) $ ( 4,370,415 ) $ ( 100,554,759 ) $ ( 4,309,169 ) $ ( 104,863,928 ) Net loss ( 13,038,604 ) ( 13,038,604 ) ( 8,442 ) ( 13,047,046 ) Foreign currency translation adjustment ( 4,171,691 ) ( 4,171,691 ) ( 11,762 ) ( 4,183,453 ) Conversion of convertible loans 159,869,247 7,993 4,573,534 4,581,527 4,581,527 Forfeiture of unvested stock options (reversal of SBC) ( 1,206,641 ) ( 1,206,641 ) ( 1,206,641 ) Pre-delivery ordinary shares for conversion of Convertible Notes 19,500,000 975 ( 975 ) - - Share-based compensation expenses 2,784,000 140 931,416 931,556 931,556 Balance as of June 30, 2026 (unaudited) 237,388,531 $ 11,870 3,700,000 $ 185 $ 134,432,112 $ 237,486 $ ( 239,598,159 ) $ ( 8,542,106 ) $ ( 113,458,612 ) $ ( 4,329,373 ) $ ( 117,787,985 ) The accompanying notes are an integral part of these unaudited condensed consolidated financial statements F- 4 XIAO-I CORPORATION UNAUDITED CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS (In U.S. dollars, except for share and per share data, or otherwise noted) For the six months ended June 30, 2026 2025 (Unaudited) CASH FLOWS FROM OPERATING ACTIVITIES: Net loss $ ( 13,047,046 ) $ ( 30,389,811 ) Adjustments to reconcile net loss to net cash used in operating activities: Allowance for credit losses 8,644,038 1,094,584 Interest expenses from convertible loans 118,314 116,848 Share-based compensation expenses ( 1,080,191 ) 4,992,881 Allowance for Prepaid expenses and other assets 3,799,634 - Allowance for advance to suppliers 10,721 - Written-down of inventories - 5,046 Interest expenses on loans from shareholder - 216,086 Provision for amount due from a related party 122,839 - Depreciation and amortization 57,493 262,063 Impairment on Contract cost 500,308 - Impairment on property and equipment 100,336 - Impairment on intangible assets 80,416 - Loss/(gain) from the disposal of property and equipment - ( 93,379 ) Loss from lease modification - - Loss from equity investment - 17,221 Changes in the fair value of financial liabilities - - Right-of-use assets amortization 20,063 242,456 Changes in assets and liabilities Accounts receivable ( 3,018,966 ) ( 4,011,339 ) Inventories - ( 29,509 ) Contract costs 1,117,578 100,482 Prepaid expenses and other current assets ( 74,812 ) 2,573,846 Amount due from related parties 102,228 21,605 Accounts payable 36,020 18,547,639 Deferred revenue ( 871,441 ) ( 188,282 ) Accrued expenses and other current liabilities 3,596,816 4,418,603 Amount due to related parties 138,288 - Lease payment liabilities ( 20,352 ) ( 267,603 ) Prepaid expenses and other non-current assets - 41,593 Accrued expense and other liabilities- non current 216,553 - Net cash provided by/(used in) operating activities 548,837 ( 2,328,970 ) CASH FLOWS FROM INVESTING ACTIVITIES: Purchase of property and equipment - - Purchase of intangible assets - ( 453 ) Proceed from disposal of property and equipment - 83,074 Net cash provided by investing activities - 82,621 CASH FLOWS FROM FINANCING ACTIVITIES: Proceeds from short-term borrowings - 8,920,939 Repayments of short-term borrowings - ( 12,439,820 ) Repayments of interests-free borrowings from related parties - ( 150,000 ) Repayments of borrowings from related parties - ( 94,261 ) Proceeds from borrowings from third-parties - 3,085,156 Repayments of borrowings from third-parties ( 1,262,207 ) ( 3,517,221 ) Proceeds from convertible loans 3,000,000 9,885,500 Net cash provided by financing activities 1,737,793 5,690,293 Effect of exchange rate changes ( 1,103,789 ) 721,003 Net change in cash, cash equivalents and restricted cash 1,182,841 4,164,947 Cash, cash equivalents and restricted cash, at beginning of the period 2,436,318 846,593 Cash, cash equivalents and restricted cash, at end of the period $ 3,619,159 $ 5,011,540 SUPPLEMENTAL DISCLOSURE OF CASH FLOW INFORMATION: Interest paid $ - $ 560,074 Income tax paid - - SUPPLEMENTAL DISCLOSURE OF NON-CASH INVESTING AND FINANCING ACTIVITIES: Recognition of right-of-use assets and lease payment liabilities $ - $ 59,780 Share-based payment to settle debt $ 805,105 $ - Conversion of convertible loans $ 4,581,527 $ 4,754,119 The accompanying notes are an integral part of these unaudited condensed consolidated financial statements. F- 5 XIAO-I CORPORATION NOTES TO UNAUDITED CONDENSED CONSOLIDATED FINANCIAL STATEMENTS 1. ORGANIZATION AND PRINCIPAL ACTIVITIES XIAO-I CORPORATION. (“Xiao-I”, or the “Company”) was incorporated under the laws of the Cayman Islands on August 13, 2018. The Company through its wholly-owned subsidiaries, variable interest entity (“VIE”) and VIE’s subsidiaries (collectively, the “Group”) primarily engages in artificial intelligence technology in the People’s Republic of China (“PRC” or “China”). The Company completed its IPO on the Nasdaq Global Market in March 2023. As of June 30, 2026, the Company’s major subsidiaries and consolidated VIE are as follows: Name Date of Incorporation Place of incorporation Percentage of beneficial ownership for purposes of accounting Principal Activities Wholly and Major owned subsidiaries AI PLUS HOLDING LIMITED (“AI Plus”) August 30, 2018 British Virgin Islands 100 % Investing holding company Xiao-i Technology Limited (“Xiao-i Technology”) December 17, 2018 Hong Kong 100 % Investing holding company Zhizhen Artificial Intelligent Technology (Shanghai) Co. Ltd. (“Zhizhen Technology”) (“WFOE”) February 21, 2019 PRC 100 % WFOE, a holding company VIE Shanghai Xiao-i Robot Technology Co., Ltd. (“Shanghai Xiao-i”) August 27, 2009 PRC 100 % Internet technology development Subsidiaries of VIE Xiaoi Robot Technology (H.K) Ltd. (“Xiaoi Robot”) June 3, 2016 Hong Kong 100 % Internet technology development Guizhou Xiao-i Robot Technology Co., Ltd. (“Guizhou Xiao-i”) July 18, 2016 PRC 70 % AI robot development F- 6 XIAO-I CORPORATION NOTES TO UNAUDITED CONDENSED CONSOLIDATED FINANCIAL STATEMENTS The following financial statement amounts and balances of the VIE and its subsidiaries were included in the accompanying unaudited condensed consolidated financial statements after elimination of intercompany transactions within the consolidated VIE: Unaudited Condensed Consolidated Balance Sheets Information As of June 30, As of December 31, 2026 2025 (Unaudited) Assets Current assets: Cash and cash equivalents $ 197,863 $ 43,721 Restricted cash 162,889 116,838 Accounts receivable, net 219,433 5,097,619 Amounts due from related parties, current - 21,356 Inventories - - Contract costs 45 1,639,892 Advance to suppliers - 36,478 Prepaid expenses and other current assets, net 279,903 343,376 Amount due from intercompany, current 3,950,551 3,537,843 Total current assets 4,810,684 10,837,122 Non-current assets: Property and equipment, net 5,749 118,497 Intangible assets, net - 111,420 Long-term investments - 61,981 Right of use assets 11,281 - Prepaid expenses and other non-current assets - 3,655,687 Total non-current assets 17,030 3,947,585 TOTAL ASSETS $ 4,827,714 $ 14,784,708 Liabilities Current liabilities: Short-term borrowings $ 30,093,864 $ 29,214,396 Accounts payable 40,145,105 36,757,500 Amount due to related parties, current 72,150 70,004 Deferred revenue 1,344,584 2,363,266 Accrued expenses and other current liabilities 29,481,697 24,988,421 Lease liabilities, current 9,287 40,098 Amount due to intercompany, current 37,123,083 37,322,575 Total current liabilities 138,269,770 130,756,260 Non-current liabilities: Amount due to a related party, non-current 7,973,375 7,602,043 Accrued liabilities, non-current 4,880,840 4,704,972 Long-term borrowing 1,429,603 1,387,082 Lease liabilities, non-current 1,993 18,390 Total non-current liabilities 14,285,811 13,712,487 TOTAL LIABILITIES $ 152,555,581 $ 144,468,747 F- 7 XIAO-I CORPORATION NOTES TO UNAUDITED CONDENSED CONSOLIDATED FINANCIAL STATEMENTS Unaudited Condensed Consolidated Statements of Operations and Comprehensive loss For the six months ended June 30, 2026 2025 (Unaudited) Net revenue $ 1,459,505 $ 11,924,360 Net loss $ ( 11,497,584 ) $ ( 22,455,335 ) Unaudited Condensed Consolidated Cash Flows Information For the six months ended June 30, 2026 2025 (Unaudited) Net cash provided by operating activities $ 1,440,177 $ 3,618,309 Net cash provided by investing activities $ - $ 83,074 Net cash (used in) financing activities $ ( 1,262,207 ) $ ( 3,973,007 ) Effect of exchange rate changes $ 22,221 $ ( 41,185 ) Net change in cash, cash equivalents and restricted cash $ 200,191 $ ( 312,809 ) As of December 31, 2025 and June 30, 2026, there were no pledge or collateralization of the VIE’s assets that can only be used to settle obligations of the VIE. The amount of the net liabilities of the VIE was $ 129,684,039 and $ 147,727,867 as of December 31, 2025 and June 30, 2026, respectively. The creditors of the VIE’s third party liabilities did not have recourse to the general credit of the Company in the normal course of business. Currently there is a contractual arrangement that would require the Company or its subsidiaries to provide financial support to the VIE. Under the Exclusive Business Cooperation Agreement signed on March 29, 2019 between WFOE and the VIE, WFOE will provide financial support to the VIE or the VIE’s subsidiaries in the event of a loss or serious operational difficulties during the validity term of this agreement. Entities under Liquidation Shanghai Xiao-i is currently subject to liquidation proceedings as of this report date. This entity and its subsidiaries collectively comprise the VIE and its subsidiaries. The financial position, results of operations and cash flows of the entities under liquidation during the reporting period are included in, and consistent with, the unaudited condensed consolidated balance sheet, statements of operations and comprehensive loss, and cash flow information of the VIE and its subsidiaries presented above. Most of the entities under liquidation have ceased their principal business operations, and their activities are limited to the winding up of affairs and settlement of obligations. Management expects the liquidation to be completed during FY2028, after which these entities will be deregistered/dissolved. 2. SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES (a). Basis of presentation The accompanying unaudited condensed consolidated financial statements are prepared in accordance with accounting principles generally accepted in the United States of America (“US GAAP”) for interim financial information, and with the rules and regulations of the United States Securities and Exchange Commission (the “SEC”). Accordingly, they do not include all of the information and footnotes required by U.S. GAAP for complete financial statements. Unaudited interim results are not necessarily indicative of the results for the full fiscal year. These unaudited condensed consolidated financial statements should be read in conjunction with the Group’s audited consolidated financial statements and related notes included in the Annual Report for the year ended December 31, 2025. The accompanying unaudited condensed consolidated financial statements contemplate the realization of assets and the satisfaction of liabilities in the normal course of business. The realization of assets and the satisfaction of liabilities in the normal course of business are dependent on, among other things, the Group’s ability to operate profitably, to generate cash flows from operations, and its ability to attract investors and to borrow funds on reasonable economic terms. F- 8 XIAO-I CO RPORATION NOTES TO UNAUDITED CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (b). Going concern As of December 31, 2025 and June 30, 2026, the Group had an accumulated deficit of $ 226,559,555 and $ 239,598,159 , respectively, and negative working capital of $ 91,361,225 and $ 99,624,761 , respectively. In addition, for the six months ended June 30, 2026, the Group experienced declining revenue, shrinking gross margin and recurring operating losses and negative net operating cash flows. In addition, certain of the short-term borrowings were overdue as of June 30, 2026, and certain of the borrowing obligations are the subject of litigation or court judgments. The Group are actively discussing repayment arrangements and other potential resolutions with the relevant lenders. There can be no assurance that we will be able to reach satisfactory arrangements with the relevant lenders or otherwise satisfy these obligations on acceptable terms. These conditions raised substantial doubts about the Group’s ability to continue as a going concern. Historically, the Group has relied principally on both operational sources of cash and non-operational sources of borrowings from banks, related parties and third parties, and proceeds from equity financing to fund its operations and business development. However, after evaluating the feasibility of those plans and related supporting data, management still has a material uncertainty about the reporting entity’s ability to continue as a going concern. This material uncertainty has been disclosed in the notes to the financial statements. To meet the cash requirements for the next 12 months from the issuance date of the unaudited condensed consolidated financial statements, the Group has received $4 million through issuing convertible promissory note in August 2026, and they are in plans to obtain further financing including borrowings from financial institutions. In addition, the Group focuses on the improvement of operation efficiency, implementation of strict cost control and budget and enhancement of internal controls to create a synergy of resources. The Group’s ability to continue as a going concern is dependent on management’s ability to successfully execute its business plan, which includes generating revenue while controlling operating cost and expenses to generate positive operating cash flows and obtaining funds from outside sources of financing to generate positive financing cash flows. There can be no assurance that the Group will be successful in achieving strategic plans, that the Group’s future capital raises will be sufficient to support its ongoing operations, or that any additional financing will be available in a timely manner or on acceptable terms, if at all. If the Group is unable to raise sufficient financing or events or circumstances occur such that the Group does not successful execute strategic plans, the Group will be required to reduce certain discretionary spending, alter or scale back research and development programs, or be unable to fund capital expenditures, which would have a material adverse effect on our financial position, results of operations, cash flows, and ability to achieve intended business objectives. The accompanying unaudited condensed consolidated financial statements have been prepared on the basis the Group will be able to continue as a going conc ern for a period of one year after the issuance of the unaudited condensed consolidated financial statements. (c). Principles of consolidation The unaudited condensed consolidated financial statements include the financial statements of the Company, its subsidiaries, the VIE in which the Company, through its WFOE, has a controlling financial interest, and the VIE’s subsidiaries. Subsidiaries are those entities in which the Company, directly or indirectly, controls more than one half of the voting power or has the power to govern the financial and operating policies, to appoint or remove the majority of the members of the board of directors, or to cast a majority of votes at the meeting of directors. A VIE is an entity in which the Company, or its WFOE, through contractual arrangements, is fully and exclusively responsible for the management of the entity, absorbs all risk of losses of the entity (excluding non-controlling interests), receives the benefits of the entity that could be significant to the entity (excluding non-controlling interests), and has the exclusive right to exercise all voting rights of the entity, and therefore the Company or its WFOE is the primary beneficiary of the entity for accounting purposes. However, the contractual arrangements with the VIE and its shareholders may not be as effective as equity ownership in providing operational control. All intercompany transactions and balances among the Company, its subsidiaries, the VIE, and the VIE’s subsidiaries have been eliminated upon consolidation. (d). Use of estimates The preparation of the unaudited condensed consolidated financial statements in accordance with US GAAP requires management to make estimates and assumptions that affect the reported amounts of assets and liabilities, related disclosures of contingent assets and liabilities at the balance sheet date, and the reported revenues and expenses during the reported periods in the unaudited condensed consolidated financial statements and accompanying notes. Significant accounting estimates include, but not limited to, the allowance for credit losses, depreciable lives and recoverability of property and equipment, the valuation of deferred income tax assets, transaction price allocation between software income and maintenance service income, as well as fair value determination of share-based compensation arrangements. Changes in facts and circumstances may result in revised estimates. Actual results could differ from those estimates, and as such, differences may be material to the unaudited condensed consolidated financial statements. F- 9 XIAO-I CORPORATION NOTES TO UNAUDITED CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (e). Accounts receivable, net Accounts receivable, net are stated at the original amount less an allowance for credit losses. Accounts receivable are recognized in the period when the Group has provided services to its customers and when its right to consideration is unconditional. The Group adopted ASC Topic 326, Financial Instruments-Credit Losses (Topic 326) and assesses collectability by reviewing accounts receivable on a collective basis where similar characteristics exist, primarily based on similar business lines, and on an individual basis when the Group identifies specific customers with known disputes or collectability issues. In determining the amount of the allowance for credit losses, the Group considers historical collectability based on past due status, the age of the accounts receivable balances, credit quality of the Group’s customers based on ongoing credit evaluations, current economic conditions, reasonable and supportable forecasts of future economic conditions, and other factors that may affect the Group’s ability to collect from customers. (f). Convertible loans The Group evaluates embedded conversion features within convertible debt to determine whether the embedded conversion feature(s) should be bifurcated from the host instrument and accounted for as a derivative at fair value with changes in fair value recorded in earnings. If an embedded derivative is bifurcated from share-settled convertible debt, the Group records the debt component at cost less a debt discount equal to the bifurcated derivative’s fair value. If the conversion feature is not required to be accounted for separately as an embedded derivative, the convertible debt instrument is accounted for wholly as debt. The Group amortizes the debt discount over the life of the debt instrument as an additional non-cash interest expense utilizing the effective interest method. Debt issuance and offering costs are recorded as debt discount, which is amortized as interest expense over the term of the convertible debt instrument using the effective interest method. (g). Revenue recognition The Group’s revenues are mainly generated from (1) sale of software products; (2) sale of hardware products; (3) technology development services; (4) maintenance and support service, and (5) sale of cloud platform products, etc. The Group recognizes revenue pursuant to ASC 606, Revenue from Contracts with Customers (“ASC 606”). In accordance with ASC 606, revenues from contracts with customers are recognized when control of the promised goods or services is transferred to the Group’s customers, in an amount that reflects the consideration the Group expects to be entitled to in exchange for those goods or services, reduced by Value Added Tax (“VAT”). To achieve the core principle of this standard, we applied the following five steps: 1. Identification of the contract, or contracts, with the customer; 2. Identification of the performance obligations in the contract; 3. Determination of the transaction price; 4. Allocation of the transaction price to the performance obligations in the contract; and 5. Recognition of the revenue when, or as, a performance obligation is satisfied. The Group enters into two major kinds of revenue arrangements with customers. The first kind of contract can include various combinations of software products, hardware products and maintenance and support service which are generally distinct and accounted for as separate performance obligations. The other kind of contract is sale of cloud platform products, which include software products and cloud platform service as two separate performance obligations. As a result, the Group’s contracts may contain multiple performance obligations. The Group determines whether arrangements are distinct based on whether the customer can benefit from the product or service on its own or together with other resources that are readily available and whether our commitment to transfer the product or service to the customer is separately identifiable from other obligations in the contract. The following table disaggregates the Group’s revenue for the six months ended June 30, 2026 and 2025: For the six months ended June 30, 2026 2025 (Unaudited) By revenue type Sale of software products $ 142,820 $ 348,625 Sale of hardware products - 273,863 Technology development service 342,004 2,271,952 M&S service 487,815 822,760 Sale of cloud platform products 68,530 7,799,708 Total $ 1,041,169 $ 11,516,908 F- 10 XIAO-I CORPORATION NOTES TO UNAUDITED CONDENSED CONSOLIDATED FINANCIAL STATEMENTS Contract balances When the Group begins to deliver the products or services pursuant to the performance obligations in the contract, the Group presents the contract in the unaudited condensed consolidated balance sheet as a contract asset or a contract liability, depending on the relationship between the Group’s performance and the customer’s payment. The contract assets consist of accounts receivable and contract costs. Accounts receivable represent revenue recognized",
+       "recortado": true,
+       "negativos": [
+        {
+         "tipo": "cifra 'hasta' / potencial",
+         "frase": "a “best efforts” basis for the offering. The Company agreed to pay the Placement Agent an aggregate cash fee equal to 7.5 % of the gross proceeds raised in the offering, and to reimburse the Placement Agent for expenses up to $ 90,000 . Material Terms of the Convertible Loan I: ● Pre-Delivery Shares: The Company is also concurrently offering an additional ADS, at par, representing 333,334 of its ordinary shares (the “Pre-Delivery Shares”), to"
+        },
+        {
+         "tipo": "dilución / financiación",
+         "frase": "ersion of convertible loans 159,869,247 7,993 4,573,534 4,581,527 4,581,527 Forfeiture of unvested stock options (reversal of SBC) ( 1,206,641 ) ( 1,206,641 ) ( 1,206,641 ) Pre-delivery ordinary shares for conversion of Convertible Notes 19,500,000 975 ( 975 ) - - Share-based compensation expenses 2,784,000 140 931,416 931,556 931,556 Balance as of June 30, 2026 (unaudited) 237,388,531 $ 11,870 3,700,000 $ 185 $ 134,432,112 $ 237,486 $ ( 239,598,159 )"
+        },
+        {
+         "tipo": "dilución / financiación",
+         "frase": "LOANS Convertible Loan I On June 17, 2024, the Company entered into a Convertible Loan Agreement with an institutional investor (the “Investor I”) to issue and sell an aggregate principal amount of $ 3,260,869.57 senior convertible notes (the “Convertible Loan I”) with an 8 % Original Issue Discount. The Company anticipates using the proceeds for general working capital purposes. The Company also entered into a placement agency agreement (the “PAA”) wi"
+        },
+        {
+         "tipo": "dilución / financiación",
+         "frase": "lled. Convertible Loan II On October 30, 2024, the Company entered into a Convertible Loan Agreement with another institutional investor (the “Investor II”) to issue and sell an aggregate principal amount of $ 2,175,000 convertible notes (the “Convertible Loan II”) with an 8 % Original Issue Discount equal to $ 160,000 . The Company anticipates using the proceeds for general working capital purposes. Material Terms of the Convertible Loan II: ● Pre-Del"
+        }
+       ]
+      },
+      {
+       "archivo": "ea030679101ex99-2.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026105823/ea030679101ex99-2.htm",
+       "texto": "OPERATING AND FINANCIAL REVIEW AND PROSPECTS OF XIAO-I CORPORATION FOR THE SIX MONTHS ENDED JUNE 30, 2026 Exhibit 99.2 OPERATING AND FINANCIAL REVIEW AND PROSPECTS The following discussion of our financial condition and results of operations should be read in conjunction with the unaudited condensed consolidated interim financial statements of Xiao-I Corporation (the “Company,” “we,” “our,” or “us”) for the six months ended June 30, 2026 and 2025, included as Exhibit 99.1 to this Report on Form 6-K, and the risk factors included in the Company’s Annual Report on Form 20-F for the fiscal year ended December 31, 2025. The interim financial statements have not been audited by an independent registered public accounting firm. Overview We are a leading cognitive artificial intelligence company with over two decades of experience in natural language processing and enterprise AI solutions. Our business model comprises Model-as-a-Service (“MaaS”) offerings, including solutions based on our proprietary Hua Zang large language model (“LLM”), as well as non-MaaS products and services, such as technology development services, software products, maintenance and support services, and selected AI-enabled hardware products. During the first half of 2026, the macroeconomic environment in China remained subdued, with enterprises exercising continued caution in technology procurement and extended decision-making cycles for large-scale AI deployments. Concurrently, the large language model industry in China experienced accelerating market concentration, commonly referred to as the “Matthew effect,” whereby leading technology conglomerates with substantial financial resources leveraged aggressive pricing strategies — including free or heavily subsidized access to foundation models — to capture market share. This dynamic placed significant competitive pressure on smaller, independent AI providers, including the Company, by compressing pricing margins and constraining the ability to achieve profitability in core service offerings. In addition, our AI-enabled hardware business was adversely affected by supply chain disruptions stemming from escalating geopolitical tensions. Res trictions on the export of advanced semiconductors and related components, together with broader trade frictions between the United States and China, materially impaired our ability to secure critical components on commercially reasonable terms and timelines. As a result, we significantly scaled back this business line during the period. What’s more, our VIE is under liquidation currently. Key financial information of the VIE and its subsidiaries, including revenue, profit/loss, total assets liquidation during the reporting period, is disclosed in Note 1 to the condensed consolidated interim financial statements. Readers are directed to that note for an understanding of the financial significance of these entities to the Group. Against this backdrop, we implemented a series of deliberate strategic measures to preserve capital and streamline operations. These included the discontinuation or scalin g back of business lines that did not meet revised margin thresholds, a reduction in headcount across both operational and research and development functions, and tighter control over discretionary spending. While these measures contributed to a significant year-over-year reduction in total revenue for the six months ended June 30, 2026, they also resulted in a marked reduction in operating expenses and a narrower net loss compared to the same period in 2025. We believe these actions were necessary to position the Company for sustainable operations in a prolonged and challenging industry environment. Results of Operations Net Revenues Set forth below is a comparative table showing net revenues by revenue type for the six months ended June 30, 2026 and 2025, including absolute amounts, year-over-year percentage changes, and totals. For the six months ended June 30, Variance 2026 2025 $ % (Unaudited) Sale of cloud platform products $ 68,530 6.58 % $ 7,799,708 67.72 % (7,731,178 ) (99.12 ) Technology development service 342,004 32.85 % 2,271,952 19.73 % (1,929,948 ) (84.95 ) M&S service 487,815 46.85 % 822,760 7.14 % (334,945 ) (40.71 ) Sale of software products 142,820 13.72 % 348,625 3.03 % (205,805 ) (59.03 ) Sale of hardware products - - 273,863 2.38 % (273,863 ) (100.00 ) Total $ 1,041,169 100.0 % $ 11,516,908 100.0 % (10,475,739 ) (90.96 ) For the six months ended June 30, 2026, the Group’s net revenues were $1.04 million, representing a decrease of approximately 90.96% compared to $11.52 million for the same period in 2025.The decreased primarily due to our-ongoing portfolio rationalization and strategic realignment. We discontinued or scaled back low-margin businesses and customized engagements that did not meet our revised margin thresholds or align with our resource-allocation priorities, with a view to improving overall profitability and operational efficiency. Sale of cloud platform products For the six months ended June 30, 2026, revenue from cloud platform products decreased to approximately $0.07 million, compared to approximately $7.80 million for the same period in 2025, representing a year-over-year decrease of approximately 99.12%. The revenue decline reflects the strategic realignment implemented during the year, under which we discontinued third-party cloud-platform resale activities that generated revenue at gross margins substantially below those of our core product lines. These resale activities had historically accounted for a significant portion of cloud platform revenue but were not aligned with our revised margin thresholds and resource allocation priorities. The discontinuation of these lower-margin engagements was a deliberate component of our portfolio rationalization, intended to concentrate resources on higher-value, productized offerings where we maintain greater differentiation and pricing power. Technology development services For the six months ended June 30, 2026, revenue from technology development services decreased to approximately $0.34 million, compared to approximately $2.27 million for the same period in 2025, representing a year-over-year decrease of approximately 84.95%. This decline reflects our strategic decision implemented during the year to decline or scale back customized development engagements that do not meet our revised margin thresholds, or that require incremental delivery resources inconsistent with the realignment. Such engagements are characterized by lower gross margins and higher resource intensity relative to our productized offerings. The discontinuation of these engagements was a deliberate element of our portfolio rationalization, intended to improve overall profitability and operational efficiency. Maintenance and support (“M&S”) services For the six months ended June 30, 2026, revenue from maintenance and support services decreased to approximately $0.49 million, compared to approximately $0.82 million for the same period in 2025, representing a year-over-year decrease of approximately 40.71%.This decline reflects our strategic decision implemented during the year to decline or scale back customized development engagements that do not meet our revised margin thresholds, or that require incremental delivery resources inconsistent with the realignment. Such engagements are characterized by lower gross margins and higher resource intensity relative to our productized offerings. The discontinuation of these engagements was a deliberate element of our portfolio rationalization, intended to improve overall profitability and operational efficiency. Sale of software products For the six months ended June 30, 2026, revenue from software products decreased to approximately $0.14 million, compared to approximately $0.35 million for the same period in 2025, representing a year-over-year decrease of approximately 59.03%. This year’s revenue decline principally reflects reduced delivery activity across discontinued engagements in connection with the strategic realignment. Sale of hardware products For the six months ended June 30, 2026, revenue from sale of hardware products decreased to $0.00 million, compared to approximately $0.27 million for the same period in 2025, representing a year-over-year decrease of approximately 100%, principally reflecting reduced delivery activity across discontinued engagements in connection with the strategic realignment. 2 Revenue by Business Category In terms of product lines, we generate revenue primarily from the (i) MaaS and (ii) non-MaaS. The following table sets forth the product lines of our net revenues by amounts and percentages of our total net revenues for the periods presented: For the six months ended June 30, Variance 2026 2025 $ % (Unaudited) MaaS $ 68,530 6.58 % $ 7,794,772 67.68 % (7,726,242 ) (99.12 ) Non-MaaS 972,639 93.42 % 3,722,136 32.32 % (2,749,497 ) (73.87 ) Total $ 1,041,169 100.00 % $ 11,516,908 100.00 % (10,475,739 ) (90.96 ) For the six months ended June 30, 2026, total MaaS revenue decreased to approximately $0.07 million, compared to approximately $7.79 million for the same period in 2025, representing a year-over-year decrease of approximately 99.12%. This sharp contraction occurred against the backdrop of intensifying price competition in the Chinese AI customer service MaaS market. For the six months ended June 30, 2026, non-MaaS revenue decreased to approximately $0.97 million, compared to approximately $3.72 million for the same period in 2025, representing a year-over-year decrease of approximately 73.87%. Non-MaaS revenue decreased primarily due to our ongoing portfolio rationalization and strategic realignment. We discontinued or scaled back low-margin businesses and customized engagements that did not meet our revised margin thresholds or align with our resource-allocation priorities, with a view to improving overall profitability and operational efficiency. Revenue Since Period End at June 30, 2026 Subsequent to the six-month period ended June 30, 2026, the Company generated revenue of approximately $164,018 (converted at the spot exchange rate of 6.7066 CNY per USD as of September 29, 2026) for the two-month period from July 1, 2026 through August 31, 2026. This represents approximately 15.8% of the Company’s revenue for the six-month period ended June 30, 2026. Cost of Revenues and Gross Profit Our cost of revenues primarily consists of the following components: (i) staff costs (salaries and employee benefits), (ii) cost of materials, which primarily includes software and hardware purchased, (iii) cloud hosting service fees, and (iv) overhead costs relating to consumables and office expenses used for production. The following table sets forth the components of our cost of revenues by amounts and percentages of cost of revenues for the periods presented: For the six months ended June 30, Variance 2025 2026 $ % (Unaudited) Cloud hosting services fees $ 2,033,638 42.14 % $ 69,203 4.19 % (1,964,435 ) (96.60 ) Cost of materials 1,680,091 34.82 % 62,866 3.81 % (1,617,225 ) (96.26 ) Staff costs 1,065,180 22.07 % 1,413,983 85.59 % 348,803 32.75 Others 46,687 0.97 % 106,042 6.42 % 59,355 127.13 Total $ 4,825,596 100.00 % $ 1,652,095 100.00 % (3,173,501 ) (65.76 ) 3 Total cost of revenues decreased by US$3.2 million, or 65.76%, from US$4.8 million for the six months ended June 30, 2025 to US$1.7 million for the six months ended June 30, 2026. The decrease was largely attributable to the contraction in business volume, but was smaller in percentage terms than the 90.96% decrease in net revenues (from US$11.5 million to US$1.0 million), primarily because staff costs, which are relatively fixed in nature, increased over the period. Key drivers included: ● Staff costs. Staff costs increased by US$0.3 million, or 32.75%, from US$1.1 million (22.07% of cost of revenues) for the first half of 2025 to US$1.4 million (85.59% of cost of revenues) for the first half of 2026, mainly due to higher payroll settlements in H1 2026. ● Cloud hosting services fees. Cloud hosting services fees decreased by US$2.0 million, or 96.60%, from US$2.0 million (42.14% of cost of revenues) to US$0.07 million (4.19%), reflecting the near cessation of the cloud platform business as cloud platform product revenue decreased by 99.12% from US$7.8 million to US$0.07 million, which resulted in substantially lower utilization of cloud resources and fewer active large-scale deployments. ● Cost of materials. Cost of materials decreased by US$1.6 million, or 96.26%, from US$1.7 million (34.82% of cost of revenues) to US$0.06 million (3.81%), in line with the absence of hardware product revenue in the first half of 2026 (first half of 2025: US$0.3 million) and reduced procurement for customized development projects, as technology development service revenue decreased by 84.95% from US$2.3 million to US$0.3 million. ● Others. Other cost of revenues increased by US$0.06 million, or 127.13%, from US$0.05 million (0.97% of cost of revenues) to US$0.1 million (6.42%), mainly reflecting additional miscellaneous project-related expenses incurred during the period. As a result of these changes, the Company recorded a gross loss of US$0.6 million for the six months ended June 30, 2026, compared with gross profit of US$6.7 million for the six months ended June 30, 2025, and the overall gross margin decreased from 58.1% to (58.7%), representing a decrease of 116.78 percentage points. The fluctuation was primarily attributable to the loss of high-margin cloud platform product revenue, which accounted for 67.72% of net revenues in the first half of 2025 but only 6.58% in the first half of 2026, while the related staff costs remained largely fixed; in addition, the gross margin of software products and technology development services turned negative in the first half of 2026, as the cost of software products increased from US$0.2 million to US$0.6 million despite a 59.03% decrease in software product revenue, and the cost of technology development services decreased by only 36.09% (from US$1.5 million to US$1.0 million) against an 84.95% decrease in revenue. Operating Expen ses Selling Expenses Selling expenses decreased to approximately $0.59 million for the six months ended June 30, 2026, compared to $0.70 million for the same period in 2025, representing a decrease of 15.95%, the reduction was primarily attributable to: ● A significant decrease in marketing and advertising expenses and professional service fee, as we curtailed discretionary promotional activities in response to market conditions. These decreases were partially offset by fluctuations in certain insurance agency and depreciation-related items. General and Administrative Expenses General and administrative expenses decreased to approximately $10.23 million for the six months ended June 30, 2026, compared to $11.27 million for the same period in 2025, representing an decrease of 9.22%, primarily due to an increase of staff cost and credit impairment loss. This increase was partially offset by share-based compensation. Research and Development Expenses Research and development expenses decreased to approximately $0.75 million for the six months ended June 30, 2026, compared to approximately $24.07 million for the same period in 2025, representing a decrease of approximately 96.90%. This decrease was primarily attributable to the downsize of professional service fee and lower staff cost. Other Expense, Net Other expense, net was $0.96 million for the six months ended June 30, 2026, compared to $1.04 million for the same period in 2025, the decrease was primarily attributable to (i) a significant increase in other income, net, and (ii) the absence of investment loss during the period, partially offset by an increase in net interest expenses mainly driven by default penalty interest. Net Loss As a result of the foregoing, we recorded a net loss of $13.05 million for the six months ended June 30, 2026, compared to a net loss of $30.39 million for the same period in 2025, the decrease in net loss was primarily driven by the significant reductions in operating expenses. 4 Liquidity and Capital Resources Our primary sources of liquidity are cash on hand, cash flows from operations, and proceeds from financing activities. As of June 30, 2026, we had cash and cash equivalents of approximately $3.62 million, compared to $2.44 million as of December 31, 2025. For the six months ended June 30, 2026, the Group had net cash provided by operating activities of $0.55 million, net cash provided by financing activities of $1.74 million, and a $1.10 million negative effect of exchange rate changes. The net increase of $1.18 million in cash, cash equivalents and restricted cash during the period was primarily attributable to net cash provided by operating and financing activities, partially offset by the effect of exchange rate changes. During the six months ended June 30, 2026, we continued to experience operating losses and had an accumulated deficit of $ 239.60 million as of June 30, 2026, stemming from recurring net losses and ongoing working capital requirements. Our working capital deficit widened to $99.62 million as of June 30, 2026, from $91.36 million at December 31, 2025. This change mainly driven by movements in operating assets and liabilities, including accounts receivable, accounts payable, accrued expenses and other current liabilities, and prepaid expenses and other current assets. These fluctuations resulted from our strategic portfolio rationalization, lower revenue, and the timing of customer collections and vendor payments. The operating results for the period were affected by several structural factors and industry factors. Persistent macroeconomic weakness in China continued to suppress enterprise technology spending. In addition, the large language model market experienced intensifying price competition as well-capitalized industry leaders adopted aggressive subsidization strategies. These dynamics, together with supply chain disruptions affecting our AI hardware business caused by geopolitical trade restrictions, contributed to reduced revenue and cash inflows from operations. In response, we implemented a series of cash flow optimization measures, including stricter credit management, renegotiation of payment terms with suppliers, workforce reductions, and significant curtailment of research and development expenditures. We also relied on financing activities to support our operations. For the six months ended June 30, 2026, net cash provided by financing activities totaled $1.74 million, mainly from $3.0 million net proceeds upon issuance of convertible notes, partially offset by $1,262,207 in repayments of third-party borrowings. While this financing strengthened the Group’s short-term liquidity, it increased leverage and may result in dilution to existing shareholders upon conversion of the convertible note is converted. We have sustained recurring operating losses. As of June 30, 2026, we had an accumulated deficit and a shareholders’ deficit. Certain of our short-term borrowings were overdue as of June 30, 2026, and some borrowing obligations are subject to litigation or court judgments. We are actively negotiating repayment arrangements and other potential resolutions with the relevant lenders. As of June 30, 2026, our working capital deficit stood at approximately US$99.62 million. There can be no assurance that we will reach satisfactory arrangements with the relevant lenders or satisfy these obligations on acceptable terms. These conditions indicate that our liquidity and capital resources remain under pressure and that we are dependent on external financing to support our operations. Our capital requirements for the next twelve months primarily relate to working capital needs, including personnel costs, professional service fees, scheduled debt repayments, and ongoing operating expenses. Our ability to meet these requirements depends on our operating performance, continued cost control measures, and access to additional financing. There can be no assurance that such financing will be available on acceptable terms, or at all. Any financing transactions involving issuances of equity or equity-linked securities may dilute the interests of existing shareholders. This material uncertainty has been disclosed in the notes to the financial statements. Management believes that the strategic measures taken and planned — including portfolio rationalization, workforce reductions, curtailment of non-essential research and development activities, and efforts to secure additional capital — are intended to address these conditions and position the Company for a more sustainable cost structure. However, there remains substantial doubt regarding our ability to continue as a going concern without additional financing or further improvements in operating performance. 5 Trend Information During the first half of 2026, we observed the following trends that we believe are likely to continue to affect our business, financial condition, and results of operations: Macroeconomic Environment. The Chinese economy continued to experience subdued growth during the period, characterized by weak corporate capital expenditure, cautious IT budgets, and extended procurement cycles. Enterprise customers maintained a conservative approach to large-scale technology commitments, prioritizing cost containment over new deployments. We expect these macroeconomic headwinds to persist in the near term. Industry Competition and Market Concentration. The large language model and AI services market in China exhibited an accelerating “Matthew effect,” whereby well-capitalized technology conglomerates consolidated market share through aggressive pricing strategies, including offering free or heavily subsidized access to foundation model capabilities. This dynamic has created an increasingly challenging competitive landscape for smaller, independent AI providers, who face significant pressure on pricing margins and limited ability to achieve profitability. We anticipate that this trend of market concentration will continue, and that competitive pressure on independent AI companies will intensify. Geopolitical and Supply Chain Factors. Escalating geopolitical tensions between the United States and China, including export controls on advanced semiconductors and related technology, continued to disrupt the supply chains underlying our AI-enabled hardware business. These restrictions have impaired our ability to procure critical components on commercially reasonable terms and have resulted in a significant contraction of this business segment. We expect that continued geopolitical uncertainty will adversely affect this business line for the foreseeable future. Strategic Response. In light of the foregoing trends, we have implemented a strategic contraction of our operations, including the discontinuation of unprofitable business lines, a reduction in headcount, and a significant curtailment of research and development expenditures. These measures are intended to preserve capital and position the Company to weather a prolonged period of adverse industry conditions. While we believe these actions are necessary and appropriate, they may also constrain our ability to pursue growth opportunities or develop new products during the period of contraction. While we expect that demand for AI solutions will recover over the longer term, near-term revenue visibility remains limited. Our future operating results will depend on our ability to maintain cost discipline, stabilize revenue from our core offerings, and secure sufficient financing to support ongoing operations. Critical Accounting Estimates Our critical accounting estimates for the six months ended June 30, 2026 are consistent with those disclosed in our most recent Annual Report on Form 20-F. These include, among others, the allowance for credit losses, depreciable lives and recoverability of property and equipment, the valuation of deferred income tax assets, transaction price allocation between software income and maintenance service income, as well as fair value determination of share-based compensation arrangements. There were no material changes to these estimates during the period. Restrictions on Cash Transfers and Dividends Under applicable PRC laws and regulations, our PRC subsidiaries may pay dividends only out of their accumulated profits, if any, as determined in accordance with PRC accounting standards and regulations. In addition, PRC subsidiaries are required to set aside at least 10% of their after-tax profits each year to statutory reserve funds until such reserves reach 50% of their registered capital. These statutory reserves are not distributable as cash dividends. Furthermore, a substantial portion of our operations and assets are denominated in Renminbi (“RMB”), which is not freely convertible into foreign currencies. All foreign exchange transactions are subject to approval by, or registration with, the relevant PRC government authorities, including the People’s Bank of China and other authorized banks. These currency exchange control procedures may restrict the ability of our PRC subsidiaries to transfer cash to us through dividends, loans, or advances. In addition, under the PRC Enterprise Income Tax Law and its implementing rules, a withholding tax of 10% generally applies to dividends paid by PRC entities to non-resident enterprises, unless reduced or exempted pursuant to an applicable tax treaty. 6 Cash Flows Set forth below are the unaudited condensed consolidated statements of cash flows for the six months ended June 30, 2026 and 2025. For the six months ended June 30, 2026 2025 (Unaudited) Net cash (used in)/provided by operating activities $ 548,837 $ (2,328,970 ) Net cash (used in)/provided by investing activities - 82,621 Net cash (used in)/provided by financing activities 1,737,793 5,690,293 Effect of exchange rate changes (1,103,789 ) 721,003 Net change in cash, cash equivalents and restricted cash 1,182,841 4,164,947 Cash, cash equivalents and restricted cash, at beginning of the period 2,436,318 846,593 Cash, cash equivalents and restricted cash, at end of period $ 3,619,159 $ 5,011,540 Cash Flows from Operating Activities Net cash provided by operating activities for the six months ended June 30, 2026 was $0.55 million, compared to net cash used in operating activities of $2.33 million for the same period in 2025. Net cash used in operating activities during the 2026 period was primarily driven by the Group’s net loss, adjusted for non-cash items including allowance for accounts receivable, depreciation and amortization, share-based compensation expense, impairment charges and other non-cash adjustments. These non-cash adjustments, together with changes in operating assets and liabilities, partially offset the cash outflow resulting from the net loss. Changes in operating assets and liabilities during the period reflected, among other things: ● Changes in accounts receivable resulting from reduced revenue levels and collection efforts; ● Changes in contract costs and prepaid expenses and other current assets consistent with lower project activities; and ● Changes in accounts payable, accrued expenses and other current liabilities reflecting cost-control measures and timing of payments. Overall, operating cash flows continue to reflect the impact of reduced revenue and ongoing operating losses, partially mitigated by expense reductions and working capital management initiatives. Cash Flows from Investing Activities Net cash provided by investing activities for the six months ended June 30, 2026 was $0.00 million, compared to net cash provided by investing activities of $0.08 million for the same period in 2025. 7 Cash Flows from Financing Activities Net cash provided by financing activities for the six months ended June 30, 2026 was $1.74 million, compared to $5.69 million for the same period in 2025. During the period, net cash provided by financing activities primarily comprised $3 million net proceeds from the issuance of convertible notes. These proceeds were used for general corporate purposes and working capital requirements. Cash outflows within financing activities were attributable to the repayment of borrowings from third parties in the amount of $1.26 million. Cash, cash equivalents and restricted cash As of June 30, 2026, the cash and cash equivalents stood at $3.45 million, an increase of $1.13 million (or approximately 48.8%) compared to $2.32 million as of December 31, 2025. This increase was primarily driven by the issuance of convertible notes in the first half of the year of 2026, which resulted in a net cash inflow of $1.74 million from financing activities. Restricted cash was $0.17 million, up by $0.05 million (or approximately 42.9%) from $0.12 million at the end of 2025. The increase was mainly due to a new loan default, resulting in relevant corporate funds being frozen in litigation. Overall, although financing activities significantly bolstered the reported liquidity, a portion of the funds became restricted due to legal disputes. The actual increase in freely available funds should be evaluated net of the restricted portion and the specific use of the financing proceeds. Stockholders’ Equity Changes in Stockholders’ Equity Set forth below are unaudited condensed consolidated statements of changes in shareholders’ equity for the six months ended June 30, 2026. Ordinary shares Preferred shares Additional paid-in Statutory Accumulated Accumulated other comprehensive Total shareholders’ Non- controlling Total Share Amount Shares* Amount capital reserve deficit loss deficit Interests deficit Balance as of December 31, 2025 55,235,284 $ 2,762 3,700,000 $ 185 $ 130,134,778 $ 237",
+       "recortado": true,
+       "negativos": [
+        {
+         "tipo": "dilución / financiación",
+         "frase": "o relied on financing activities to support our operations. For the six months ended June 30, 2026, net cash provided by financing activities totaled $1.74 million, mainly from $3.0 million net proceeds upon issuance of convertible notes, partially offset by $1,262,207 in repayments of third-party borrowings. While this financing strengthened the Group’s short-term liquidity, it increased leverage and may result in dilution to existing shareholders upo"
+        },
+        {
+         "tipo": "dilución / financiación",
+         "frase": "by $1,262,207 in repayments of third-party borrowings. While this financing strengthened the Group’s short-term liquidity, it increased leverage and may result in dilution to existing shareholders upon conversion of the convertible note is converted. We have sustained recurring operating losses. As of June 30, 2026, we had an accumulated deficit and a shareholders’ deficit. Certain of our short-term borrowings were overdue as of June 30, 2026, and some"
+        },
+        {
+         "tipo": "dilución / financiación",
+         "frase": "ended June 30, 2026 was $1.74 million, compared to $5.69 million for the same period in 2025. During the period, net cash provided by financing activities primarily comprised $3 million net proceeds from the issuance of convertible notes. These proceeds were used for general corporate purposes and working capital requirements. Cash outflows within financing activities were attributable to the repayment of borrowings from third parties in the amount of"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "6-K",
+     "hora": "2026-10-01 16:31",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026105823/ea0306791-6k_xiao1.htm",
+     "items_es": ""
+    }
+   ],
+   "noticias": [],
+   "sector": "Services-Prepackaged Software",
+   "venta_hoy": false,
+   "historial": [
+    {
+     "form": "6-K",
+     "fecha": "2026-09-03 13:20",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026096964/ea0304260-6k_xiao1.htm",
+     "titular": "Xiao-I Corporation Announces ADS Ratio Change with Marketplace Effective Date on September 8, 2026 SHANGHAI, September 3, 2026 /PRNewswire/ -- Xiao-I Corporation (Nasdaq: AIXI) (the “Company”) today announced that it pla",
+     "reaccion": {
+      "dia": "2026-09-03",
+      "apertura": -0.0297,
+      "cierre": 0.0276
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-08-26 18:25",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026093894/ea0303405-6k_xiao1.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Entry into Securities Purchase Agreement and Closing On August 26, 2026, Xiao-I Corporation (the “Company”) entered into a Securities Purchase Agreement (the “SPA”) with an ",
+     "reaccion": {
+      "dia": "2026-08-27",
+      "apertura": -0.2559,
+      "cierre": -0.2671
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-08-07 20:30",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026086721/ea0301084-6k_xiao1.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Receipt of Nasdaq Notification Regarding Minimum Market Value of Publicly Held Shares On August 6, 2026, Xiao-I Corporation (the “Company”) received a written notification (",
+     "reaccion": {
+      "dia": "2026-08-10",
+      "apertura": -0.0804,
+      "cierre": -0.0982
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-30 18:35",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026073605/ea0296209-6k_xiao1.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Entry into Securities Purchase Agreement and Closing On June 29, 2026, Xiao-I Corporation (the “Company”) entered into a Securities Purchase Agreement (the “SPA”) with an in",
+     "reaccion": {
+      "dia": "2026-07-01",
+      "apertura": -0.038,
+      "cierre": 0.087
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-23 14:48",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026070911/ea0295638-6k_xiao1.htm",
+     "titular": "Xiao-I Corporation Provides Update on First-Instance Rulings in Patent Litigation Against Apple; Company Intends to Appeal to the Supreme People’s Court Shanghai, China, June 20, 2026 – Xiao-I Corporation (NASDAQ: AIXI) ",
+     "reaccion": {
+      "dia": "2026-06-23",
+      "apertura": 0.085,
+      "cierre": -0.0131
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-03 15:00",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026064535/ea0293177-6k_xiao1.htm",
+     "titular": "Xiao-I Corporation Regains Full Compliance with Nasdaq Continued Listing Standards SHANGHAI, China, June 3, 2026 /PRNewswire/ -- Xiao-I Corporation (NASDAQ: AIXI) (“Xiao-I” or the “Company”), a leading enterprise artific",
+     "reaccion": {
+      "dia": "2026-06-03",
+      "apertura": -0.0009,
+      "cierre": -0.1053
+     }
+    }
+   ],
+   "municion": {
+    "venta90": true,
+    "s3": "2024-05-20",
+    "s1": null,
+    "ventas_12m": 3,
+    "p424_12m": 3,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-08-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026093890/ea0303406-424b5_xiao1.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-06-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026073606/ea0296185-424b5_xiao1.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-05-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026060946/ea0291728-424b5_xiao1.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-06-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390025055702/ea0246083-424b5_xiao1.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "F-3/A",
+      "fecha": "2024-05-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390024045212/ea0206567-f3a2_xiaoicorp.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "tely $116,337,171 million, which was calculated based on 20,737,463.70 Ordinary Shares held by non-affiliates and the price of $1.87 per ADS (each ADS represents one-third of an Ordinary Share), which was the closing price of our ADS on Nasdaq on March 22, 2024. During the 12 calendar months prior to and including the date of this prospectus, we have not offered or sold any securities pursuant to General Instruction I.B.5 of Form F-3. Xiao-I is a holding company incorporated in the Cayman Islands. As a holding company with no material operations of its own, Xiao-I conducts a substantial majority of its operations through Shanghai Xiao-i Robot Technology Co., Ltd. (“S"
+     },
+     {
+      "form": "F-3/A",
+      "fecha": "2024-05-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390024044935/ea0206534-f3a1_xiaoicorp.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "tely $116,337,171 million, which was calculated based on 20,737,463.70 Ordinary Shares held by non-affiliates and the price of $1.87 per ADS (each ADS represents one-third of an Ordinary Share), which was the closing price of our ADS on Nasdaq on March 22, 2024. During the 12 calendar months prior to and including the date of this prospectus, we have not offered or sold any securities pursuant to General Instruction I.B.5 of Form F-3. Xiao-I is a holding company incorporated in the Cayman Islands. As a holding company with no material operations of its own, Xiao-I conducts a substantial majority of its operations through Shanghai Xiao-i Robot Technology Co., Ltd. (“S"
+     },
+     {
+      "form": "F-3",
+      "fecha": "2024-05-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390024041579/ea0205614-f3_xiaoicorp.htm",
+      "tipo": "empresa"
+     }
+    ],
+    "colocaciones": [],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": null,
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-05-15",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026057986/ea0290336-20f_xiao.htm"
+    },
+    "eloc": false,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_sin_ajustar": [],
+    "ajuste_splits_warrants": 7.0,
+    "warrants_en_dinero": false
+   }
+  }
+ ]
+}

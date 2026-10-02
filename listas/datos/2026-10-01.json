@@ -1011,7 +1011,83 @@
    "docs_hoy": []
   }
  ],
- "resultados": null,
+ "resultados": {
+  "VEEA": {
+   "apertura": 2.9800000190734863,
+   "maximo": 4.079999923706055,
+   "minimo": 2.9100000858306885,
+   "cierre": 3.4700000286102295,
+   "R": -1.25,
+   "subida_max": 0.369,
+   "caida_cierre": 0.164,
+   "gap_apertura": 0.3733,
+   "tramo_apertura": "20-50 %",
+   "puntuacion_apertura": 42,
+   "tercio_apertura": "Media"
+  },
+  "RZAI": {
+   "apertura": 32.84000015258789,
+   "maximo": 35.54999923706055,
+   "minimo": 22.151599884033203,
+   "cierre": 26.300100326538086,
+   "R": 0.63,
+   "subida_max": 0.083,
+   "caida_cierre": -0.199,
+   "gap_apertura": 0.5009,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 20,
+   "tercio_apertura": "Baja"
+  },
+  "SDEV": {
+   "apertura": 3.5999999046325684,
+   "maximo": 4.539999961853027,
+   "minimo": 3.4000000953674316,
+   "cierre": 3.6600000858306885,
+   "R": -0.089,
+   "subida_max": 0.261,
+   "caida_cierre": 0.017,
+   "gap_apertura": 0.39,
+   "tramo_apertura": "20-50 %",
+   "puntuacion_apertura": 5,
+   "tercio_apertura": "Baja"
+  },
+  "MEDS": {
+   "apertura": 3.9000000953674316,
+   "maximo": 4.349999904632568,
+   "minimo": 3.630000114440918,
+   "cierre": 4.059999942779541,
+   "R": -0.17,
+   "subida_max": 0.115,
+   "caida_cierre": 0.041
+  },
+  "SCKT": {
+   "apertura": 0.5,
+   "maximo": 0.5899999737739563,
+   "minimo": 0.47999998927116394,
+   "cierre": 0.5400000214576721,
+   "R": -0.3,
+   "subida_max": 0.18,
+   "caida_cierre": 0.08
+  },
+  "GIPR": {
+   "apertura": 0.5249999761581421,
+   "maximo": 0.593999981880188,
+   "minimo": 0.41499999165534973,
+   "cierre": 0.4519999921321869,
+   "R": 0.43,
+   "subida_max": 0.131,
+   "caida_cierre": -0.139
+  },
+  "PMAX": {
+   "apertura": 0.8799999952316284,
+   "maximo": 1.0800000429153442,
+   "minimo": 0.796999990940094,
+   "cierre": 0.9380000233650208,
+   "R": -0.253,
+   "subida_max": 0.227,
+   "caida_cierre": 0.066
+  }
+ },
  "auditoria": {
   "errores": [],
   "avisos": [
