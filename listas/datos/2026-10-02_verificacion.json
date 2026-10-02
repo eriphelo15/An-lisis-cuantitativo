@@ -1,0 +1,13 @@
+{
+ "AMOD": {
+  "estado": "corregido",
+  "hora": "08:28",
+  "diferencias": [
+   "Coinciden: sin catalizador en la ventana (N); 8-K 1-oct 11:30 Item 2.01 = cierre del PIPE de 3 170 BTC (contexto); ~56.5 M acciones tras el PIPE; cotiza ~0.5× su bitcoin",
+   "Error nuestro (dato automático): la ficha muestra el ATM de $3.5 M (H.C. Wainwright) como activo; está terminado desde el 11/15-jun (8-K 15-jun) → corregido en la nota; caso de oro pendiente",
+   "El verificador añade: Streeterville $10 M a precio variable (90 % del VWAP más bajo de 5 días), reventa obligatoria del PIPE ≈15-oct, prohibición de emitir hasta 31-dic, notas tóxicas, aviso de Nasdaq",
+   "Las 424B de 90 días son reventas/anexos, no ventas de la empresa con precio (el factor 'venta90' del modelo cuenta cualquier 424B, igual que el histórico)",
+   "Sin verificar por ninguno: qué movió la acción en el after-hours del 1-oct; si ya se presentó el registro de reventa del PIPE"
+  ]
+ }
+}

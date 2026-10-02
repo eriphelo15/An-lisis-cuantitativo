@@ -1,0 +1,784 @@
+{
+ "fecha": "2026-10-02",
+ "generado": "2026-10-02 08:28",
+ "replay": false,
+ "desde": "2026-10-01 16:00",
+ "corte": "2026-10-02 08:19",
+ "version": 2,
+ "reglas": {
+  "gap_minimo": 0.2,
+  "stop": 0.3,
+  "deslizamiento": 0.05,
+  "coste": 0.01,
+  "riesgo_accion": 0.3750000000000002
+ },
+ "acciones": [
+  {
+   "sym": "AMOD",
+   "nombre": "Alpha Modus Holdings, Inc.",
+   "sector": "Patent Owners & Lessors",
+   "precio": 2.43,
+   "cierre_prev": 1.1699999570846558,
+   "gap": 1.0769,
+   "cap": 5811177,
+   "acciones": 4966818,
+   "vol_pre": null,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "fuentes_abiertas": "EDGAR (0 presentaciones desde el 1-oct 16:00), Yahoo RSS (última 27-ago), Finviz (última 3-sep), Stocktwits (solo mensajes de traders, sin noticia), lector de noticias de la herramienta (0) — revisado a mano 2-oct ~8:25",
+    "nota": "Sin noticia desde el cierre. CONTEXTO (no es el catalizador, es del 1-oct 11:30, día que cayó −24.5 %): 8-K Item 2.01 «On September 30, 2026, the Company closed the PIPE Transaction, issuing the Shares and the Warrants to the Investors… the Company’s subsidiary now owns 3,170 bitcoin having a value in excess of $250 million» = cerró la compra de 3 170 bitcoin pagados con 51 621 560 acciones nuevas + 51 621 560 warrants a $4.36. OJO: las acciones de Yahoo (4.97 M) NO incluyen esas 51.6 M → hoy hay ~56 M acciones (cap ≈ $137 M a $2.43) frente a >$250 M en bitcoin: cotiza por DEBAJO del valor de sus bitcoin, lo que puede atraer compras (riesgo para el corto). Los compradores del PIPE pagaron ≈ $4.84 por acción en bitcoin (en pérdida a $2.43) y sus warrants a $4.36 están fuera de dinero. | VERIFICADO (agente independiente + SEC): (1) el ATM de $3.5 M con H.C. Wainwright está TERMINADO desde junio (8-K 15-jun: «notified H.C. Wainwright … of its election to terminate sales»); la ficha lo muestra como activo — dato automático erróneo. (2) Línea de Streeterville Capital de hasta $10,000,000 (dólares) a «90% multiplied by the lowest daily volume-weighted average price during the five trading days» = precio variable; reventa registrada de 4,000,000 acciones. (3) El PIPE obliga a registrar la REVENTA de las 51,621,560 acciones + las de los warrants en 15 días (≈ 15-oct): hoy son acciones restringidas (Reg S), no se pueden vender aún. (4) Prohibido emitir acciones nuevas hasta 30 días tras ese registro o el 31-dic-2026 (salvo 519,917 por notas convertibles y 176,890 por warrants). (5) Notas convertibles tóxicas (90 % / 80 % del VWAP). (6) Nasdaq vigila el cumplimiento de patrimonio; going concern sin ingresos.",
+    "pasos": {
+     "fuentes": [
+      "EDGAR submissions AMOD: 0 documentos en la ventana",
+      "Yahoo RSS AMOD: última 27-ago",
+      "Finviz AMOD: última 3-sep",
+      "Stocktwits AMOD: sin noticia",
+      "8-K 1-oct 11:30 (contexto) leído"
+     ],
+     "anexos_leidos": 0,
+     "negativos": "no aplica (sin catalizador); contexto: dilución de 51.6 M acciones el 30-sep",
+     "historial": "1-oct 8-K cierre PIPE bitcoin −24.5 %; 27-ago anuncio PIPE bitcoin −25.5 %; jul-jun 8-K sin reacción grande",
+     "municion": "S-3 de la empresa $250 M (baby shelf I.B.6) con ATM $3.5 M (H.C. Wainwright); 9 folletos 424B en 12 meses; convertible tóxica en el informe; PIPE 51.6 M acciones + warrants $4.36; 3 contra-splits en 2 años | corregido: ATM TERMINADO en junio; Streeterville $10 M precio variable; reventa del PIPE pendiente (≈15-oct); prohibición de emitir hasta 31-dic",
+     "caja": "$2.0 M al 30-jun, quema $0.40 M/mes → ~1.9 meses hoy; going concern; ahora tiene 3 170 BTC (>$250 M) que no son caja operativa"
+    },
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 42,
+    "tercio": "Media",
+    "pred_R": 0.063,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0065
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": true,
+      "peso": 0.0959
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0852
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1168
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1391
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.04
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0215
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": true,
+      "peso": -0.0074
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0583
+     }
+    ],
+    "base": -0.0436,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
+    ]
+   },
+   "estad": {
+    "n": 80,
+    "R": 0.08,
+    "WR": 0.64,
+    "gan": 0.77,
+    "perd": -1.14,
+    "PF": 1.19,
+    "dev": 0.14
+   },
+   "riesgo": {
+    "nivel": "Alto",
+    "motivos": [
+     "Pocas acciones en circulación (4.97 M)"
+    ],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 2.74,
+    "pml": 1.82,
+    "pmh_hora": "07:57",
+    "hasta": "08:28"
+   },
+   "caja": {
+    "caja": 2001007,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "Cash",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226038220/",
+    "flujo_operativo": -2402992,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 400499,
+    "autonomia_meses": 5.0,
+    "meses_desde_informe": 3.1,
+    "autonomia_hoy": 1.9,
+    "caja_estimada_hoy": 764250
+   },
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-10-01 11:30",
+     "items": "2.01,8.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226045296/form8-k.htm",
+     "titular": "Item 2.01. Completion of Acquisition or Disposition of Assets. As disclosed in the Current Report on Form 8-K filed on August 27, 2026, by Alpha Modus Holdings, Inc. (the “ Company ”), on August 26, 2026, the Company ent",
+     "reaccion": {
+      "dia": "2026-10-01",
+      "apertura": -0.0129,
+      "cierre": -0.2452
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-27 12:53",
+     "items": "1.01,3.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226040333/form8-k.htm",
+     "titular": "Alpha Modus Advances Transaction to Add More Than $200 Million in Bitcoin Assets to Its Balance Sheet Bitcoin valued at $71,000 per BTC under contemplated transaction; management believes transaction would materially str",
+     "reaccion": {
+      "dia": "2026-08-27",
+      "apertura": -0.1732,
+      "cierre": -0.2546
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-07-22 11:00",
+     "items": "1.01,5.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226034163/form8-k.htm",
+     "titular": "Item 1.01. Entry into a Material Definitive Agreement. The disclosure in Item 5.02 below is incorporated by reference into this Item 1.01. Item 5.02. Departure of Directors or Certain Officers; Election of Directors; App",
+     "reaccion": {
+      "dia": "2026-07-22",
+      "apertura": 0.0,
+      "cierre": -0.0078
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-07-02 20:20",
+     "items": "1.01,2.03,3.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226031897/form8-k.htm",
+     "titular": "Item 1.01. Entry into a Material Definitive Agreement. Effective June 30, 2026, Alpha Modus Holdings, Inc. (the “ Company ”) entered into a securities purchase agreement (the “ SPA ”) with Streeterville Capital, LLC (the",
+     "reaccion": {
+      "dia": "2026-07-06",
+      "apertura": 0.0112,
+      "cierre": -0.0561
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-06-30 19:00",
+     "items": "8.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226031265/form8-k.htm",
+     "titular": "Item 8.01. Other Events. As disclosed in the Current Report on Form 8-K filed on January 16, 2026, Alpha Modus Holdings, Inc. (the “ Company ”) received on January 12, 2026, a written notice (the “ Notice ”) from the Lis",
+     "reaccion": {
+      "dia": "2026-07-01",
+      "apertura": -0.0423,
+      "cierre": 0.1221
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-06-15 12:00",
+     "items": "8.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226028613/form8-k.htm",
+     "titular": "Item 8.01. Other Events. On or about June 11, 2026, the Company notified H.C. Wainwright & Co., LLC, of its election to terminate sales of shares of Class A common stock pursuant to the Company’s At The Market Offering A",
+     "reaccion": {
+      "dia": "2026-06-15",
+      "apertura": 0.0902,
+      "cierre": 0.0752
+     }
+    }
+   ],
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": true,
+    "s3": "2026-01-07",
+    "s1": "2026-07-17",
+    "ventas_12m": 0,
+    "p424_12m": 9,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 3,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2021-09-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/1862463/000119312521264569/d81934d424b4.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "S-3",
+      "fecha": "2026-01-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226000852/forms-3.htm",
+      "tipo": "empresa",
+      "base_usd": 250000000.0,
+      "frase_base": "s Holdings, Inc., a Delaware corporation (the “Company,” “Alpha Modus,” “we,” “us” or “Alpha Modus Holdings, Inc.”), of up to $250,000,000 in the aggregate of the Company’s Class A common stock, par value $0.0001 per share (the “common stock”), warrants, or units. From time ",
+      "baby_shelf": true,
+      "frase_baby": "ively. On January 2, 2026, the last reported sales price of our common stock and public warrants was $0.462 and $0.0535, respectively. The applicable prospectus supplement will contain information, where applicable, as to any other listing on The Nasdaq Capital Market or any securities market or other exchange of the securities, if any, covered by the applicable prospectus supplement. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell our securities in a public primary offering (including the AMOD Offering) with a value exceeding more than one-third of our public float in any 12-month period so long as our public float remains below $75.0 mil",
+      "atm_usd": 3500000.0,
+      "atm_agente": "H.C. Wainwright",
+      "frase_atm": "rdance with the terms of the Sales Agreement, under this prospectus supplement and the accompanying prospectus we may offer and sell shares of our common stock, $0.0001 par value per share, having an aggregate offering price of up to $3,500,000 from time to time through or to the Sales Agent. Our common stock and public warrants are listed on The Nasdaq Capital Market under the symbols “AMOD” and “AMODW,” respectively. On January 2, 2026, the last reported sale"
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "8-K",
+      "fecha": "2026-08-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226040333/form8-k.htm",
+      "precio": null,
+      "acciones": 51621560,
+      "frase": "ities purchase agreement (the “ SPA ”) with the non-U.S. investors named therein (the “ Investors ”), pursuant to which the Company agreed to issue and sell to the Investors, and the Investors agreed to purchase from the Company, an aggregate of (i) 51,621,560 shares of Class A Common Stock (the “ Shares ”), and (ii) warrants to purchase an additional 51,621,560 shares for a $4.36/share exercise price (the “ Warra"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-07-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226031897/form8-k.htm",
+      "precio": null,
+      "acciones": 430000,
+      "frase": "ge, or transfer their shares of Company stock until such time as the Investor has been fully paid and all financing agreements between the Investor and the Company are terminated. The Subordination Agreement also requires Chris Chumas to convert the 430,000 shares of Series C Preferred Stock of the Company beneficially owned by him prior to June 29, 2026, into 304,412 Common Shares (the “ Chumas Common Shares ”"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-04-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226016183/form8-k.htm",
+      "precio": null,
+      "acciones": 3870000,
+      "frase": "ent. On April 8, 2026, Alpha Modus Holdings, Inc. (the “ Company ”) entered into an exchange agreement (the “ Exchange Agreement ”) with the family trust of the Company’s CEO, William Alessi, pursuant to which the trust will exchange an aggregate of 3,870,000 shares of Series C Preferred Stock (the “ Preferred Shares ”) for an aggregate of 109,588,265 shares of Class A common stock (the “ Common Shares ”). In the"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-01-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226003623/form8-k.htm",
+      "precio": null,
+      "acciones": 45817,
+      "frase": "ded transition period for complying with any new or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act. ☐ Item 3.02. Unregistered Sales of Equity Securities. On or about January 20, 2026, the Company issued 45,817 shares of Class A common stock to each of the four non-employee directors of the Company (William Ullman, Greg Richter, Michael Garel, and Scott Wattenberg)"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2025-10-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315225019374/form8-k.htm",
+      "precio": null,
+      "acciones": 407166,
+      "frase": " development services to the Company, and the Company would issue Black Marble 1,628,664 restricted shares of Class A common stock, which shall be subject to the following vesting requirements: (i) the shares shall vest in four equal installments of 407,166 shares on January 1, 2026, April 1, 2026, July 1, 2026, and October 1, 2026, and (ii) notwithstanding the vesting schedule, no shares shall vest until the C"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2025-10-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315225019310/form8-k.htm",
+      "precio": null,
+      "acciones": 250000,
+      "frase": "on Group LLC (“Leron”), pursuant to which Rucus and Leron would provide marketing and sales services to the Company in connection with the rollout of the Company’s financial services kiosks with a major US retailer, and the Company would issue Rucus 250,000 shares of Class A common stock, and the Company would issue Leron 4,000,000 shares of Class A common stock. The services of Rucus and Leron have been crucia"
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": {
+     "form": "S-3",
+     "fecha": "2026-01-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226000852/forms-3.htm",
+     "tipo": "empresa",
+     "base_usd": 250000000.0,
+     "frase_base": "s Holdings, Inc., a Delaware corporation (the “Company,” “Alpha Modus,” “we,” “us” or “Alpha Modus Holdings, Inc.”), of up to $250,000,000 in the aggregate of the Company’s Class A common stock, par value $0.0001 per share (the “common stock”), warrants, or units. From time ",
+     "baby_shelf": true,
+     "frase_baby": "ively. On January 2, 2026, the last reported sales price of our common stock and public warrants was $0.462 and $0.0535, respectively. The applicable prospectus supplement will contain information, where applicable, as to any other listing on The Nasdaq Capital Market or any securities market or other exchange of the securities, if any, covered by the applicable prospectus supplement. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell our securities in a public primary offering (including the AMOD Offering) with a value exceeding more than one-third of our public float in any 12-month period so long as our public float remains below $75.0 mil",
+     "atm_usd": 3500000.0,
+     "atm_agente": "H.C. Wainwright",
+     "frase_atm": "rdance with the terms of the Sales Agreement, under this prospectus supplement and the accompanying prospectus we may offer and sell shares of our common stock, $0.0001 par value per share, having an aggregate offering price of up to $3,500,000 from time to time through or to the Sales Agent. Our common stock and public warrants are listed on The Nasdaq Capital Market under the symbols “AMOD” and “AMODW,” respectively. On January 2, 2026, the last reported sale"
+    },
+    "atm": true,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     11.5,
+     460.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1862463/000149315226038220/form10-q.htm"
+    },
+    "eloc": false,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.014
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)",
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
+   ],
+   "verificacion": {
+    "estado": "corregido",
+    "hora": "08:28",
+    "diferencias": [
+     "Coinciden: sin catalizador en la ventana (N); 8-K 1-oct 11:30 Item 2.01 = cierre del PIPE de 3 170 BTC (contexto); ~56.5 M acciones tras el PIPE; cotiza ~0.5× su bitcoin",
+     "Error nuestro (dato automático): la ficha muestra el ATM de $3.5 M (H.C. Wainwright) como activo; está terminado desde el 11/15-jun (8-K 15-jun) → corregido en la nota; caso de oro pendiente",
+     "El verificador añade: Streeterville $10 M a precio variable (90 % del VWAP más bajo de 5 días), reventa obligatoria del PIPE ≈15-oct, prohibición de emitir hasta 31-dic, notas tóxicas, aviso de Nasdaq",
+     "Las 424B de 90 días son reventas/anexos, no ventas de la empresa con precio (el factor 'venta90' del modelo cuenta cualquier 424B, igual que el histórico)",
+     "Sin verificar por ninguno: qué movió la acción en el after-hours del 1-oct; si ya se presentó el registro de reventa del PIPE"
+    ]
+   }
+  },
+  {
+   "sym": "SDEV",
+   "nombre": "Stablecoin Development Corporat",
+   "sector": "Finance Services",
+   "precio": 5.1895,
+   "cierre_prev": 3.6600000858306885,
+   "gap": 0.4179,
+   "cap": 185252496,
+   "acciones": 50615437,
+   "vol_pre": null,
+   "bolsa": "NYSE American",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "fuentes_abiertas": "EDGAR (0 presentaciones desde el 1-oct 16:00), Yahoo RSS (vacío), Finviz (última 31-jul), Stocktwits (sin noticia), lector de la herramienta (0) — revisado a mano 2-oct ~8:25",
+    "nota": "Sin noticia desde el cierre (segundo día seguido en la lista: ayer +26 %, también sin noticia). CONTEXTO: 8-K 29-sep 16:17 «The Company is not aware of any material non-public information relating to the Company… that could be causing the trading activity» = la empresa dice que NO sabe por qué sube (respuesta a NYSE American por actividad inusual).",
+    "pasos": {
+     "fuentes": [
+      "EDGAR submissions SDEV: 0 documentos en la ventana",
+      "Yahoo RSS SDEV: vacío",
+      "Finviz SDEV: última 31-jul",
+      "Stocktwits SDEV: sin noticia",
+      "8-K 29-sep 16:17 (contexto) leído"
+     ],
+     "anexos_leidos": 0,
+     "negativos": "no aplica (sin catalizador); contexto: la empresa dice no conocer ningún motivo",
+     "historial": "29-sep 8-K actividad inusual → 30-sep −20.8 %; 31-jul resultados −2.5 %; 17-jun enmienda +2.5 %",
+     "municion": "ATM $100 M (Virtu) en uso (vendió 1.26 M acciones en el 2.º trimestre); reventa registrada de 167 539 227 acciones (S-3 ago/sep-2026); warrants en dinero ($0.05, $1.00, $3.30); 6 contra-splits en 2 años",
+     "caja": "$7.0 M al 30-jun, quema $1.29 M/mes → ~2.3 meses hoy; la empresa dice tener para 12 meses contando con vender tokens SKY"
+    },
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 5,
+    "tercio": "Baja",
+    "pred_R": -0.065,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0065
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.0959
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0852
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1168
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1391
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.04
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0215
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0074
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0583
+     }
+    ],
+    "base": -0.0436,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
+    ]
+   },
+   "estad": {
+    "n": 198,
+    "R": -0.02,
+    "WR": 0.57,
+    "gan": 0.47,
+    "perd": -0.66,
+    "PF": 0.92,
+    "dev": -0.01
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 5.57,
+    "pml": 4.36,
+    "pmh_hora": "06:15",
+    "hasta": "08:28"
+   },
+   "caja": {
+    "caja": 6968000,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926025065/",
+    "flujo_operativo": -7769000,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 1294833,
+    "autonomia_meses": 5.4,
+    "meses_desde_informe": 3.1,
+    "autonomia_hoy": 2.3,
+    "caja_estimada_hoy": 2969500
+   },
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-09-29 16:17",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926031464/sdev20260929_8k.htm",
+     "titular": "Item 8.01 Other Events On September 29, 2026, Stablecoin Development Corporation (the “Company”) became aware of unusual trading activity in its common stock, par value $0.01 per share, on the NYSE American. The Company ",
+     "reaccion": {
+      "dia": "2026-09-30",
+      "apertura": -0.1743,
+      "cierre": -0.208
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-07-31 08:44",
+     "items": "2.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926025172/nby20260729_8k.htm",
+     "titular": "ex_995199.htm Exhibit 99.1 Stablecoin Development Corporation Reports Second Quarter 2026 Financial Results • Staking revenue of $2.2 million for the quarter and $4.7 million for the first half of 2026 • SDEV grew its SK",
+     "reaccion": {
+      "dia": "2026-07-31",
+      "apertura": 0.0763,
+      "cierre": -0.0254
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-06-17 16:29",
+     "items": "1.01,3.03,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926020980/nby20260617c_8k.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement Amendment to October 2025 Pre-Funded Warrants On June 12, 2026, Stablecoin Development Corporation (the “Company”) agreed with R01 Fund LP (“R01”), and on June 15, 202",
+     "reaccion": {
+      "dia": "2026-06-18",
+      "apertura": -0.0084,
+      "cierre": 0.0252
+     }
+    }
+   ],
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": "2026-09-16",
+    "s1": null,
+    "ventas_12m": 1,
+    "p424_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 6,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-01-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926001489/nby20260120_424b5.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2024-07-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774924023641/nby20240726_424b4.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2021-05-14",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774921012350/nby20210512_424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2020-06-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774920013080/nby20200612_424b5.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "S-3/A",
+      "fecha": "2026-09-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926030554/sdev20260914_s3a.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 167539227,
+      "frase": "s not permitted. PRELIMINARY PROSPECTUS - SUBJECT TO COMPLETION - DATED SEPTEMBER 16, 2026 STABLECOIN DEVELOPMENT CORPORATION 45,337,032 shares of Common Stock Up to 167,539,227 shares of Common Stock Underlying January 2026 Pre-Funded Warrants This prospectus",
+      "acciones_reventa_hoy": 167539227
+     },
+     {
+      "form": "S-3",
+      "fecha": "2026-08-11",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926027018/nby20260806_s3.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 167539227,
+      "frase": "e is not permitted. PRELIMINARY PROSPECTUS — SUBJECT TO COMPLETION — DATED AUGUST 11, 2026 STABLECOIN DEVELOPMENT CORPORATION 45,337,032 shares of Common Stock Up to 167,539,227 shares of Common Stock Underlying January 2026 Pre-Funded Warrants This prospectus",
+      "repetida": true,
+      "acciones_reventa_hoy": 167539227
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-01-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926001489/nby20260120_424b5.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": ", where applicable. As of November 24, 2025, the aggregate market value of our outstanding common stock held by non-affiliates is approximately $5.9 million, based on 126,010,749 shares of outstanding common stock, of which approximately 6,007,881 shares are held by non-affiliates, and a per share price of $0.99 based on the closing sale price of our common stock on November 20, 2025. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell the securities described in this prospectus in a primary public offering with a value exceeding more than one-third of the aggregate market value of our common stock held by non-affiliates in the twelve-month pe",
+      "atm_usd": 100000000.0,
+      "atm_agente": "Virtu",
+      "frase_atm": "ENT (To Prospectus Dated November 26, 2025) $100,000,000 NOVABAY PHARMACEUTICALS, INC. Common Stock This prospectus supplement relates to the issuance and sale of shares of our common stock having an aggregate offering price of up to $100,000,000 from time to time through or to our sales agent, Virtu Americas LLC (“Virtu”). We have entered into an ATM Sales Agreement, or the sales agreement, with Virtu relating to the shares of our common stock offered by this pr"
+     },
+     {
+      "form": "S-3/A",
+      "fecha": "2025-11-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774925036354/nby20251121_s3a.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": ", where applicable. As of November 24, 2025, the aggregate market value of our outstanding common stock held by non-affiliates is approximately $5.9 million, based on 126,010,749 shares of outstanding common stock, of which approximately 6,007,881 shares are held by non-affiliates, and a per share price of $0.99 based on the closing sale price of our common stock on November 20, 2025. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell the securities described in this prospectus in a primary public offering with a value exceeding more than one-third of the aggregate market value of our common stock held by non-affiliates in the twelve-month pe"
+     },
+     {
+      "form": "S-3",
+      "fecha": "2025-10-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000182912625007885/novabay_s3.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "ies, where applicable. As of October 1, 2025, the aggregate market value of our outstanding common stock held by non-affiliates is approximately $25.3 million, based on 6,010,749 shares of outstanding common stock, of which approximately 6,005,132 shares are held by non-affiliates, and a per share price of $4.22 based on the closing sale price of our common stock on September 4, 2025. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell the securities described in this prospectus in a primary public offering with a value exceeding more than one-third of the aggregate market value of our common stock held by non-affiliates in the twelve-month pe"
+     },
+     {
+      "form": "S-1",
+      "fecha": "2024-06-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774924020830/nby20240619_s1.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 298355,
+      "frase": "urities and Exchange Commission (the “ SEC ”), using a “shelf” registration process. By using a shelf registration statement, the Selling Stockholders may sell up to 298,355 shares of Common Stock received upon exercise or conversion (as the case may be) o",
+      "acciones_reventa_hoy": 59671,
+      "ajuste_splits": 0.2
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "8-K",
+      "fecha": "2026-01-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926001459/nby20260116_8k.htm",
+      "precio": null,
+      "acciones": 837696130,
+      "frase": "d LP, Framework Ventures IV L.P., Tether Investments, S.A. de C.V. and Sky Frontier Foundation (together, the “Purchasers”). Pursuant to the SPA, the Company issued and sold pre-funded warrants (the “Pre-Funded Warrants”) to purchase an aggregate of 837,696,130 shares of the Company’s common stock, par value $0.01 per share (the “Common Stock”) for aggregate gross proceeds of approximately $134 million. The purchas"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2025-10-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1389545/000182912625008237/novabay_8k.htm",
+      "precio": null,
+      "acciones": 441325,
+      "frase": "ement (the “SPA”) with R01 Fund LP and Framework Ventures IV L.P. (“Framework,” and together with R01, the “Purchasers”). Pursuant to the SPA, Mr. Lazar received an aggregate purchase price of $9,850,000 to (i) sell to the Purchasers an aggregate of 441,325 shares of the Company’s Series D Non-Voting Convertible Preferred Stock, par value $0.01 per share (the “Series D Preferred Stock”), and (ii) assign to the "
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 167539227,
+    "atm_shelf": {
+     "form": "424B5",
+     "fecha": "2026-01-20",
+     "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926001489/nby20260120_424b5.htm",
+     "tipo": "empresa",
+     "baby_shelf": true,
+     "frase_baby": ", where applicable. As of November 24, 2025, the aggregate market value of our outstanding common stock held by non-affiliates is approximately $5.9 million, based on 126,010,749 shares of outstanding common stock, of which approximately 6,007,881 shares are held by non-affiliates, and a per share price of $0.99 based on the closing sale price of our common stock on November 20, 2025. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell the securities described in this prospectus in a primary public offering with a value exceeding more than one-third of the aggregate market value of our common stock held by non-affiliates in the twelve-month pe",
+     "atm_usd": 100000000.0,
+     "atm_agente": "Virtu",
+     "frase_atm": "ENT (To Prospectus Dated November 26, 2025) $100,000,000 NOVABAY PHARMACEUTICALS, INC. Common Stock This prospectus supplement relates to the issuance and sale of shares of our common stock having an aggregate offering price of up to $100,000,000 from time to time through or to our sales agent, Virtu Americas LLC (“Virtu”). We have entered into an ATM Sales Agreement, or the sales agreement, with Virtu relating to the shares of our common stock offered by this pr"
+    },
+    "atm": true,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [
+     0.05,
+     1.0,
+     3.3,
+     5.5
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-07-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926025065/nby20260630_10q.htm"
+    },
+    "eloc": false,
+    "uso_atm": [
+     "Subsequent to June 30, 2026 and through July 27, 2026, the Company sold an aggregate of 24,714 shares of common stock under the ATM Program (as defined in Note 8, “Financing Activities”) for aggregate net proceeds of approximately $ 26 thousand.",
+     "5 million of common stock remained available for issuance under the ATM Program.",
+     "Under the Sales Agreement, the Company has agreed to pay Virtu a commission of up to 2 % of the gross proceeds of any shares sold through the ATM Program.",
+     "During the three months ended June 30, 2026, the Company sold 1,258,934 shares of common stock under the ATM Program for aggregate gross proceeds of $ 1."
+    ],
+    "empresa_dice_caja": "on funds available as of June 30, 2026, management believes that the Company's existing cash and cash equivalents, together with its ability, if needed, to monetize a portion of its unencumbered, exchange-traded SKY token holdings are expected to be sufficient to fund its planned operating expenses for at least twelve months from the issuance of these financial statements.",
+    "warrants_en_dinero": true
+   },
+   "costes": {
+    "locate_1c_R": 0.006
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
+   ]
+  }
+ ],
+ "descartadas": [
+  {
+   "sym": "AIXI",
+   "nombre": "Xiao-I Corporation",
+   "sector": "Services-Prepackaged Software",
+   "precio": 1.6699,
+   "cierre_prev": 1.215000033378601,
+   "gap": 0.3744,
+   "cap": 159788,
+   "acciones": 131513,
+   "vol_pre": null,
+   "bolsa": "NasdaqGM",
+   "clasif": {
+    "tipo": "R",
+    "frase_en": "we recorded a net loss of $13.05 million for the six months ended June 30, 2026, compared to a net loss of $30.39 million for the same period in 2025",
+    "frase_es": "registramos una pérdida neta de $13.05 millones en los seis meses hasta el 30 de junio de 2026, frente a una pérdida neta de $30.39 millones en el mismo periodo de 2025",
+    "cifra": "pérdida neta $13.05 M (dólares) en 6 meses vs $30.39 M; ingresos (net revenues) $1,041,169 vs $11,516,908 (dólares, −91 %)",
+    "nota": "6-K 1-oct 16:31 con el informe semestral (EX-99.1 estados financieros, EX-99.2 análisis de la dirección) = resultados → descartada por regla (R). Contexto: pasivos $124 M frente a activos $6.2 M; going concern; 3 ventas 424B en 90 días.",
+    "pasos": {
+     "fuentes": [
+      "6-K 1-oct 16:31 (EX-99.1 + EX-99.2) leído",
+      "Yahoo RSS AIXI: sin noticia nueva",
+      "Finviz AIXI: última 3-sep",
+      "Stocktwits AIXI: sin noticia (solo rumores de traders)"
+     ],
+     "anexos_leidos": 2,
+     "negativos": "ingresos −91 %; pasivos corrientes $105.7 M frente a caja $3.45 M; presión competitiva y fin del negocio de hardware",
+     "historial": "3-sep cambio de ratio ADS +2.8 %; 26-ago colocación −26.7 %; 7-ago aviso de Nasdaq −9.8 %; 30-jun colocación +8.7 %",
+     "municion": "F-3 de la empresa (baby shelf); 424B5 el 26-ago, 30-jun y 26-may (3 en 90 días); convertible tóxica en el informe",
+     "caja": "caja $3.45 M al 30-jun-2026 (informe semestral) con pasivos de $124 M; going concern"
+    },
+    "fuentes_abiertas": "",
+    "tipo_es": "Resultados"
+   },
+   "motivo": "Resultados o cifras de ventas (trimestrales, anuales o preliminares): históricamente malo para el corto (PF 0.61)",
+   "docs_hoy": [
+    {
+     "form": "6-K",
+     "hora": "2026-10-01 16:31",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026105823/ea0306791-6k_xiao1.htm",
+     "items_es": ""
+    }
+   ]
+  }
+ ],
+ "resultados": null,
+ "auditoria": {
+  "errores": [],
+  "avisos": [
+   "nasdaqtrader no se descargó (['otherlisted.txt']): universo cubierto con la lista de la SEC (7115 tickers Nasdaq/NYSE); los tickers MUY nuevos pueden faltar → TradingView los cubre",
+   "Segunda fuente (TradingView): NIVF +59 % (sin cierre anterior o precio < $0.3)"
+  ],
+  "cobertura": {
+   "universo": 6475,
+   "cotizadas": 6466,
+   "pct": 0.9986,
+   "ficheros_faltan": [
+    "otherlisted.txt"
+   ],
+   "fuentes_universo": {
+    "nasdaqtrader": 3439,
+    "sec": 7115
+   },
+   "massive": 12594,
+   "tradingview": 9,
+   "solo_tradingview": [
+    "NIVF +59 % (sin cierre anterior o precio < $0.3)"
+   ]
+  },
+  "forzada": false
+ },
+ "salud": {
+  "pruebas": "30/31",
+  "pruebas_ok": false,
+  "universo": 6475,
+  "cobertura": 0.9986,
+  "nasdaqtrader": "falta otherlisted.txt (cubierto con la SEC)",
+  "sec": 7115,
+  "massive": true,
+  "tradingview": true,
+  "candidatos": 3,
+  "verificadas": "1/1",
+  "citas_comprobadas": "1/1",
+  "citas_no_comprobables": [],
+  "errores": 0,
+  "avisos": 2,
+  "forzada": false,
+  "linea": "Salud: pruebas 30/31 · universo 6475 (99.9% cotizadas) · nasdaqtrader falta otherlisted.txt (cubierto con la SEC) · Massive ok · TradingView ok · candidatos 3 · verificadas 1/1 · citas comprobadas 1/1 · auditoría 0 errores, 2 avisos"
+ }
+}
