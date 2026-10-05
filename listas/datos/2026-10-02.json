@@ -737,7 +737,43 @@
    ]
   }
  ],
- "resultados": null,
+ "resultados": {
+  "AMOD": {
+   "apertura": 3.4800000190734863,
+   "maximo": 4.769999980926514,
+   "minimo": 3.0799999237060547,
+   "cierre": 3.490000009536743,
+   "R": -1.25,
+   "subida_max": 0.371,
+   "caida_cierre": 0.003,
+   "gap_apertura": 1.9744,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 42,
+   "tercio_apertura": "Media"
+  },
+  "SDEV": {
+   "apertura": 5.059999942779541,
+   "maximo": 7.650000095367432,
+   "minimo": 4.980000019073486,
+   "cierre": 7.480000019073486,
+   "R": -1.25,
+   "subida_max": 0.512,
+   "caida_cierre": 0.478,
+   "gap_apertura": 0.3825,
+   "tramo_apertura": "20-50 %",
+   "puntuacion_apertura": 5,
+   "tercio_apertura": "Baja"
+  },
+  "AIXI": {
+   "apertura": 1.7000000476837158,
+   "maximo": 2.259999990463257,
+   "minimo": 1.590000033378601,
+   "cierre": 1.809999942779541,
+   "R": -1.25,
+   "subida_max": 0.329,
+   "caida_cierre": 0.065
+  }
+ },
  "auditoria": {
   "errores": [],
   "avisos": [

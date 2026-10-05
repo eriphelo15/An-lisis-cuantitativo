@@ -1,0 +1,49 @@
+{
+ "MI": {
+  "estado": "ok",
+  "hora": "08:30",
+  "diferencias": [
+   "Coinciden: sin catalizador en la ventana (N)",
+   "El verificador añade: venta de 80 M acciones a $0.45 (6-K 30-sep, pendiente de cierre), warrants con rebaja de precio, F-3 $500 M, caja declarada poco creíble — añadido a la nota"
+  ]
+ },
+ "SAIQ": {
+  "estado": "corregido",
+  "hora": "08:30",
+  "diferencias": [
+   "Error nuestro: clasificado 'O' por la nota del 2-oct 16:05; es la REPETICIÓN del cierre de la fusión anunciado el 1-oct → N (noticia reciclada)",
+   "Añadido: PIPE con protección de precio, bloqueos, float estimado 0.9-3.6 M, sin shelf"
+  ]
+ },
+ "ALEC": {
+  "estado": "ok",
+  "hora": "08:30",
+  "diferencias": [
+   "Coinciden: licencia firmada con Genentech, $100 M por adelantado (K)",
+   "Añadido: ATM $125 M TD Cowen, historial de fracasos clínicos"
+  ]
+ },
+ "APUS": {
+  "estado": "ok",
+  "hora": "08:30",
+  "diferencias": [
+   "Coinciden: humo sin 8-K ni importe (H)",
+   "Fallo de la herramienta: el lector de noticias no vio la nota (empresa con nombre MindWave en Finviz); encontrada a mano por los dos"
+  ]
+ },
+ "VEEA": {
+  "estado": "ok",
+  "hora": "08:30",
+  "diferencias": [
+   "Diferencia de criterio: nosotros F (préstamos del CEO = único documento en la ventana, regla escrita); el verificador N ('sin catalizador positivo'). Se mantiene F por la regla y se explica en la nota y en el mensaje",
+   "Añadido: notas tóxicas White Lion, ELOC $25 M, ATM Roth, baby shelf"
+  ]
+ },
+ "PCVX": {
+  "estado": "ok",
+  "hora": "08:30",
+  "diferencias": [
+   "Coinciden: fase 3 positiva (B) con los serotipos 3 y 12F que fallan frente a PCV21 a 0.667"
+  ]
+ }
+}

@@ -1,0 +1,2430 @@
+{
+ "fecha": "2026-10-05",
+ "generado": "2026-10-05 08:32",
+ "replay": false,
+ "desde": "2026-10-02 16:00",
+ "corte": "2026-10-05 08:19",
+ "version": 2,
+ "reglas": {
+  "gap_minimo": 0.2,
+  "stop": 0.3,
+  "deslizamiento": 0.05,
+  "coste": 0.01,
+  "riesgo_accion": 0.3750000000000002
+ },
+ "acciones": [
+  {
+   "sym": "APUS",
+   "nombre": "Apimeds Pharmaceuticals US, Inc.",
+   "sector": "Pharmaceutical Preparations",
+   "precio": 6.55,
+   "cierre_prev": 3.2200000286102295,
+   "gap": 1.0342,
+   "cap": 4859360,
+   "acciones": 1509118,
+   "vol_pre": null,
+   "bolsa": "NYSE American",
+   "clasif": {
+    "tipo": "H",
+    "frase_en": "has signed a 2-year master maintenance and service agreement with Delaware-based BlockAssure Inc.",
+    "frase_es": "ha firmado un contrato marco de mantenimiento y servicios de 2 años con BlockAssure Inc., de Delaware",
+    "cifra": "sin cifra en dólares: tarifas no publicadas; parte del pago en 20 % de un token (AssureCoin) que aún no existe",
+    "frase_url": "https://www.globenewswire.com/news-release/2026/10/05/3374481/0/en/mindwave-innovations-signs-agreement-with-us-based-blockassure-to-build-and-operate-assurechain-an-end-to-end-insurance-and-reinsurance-network.html",
+    "cita_no_comprobable": "GlobeNewswire no se deja leer por programa y no hay 8-K ni copia en Yahoo; leída con WebFetch y confirmada por el verificador",
+    "nota": "Nota de prensa 5-oct 08:00 (GlobeNewswire 'via IBN') SIN 8-K: filial MindWave firma contrato de servicios blockchain SIN importe. 3.ª nota igual en 11 días (24-sep AQUAE: abrió +205 % y se desinfló −63 % en 6 sesiones; 29-sep FlashChain: sin efecto). FALLO DE LA HERRAMIENTA: el lector de noticias no la vio (la empresa sale como 'MindWave Innovations' en Finviz) — encontrada a mano. Caja usable $278 371 (los $8 M son restringidos) → ~0 meses; going concern; nota convertible de $10.9 M en impago y a precio variable (tóxica); 14.95 M acciones por convertir de preferentes; aviso NYSE American con plazo 15-oct. Sin shelf ni ATM. ~1.54 M acciones: riesgo de squeeze muy alto. | VERIFICADO: coincide (humo, sin 8-K, sin importe); además 14.95 M acciones por convertir de preferentes y nota de $10.9 M en impago.",
+    "pasos": {
+     "fuentes": [
+      "GlobeNewswire 5-oct 08:00 (vía Stocktwits/Finviz) leída con WebFetch",
+      "EDGAR APUS: sin 8-K en la ventana",
+      "Yahoo RSS APUS: vacío",
+      "Finviz APUS: 'MindWave' 24-sep, 29-sep y hoy"
+     ],
+     "anexos_leidos": 0,
+     "negativos": "sin importe; pago en token inexistente; sin 8-K; empresa insolvente",
+     "historial": "2026-09-29 8-K -0%; 2026-09-11 8-K -3%; 2026-08-21 8-K -2%; 2026-08-06 8-K -12%; 2026-07-13 8-K -1%",
+     "municion": "shelf empresa no; ATM no; reventa 0 acciones; ELOC no; 424B 12 m: 0; venta 90 d no; warrants [17.8, 40.0, 50.0]; tóxica sí — revisado en la ficha",
+     "caja": "caja $278371 al 2026-06-30 (10-Q), quema $1289149/mes, ~-3.0 meses hoy; going concern sí"
+    },
+    "fuente_fuera_herramienta": "GlobeNewswire 5-oct 08:00 NY: https://www.globenewswire.com/news-release/2026/10/05/3374481/0/en/mindwave-innovations-signs-agreement-with-us-based-blockassure-to-build-and-operate-assurechain-an-end-to-end-insurance-and-reinsurance-network.html (el lector de noticias no la vio)",
+    "tipo_es": "Humo / cosmético"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 87,
+    "tercio": "Alta",
+    "pred_R": 0.138,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0065
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": true,
+      "peso": 0.0959
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": true,
+      "peso": 0.0852
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1168
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1391
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.04
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0215
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0074
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0583
+     }
+    ],
+    "base": -0.0436,
+    "notas": []
+   },
+   "estad": {
+    "n": 157,
+    "R": 0.25,
+    "WR": 0.69,
+    "gan": 0.8,
+    "perd": -0.98,
+    "PF": 1.81,
+    "dev": 0.15
+   },
+   "riesgo": {
+    "nivel": "Alto",
+    "motivos": [
+     "Pocas acciones en circulación (1.51 M)",
+     "Pocas acciones y sin munición activa: perfil de squeeze (caso APUS)"
+    ],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 6.99,
+    "pml": 3.21,
+    "pmh_hora": "08:29",
+    "hasta": "08:32"
+   },
+   "caja": {
+    "caja": 278371,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1894525/000121390026090120/",
+    "flujo_operativo": -7734893,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 1289149,
+    "autonomia_meses": 0.2,
+    "meses_desde_informe": 3.2,
+    "autonomia_hoy": -3.0,
+    "caja_estimada_hoy": -3829626
+   },
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-09-29 16:15",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1894525/000121390026104668/ea0306924-8k_apimeds.htm",
+     "titular": "ISSUED BY MINDWAVE INNOVATIONS INC. DATED SEPTEMBER 24, 2026 (AQUAECHAIN) Exhibit 99.1 MindWave Innovations Inc to Power AQUAEChain with Its MindChain Blockchain Infrastructure Agreement strengthens MindWave’s position a",
+     "reaccion": {
+      "dia": "2026-09-30",
+      "apertura": 0.004,
+      "cierre": -0.004
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-11 09:10",
+     "items": "1.01,5.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1894525/000121390026099002/ea0305245-8k_apimeds.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. On September 10, 2026, Apimeds Pharmaceuticals US, Inc., a Delaware corporation (the “ Company ”), MindWave Innovations Inc, a Delaware corporation and a wholly owned",
+     "reaccion": {
+      "dia": "2026-09-11",
+      "apertura": -0.0046,
+      "cierre": -0.03
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-21 17:12",
+     "items": "1.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1894525/000121390026092680/ea0303076-8k_apimeds.htm",
+     "titular": "Item 1.01. Entry into a Material Definitive Agreement. On August 19, 2026, Apimeds Pharmaceuticals US, Inc., a Delaware corporation (the “ Company ”), entered into an Assignment and Transfer Agreement of Certain Apitox R",
+     "reaccion": {
+      "dia": "2026-08-24",
+      "apertura": -0.1033,
+      "cierre": -0.0186
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-06 17:25",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1894525/000121390026086244/ea0301025-8k_apimeds.htm",
+     "titular": "Item 8.01 Other Events. On August 5, 2026, Apimeds Pharmaceuticals US, Inc. (the “ Company ”) appointed Dr. Christopher Kim as its Chief Scientific Officer, effective immediately. As Chief Scientific Officer, Dr. Kim wil",
+     "reaccion": {
+      "dia": "2026-08-07",
+      "apertura": -0.0166,
+      "cierre": -0.1242
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-07-13 16:30",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1894525/000121390026077591/ea0297843-8k_apimeds.htm",
+     "titular": "Item 8.01. Other Events. On December 1, 2025, Apimeds Pharmaceuticals US, Inc., a Delaware corporation (the “ Company ”), obtained approval of its stockholders holding a majority of the voting power of the Company’s outs",
+     "reaccion": {
+      "dia": "2026-07-14",
+      "apertura": -0.0217,
+      "cierre": -0.0068
+     }
+    }
+   ],
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "p424_12m": 0,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 8,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-05-09",
+      "url": "https://www.sec.gov/Archives/edgar/data/1894525/000121390025041193/ea0201124-22.htm"
+     }
+    ],
+    "shelves": [],
+    "colocaciones": [
+     {
+      "form": "8-K",
+      "fecha": "2025-12-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/1894525/000121390025117173/ea0267807-8k425_apimeds.htm",
+      "precio": null,
+      "acciones": 712880,
+      "frase": "Securities Act of 1933, as amended (the “ Securities Act ”), in reliance upon the exemption from registration provided by Section 4(a)(2) of the Securities Act. On December 1, 2025, the Acquiror issued a warrant to E.F. Hutton & Co. LLC, to purchase 712,880 shares of Acquiror Common Stock, at an exercise price of per share (the “ E.F. Hutton Warrant ”). The E.F. Hutton Warrant was issued in reliance upon the ex"
+     }
+    ],
+    "shelf_empresa": false,
+    "reventa_acciones": 0,
+    "atm_shelf": null,
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     17.8,
+     40.0,
+     50.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1894525/000121390026090120/ea0300242-10q_apimeds.htm"
+    },
+    "eloc": false,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.005
+   },
+   "avisos": [
+    "Humo solo en nota de prensa, sin 8-K/6-K (caso no medido por separado)",
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
+   ],
+   "verificacion": {
+    "estado": "ok",
+    "hora": "08:30",
+    "diferencias": [
+     "Coinciden: humo sin 8-K ni importe (H)",
+     "Fallo de la herramienta: el lector de noticias no vio la nota (empresa con nombre MindWave en Finviz); encontrada a mano por los dos"
+    ]
+   }
+  },
+  {
+   "sym": "PCVX",
+   "nombre": "Vaxcyte, Inc.",
+   "sector": "Biological Products, (No Diagnostic Substances)",
+   "precio": 89.9,
+   "cierre_prev": 56.47999954223633,
+   "gap": 0.5917,
+   "cap": 8404521984,
+   "acciones": 148805278,
+   "vol_pre": null,
+   "bolsa": "NasdaqGS",
+   "clasif": {
+    "tipo": "B",
+    "frase_en": "VAX-31 Met All Prespecified Primary Endpoints Across Age Groups Studied",
+    "frase_es": "VAX-31 cumplió todos los objetivos primarios preestablecidos en todas las edades estudiadas",
+    "cifra": "4,047 participantes; 28 de 28 serotipos no inferiores (umbral 0.667); frente a PCV21: 17 de 19",
+    "nota": "8-K 5-oct 08:01: fase 3 pivotal OPUS-1 positiva. Negativo escondido (nota 2 y EX-99.2): frente a PCV21 (Merck) los serotipos 3 y 12F NO cumplen la no inferioridad a 0.667 (solo a 0.5, objetivo secundario clave) y la empresa dice que la FDA se fijará en esa comparación. No es small cap (~$8 mil millones antes del gap, $2.5 mil millones de caja; ATM de $500 M con Leerink sin usar a 30-jun). | VERIFICADO: coincide; S-3ASR y ATM $500 M (Leerink) sin uso a 30-jun; última oferta ene-2026 a $50 (12.65 M acciones).",
+    "pasos": {
+     "fuentes": [
+      "8-K 5-oct 08:01 + EX-99.1 + EX-99.2 leídos",
+      "Finviz: aviso del webcast 4-oct 17:00"
+     ],
+     "anexos_leidos": 2,
+     "negativos": "serotipos 3 y 12F fallan frente a PCV21 a 0.667; BLA hasta 2028; datos topline",
+     "historial": "2026-09-03 8-K -0%; 2026-08-05 8-K +5%",
+     "municion": "shelf empresa sí; ATM sí 500000000.0 Leerink; reventa 0 acciones; ELOC no; 424B 12 m: 3; venta 90 d no; warrants []; tóxica no — revisado en la ficha",
+     "caja": "caja $183190000 al 2026-06-30 (10-Q), quema $85516000/mes, ~14.2 meses hoy; going concern no"
+    },
+    "tipo_es": "Biotech real (FDA / datos)"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 71,
+    "tercio": "Alta",
+    "pred_R": 0.109,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": true,
+      "peso": 0.0065
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.0959
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0852
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": true,
+      "peso": 0.1168
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1391
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.04
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0215
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": true,
+      "peso": -0.0074
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": true,
+      "peso": 0.0583
+     }
+    ],
+    "base": -0.0436,
+    "notas": []
+   },
+   "estad": {
+    "n": 157,
+    "R": 0.25,
+    "WR": 0.69,
+    "gan": 0.8,
+    "perd": -0.98,
+    "PF": 1.81,
+    "dev": 0.15
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 109.99,
+    "pml": 58.75,
+    "pmh_hora": "06:34",
+    "hasta": "08:32"
+   },
+   "caja": {
+    "caja": 183190000,
+    "inversiones": 1303648000,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1649094/000164909426000043/",
+    "flujo_operativo": -513096000,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 85516000,
+    "autonomia_meses": 17.4,
+    "meses_desde_informe": 3.2,
+    "autonomia_hoy": 14.2,
+    "caja_estimada_hoy": 1214333007
+   },
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-09-03 16:18",
+     "items": "5.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1649094/000164909426000045/pcvx-20260831.htm",
+     "titular": "a20260831-8xkxpressrelea Vaxcyte Appoints Chief Medical Officer and Chief Legal Officer; Narrows Guidance for Expected VAX-31 OPUS-1 Topline Data Luis Jodar, Ph.D., Former Pfizer Chief Medical Officer for Vaccines and In",
+     "reaccion": {
+      "dia": "2026-09-04",
+      "apertura": -0.0235,
+      "cierre": -0.0002
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-05 16:07",
+     "items": "2.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1649094/000164909426000041/pcvx-20260805.htm",
+     "titular": "Vaxcyte Reports Second Quarter 2026 Financial Results and Provides Business Update Topline Safety, Tolerability and Immunogenicity Data from VAX-31 Adult Phase 3 OPUS-1 Trial Expected in Fourth Quarter of 2026; OPUS-2 an",
+     "reaccion": {
+      "dia": "2026-08-06",
+      "apertura": -0.0134,
+      "cierre": 0.0531
+     }
+    }
+   ],
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-10-05 08:01",
+     "items": "7.01,8.01,9.01",
+     "items_es": "7.01 nota de prensa; 8.01 otros hechos; 9.01 anexos",
+     "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312526413168/d21202d8k.htm",
+     "partes": [
+      {
+       "archivo": "d21202dex991.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312526413168/d21202dex991.htm",
+       "texto": "Vaxcyte Reports Positive Topline Data from OPUS-1, the Pivotal Adult Phase 3 Trial of VAX-31, the Company’s 31-Valent Pneumococcal Conjugate Vaccine Candidate VAX-31 Met All Prespecified Primary Endpoints Across Age Groups Studied Compared to Prevnar 20 ® (PCV20) and/or Capvaxive ® (PCV21) Prespecified Co-Primary Immunogenicity Endpoints: In Adults 50 and Older, All 28 VAX-31 Serotypes Shared with PCV20 and/or PCV21 Met Noninferiority Criterion at >0.667 Threshold; All Three Serotypes Unique to VAX-31 and Cross-Reactive Serotype 20B Met Superiority Criterion Prespecified Primary Immunobridging Endpoint: Across All 32 1 Serotype Comparisons, VAX-31 Met Noninferiority Criterion at >0.667 Threshold in Adults Aged 18-49 Compared with Adults Aged 50-64 Prespecified Primary Safety Endpoint: VAX-31 Was Well Tolerated and Demonstrated a Safety Profile Similar to PCV20 and PCV21 Across All Ages Studied Prespecified Individual Comparator Results: VAX-31 Met Noninferiority Criterion at >0.667 Threshold for 20 of 20 Serotypes Shared with PCV20 and 17 of 19 Shared with PCV21, and at Historical >0.5 Threshold, VAX-31 Met Noninferiority Criterion for 19 of 19 Shared with PCV21 2 Company Expects to Report Results from OPUS-2 and OPUS-3 Adult Phase 3 Trials in First Half of 2027, Supporting Planned Biologics License Application Submission in First Half of 2028 Topline Results Further Validate Potential of Vaxcyte’s Carrier-Sparing Platform to Deliver Broader Coverage While Maintaining Magnitude of Immune Responses Company to Host Webcast/Conference Call Today at 8:00 a.m. ET/5:00 a.m. PT SAN CARLOS, Calif., October 5, 2026 – Vaxcyte, Inc. (Nasdaq: PCVX), a clinical-stage vaccine innovation company, today announced positive topline results from the OPUS-1 pivotal adult Phase 3 trial evaluating the safety, tolerability and immunogenicity of VAX-31, the Company’s next-generation 31-valent pneumococcal conjugate vaccine (PCV) candidate, for the prevention of invasive pneumococcal disease (IPD) and pneumococcal pneumonia. The results of OPUS-1 will serve as the cornerstone of a planned filing of a Biologics License Application (BLA), which will be subject to U.S. Food and Drug Administration (FDA) review. In the OPUS-1 trial, VAX-31 met all prespecified co-primary immunogenicity endpoints in adults 50 and older: • All 28 VAX-31 serotypes shared with PCV20 and/or PCV21 met the prespecified noninferiority criteria (lower bound of the 95% confidence interval (LBCI) >0.667). 3 • For the 11 serotypes shared by VAX-31, PCV20 and PCV21, VAX-31 met all 11 primary noninferiority assessments based on opsonophagocytic activity (OPA) geometric mean ratios (GMRs). For each serotype, the prespecified analysis required noninferiority against one or both comparators, using an OPA GMR noninferiority criterion of LBCI >0.667 with prespecified multiplicity adjustment. 3 • For the nine serotypes only in VAX-31 and PCV20, all nine met the prespecified OPA GMR noninferiority criterion (LBCI >0.667). 4 • For the eight serotypes only in VAX-31 and PCV21, all eight met the prespecified OPA GMR noninferiority criterion (LBCI >0.667). 4 • The three serotypes unique to VAX-31 and cross-reactive serotype 20B met the OPA GMR superiority criterion (LBCI >2.0) with prespecified multiplicity adjustment. 3 For the prespecified primary immunobridging endpoint, VAX-31 met the noninferiority criterion (LBCI >0.667) for all 32 1 serotype OPA GMR comparisons in adults aged 18-49 compared to adults aged 50-64. In the study, VAX-31 was well tolerated and demonstrated a safety profile similar to PCV20 and PCV21 at all ages studied. In the prespecified individual comparator analyses, VAX-31 met the noninferiority criterion (LBCI >0.667) for 20 of 20 serotypes shared with PCV20 and 17 of 19 shared with PCV21. Compared to PCV21, serotypes 3 and 12F missed the LBCI >0.667 noninferiority criterion and met the historical LBCI >0.5 threshold. 2 “We believe these positive OPUS-1 results provide clinical validation of our site-specific, carrier-sparing platform’s potential to deliver broader-spectrum pneumococcal vaccines while maintaining the magnitude of immune responses,” said Grant Pickering, Chief Executive Officer and Co-founder of Vaxcyte. “VAX-31 met all prespecified primary immunogenicity endpoints across all age groups studied in this pivotal Phase 3 trial, providing the clinical cornerstone for our planned Biologics License Application. We believe VAX-31’s combination of broader coverage and robust immune responses, demonstrated in a trial inaugurating a more stringent noninferiority standard, sets a new benchmark for the class and gives us confidence in its potential for approval. We look forward to announcing results from OPUS-2 and OPUS-3 in the first half of 2027, to be followed by a manufacturing consistency study, as we work toward making this vaccine broadly available to help protect adults from the consequences of pneumococcal disease.” “These OPUS-1 results strengthen our confidence in VAX-31’s potential to provide broader protection against invasive pneumococcal disease and pneumococcal pneumonia,” said James Wassil, Chief Scientific Officer and Chief Operating Officer of Vaxcyte. “Given current U.S. epidemiology, with the serotypes unique to PCV21 accounting for a larger share of adult disease, we expect the comparison of VAX-31 to PCV21 to be a particular focus of FDA review. PCV20 remains an important immunogenicity comparator for VAX-31, including for serotypes 4 and 19F, which are not contained in PCV21. We want to extend our gratitude to everyone involved in this program, especially the study participants, trial investigators and sites.” “Important gaps remain in adult pneumococcal disease coverage, and OPUS-1 highlights VAX-31’s potential to address them,” said Luis Jodar, Ph.D., Chief Medical Officer of Vaxcyte. “Today’s adult PCVs differ in the serotypes they cover, requiring tradeoffs between coverage of currently circulating disease-causing serotypes and preserving coverage of historically important serotypes. VAX-31 is designed to bring both into a single 31-valent vaccine, with the potential to provide incremental coverage of 13-36% of invasive pneumococcal disease 5 and 19-31% of pneumococcal pneumonia 6 compared with currently available adult PCVs.” About OPUS-1, the VAX-31 Adult Pivotal Phase 3 Trial OPUS-1 is a randomized, double-blind, active-controlled Phase 3 trial evaluating the safety, tolerability and immunogenicity of the VAX-31 High Dose, the adult formulation being evaluated in the OPUS Phase 3 program, in healthy, pneumococcal-naïve 7 U.S. adults aged 50 years and older (n=3,572), with a separate cohort of adults aged 18-49 years (n=475). In the High Dose formulation, all serotypes are dosed at 3.3 mcg, except serotypes 1, 5 and 22F, which are dosed at 4.4 mcg. The trial dosed 4,047 participants at approximately 30 sites across the United States. Participants aged 50 years and older were randomized 1:1:1 to receive a single dose of VAX-31, PCV20 or PCV21 on Day 1. Participants aged 18-49 years were randomized 3:1 to receive a single dose of VAX-31 or PCV20 on Day 1, with PCV20 serving as the safety comparator. Immune responses were assessed one month after vaccination. Safety and tolerability are assessed for six months following vaccination. Additional information about the study can be found at www.clinicaltrials.gov under the identifier NCT07284654 . Key Topline Study Results Safety and Tolerability Findings: • VAX-31 was well tolerated and demonstrated a safety profile similar to PCV20 and PCV21 across all ages studied. • Frequently reported solicited local and systemic reactions, assessed from Day 1 through Day 7, were generally mild-to-moderate, with the majority resolving within 48 hours of vaccination, and with no meaningful differences observed across the cohorts. • No serious adverse events were considered to be related to study vaccines, and there were no study discontinuations due to adverse events. Immunogenicity Findings: Prespecified co-primary immunogenicity endpoints in adults 50 and older: • For the 11 serotypes in common with PCV20 and PCV21, VAX-31 met 11 of 11 serotype OPA GMR comparisons per the prespecified noninferiority criterion 4 (LBCI >0.667) compared to PCV20 and/or PCV21. 3 • For the nine serotypes in common with PCV20 only, VAX-31 met 9 of 9 serotype OPA GMR comparisons per the prespecified noninferiority criterion 4 (LBCI >0.667). • For the eight serotypes in common with PCV21 only, VAX-31 met 8 of 8 serotype OPA GMR comparisons per the prespecified noninferiority criterion 4 (LBCI >0.667). • For the three unique serotypes and cross-reactive serotype 20B, VAX-31 met 4 of 4 serotype OPA GMR comparisons per the prespecified superiority criterion 8 (LBCI >2.0) compared to PCV20 and/or PCV21. 3 Prespecified primary immunobridging in adults aged 18-49: • For all 32 1 serotype OPA GMR comparisons, VAX-31 met the noninferiority criterion (LBCI >0.667) in adults aged 18-49 compared to adults aged 50-64. Prespecified individual noninferiority comparisons to PCV20 and PCV21: • Compared to PCV20: VAX-31 OPA GMRs met the prespecified noninferiority criterion (LBCI >0.667) 4 for 20 of 20 serotypes in common. • Compared to PCV21: VAX-31 OPA GMRs met the prespecified noninferiority criterion (LBCI >0.667) 4 for 17 of 19 serotypes in common. Serotypes 3 and 12F missed the LBCI >0.667 noninferiority criterion and met the historical LBCI >0.5 threshold. 2 Key Anticipated PCV Franchise Milestones Vaxcyte is advancing the clinical development of its PCV programs with several anticipated key milestones, including: VAX-31 Adult Indication • Announce safety, tolerability and immunogenicity data from the OPUS-2 and OPUS-3 Phase 3 trials in the first half of 2027. VAX-31 Infant Indication • Announce topline safety, tolerability and immunogenicity data from the VAX-31 infant Phase 2 randomized, dose-finding study from both the primary three-dose immunization series and booster dose either sequentially or together by the end of the first half of 2027. Conference Call and Webcast Vaxcyte will hold a webcast and conference call today, October 5, 2026, at 8:00 a.m. ET / 5:00 a.m. PT to discuss the results from OPUS-1. To participate in the conference call, please dial 800-445-7795 (domestic) or 785-424-1699 (international) and refer to conference ID PCVX1005. A live webcast of the conference call will also be available on the investor relations page of the Vaxcyte corporate website at www.vaxcyte.com . After the live webcast, the event will remain archived on the Vaxcyte website for 30 days. About Pneumococcal Disease Pneumococcal disease (PD) is an infection caused by Streptococcus pneumoniae bacteria. It can result in IPD, including meningitis and bacteremia, and non-invasive PD, including pneumonia, otitis media and sinusitis. In the United States, pneumococcal pneumonia is estimated to result in approximately 225,000 adult hospitalizations each year. Streptococcus pneumoniae is among the World Health Organization’s top antibiotic-resistant pathogens to be urgently addressed, and the U.S. CDC lists drug-resistant Streptococcus pneumoniae as a “serious threat.” In children under five, Streptococcus pneumoniae is the leading cause of vaccine-preventable deaths globally. Pneumococci also cause over 50% of all cases of bacterial meningitis in the United States. Antibiotics are used to treat PD, but some strains of the bacteria have developed resistance to treatments. The morbidity and mortality due to PD are significant, particularly for young children and older adults, underscoring the need for a broader-spectrum vaccine. About VAX-31 VAX-31, a 31-valent PCV candidate being evaluated in the OPUS Phase 3 adult clinical program and in a Phase 2 infant clinical program, is designed to prevent serious and sometimes fatal infections caused by Streptococcus pneumoniae , including IPD, pneumonia and otitis media. Specifically, IPD is associated with high case-fatality rates, antibiotic resistance and meningitis. VAX-31 is the broadest-spectrum PCV candidate in the clinic today and has the potential to provide protection against both currently circulating and historically prevalent serotypes. VAX-31 is designed to increase coverage, in a single vaccine, to approximately 95% of IPD 5 and approximately 88% of pneumococcal pneumonia 6 circulating in adults in the United States aged 50 and older. This disease coverage has the potential to result in VAX-31 providing an incremental 13-36% of coverage for IPD and an incremental 19-31% of coverage for pneumococcal pneumonia over current standard-of-care adult PCVs. In U.S. children, VAX-31 is designed to cover approximately 91% of IPD 9 and approximately 96% of acute otitis media 10 due to Streptococcus pneumoniae . This disease coverage has the potential to result in VAX-31 providing an incremental 27-47% of coverage for IPD and an incremental 35-62% of coverage for otitis media over current standard-of-care infant PCVs. In May 2025, the FDA expanded the Breakthrough Therapy designation (BTD) for VAX-31 to include the prevention of pneumonia caused by Streptococcus pneumoniae in addition to the prevention of IPD in adults based on the positive topline results from the VAX-31 adult Phase 1/2 study. About Vaxcyte Vaxcyte is a vaccine innovation company engineering high-fidelity vaccines to protect humankind from the consequences of bacterial diseases. VAX-31, a 31-valent PCV candidate being evaluated in the OPUS Phase 3 adult clinical program and in a Phase 2 infant clinical program, is being developed for the prevention of IPD and is the broadest-spectrum PCV candidate in the clinic today. VAX-24, a 24-valent PCV candidate, has generated positive Phase 2 clinical results in both adults and infants and is designed to cover more serotypes than any PCV on-market. VAX-31 and VAX-24 are designed to improve upon standard-of-care PCVs by covering the serotypes in circulation that cause a significant portion of IPD and are associated with high case-fatality rates, antibiotic resistance and meningitis, while maintaining coverage of previously circulating strains. VAX-XL, in earlier-stage development, also leverages the Company’s carrier-sparing, site-specific conjugation technology with the aim of further expanding coverage to deliver the broadest-spectrum candidate in the Company’s PCV franchise. VAX-A1 is a prophylactic vaccine candidate designed to provide broad, strain-independent protection against disease caused by Group A Strep and is currently being evaluated in a Phase 1 clinical study in adults. Group A Strep remains a significant global cause of morbidity and mortality across both adult and pediatric populations and is a leading driver of antibiotic use, underscoring the substantial public health burden. Vaxcyte is re-engineering the way highly complex vaccines are made through XpressCF ® , its cell-free protein synthesis platform exclusively licensed from Sutro Biopharma, Inc. Unlike conventional cell-based approaches, the Company’s system for producing difficult-to-make proteins and antigens is intended to develop and deliver high-fidelity vaccines with enhanced immunological benefits. Vaxcyte’s pipeline also includes VAX-GI, a vaccine candidate designed to prevent Shigella. For more information, visit www.vaxcyte.com. Forward-Looking Statements This press release contains forward-looking statements within the meaning of The Private Securities Litigation Reform Act of 1995. These statements include, but are not limited to, statements related to the potential benefits of Vaxcyte’s carrier-sparing platform and vaccine candidates, including breadth of coverage, the ability to deliver potentially best-in-class vaccines and improve upon the standard-of-care; the design, timing of initiation, progress and expected results of Vaxcyte’s clinical trials and regulatory plans along with the standards for review and licensure of vaccines and regulators accepting our study as designed; and other statements that are not historical fact. The words “anticipate,” “believe,” “could,” “expect,” “intend,” “plan,” “may,” “on track,” “potential,” “should,” “would” and similar expressions (as well as other words or expressions referencing future events, conditions or circumstances) convey uncertainty of future events or outcomes and are intended to identify forward-looking statements, although not all forward-looking statements contain these identifying words. These forward-looking statements are based on Vaxcyte’s current expectations and actual results and timing of events could differ materially from those anticipated in such forward-looking statements as a result of risks and uncertainties, including, without limitation, risks related to Vaxcyte’s product development programs, including development timelines, success and timing of chemistry, manufacturing and controls and related manufacturing activities, potential delays or inability to obtain and maintain required regulatory approvals for its vaccine candidates, and the risks and uncertainties inherent with preclinical and clinical development processes; the success, cost and timing of all development activities and clinical trials; and sufficiency of cash and other funding to support Vaxcyte’s development programs and other operating expenses. These and other risks are described more fully in Vaxcyte’s filings with the Securities and Exchange Commission (SEC), including its Quarterly Report on Form 10-Q filed with the SEC on August 5, 2026, or in other documents Vaxcyte subsequently files with or furnishes to the SEC. All forward-looking statements contained in this press release speak only as of the date on which they were made and are based on management’s assumptions and estimates as of such date, and readers should not rely upon the information in this press release as current or accurate after its publication date. Vaxcyte undertakes no duty or obligation to update any forward-looking statements contained in this release as a result of new information, future events or changes in its expectations. # # # Contacts: Patrick Ryan, Executive Director, Corporate Affairs Vaxcyte, Inc. 415-606-5135 media@vaxcyte.com Jeff Macdonald, Executive Director, Investor Relations Vaxcyte, Inc. 917-371-0940 investors@vaxcyte.com 1 31 vaccine serotypes plus cross-reactive serotype 20B. 2 In the prespecified individual comparator-specific noninferiority assessments of VAX-31 vs PCV21, the lower bounds of the 95% confidence intervals for the OPA GMRs for serotypes 3 and 12F exceeded >0.5 but did not meet the prespecified individual noninferiority criterion of LBCI >0.667. The historical LBCI >0.5 noninferiority comparison was a prespecified key secondary endpoint. 3 Under the prespecified Hochberg multiplicity adjustment, each of the 11 shared-serotype noninferiority assessments and each of the four primary superiority assessments succeeds against PCV20 and/or PCV21 if the one-sided adjusted p-value is <0.025 against at least one comparator. The OPA GMR margin for primary endpoints is >0.667 for noninferiority and 2.0 for superiority. 4 For individual comparator-specific noninferiority assessments and the primary immunobridging assessment, the lower bound of the 95% confidence interval (LBCI) for the opsonophagocytic activity (OPA) geometric mean ratio (GMR) must exceed 0.667 to establish noninferiority. 5 Vaxcyte estimates using CDC 2022–2024 Active Bacterial Core surveillance data for U.S. adults aged 50 years and older. Cases with missing serotype data were excluded; non-typeable cases were included in the denominator. The estimates assume cross-protection between serotypes 6A/6C and 15B/15C. https://data.cdc.gov/d/qvzb-qs6p. 6 King LM, et al. Pneumococcal Serotype Distribution and Coverage of Existing and Pipeline Pneumococcal Vaccines. J Infect Dis. 2025;232(4):e609–e620. https://doi.org/10.1093/infdis/jiaf376. Vaxcyte estimates use a weighted average of inpatient pneumonia cases in adults aged 50–64 and ≥65 years and assume cross-protection between serotypes 6A/6C and 15B/15C. 7 Pneumococcal-naïve means no known history of invasive pneumococcal disease, pneumococcal pneumonia or receipt of a licensed or investigational pneumococcal vaccine. 8 LBCI >2.0 for individual comparator-specific superiority assessments. See footnote 3 for the multiplicity-adjusted primary superiority analysis. 9 Vaxcyte estimate using CDC 2022–2024 Active Bacterial Core surveillance data for U.S. children under five years of age. Cases with missing serotype data were excluded; non-typeable cases were included in the denominator. The estimate assumes cross-protection between serotypes 6A/6C and 15B/15C. https://data.cdc.gov/d/qvzb-qs6p. 10 Vaxcyte estimate based on 2017–2021 serotype data for U.S. children five years of age or younger in Supplemental Table 1 of Grant LR, et al. Characterization of Streptococcus pneumoniae isolates obtained from the middle ear fluid of US children, 2011–2021. Front Pediatr. 2024;12:1383748. https://doi.org/10.3389/fped.2024.1383748. The estimate assumes cross-protection between serotypes 6A/6C and 15B/15C.",
+       "recortado": false,
+       "negativos": [
+        {
+         "tipo": "objetivo secundario / clave",
+         "frase": "ntervals for the OPA GMRs for serotypes 3 and 12F exceeded >0.5 but did not meet the prespecified individual noninferiority criterion of LBCI >0.667. The historical LBCI >0.5 noninferiority comparison was a prespecified key secondary endpoint. 3 Under the prespecified Hochberg multiplicity adjustment, each of the 11 shared-serotype noninferiority assessments and each of the four primary superiority assessments succeeds against PCV20 and/or PCV21 if"
+        }
+       ]
+      },
+      {
+       "archivo": "d21202dex992.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312526413168/d21202dex992.htm",
+       "texto": "October 5, 2026 VAX-31 OPUS-1 Pivotal Phase 3 Adult Trial: Topline Results Exhibit 99.2 October 5, 2026 Strong Track Record in Vaccines and Biopharma Grant Pickering, MBA Chief Executive Officer, Director & Co-Founder Andrew Guggenhime, MBA President & Chief Financial Officer Jim Wassil, MS, MBA Executive VP, Chief Operating Officer & Chief Scientific Officer Luis Jodar, PhD Chief Medical Officer Mike Mullette, MBA Chief Commercial Officer Vaxcyte Leadership Team on Today’s Call Forward-Looking Statements October 5, 2026 This presentation contains forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995. These statements include, but are not limited to, statements related to the potential benefits of Vaxcyte’s carrier-sparing platform and vaccine candidates, including breadth of coverage and the ability to deliver potentially better immune responses, best-in-class vaccines and the improvement upon the standard-of-care; demand for Vaxcyte’s vaccine candidates; the design, timing of initiation, progress and expected results of Vaxcyte’s preclinical studies, clinical trials and research and development plans; the ability of Vaxcyte’s cell-free platform to deliver the broadest-spectrum PCVs that provide protection against both currently circulating and historically prevalent strains; expectations with regard to serotype cross-reactivity; the standards for review and licensure of vaccines and regulators accepting Vaxcyte’s study as designed; the ability of Vaxcyte to commercialize its PCV candidates and to meet the PCV franchise market demand for commercial markets; the growth and expansion of the pneumococcal vaccine market, and the potential to address the need for broader-spectrum of coverage in such market; the market opportunity for Vaxcyte’s vaccines; Vaxcyte’s expectations regarding the potential benefits, spectrum coverage, clinical or regulatory pathways, adoption speed and immunogenicity of its vaccine candidates and other statements that are not historical fact. The words “anticipate,” “believe,” “continue,” “could,” “designed,” “estimate,” “expect,” “intend,” “may,” “plan,” “potential,” “predict,” “project,” “should,” “target,” “will,” “would” and similar expressions are intended to identify forward-looking statements, although not all forward-looking statements contain these identifying words. These forward-looking statements are based on Vaxcyte’s current expectations and actual results and timing of events could differ materially from those anticipated in such forward-looking statements as a result of risks and uncertainties, including, without limitation, risks related to Vaxcyte’s product development programs, including development timelines, success and timing of chemistry, manufacturing and controls and related manufacturing activities; potential delays or inability to obtain and maintain required regulatory approvals for its vaccine candidates; the risks and uncertainties inherent with preclinical and clinical development processes; the success, cost and timing of all development activities and clinical trials; and sufficiency of cash and other funding to support Vaxcyte’s development programs and other operating expenses. These and other risks are described more fully in Vaxcyte’s filings with the Securities and Exchange Commission (SEC), including its Quarterly Report on Form 10-Q filed with the SEC on August 5, 2026 or in other documents Vaxcyte subsequently files with or furnishes to the SEC. Vaxcyte undertakes no duty or obligation to update any forward-looking statements contained in this presentation as a result of new information, future events or changes in its expectations. October 5, 2026 Introduction and results overview Agenda OPUS-1 Study and TOPLINE results Trial Design, Disposition and Demographics Tolerability and Safety Data Immunogenicity in Adults Aged ≥50 Years and 18-49 Years Vax-31 PROGRAM Next Steps Introduction and Results Overview October 5, 2026 October 5, 2026 Combined $8.5B Market Expected to Grow to ~$12B by 2030¹ Driven Primarily by Adult Market Expansion Pneumococcal Vaccine Market is Large, Durable and Poised for Significant Growth Future Market 2030: ~$12B Pediatric market is large, well-established, and highly durable Total Market Today: $8.5B4 ADULT SEGMENT GROWTH DRIVERS In 2024, universal recommendation expanded to U.S. adults ≥50 years (from ≥65 years)² “Catch up” revaccination of individuals who received lower-valency pneumococcal vaccines³ Expanded adult PCV recommendations globally Potential shift to two-dose schedule for U.S. adults (≥50 years and again at ≥65 years) “At risk” adults aged 19-49 added to U.S. recommendation ZS Associates, Vaccine Landscape Report - Pneumococcal infections, April 2026. https://www.cdc.gov/pneumococcal/hcp/vaccine-recommendations/. Current revaccination recommendations primarily apply to individuals previously vaccinated with lower‑valency pneumococcal regimens (e.g., PCV13 ± PPSV23). Combined 2025 annual pneumococcal vaccine sales reported by Merck, Pfizer and GSK. 1 2 3 4 5 VAX-31 is Designed to Expand Protection with Broadest Disease Coverage in Adults IPD² (Adults ≥50) IPD = Invasive Pneumococcal Disease; SoC = standard of care; ST = serotype. (1) Immune responses elicited by 20C are expected to be highly cross-reactive with 20B. PCV21 includes 20A and VAX-31 includes 20C. Serotypes 6A/6C and 15B/15C are closely related subtypes for which cross-protection is assumed; PCV21, PCV20 and VAX-31 all include 6A, and PCV20 and VAX-31 include 15B. PCV21 includes 15C and showed cross-reactive responses against 15B, supporting an indication for IPD caused by both 15B and 15C. (2) % of IPD caused in individuals ≥50 yrs of age in the U.S. in 2022-2024 based on ABC surveillance data. (3) Non-bacteremic pneumonia; source: https://doi.org/10.1093/infdis/jiaf376. (4) Gierke R, et al. CDC/NCIRD. ISPPD-14, May 2026. October 5, 2026 ST4 has been increasing in IPD prevalence post-2020, particularly in Western U.S. states,⁴ and 19F continues to persist; neither ST included in PCV21. 16F 35B 15A 20¹ 24F 2 17F 31 7C 23B 23A 9N 7F 10A 19A 6A/C¹ 23F 14 9V 19F 4 18C 1 5 6B 3 22F 11A 12F 15B/C¹ 33F 8 VAX-31 PCV21 PCV20 Spectrum of Serotype Coverage Drives Adoption in PCVs Pneumococcal Pneumonia³ (Adults ≥50) Broadening of Serotype and Disease Coverage Would Eliminate Tradeoffs Required by Current SoC VAX-31 is Designed to Offer Comprehensive Coverage to Address Current Gaps LBCI >1 OPUS-1 Inaugurates a More Stringent >0.667 Noninferiority Standard, Setting a New Bar for Adult PCV Clinical Studies October 5, 2026 OPA GMR: LBCI >0.5 LBCI >0.667 Immune Response Standards for OPA GMRs OPA = opsonophagocytic activity; GMR = geometric mean ratio; NI = noninferiority; ST = serotype; LBCI = lower bound of the 2-sided 95% CI. Historical NI Margin: Shared STs OPUS-1 NI Margin: Shared STs Statistically Greater Margin: Shared STs LBCI >2 Superiority Margin: Unique STs October 5, 2026 OPUS-1 Phase 3 Study: Statistical Framework to Define Success 11 serotypes shared by all 3 vaccines Noninferiority vs PCV20 and/or PCV21 (OPA GMR: LBCI >0.667)¹ 9 serotypes shared with PCV20 only Noninferiority vs PCV20 (OPA GMR: LBCI >0.667) 8 serotypes shared with PCV21 only Noninferiority vs PCV21 (OPA GMR: LBCI >0.667) 3 unique serotypes and cross-reactive 20B Superiority vs PCV20 and/or PCV21 (OPA GMR: LBCI >2.0)¹ (1) For groups 1 and 4: one-sided Hochberg-adjusted p-value <0.025 for at least one comparator. (2) The 32 assessments include 31 vaccine serotypes and cross-reactive 20B. OPA = opsonophagocytic activity; GMR = geometric mean ratio; LBCI = lower bound of the 2-sided 95% CI; NI = noninferiority. Primary analyses use Month 1 OPA geometric mean ratios in the immunogenicity evaluable population. CO-PRIMARY ENDPOINT GROUP 1 CO-PRIMARY ENDPOINT GROUP 2 CO-PRIMARY ENDPOINT GROUP 3 CO-PRIMARY ENDPOINT GROUP 4 Prespecified Individual Noninferiority Comparisons (Adults ≥50): Primary Safety Objective (Adults ≥18): Primary Immunobridging Objective (Adults 18-49): Co-Primary Immunogenicity Objectives (Adults ≥50): If the above co-primary criteria are met: noninferiority of VAX-31 in adults aged 18-49 vs adults aged 50-64; all 32 comparisons² must meet OPA GMR NI at the LBCI >0.667. Evaluate safety and tolerability of VAX-31 administered to adults aged 18-49 and ≥50. Evaluated prespecified individual OPA GMR noninferiority comparisons of VAX-31 vs PCV20 or PCV21 in adults aged ≥50, among other immunogenicity evaluations, to provide additional data for regulators and recommending bodies. October 5, 2026 OPUS-1 Phase 3 Topline Results: VAX-31 Met All Primary Immunogenicity Endpoints and Safety Objectives (1) Groups 1 and 4: one-sided Hochberg-adjusted p-value <0.025 against at least one comparator, as prespecified in the protocol. (2) The 32 assessments include 31 vaccine serotypes and cross-reactive 20B. OPA = opsonophagocytic activity; GMR = geometric mean ratio; NI = noninferiority; LBCI = lower bound of the 2-sided 95% CI. Evaluable Month 1 OPA geometric mean ratios. VAX-31 was well tolerated, with a safety profile similar to PCV20 and PCV21 across all ages studied VAX-31 vs PCV20 shared serotypes met noninferiority criterion (OPA GMR LBCI >0.667) 20 of 20 VAX-31 vs PCV21 shared serotypes met noninferiority criterion (OPA GMR LBCI >0.667) 17 of 19 Co-Primary Immunogenicity Objectives (Adults ≥50): Prespecified Individual Noninferiority Comparisons (Adults ≥50): Primary Safety Objective (Adults ≥18): Primary Immunobridging Objective (Adults 18-49): 32 of 32 comparisons met noninferiority (OPA GMR LBCI >0.667)² 11 serotypes shared by all 3 vaccines 9 serotypes shared with PCV20 only 8 serotypes shared with PCV21 only 3 unique serotypes and cross-reactive 20B CO-PRIMARY ENDPOINT GROUP 1 CO-PRIMARY ENDPOINT GROUP 2 CO-PRIMARY ENDPOINT GROUP 3 CO-PRIMARY ENDPOINT GROUP 4 11 of 11 met noninferiority (OPA GMR: LBCI >0.667)¹ 9 of 9 met noninferiority (OPA GMR: LBCI >0.667) 8 of 8 4 of 4 met superiority (OPA GMR: LBCI >2.0)¹ met noninferiority (OPA GMR: LBCI >0.667) OPUS-1 Study and Topline Results October 5, 2026 Trial Design, Disposition and Demographics October 5, 2026 6 Month Safety Follow-Up OPUS-1 Phase 3 Pivotal, Randomized, Double-Blind, Active-Controlled Clinical Trial in Adults Aged 18 and Older (n=4,047*) October 5, 2026 Adults aged ≥50 years (n=3,572) Adults aged 18-49 years (n=475) Screen Blood Sample Screen Randomize (3:1) Month 1 Month 6 Day 1 Blood Sample Dose Designed to Establish New PCV Standard of Care for Adults Aged 50 and Older Through Head-to-Head Safety, Tolerability and Immunogenicity Comparisons of VAX-31 with PCV20 and PCV21; Evaluated Immunobridging to Adults Aged 18-49 OPA = opsonophagocytic activity; IgG = immunoglobulin G; AEs = adverse events; SAEs = serious adverse events; NOCIs = new onset of chronic illnesses; MAAEs = medically attended adverse events. (*) 1 participant in the 18-49 age group received PCV21. (1) IgG comparisons of VAX‑31 versus PCV21 and/or PCV20 are secondary endpoints. Safety and tolerability assessed through Month 6, including solicited local reactions and systemic events (Day 1-7), unsolicited AEs (Day 1-Month 1), and SAEs, NOCIs and MAAEs (Day 1-Month 6) OPA & IgG Immune Responses¹: VAX-31 vs PCV21 and/or PCV20 OPA & IgG¹ Immune Responses: VAX-31 Age Group Comparison 18-49 vs 50-64 Control Group: PCV20 n=120 Randomize (1:1:1) VAX-31 Immunobridging Comparison (18-49 v 50-64) PCV21 n=1,183 VAX-31 n=1,194 PCV20 n=1,195 VAX-31 n=354 ~97% of Vaccinated Subjects Included in Immunogenicity Evaluable Population Study Disposition October 5, 2026 ≥50 YEARS 18-49 YEARS* Total Enrolled1 N = 3,572 Total Enrolled1 N = 475 VAX-31 N = 1,194 PCV20 N = 1,195 PCV21 N = 1,183 N = 1,194 N = 1,195 N = 1,183 N = 1,147 N = 1,162 N = 1,151 VAX-31 N = 354 PCV20 N = 120 N = 354 N = 120 N = 348 Not Assessed for Immunogenicity 100% 100% 100% 100% 96.1% 97.3% 98.3% Included in Safety Population: Included in Immunogenicity Evaluable Population (IEP): Vaccinated: (1) Enrolled is defined as randomized and vaccinated. (*) 1 participant in the 18-49 age group received PCV21. 100% 97.2% Population Demographics in Adults Aged 50 Years and Older October 5, 2026 VAX-31 PCV20 PCV21 Safety Immunogenicity Safety Immunogenicity Safety Immunogenicity Number of Subjects 1194 1147 1195 1162 1183 1151 Median Age, Years (range) 60.0 (50, 97) 60.0 (50, 97) 60.0 (50, 86) 60.5 (50, 86) 60.0 (50, 85) 60.0 (50, 85) 50 to 64 Years 795 (66.6) 763 (66.5) 793 (66.4) 770 (66.3) 793 (67.0) 770 (66.9) ≥65 Years 399 (33.4) 384 (33.5) 402 (33.6) 392 (33.7) 390 (33.0) 381 (33.1) At Risk for Pneumococcal Disease, n (%) 313 (26.2) 301 (26.2) 350 (29.3) 341 (29.3) 333 (28.1) 321 (27.9) Female, n (%) 686 (57.5) 663 (57.8) 720 (60.3) 703 (60.5) 680 (57.5) 661 (57.4) Race, n (%) White 730 (61.1) 706 (61.6) 776 (64.9) 760 (65.4) 752 (63.6) 737 (64.0) Black or African American 395 (33.1) 373 (32.5) 356 (29.8) 341 (29.3) 380 (32.1) 366 (31.8) Asian 17 (1.4) 17 (1.5) 9 (0.8) 8 (0.7) 11 (0.9) 10 (0.9) American Indian or Native Alaskan 26 (2.2) 25 (2.2) 25 (2.1) 25 (2.2) 23 (1.9) 22 (1.9) Native Hawaiian or Other Pacific Islander 3 (0.3) 3 (0.3) 3 (0.3) 3 (0.3) 1 (0.1) 1 (0.1) Multiracial 5 (0.4) 5 (0.4) 10 (0.8) 10 (0.9) 7 (0.6) 7 (0.6) Ethnicity, n (%) Hispanic or Latino 324 (27.1) 308 (26.9) 326 (27.3) 315 (27.1) 297 (25.1) 291 (25.3) Median BMI, kg/m2 (range) 29.3 (16.6, 62.7) 29.4 (16.6, 62.7) 29.5 (16.6, 59.3) 29.6 (16.6, 59.3) 30.1 (16.2, 70.7) 30.1 (16.2, 70.7) Well-Balanced Across Cohorts and Similar for the Safety and Immunogenicity Populations ADULTS ≥50 YEARS Well-Balanced Across Cohorts and Similar for the Safety and Immunogenicity Populations Population Demographics in Adults Aged 18-49 October 5, 2026 18-49 YEARS SAFETY POPULATION VAX-31 RECIPIENTS (IEP) VAX-31 PCV20 18-49 Years 50-64 Years Number of Subjects 354 120 348 763 Median Age, Years (range) 37 (18, 49) 39 (18, 49) 37 (18, 49) 57 (50, 64) At Risk for Pneumococcal Disease, n (%) 63 (17.8) 23 (19.2) 62 (17.8) 193 (25.3) Female, n (%) 197 (55.6) 63 (52.5) 193 (55.5) 467 (61.2) Race, n (%) White 176 (49.7) 56 (46.7) 173 (49.7) 449 (58.8) Black or African American 131 (37.0) 50 (41.7) 129 (37.1) 268 (35.1) Asian 9 (2.5) 4 (3.3) 9 (2.6) 14 (1.8) American Indian or Native Alaskan 23 (6.5) 7 (5.8) 23 (6.6) 16 (2.1) Native Hawaiian or Other Pacific Islander 1 (0.3) 1 (0.8) 1 (0.3) 2 (0.3) Multiracial 11 (3.1) 2 (1.7) 11 (3.2) 3 (0.4) Ethnicity, n (%) Hispanic or Latino 65 (18.4) 23 (19.2) 63 (18.1) 178 (23.3) Median BMI, kg/m2 (range) 29.5 (17.0, 67.6) 30.2 (18.8, 58.8) 29.5 (17.0, 67.6) 29.6 (16.6, 62.7) ADULTS 18-49 YEARS IEP = Immunogenicity Evaluable Population. Tolerability and Safety Data October 5, 2026 Local and Systemic Solicited AEs in Adults Aged 50 Years and Older October 5, 2026 VAX-31 was Well-Tolerated and Consistent with PCV20 and PCV21, Majority of AEs Resolved Within 48 Hours AEs = adverse events. Grade 1 Grade 2 Grade 3 VAX-31 PCV20 PCV21 ADULTS ≥50 YEARS Local and Systemic Solicited AEs Similar to PCV20 in Adults Aged 18-49 October 5, 2026 AEs = adverse events. VAX-31 was Well-Tolerated and Consistent with PCV20, Majority of AEs Resolved Within 48 Hours Grade 1 Grade 2 Grade 3 VAX-31 PCV20 ADULTS 18-49 YEARS Overall Safety Profile Similar to PCV20 and PCV21 October 5, 2026 AEs = adverse events; MAAE = medically attended adverse event; NOCI = new onset of chronic illness; SAE = serious adverse event; Discontinuation = subject discontinued from the study due to an AE. (1) All four deaths were assessed as unrelated to study vaccination. Two deaths were classified in the injury and poisons category (overdose), with one in the VAX-31 arm and one in the PCV21 arm. The remaining deaths were cardiac arrest in a participant with established cardiovascular risk factors 104 days after vaccination, and sepsis secondary to a pre-existing Group B Streptococcus-infected wound with bacteremia 11 days after vaccination. 50 YEARS AND OLDER SAFETY POPULATION 18-49 YEARS SAFETY POPULATION VAX-31 PCV20 PCV21 VAX-31 PCV20 Number of Subjects 1194 1195 1183 354 120 Unsolicited AE (1-Month), n (%) 75 (6.3) 99 (8.3) 96 (8.1) 37 (10.5) 11 (9.2) Related, n (%) 19 (1.6) 24 (2.0) 28 (2.4) 9 (2.5) 3 (2.5) MAAE, n (%) 71 (5.9) 104 (8.7) 90 (7.6) 26 (7.3) 10 (8.3) Related, n (%) 2 (0.2) 5 (0.4) 3 (0.3) 0 0 NOCI, n (%) 7 (0.6) 9 (0.8) 12 (1.0) 2 (0.6) 3 (2.5) Related, n (%) 0 0 0 0 0 SAE, n (%) 14 (1.2) 13 (1.1) 13 (1.1) 2 (0.6) 0 Related, n (%) 0 0 0 0 0 Death1, n (%) 2 (0.2) 0 2 (0.2) 0 0 Related, n (%) 0 0 0 0 0 Discontinuation, n (%) 0 0 0 0 0 Related, n (%) 0 0 0 0 0 Immunogenicity Data In Adults Aged ≥50 Years and 18-49 Years October 5, 2026 VAX-31/PCV20 VAX-31/PCV21 11 STs in Common With PCV20 and PCV21 October 5, 2026 VAX-31 vs PCV20 & PCV21 on Common 11 STs ST = serotype; OPA = opsonophagocytic activity; GMR = geometric mean ratio; LBCI = lower bound of the 2-sided 95% CI. (1) SAP criterion: lower bound of the 95% CI of the OPA GMR >0.667, Hochberg-adjusted. Met 11 of 11 ST OPA GMR Comparisons Per Prespecified NI Criterion1 (LBCI >0.667) vs PCV20 and/or PCV21 GMR: CO-PRIMARY ENDPOINT GROUP 1 ADULTS ≥50 YEARS 9 STs in Common With Only PCV20 and 8 STs Common With Only PCV21 October 5, 2026 ST = serotype; OPA = opsonophagocytic activity; GMR = geometric mean ratio; LBCI = lower bound of the 2-sided 95% CI. VAX-31 vs PCV20: Shared 9 STs GMR: Met 9 of 9 ST OPA GMR Comparisons vs PCV20 and 8 of 8 vs PCV21 Per Prespecified NI Criterion (LBCI >0.667) VAX-31 vs PCV21: Shared 8 STs GMR: CO-PRIMARY ENDPOINT GROUP 2 CO-PRIMARY ENDPOINT GROUP 3 ADULTS ≥50 YEARS 3 Unique VAX-31 STs and 20B October 5, 2026 ST = serotype; OPA = opsonophagocytic activity; GMR = geometric mean ratio; LBCI = lower bound of the 2-sided 95% CI. (1) With Hochberg multiplicity analysis per protocol. (2) VAX-31 includes serotype 20C; 20B is being evaluated in clinical studies to demonstrate cross-protection. For further detail on serogroup 20, see footnote 1 on slide 7. Met 4 of 4 ST OPA GMR Comparisons Per Prespecified Superiority Criterion (LBCI >2.0) vs PCV20 and/or PCV211 VAX-31 vs PCV20 & PCV21: 3 Unique STs + 20B² GMR: VAX-31/PCV20 VAX-31/PCV21 2 CO-PRIMARY ENDPOINT GROUP 4 ADULTS ≥50 YEARS October 5, 2026 Met Prespecified Primary Endpoint Across All 32 STs¹ (OPA GMR With LBCI >0.667) ST = serotype; OPA = opsonophagocytic activity; GMR = geometric mean ratio; LBCI = lower bound of the 2-sided 95% CI. (1) The 32 assessments include 31 vaccine serotypes and cross-reactive 20B. GMR: GMR: VAX-31 Immunobridging OPA GMR Comparison (18-49 vs 50-64) Immunobridging Comparison in 18-49-Year-Olds vs 50-64-Year-Olds ADULTS 18-49 YEARS 0.667 VAX-31 Met Noninferiority Criterion for 20/20 STs vs PCV20 and 17/19 STs vs PCV21 Comparator-Specific Assessments: VAX-31 Immune Responses vs PCV20 and PCV21 October 5, 2026 VAX-31 vs PCV20: Common 20 STs ST = serotype; OPA = opsonophagocytic activity; GMR = geometric mean ratio; LBCI = lower bound of the 2-sided 95% CI. OPA GMRs met prespecified NI criterion (LBCI >0.667) for 20 of 20 common STs VAX-31 vs PCV21: Common 19 STs OPA GMRs met prespecified NI criterion (LBCI >0.667) for 17 of 19 common STs GMR: GMR: In the U.S., as PCV21 serotypes account for a larger share of adult disease coverage, U.S. regulators may focus more on the individual PCV21 comparison to VAX-31 in review of BLA submission. Serotypes 3 and 12F missed the LBCI >0.667 but met historical threshold of LBCI >0.5. ADULTS ≥50 YEARS VAX-31 Data Support Potential Best-in-Class Adult PCV Profile with Broadest Coverage Relative to SoC; Advancing Toward BLA Submission October 5, 2026 SoC = standard of care; BLA = Biologics License Application; ST = serotype. (1) % of IPD caused in individuals ≥50 yrs of age in the U.S. in 2022-2024 based on ABC surveillance data. (2) Non-bacteremic pneumonia; source: https://doi.org/10.1093/infdis/jiaf376. Broad and robust immune responses observed across all 31 STs + 20B for all ages evaluated. Met all prespecified co-primary and immunobridging endpoints. VAX-31 has the potential to offer significantly broader ST and disease coverage vs SoC vaccines. Represents incremental 13-36% of IPD coverage¹ and incremental 19-31% of pneumococcal pneumonia coverage². The OPUS-1 results support VAX-31’s potential best-in-class profile, serving as cornerstone of the planned BLA, and further validate Vaxcyte’s cell-free platform technology. VAX-31 was well-tolerated with a safety profile similar to PCV20 and PCV21. VAX-31 Program Next Steps October 5, 2026 October 5, 2026 OPUS-1 PIVOTAL TRIAL (N=4,047) Topline results reported; complete data set to be published MANUFACTURING CONSISTENCY STUDY (e.g. lot-to-lot) (N=TBD) OPUS-2: CONCOMITANT ADMINISTRATION WITH SEASONAL INFLUENZA VACCINE (N=1,390) Enrollment complete; topline results anticipated 1H 2027 OPUS-3: ADULTS PREVIOUSLY VACCINATED WITH PNEUMOCOCCAL VACCINES (N=752) Enrollment complete; topline results anticipated 1H 2027 POTENTIAL VAX-31 REGULATORY APPROVAL OPUS Phase 3 Program Serves as Cornerstone of Planned BLA Submission Planned post-licensure real-world effectiveness study following launch (ST-Specific Community Acquired Pneumonia) Planned: Data to be included in BLA submission BLA = Biologics License Application. TOPLINE REPORTED ONGOING ONGOING PLANNED Establish commercial manufacturing readiness, including: Existing supply chain sufficient to meet demand for U.S. adult launch Expanding commercial-scale capacity to support future U.S. demand Foundation to Support Expected U.S. Commercial Launch October 5, 2026 Medical affairs and commercial infrastructure buildout and launch strategy underway, including: Engaging the scientific community Defining the contracting and distribution strategy, including for U.S. retail pharmacies and large health systems Designed to cover 95% of IPD¹ and 88% of pneumococcal pneumonia² in U.S. adults 50 and older, an incremental 13-36% and 19-31% broader disease coverage than standard of care vaccines BLA = Biologics License Application; SoC = standard of care; IPD = invasive pneumococcal disease. (1) % of IPD caused in individuals ≥50 yrs of age in the U.S. in 2022-2024 based on ABC surveillance data. (2) Non-bacteremic pneumonia; source: https://doi.org/10.1093/infdis/jiaf376. Potential Best-in-Class Profile Manufacturing Execution Commercial Readiness for U.S. Launch Integrated Manufacturing, Medical and Commercial Execution Announce safety, tolerability and immunogenicity data from the OPUS-2 and OPUS-3² trials in the first half of 2027 Pipeline of Vaccines with Multiple Near-Term Milestones October 5, 2026 Guidance as of October 5, 2026. OPUS-2 is a Phase 3 trial evaluating concomitant administration of VAX-31 with a seasonal influenza vaccine; OPUS-3 is a Phase 3 trial evaluating VAX-31 in adults who have previously received pneumococcal vaccination. VAX-A1 Phase 1, first-in-human study has the primary objective of evaluating safety and tolerability and is being conducted in Australia. Leveraging Cell-Free Platform to Develop Broad-Spectrum Vaccines to Prevent Bacterial Diseases Preclinical Phase 1 Phase 2 Phase 3 Approved 31-Valent PCV Candidate Adults Infants VAX-31 Third-Generation PCV Candidate Adults & Infants VAX-XL Key Milestones Anticipated by End of 2027¹ Announce topline data from the ongoing Phase 2 dose-finding study from both the primary three-dose immunization series and booster dose either sequentially or together by the end of the first half of 2027 VAX-31 Adult indication VAX-31 Infant indication Announce topline data from the Phase 1, first-in-human adult study³ in the second half of 2027 VAX-A1 Cell-Free Protein Synthesis Platform Unlocks Multiple Vaccine Applications Superior site-specific conjugation chemistry Production of “tough-to-make” protein antigens that conform to target pathogens Speed, flexibility and scalability Facilitates design and production of vaccines beyond the reach of conventional methods, enabling: Novel Group A Strep Vaccine Adults VAX-A1 Children Appendix October 5, 2026 VAX-31 Demonstrated Robust OPA GMT Immune Responses October 5, 2026 IgG = immunoglobulin G; GMT = geometric mean titer; OPA = opsonophagocytic activity; ST = serotype. (1) VAX-31 includes serotype 20C; 20B is being evaluated in clinical studies to demonstrate cross-protection. For further detail on serogroup 20, see footnote 1 on slide 7. STs COMMON TO VAX-31, PCV20 & PCV21 STs COMMON TO VAX-31 & PCV20 STs COMMON TO VAX-31 & PCV21 UNIQUE STs AND 20B¹ OPA GMTs Compared Across VAX-31, PCV20 and PCV21 ADULTS ≥50 YEARS VAX-31 PCV21 PCV20 VAX-31 Demonstrated Robust IgG GMC Responses October 5, 2026 IgG = immunoglobulin G; GMC = Geometric Mean Concentration; OPA = opsonophagocytic activity; ST = serotype. (1) VAX-31 includes serotype 20C; 20B is being evaluated in clinical studies to demonstrate cross-protection. For further detail on serogroup 20, see footnote 1 on slide 7. STs COMMON TO VAX-31, PCV20 & PCV21 STs COMMON TO VAX-31 & PCV20 STs COMMON TO VAX-31 & PCV21 UNIQUE STs AND 20B¹ ADULTS ≥50 YEARS VAX-31 PCV21 PCV20",
+       "recortado": false,
+       "negativos": [
+        {
+         "tipo": "objetivo secundario / clave",
+         "frase": "ous adverse events; NOCIs = new onset of chronic illnesses; MAAEs = medically attended adverse events. (*) 1 participant in the 18-49 age group received PCV21. (1) IgG comparisons of VAX‑31 versus PCV21 and/or PCV20 are secondary endpoints. Safety and tolerability assessed through Month 6, including solicited local reactions and systemic events (Day 1-7), unsolicited AEs (Day 1-Month 1), and SAEs, NOCIs and MAAEs (Day 1-Month 6) OPA & IgG Immune Response"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-10-05 08:01",
+     "items": "7.01,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312526413168/d21202d8k.htm",
+     "items_es": "7.01 nota de prensa; 8.01 otros hechos; 9.01 anexos"
+    },
+    {
+     "form": "4",
+     "hora": "2026-10-02 16:05",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1649094/000181379826000021/xslF345X06/wk-form4_1790971547.xml",
+     "items_es": ""
+    }
+   ],
+   "noticias": [
+    {
+     "hora": "2026-10-04 17:00",
+     "titular": "Vaxcyte to Host Webcast and Conference Call to Present Topline Data from OPUS-1, the Pivotal Adult Phase 3 Trial of VAX-31, the Company's 31-Valent Pneumococcal Conjugate Vaccine Candidate",
+     "url": "https://finviz.com/news/398443/vaxcyte-to-host-webcast-and-conference-call-to-present-topline-data-from-opus-1-the-pivotal-adult-phase-3-trial-of-vax-31-the-companys-31-valent-pneumococcal-conjugate-vaccine-candidate",
+     "fuente": "GlobeNewswire"
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": "2024-05-24",
+    "s1": null,
+    "ventas_12m": 3,
+    "p424_12m": 3,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-02-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312526067533/d28935d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-01-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312526032045/d102422d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-01-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312526029298/d102422d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-09-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312524214302/d851268d424b5.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "424B5",
+      "fecha": "2026-02-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312526067533/d28935d424b5.htm",
+      "tipo": "empresa",
+      "atm_usd": 500000000.0,
+      "atm_agente": "Leerink",
+      "frase_atm": "n stock, $0.001 par value per share (“Common Stock”). In accordance with the terms of the Sales Agreement, under this prospectus supplement, we may offer and sell shares of our Common Stock having an aggregate offering price of up to $500.0 million from time to time through Leerink Partners acting as our sales agent. Our Common Stock is listed on the Nasdaq Global Select Market under the symbol “PCVX.” On February 23, 2026, the last reported sale price of our Comm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-01-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312526032045/d102422d424b5.htm",
+      "tipo": "empresa",
+      "atm_usd": 400000000.0,
+      "atm_agente": null,
+      "frase_atm": "arket” equity offering program. In July 2021, we entered into the Sales Agreement, which was amended on February 27, 2023, pursuant to which we may sell and issue shares of our common stock having an aggregate offering price of up to $400.0 million from time to time in transactions that are deemed to be an “at-the-market offering” as defined in Rule 415(a)(4) under the Securities Act of 1933, as amended, or the Securities Act. Through the date of this prospectus s"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-01-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312526029298/d102422d424b5.htm",
+      "tipo": "empresa",
+      "atm_usd": 400000000.0,
+      "atm_agente": null,
+      "frase_atm": "arket” equity offering program. In July 2021, we entered into the Sales Agreement, which was amended on February 27, 2023, pursuant to which we may sell and issue shares of our common stock having an aggregate offering price of up to $400.0 million from time to time in transactions that are deemed to be an “at-the-market offering” as defined in Rule 415(a)(4) under the Securities Act of 1933, as amended, or the Securities Act. Through the date of this prospectus s"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-09-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312524214302/d851268d424b5.htm",
+      "tipo": "empresa",
+      "atm_usd": 400000000.0,
+      "atm_agente": null,
+      "frase_atm": "arket” equity offering program. In July 2021, we entered into the Sales Agreement, which was amended on February 27, 2023, pursuant to which we may sell and issue shares of our common stock having an aggregate offering price of up to $400.0 million from time to time in transactions that are deemed to be an “at-the-market offering” as defined in Rule 415(a)(4) under the Securities Act of 1933, as amended, or the Securities Act. Through the date of this prospectus s"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-09-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312524212047/d851268d424b5.htm",
+      "tipo": "empresa",
+      "atm_usd": 400000000.0,
+      "atm_agente": null,
+      "frase_atm": "arket” equity offering program. In July 2021, we entered into the Sales Agreement, which was amended on February 27, 2023, pursuant to which we may sell and issue shares of our common stock having an aggregate offering price of up to $400.0 million from time to time in transactions that are deemed to be an “at-the-market offering” as defined in Rule 415(a)(4) under the Securities Act of 1933, as amended, or the Securities Act. Through the date of this prospectus s"
+     },
+     {
+      "form": "S-3ASR",
+      "fecha": "2024-05-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312524147164/d94220ds3asr.htm",
+      "tipo": "empresa",
+      "atm_usd": 400000000.0,
+      "atm_agente": "Jefferies",
+      "frase_atm": "ry 27, 2023 (as amended, the “Amended Sales Agreement”). In accordance with the terms of the Amended Sales Agreement, under this prospectus, we may offer and sell shares of our Common Stock having an aggregate offering price of up to $400.0 million from time to time through Jefferies acting as our sales agent, exclusive of any amounts previously sold under the Sales Agreement. As of May 23, 2024, we have sold 1,971,070 shares of our Common Stock having an aggregat"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-01-31",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312524021094/d675959d424b5.htm",
+      "tipo": "empresa",
+      "atm_usd": 400000000.0,
+      "atm_agente": null,
+      "frase_atm": "arket” equity offering program. In July 2021, we entered into the Sales Agreement, which was amended on February 27, 2023, pursuant to which we may sell and issue shares of our common stock having an aggregate offering price of up to $400.0 million, which is in addition to the $150.0 million aggregate offering price under the original sales agreement, from time to time in transactions that are deemed to be an “at-the-market offering” as defined in Rule 415(a)(4) u"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-01-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312524019426/d675959d424b5.htm",
+      "tipo": "empresa",
+      "atm_usd": 400000000.0,
+      "atm_agente": null,
+      "frase_atm": "arket” equity offering program. In July 2021, we entered into the Sales Agreement, which was amended on February 27, 2023, pursuant to which we may sell and issue shares of our common stock having an aggregate offering price of up to $400.0 million, which is in addition to the $150.0 million aggregate offering price under the original sales agreement, from time to time in transactions that are deemed to be an “at-the-market offering” as defined in Rule 415(a)(4) u"
+     }
+    ],
+    "colocaciones": [],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": {
+     "form": "424B5",
+     "fecha": "2026-02-24",
+     "url": "https://www.sec.gov/Archives/edgar/data/1649094/000119312526067533/d28935d424b5.htm",
+     "tipo": "empresa",
+     "atm_usd": 500000000.0,
+     "atm_agente": "Leerink",
+     "frase_atm": "n stock, $0.001 par value per share (“Common Stock”). In accordance with the terms of the Sales Agreement, under this prospectus supplement, we may offer and sell shares of our Common Stock having an aggregate offering price of up to $500.0 million from time to time through Leerink Partners acting as our sales agent. Our Common Stock is listed on the Nasdaq Global Select Market under the symbol “PCVX.” On February 23, 2026, the last reported sale price of our Comm"
+    },
+    "atm": true,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-05",
+     "url": "https://www.sec.gov/Archives/edgar/data/1649094/000164909426000043/pcvx-20260630.htm"
+    },
+    "eloc": false,
+    "uso_atm": [
+     "As of February 27, 2023, we had sold 4,995,709 shares of our common stock under the Original ATM Sales Agreement at a weighted average price of $ 27.",
+     "Prior to termination, we sold 4,211,367 shares of our common stock under the Amended ATM Sales Agreement at a weighted average price of $ 64.",
+     "As of June 30, 2026, we have not sold any shares of our common stock under the 2026 ATM Sales Agreement.",
+     "As of February 27, 2023, we had sold 4,995,709 shares of our common stock under the Original ATM Sales Agreement at a weighted average price of $27."
+    ],
+    "empresa_dice_caja": "We believe our cash, cash equivalents and investments will be sufficient to fund our operating expenses and capital expenditure requirements through at least 12 months from the filing date of this Quarterly Report on Form 10-Q.",
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.0
+   },
+   "avisos": [],
+   "verificacion": {
+    "estado": "ok",
+    "hora": "08:30",
+    "diferencias": [
+     "Coinciden: fase 3 positiva (B) con los serotipos 3 y 12F que fallan frente a PCV21 a 0.667"
+    ]
+   }
+  },
+  {
+   "sym": "SAIQ",
+   "nombre": "WISeSat.Space Holdings Corp.",
+   "sector": "Communications Services, NEC",
+   "precio": 7.35,
+   "cierre_prev": 1.850000023841858,
+   "gap": 2.973,
+   "cap": 55080028,
+   "acciones": 29772989,
+   "vol_pre": null,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "nota": "Sin noticia NUEVA: la nota del 2-oct 16:05 (WISeQey y SEALSQ) REPITE el cierre de la fusión ya anunciado el 1-oct 17:28 (6-K) → noticia reciclada = N (corregido tras el verificador; antes 'O'). Ex-SPAC (Columbus/COLA): 1.er día 2-oct cerró $1.85 (−35 %); premarket hoy con máximo $18.37 a las 4:30 y ~$6.65 a las 8:27. Float libre muy pequeño (estimado 0.9-3.6 M de ~30 M acciones; 26 M del vendedor bloqueadas hasta ~abr-2027, redenciones de sep-2026 aún no publicadas). PIPE de SEALSQ $10 M a $10.79 (926 784 acciones) con protección: hasta 1 073 216 acciones más hacia el día 60 si cotiza < $10.79 (suelo $5). Sin shelf ni ATM. Caja WISeSat $9.65 M (dic-2025) + PIPE. Riesgo de squeeze muy alto.",
+    "pasos": {
+     "fuentes": [
+      "Yahoo: nota de WISeQey 2-oct 16:05 'Completes Business Combination' leída entera",
+      "EDGAR SAIQ: sin 8-K en la ventana",
+      "Stocktwits SAIQ: sin noticia nueva"
+     ],
+     "anexos_leidos": 0,
+     "negativos": "sin cifras; ex-SPAC: redenciones y acciones del promotor no verificadas",
+     "historial": "2026-10-02 6-K -35%; 2026-10-01 6-K -35%",
+     "municion": "shelf empresa no; ATM no; reventa 0 acciones; ELOC no; 424B 12 m: 1; venta 90 d sí; warrants []; tóxica no — revisado en la ficha",
+     "caja": "caja $None al None (None), quema $None/mes, ~None meses hoy; going concern sí"
+    },
+    "fuentes_abiertas": "Yahoo (nota WISeQey 2-oct 16:05), EDGAR de SAIQ/COLA/WISeKey/SEALSQ, Stocktwits — revisado a mano 5-oct ~8:25 + verificador",
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 63,
+    "tercio": "Media",
+    "pred_R": 0.092,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0065
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": true,
+      "peso": 0.0959
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0852
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1168
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1391
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.04
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0215
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0074
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0583
+     }
+    ],
+    "base": -0.0436,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
+    ]
+   },
+   "estad": {
+    "n": 80,
+    "R": 0.08,
+    "WR": 0.64,
+    "gan": 0.77,
+    "perd": -1.14,
+    "PF": 1.19,
+    "dev": 0.14
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 18.37,
+    "pml": 3.49,
+    "pmh_hora": "04:36",
+    "hasta": "08:31"
+   },
+   "caja": null,
+   "historial": [
+    {
+     "form": "6-K",
+     "fecha": "2026-10-02 09:29",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/2101411/000121390026106117/ea0307504-6k_wisesat.htm",
+     "titular": ", DATED OCTOBER 2, 2026. Exhibit 99.1 WISeSat.Space, a Space Technology Company, Closes Business Combination with Columbus Acquisition Corporation WISeSat.Space Ordinary Shares to Begin Trading on Nasdaq on October 2 Lis",
+     "reaccion": {
+      "dia": "2026-10-02",
+      "apertura": -0.1084,
+      "cierre": -0.3531
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-10-01 17:28",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/2101411/000121390026105923/ea0307430-6k_wisesat.htm",
+     "titular": ", DATED OCTOBER 1, 2026 Exhibit 99.1 WISeSat.Space Holdings Corp. Announces Closing of Business Combination with Columbus Acquisition Corp GENEVA, Switzerland, October 1, 2026 -- WISeSat.Space Holdings Corp., a British V",
+     "reaccion": {
+      "dia": "2026-10-02",
+      "apertura": -0.1084,
+      "cierre": -0.3531
+     }
+    }
+   ],
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [
+    {
+     "hora": "2026-10-02 16:05",
+     "titular": "WISeQey’s Subsidiary WISeSat.Space, a Space Technology Company, Completes Business Combination with Columbus Acquisition Corporation",
+     "url": "https://finance.yahoo.com/technology/articles/wiseqey-subsidiary-wisesat-space-space-200500692.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "municion": {
+    "venta90": true,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "p424_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [],
+    "shelves": [],
+    "colocaciones": [],
+    "shelf_empresa": false,
+    "reventa_acciones": 0,
+    "atm_shelf": null,
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "424B3",
+     "fecha": "2026-08-19",
+     "url": "https://www.sec.gov/Archives/edgar/data/2101411/000121390026091665/ea0270467-13.htm"
+    },
+    "eloc": false,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.005
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
+   ],
+   "verificacion": {
+    "estado": "corregido",
+    "hora": "08:30",
+    "diferencias": [
+     "Error nuestro: clasificado 'O' por la nota del 2-oct 16:05; es la REPETICIÓN del cierre de la fusión anunciado el 1-oct → N (noticia reciclada)",
+     "Añadido: PIPE con protección de precio, bloqueos, float estimado 0.9-3.6 M, sin shelf"
+    ]
+   }
+  },
+  {
+   "sym": "ALEC",
+   "nombre": "Alector, Inc.",
+   "sector": "Biological Products, (No Diagnostic Substances)",
+   "precio": 2.78,
+   "cierre_prev": 1.809999942779541,
+   "gap": 0.5359,
+   "cap": 202099024,
+   "acciones": 111656919,
+   "vol_pre": null,
+   "bolsa": "NasdaqGS",
+   "clasif": {
+    "tipo": "K",
+    "frase_en": "Alector to receive $100 million upfront payment, with potential for up to $1.17 billion in additional milestone payments",
+    "frase_es": "Alector recibirá un pago inicial de 100 millones de dólares, con posibles pagos adicionales por hitos de hasta 1 170 millones",
+    "cifra": "$100 millones (dólares) por adelantado; hasta $1.17 mil millones por hitos (no asegurados)",
+    "nota": "8-K 5-oct 07:00 Item 1.01: licencia FIRMADA con Genentech (Roche) para AL050. Contrato real con dinero, no humo. Negativos: Alector paga $15 M a Spur y un % 'teens' de los hitos; AL050 es PRECLÍNICO; Genentech puede cancelar 'for convenience'. Caja pro forma ~$223.7 M (≈ $2.00/acción) 'into 2029'. ATM de $125 M con TD Cowen (sin uso a 30-jun). Item 2.02 = solo caja preliminar. | VERIFICADO: coincide; además ATM $125 M (TD Cowen) sin uso a 30-jun, S-3 $400 M; sin 424B en 90 días; historial de fracasos clínicos (fase 3 fallida oct-2025, fase 2 parada abr-2026, GSK canceló).",
+    "pasos": {
+     "fuentes": [
+      "8-K 5-oct 07:00 (1.01, 2.02, 7.01, 8.01) + EX-99.01 leídos",
+      "Yahoo: nota GlobeNewswire 07:00 leída"
+     ],
+     "anexos_leidos": 1,
+     "negativos": "pago a Spur $15 M + % de hitos; preclínico; cifras 'up to'; cancelable por Genentech",
+     "historial": "2026-08-06 8-K -3%",
+     "municion": "shelf empresa sí; ATM sí 125000000.0 TD Cowen; reventa 0 acciones; ELOC no; 424B 12 m: 1; venta 90 d no; warrants []; tóxica sí — revisado en la ficha",
+     "caja": "caja $59915000 al 2026-06-30 (10-Q), quema $14005000/mes, ~9.1 meses hoy; going concern no"
+    },
+    "tipo_es": "Contrato real con cifra"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 58,
+    "tercio": "Media",
+    "pred_R": 0.08,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": true,
+      "peso": 0.0065
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.0959
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0852
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1168
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": true,
+      "peso": 0.1391
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.04
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0215
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0074
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0583
+     }
+    ],
+    "base": -0.0436,
+    "notas": []
+   },
+   "estad": {
+    "n": 80,
+    "R": 0.08,
+    "WR": 0.64,
+    "gan": 0.77,
+    "perd": -1.14,
+    "PF": 1.19,
+    "dev": 0.14
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 3.51,
+    "pml": 2.05,
+    "pmh_hora": "08:12",
+    "hasta": "08:32"
+   },
+   "caja": {
+    "caja": 59915000,
+    "inversiones": 112883000,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1653087/000119312526338052/",
+    "flujo_operativo": -84030000,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 14005000,
+    "autonomia_meses": 12.3,
+    "meses_desde_informe": 3.2,
+    "autonomia_hoy": 9.1,
+    "caja_estimada_hoy": 128169715
+   },
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-08-06 16:10",
+     "items": "2.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1653087/000119312526338008/alec-20260806.htm",
+     "titular": "Alector Reports Second Quarter 2026 Financial Results and Provides Business Update Advancing the Alector Brain Carrier (ABC) blood-brain barrier platform across antibodies, enzymes, and siRNA, with AL137 advancing as Ale",
+     "reaccion": {
+      "dia": "2026-08-07",
+      "apertura": 0.0055,
+      "cierre": -0.0273
+     }
+    }
+   ],
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-10-05 07:00",
+     "items": "1.01,2.02,7.01,8.01,9.01",
+     "items_es": "1.01 acuerdo firmado; 2.02 resultados; 7.01 nota de prensa; 8.01 otros hechos; 9.01 anexos",
+     "url": "https://www.sec.gov/Archives/edgar/data/1653087/000119312526413090/alec-20260930.htm",
+     "partes": [
+      {
+       "archivo": "alec-ex99_01.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1653087/000119312526413090/alec-ex99_01.htm",
+       "texto": "Alector Enters Global License Agreement with Genentech for Brain Penetrant GCase Enzyme Replacement Therapy for Parkinson’s Disease and Other Neurodegenerative Diseases Alector grants Genentech exclusive rights to develop and commercialize AL050, an investigational GCase Enzyme Replacement Therapy (ERT) enabled by Alector Brain Carrier (ABC), Alector’s proprietary blood-brain barrier delivery platform Alector to receive $100 million upfront payment, with potential for up to $1.17 billion in additional milestone payments, as well as tiered royalties on net sales --- SOUTH SAN FRANCISCO, Calif., [October 5, 2026] (GLOBE NEWSWIRE) – Alector, Inc. (Nasdaq: ALEC), a biotechnology company focused on developing therapies to counteract the devastating progression of neurodegeneration, today announced it has entered into an exclusive global licensing agreement with Genentech, a member of the Roche Group, granting Genentech worldwide rights to develop and commercialize Alector’s AL050 program, its brain-penetrant engineered glucocerebrosidase (GCase) ERT. AL050 is designed to address GCase deficiency, a driver of neurodegeneration in Parkinson’s Disease that is most pronounced in – but not limited to – carriers of GBA1 mutations. It combines an Alector-engineered GCase, optimized for greater enzymatic activity and a longer half-life, with Alector’s ABC, which is designed to transport therapeutics across the blood-brain barrier. Delivered into the brain, the enzyme is intended to break down glucosylsphingosine and glucosylceramide, lipids that accumulate in neurons and other brain cells upon GCase deficiency and contribute to neurodegeneration, with the aim of reducing cellular dysfunction and slowing disease progression. “Deficient GCase activity is increasingly recognized as a contributor to Parkinson’s Disease, and there is still no approved therapy that addresses the underlying enzyme deficiency,” said Arnon Rosenthal, Ph.D., Chief Executive Officer of Alector. “The challenge in treating GCase deficiency is twofold: engineering an enzyme with optimal activity and durability and successfully delivering it to the brain. AL050 addresses this by pairing an engineered GCase enzyme with our proprietary Alector Brain Carrier technology designed to cross the blood-brain barrier. Genentech’s long-standing commitment to Parkinson's Disease makes them an ideal partner as this program moves toward the clinic\". \"Parkinson's Disease is one of the fastest-growing neurological conditions worldwide,\" said Boris L. Zaïtra, Head of Roche Corporate Business Development. \"By partnering with companies such as Alector we aim to delay or halt the progression of Parkinson's so patients maintain and prolong their independence.\" Under the terms of the agreement, Alector will receive an upfront payment of $100 million and is also eligible to receive additional payments of up to $1.17 billion upon the achievement of development, regulatory, and commercial milestones. Alector is also eligible for tiered royalties on net sales. Under the collaboration, Genentech will be responsible for development, regulatory, manufacturing, and commercialization across all indications. Alector retains ownership of ABC and full rights to apply the platform across its wholly owned pipeline. \"This partnership extends our cash runway into 2029, providing resources to advance our fully active, subcutaneously delivered, brain-enabled anti-Aβ antibody to multi-cohort clinical data in Alzheimer’s patients, and move our subcutaneously delivered, brain-enabled Tau siRNA and alpha- synuclein siRNA programs through IND-enabling studies and to IND filings,\" said Dr. Rosenthal. Alector R&D Webinar on Wholly Owned Pipeline Alector will host a scientific webinar on Tuesday, October 13 th , 2026, at 8:00 a.m. PT, focused on AL137, its brain-enabled anti-Aβ antibody; AL164, its tau siRNA program; and AL062, its alpha-synuclein siRNA program. Registration and webcast information will be available on the Events and Presentations page of the Alector corporate website. About Alector Alector is a biotechnology company focused on developing therapies to counteract the devastating progression of neurodegenerative diseases. Leveraging the principles of genetics, immunology, and neuroscience, the company is advancing a portfolio of programs that aim to remove toxic proteins, replace missing proteins, and restore immune and nerve cell function. Supported by biomarkers, Alector’s product candidates seek to treat a range of indications, such as Alzheimer’s disease and Parkinson's disease. The company is also developing Alector Brain Carrier (ABC), a proprietary blood-brain barrier platform, which is being applied to its preclinical and research pipeline. ABC aims to enhance the delivery of therapeutics, achieve deeper brain penetration and efficacy at lower doses, and ultimately improve patient outcomes while reducing costs. Alector is headquartered in South San Francisco, California. For more information, please visit www.alector.com . Forward Looking Statements This press release contains forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995. Forward-looking statements in this press release include, but are not limited to, statements regarding our business plans, business strategy, product candidates, research and preclinical pipeline, blood-brain barrier technology platform, planned and ongoing preclinical studies, planned clinical trials, expected milestones, expectations of our collaborations, and financial and cash guidance. Such statements are subject to numerous risks and uncertainties, including but not limited to risks and uncertainties as set forth in Alector’s Annual Reports on Form 10-K and Quarterly Reports on Form 10-Q, with the Securities and Exchange Commission (SEC), as well as the other documents Alector files from time to time with the SEC. These documents contain and identify important factors that could cause the actual results for Alector to differ materially from those contained in Alector’s forward-looking statements. Any forward-looking statements contained in this press release speak only as of the date hereof, and Alector specifically disclaims any obligation to update any forward-looking statement, except as required by law.",
+       "recortado": false,
+       "negativos": [
+        {
+         "tipo": "cifra 'hasta' / potencial",
+         "frase": "estigational GCase Enzyme Replacement Therapy (ERT) enabled by Alector Brain Carrier (ABC), Alector’s proprietary blood-brain barrier delivery platform Alector to receive $100 million upfront payment, with potential for up to $1.17 billion in additional milestone payments, as well as tiered royalties on net sales --- SOUTH SAN FRANCISCO, Calif., [October 5, 2026] (GLOBE NEWSWIRE) – Alector, Inc. (Nasdaq: ALEC), a biotechnology company focused"
+        },
+        {
+         "tipo": "cifra 'hasta' / potencial",
+         "frase": "ssion of Parkinson's so patients maintain and prolong their independence.\" Under the terms of the agreement, Alector will receive an upfront payment of $100 million and is also eligible to receive additional payments of up to $1.17 billion upon the achievement of development, regulatory, and commercial milestones. Alector is also eligible for tiered royalties on net sales. Under the collaboration, Genentech will be responsible for development,"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-10-05 07:00",
+     "items": "1.01,2.02,7.01,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1653087/000119312526413090/alec-20260930.htm",
+     "items_es": "1.01 acuerdo firmado; 2.02 resultados; 7.01 nota de prensa; 8.01 otros hechos; 9.01 anexos"
+    }
+   ],
+   "noticias": [
+    {
+     "hora": "2026-10-05 07:00",
+     "titular": "Alector Enters Global License Agreement with Genentech for Brain Penetrant GCase Enzyme Replacement Therapy for Parkinson’s Disease and Other Neurodegenerative Diseases",
+     "url": "https://finance.yahoo.com/healthcare/articles/alector-enters-global-license-agreement-110000587.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": "2026-03-12",
+    "s1": null,
+    "ventas_12m": 1,
+    "p424_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-05-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1653087/000119312526212417/d66073d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-01-19",
+      "url": "https://www.sec.gov/Archives/edgar/data/1653087/000119312524010640/d705015d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-01-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1653087/000119312524008547/d705015d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2023-11-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1653087/000119312523272541/d541044d424b5.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "424B5",
+      "fecha": "2026-05-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1653087/000119312526212417/d66073d424b5.htm",
+      "tipo": "empresa",
+      "atm_usd": 125000000.0,
+      "atm_agente": "TD Cowen",
+      "frase_atm": "our common stock offered by this prospectus supplement and the accompanying prospectus. In accordance with the terms of the sales agreement, we may offer and sell shares of our common stock having an aggregate offering price of up to $125,000,000 from time to time through or to TD Cowen acting as our agent or principal. Our common stock is listed on The Nasdaq Global Select Market under the symbol “ALEC.” On May 6, 2026, the last reported sale price of our common"
+     },
+     {
+      "form": "S-3",
+      "fecha": "2026-03-12",
+      "url": "https://www.sec.gov/Archives/edgar/data/1653087/000119312526104120/d907433ds3.htm",
+      "tipo": "empresa"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2023-11-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1653087/000119312523272541/d541044d424b5.htm",
+      "tipo": "empresa",
+      "atm_usd": 125000000.0,
+      "atm_agente": "Cowen and Company",
+      "frase_atm": "our common stock offered by this prospectus supplement and the accompanying prospectus. In accordance with the terms of the sales agreement, we may offer and sell shares of our common stock having an aggregate offering price of up to $125,000,000 from time to time through or to TD Cowen acting as our agent or principal. Our common stock is listed on The Nasdaq Global Select Market under the symbol “ALEC.” On November 6, 2023, the last reported sale price of our c"
+     }
+    ],
+    "colocaciones": [],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": {
+     "form": "424B5",
+     "fecha": "2026-05-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1653087/000119312526212417/d66073d424b5.htm",
+     "tipo": "empresa",
+     "atm_usd": 125000000.0,
+     "atm_agente": "TD Cowen",
+     "frase_atm": "our common stock offered by this prospectus supplement and the accompanying prospectus. In accordance with the terms of the sales agreement, we may offer and sell shares of our common stock having an aggregate offering price of up to $125,000,000 from time to time through or to TD Cowen acting as our agent or principal. Our common stock is listed on The Nasdaq Global Select Market under the symbol “ALEC.” On May 6, 2026, the last reported sale price of our common"
+    },
+    "atm": true,
+    "toxica": true,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-06",
+     "url": "https://www.sec.gov/Archives/edgar/data/1653087/000119312526338052/alec-20260630.htm"
+    },
+    "eloc": false,
+    "uso_atm": [
+     "0 million in net proceeds under the 2023 Sales Agreement, all of which were issued during 2025.",
+     "0 million in net proceeds under the 2023 Sales Agreement, all of which were issued during 2025.",
+     "0 million in net proceeds from the sale of securities pursuant to the 2023 Sales Agreement."
+    ],
+    "empresa_dice_caja": null,
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.012
+   },
+   "avisos": [
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
+   ],
+   "verificacion": {
+    "estado": "ok",
+    "hora": "08:30",
+    "diferencias": [
+     "Coinciden: licencia firmada con Genentech, $100 M por adelantado (K)",
+     "Añadido: ATM $125 M TD Cowen, historial de fracasos clínicos"
+    ]
+   }
+  },
+  {
+   "sym": "MI",
+   "nombre": "NFT Limited",
+   "sector": "Finance Services",
+   "precio": 2.8,
+   "cierre_prev": 0.8939999938011169,
+   "gap": 2.132,
+   "cap": 546582,
+   "acciones": 611390,
+   "vol_pre": null,
+   "bolsa": "NYSE American",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "fuentes_abiertas": "Yahoo RSS, Finviz, Stocktwits y EDGAR revisados a mano 5-oct ~8:25: última noticia 21-ago (oferta $2.0 M), 6-may contra-split 1:80; ningún documento desde el 2-oct 16:00",
+    "nota": "Sin noticia. Contexto: oferta pública de $2.0 M el 21-ago (−58.5 % ese día) y contra-split 1:80 en mayo. 611 390 acciones según Yahoo (riesgo estructural extremo). | VERIFICADO: 6-K 30-sep 16:20 «agreed to sell an aggregate of 80,000,000 Class A Ordinary Shares … at a price of $0.45 per Share» = venta de 80 000 000 acciones a $0.45 (≈$36 M, Reg S, pendiente de aprobación de NYSE American; ese día cayó −59 %). Warrants de agosto (437 957) con rebaja de precio (ratchet) a ~$0.45-1.45 → muy en dinero a ~$3.5 (tóxico). F-3 de $500 M (baby shelf I.B.5). Caja declarada $98.75 M poco creíble (anticipo de $98.7 M por software 'fallido' devuelto). Float hoy ~0.5-0.67 M acciones → riesgo extremo.",
+    "pasos": {
+     "fuentes": [
+      "EDGAR MI: 0 documentos en la ventana",
+      "Yahoo RSS MI: última 6-may",
+      "Finviz MI: última 21-ago",
+      "Stocktwits MI: sin noticia"
+     ],
+     "anexos_leidos": 0,
+     "negativos": "no aplica (sin catalizador)",
+     "historial": "2026-09-30 6-K -59%; 2026-09-30 6-K -59%; 2026-08-28 6-K +1%",
+     "municion": "shelf empresa sí; ATM no; reventa 0 acciones; ELOC no; 424B 12 m: 2; venta 90 d sí; warrants [16.8, 22.4, 333.6, 1104.0]; tóxica no — revisado en la ficha",
+     "caja": "caja $2812921 al 2025-12-31 (20-F), quema $8275174/mes, ~-8.8 meses hoy; going concern no"
+    },
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 44,
+    "tercio": "Media",
+    "pred_R": 0.071,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0065
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": true,
+      "peso": 0.0959
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0852
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1168
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1391
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.04
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0215
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0074
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0583
+     }
+    ],
+    "base": -0.0436,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
+    ]
+   },
+   "estad": {
+    "n": 80,
+    "R": 0.08,
+    "WR": 0.64,
+    "gan": 0.77,
+    "perd": -1.14,
+    "PF": 1.19,
+    "dev": 0.14
+   },
+   "riesgo": {
+    "nivel": "Extremo",
+    "motivos": [
+     "Solo 0.61 M de acciones en circulación"
+    ],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 4.42,
+    "pml": 0.869,
+    "pmh_hora": "08:13",
+    "hasta": "08:31"
+   },
+   "caja": {
+    "caja": 2812921,
+    "inversiones": 0,
+    "caja_fecha": "2025-12-31",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "20-F",
+    "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026050939/",
+    "flujo_operativo": -99302091,
+    "flujo_desde": "2025-01-01",
+    "flujo_hasta": "2025-12-31",
+    "meses": 12,
+    "quema_mes": 8275174,
+    "autonomia_meses": 0.3,
+    "meses_desde_informe": 9.1,
+    "autonomia_hoy": -8.8,
+    "caja_estimada_hoy": -72761929
+   },
+   "historial": [
+    {
+     "form": "6-K",
+     "fecha": "2026-09-30 16:20",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026105254/ea0307224-6k_nft.htm",
+     "titular": "FORM OF SECURITIES PURCHASE AGREEMENT Exhibit 99.1 SECURITIES PURCHASE AGREEMENT This SECURITIES PURCHASE AGREEMENT (the “ Agreement ”) is dated as of September __, 2026 by and among NFT Limited, a Cayman Islands exempte",
+     "reaccion": {
+      "dia": "2026-10-01",
+      "apertura": -0.5833,
+      "cierre": -0.5903
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-09-30 16:16",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026105247/ea0300243-6k_nft.htm",
+     "titular": "mi-20260630 P1Y Exhibit 99.1 NFT LIMITED AND ITS SUBSIDIARIES UNAUDITED CONDENSED CONSOLIDATED BALANCE SHEETS (Stated in U.S. Dollars except Number of Shares) June 30, December 31, 2026 2025 (Unaudited) ASSETS Current as",
+     "reaccion": {
+      "dia": "2026-10-01",
+      "apertura": -0.5833,
+      "cierre": -0.5903
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-08-28 16:05",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026095036/ea0303759-6k_nft.htm",
+     "titular": "FORM OF SECURITIES PURCHASE AGREEMENT Exhibit 99.1 SECURITIES PURCHASE AGREEMENT THIS SECURITIES PURCHASE AGREEMENT (this “ Agreement ”) is entered into and made effective as of [ ], 2026, between NFT Limited, a Cayman I",
+     "reaccion": {
+      "dia": "2026-08-31",
+      "apertura": -0.0122,
+      "cierre": 0.0081
+     }
+    }
+   ],
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": true,
+    "s3": "2025-10-08",
+    "s1": "2026-08-18",
+    "ventas_12m": 2,
+    "p424_12m": 2,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2026-08-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026092917/ea0303127-424b4_nftlimited.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-03-11",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026026081/ea028097501-424b5_nft.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "F-3/A",
+      "fecha": "2025-10-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390025097396/ea0260312-f3a5_nftlimited.htm",
+      "tipo": "empresa",
+      "base_usd": 500000000.0,
+      "frase_base": "y Shares, Debt Securities Warrants, Rights and Units We may, from time to time in one or more offerings, offer and sell up to $500,000,000 in the aggregate of Class A ordinary shares, par value $0.005 per share (the “ Class A Ordinary Shares ”), debt securities, warrants, un",
+      "baby_shelf": true,
+      "frase_baby": " this prospectus. You should read carefully this prospectus, the applicable prospectus supplement and any related free writing prospectus, as well as the documents incorporated or deemed to be incorporated by reference, before you invest in any of our securities. This prospectus may not be used to offer or sell any securities unless accompanied by the applicable prospectus supplement. Pursuant to General Instruction I.B.5. of Form F-3, in no event will we sell the securities covered hereby in a public primary offering with a value exceeding more than one-third of the aggregate market value of our Class A Ordinary Shares in any 12-month period so long as the aggregate"
+     },
+     {
+      "form": "F-1/A",
+      "fecha": "2025-09-04",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390025084613/ea0255937-f1a2_nft.htm",
+      "tipo": "reventa"
+     },
+     {
+      "form": "F-1/A",
+      "fecha": "2025-08-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390025077445/ea0253380-f1a1_nft.htm",
+      "tipo": "reventa"
+     },
+     {
+      "form": "F-3/A",
+      "fecha": "2025-07-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390025068563/ea0250567-f3a4_nftlimited.htm",
+      "tipo": "empresa"
+     },
+     {
+      "form": "F-3/A",
+      "fecha": "2025-07-14",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390025063800/ea0248616-f3a3_nftlimited.htm",
+      "tipo": "empresa",
+      "base_usd": 500000000.0,
+      "frase_base": "y Shares, Debt Securities Warrants, Rights and Units We may, from time to time in one or more offerings, offer and sell up to $500,000,000 in the aggregate of Class A ordinary shares, par value $0.005 per share (the “ Class A Ordinary Shares ”), debt securities, warrants, un",
+      "baby_shelf": true,
+      "frase_baby": " this prospectus. You should read carefully this prospectus, the applicable prospectus supplement and any related free writing prospectus, as well as the documents incorporated or deemed to be incorporated by reference, before you invest in any of our securities. This prospectus may not be used to offer or sell any securities unless accompanied by the applicable prospectus supplement. Pursuant to General Instruction I.B.5. of Form F-3, in no event will we sell the securities covered hereby in a public primary offering with a value exceeding more than one-third of the aggregate market value of our Class A Ordinary Shares in any 12-month period so long as the aggregate"
+     },
+     {
+      "form": "F-3/A",
+      "fecha": "2025-06-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390025059147/ea0247366-f3a2_nftlimited.htm",
+      "tipo": "empresa",
+      "base_usd": 500000000.0,
+      "frase_base": "y Shares, Debt Securities Warrants, Rights and Units We may, from time to time in one or more offerings, offer and sell up to $500,000,000 in the aggregate of Class A ordinary shares, par value $0.005 per share (the “ Class A Ordinary Shares ”), debt securities, warrants, un",
+      "baby_shelf": true,
+      "frase_baby": " this prospectus. You should read carefully this prospectus, the applicable prospectus supplement and any related free writing prospectus, as well as the documents incorporated or deemed to be incorporated by reference, before you invest in any of our securities. This prospectus may not be used to offer or sell any securities unless accompanied by the applicable prospectus supplement. Pursuant to General Instruction I.B.5. of Form F-3, in no event will we sell the securities covered hereby in a public primary offering with a value exceeding more than one-third of the aggregate market value of our Class A Ordinary Shares in any 12-month period so long as the aggregate"
+     },
+     {
+      "form": "F-1",
+      "fecha": "2025-06-23",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390025056766/ea0245886-f1_nft.htm",
+      "tipo": "reventa"
+     },
+     {
+      "form": "F-3/A",
+      "fecha": "2025-03-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390025021724/ea0233624-f3a1_nftlimited.htm",
+      "tipo": "empresa",
+      "base_usd": 500000000.0,
+      "frase_base": "y Shares, Debt Securities Warrants, Rights and Units We may, from time to time in one or more offerings, offer and sell up to $500,000,000 in the aggregate of Class A ordinary shares, par value $0.005 per share (the “ Class A Ordinary Shares ”), debt securities, warrants, un",
+      "baby_shelf": true,
+      "frase_baby": " this prospectus. You should read carefully this prospectus, the applicable prospectus supplement and any related free writing prospectus, as well as the documents incorporated or deemed to be incorporated by reference, before you invest in any of our securities. This prospectus may not be used to offer or sell any securities unless accompanied by the applicable prospectus supplement. Pursuant to General Instruction I.B.5. of Form F-3, in no event will we sell the securities covered hereby in a public primary offering with a value exceeding more than one-third of the aggregate market value of our Class A Ordinary Shares in any 12-month period so long as the aggregate"
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "6-K",
+      "fecha": "2026-09-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026105254/ea0307224-6k_nft.htm",
+      "precio": 0.45,
+      "acciones": null,
+      "frase": "s ”) as defined in Regulation S of the Securities Act of 1933, as amended (the “ Securities Act ”) pursuant to which the Company agreed to sell an aggregate of 80,000,000 Class A Ordinary Shares of the Company, par value $0.04 per share (“ Share ”), at a price of $0.45 per Share, for an aggregate purchase price of approximately $36 million (the “ Offering ”). The net proceeds to the Company from such Offering shall be used by"
+     },
+     {
+      "form": "6-K",
+      "fecha": "2026-08-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026095036/ea0303759-6k_nft.htm",
+      "precio": null,
+      "acciones": 437957,
+      "frase": " On August 21, 2026, NFT Limited (the \"Company\") entered into a securities purchase agreement (“Purchase Agreement”) with investors in connection with a registered offering (the \"Offering\"). The Offering closed on August 24, 2026. The Company issued 437,957 units, consisting of 279,600 units (the \"Common Units\") and 158,357 pre-funded units (the “Pre-Funded Units”). Each Common Unit consisted of one Class A or"
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": null,
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [
+     16.8,
+     22.4,
+     333.6,
+     1104.0
+    ],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-05-01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026050939/ea0285153-20f_nftltd.htm"
+    },
+    "eloc": false,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_sin_ajustar": [
+     0.21,
+     0.28,
+     4.17,
+     13.8
+    ],
+    "ajuste_splits_warrants": 80.0,
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.012
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
+   ],
+   "verificacion": {
+    "estado": "ok",
+    "hora": "08:30",
+    "diferencias": [
+     "Coinciden: sin catalizador en la ventana (N)",
+     "El verificador añade: venta de 80 M acciones a $0.45 (6-K 30-sep, pendiente de cierre), warrants con rebaja de precio, F-3 $500 M, caja declarada poco creíble — añadido a la nota"
+    ]
+   }
+  },
+  {
+   "sym": "CTNT",
+   "nombre": "Cheetah Net Supply Chain Service Inc.",
+   "sector": "Wholesale-Motor Vehicles & Motor Vehicle Parts & Supplies",
+   "precio": 2.9161,
+   "cierre_prev": 2.619999885559082,
+   "gap": 0.113,
+   "cap": 3493502,
+   "acciones": 1332087,
+   "vol_pre": null,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "fuentes_abiertas": "Yahoo RSS, Finviz, Stocktwits y EDGAR revisados a mano 5-oct ~8:25: última noticia 15-sep (compra de JoyPak, −59 %)",
+    "nota": "Sin noticia. Contexto: anuncio de compra de JoyPak el 15-sep (−59 % ese día). 1.33 M acciones según Yahoo.",
+    "pasos": {
+     "fuentes": [
+      "EDGAR CTNT: 0 documentos en la ventana",
+      "Yahoo RSS CTNT: última 15-sep",
+      "Finviz CTNT: última 15-sep",
+      "Stocktwits CTNT: sin noticia"
+     ],
+     "anexos_leidos": 0,
+     "negativos": "no aplica (sin catalizador)",
+     "historial": "2026-09-30 8-K -10%; 2026-09-15 8-K -59%; 2026-08-26 8-K -1%; 2026-08-13 8-K -2%; 2026-06-22 8-K -3%",
+     "municion": "shelf empresa sí; ATM sí 35280213.01 ; reventa 0 acciones; ELOC no; 424B 12 m: 2; venta 90 d sí; warrants [2400.0]; tóxica no — revisado en la ficha",
+     "caja": "caja $2143604 al 2026-06-30 (10-Q), quema $144293/mes, ~11.7 meses hoy; going concern sí"
+    },
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 17,
+    "tercio": "Baja",
+    "pred_R": -0.025,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0065
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.0959
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0852
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1168
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1391
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.04
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0215
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0074
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0583
+     }
+    ],
+    "base": -0.0436,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
+    ]
+   },
+   "estad": {
+    "n": 198,
+    "R": -0.02,
+    "WR": 0.57,
+    "gan": 0.47,
+    "perd": -0.66,
+    "PF": 0.92,
+    "dev": -0.01
+   },
+   "riesgo": {
+    "nivel": "Alto",
+    "motivos": [
+     "Pocas acciones en circulación (1.33 M)"
+    ],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 3.19,
+    "pml": 2.51,
+    "pmh_hora": "08:19",
+    "hasta": "08:32"
+   },
+   "caja": {
+    "caja": 2143604,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465926096054/",
+    "flujo_operativo": -865760,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 144293,
+    "autonomia_meses": 14.9,
+    "meses_desde_informe": 3.2,
+    "autonomia_hoy": 11.7,
+    "caja_estimada_hoy": 1683799
+   },
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-09-30 17:16",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465926112407/tm2626619d1_8k.htm",
+     "titular": "Item 8.01 Other Events. As previously disclosed in the Company’s Current Report on Form 8-K filed with the U.S. Securities and Exchange Commission (the “SEC”) on August 26, 2026, on August 21, 2026, Cheetah Net Supply Ch",
+     "reaccion": {
+      "dia": "2026-10-01",
+      "apertura": -0.0258,
+      "cierre": -0.0959
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-15 08:00",
+     "items": "1.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465926107715/tm2624728d1_8k.htm",
+     "titular": "Cheetah Net Supply Chain Service Inc. Enters into Agreement to Acquire JoyPak Supply LLC Cheetah Net Supply Chain Service Inc. (“Cheetah” or the “Company”) (Nasdaq CM: CTNT) today announced that it has entered into a Mem",
+     "reaccion": {
+      "dia": "2026-09-15",
+      "apertura": -0.4702,
+      "cierre": -0.5894
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-26 16:05",
+     "items": "1.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465926101479/tm2624021d1_8k.htm",
+     "titular": "Item 1.01. Entry Into a Material Definitive Agreement. On August 21, 2026, Cheetah Net Supply Chain Service Inc. (the “Company”) entered into a sales agreement (the “Sales Agreement”) with Pacific Century Securities, LLC",
+     "reaccion": {
+      "dia": "2026-08-27",
+      "apertura": 0.0066,
+      "cierre": -0.0132
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-13 17:31",
+     "items": "2.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465926096060/tm2623100d1_8k.htm",
+     "titular": "Cheetah Net Supply Chain Service Inc. Announces Second Quarter 2026 Results IRVINE, Calif. August 13, 2026 (GLOBE NEWSWIRE) – Cheetah Net Supply Chain Service Inc. (“Cheetah” or the “Company”) (Nasdaq CM: CTNT), a provid",
+     "reaccion": {
+      "dia": "2026-08-14",
+      "apertura": 0.0,
+      "cierre": -0.0183
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-06-22 16:08",
+     "items": "1.01,3.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465926076373/tm2618435d1_8k.htm",
+     "titular": "Item 1.01. Entry into a Material Definitive Agreement. On June 15, 2026, Cheetah Net Supply Chain Service Inc. (the “Company”) entered into a Securities Purchase Agreement (the “Purchase Agreement”) with Huan Liu, the Co",
+     "reaccion": {
+      "dia": "2026-06-23",
+      "apertura": -0.0659,
+      "cierre": -0.033
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-06-04 16:16",
+     "items": "1.01,5.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465926070532/tm2616696d1_8k.htm",
+     "titular": "Item 1.01. Entry into a Material Definitive Agreement. On May 29, 2026, Cindy Tang, chief financial officer (“ CFO ”) of Cheetah Net Supply Chain Service Inc. (the “ Company ”), submitted a letter of resignation pursuant",
+     "reaccion": {
+      "dia": "2026-06-05",
+      "apertura": -0.0447,
+      "cierre": -0.0168
+     }
+    }
+   ],
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": true,
+    "s3": "2025-01-13",
+    "s1": null,
+    "ventas_12m": 2,
+    "p424_12m": 2,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 6,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-08-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465926100368/tm2623652d1_424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-04-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465926039174/tm2610846d1_424b5.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2024-07-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465924082784/tm2420197-1_424b4.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2024-05-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465924061394/tm2414481d1_424b4.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "424B5",
+      "fecha": "2026-08-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465926100368/tm2623652d1_424b5.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "er share. The aggregate market value of our outstanding Class A common stock held by non-affiliates, or public float, as of August 28, 2024, was approximately $16.60 million, which was calculated based on 28,377,992 shares of Class A common stock held by non-affiliates and the price of $0.585 per share, which was the closing price of our Class A common stock on Nasdaq on July 2, 2024. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell our securities in a public primary offering with a value exceeding more than one-third of our public float in any 12-month period so long as our public float remains below $75 million. During the 12 calendar mon",
+      "atm_usd": 35280213.01,
+      "atm_agente": null,
+      "frase_atm": "01 per share, pursuant to this prospectus supplement and the accompanying prospectus. In accordance with the terms of the Sales Agreement, we may offer and sell shares of Class A common stock with an aggregate offering price of up to $35,280,213.01 from time to time through PCS, acting as sales agent under this prospectus supplement and the accompanying prospectus. Sales of our Class A common stock, if any, under this prospectus supplement may be made by any method"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-04-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465926039174/tm2610846d1_424b5.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "er share. The aggregate market value of our outstanding Class A common stock held by non-affiliates, or public float, as of August 28, 2024, was approximately $16.60 million, which was calculated based on 28,377,992 shares of Class A common stock held by non-affiliates and the price of $0.585 per share, which was the closing price of our Class A common stock on Nasdaq on July 2, 2024. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell our securities in a public primary offering with a value exceeding more than one-third of our public float in any 12-month period so long as our public float remains below $75 million. During the 12 calendar mon",
+      "atm_usd": 70000000.0,
+      "atm_agente": null,
+      "frase_atm": "01 per share, pursuant to this prospectus supplement and the accompanying prospectus. In accordance with the terms of the Sales Agreement, we may offer and sell shares of Class A common stock with an aggregate offering price of up to $70,000,000 from time to time through ACSS, acting as sales agent under this prospectus supplement and the accompanying prospectus. Sales of our Class A common stock, if any, under this prospectus supplement may be made by any metho"
+     },
+     {
+      "form": "S-3",
+      "fecha": "2025-01-13",
+      "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465925003044/tm252830d1_s3.htm",
+      "tipo": "reventa"
+     },
+     {
+      "form": "S-3",
+      "fecha": "2024-08-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465924093976/tm2422734d1_s3.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "er share. The aggregate market value of our outstanding Class A common stock held by non-affiliates, or public float, as of August 28, 2024, was approximately $16.60 million, which was calculated based on 28,377,992 shares of Class A common stock held by non-affiliates and the price of $0.585 per share, which was the closing price of our Class A common stock on Nasdaq on July 2, 2024. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell our securities in a public primary offering with a value exceeding more than one-third of our public float in any 12-month period so long as our public float remains below $75 million. During the 12 calendar mon"
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "8-K",
+      "fecha": "2026-06-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465926076373/tm2618435d1_8k.htm",
+      "precio": 2.0,
+      "acciones": 200000,
+      "frase": ", and Chairman of the Board of Directors (the “Purchaser”), pursuant to which the Company issued and sold to the Purchaser 200,000 shares (the “Shares”) of the Company’s Class B common stock, par value $0.0001 per share (the “Class B Common Stock”), at a purchase price of $2.00 per share, for aggregate gross proceeds to the Company of $400,000. The foregoing description of the Purchase Agreement and the transaction contemplated thereb"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-02-19",
+      "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465926017549/tm266834d1_8k.htm",
+      "precio": null,
+      "acciones": 33450000,
+      "frase": "ply Chain Service Inc. (the “ Company ”) closed the previously disclosed private placement (the “ Offering ”) pursuant to certain stock purchase agreements dated January 27, 2026 with certain investors (the “ Purchasers ”) and issued an aggregate of 33,450,000 shares of Class A common stock, par value $0.0001 per share, of the Company (the “ Shares ”) for aggregate gross proceeds of $40.14 million. The Shares issu"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-01-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465926007972/tm264412d1_8k.htm",
+      "precio": null,
+      "acciones": 33450000,
+      "frase": "e “ Company ”) entered into certain stock purchase agreements (the “ SPAs ”) with certain investors (the “ Purchasers ”), pursuant to which the Company agreed to sell, and the Purchasers agreed to purchase, severally and not jointly, an aggregate of 33,450,000 shares of Class A common stock, par value $0.0001 per share, of the Company (the “ Shares ”) in an aggregate amount of $40.14 million (the “ Offering ”). Th"
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": {
+     "form": "424B5",
+     "fecha": "2026-08-24",
+     "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465926100368/tm2623652d1_424b5.htm",
+     "tipo": "empresa",
+     "baby_shelf": true,
+     "frase_baby": "er share. The aggregate market value of our outstanding Class A common stock held by non-affiliates, or public float, as of August 28, 2024, was approximately $16.60 million, which was calculated based on 28,377,992 shares of Class A common stock held by non-affiliates and the price of $0.585 per share, which was the closing price of our Class A common stock on Nasdaq on July 2, 2024. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell our securities in a public primary offering with a value exceeding more than one-third of our public float in any 12-month period so long as our public float remains below $75 million. During the 12 calendar mon",
+     "atm_usd": 35280213.01,
+     "atm_agente": null,
+     "frase_atm": "01 per share, pursuant to this prospectus supplement and the accompanying prospectus. In accordance with the terms of the Sales Agreement, we may offer and sell shares of Class A common stock with an aggregate offering price of up to $35,280,213.01 from time to time through PCS, acting as sales agent under this prospectus supplement and the accompanying prospectus. Sales of our Class A common stock, if any, under this prospectus supplement may be made by any method"
+    },
+    "atm": true,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [
+     2400.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-13",
+     "url": "https://www.sec.gov/Archives/edgar/data/1951667/000110465926096054/ctnt-20260630x10q.htm"
+    },
+    "eloc": false,
+    "uso_atm": [
+     "Prior to the effectiveness of the Reverse Stock Split, the Company sold an aggregate of 355,000,000 shares of Class A Common Stock pursuant to the Sales Agreement, representing 1,775,000 shares of Class A Common Stock as adjusted to give effect to the Reverse Stock Split.",
+     "From April 29, 2026 through June 18, 2026, following the Reverse Stock Split, the Company sold an aggregate of 1,000,000 shares of Class A Common Stock pursuant to the Sales Agreement.",
+     "Accordingly, prior to the termination of the Sales Agreement, the Company sold an aggregate of 2,775,000 shares of Class A Common Stock pursuant to the Sales Agreement, after giving effect to the Reverse Stock Split.",
+     "The ATM Offering resulted in net proceeds to the Company of approximately $ 30."
+    ],
+    "empresa_dice_caja": null,
+    "warrants_sin_ajustar": [
+     16.0
+    ],
+    "ajuste_splits_warrants": 150.0,
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.011
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
+   ]
+  },
+  {
+   "sym": "RETO",
+   "nombre": "ReTo Eco-Solutions, Inc.",
+   "sector": "Abrasive, Asbestos & Misc Nonmetallic Mineral Prods",
+   "precio": 1.9799,
+   "cierre_prev": 1.5499999523162842,
+   "gap": 0.2774,
+   "cap": 3673368,
+   "acciones": 2319915,
+   "vol_pre": null,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "fuentes_abiertas": "Yahoo RSS, Finviz, Stocktwits y EDGAR revisados a mano 5-oct ~8:25: última noticia 29-sep (consolidación de acciones, −35.9 %) y 17-sep (colocación de $15 M con warrants)",
+    "nota": "Sin noticia. Contexto: colocación directa de $15 M con warrants el 17-sep y consolidación de acciones el 29-sep. Stocktwits dice 0 acciones para prestar (no verificado).",
+    "pasos": {
+     "fuentes": [
+      "EDGAR RETO: 0 documentos en la ventana",
+      "Yahoo RSS RETO: última 18-sep",
+      "Finviz RETO: última 29-sep",
+      "Stocktwits RETO: sin noticia"
+     ],
+     "anexos_leidos": 0,
+     "negativos": "no aplica (sin catalizador)",
+     "historial": "2026-09-25 6-K -7%; 2026-09-18 6-K +2%; 2026-08-07 6-K -12%; 2026-06-22 6-K +6%; 2026-06-12 6-K -5%",
+     "municion": "shelf empresa sí; ATM sí 300000000.0 ; reventa 0 acciones; ELOC no; 424B 12 m: 4; venta 90 d sí; warrants []; tóxica sí — revisado en la ficha",
+     "caja": "caja $250008 al 2025-12-31 (20-F), quema $361755/mes, ~-8.4 meses hoy; going concern sí"
+    },
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 16,
+    "tercio": "Baja",
+    "pred_R": -0.033,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0065
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.0959
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0852
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1168
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1391
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.04
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0215
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": true,
+      "peso": -0.0074
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0583
+     }
+    ],
+    "base": -0.0436,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
+    ]
+   },
+   "estad": {
+    "n": 198,
+    "R": -0.02,
+    "WR": 0.57,
+    "gan": 0.47,
+    "perd": -0.66,
+    "PF": 0.92,
+    "dev": -0.01
+   },
+   "riesgo": {
+    "nivel": "Alto",
+    "motivos": [
+     "Pocas acciones en circulación (2.32 M)"
+    ],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 2.47,
+    "pml": 1.79,
+    "pmh_hora": "07:16",
+    "hasta": "08:31"
+   },
+   "caja": {
+    "caja": 250008,
+    "inversiones": 0,
+    "caja_fecha": "2025-12-31",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "20-F",
+    "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026050658/",
+    "flujo_operativo": -4341056,
+    "flujo_desde": "2025-01-01",
+    "flujo_hasta": "2025-12-31",
+    "meses": 12,
+    "quema_mes": 361755,
+    "autonomia_meses": 0.7,
+    "meses_desde_informe": 9.1,
+    "autonomia_hoy": -8.4,
+    "caja_estimada_hoy": -3053796
+   },
+   "historial": [
+    {
+     "form": "6-K",
+     "fecha": "2026-09-25 17:00",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026103587/ea0306668-6k_reto.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Entry into Material Agreement As previously disclosed, on September 17, 2026, ReTo Eco-Solutions, Inc. (the “Company”) entered into a securities purchase agreement (the “Sec",
+     "reaccion": {
+      "dia": "2026-09-28",
+      "apertura": 0.0065,
+      "cierre": -0.0719
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-09-18 17:00",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026101472/ea0305905-6k_reto.htm",
+     "titular": "DATED SEPTEMBER 17, 2026 Exhibit 99.1 ReTo Eco-Solutions, Inc. Announces Pricing of $15 Million Registered Direct Offering BEIJING, Sept. 17, 2026 /PRNewswire/ -- ReTo Eco-Solutions, Inc. (NASDAQ: RETO) (“ReTo” or the “C",
+     "reaccion": {
+      "dia": "2026-09-21",
+      "apertura": -0.0753,
+      "cierre": 0.0161
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-08-07 17:00",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026086772/ea0300677-6k_reto.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Entry into Material Agreement Securities Purchase Agreement and Pre-Paid Purchase On August 7, 2026 (the “Effective Date”), ReTo Eco-Solutions, Inc. (the “Company”) entered ",
+     "reaccion": {
+      "dia": "2026-08-10",
+      "apertura": 0.0439,
+      "cierre": -0.1216
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-22 16:30",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026070649/ea0295085-6k_reto.htm",
+     "titular": "AUDITED FINANCIAL STATEMENTS OF SEVEN ARROWS SUPPLY CHAIN LIMITED FOR THE YEAR ENDED DECEMBER 31, 2025 AND FOR THE PERIOD FROM JULY 23, 2024 (INCEPTION) TO DECEMBER 31, 2024 Exhibit 99.1 INDEX TO COMBINED FINANCIAL STATE",
+     "reaccion": {
+      "dia": "2026-06-23",
+      "apertura": 0.0442,
+      "cierre": 0.0562
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-12 08:55",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026068019/ea0294524-6k_reto.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Entry into Material Agreement On June 11, 2026, ReTo Eco-Solutions, Inc (the “Company”) entered into a securities purchase agreement (the “Securities Purchase Agreement”) wi",
+     "reaccion": {
+      "dia": "2026-06-12",
+      "apertura": -0.0105,
+      "cierre": -0.0456
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-04 21:50",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026065472/ea0293691-6k_reto.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Change in Independent Registered Public Accounting Firm Termination of the Company’s Independent Registered Public Accounting Firm On June 3, 2026 (the “Dismissal Date”), th",
+     "reaccion": {
+      "dia": "2026-06-05",
+      "apertura": -0.0719,
+      "cierre": 0.0951
+     }
+    }
+   ],
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": true,
+    "s3": "2026-07-07",
+    "s1": null,
+    "ventas_12m": 4,
+    "p424_12m": 4,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-09-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026103264/ea0306662-424b5_retoeco.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-09-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026101201/ea0305902-424b5_retoeco.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-08-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026086731/ea0300676-424b5_reto.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-10-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390025102262/ea0262234-01.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "424B5",
+      "fecha": "2026-09-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026103264/ea0306662-424b5_retoeco.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "T This prospectus supplement and accompanying prospectus are part of a registration statement that we filed with the Securities and Exchange Commission, which we refer to as the “SEC,” utilizing a “shelf” registration process. Under this shelf registration process, we may from time to time sell our Class A Shares having an aggregate offering price of up to $300,000,000 (subject to compliance with General Instruction I.B.5 of Form F-3). Under this prospectus supplement and accompanying prospectus, we are selling Class A Shares in this Offering. Other than Class A Shares being sold pursuant to this offering, we have sold $38,160,000 worth of our securities under this s",
+      "atm_usd": 300000000.0,
+      "atm_agente": null,
+      "frase_atm": "es and Exchange Commission, which we refer to as the “SEC,” utilizing a “shelf” registration process. Under this shelf registration process, we may from time to time sell our Class A Shares having an aggregate offering price of up to $300,000,000 (subject to compliance with General Instruction I.B.5 of Form F-3). Under this prospectus supplement and accompanying prospectus, we are selling Class A Shares in this Offering. Other than Class A Shares being sold pursu"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-09-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026101201/ea0305902-424b5_retoeco.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "T This prospectus supplement and accompanying prospectus are part of a registration statement that we filed with the Securities and Exchange Commission, which we refer to as the “SEC,” utilizing a “shelf” registration process. Under this shelf registration process, we may from time to time sell our Class A Shares having an aggregate offering price of up to $300,000,000 (subject to compliance with General Instruction I.B.5 of Form F-3). Under this prospectus supplement and accompanying prospectus, we are selling Class A Shares in this Offering. Other than Class A Shares being sold pursuant to this offering, we have sold $38,160,000 worth of our securities under this s",
+      "atm_usd": 300000000.0,
+      "atm_agente": null,
+      "frase_atm": "es and Exchange Commission, which we refer to as the “SEC,” utilizing a “shelf” registration process. Under this shelf registration process, we may from time to time sell our Class A Shares having an aggregate offering price of up to $300,000,000 (subject to compliance with General Instruction I.B.5 of Form F-3). Under this prospectus supplement and accompanying prospectus, we are selling Class A Shares in this Offering. Other than Class A Shares being sold pursu"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-08-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026086731/ea0300676-424b5_reto.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "T This prospectus supplement and accompanying prospectus are part of a registration statement that we filed with the Securities and Exchange Commission, which we refer to as the “SEC,” utilizing a “shelf” registration process. Under this shelf registration process, we may from time to time sell our Class A Shares having an aggregate offering price of up to $300,000,000 (subject to compliance with General Instruction I.B.5 of Form F-3). Under this prospectus supplement and accompanying prospectus, we may from time to time sell Class A Shares having an aggregate offering price of up to $38,160,000, at prices and on terms set forth in the Securities Purchase Agreement, ",
+      "atm_usd": 300000000.0,
+      "atm_agente": null,
+      "frase_atm": "es and Exchange Commission, which we refer to as the “SEC,” utilizing a “shelf” registration process. Under this shelf registration process, we may from time to time sell our Class A Shares having an aggregate offering price of up to $300,000,000 (subject to compliance with General Instruction I.B.5 of Form F-3). Under this prospectus supplement and accompanying prospectus, we may from time to time sell Class A Shares having an aggregate offering price of up to $"
+     },
+     {
+      "form": "F-3/A",
+      "fecha": "2026-07-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026075775/ea0297237-f3a1_reto.htm",
+      "tipo": "empresa"
+     },
+     {
+      "form": "F-3",
+      "fecha": "2026-06-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026071764/ea0292924-f3_reto.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "F-3, and the aggregate offering price of the securities we sell pursuant to this prospectus will not exceed $300,000,000. In no event will we sell securities registered on this Registration Statement in a public primary offering for an aggregate offering amount exceeding one-third of our public float in any 12-month period if our public float falls below $75 million, calculated in accordance with General Instruction I.B.5 of Form F-3. During the 12 calendar months prior to and including the date of this prospectus, we have sold, pursuant to General Instruction I.B.5 of Form F-3, an aggregate offering amount of approximately $1,428,571. We may offer securities through"
+     },
+     {
+      "form": "F-1",
+      "fecha": "2025-09-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390025087644/ea0257108-f1_retoeco.htm",
+      "tipo": "reventa"
+     },
+     {
+      "form": "F-3",
+      "fecha": "2025-07-31",
+      "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390025070052/ea0250659-f3_retoeco.htm",
+      "tipo": "reventa"
+     },
+     {
+      "form": "F-3",
+      "fecha": "2024-09-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390024081495/ea0215293-f3_retoecosol.htm",
+      "tipo": "reventa"
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "6-K",
+      "fecha": "2026-09-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026103587/ea0306668-6k_reto.htm",
+      "precio": 1.5,
+      "acciones": null,
+      "frase": " securities purchase agreement (the “Securities Purchase Agreement”) with certain investors in connection with a registered direct offering for the offer and sale of 10,000,000 Class A Shares of the Company, no par value per share (“Class A Shares”) at a purchase price of $1.50 per share, and 10,000,000 Class A Share purchase warrants (“Warrants”), at an exercise price of $2.75, in a registered direct offering (such offering, the “Ini"
+     },
+     {
+      "form": "6-K",
+      "fecha": "2026-09-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026101472/ea0305905-6k_reto.htm",
+      "precio": 1.5,
+      "acciones": null,
+      "frase": " a securities purchase agreement (the “Securities Purchase Agreement”) with certain investors in connection with a registered direct offering for the offer and sale of 10,000,000 Class A share of the Company, no par value per share (“Class A Share”) at a purchase price of $1.50 per share, and 10,000,000 Class A share purchase warrant (“Warrants”), at an exercise price of $2.75, in a registered direct offering (such offering, the “Offe"
+     },
+     {
+      "form": "6-K",
+      "fecha": "2026-06-12",
+      "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026068019/ea0294524-6k_reto.htm",
+      "precio": null,
+      "acciones": 5937494,
+      "frase": "rcise Price”), subject to adjustment, including cashless exercise and exercise reset, however, in no event shall the exercise price be lower than $0.10 per share and the maximum amount of Shares issuable upon exercise of the Warrants will not exceed 5,937,494 Shares. The Warrants are exercisable upon issuance and will expire five years from their Initial Exercise Date. Pursuant to the Securities Purchase Agreemen"
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": {
+     "form": "424B5",
+     "fecha": "2026-09-25",
+     "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026103264/ea0306662-424b5_retoeco.htm",
+     "tipo": "empresa",
+     "baby_shelf": true,
+     "frase_baby": "T This prospectus supplement and accompanying prospectus are part of a registration statement that we filed with the Securities and Exchange Commission, which we refer to as the “SEC,” utilizing a “shelf” registration process. Under this shelf registration process, we may from time to time sell our Class A Shares having an aggregate offering price of up to $300,000,000 (subject to compliance with General Instruction I.B.5 of Form F-3). Under this prospectus supplement and accompanying prospectus, we are selling Class A Shares in this Offering. Other than Class A Shares being sold pursuant to this offering, we have sold $38,160,000 worth of our securities under this s",
+     "atm_usd": 300000000.0,
+     "atm_agente": null,
+     "frase_atm": "es and Exchange Commission, which we refer to as the “SEC,” utilizing a “shelf” registration process. Under this shelf registration process, we may from time to time sell our Class A Shares having an aggregate offering price of up to $300,000,000 (subject to compliance with General Instruction I.B.5 of Form F-3). Under this prospectus supplement and accompanying prospectus, we are selling Class A Shares in this Offering. Other than Class A Shares being sold pursu"
+    },
+    "atm": true,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-05-01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1687277/000121390026050658/ea0287277-20f_retoeco.htm"
+    },
+    "eloc": false,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_sin_ajustar": [],
+    "ajuste_splits_warrants": 80.0,
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.017
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)",
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
+   ]
+  }
+ ],
+ "descartadas": [
+  {
+   "sym": "VEEA",
+   "nombre": "Veea Inc.",
+   "sector": "Services-Computer Integrated Systems Design",
+   "precio": 5.2,
+   "cierre_prev": 3.3299999237060547,
+   "gap": 0.5616,
+   "cap": 10358657,
+   "acciones": 3110708,
+   "vol_pre": null,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "F",
+    "frase_en": "The loans were in the principal amount of $500,000, $500,000, $500,000 and $150,000",
+    "frase_es": "Los préstamos fueron por 500 000, 500 000, 500 000 y 150 000 dólares",
+    "cifra": "$1,650,000 (dólares) en préstamos sin garantía al 10 % de NLabs (accionista principal, ligado al CEO)",
+    "nota": "Único documento en la ventana: 8-K 2-oct 16:30 Items 1.01/2.03 = préstamos del accionista principal NLabs (afiliado al CEO) por $1.65 M a la vista (3.ª tanda en 2 meses) → por la regla escrita es FINANCIACIÓN (F) → descartada. DIFERENCIA DE CRITERIO con el verificador: él lo ve como 'sin catalizador positivo' (N), porque la subida (ya +28 % en el after-hours del viernes) se apoya en noticias viejas (NovaGen no vinculante 14-sep, TROLLEE 1-oct) y float de ~1.85 M acciones no afiliadas. Munición fuerte: notas convertibles tóxicas de White Lion (90 % del VWAP más bajo de 10 días, ~$1.75 M), ELOC White Lion $25 M, ATM Roth $4.35 M, S-3 $75 M (baby shelf, límite ~$3.8 M/año). Caja ≈ 0-1 mes; vive de préstamos del CEO.",
+    "pasos": {
+     "fuentes": [
+      "8-K 2-oct 16:30 (1.01, 2.03) leído",
+      "Yahoo RSS VEEA: última 17-sep",
+      "Finviz VEEA: última 1-oct (TROLLEE)",
+      "Stocktwits VEEA: sin noticia nueva"
+     ],
+     "anexos_leidos": 1,
+     "negativos": "préstamo del CEO = la empresa no tiene caja",
+     "historial": "2026-09-16 8-K -13%; 2026-08-26 8-K -19%; 2026-08-13 8-K +2%; 2026-08-10 8-K -20%; 2026-08-05 8-K -2%",
+     "municion": "shelf empresa sí; ATM sí 4353000.0 Roth Capital; reventa 1225015 acciones; ELOC sí; 424B 12 m: 1; venta 90 d sí; warrants [1.0, 6.2, 10.0, 10.2, 13.6, 22.0, 230.0]; tóxica sí — revisado en la ficha",
+     "caja": "caja $886966 al 2026-06-30 (10-Q), quema $1853767/mes, ~-2.7 meses hoy; going concern no"
+    },
+    "tipo_es": "Financiación"
+   },
+   "motivo": "Financiación: históricamente malo para el corto (PF 0.72)",
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-10-02 16:30",
+     "items": "1.01,2.03,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1840317/000121390026106421/ea0307544-8k_veea.htm",
+     "items_es": "1.01 acuerdo firmado; 2.03 deuda nueva; 9.01 anexos"
+    }
+   ]
+  },
+  {
+   "sym": "SDEV",
+   "nombre": "Stablecoin Development Corporat",
+   "sector": "Finance Services",
+   "precio": 10.39,
+   "cierre_prev": 7.480000019073486,
+   "gap": 0.389,
+   "cap": 387100160,
+   "acciones": 51751359,
+   "vol_pre": null,
+   "bolsa": "NYSE American",
+   "clasif": {
+    "tipo": "R",
+    "frase_en": "As of September 30, 2026, the Company held 2,321,079,862 SKY tokens",
+    "frase_es": "A 30 de septiembre de 2026, la empresa tenía 2 321 079 862 tokens SKY",
+    "cifra": "2,321,079,862 tokens SKY a $0.07764 por token (dólares), cifras preliminares del trimestre",
+    "nota": "8-K 5-oct 08:05 Item 2.02 = cifras preliminares del trimestre (tokens SKY y balance) → resultados (R), descartada. Tercer día seguido en la lista (2-oct: −1.25R).",
+    "pasos": {
+     "fuentes": [
+      "8-K 5-oct 08:05 (2.02, 8.01) + EX-99.1 leídos",
+      "Yahoo RSS SDEV: vacío",
+      "Finviz SDEV: última 31-jul"
+     ],
+     "anexos_leidos": 1,
+     "negativos": "cifras preliminares no auditadas",
+     "historial": "2026-09-29 8-K -21%; 2026-07-31 8-K -3%; 2026-06-17 8-K +3%",
+     "municion": "shelf empresa sí; ATM sí 100000000.0 Virtu; reventa 167539227 acciones; ELOC no; 424B 12 m: 1; venta 90 d no; warrants [0.05, 1.0, 3.3, 5.5]; tóxica no — revisado en la ficha",
+     "caja": "caja $6968000 al 2026-06-30 (10-Q), quema $1294833/mes, ~2.2 meses hoy; going concern no"
+    },
+    "frase_url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926031972/sdev20260914_8k.htm",
+    "tipo_es": "Resultados"
+   },
+   "motivo": "Resultados o cifras de ventas (trimestrales, anuales o preliminares): históricamente malo para el corto (PF 0.61)",
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-10-05 08:05",
+     "items": "2.02,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926031972/sdev20260914_8k.htm",
+     "items_es": "2.02 resultados; 8.01 otros hechos; 9.01 anexos"
+    }
+   ]
+  },
+  {
+   "sym": "PTC",
+   "nombre": "PTC Inc.",
+   "sector": "Services-Prepackaged Software",
+   "precio": 195.9732,
+   "cierre_prev": 144.02999877929688,
+   "gap": 0.3606,
+   "cap": 15628156928,
+   "acciones": 108506261,
+   "vol_pre": null,
+   "bolsa": "NasdaqGS",
+   "clasif": {
+    "tipo": "C",
+    "frase_en": "All-cash acquisition at $205 per share for 100% of the share capital of PTC",
+    "frase_es": "Compra 100 % en efectivo a 205 dólares por acción de todo el capital de PTC",
+    "cifra": "$205 por acción (dólares); valor ~$22.6 mil millones",
+    "nota": "Schneider Electric compra PTC en efectivo: el precio queda anclado a $205. Compra en efectivo = no se shortea (descartada).",
+    "pasos": {
+     "fuentes": [
+      "8-K 5-oct 07:22 (1.01) + EX-99 leído",
+      "Yahoo: 'Schneider Electric to buy … PTC for $22.6 bln' (4-oct)",
+      "Yahoo: 'PTC Stock Soars Over 15% Overnight' (4-oct)"
+     ],
+     "anexos_leidos": 1,
+     "negativos": "no aplica",
+     "historial": "2026-07-29 8-K +3%",
+     "municion": "shelf empresa no; ATM no; reventa 0 acciones; ELOC no; 424B 12 m: 0; venta 90 d no; warrants []; tóxica no — revisado en la ficha",
+     "caja": "caja $351454000 al 2026-06-30 (10-Q), quema $None/mes, ~None meses hoy; going concern no"
+    },
+    "tipo_es": "Compra en efectivo"
+   },
+   "motivo": "Compra en efectivo: el precio queda anclado a la oferta (PF histórico 0.23). No se shortea nunca",
+   "docs_hoy": [
+    {
+     "form": "DEFA14A",
+     "hora": "2026-10-05 07:24",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/857005/000119312526413128/d174191ddefa14a.htm",
+     "items_es": ""
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-10-05 07:22",
+     "items": "1.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/857005/000119312526413124/d174191d8k.htm",
+     "items_es": "1.01 acuerdo firmado; 7.01 nota de prensa; 9.01 anexos"
+    }
+   ]
+  },
+  {
+   "sym": "RXO",
+   "nombre": "RXO, Inc.",
+   "sector": "Transportation Services",
+   "precio": 28.756,
+   "cierre_prev": 23.3799991607666,
+   "gap": 0.2299,
+   "cap": 3855972608,
+   "acciones": 164926128,
+   "vol_pre": null,
+   "bolsa": "NYSE",
+   "clasif": {
+    "tipo": "C",
+    "frase_en": "C.H. Robinson will acquire RXO in a stock-and-cash transaction for an implied value of $5.8 billion",
+    "frase_es": "C.H. Robinson comprará RXO en una operación en acciones y efectivo por un valor implícito de 5 800 millones de dólares",
+    "cifra": "$5.8 mil millones (dólares) de valor implícito",
+    "nota": "Fusión definitiva (8-K 1.01) con precio ligado a la oferta: el precio queda anclado → descartada (C).",
+    "pasos": {
+     "fuentes": [
+      "8-K 5-oct 08:17 (1.01) + EX-99 leído",
+      "Yahoo 07:37",
+      "Yahoo 07:00 nota oficial",
+      "Barron's 07:39",
+      "Yahoo 2-oct 18:54 (subida previa)"
+     ],
+     "anexos_leidos": 1,
+     "negativos": "no aplica",
+     "historial": "2026-09-09 8-K +1%; 2026-08-06 8-K -4%",
+     "municion": "shelf empresa sí; ATM no; reventa 0 acciones; ELOC no; 424B 12 m: 0; venta 90 d no; warrants []; tóxica no — revisado en la ficha",
+     "caja": "caja $15000000 al 2026-06-30 (10-Q), quema $7833333/mes, ~-1.3 meses hoy; going concern no"
+    },
+    "tipo_es": "Compra en efectivo"
+   },
+   "motivo": "Compra en efectivo: el precio queda anclado a la oferta (PF histórico 0.23). No se shortea nunca",
+   "docs_hoy": [
+    {
+     "form": "425",
+     "hora": "2026-10-05 08:17",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1929561/000114036126038549/ef20083265_425.htm",
+     "items_es": ""
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-10-05 08:17",
+     "items": "1.01,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1929561/000114036126038548/ef20083265_8k.htm",
+     "items_es": "1.01 acuerdo firmado; 8.01 otros hechos; 9.01 anexos"
+    }
+   ]
+  }
+ ],
+ "resultados": null,
+ "auditoria": {
+  "errores": [],
+  "avisos": [
+   "nasdaqtrader no se descargó (['otherlisted.txt']): universo cubierto con la lista de la SEC (7115 tickers Nasdaq/NYSE); los tickers MUY nuevos pueden faltar → TradingView los cubre",
+   "APUS: cita NO comprobada por programa (GlobeNewswire no se deja leer por programa y no hay 8-K ni copia en Yahoo; leída con WebFetch y confirmada por el verificador); revisada a mano"
+  ],
+  "cobertura": {
+   "universo": 6477,
+   "cotizadas": 6466,
+   "pct": 0.9983,
+   "ficheros_faltan": [
+    "otherlisted.txt"
+   ],
+   "fuentes_universo": {
+    "nasdaqtrader": 3438,
+    "sec": 7115
+   },
+   "massive": 12601,
+   "tradingview": 16,
+   "solo_tradingview": []
+  },
+  "forzada": false
+ },
+ "salud": {
+  "pruebas": "31/31",
+  "pruebas_ok": true,
+  "universo": 6477,
+  "cobertura": 0.9983,
+  "nasdaqtrader": "falta otherlisted.txt (cubierto con la SEC)",
+  "sec": 7115,
+  "massive": true,
+  "tradingview": true,
+  "candidatos": 11,
+  "verificadas": "5/5",
+  "citas_comprobadas": "6/7",
+  "citas_no_comprobables": [
+   "APUS"
+  ],
+  "errores": 0,
+  "avisos": 2,
+  "forzada": false,
+  "linea": "Salud: pruebas 31/31 · universo 6477 (99.8% cotizadas) · nasdaqtrader falta otherlisted.txt (cubierto con la SEC) · Massive ok · TradingView ok · candidatos 11 · verificadas 5/5 · citas comprobadas 6/7 (no comprobables: APUS) · auditoría 0 errores, 2 avisos"
+ }
+}

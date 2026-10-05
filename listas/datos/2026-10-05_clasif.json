@@ -1,0 +1,224 @@
+{
+ "MI": {
+  "tipo": "N",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
+  "fuentes_abiertas": "Yahoo RSS, Finviz, Stocktwits y EDGAR revisados a mano 5-oct ~8:25: última noticia 21-ago (oferta $2.0 M), 6-may contra-split 1:80; ningún documento desde el 2-oct 16:00",
+  "nota": "Sin noticia. Contexto: oferta pública de $2.0 M el 21-ago (−58.5 % ese día) y contra-split 1:80 en mayo. 611 390 acciones según Yahoo (riesgo estructural extremo). | VERIFICADO: 6-K 30-sep 16:20 «agreed to sell an aggregate of 80,000,000 Class A Ordinary Shares … at a price of $0.45 per Share» = venta de 80 000 000 acciones a $0.45 (≈$36 M, Reg S, pendiente de aprobación de NYSE American; ese día cayó −59 %). Warrants de agosto (437 957) con rebaja de precio (ratchet) a ~$0.45-1.45 → muy en dinero a ~$3.5 (tóxico). F-3 de $500 M (baby shelf I.B.5). Caja declarada $98.75 M poco creíble (anticipo de $98.7 M por software 'fallido' devuelto). Float hoy ~0.5-0.67 M acciones → riesgo extremo.",
+  "pasos": {
+   "fuentes": [
+    "EDGAR MI: 0 documentos en la ventana",
+    "Yahoo RSS MI: última 6-may",
+    "Finviz MI: última 21-ago",
+    "Stocktwits MI: sin noticia"
+   ],
+   "anexos_leidos": 0,
+   "negativos": "no aplica (sin catalizador)",
+   "historial": "2026-09-30 6-K -59%; 2026-09-30 6-K -59%; 2026-08-28 6-K +1%",
+   "municion": "shelf empresa sí; ATM no; reventa 0 acciones; ELOC no; 424B 12 m: 2; venta 90 d sí; warrants [16.8, 22.4, 333.6, 1104.0]; tóxica no — revisado en la ficha",
+   "caja": "caja $2812921 al 2025-12-31 (20-F), quema $8275174/mes, ~-8.8 meses hoy; going concern no"
+  }
+ },
+ "SAIQ": {
+  "tipo": "N",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
+  "nota": "Sin noticia NUEVA: la nota del 2-oct 16:05 (WISeQey y SEALSQ) REPITE el cierre de la fusión ya anunciado el 1-oct 17:28 (6-K) → noticia reciclada = N (corregido tras el verificador; antes 'O'). Ex-SPAC (Columbus/COLA): 1.er día 2-oct cerró $1.85 (−35 %); premarket hoy con máximo $18.37 a las 4:30 y ~$6.65 a las 8:27. Float libre muy pequeño (estimado 0.9-3.6 M de ~30 M acciones; 26 M del vendedor bloqueadas hasta ~abr-2027, redenciones de sep-2026 aún no publicadas). PIPE de SEALSQ $10 M a $10.79 (926 784 acciones) con protección: hasta 1 073 216 acciones más hacia el día 60 si cotiza < $10.79 (suelo $5). Sin shelf ni ATM. Caja WISeSat $9.65 M (dic-2025) + PIPE. Riesgo de squeeze muy alto.",
+  "pasos": {
+   "fuentes": [
+    "Yahoo: nota de WISeQey 2-oct 16:05 'Completes Business Combination' leída entera",
+    "EDGAR SAIQ: sin 8-K en la ventana",
+    "Stocktwits SAIQ: sin noticia nueva"
+   ],
+   "anexos_leidos": 0,
+   "negativos": "sin cifras; ex-SPAC: redenciones y acciones del promotor no verificadas",
+   "historial": "2026-10-02 6-K -35%; 2026-10-01 6-K -35%",
+   "municion": "shelf empresa no; ATM no; reventa 0 acciones; ELOC no; 424B 12 m: 1; venta 90 d sí; warrants []; tóxica no — revisado en la ficha",
+   "caja": "caja $None al None (None), quema $None/mes, ~None meses hoy; going concern sí"
+  },
+  "fuentes_abiertas": "Yahoo (nota WISeQey 2-oct 16:05), EDGAR de SAIQ/COLA/WISeKey/SEALSQ, Stocktwits — revisado a mano 5-oct ~8:25 + verificador"
+ },
+ "ALEC": {
+  "tipo": "K",
+  "frase_en": "Alector to receive $100 million upfront payment, with potential for up to $1.17 billion in additional milestone payments",
+  "frase_es": "Alector recibirá un pago inicial de 100 millones de dólares, con posibles pagos adicionales por hitos de hasta 1 170 millones",
+  "cifra": "$100 millones (dólares) por adelantado; hasta $1.17 mil millones por hitos (no asegurados)",
+  "nota": "8-K 5-oct 07:00 Item 1.01: licencia FIRMADA con Genentech (Roche) para AL050. Contrato real con dinero, no humo. Negativos: Alector paga $15 M a Spur y un % 'teens' de los hitos; AL050 es PRECLÍNICO; Genentech puede cancelar 'for convenience'. Caja pro forma ~$223.7 M (≈ $2.00/acción) 'into 2029'. ATM de $125 M con TD Cowen (sin uso a 30-jun). Item 2.02 = solo caja preliminar. | VERIFICADO: coincide; además ATM $125 M (TD Cowen) sin uso a 30-jun, S-3 $400 M; sin 424B en 90 días; historial de fracasos clínicos (fase 3 fallida oct-2025, fase 2 parada abr-2026, GSK canceló).",
+  "pasos": {
+   "fuentes": [
+    "8-K 5-oct 07:00 (1.01, 2.02, 7.01, 8.01) + EX-99.01 leídos",
+    "Yahoo: nota GlobeNewswire 07:00 leída"
+   ],
+   "anexos_leidos": 1,
+   "negativos": "pago a Spur $15 M + % de hitos; preclínico; cifras 'up to'; cancelable por Genentech",
+   "historial": "2026-08-06 8-K -3%",
+   "municion": "shelf empresa sí; ATM sí 125000000.0 TD Cowen; reventa 0 acciones; ELOC no; 424B 12 m: 1; venta 90 d no; warrants []; tóxica sí — revisado en la ficha",
+   "caja": "caja $59915000 al 2026-06-30 (10-Q), quema $14005000/mes, ~9.1 meses hoy; going concern no"
+  }
+ },
+ "APUS": {
+  "tipo": "H",
+  "frase_en": "has signed a 2-year master maintenance and service agreement with Delaware-based BlockAssure Inc.",
+  "frase_es": "ha firmado un contrato marco de mantenimiento y servicios de 2 años con BlockAssure Inc., de Delaware",
+  "cifra": "sin cifra en dólares: tarifas no publicadas; parte del pago en 20 % de un token (AssureCoin) que aún no existe",
+  "frase_url": "https://www.globenewswire.com/news-release/2026/10/05/3374481/0/en/mindwave-innovations-signs-agreement-with-us-based-blockassure-to-build-and-operate-assurechain-an-end-to-end-insurance-and-reinsurance-network.html",
+  "cita_no_comprobable": "GlobeNewswire no se deja leer por programa y no hay 8-K ni copia en Yahoo; leída con WebFetch y confirmada por el verificador",
+  "nota": "Nota de prensa 5-oct 08:00 (GlobeNewswire 'via IBN') SIN 8-K: filial MindWave firma contrato de servicios blockchain SIN importe. 3.ª nota igual en 11 días (24-sep AQUAE: abrió +205 % y se desinfló −63 % en 6 sesiones; 29-sep FlashChain: sin efecto). FALLO DE LA HERRAMIENTA: el lector de noticias no la vio (la empresa sale como 'MindWave Innovations' en Finviz) — encontrada a mano. Caja usable $278 371 (los $8 M son restringidos) → ~0 meses; going concern; nota convertible de $10.9 M en impago y a precio variable (tóxica); 14.95 M acciones por convertir de preferentes; aviso NYSE American con plazo 15-oct. Sin shelf ni ATM. ~1.54 M acciones: riesgo de squeeze muy alto. | VERIFICADO: coincide (humo, sin 8-K, sin importe); además 14.95 M acciones por convertir de preferentes y nota de $10.9 M en impago.",
+  "pasos": {
+   "fuentes": [
+    "GlobeNewswire 5-oct 08:00 (vía Stocktwits/Finviz) leída con WebFetch",
+    "EDGAR APUS: sin 8-K en la ventana",
+    "Yahoo RSS APUS: vacío",
+    "Finviz APUS: 'MindWave' 24-sep, 29-sep y hoy"
+   ],
+   "anexos_leidos": 0,
+   "negativos": "sin importe; pago en token inexistente; sin 8-K; empresa insolvente",
+   "historial": "2026-09-29 8-K -0%; 2026-09-11 8-K -3%; 2026-08-21 8-K -2%; 2026-08-06 8-K -12%; 2026-07-13 8-K -1%",
+   "municion": "shelf empresa no; ATM no; reventa 0 acciones; ELOC no; 424B 12 m: 0; venta 90 d no; warrants [17.8, 40.0, 50.0]; tóxica sí — revisado en la ficha",
+   "caja": "caja $278371 al 2026-06-30 (10-Q), quema $1289149/mes, ~-3.0 meses hoy; going concern sí"
+  },
+  "fuente_fuera_herramienta": "GlobeNewswire 5-oct 08:00 NY: https://www.globenewswire.com/news-release/2026/10/05/3374481/0/en/mindwave-innovations-signs-agreement-with-us-based-blockassure-to-build-and-operate-assurechain-an-end-to-end-insurance-and-reinsurance-network.html (el lector de noticias no la vio)"
+ },
+ "VEEA": {
+  "tipo": "F",
+  "frase_en": "The loans were in the principal amount of $500,000, $500,000, $500,000 and $150,000",
+  "frase_es": "Los préstamos fueron por 500 000, 500 000, 500 000 y 150 000 dólares",
+  "cifra": "$1,650,000 (dólares) en préstamos sin garantía al 10 % de NLabs (accionista principal, ligado al CEO)",
+  "nota": "Único documento en la ventana: 8-K 2-oct 16:30 Items 1.01/2.03 = préstamos del accionista principal NLabs (afiliado al CEO) por $1.65 M a la vista (3.ª tanda en 2 meses) → por la regla escrita es FINANCIACIÓN (F) → descartada. DIFERENCIA DE CRITERIO con el verificador: él lo ve como 'sin catalizador positivo' (N), porque la subida (ya +28 % en el after-hours del viernes) se apoya en noticias viejas (NovaGen no vinculante 14-sep, TROLLEE 1-oct) y float de ~1.85 M acciones no afiliadas. Munición fuerte: notas convertibles tóxicas de White Lion (90 % del VWAP más bajo de 10 días, ~$1.75 M), ELOC White Lion $25 M, ATM Roth $4.35 M, S-3 $75 M (baby shelf, límite ~$3.8 M/año). Caja ≈ 0-1 mes; vive de préstamos del CEO.",
+  "pasos": {
+   "fuentes": [
+    "8-K 2-oct 16:30 (1.01, 2.03) leído",
+    "Yahoo RSS VEEA: última 17-sep",
+    "Finviz VEEA: última 1-oct (TROLLEE)",
+    "Stocktwits VEEA: sin noticia nueva"
+   ],
+   "anexos_leidos": 1,
+   "negativos": "préstamo del CEO = la empresa no tiene caja",
+   "historial": "2026-09-16 8-K -13%; 2026-08-26 8-K -19%; 2026-08-13 8-K +2%; 2026-08-10 8-K -20%; 2026-08-05 8-K -2%",
+   "municion": "shelf empresa sí; ATM sí 4353000.0 Roth Capital; reventa 1225015 acciones; ELOC sí; 424B 12 m: 1; venta 90 d sí; warrants [1.0, 6.2, 10.0, 10.2, 13.6, 22.0, 230.0]; tóxica sí — revisado en la ficha",
+   "caja": "caja $886966 al 2026-06-30 (10-Q), quema $1853767/mes, ~-2.7 meses hoy; going concern no"
+  }
+ },
+ "PCVX": {
+  "tipo": "B",
+  "frase_en": "VAX-31 Met All Prespecified Primary Endpoints Across Age Groups Studied",
+  "frase_es": "VAX-31 cumplió todos los objetivos primarios preestablecidos en todas las edades estudiadas",
+  "cifra": "4,047 participantes; 28 de 28 serotipos no inferiores (umbral 0.667); frente a PCV21: 17 de 19",
+  "nota": "8-K 5-oct 08:01: fase 3 pivotal OPUS-1 positiva. Negativo escondido (nota 2 y EX-99.2): frente a PCV21 (Merck) los serotipos 3 y 12F NO cumplen la no inferioridad a 0.667 (solo a 0.5, objetivo secundario clave) y la empresa dice que la FDA se fijará en esa comparación. No es small cap (~$8 mil millones antes del gap, $2.5 mil millones de caja; ATM de $500 M con Leerink sin usar a 30-jun). | VERIFICADO: coincide; S-3ASR y ATM $500 M (Leerink) sin uso a 30-jun; última oferta ene-2026 a $50 (12.65 M acciones).",
+  "pasos": {
+   "fuentes": [
+    "8-K 5-oct 08:01 + EX-99.1 + EX-99.2 leídos",
+    "Finviz: aviso del webcast 4-oct 17:00"
+   ],
+   "anexos_leidos": 2,
+   "negativos": "serotipos 3 y 12F fallan frente a PCV21 a 0.667; BLA hasta 2028; datos topline",
+   "historial": "2026-09-03 8-K -0%; 2026-08-05 8-K +5%",
+   "municion": "shelf empresa sí; ATM sí 500000000.0 Leerink; reventa 0 acciones; ELOC no; 424B 12 m: 3; venta 90 d no; warrants []; tóxica no — revisado en la ficha",
+   "caja": "caja $183190000 al 2026-06-30 (10-Q), quema $85516000/mes, ~14.2 meses hoy; going concern no"
+  }
+ },
+ "SDEV": {
+  "tipo": "R",
+  "frase_en": "As of September 30, 2026, the Company held 2,321,079,862 SKY tokens",
+  "frase_es": "A 30 de septiembre de 2026, la empresa tenía 2 321 079 862 tokens SKY",
+  "cifra": "2,321,079,862 tokens SKY a $0.07764 por token (dólares), cifras preliminares del trimestre",
+  "nota": "8-K 5-oct 08:05 Item 2.02 = cifras preliminares del trimestre (tokens SKY y balance) → resultados (R), descartada. Tercer día seguido en la lista (2-oct: −1.25R).",
+  "pasos": {
+   "fuentes": [
+    "8-K 5-oct 08:05 (2.02, 8.01) + EX-99.1 leídos",
+    "Yahoo RSS SDEV: vacío",
+    "Finviz SDEV: última 31-jul"
+   ],
+   "anexos_leidos": 1,
+   "negativos": "cifras preliminares no auditadas",
+   "historial": "2026-09-29 8-K -21%; 2026-07-31 8-K -3%; 2026-06-17 8-K +3%",
+   "municion": "shelf empresa sí; ATM sí 100000000.0 Virtu; reventa 167539227 acciones; ELOC no; 424B 12 m: 1; venta 90 d no; warrants [0.05, 1.0, 3.3, 5.5]; tóxica no — revisado en la ficha",
+   "caja": "caja $6968000 al 2026-06-30 (10-Q), quema $1294833/mes, ~2.2 meses hoy; going concern no"
+  },
+  "frase_url": "https://www.sec.gov/Archives/edgar/data/1389545/000143774926031972/sdev20260914_8k.htm"
+ },
+ "PTC": {
+  "tipo": "C",
+  "frase_en": "All-cash acquisition at $205 per share for 100% of the share capital of PTC",
+  "frase_es": "Compra 100 % en efectivo a 205 dólares por acción de todo el capital de PTC",
+  "cifra": "$205 por acción (dólares); valor ~$22.6 mil millones",
+  "nota": "Schneider Electric compra PTC en efectivo: el precio queda anclado a $205. Compra en efectivo = no se shortea (descartada).",
+  "pasos": {
+   "fuentes": [
+    "8-K 5-oct 07:22 (1.01) + EX-99 leído",
+    "Yahoo: 'Schneider Electric to buy … PTC for $22.6 bln' (4-oct)",
+    "Yahoo: 'PTC Stock Soars Over 15% Overnight' (4-oct)"
+   ],
+   "anexos_leidos": 1,
+   "negativos": "no aplica",
+   "historial": "2026-07-29 8-K +3%",
+   "municion": "shelf empresa no; ATM no; reventa 0 acciones; ELOC no; 424B 12 m: 0; venta 90 d no; warrants []; tóxica no — revisado en la ficha",
+   "caja": "caja $351454000 al 2026-06-30 (10-Q), quema $None/mes, ~None meses hoy; going concern no"
+  }
+ },
+ "RETO": {
+  "tipo": "N",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
+  "fuentes_abiertas": "Yahoo RSS, Finviz, Stocktwits y EDGAR revisados a mano 5-oct ~8:25: última noticia 29-sep (consolidación de acciones, −35.9 %) y 17-sep (colocación de $15 M con warrants)",
+  "nota": "Sin noticia. Contexto: colocación directa de $15 M con warrants el 17-sep y consolidación de acciones el 29-sep. Stocktwits dice 0 acciones para prestar (no verificado).",
+  "pasos": {
+   "fuentes": [
+    "EDGAR RETO: 0 documentos en la ventana",
+    "Yahoo RSS RETO: última 18-sep",
+    "Finviz RETO: última 29-sep",
+    "Stocktwits RETO: sin noticia"
+   ],
+   "anexos_leidos": 0,
+   "negativos": "no aplica (sin catalizador)",
+   "historial": "2026-09-25 6-K -7%; 2026-09-18 6-K +2%; 2026-08-07 6-K -12%; 2026-06-22 6-K +6%; 2026-06-12 6-K -5%",
+   "municion": "shelf empresa sí; ATM sí 300000000.0 ; reventa 0 acciones; ELOC no; 424B 12 m: 4; venta 90 d sí; warrants []; tóxica sí — revisado en la ficha",
+   "caja": "caja $250008 al 2025-12-31 (20-F), quema $361755/mes, ~-8.4 meses hoy; going concern sí"
+  }
+ },
+ "RXO": {
+  "tipo": "C",
+  "frase_en": "C.H. Robinson will acquire RXO in a stock-and-cash transaction for an implied value of $5.8 billion",
+  "frase_es": "C.H. Robinson comprará RXO en una operación en acciones y efectivo por un valor implícito de 5 800 millones de dólares",
+  "cifra": "$5.8 mil millones (dólares) de valor implícito",
+  "nota": "Fusión definitiva (8-K 1.01) con precio ligado a la oferta: el precio queda anclado → descartada (C).",
+  "pasos": {
+   "fuentes": [
+    "8-K 5-oct 08:17 (1.01) + EX-99 leído",
+    "Yahoo 07:37",
+    "Yahoo 07:00 nota oficial",
+    "Barron's 07:39",
+    "Yahoo 2-oct 18:54 (subida previa)"
+   ],
+   "anexos_leidos": 1,
+   "negativos": "no aplica",
+   "historial": "2026-09-09 8-K +1%; 2026-08-06 8-K -4%",
+   "municion": "shelf empresa sí; ATM no; reventa 0 acciones; ELOC no; 424B 12 m: 0; venta 90 d no; warrants []; tóxica no — revisado en la ficha",
+   "caja": "caja $15000000 al 2026-06-30 (10-Q), quema $7833333/mes, ~-1.3 meses hoy; going concern no"
+  }
+ },
+ "CTNT": {
+  "tipo": "N",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
+  "fuentes_abiertas": "Yahoo RSS, Finviz, Stocktwits y EDGAR revisados a mano 5-oct ~8:25: última noticia 15-sep (compra de JoyPak, −59 %)",
+  "nota": "Sin noticia. Contexto: anuncio de compra de JoyPak el 15-sep (−59 % ese día). 1.33 M acciones según Yahoo.",
+  "pasos": {
+   "fuentes": [
+    "EDGAR CTNT: 0 documentos en la ventana",
+    "Yahoo RSS CTNT: última 15-sep",
+    "Finviz CTNT: última 15-sep",
+    "Stocktwits CTNT: sin noticia"
+   ],
+   "anexos_leidos": 0,
+   "negativos": "no aplica (sin catalizador)",
+   "historial": "2026-09-30 8-K -10%; 2026-09-15 8-K -59%; 2026-08-26 8-K -1%; 2026-08-13 8-K -2%; 2026-06-22 8-K -3%",
+   "municion": "shelf empresa sí; ATM sí 35280213.01 ; reventa 0 acciones; ELOC no; 424B 12 m: 2; venta 90 d sí; warrants [2400.0]; tóxica no — revisado en la ficha",
+   "caja": "caja $2143604 al 2026-06-30 (10-Q), quema $144293/mes, ~11.7 meses hoy; going concern sí"
+  }
+ }
+}
