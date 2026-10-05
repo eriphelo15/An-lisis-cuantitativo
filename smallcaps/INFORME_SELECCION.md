@@ -349,3 +349,21 @@ Correcciones: precio real exacto (Massive 1 min) o calibrado por acción; ventan
 | **Alto + gap ≥ 50 %** | **157** | **+0.25** | **69 %** | **+0.80** | **−0.98** | **1.81** |
 Spearman VAL p 0.0016; alto − bajo +0.20R (t 2.77). Coincide con la réplica a ciegas (alto + gap ≥ 50 %: +0.24R, PF 1.74). Pesos nuevos
 en `puntuacion_pesos.json` (usados por el Radar desde el 2-oct). E4 (ronda 13) rehecha con festivos: igual (no validada).
+
+## Ronda 14 — LADO LARGO, fase 1 (5-oct-2026, `31_largos_fase1.py`; pre-registro en HIPOTESIS_SELECCION.md)
+Setup base largo (referencia mecánica): compra a la apertura, stop −20 % con 2 % de deslizamiento, salida al cierre, coste 0.5 %. 6 366 gappers
+≥ 20 % con precio real ≥ $1 (2 409 con catalizador etiquetado a mano). Resultado en `res_31_largos.csv`.
+- **Base (todos):** DEV −0.185R (n 2 276, WR 27 %, +1.32R / −0.73R, PF 0.66) · VAL −0.060R (n 4 090, WR 35 %, +1.35R / −0.81R, PF 0.89).
+  Comprar gappers a la apertura pierde: el sesgo natural es bajista (coherente con el lado corto).
+- **HL1** real (K/B) + sin munición: DEV −0.003R (27) / VAL −0.275R (30, PF 0.50) → NO.
+- **HL2** sin munición mejor que con munición (dentro de real): DEV +0.27 / VAL −0.19 (signos opuestos) → NO.
+- **HL3** (< 5 M acciones): sin muestra (0 / 2) → NO medible.
+- **HL4** tercio bajo de la tesis corta: DEV −0.112R / VAL +0.059R (282, PF 1.13, t 0.52) → NO. Holm: ninguna validada.
+- Descriptivo (no valida): la tesis corta ALTA es mala para el largo en ambos periodos (DEV −0.29R / VAL −0.30R, PF 0.53/0.54) → confirma
+  la tesis corta desde el otro lado; humo (control) −0.29 / −0.37R como se esperaba; contrato real (K) −0.29 / −0.27R; nota de
+  prensa (B) −0.22 / −0.05R. Pistas solo en VAL (DEV en contra o ≈ 0): resultados (R) VAL +0.057R WR 49 % PF 1.20 (DEV −0.02);
+  otros (O) +0.118R PF 1.23 (DEV +0.003); aviso de bolsa/corporativo (S) +0.44R PF 1.69 (n 60; DEV −0.26, n 15); sin munición (todos)
+  VAL +0.106R PF 1.23 (n 1 236; DEV −0.144). Cola: máximo ≥ +50 % sobre la apertura en ~10-14 % de los casos.
+- **Conclusión:** con datos diarios y factores de campo de la SEC, NO hay base de largo validada; el radar de largos NO se construye sobre
+  estas reglas. Siguiente (fases 1b/1c, pre-registrar antes): compras de directivos (Form 4 'P'), 13D/13G, caja a la fecha, float verificado
+  y curva de tiempo desde la hora del documento con velas de 1 min (Massive).

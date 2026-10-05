@@ -224,6 +224,11 @@
   pasan el filtro de campo (descartadas guardadas pero ocultas: compra en efectivo, resultados, financiación del día, avisos de bolsa, < $1),
   ordenadas por puntuación 0-100 (gap = un factor más) + riesgo estructural aparte (acciones, locate, < $1, rotación) que limita el tamaño;
   ficha al hacer clic con todo el detalle y documentos legibles. Sesgo por defecto bajista; la ejecución es del usuario.
+- **Ronda 14 (5-oct, lado LARGO fase 1, `smallcaps/31_largos_fase1.py`; pedido por el usuario):** compra a la apertura, stop −20 %, salida al cierre.
+  Base todos: DEV −0.19R PF 0.66 / VAL −0.06R PF 0.89. HL1-HL4 (real sin munición, munición como veto, < 5 M acciones, tesis corta baja): NINGUNA
+  validada (Holm). Tesis corta ALTA = mala para el largo en ambos periodos (−0.29/−0.30R). Pistas solo VAL: resultados +0.06R PF 1.20, sin
+  munición +0.11R PF 1.23 (DEV −0.14). Radar de largos NO se construye con estas reglas. Pendiente fases 1b/1c (Form 4 'P', 13D/13G, caja,
+  float, curva desde la hora del documento con 1 min de Massive), pre-registradas antes. Descarga de Massive reanudada (`vigilante.sh`).
 - Conclusión: la ventaja debe venir de selección (catalizador + munición activa) + ejecución fina en 1-5 min + gestión del riesgo; se medirá con el diario de operaciones del usuario y, si hace falta, datos de 1 min de pago con deslistadas.
 
 ## Mapa del repositorio
