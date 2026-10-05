@@ -300,3 +300,48 @@ Holm sobre HL1-HL4 (VAL). Descriptivo (no valida): variante día 2; por tramo de
 sin noticia (N); cola ≥ +50 / +100 %. Pendiente de fases 1b/1c con datos nuevos (no se miden aquí): compras de directivos (Form 4 código P),
 13D/13G nuevos, caja a la fecha, float verificado, curva de tiempo desde la hora del documento (velas de 1 min de Massive).
 Si nada se valida, el radar de largos NO se construye sobre estas reglas.
+
+## Ronda 15 — LADO LARGO con TRABAJO DE CAMPO PRIMERO (pre-registro, 5-oct-2026, ANTES de mirar ningún precio posterior al evento)
+Pedido por el usuario tras la ronda 14: "el trabajo de campo es lo que filtra; el backtest se hace SOBRE las acciones filtradas". La ronda 14
+partía de los gappers (selección por precio) y usaba etiquetas pensadas para el corto → muestra contaminada. Aquí el orden es:
+**documento de la SEC → trabajo de campo de largo (sin ver precios posteriores) → backtest solo de los que pasan.**
+
+**Datos (sin sesgo de supervivencia):** Massive (incluye empresas deslistadas; diario sin ajustar y ajustado; 1 min con pre y post mercado).
+El plan gratis solo cubre ~2 años → ventana de eventos 7-oct-2024 → 25-sep-2026. DEV = 7-oct-2024 → 30-sep-2025; VAL = 1-oct-2025 → 25-sep-2026.
+NO se usan 2015-2024: los diarios de Yahoo solo tienen las empresas que siguen vivas, y para el largo eso infla el resultado (las que quebraron
+y se deslistaron, que serían pérdidas, no están). Documentos: índice completo de EDGAR (8-K y 6-K originales) + submissions (hora de aceptación
+e items) + XBRL companyfacts (acciones, caja, flujo operativo, solo lo presentado ANTES del evento).
+
+**Universo U1 (automático, nada posterior al evento):** 8-K con item 1.01, 2.01, 2.02, 7.01 u 8.01, o 6-K; empresa con acción común (CS/ADR)
+en Massive que cotizó la sesión anterior; cierre anterior sin ajustar ≥ $1; capitalización previa (acciones del último XBRL presentado antes del
+evento, corregidas por splits posteriores a esa fecha, × cierre anterior) < $300 M; volumen medio en $ de las 20 sesiones previas ≥ $50 000.
+Varios documentos de la misma empresa en la misma ventana de sesión = un solo evento (hora del primero; se leen todos).
+
+**Embudo de campo (lista de comprobación de largo):**
+- **A (automático) — ¿puede la empresa vender acciones encima de la subida?** A1: ninguna 424B en los 90 días previos; A2: ni 424B, S-1,
+  S-3, F-1, F-3 ni item 3.02 entre el día anterior y el evento; A3: caja + inversiones a corto ≥ 12 meses de quema (flujo operativo del último
+  periodo presentado, dividido por sus meses reales) o flujo operativo ≥ 0.
+- **B (lectura a ciegas del 8-K/6-K y TODOS sus EX-99, sin precios) — ¿la noticia cambia la empresa?** Tipo de largo:
+  CONTRATO_FIRME (acuerdo/pedido/adjudicación firmado, contraparte con nombre, importe en $ concreto; no "hasta", no marco, no LOI/MOU);
+  FDA_APROBACION (aprobación/autorización de comercialización, FDA u otra agencia principal); DATOS_POSITIVOS (ensayo fase 2/3 que cumple el
+  objetivo principal con significación estadística); RESULTADOS_FUERTES (ventas ≥ +30 % interanual y beneficio operativo positivo o mejora clara,
+  o subida de previsiones); INVERSION_ESTRATEGICA (empresa operativa compra acciones a precio ≥ mercado); ADQUISICION_DE_LA_EMPRESA (excluida:
+  el precio queda topado); HUMO; FINANCIACION; RUTINARIO; NEGATIVO. Cada clasificación lleva frase literal en inglés + importe.
+  **Pasa B:** CONTRATO_FIRME con importe ≥ 10 % de la capitalización previa, FDA_APROBACION, DATOS_POSITIVOS, RESULTADOS_FUERTES, INVERSION_ESTRATEGICA.
+- **C (lectura profunda del último 10-Q/10-K/20-F previo, solo para quien pasa A y B):** sin convertible de precio variable (tóxica), sin ATM
+  ni ELOC/SEPA activo, sin duda de "going concern". Warrants con precio de ejercicio ≤ 1.2 × cierre previo = factor secundario (no excluye).
+- **Verificación (precisión):** cada evento que pasa B se relee por un segundo agente ciego; además una muestra aleatoria del 15 % de los que NO
+  pasan. Discrepancias: Claude lee la fuente y decide antes de ver precios. Tasa de acuerdo publicada.
+
+**Backtest (referencia mecánica, la ejecución real es del usuario):** largo, stop −20 % (si el mínimo toca entrada × 0.80 → salida a 0.80 × 0.98;
+si una sesión abre por debajo del stop → salida a esa apertura), coste 0.5 %, R = rentabilidad / 0.20.
+Entrada principal E1 = primera apertura regular posterior a la aceptación (antes de 9:30 → apertura del mismo día; 9:30-16:00 o después →
+apertura del día siguiente). Secundaria E2 = primera vela de 1 min con volumen que empiece ≥ 1 min después de la aceptación (4:00-20:00;
+madrugada → primera vela de pre-mercado), + 1 % de deslizamiento. Salidas: S1 cierre de la sesión de entrada, S3 cierre de la 3.ª, S5 de la 5.ª.
+| # | Hipótesis | Criterio |
+|---|---|---|
+| HL5 | Filtrados (A+B+C) → largo E1 R > 0 | R > 0 en DEV y en VAL por separado, t conjunto > 2, en S1, S3 o S5 (Holm sobre las 3) |
+| HL6 | Filtrados mejores que el resto de U1 | diferencia > 0 en DEV y VAL, t conjunto > 2 (misma salida ganadora de HL5) |
+Si VAL tiene < 30 filtrados → "no medible", no validado. Descriptivo (no valida): por tipo de largo, nano (< $50 M) vs micro, < 10 M acciones,
+compras de directivos (Form 4 'P' en 90 días), 13D nuevo, warrants en el dinero, cuánto subió ya a la apertura, entrada E2, cola ≥ +50/+100 %.
+Si nada se valida, NO se construye el radar de largos con estas reglas; el resultado se dice tal cual.
