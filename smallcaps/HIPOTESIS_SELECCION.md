@@ -279,3 +279,24 @@ Control de calidad añadido: comparar la fecha y el precio de mercado extraídos
 Filtro de calidad (decidido ANTES de ver R, mirando solo precios): se usa la colocación solo si precio de colocación ÷ precio de mercado del
 folleto está entre 0.3 y 1.3 (rango normal de una colocación registrada; mediana medida 0.885). Fuera de ese rango casi siempre es una lectura
 mezclada (precio por ADS frente a acción ordinaria, valor nominal $0.0001 leído como precio, colocaciones antiguas citadas): 31 de 280.
+
+## Ronda 14 — LADO LARGO, fase 1 (pre-registro, ANTES de ver resultados, 5-oct-2026)
+Pedido por el usuario: un radar de largos con criterios propios del lado largo, foco en small caps y más pequeñas, trabajo de campo más
+profundo que en cortos porque el sesgo natural de los gappers es bajista. Las hipótesis son de CAMPO (SEC + catalizador); el gap solo define
+el universo. Datos: base corregida de la ronda 12 (`res_18_precio_real.csv` + precios de `res_29_precios.csv`/`30_ronda12_corregida.py`),
+8 604 gappers ≥ 20 %, precio real ≥ $1, etiquetas manuales del catalizador (3 000). DEV 2015-21 / VAL 2022-26.
+**Resultado (setup base largo, mecánico, solo referencia):** compra a la apertura; stop −20 % (si el mínimo del día toca open × 0.80, salida a
+open × 0.80 × 0.98 por deslizamiento); si no, salida al cierre. Coste 0.5 % (sin locate). R = ((salida − apertura)/apertura − 0.005)/0.20.
+Variante día 2: si no salta el stop el día 1, se mantiene hasta el cierre del día 2 (stop igual; si el día 2 abre por debajo del stop, salida a la
+apertura del día 2). Descriptivo: % de casos con máximo ≥ +50 % y ≥ +100 % sobre la apertura (la cola que da la asimetría).
+**Munición activa** = venta 424B en 90 días o shelf S-3/F-3 de 3 años (definiciones validadas en cortos). **Catalizador real** = etiqueta K o B.
+| # | Hipótesis | Criterio |
+|---|---|---|
+| HL1 | Catalizador real (K/B) + SIN munición → largo R > 0 (día 1) | R > 0 en DEV y VAL, VAL t > 2 |
+| HL2 | Catalizador real (K/B): SIN munición mejor que CON munición (la munición es veto) | mismo signo DEV y VAL, VAL t > 2 |
+| HL3 | HL1 + pocas acciones (< 5 M) mejor que HL1 con ≥ 5 M | mismo signo DEV y VAL, VAL t > 2 |
+| HL4 | Tesis bajista BAJA (tercio bajo de la puntuación corta) → largo R > 0 | R > 0 en DEV y VAL, VAL t > 2 |
+Holm sobre HL1-HL4 (VAL). Descriptivo (no valida): variante día 2; por tramo de gap; humo (H) como control negativo (se espera largo < 0);
+sin noticia (N); cola ≥ +50 / +100 %. Pendiente de fases 1b/1c con datos nuevos (no se miden aquí): compras de directivos (Form 4 código P),
+13D/13G nuevos, caja a la fecha, float verificado, curva de tiempo desde la hora del documento (velas de 1 min de Massive).
+Si nada se valida, el radar de largos NO se construye sobre estas reglas.
