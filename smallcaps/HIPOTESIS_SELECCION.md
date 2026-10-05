@@ -345,3 +345,13 @@ madrugada → primera vela de pre-mercado), + 1 % de deslizamiento. Salidas: S1 
 Si VAL tiene < 30 filtrados → "no medible", no validado. Descriptivo (no valida): por tipo de largo, nano (< $50 M) vs micro, < 10 M acciones,
 compras de directivos (Form 4 'P' en 90 días), 13D nuevo, warrants en el dinero, cuánto subió ya a la apertura, entrada E2, cola ≥ +50/+100 %.
 Si nada se valida, NO se construye el radar de largos con estas reglas; el resultado se dice tal cual.
+**Enmienda ronda 15 (5-oct, ANTES de mirar ningún precio posterior; solo se han visto recuentos):**
+(1) Massive solo da historia desde el 7-oct-2024 → los eventos cuya sesión previa sea anterior quedan fuera; en las primeras 20 sesiones el
+volumen medio se calcula con las sesiones disponibles. (2) ADR (tipo ADRC) excluidas: el XBRL da acciones ordinarias y no la proporción de la
+ADS → la capitalización no se puede calcular con precisión (misma regla que el Radar, caso NAMI). (3) Sin dato XBRL de acciones presentado antes
+del evento → fuera de U1 (capitalización desconocida); se publica cuántos. Sin dato de flujo operativo → no pasa A3 (no se puede comprobar).
+(4) Lectura en dos pasos para ~10 000 eventos: paso 1 (lector A, ciego) con el cuerpo del 8-K/6-K + cada EX-99 recortados a 1 800 caracteres;
+paso 2 (lector B, ciego, texto completo hasta 30 000 caracteres por parte) para todo lo que el paso 1 marque como tipo que pasa, o confianza
+baja, o resultados sin crecimiento calculable, + 15 % aleatorio del resto (mide cuántos se le escapan al paso 1). Decide el paso 2; si A y B
+discrepan en "pasa/no pasa", Claude lee la fuente. (5) Empresas grandes descartadas antes de bajar datos: float público mínimo 2024-26 ≥ $1 500 M
+(no pueden tener capitalización < $300 M salvo caída > 80 %).
