@@ -355,3 +355,9 @@ paso 2 (lector B, ciego, texto completo hasta 30 000 caracteres por parte) para 
 baja, o resultados sin crecimiento calculable, + 15 % aleatorio del resto (mide cuántos se le escapan al paso 1). Decide el paso 2; si A y B
 discrepan en "pasa/no pasa", Claude lee la fuente. (5) Empresas grandes descartadas antes de bajar datos: float público mínimo 2024-26 ≥ $1 500 M
 (no pueden tener capitalización < $300 M salvo caída > 80 %).
+**Enmienda 2 ronda 15 (6-oct, ANTES de mirar precios; solo recuentos de lecturas):** "resultados sin crecimiento calculable" se sustituye
+por una comprobación con datos oficiales: crecimiento interanual de las ventas del trimestre/año anunciado según el XBRL (mismo número que
+la nota de prensa, presentado después en el 10-Q/10-K; tags Revenues / RevenueFromContract… / SalesRevenueNet / ifrs Revenue). Si el
+crecimiento es ≥ 30 % y el paso 1 no lo marcó como tipo que pasa → paso 2. Motivo: la regla anterior, aplicada por palabras de la nota del
+lector, enviaba al paso 2 722 resultados (la mayoría con caída de ventas ya leída) y no mejoraba la precisión. Muestra aleatoria: 15 % por
+hash fijo del id (estable). Recuento paso 1, tramo oct-2024→abr-2025: 3 297 leídos, 0 citas no literales.
