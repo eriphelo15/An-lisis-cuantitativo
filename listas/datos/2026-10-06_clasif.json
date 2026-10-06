@@ -24,7 +24,7 @@
   "frase_es": "",
   "cifra": "",
   "fuentes_abiertas": "Finviz NO responde hoy (página vacía, bloqueo); revisados a mano EDGAR (submissions), Yahoo (búsqueda de noticias), web (búsqueda) — 6-oct ~8:35 NY. Última nota de prensa 3-sep (cambio de ratio de las ADS); 6-K 1-oct 16:31 = estados financieros semestrales (subió +49 % el 2-oct). Nada desde el 5-oct 16:00.",
-  "nota": "Sin noticia en la ventana. Última nota de prensa 3-sep (cambio de ratio de las ADS); 6-K 1-oct 16:31 = estados financieros semestrales (subió +49 % el 2-oct). Nada desde el 5-oct 16:00.",
+  "nota": "Sin noticia en la ventana. Última nota de prensa 3-sep (cambio de ratio de las ADS); 6-K 1-oct 16:31 = estados financieros semestrales (subió +49 % el 2-oct). Nada desde el 5-oct 16:00. | VERIFICADO (independiente): sin catalizador en la ventana (coincide). Añadido por el verificador y comprobado en el 6-K del 1-oct (EX-99.1): la filial operativa Shanghai Xiao-i está en LIQUIDACIÓN por quiebra («accepting the bankruptcy liquidation petition»; el administrador controla sus activos), going concern, capital circulante −$99.6 M, ventas jul-ago $164 018 en 2 meses; nota convertible tóxica de Streeterville (90 % del VWAP mínimo de 10 días − $0.05), saldo ≈ $3.19 M a 18-sep (≈ 2.6 M ADS a precio de hoy, más que las ADS en circulación); caja $3.45 M al 30-jun. Ratio de ADS cambiado 3 veces en 2 años (acumulado 1:1 260).",
   "pasos": {
    "fuentes": [
     "EDGAR AIXI: 0 documentos en la ventana",
