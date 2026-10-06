@@ -25,5 +25,13 @@
    "ATM: nuestra ficha dice sí; el verificador no la encontró (sí hay línea prepagada de Streeterville). Pendiente de revisar."
   ],
   "hora": "08:40"
+ },
+ "XHG": {
+  "estado": "corregido",
+  "diferencias": [
+   "Catalizador: coinciden (N).",
+   "ERROR NUESTRO: la ficha decía ELOC = no; el verificador encontró ELOC de $100 M con VG Master Fund (6-K y 424B5 abr-2026). Añadido a la nota. Detector de ELOC en 424B5/6-K: pendiente (caso de oro tras publicar)."
+  ],
+  "hora": "08:48"
  }
 }

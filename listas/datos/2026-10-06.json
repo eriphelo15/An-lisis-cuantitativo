@@ -1,0 +1,1996 @@
+{
+ "fecha": "2026-10-06",
+ "generado": "2026-10-06 08:40",
+ "replay": false,
+ "desde": "2026-10-05 16:00",
+ "corte": "2026-10-06 08:32",
+ "version": 2,
+ "reglas": {
+  "gap_minimo": 0.2,
+  "stop": 0.3,
+  "deslizamiento": 0.05,
+  "coste": 0.01,
+  "riesgo_accion": 0.3750000000000002
+ },
+ "acciones": [
+  {
+   "sym": "IPDN",
+   "nombre": "Professional Diversity Network, Inc.",
+   "sector": "Services-Computer Programming, Data Processing, Etc.",
+   "precio": 6.51,
+   "cierre_prev": 3.0999999046325684,
+   "gap": 1.1,
+   "cap": 2064014,
+   "acciones": 665811,
+   "vol_pre": null,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "H",
+    "frase_en": "The Company has placed an order with AMAX Engineering Corporation (“AMAX”) on behalf of PDN Intelligence for one NVIDIA B300-based AI computing system and has paid 50% of the purchase price",
+    "frase_es": "La empresa ha hecho un pedido a AMAX Engineering, en nombre de PDN Intelligence, de UN sistema de computación de IA basado en NVIDIA B300 y ha pagado el 50 % del precio",
+    "cifra": "1 sistema (compra, no venta); 50 % del precio pagado; importe en dólares NO revelado",
+    "nota": "Giro a IA: la empresa COMPRA servidores (gasta caja), no vende nada. El cuerpo del 8-K (Item 1.01) añade: arrendamiento + reparto de ingresos + préstamo con Goodwill Labs (contraparte única) por «approximately $1.177 million of initial capital commitments for two NVIDIA B300 eight-GPU systems»; el préstamo de $588 849 «bears no fixed interest and has no scheduled principal payments»; equipo NO entregado (límite 15-ene-2027); contratos no publicados. | VERIFICADO (independiente): mismo tipo (giro IA cosmético). Añadido por el verificador y comprobado: caja $141 831 al 30-jun (+ $2.495 M restringidos), going concern; oferta 424B4 13-ago a $0.28 por unidad (pre-contra-split 1:30 del 14-sep); warrants de agosto con REAJUSTE tras el contra-split (precio al VWAP mínimo y más acciones, precio agregado constante ≈ $2.0 M) → probablemente en el dinero y ≈ 590 000-670 000 acciones nuevas frente a ~665 811 en circulación (cálculo del verificador, no confirmado); línea prepagada de Streeterville (80 % del VWAP mínimo de 10 días) con pausa de 75 días.",
+    "pasos": {
+     "fuentes": [
+      "8-K 07:24 (items 1.01, 7.01, 9.01) cuerpo leído completo",
+      "EX-99.1 leído completo",
+      "Finviz IPDN: no responde hoy",
+      "Yahoo búsqueda IPDN: sin otra noticia"
+     ],
+     "anexos_leidos": 2,
+     "negativos": "ninguna frase negativa automática; leído entero: sin importe, gasto de caja propio, riesgos de financiación y de cumplimiento Nasdaq",
+     "historial": "2026-09-30 8-K -0%; 2026-09-11 8-K +2675%; 2026-08-14 8-K +8%; 2026-08-13 8-K +8%",
+     "municion": "shelf empresa sí; ATM sí; reventa 0 acciones; ELOC no; 424B 12 m: 2; venta 90 d sí; warrants [204.0]; tóxica sí — revisado en la ficha",
+     "caja": "going concern sí; caja a hoy la calcula finalizar (XBRL); la empresa dice: None"
+    },
+    "tipo_es": "Humo / cosmético"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 92,
+    "tercio": "Alta",
+    "pred_R": 0.156,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0065
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": true,
+      "peso": 0.0959
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": true,
+      "peso": 0.0852
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1168
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1391
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.04
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0215
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0074
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0583
+     }
+    ],
+    "base": -0.0436,
+    "notas": []
+   },
+   "estad": {
+    "n": 157,
+    "R": 0.25,
+    "WR": 0.69,
+    "gan": 0.8,
+    "perd": -0.98,
+    "PF": 1.81,
+    "dev": 0.15
+   },
+   "riesgo": {
+    "nivel": "Extremo",
+    "motivos": [
+     "Solo 0.67 M de acciones en circulación"
+    ],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 7.1,
+    "pml": 3.04,
+    "pmh_hora": "08:35",
+    "hasta": "08:40"
+   },
+   "caja": {
+    "caja": 141831,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926027832/",
+    "flujo_operativo": -955062,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 159177,
+    "autonomia_meses": 0.9,
+    "meses_desde_informe": 3.2,
+    "autonomia_hoy": -2.3,
+    "caja_estimada_hoy": -370631
+   },
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-09-30 07:18",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926031531/ipdn20260929_8k.htm",
+     "titular": "Item 8.01 Other Events. As previously disclosed, on June 5, 2026, Professional Diversity Network, Inc. (the “Company”) received a written notification from The Nasdaq Stock Market LLC (“Nasdaq”) indicating that the Compa",
+     "reaccion": {
+      "dia": "2026-09-30",
+      "apertura": -0.0141,
+      "cierre": -0.0028
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-11 16:59",
+     "items": "3.03,5.03,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926030185/ipdn20260907_8k.htm",
+     "titular": "Item 3.03 Material Modification to Rights of Security Holders. The information contained in Item 5.03 below is incorporated by reference into this Item 3.03. Item 5.03 Amendments to Articles of Incorporation or Bylaws; C",
+     "reaccion": {
+      "dia": "2026-09-15",
+      "apertura": 27.6667,
+      "cierre": 26.75
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-14 08:21",
+     "items": "2.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926027834/ipdn20260622_8k.htm",
+     "titular": "Item 2.02. Results of Operations and Financial Condition On August 14, 2026, Professional Diversity Network, Inc. (the “Company”) issued a press release announcing its financial and operational results for the three mont",
+     "reaccion": {
+      "dia": "2026-08-14",
+      "apertura": 0.0,
+      "cierre": 0.0833
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-13 16:37",
+     "items": "1.01,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926027711/ipdn20260812_8k.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. On August 13, 2026 (the “Closing Date”), Professional Diversity Network, Inc., a Delaware corporation (the “Company”), in connection with a best efforts public offeri",
+     "reaccion": {
+      "dia": "2026-08-14",
+      "apertura": 0.0,
+      "cierre": 0.0833
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-07-06 16:38",
+     "items": "1.01,3.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926022802/ipdn20260706_8k.htm",
+     "titular": "Item 1.01 Entry Into a Material Definitive Agreement On July 2, 2026, Professional Diversity Network, Inc. (the “ Seller ”) entered into a Stock Purchase Agreement (the “ SPA ”) with MEB Holding LLC, a limited liability ",
+     "reaccion": {
+      "dia": "2026-07-07",
+      "apertura": 0.0328,
+      "cierre": -0.0164
+     }
+    }
+   ],
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-10-06 07:24",
+     "items": "1.01,7.01,9.01",
+     "items_es": "1.01 acuerdo firmado; 7.01 nota de prensa; 9.01 anexos",
+     "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926032105/ipdn20261005_8k.htm",
+     "partes": [
+      {
+       "archivo": "ipdn20261005_8k.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926032105/ipdn20261005_8k.htm",
+       "texto": "Item 1.01 Entry into Material Definitive Agreements. On October 5, 2026, PDN Intelligence, Inc. (“PDN Intelligence”), a wholly owned subsidiary of Professional Diversity Network, Inc. (the “Company”), entered into (i) an Equipment Lease Agreement (the “Lease Agreement”) with Goodwill Labs Inc. (“Goodwill”), (ii) a Tri-Party Compute Services Collaboration and Revenue Sharing Agreement (the “Collaboration Agreement”) with Goodwill and HashForest Technology LLC (“HashForest”) and (iii) a Secured Term Loan and Security Agreement (the “Loan Agreement”) with Goodwill. These agreements and the related equipment purchase provide for approximately $1.177 million of initial capital commitments for two NVIDIA B300 eight-GPU systems in the Company’s graphics processing unit (“GPU”) infrastructure business. PDN Intelligence is acquiring one system from AMAX Engineering Corporation (“AMAX”) for $588,581.99 (the “Leased Equipment”), which it will lease to Goodwill, and agreed to lend Goodwill $588,849.23 to finance Goodwill’s acquisition of a second system (the “Financed Equipment”). Goodwill had previously secured the Financed Equipment in an existing AMAX order for which no additional units were available, and the loan structure is intended to accelerate deployment of that system. On September 30, 2026, the Company paid AMAX $294,291.00 of the purchase price of the Leased Equipment on behalf of PDN Intelligence, and the remaining $294,290.99 is payable before shipment. Title to the Leased Equipment will pass directly from AMAX to PDN Intelligence. The Company is funding both arrangements through intercompany funding to PDN Intelligence. Equipment Lease Agreement The Lease Agreement has a 60-month base term beginning upon delivery, installation and acceptance of the Leased Equipment at a data center in Hillsboro, Oregon. Annual base rent equals 20% of the acquisition cost (approximately $117,716), payable bi-monthly, and Goodwill’s rent obligation is not contingent on revenue from the equipment. Either party may terminate for convenience on or after the second anniversary of commencement on 90 days’ notice, without a termination fee. At expiration, Goodwill may return the equipment or purchase it at its appraised fair market value, and PDN Intelligence otherwise retains the residual-value risk. If delivery does not occur by January 15, 2027, PDN Intelligence may cancel the lease as to the undelivered equipment and seek a refund from AMAX, although AMAX’s terms provide that GPU purchases are final. Tri-Party Compute Services Collaboration and Revenue Sharing Agreement The Collaboration Agreement governs the commercial operation of the Leased Equipment only. Goodwill operates the project and contracts with customers, HashForest provides technical-support and billing services, and PDN Intelligence provides market-growth services. Bi-monthly project profit, generally customer collections less specified operating costs and reserves, is allocated 75% to PDN Intelligence and the remainder to Goodwill and HashForest, with base rent under the Lease Agreement credited against, rather than added to, PDN Intelligence’s share. PDN Intelligence’s share may be reduced in later periods to reimburse Goodwill for rent funded from its own resources and for specified carryforward adjustments. The Collaboration Agreement has an initial 24-month term from commercial service commencement and ends following termination of the Lease Agreement. After the initial term, any party may terminate on 90 days’ notice, and termination by Goodwill ends the agreement for all parties. Secured Term Loan and Security Agreement Under the Loan Agreement, PDN Intelligence agreed to lend Goodwill $588,849.23 to acquire the Financed Equipment, which Goodwill will own subject to PDN Intelligence’s first-priority security interest in that equipment and related proceeds. The loan bears no fixed interest and has no scheduled principal payments. Instead, Goodwill must pay PDN Intelligence 75% of the positive bi-monthly distributable profit from the Financed Equipment, and no payment is due for any period without positive distributable profit. The Loan Agreement has an initial two-year term beginning no later than January 15, 2027, during which neither party may terminate, and renews automatically for one-year terms unless either party gives at least 30 days’ notice of non-renewal. Under Sections 3.4 and 3.5 of the Loan Agreement, upon termination following non-renewal at the end of the initial two-year term or any renewal term, PDN Intelligence may elect to take title to the Financed Equipment, directly or through a designee, or to require Goodwill to sell it as PDN Intelligence’s agent, in each case at PDN Intelligence’s cost. Completion of that disposition discharges the loan principal regardless of the equipment’s value, and PDN Intelligence generally cannot require repayment of principal in cash. If the disposition occurs on or after October 1, 2031, or earlier following specified material defaults, Goodwill must pay PDN Intelligence in cash any shortfall between the original loan amount and PDN Intelligence’s aggregate receipts, including profit-share payments and the sale proceeds or market value of the equipment. This undertaking does not apply to a disposition following non-renewal at the end of the initial two-year term, absent a material default. The foregoing descriptions of the Lease Agreement, the Collaboration Agreement and the Loan Agreement do not purport to be complete and are qualified in their entirety by reference to the full text of those agreements. The Company intends to file the agreements as exhibits to its Annual Report on Form 10-K for the fiscal year ending December 31, 2026, with certain portions omitted as permitted by Item 601 of Regulation S-K. Item 7.01 Regulation FD Disclosure. On October 6, 2026, the Company issued a press release announcing PDN Intelligence’s acquisition of one NVIDIA B300-based artificial intelligence computing system described in Item 1.01 of this Current Report on Form 8-K (this “Form 8-K”). A copy of the press release is furnished as Exhibit 99.1 to this Form 8-K. The information in this Item 7.01, including Exhibit 99.1, is being furnished and shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934, as amended (the “Exchange Act”), or otherwise subject to the liabilities of that section, nor shall it be deemed incorporated by reference into any filing under the Securities Act of 1933, as amended (the “Securities Act”), or the Exchange Act, except as expressly set forth by specific reference in such a filing. Forward-Looking Statements This Form 8-K, including Exhibit 99.1, contains forward-looking statements within the meaning of Section 27A of the Securities Act and Section 21E of the Exchange Act, which are intended to be covered by the safe harbor provisions of the Private Securities Litigation Reform Act of 1995. Forward-looking statements include, among others, statements regarding the expected delivery, installation, acceptance and deployment of the Leased Equipment and the Financed Equipment; the timing and amount of the remaining payment to AMAX; the intercompany funding arrangements described above; the expected commencement and performance of commercial compute services; anticipated rent, service-fee and profit-participation receipts under the Lease Agreement, the Collaboration Agreement and the Loan Agreement; PDN Intelligence’s ability to take title to, or direct the sale of, the Financed Equipment; and the development of the Company’s GPU infrastructure business. Words such as “anticipate,” “believe,” “continue,” “could,” “estimate,” “expect,” “intend,” “may,” “plan,” “potential,” “should,” “will” and similar expressions are intended to identify forward-looking statements, although not all forward-looking statements contain these identifying words. These statements are based on the Company’s current expectations and assumptions and are subject to risks and uncertainties that could cause actual results to differ materially from those expressed or implied, including: delays in or failure of delivery of the equipment by the supplier, and the limited availability of any refund or other remedy in that event, including because the supplier’s terms provide that purchases of GPUs are final; loss of or damage to the equipment; the Company’s dependence on a single counterparty, Goodwill, under each of the agreements, and the ability of Goodwill and HashForest to perform their obligations, including Goodwill’s ability to pay rent, profit-participation amounts and any minimum-return shortfall when due; Goodwill’s right to terminate the Lease Agreement after two years without an early-termination fee; the absence of fixed interest or scheduled principal repayment under the Loan Agreement and the discharge of principal upon disposition of the Financed Equipment regardless of its value; reductions in PDN Intelligence’s contingent service fees under the reimbursement and carryforward provisions of the Collaboration Agreement; demand for, utilization of and pricing of GPU compute services, which may be lower than expected; the profitability of the deployed equipment, on which PDN Intelligence’s service-fee and profit-participation receipts depend; changes in the value of GPU equipment, including as a result of technological obsolescence, new product releases or secondary-market conditions; requirements or restrictions imposed by manufacturers, distributors or suppliers, including NVIDIA and AMAX, relating to end users, end uses, resale or transfer of GPU equipment, which could limit, delay or increase the cost of PDN Intelligence’s taking title to, or transferring, selling or redeploying, the equipment; the enforceability and characterization of PDN Intelligence’s title to and security interest in the equipment and of the lease and loan arrangements; the accounting and tax treatment of the arrangements; export-control, sanctions and other regulatory requirements applicable to advanced computing equipment; the Company’s limited operating history in the GPU infrastructure business; the Company’s ability to fund future deployments; and the other risks described under “Risk Factors” in the Company’s most recent Annual Report on Form 10-K and subsequent Quarterly Reports on Form 10-Q and other filings with the SEC. Forward-looking statements speak only as of the date of this Form 8-K, and the Company undertakes no obligation to update or revise any forward-looking statement, whether as a result of new information, future events or otherwise, except as required by law. Item 9.01 Financial Statements and Exhibits. (d) Exhibits. Exhibit No. Description 99.1 Press Release, dated October 6, 2026 104 Cover Page Interactive Data File (embedded within the Inline XBRL Document) SIGNATURES Pursuant to the requirements of the Securities Exchange Act of 1934, as amended, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Professional Diversity Network, Inc. Date: October 6, 2026 By: /s/ Yiran Gu Name: Yiran Gu Title: Chief Executive Officer and Chief Financial Officer",
+       "recortado": false,
+       "negativos": []
+      },
+      {
+       "archivo": "ex_1022427.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926032105/ex_1022427.htm",
+       "texto": "DATED OCTOBER 6, 2026 ex_1022427.htm Exhibit 99.1 FOR IMMEDIATE RELEASE Professional Diversity Network Advances AI Infrastructure Strategy with NVIDIA B300 System Order CHICAGO, October 6, 2026 — Professional Diversity Network, Inc. (NASDAQ: IPDN) (“IPDN” or the “Company”) today announced a significant step in the development of its artificial intelligence (“AI”) infrastructure business through its wholly owned subsidiary, PDN Intelligence, Inc. (“PDN Intelligence”). The Company has placed an order with AMAX Engineering Corporation (“AMAX”) on behalf of PDN Intelligence for one NVIDIA B300-based AI computing system and has paid 50% of the purchase price, with the remaining balance payable before shipment. PDN Intelligence is expected to acquire and hold title to the system before it is placed into service. The order marks an important milestone in the Company’s execution of its AI infrastructure strategy and represents its initial investment in next-generation graphics processing unit (“GPU”) computing infrastructure. The system is intended to support high-performance AI workloads, including AI model training, inference and other compute-intensive applications. Following delivery, installation and acceptance, the system is expected to be deployed at a third-party data-center facility and made available for commercial AI compute services. PDN Intelligence will serve as the Company’s platform for developing and operating this business. “We are moving from strategy to execution,” said Yiran Gu, Chief Executive Officer and Chief Financial Officer of Professional Diversity Network. “By placing our initial order and committing capital toward next-generation AI computing infrastructure, we are establishing the foundation for PDN Intelligence’s operations.” “We believe demand for advanced computing capacity will continue to create opportunities across the AI ecosystem,” Gu continued. “Our approach is to begin with disciplined infrastructure deployment, establish operating capabilities and evaluate future expansion based on market demand, utilization and economics.” The Company is also working with third-party infrastructure and operating partners to support the deployment and commercialization of its GPU computing capacity. IPDN intends to continue evaluating opportunities to expand its AI infrastructure capabilities as the business develops, subject to market conditions, equipment availability, operating performance and capital resources. About Professional Diversity Network, Inc. Professional Diversity Network, Inc. is a technology holding company operating businesses across workforce solutions, remote talent and artificial intelligence. Through its operating platforms and strategic initiatives, the Company seeks to connect talent, technology and opportunity while developing new technology-driven businesses designed to create long-term shareholder value. With the formation of PDN Intelligence, the Company is pursuing expansion into artificial intelligence infrastructure and GPU-powered computing. For more information, please visit www.ipdn.com . Forward-Looking Statements This press release contains forward-looking statements within the meaning of Section 27A of the Securities Act of 1933, as amended, and Section 21E of the Securities Exchange Act of 1934, as amended. Forward-looking statements in this release are based on information available to us as of the date hereof. Our actual results may differ materially from those stated or implied in such forward-looking statements, due to risks and uncertainties associated with our business, which include the risk factors disclosed in our most recently filed Annual Report on Form 10-K and in our subsequent filings with the Securities and Exchange Commission. Forward-looking statements include statements regarding our expectations, beliefs, intentions or strategies regarding the future and can be identified by forward-looking words such as “anticipate,” “believe,” “could,” “estimate,” “expect,” “intend,” “may,” “plan,” “should,” and “would” or similar words. Specifically, statements regarding the Company’s plans, objectives and expectations concerning PDN Intelligence; the anticipated payment of the remaining purchase price for, and the delivery, installation, deployment and operation of, the AI computing system described in this press release; the development of AI infrastructure and GPU-powered computing capabilities; GPU infrastructure deployments, partnerships, joint ventures, technology acquisitions and financing activities; the development and commercialization of AI inference, enterprise AI and related services; and the Company’s ability to generate revenue, diversify its operations and create long-term shareholder value are forward-looking statements. These statements are based on current expectations, estimates and assumptions and involve risks and uncertainties that could cause actual results to differ materially from those expressed or implied. Such risks include, among others, the Company’s lack of operating history in AI infrastructure and GPU-powered computing; delays in, or the failure of, delivery, installation or acceptance of the system; the Company’s reliance on third-party suppliers, data-center operators and operating partners; export-control and sanctions laws applicable to advanced computing equipment; the Company’s ability to obtain sufficient financing and computing resources; the availability and cost of advanced GPU systems; the ability to identify and enter into definitive agreements with suitable technology, infrastructure and commercial partners; competition from well-capitalized companies in the AI infrastructure market; technological and operational risks; regulatory developments affecting AI deployment and data privacy; the Company’s ability to maintain compliance with Nasdaq listing requirements; and the other risks described in the Company’s filings with the Securities and Exchange Commission. Forward-looking statements speak only as of the date of this press release. The Company undertakes no obligation to update or revise any forward-looking statement except as required by applicable law. Our most recently filed Annual Report on Form 10-K, together with this press release, are available on our website, www.ipdn.com . Please click on “Investor Relations.” Investor Relations / Media Contact Professional Diversity Network, Inc. investors@ipdn.com",
+       "recortado": false,
+       "negativos": []
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-10-06 07:24",
+     "items": "1.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926032105/ipdn20261005_8k.htm",
+     "items_es": "1.01 acuerdo firmado; 7.01 nota de prensa; 9.01 anexos"
+    }
+   ],
+   "noticias": [],
+   "municion": {
+    "venta90": true,
+    "s3": "2025-03-03",
+    "s1": "2026-07-28",
+    "ventas_12m": 2,
+    "p424_12m": 2,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 4,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2026-08-13",
+      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926027508/ipdn20260812_424b4.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-10-31",
+      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774925032582/ipdn20251031_424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-09-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774925028481/ipdn20250905_424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-11-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774924035838/ipdn20241120_424b5.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "424B5",
+      "fecha": "2025-10-31",
+      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774925032582/ipdn20251031_424b5.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "25, of which 1,778,749 are held by affiliates, and a per share price of $9.01 based on the closing sale price of our common stock on September 3, 2025 and is the highest closing sale price of our common stock on the Nasdaq Capital Market (“Nasdaq”) within the prior 60 days. As of the date of this prospectus supplement, we had sold securities with aggregate gross proceeds of $5,400,000 pursuant to General Instruction I.B.6. of Registration Statement on Form S-3 during the prior 12-month calendar period that ends on, and includes, the date of this prospectus supplement (but excluding this offering). In no event will we sell securities pursuant to a Registration Stateme",
+      "atm_usd": 3250000.0,
+      "atm_agente": null,
+      "frase_atm": "ailable through, the website. Therefore, such information should not be considered part of this prospectus supplement. S-4 THE OFFERING Common Stock Offered by Us Shares of our common stock having an aggregate offering price of up to $3,250,000. The amount and timing of sales of common stock offered hereby is at the sole discretion of the Investor. Common stock to be outstanding after this offering (1) Up to 5,721,238 shares, assuming the sale of 1,051,779 share"
+     },
+     {
+      "form": "S-1",
+      "fecha": "2025-09-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774925029874/ipdn20250923_s1.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 10346994,
+      "frase": "g an offer to buy these securities in any state where the offer or sale is not permitted. SUBJECT TO COMPLETION PRELIMINARY PROSPECTUS DATED SEPTEMBER 25, 2025 UP TO 10,346,994 SHARES OF COMMON STOCK Professional Diversity Network, Inc. This prospectus relate",
+      "acciones_reventa_hoy": 344899,
+      "ajuste_splits": 0.033333
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-09-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774925028481/ipdn20250905_424b5.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "tock, of which 354,842 are held by affiliates, and a per share price of $9.01 based on the closing sale price of our common stock on September 3, 2025 and is the highest closing sale price of our common stock on the Nasdaq Capital Market (“Nasdaq”) within the prior 60 days. As of the date of this prospectus supplement, we had sold securities with aggregate gross proceeds of $2,000,000 pursuant to General Instruction I.B.6. of Registration Statement on Form S-3 during the prior 12-month calendar period that ends on, and includes, the date of this prospectus supplement (but excluding this offering). In no event will we sell securities pursuant to a Registration Stateme",
+      "atm_usd": 3397725.0,
+      "atm_agente": null,
+      "frase_atm": "ailable through, the website. Therefore, such information should not be considered part of this prospectus supplement. S-4 THE OFFERING Common Stock Offered by Us Shares of our common stock having an aggregate offering price of up to $3,397,725, and 227,500 Pre-Delivery Shares. The amount and timing of sales of common stock offered hereby is at the sole discretion of the Investor. Common stock to be outstanding after this offering (1) Up to 3,149,785 shares, ass"
+     },
+     {
+      "form": "S-3/A",
+      "fecha": "2025-03-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774925005884/ipdn20250303_s3a.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": " our common stock held by our non-affiliates (or our “public float”), as calculated pursuant to the rules of the Securities and Exchange Commission, was approximately ‎$6,123,044, which was calculated based upon 12,756,341 shares of our outstanding common stock held by non-‎affiliates at a price of $0.48 per share, the closing price of our common stock on Nasdaq on February 21, 2025‎. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell securities in a public offering with a value exceeding more than one-third of our public float in any 12-month period so long as our public float remains below $75,000,000. We have sold $1,989,000 in securities "
+     },
+     {
+      "form": "S-3/A",
+      "fecha": "2024-12-13",
+      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774924037489/ipdn20241213_s3a.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "our common stock held by our non-affiliates (or our “public float”), as calculated pursuant to the rules of the Securities and Exchange Commission, was approximately ‎$10,662,391, which was calculated based upon 10,453,325 shares of our outstanding common stock held by non-‎affiliates at a price of $1.02 per share, the closing price of our common stock on Nasdaq on November 18, 2024‎. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell securities in a public offering with a value exceeding more than one-third of our public float in any 12-month period so long as our public float remains below $75,000,000. We have sold $1,989,000 in securities ",
+      "atm_usd": 9928983.0,
+      "atm_agente": "Tumim",
+      "frase_atm": "of Purchase Shares remain available for issuance pursuant to the Purchase Agreement. In accordance with the terms of the Purchase Agreement, we may offer and sell shares of our common stock having an aggregate offering price of up to $9,928,983 from time to time to Tumim Stone under this prospectus supplement after the date hereof. This prospectus supplement and the accompanying prospectus also cover the resale of these shares by Tumim Stone to the public. See "
+     },
+     {
+      "form": "S-3",
+      "fecha": "2024-10-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774924032100/ipdn20241023_s3.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": " of our common stock held by our non-affiliates (or our “public float”), as calculated pursuant to the rules of the Securities and Exchange Commission, was approximately ‎$9,053,325, which was calculated based upon 9,053,325 shares of our outstanding common stock held by non-‎affiliates at a price of $1.00 per share, the closing price of our common stock on Nasdaq on October 3, 2024‎. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell securities in a public offering with a value exceeding more than one-third of our public float in any 12-month period so long as our public float remains below $75,000,000. We have sold $846,017 in securities in",
+      "atm_usd": 2171758.0,
+      "atm_agente": "Tumim",
+      "frase_atm": "he limitations discussed below and the current public float of our common stock, and in accordance with the terms of the Purchase Agreement, we may offer and sell shares of our common stock having an aggregate offering price of up to $2,171,758 from time to time to Tumim Stone under this prospectus supplement after the date hereof. This prospectus supplement and the accompanying prospectus also cover the resale of these shares by Tumim Stone to the public. See "
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "8-K",
+      "fecha": "2026-04-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926014246/ipdn20260430_8k.htm",
+      "precio": null,
+      "acciones": 2000000,
+      "frase": "(the “Seller”). Pursuant to the SPA, the Seller agreed to sell 3.2% of all outstanding and issued shares of the Seller to the Company, at a consideration of US$1,360,000 (the “Transaction”). Under the terms of the SPA, consideration shall be paid by 2,000,000 shares of the Company’s common stock, par value $0.01 per share (the “Common Stock”). The board of directors of the Company (the “Board”) approved payment o"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2025-12-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774925038280/ipdn20251218_8k.htm",
+      "precio": null,
+      "acciones": 1358000,
+      "frase": "ny’s election, in cash, shares of the Company’s common stock, par value $0.01 per share (the “Common Stock”), or a combination thereof. The board of directors of the Company (the “Board”) approved payment of the consideration through the issuance of 1,358,000 shares of Common Stock (the “Consideration Shares”), subject to the limitations of Listing Rule 5635 of The Nasdaq Stock Market LLC (“Nasdaq”). The Consider"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2025-11-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774925036494/ipdn20251128_8k.htm",
+      "precio": null,
+      "acciones": 898000,
+      "frase": " could be paid in cash, shares of the Company’s common stock, par value $0.01 per share (the “Common Stock”), or a combination thereof. The board of directors of the Company (the “Board”) approved payment of the consideration through the issuance of 898,000 shares of Common Stock (the “Consultancy Shares”), subject to the limitations of Listing Rule 5635 of The Nasdaq Stock Market LLC (“Nasdaq”). The Consultanc"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2025-11-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774925036326/ipdn20251125_8k.htm",
+      "precio": null,
+      "acciones": 927600,
+      "frase": " could be paid in cash, shares of the Company’s common stock, par value $0.01 per share (the “Common Stock”), or a combination thereof. The board of directors of the Company (the “Board”) approved payment of the consideration through the issuance of 927,600 shares of Common Stock (the “Copyright Shares”), subject to the limitations of Listing Rule 5635 of The Nasdaq Stock Market LLC (“Nasdaq”). The Copyright Sh"
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": {
+     "form": "424B5",
+     "fecha": "2025-10-31",
+     "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774925032582/ipdn20251031_424b5.htm",
+     "tipo": "empresa",
+     "baby_shelf": true,
+     "frase_baby": "25, of which 1,778,749 are held by affiliates, and a per share price of $9.01 based on the closing sale price of our common stock on September 3, 2025 and is the highest closing sale price of our common stock on the Nasdaq Capital Market (“Nasdaq”) within the prior 60 days. As of the date of this prospectus supplement, we had sold securities with aggregate gross proceeds of $5,400,000 pursuant to General Instruction I.B.6. of Registration Statement on Form S-3 during the prior 12-month calendar period that ends on, and includes, the date of this prospectus supplement (but excluding this offering). In no event will we sell securities pursuant to a Registration Stateme",
+     "atm_usd": 3250000.0,
+     "atm_agente": null,
+     "frase_atm": "ailable through, the website. Therefore, such information should not be considered part of this prospectus supplement. S-4 THE OFFERING Common Stock Offered by Us Shares of our common stock having an aggregate offering price of up to $3,250,000. The amount and timing of sales of common stock offered hereby is at the sole discretion of the Investor. Common stock to be outstanding after this offering (1) Up to 5,721,238 shares, assuming the sale of 1,051,779 share"
+    },
+    "atm": true,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     204.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926027832/ipdn20260630_10q.htm"
+    },
+    "eloc": false,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_sin_ajustar": [
+     6.8
+    ],
+    "ajuste_splits_warrants": 30.0,
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.005
+   },
+   "avisos": [
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
+   ],
+   "verificacion": {
+    "estado": "corregido",
+    "diferencias": [
+     "Tipo: coinciden (giro IA / humo).",
+     "ERROR NUESTRO: el Radar no leía el cuerpo del 8-K cuando había EX-99 → se perdía el Item 1.01 ($1.177 M con Goodwill Labs). Corregido en lista_diaria.texto_catalizador + caso de oro; reescaneado.",
+     "Warrants: nuestra ficha decía [204.0] fuera del dinero; el verificador ve reajuste tras el contra-split (probablemente en el dinero). Anotado en la nota; el detector de reajustes de warrants queda pendiente (no da tiempo antes de publicar).",
+     "ATM: nuestra ficha dice sí; el verificador no la encontró (sí hay línea prepagada de Streeterville). Pendiente de revisar."
+    ],
+    "hora": "08:40"
+   }
+  },
+  {
+   "sym": "AIXI",
+   "nombre": "Xiao-I Corporation",
+   "sector": "Services-Prepackaged Software",
+   "precio": 3.0806,
+   "cierre_prev": 1.5099999904632568,
+   "gap": 1.0401,
+   "cap": 853468,
+   "acciones": 565211,
+   "vol_pre": null,
+   "bolsa": "NasdaqGM",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "fuentes_abiertas": "Finviz NO responde hoy (página vacía, bloqueo); revisados a mano EDGAR (submissions), Yahoo (búsqueda de noticias), web (búsqueda) — 6-oct ~8:35 NY. Última nota de prensa 3-sep (cambio de ratio de las ADS); 6-K 1-oct 16:31 = estados financieros semestrales (subió +49 % el 2-oct). Nada desde el 5-oct 16:00.",
+    "nota": "Sin noticia en la ventana. Última nota de prensa 3-sep (cambio de ratio de las ADS); 6-K 1-oct 16:31 = estados financieros semestrales (subió +49 % el 2-oct). Nada desde el 5-oct 16:00. | VERIFICADO (independiente): sin catalizador en la ventana (coincide). Añadido por el verificador y comprobado en el 6-K del 1-oct (EX-99.1): la filial operativa Shanghai Xiao-i está en LIQUIDACIÓN por quiebra («accepting the bankruptcy liquidation petition»; el administrador controla sus activos), going concern, capital circulante −$99.6 M, ventas jul-ago $164 018 en 2 meses; nota convertible tóxica de Streeterville (90 % del VWAP mínimo de 10 días − $0.05), saldo ≈ $3.19 M a 18-sep (≈ 2.6 M ADS a precio de hoy, más que las ADS en circulación); caja $3.45 M al 30-jun. Ratio de ADS cambiado 3 veces en 2 años (acumulado 1:1 260).",
+    "pasos": {
+     "fuentes": [
+      "EDGAR AIXI: 0 documentos en la ventana",
+      "Yahoo búsqueda: sin noticia en la ventana",
+      "Finviz: no responde hoy",
+      "Búsqueda web: sin noticia de hoy"
+     ],
+     "anexos_leidos": 0,
+     "negativos": "no aplica (sin catalizador)",
+     "historial": "2026-10-01 6-K +49%; 2026-09-03 6-K +3%; 2026-08-26 6-K -39%; 2026-08-07 6-K -10%",
+     "municion": "shelf empresa sí; ATM no; reventa 0 acciones; ELOC no; 424B 12 m: 3; venta 90 d sí; warrants []; tóxica sí — revisado en la ficha",
+     "caja": "going concern sí; caja a hoy la calcula finalizar (XBRL); la empresa dice: None"
+    },
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 42,
+    "tercio": "Media",
+    "pred_R": 0.063,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0065
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": true,
+      "peso": 0.0959
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0852
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1168
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1391
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.04
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0215
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": true,
+      "peso": -0.0074
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0583
+     }
+    ],
+    "base": -0.0436,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
+    ]
+   },
+   "estad": {
+    "n": 80,
+    "R": 0.08,
+    "WR": 0.64,
+    "gan": 0.77,
+    "perd": -1.14,
+    "PF": 1.19,
+    "dev": 0.14
+   },
+   "riesgo": {
+    "nivel": "Extremo",
+    "motivos": [
+     "Solo 0.57 M de acciones en circulación"
+    ],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 4.47,
+    "pml": 1.52,
+    "pmh_hora": "04:27",
+    "hasta": "08:40"
+   },
+   "caja": {
+    "caja": 2319453,
+    "inversiones": 0,
+    "caja_fecha": "2025-12-31",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "20-F",
+    "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026057986/",
+    "flujo_operativo": -3688864,
+    "flujo_desde": "2025-01-01",
+    "flujo_hasta": "2025-12-31",
+    "meses": 12,
+    "quema_mes": 307405,
+    "autonomia_meses": 7.5,
+    "meses_desde_informe": 9.2,
+    "autonomia_hoy": -1.7,
+    "caja_estimada_hoy": -498093
+   },
+   "historial": [
+    {
+     "form": "6-K",
+     "fecha": "2026-10-01 16:31",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026105823/ea0306791-6k_xiao1.htm",
+     "titular": "aixi-20260630 0001935172 Q2 false --12-31 2026-06-30 0001935172 2026-01-01 2026-06-30 0001935172 us-gaap:SubsequentEventMember 2026-08-06 0001935172 us-gaap:CommonStockMember aixi:AmericanDepositarySharesMember us-gaap:S",
+     "reaccion": {
+      "dia": "2026-10-02",
+      "apertura": 0.3992,
+      "cierre": 0.4897
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-09-03 09:20",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026096964/ea0304260-6k_xiao1.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Xiao-I Corporation (the “Company”) is furnishing this Report on Form 6-K to report the issuance of a press release announcing its plan to change the ratio of its American De",
+     "reaccion": {
+      "dia": "2026-09-03",
+      "apertura": -0.0297,
+      "cierre": 0.0276
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-08-26 14:25",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026093894/ea0303405-6k_xiao1.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Entry into Securities Purchase Agreement and Closing On August 26, 2026, Xiao-I Corporation (the “Company”) entered into a Securities Purchase Agreement (the “SPA”) with an ",
+     "reaccion": {
+      "dia": "2026-08-26",
+      "apertura": -0.1489,
+      "cierre": -0.3855
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-08-07 16:30",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026086721/ea0301084-6k_xiao1.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Receipt of Nasdaq Notification Regarding Minimum Market Value of Publicly Held Shares On August 6, 2026, Xiao-I Corporation (the “Company”) received a written notification (",
+     "reaccion": {
+      "dia": "2026-08-10",
+      "apertura": -0.0804,
+      "cierre": -0.0982
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-30 14:35",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026073605/ea0296209-6k_xiao1.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Entry into Securities Purchase Agreement and Closing On June 29, 2026, Xiao-I Corporation (the “Company”) entered into a Securities Purchase Agreement (the “SPA”) with an in",
+     "reaccion": {
+      "dia": "2026-06-30",
+      "apertura": -0.0462,
+      "cierre": -0.0564
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-23 10:48",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026070911/ea0295638-6k_xiao1.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Xiao-I Corporation (the “Company”) is furnishing this Report on Form 6-K to report the issuance of a press release providing an update on patent-related litigation between t",
+     "reaccion": {
+      "dia": "2026-06-23",
+      "apertura": 0.085,
+      "cierre": -0.0131
+     }
+    }
+   ],
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": true,
+    "s3": "2024-05-20",
+    "s1": null,
+    "ventas_12m": 3,
+    "p424_12m": 3,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-08-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026093890/ea0303406-424b5_xiao1.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-06-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026073606/ea0296185-424b5_xiao1.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-05-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026060946/ea0291728-424b5_xiao1.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-06-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390025055702/ea0246083-424b5_xiao1.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "F-3/A",
+      "fecha": "2024-05-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390024045212/ea0206567-f3a2_xiaoicorp.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "tely $116,337,171 million, which was calculated based on 20,737,463.70 Ordinary Shares held by non-affiliates and the price of $1.87 per ADS (each ADS represents one-third of an Ordinary Share), which was the closing price of our ADS on Nasdaq on March 22, 2024. During the 12 calendar months prior to and including the date of this prospectus, we have not offered or sold any securities pursuant to General Instruction I.B.5 of Form F-3. Xiao-I is a holding company incorporated in the Cayman Islands. As a holding company with no material operations of its own, Xiao-I conducts a substantial majority of its operations through Shanghai Xiao-i Robot Technology Co., Ltd. (“S"
+     },
+     {
+      "form": "F-3/A",
+      "fecha": "2024-05-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390024044935/ea0206534-f3a1_xiaoicorp.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "tely $116,337,171 million, which was calculated based on 20,737,463.70 Ordinary Shares held by non-affiliates and the price of $1.87 per ADS (each ADS represents one-third of an Ordinary Share), which was the closing price of our ADS on Nasdaq on March 22, 2024. During the 12 calendar months prior to and including the date of this prospectus, we have not offered or sold any securities pursuant to General Instruction I.B.5 of Form F-3. Xiao-I is a holding company incorporated in the Cayman Islands. As a holding company with no material operations of its own, Xiao-I conducts a substantial majority of its operations through Shanghai Xiao-i Robot Technology Co., Ltd. (“S"
+     },
+     {
+      "form": "F-3",
+      "fecha": "2024-05-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390024041579/ea0205614-f3_xiaoicorp.htm",
+      "tipo": "empresa"
+     }
+    ],
+    "colocaciones": [],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": null,
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-05-15",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026057986/ea0290336-20f_xiao.htm"
+    },
+    "eloc": false,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_sin_ajustar": [],
+    "ajuste_splits_warrants": 7.0,
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.011
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)",
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
+   ],
+   "verificacion": {
+    "estado": "ok",
+    "diferencias": [
+     "Catalizador: coinciden (N).",
+     "Nuestra ficha usaba el 20-F de mayo para la caja; el verificador usó el 6-K semestral del 1-oct (más reciente): caja $3.45 M al 30-jun, filial en liquidación por quiebra → añadido a la nota (no cambia tipo ni puntuación).",
+     "Tóxica y going concern: coinciden (sí/sí)."
+    ],
+    "hora": "08:33"
+   }
+  },
+  {
+   "sym": "JAGX",
+   "nombre": "Jaguar Health, Inc.",
+   "sector": "Pharmaceutical Preparations",
+   "precio": 6.38,
+   "cierre_prev": 4.730000019073486,
+   "gap": 0.3488,
+   "cap": 9202414,
+   "acciones": 1945542,
+   "vol_pre": null,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "fuentes_abiertas": "Finviz NO responde hoy (página vacía, bloqueo); revisados a mano EDGAR (submissions), Yahoo (búsqueda de noticias), web (búsqueda) — 6-oct ~8:35 NY. Sin nota ni documento desde el 5-oct 16:00. Contexto (NO es catalizador de hoy): 8-K 5-oct 08:45 dividendo especial en preferentes convertibles Serie R (anunciado 2-oct 20:35), extensión del ensayo MVID es del 10-sep; 424B5 el 24-sep; contra-split 1:15 reciente.",
+    "nota": "Sin noticia en la ventana. Sin nota ni documento desde el 5-oct 16:00. Contexto (NO es catalizador de hoy): 8-K 5-oct 08:45 dividendo especial en preferentes convertibles Serie R (anunciado 2-oct 20:35), extensión del ensayo MVID es del 10-sep; 424B5 el 24-sep; contra-split 1:15 reciente.",
+    "pasos": {
+     "fuentes": [
+      "EDGAR JAGX: 0 documentos en la ventana",
+      "Yahoo búsqueda: sin noticia en la ventana",
+      "Finviz: no responde hoy",
+      "Búsqueda web: sin noticia de hoy"
+     ],
+     "anexos_leidos": 0,
+     "negativos": "no aplica (sin catalizador)",
+     "historial": "2026-10-05 8-K +29%; 2026-09-28 8-K -22%; 2026-09-24 8-K +9%; 2026-09-24 8-K -21%",
+     "municion": "shelf empresa no; ATM sí; reventa 8546473 acciones; ELOC sí; 424B 12 m: 6; venta 90 d sí; warrants [0.6, 285.0, 375.0, 525.0, 1417.5, 2840.25]; tóxica no — revisado en la ficha",
+     "caja": "going concern sí; caja a hoy la calcula finalizar (XBRL); la empresa dice: ans to finance its operations and cash flow needs through equity and/or debt financing, collaboration arrangements with other entities, license royalty agreements, as well as revenue from future product sales, the Company does not have cash balances sufficient to fund its operating plan through one year from the issuance of these consolidated financial statements."
+    },
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 16,
+    "tercio": "Baja",
+    "pred_R": -0.033,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0065
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.0959
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0852
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1168
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1391
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": true,
+      "peso": 0.04
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0215
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": true,
+      "peso": -0.0074
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0583
+     }
+    ],
+    "base": -0.0436,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
+    ]
+   },
+   "estad": {
+    "n": 198,
+    "R": -0.02,
+    "WR": 0.57,
+    "gan": 0.47,
+    "perd": -0.66,
+    "PF": 0.92,
+    "dev": -0.01
+   },
+   "riesgo": {
+    "nivel": "Alto",
+    "motivos": [
+     "Pocas acciones en circulación (1.95 M)"
+    ],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 7.0,
+    "pml": 4.99,
+    "pmh_hora": "07:18",
+    "hasta": "08:40"
+   },
+   "caja": {
+    "caja": 3788000,
+    "inversiones": 0,
+    "caja_fecha": "2026-06-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526356570/",
+    "flujo_operativo": 3492000,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6
+   },
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-10-05 08:45",
+     "items": "1.01,2.03,3.03,5.03,7.01,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526413233/d183888d8k.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. Royalty Interest Global Amendments On September 30, 2026, Jaguar Health, Inc. (the “Company”) entered into an amendment (the “Uptown 2020 Royalty Interest Global Amen",
+     "reaccion": {
+      "dia": "2026-10-05",
+      "apertura": 0.1667,
+      "cierre": 0.2923
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-28 11:00",
+     "items": "1.01,3.02,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526403356/d187815d8k.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. As previously disclosed, on January 19, 2021, Jaguar Health, Inc. (the “Company”) issued and sold to Streeterville Capital, LLC (“Streeterville”) a secured promissory",
+     "reaccion": {
+      "dia": "2026-09-28",
+      "apertura": -0.0922,
+      "cierre": -0.2182
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-24 21:36",
+     "items": "1.01,1.02,3.02,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526401239/d130901d8k.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. As previously disclosed, on January 19, 2021, Jaguar Health, Inc. (the “Company”) issued and sold to Streeterville Capital, LLC (“Streeterville”) a secured promissory",
+     "reaccion": {
+      "dia": "2026-09-25",
+      "apertura": 0.2875,
+      "cierre": 0.0907
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-24 10:01",
+     "items": "1.01,3.02,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526400087/d161376d8k.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. As previously disclosed, on November 12, 2025, Jaguar Health, Inc. (the “Company”) issued and sold to Streeterville Capital, LLC (“Streeterville”) a secured promissor",
+     "reaccion": {
+      "dia": "2026-09-24",
+      "apertura": -0.211,
+      "cierre": -0.2076
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-21 20:47",
+     "items": "3.03,5.03,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526396752/d79729d8k.htm",
+     "titular": "Item 3.03 Material Modification to Rights of Security Holders. To the extent required by Item 3.03 of Form 8-K, the information regarding the Reverse Stock Split (as defined below) contained in Item 8.01 of this Current ",
+     "reaccion": {
+      "dia": "2026-09-22",
+      "apertura": 0.0599,
+      "cierre": 11.9064
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-15 17:44",
+     "items": "1.01,3.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526391682/d162139d8k.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. Promissory Note Exchange Transaction As previously disclosed, on June 24, 2025, Jaguar Health, Inc. (the “Company”) and Lincoln Alternative Strategies LLC (“LAS”) ent",
+     "reaccion": {
+      "dia": "2026-09-16",
+      "apertura": 0.0444,
+      "cierre": 0.0356
+     }
+    }
+   ],
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": true,
+    "s3": "2025-10-03",
+    "s1": "2026-07-24",
+    "ventas_12m": 2,
+    "p424_12m": 6,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 13,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-09-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526400348/d155719d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-09-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526381113/d126561d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-08-14",
+      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312525180433/d795266d424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-06-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312525151359/d847624d424b5.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "POS AM",
+      "fecha": "2026-08-11",
+      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526343471/d47881dposam.htm",
+      "tipo": "reventa",
+      "eloc": true,
+      "frase_eloc": "ued by us to the selling stockholder pursuant to a common stock purchase agreement, dated as of June 9, 2026, by and between us and the selling stockholder (the “Purchase Agreement”), establishing an equity line of credit. This Post-Effective Amendment No. 1 does not register any additional securities and relates solely to securities registered previously . This Post-Effective Amendment No. 1 is being filed ",
+      "acciones_reventa": 40874552,
+      "frase": "on July 24, 2026 (as amended, the “Original Registration Statement”), which registered the resale from time to time by the selling stockholder named therein of up to 40,874,552 shares of voting common stock, par value $0.0001 per share, consis",
+      "acciones_reventa_hoy": 2724970,
+      "ajuste_splits": 0.066667
+     },
+     {
+      "form": "S-1/A",
+      "fecha": "2026-07-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526315711/d47881ds1a.htm",
+      "tipo": "reventa",
+      "eloc": true,
+      "frase_eloc": "ued by us to the Selling Stockholder pursuant to a common stock purchase agreement, dated as of June 9, 2026, by and between us and the Selling Stockholder (the “Purchase Agreement”), establishing an equity line of credit. Such shares of our common stock include (i) up to 40,000,000 shares of common stock, or the Purchase Shares, that we may elect, in our sole discretion, subject to the restrictions and sati",
+      "acciones_reventa": 41000000,
+      "frase": "fers to buy these securities, in any state where the offer or sale is not permitted. PRELIMINARY PROSPECTUS SUBJECT TO COMPLETION DATED JULY 24, 2026 Resale of up to 41,000,000 Shares of Common Stock This prospectus relates to the potential resale from time t",
+      "acciones_reventa_hoy": 2733333,
+      "ajuste_splits": 0.066667
+     },
+     {
+      "form": "S-1",
+      "fecha": "2026-07-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526304988/d47881ds1.htm",
+      "tipo": "reventa",
+      "eloc": true,
+      "frase_eloc": "ued by us to the Selling Stockholder pursuant to a common stock purchase agreement, dated as of June 9, 2026, by and between us and the Selling Stockholder (the “Purchase Agreement”), establishing an equity line of credit. Such shares of our common stock include (i) up to 40,000,000 shares of common stock, or the Purchase Shares, that we may elect, in our sole discretion, subject to the restrictions and sati",
+      "acciones_reventa": 40800000,
+      "frase": "fers to buy these securities, in any state where the offer or sale is not permitted. PRELIMINARY PROSPECTUS SUBJECT TO COMPLETION DATED JULY 15, 2026 Resale of up to 40,800,000 Shares of Common Stock This prospectus relates to the potential resale from time t",
+      "acciones_reventa_hoy": 2720000,
+      "ajuste_splits": 0.066667
+     },
+     {
+      "form": "S-1",
+      "fecha": "2026-07-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526304985/d117884ds1.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 5522551,
+      "frase": "fers to buy these securities, in any state where the offer or sale is not permitted. PRELIMINARY PROSPECTUS SUBJECT TO COMPLETION DATED JULY 15, 2026 Resale of up to 5,522,551 Shares of Common Stock This prospectus relates to the potential resale from time t",
+      "acciones_reventa_hoy": 368170,
+      "ajuste_splits": 0.066667
+     },
+     {
+      "form": "S-3",
+      "fecha": "2025-10-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312525230202/d97821ds3.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 2621852,
+      "frase": "583 Shares of Common Stock 479,442 Shares of Common Stock Issuable Upon the Exercise of Outstanding Pre-Funded Warrant This prospectus relates to the resale of up to 2,621,852 shares of Jaguar Health, Inc. (the “Company,” “we,” “our” or “us”)",
+      "acciones_reventa_hoy": 5493,
+      "ajuste_splits": 0.002095
+     },
+     {
+      "form": "S-3",
+      "fecha": "2025-07-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312525164438/d949705ds3.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 1409732,
+      "frase": "Outstanding Replacement Notes 928,582 Shares of Common Stock Issuable Upon the Exercise of Outstanding Common Warrants This prospectus relates to the resale of up to 1,409,732 shares of Jaguar Health, Inc. (the “Company,” “we,” “our” or “us”)",
+      "acciones_reventa_hoy": 2953,
+      "ajuste_splits": 0.002095
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-06-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312525151359/d847624d424b5.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": " among the Company, Ladenburg and Lucid Capital Markets, LLC (the “ATM Agreement”). Sales of our Common Stock under the Prospectus, as supplemented by this Supplement, may be made in sales deemed to be an “at-the-market offering” as defined in Rule 415(a)(4) promulgated under the Securities Act of 1933, as amended (“Securities Act”). As previously reported, on March 31, 2025, we became subject to General Instruction I.B.6 of Form S-3, which limits the amounts that we may sell under the Registration Statement of which this Supplement and the Prospectus are a part. The aggregate market value of our Common Stock held by non-affiliates as of June 26, 2025 pursuant to Gen",
+      "atm_usd": 75000000.0,
+      "atm_agente": "Ladenburg",
+      "frase_atm": "out, and may only be delivered or utilized in connection with the Prospectus and any future amendments or supplements thereto. Under the Prospectus, we registered shares of our Common Stock having an aggregate offering price of up to $75,000,000 for offer and sale from time to time through Ladenburg Thalmann & Co. Inc. (“Ladenburg”) and Lucid Capital Markets, LLC (“Lucid” and, together with Ladenburg, the “Managers”), acting as the Company’s sales agents, pursua"
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "8-K",
+      "fecha": "2026-09-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526403356/d187815d8k.htm",
+      "precio": null,
+      "acciones": 481584,
+      "frase": " parties dated as of the even date. On September 25, 2026, the Company entered into privately negotiated exchange agreements with Streeterville (collectively, the “2021 Note Exchange Agreements”), pursuant to which the Company issued an aggregate of 481,584 shares (the “2021 Note Exchange Shares”) of the Company’s common stock, par value $0.0001 (the “Common Stock”) to Streeterville in exchange for a $3,400,000"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-09-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526401239/d130901d8k.htm",
+      "precio": null,
+      "acciones": 182091,
+      "frase": " parties dated as of the even date. On September 23, 2026, the Company entered into privately negotiated exchange agreements with Streeterville (collectively, the “2021 Note Exchange Agreements”), pursuant to which the Company issued an aggregate of 182,091 shares (the “2021 Note Exchange Shares”) of the Company’s common stock, par value $0.0001 (the “Common Stock”) to Streeterville in exchange for a $1,678,320"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-09-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526400087/d161376d8k.htm",
+      "precio": null,
+      "acciones": 547898,
+      "frase": " parties dated as of the even date. On September 23, 2026, the Company entered into privately negotiated exchange agreements with Streeterville (collectively, the “2025 Note Exchange Agreements”), pursuant to which the Company issued an aggregate of 547,898 shares (the “2025 Note Exchange Shares”) of the Company’s common stock, par value $0.0001 (the “Common Stock”) to Streeterville in exchange for a $5,049,909"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-09-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526391682/d162139d8k.htm",
+      "precio": null,
+      "acciones": 557377,
+      "frase": " things, the Company issued a 6% convertible promissory note (the “Note”) to LAS. On September 11, 2026, the Company entered into a privately negotiated exchange agreement with LAS (the “LAS Exchange Agreement”), pursuant to which the Company issued 557,377 shares (the “LAS Exchange Shares”) of the Company’s common stock, par value $0.0001 (the “Common Stock”) to LAS in exchange for the current Outstanding Bala"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-06-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526276103/d111863d8k.htm",
+      "precio": null,
+      "acciones": 34798,
+      "frase": "ries Q Preferred Stock”) in two privately negotiated exchange transactions. On June 9, 2026, the Company entered into a privately negotiated exchange agreement with Streeterville (the “First Exchange Agreement”), pursuant to which the Company issued 34,798 shares (the “First Exchange Shares”) of the Company’s common stock, par value $0.0001 (the “Common Stock”), to Streeterville in exchange for an aggregate of"
+     }
+    ],
+    "shelf_empresa": false,
+    "reventa_acciones": 8546473,
+    "atm_shelf": {
+     "form": "424B5",
+     "fecha": "2025-06-27",
+     "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312525151359/d847624d424b5.htm",
+     "tipo": "empresa",
+     "baby_shelf": true,
+     "frase_baby": " among the Company, Ladenburg and Lucid Capital Markets, LLC (the “ATM Agreement”). Sales of our Common Stock under the Prospectus, as supplemented by this Supplement, may be made in sales deemed to be an “at-the-market offering” as defined in Rule 415(a)(4) promulgated under the Securities Act of 1933, as amended (“Securities Act”). As previously reported, on March 31, 2025, we became subject to General Instruction I.B.6 of Form S-3, which limits the amounts that we may sell under the Registration Statement of which this Supplement and the Prospectus are a part. The aggregate market value of our Common Stock held by non-affiliates as of June 26, 2025 pursuant to Gen",
+     "atm_usd": 75000000.0,
+     "atm_agente": "Ladenburg",
+     "frase_atm": "out, and may only be delivered or utilized in connection with the Prospectus and any future amendments or supplements thereto. Under the Prospectus, we registered shares of our Common Stock having an aggregate offering price of up to $75,000,000 for offer and sale from time to time through Ladenburg Thalmann & Co. Inc. (“Ladenburg”) and Lucid Capital Markets, LLC (“Lucid” and, together with Ladenburg, the “Managers”), acting as the Company’s sales agents, pursua"
+    },
+    "atm": true,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     0.6,
+     285.0,
+     375.0,
+     525.0,
+     1417.5,
+     2840.25,
+     3066.0,
+     3632.4
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-19",
+     "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526356570/jagx-20260630.htm"
+    },
+    "eloc": true,
+    "uso_atm": [
+     "During the six months ended June 30, 2025 , the Company issued an aggregate of 11,875 shares under the ATM Agreement for total net proceeds of $ 3."
+    ],
+    "empresa_dice_caja": "ans to finance its operations and cash flow needs through equity and/or debt financing, collaboration arrangements with other entities, license royalty agreements, as well as revenue from future product sales, the Company does not have cash balances sufficient to fund its operating plan through one year from the issuance of these consolidated financial statements.",
+    "warrants_sin_ajustar": [
+     0.04,
+     19.0,
+     25.0,
+     35.0,
+     94.5,
+     189.35,
+     204.4,
+     242.16
+    ],
+    "ajuste_splits_warrants": 15.0,
+    "warrants_en_dinero": true,
+    "toxica_fuente": {
+     "form": "424B3",
+     "fecha": "2026-08-21",
+     "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526360939/d228075d424b3.htm"
+    }
+   },
+   "costes": {
+    "locate_1c_R": 0.005
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)",
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
+   ]
+  },
+  {
+   "sym": "OLOX",
+   "nombre": "Olenox Industries Inc.",
+   "sector": "Wholesale-Lumber & Other Construction Materials",
+   "precio": 1.42,
+   "cierre_prev": 0.8799999952316284,
+   "gap": 0.6136,
+   "cap": 1460225,
+   "acciones": 1659347,
+   "vol_pre": null,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "fuentes_abiertas": "Finviz NO responde hoy (página vacía, bloqueo); revisados a mano EDGAR (submissions), Yahoo (búsqueda de noticias), web (búsqueda) — 6-oct ~8:35 NY. Última nota de prensa en ir.olenox.com: 17-sep (bitcoin minado en agosto); 8-K/A 1-oct (corrección de estados pro forma, item 9.01). Benzinga y StocksToTrade dicen 'after unveiling a transformative global expansion partnership' pero NO hay documento ni nota de hoy: la alianza OneQode es de oct-2025 (reciclada, no verificable como de hoy).",
+    "nota": "Sin noticia en la ventana. Última nota de prensa en ir.olenox.com: 17-sep (bitcoin minado en agosto); 8-K/A 1-oct (corrección de estados pro forma, item 9.01). Benzinga y StocksToTrade dicen 'after unveiling a transformative global expansion partnership' pero NO hay documento ni nota de hoy: la alianza OneQode es de oct-2025 (reciclada, no verificable como de hoy). | VERIFICADO (independiente): sin catalizador en la ventana (coincide; la 'global expansion partnership' de StocksToTrade no tiene fuente). CORRECCIÓN NUESTRA: la ficha decía tóxica = no y SÍ hay financiación tóxica, comprobado en la SEC: nota convertible «80% of the lowest closing price … during the ten trading days prior to the conversion date» (424B3 7-ene-2026), preferentes Serie C con precio ajustable y suelo $0.638, preferentes Serie E «convertible into 100 shares … at a conversion price of $ 1.00 per share … subject to … reduction upon issuances … below the conversion price» (10-Q 2T-2026: 137 840 × 100 = 13 784 000 acciones potenciales, frente a 1 659 347 en circulación el 18-ago), ELOC con General Alpha renovada hasta ago-2028 (el inversor se queda hasta el 30 % de cada venta) y ELOC Tysadco al 90 % del mínimo de 7 días. Going concern, capital circulante −$22.9 M, caja $1.21 M al 30-jun, filial SG Echo en Chapter 11.",
+    "pasos": {
+     "fuentes": [
+      "EDGAR OLOX: 0 documentos en la ventana",
+      "Yahoo búsqueda: sin noticia en la ventana",
+      "Finviz: no responde hoy",
+      "Búsqueda web: sin noticia de hoy"
+     ],
+     "anexos_leidos": 0,
+     "negativos": "no aplica (sin catalizador)",
+     "historial": "2026-08-10 8-K -3%; 2026-08-06 8-K -28%; 2026-07-10 8-K -5%; 2026-06-22 8-K -6%",
+     "municion": "shelf empresa no; ATM no; reventa 871428 acciones; ELOC sí; 424B 12 m: 1; venta 90 d no; warrants []; tóxica no — revisado en la ficha",
+     "caja": "going concern sí; caja a hoy la calcula finalizar (XBRL); la empresa dice: None"
+    },
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "≥ 50 %",
+   "puntuacion": {
+    "valor": 15,
+    "tercio": "Baja",
+    "pred_R": -0.037,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": true,
+      "peso": 0.0065
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.0959
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0852
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1168
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1391
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.04
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": false,
+      "peso": -0.0215
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0074
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0583
+     }
+    ],
+    "base": -0.0436,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
+    ]
+   },
+   "estad": {
+    "n": 84,
+    "R": -0.15,
+    "WR": 0.52,
+    "gan": 0.63,
+    "perd": -1.0,
+    "PF": 0.69,
+    "dev": -0.09
+   },
+   "riesgo": {
+    "nivel": "Alto",
+    "motivos": [
+     "Pocas acciones en circulación (1.66 M)"
+    ],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 2.245,
+    "pml": 1.33,
+    "pmh_hora": "04:00",
+    "hasta": "08:40"
+   },
+   "caja": {
+    "caja": 3021757,
+    "inversiones": 0,
+    "caja_fecha": "2025-09-30",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390025110208/",
+    "flujo_operativo": -1112399,
+    "flujo_desde": "2026-01-01",
+    "flujo_hasta": "2026-06-30",
+    "meses": 6,
+    "quema_mes": 185400,
+    "autonomia_meses": 16.3,
+    "meses_desde_informe": 12.2,
+    "autonomia_hoy": 4.1,
+    "caja_estimada_hoy": 762120
+   },
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-08-10 19:58",
+     "items": "1.01,2.03,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390026087410/ea0301477-8k_olenox.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. On August 4, 2026 (the “Effective Date”), Olenox Industries Inc. (the “Company”) entered into an Amendment Agreement (the “Amendment”) with General Alpha Ltd., a Sain",
+     "reaccion": {
+      "dia": "2026-08-11",
+      "apertura": -0.089,
+      "cierre": -0.0307
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-06 08:30",
+     "items": "3.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390026085927/ea0300785-8k_olenox.htm",
+     "titular": "Item 3.01 Notice of Delisting or Failure to Satisfy a Continued Listing Rule or Standard; Transfer of Listing. As previously disclosed, the Company received notification letters from the Listing Qualification Department ",
+     "reaccion": {
+      "dia": "2026-08-06",
+      "apertura": 0.0554,
+      "cierre": -0.2793
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-07-10 13:33",
+     "items": "1.01,2.01,3.02,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390026077049/ea0297668-8k_olenox.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. On July 3, 2026, Olenox Industries, Inc., a Delaware corporation (the “Company”), entered into a Stock Exchange Agreement (the “Exchange Agreement”) with Psylinks Neu",
+     "reaccion": {
+      "dia": "2026-07-10",
+      "apertura": -0.0365,
+      "cierre": -0.0451
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-06-22 08:00",
+     "items": "1.01,2.01,2.03,3.02,5.03,8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390026070375/ea0295356-8k_olenox.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. Membership Interest Purchase Agreement On June 16, 2026, Olenox Industries Inc., a Delaware corporation (the “Company”), entered into an Amended and Restated Membersh",
+     "reaccion": {
+      "dia": "2026-06-22",
+      "apertura": -0.0198,
+      "cierre": -0.0578
+     }
+    }
+   ],
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": "2025-12-30",
+    "ventas_12m": 0,
+    "p424_12m": 1,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 7,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2023-08-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390023069928/ea183990-424b5_safeandgreen.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2021-10-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390021054650/ea149390-424b5_sgblocks.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2020-05-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390020011300/ea121496-424b4_sgblocks.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2020-04-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390020008403/ea120355-424b5_sgblocks.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "S-1",
+      "fecha": "2025-12-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390025126177/ea0270923-s1_safeandgreen.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 8714285,
+      "frase": "to the resale from time to time by the selling stockholder (the “Selling Stockholder”) identified in this prospectus under the caption “Selling Stockholder” of up to 8,714,285 shares of our Common Stock, par value $0.01 (our “Common Stock”), underlying the Serie",
+      "acciones_reventa_hoy": 871428,
+      "ajuste_splits": 0.1
+     },
+     {
+      "form": "S-1/A",
+      "fecha": "2025-09-17",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390025088640/ea0256756-s1a5_safe.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 937500,
+      "frase": "to the resale from time to time by the selling stockholder (the “Selling Stockholder”) identified in this prospectus under the caption “Selling Stockholder” of up to 937,500 shares of our Common Stock, par value $0.01 (our “Common Stock”), underlying the Serie",
+      "acciones_reventa_hoy": 93750,
+      "ajuste_splits": 0.1
+     },
+     {
+      "form": "S-1/A",
+      "fecha": "2025-08-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390025076875/ea0252988-s1a4_safe.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 300000000,
+      "frase": "to the resale from time to time by the selling stockholder (the “Selling Stockholder”) identified in this prospectus under the caption “Selling Stockholder” of up to 300,000,000 shares of our Common Stock, par value $0.01 (our “Common Stock”), underlying the Serie",
+      "acciones_reventa_hoy": 468750,
+      "ajuste_splits": 0.001563
+     },
+     {
+      "form": "S-1",
+      "fecha": "2025-07-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390025068005/ea0250053-s1_safeandgreen.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 300000000,
+      "frase": "to the resale from time to time by the selling stockholder (the “Selling Stockholder”) identified in this prospectus under the caption “Selling Stockholder” of up to 300,000,000 shares of our Common Stock, par value $0.01 (our “Common Stock”), underlying the Serie",
+      "repetida": true,
+      "acciones_reventa_hoy": 468750,
+      "ajuste_splits": 0.001563
+     },
+     {
+      "form": "S-1/A",
+      "fecha": "2025-07-25",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390025067804/ea025032901-s1a3_safe.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 20408160,
+      "frase": "to the resale from time to time by the selling stockholder (the “Selling Stockholder”) identified in this prospectus under the caption “Selling Stockholder” of up to 20,408,160 shares of our Common Stock, par value $0.01 (our “Common Stock”), consisting of (1) (a",
+      "acciones_reventa_hoy": 31887,
+      "ajuste_splits": 0.001563
+     },
+     {
+      "form": "S-1/A",
+      "fecha": "2025-07-21",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390025066123/ea0249421-s1a2_safe.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 20408160,
+      "frase": "to the resale from time to time by the selling stockholder (the “Selling Stockholder”) identified in this prospectus under the caption “Selling Stockholder” of up to 20,408,160 shares of our Common Stock, par value $0.01 (our “Common Stock”), consisting of (1) (a",
+      "repetida": true,
+      "acciones_reventa_hoy": 31887,
+      "ajuste_splits": 0.001563
+     },
+     {
+      "form": "S-1/A",
+      "fecha": "2025-07-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390025062586/ea0248009-s1a1_safe.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 20408160,
+      "frase": "to the resale from time to time by the selling stockholder (the “Selling Stockholder”) identified in this prospectus under the caption “Selling Stockholder” of up to 20,408,160 shares of our Common Stock, par value $0.01 (our “Common Stock”), consisting of (1) (a",
+      "repetida": true,
+      "acciones_reventa_hoy": 31887,
+      "ajuste_splits": 0.001563
+     },
+     {
+      "form": "S-1",
+      "fecha": "2025-04-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390025037635/ea0238788-s1_safeandgreen.htm",
+      "tipo": "reventa"
+     },
+     {
+      "form": "S-1",
+      "fecha": "2025-02-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390025011307/ea0214229-s1_safeandgreen.htm",
+      "tipo": "reventa",
+      "eloc": true,
+      "frase_eloc": " based on the closing price of our shares on the Nasdaq Capital Market, LLC, or “Nasdaq”, on February 3 , 2025 of $0.68 per share, that have been or may be issued by us to the Investor pursuant to an equity purchase agreement, dated as of January 21, 2025, by and between us and the Investor (the “ELOC Purchase Agreement”) establishing a committed equity facility (the “Facility” or “Equity Line of Credit”). We are not sell",
+      "acciones_reventa": 19270190,
+      "frase": "ion where such offer is not permitted. i About this Prospectus This prospectus describes the general manner in which the Investor may offer, from time to time, up to 19,270,190 Shares held by the Investor as described in the cover page of this",
+      "acciones_reventa_hoy": 30109,
+      "ajuste_splits": 0.001563
+     },
+     {
+      "form": "S-1/A",
+      "fecha": "2024-05-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390024047121/ea0206398-02.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 4327793,
+      "frase": "to the resale from time to time by the selling stockholder (the “Selling Stockholder”) identified in this prospectus under the caption “Selling Stockholder” of up to 4,327,793 shares of our Common Stock, par value $0.01 (our “Common Stock”), consisting of (1) (a",
+      "acciones_reventa_hoy": 6762,
+      "ajuste_splits": 0.001563
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "8-K",
+      "fecha": "2026-07-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390026077049/ea0297668-8k_olenox.htm",
+      "precio": null,
+      "acciones": 104166,
+      "frase": "mpany (the “Purchase Price”) consists of US$500,000 in restricted shares of the Company’s common stock, par value $0.001 per share (the “Common Stock”) at an agreed upon value of US$4.80 per share such that the Sellers shall, collectively, be issued 104,166 shares of Common Stock. Pursuant to the Exchange Agreement, the Company shall hire Psylinks’ key employees; Dr. Ford Burles, PhD, as the Company’s VP of Pro"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-06-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390026070375/ea0295356-8k_olenox.htm",
+      "precio": null,
+      "acciones": 1500000,
+      "frase": "re (the “Series E Preferred Stock”), issued at a stated value of $100.00 per share, and (b) US$16,000,000 in the form of an unsecured promissory note issued by the Company to the Sellers (the “Seller Note”); (ii) warrants to purchase an aggregate of 1,500,000 shares of the Company’s common stock, par value $0.01 per share (the “Common Stock”), comprised of three equal tranches of 500,000 shares each, with exercis"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2026-05-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390026061792/ea0292420-8k_olenox.htm",
+      "precio": null,
+      "acciones": 1500000,
+      "frase": "hare (the “Series D Preferred Stock”), issued at a stated value of $1.00 per share, and (b) US$16,000,000 in the form of an unsecured promissory note issued by the Company to the Sellers (the “Seller Note”); (ii) warrants to purchase an aggregate of 1,500,000 shares of the Company’s common stock, par value $0.01 per share (the “Common Stock”), comprised of three equal tranches of 500,000 shares each, with exercis"
+     },
+     {
+      "form": "8-K",
+      "fecha": "2025-12-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390025117158/ea0268041-8k_safe.htm",
+      "precio": null,
+      "acciones": 4500,
+      "frase": "een Holdings Corp. (the “ Company ”) consummated a private placement (the “ Private Placement ”) pursuant to a securities purchase agreement (the “ Purchase Agreement ”) with an institutional investor (the “ Purchaser ”) for the purchase and sale of 4,500 shares (the “ Initial Preferred Shares ”) of the Company’s series c preferred stock, $1.00 par value per share (the “ Series C Preferred Stock ”), for an in"
+     }
+    ],
+    "shelf_empresa": false,
+    "reventa_acciones": 871428,
+    "atm_shelf": null,
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-19",
+     "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390026091621/ea0302276-10q_olenox.htm"
+    },
+    "eloc": true,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_en_dinero": false,
+    "toxica_fuente": {
+     "form": "424B3",
+     "fecha": "2026-01-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390026002154/ea0272095-424b3_safeandgreen.htm"
+    }
+   },
+   "costes": {
+    "locate_1c_R": 0.023
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)",
+    "Convertible de precio variable (tóxica) en el último informe: munición continua"
+   ],
+   "verificacion": {
+    "estado": "corregido",
+    "diferencias": [
+     "Catalizador: coinciden (N).",
+     "ERROR NUESTRO: 'tóxica = no' en la ficha; el verificador encontró nota convertible al 80 % del mínimo de 10 días (424B3 7-ene-2026), Serie C ajustable con suelo y Serie E con ajuste a la baja (10-Q 2T-2026). Comprobado leyendo la SEC. Corregido en la nota. Caso de oro + arreglo del detector: pendiente de hoy (después de publicar)."
+    ],
+    "hora": "08:41"
+   }
+  },
+  {
+   "sym": "XHG",
+   "nombre": "XChange TEC.INC",
+   "sector": "Insurance Agents, Brokers & Service",
+   "precio": 2.4769,
+   "cierre_prev": 1.899999976158142,
+   "gap": 0.3036,
+   "cap": 97941064,
+   "acciones": 46604623,
+   "vol_pre": null,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "fuentes_abiertas": "Finviz NO responde hoy; revisados a mano EDGAR (submissions), Yahoo (búsqueda de noticias) — 6-oct ~8:42 NY: última nota de prensa 13-ago (intención de comprar First Cycle); último documento SEC 6-K 16-jul",
+    "nota": "Sin noticia en la ventana. Última nota 13-ago-2026 (intención de adquirir First Cycle, 'AI-powered insurance'). Going concern sí (ficha). | VERIFICADO (independiente): sin catalizador en la ventana (coincide). Añadido por el verificador: ELOC con VG Master Fund de hasta $100 M (hasta abr-2028, cada compra ≤ 200 % del volumen medio de 5 días); F-3 de la empresa de $300 M; caja $0.6 M al 31-mar con quema ≈ $0.2 M/mes → ≈ 0 meses a hoy; going concern; déficit de circulante RMB 900.55 M; pagaré de $153 M a MMTEC pagado en parte con acciones en 2025; ratio de ADS 1:2 400 (cambio 1:20 en may-2025). La ficha automática decía ELOC = no.",
+    "pasos": {
+     "fuentes": [
+      "EDGAR XHG: 0 documentos en la ventana",
+      "Yahoo búsqueda XHG: última 13-ago",
+      "Finviz: no responde hoy"
+     ],
+     "anexos_leidos": 0,
+     "negativos": "no aplica (sin catalizador)",
+     "historial": "2026-07-16 6-K",
+     "municion": "shelf empresa sí; ATM no; ELOC no; venta 90 d no; tóxica no — revisado en la ficha",
+     "caja": "going concern sí"
+    },
+    "tipo_es": "Sin noticia"
+   },
+   "tramo": "20-50 %",
+   "puntuacion": {
+    "valor": 5,
+    "tercio": "Baja",
+    "pred_R": -0.065,
+    "factores": [
+     {
+      "clave": "gap_50_100",
+      "nombre": "Gap 50-100 %",
+      "activo": false,
+      "peso": 0.0065
+     },
+     {
+      "clave": "gap_100",
+      "nombre": "Gap ≥ 100 %",
+      "activo": false,
+      "peso": 0.0959
+     },
+     {
+      "clave": "cat_H",
+      "nombre": "Catalizador humo / cosmético",
+      "activo": false,
+      "peso": 0.0852
+     },
+     {
+      "clave": "cat_B",
+      "nombre": "Catalizador biotech real (FDA / datos)",
+      "activo": false,
+      "peso": 0.1168
+     },
+     {
+      "clave": "cat_K",
+      "nombre": "Contrato real con cifra",
+      "activo": false,
+      "peso": 0.1391
+     },
+     {
+      "clave": "venta90",
+      "nombre": "Vendió acciones (424B) en los últimos 90 días",
+      "activo": false,
+      "peso": 0.04
+     },
+     {
+      "clave": "s3",
+      "nombre": "Shelf S-3 / F-3 registrado (3 años)",
+      "activo": true,
+      "peso": -0.0215
+     },
+     {
+      "clave": "serie",
+      "nombre": "Diluidor en serie (≥ 3 folletos 424B en 12 meses)",
+      "activo": false,
+      "peso": -0.0074
+     },
+     {
+      "clave": "solo_pr",
+      "nombre": "8-K solo nota de prensa (7.01/8.01, sin acuerdo 1.01)",
+      "activo": false,
+      "peso": 0.0583
+     }
+    ],
+    "base": -0.0436,
+    "notas": [
+     "Sin noticia: el histórico no tiene este grupo; puntúa como 'otros catalizadores'"
+    ]
+   },
+   "estad": {
+    "n": 198,
+    "R": -0.02,
+    "WR": 0.57,
+    "gan": 0.47,
+    "perd": -0.66,
+    "PF": 0.92,
+    "dev": -0.01
+   },
+   "riesgo": {
+    "nivel": "Normal",
+    "motivos": [],
+    "rotacion_pre": null,
+    "validado": false
+   },
+   "premarket": {
+    "pmh": 4.31,
+    "pml": 1.9,
+    "pmh_hora": "08:32",
+    "hasta": "08:40"
+   },
+   "caja": {
+    "caja": 644000,
+    "inversiones": 335000,
+    "caja_fecha": "2026-03-31",
+    "caja_etiqueta": "CashAndCashEquivalentsAtCarryingValue",
+    "form": "6-K",
+    "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390026078731/",
+    "flujo_operativo": -1232000,
+    "flujo_desde": "2025-10-01",
+    "flujo_hasta": "2026-03-31",
+    "meses": 6,
+    "quema_mes": 205333,
+    "autonomia_meses": 4.8,
+    "meses_desde_informe": 6.2,
+    "autonomia_hoy": -1.4,
+    "caja_estimada_hoy": -295901
+   },
+   "historial": [
+    {
+     "form": "6-K",
+     "fecha": "2026-07-16 16:30",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390026078731/ea0296080-6k_xchange.htm",
+     "titular": "xhg-20260331 http://fasb.org/srt/2026#ChiefExecutiveOfficerMember false --09-30 0001769256 Q2 2026-03-31 0001769256 us-gaap:SubsequentEventMember xhg:AmericanDepositarySharesMember 2026-04-16 2026-04-16 0001769256 us-gaa",
+     "reaccion": {
+      "dia": "2026-07-17",
+      "apertura": 0.0,
+      "cierre": 0.1353
+     }
+    }
+   ],
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "municion": {
+    "venta90": false,
+    "s3": "2026-03-11",
+    "s1": null,
+    "ventas_12m": 1,
+    "p424_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-04-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390026044666/ea0285971-424b5_xchange.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-09-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390024081225/ea0215300-424b5_xchange.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2019-11-06",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769256/000119312519285410/d715092d424b4.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "F-3/A",
+      "fecha": "2026-03-11",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390026026180/ea0280458-f3a2_xchangetec.htm",
+      "tipo": "empresa"
+     },
+     {
+      "form": "F-3/A",
+      "fecha": "2025-10-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390025103499/ea0262129-f3a1_xchangetec.htm",
+      "tipo": "empresa"
+     },
+     {
+      "form": "F-3",
+      "fecha": "2025-09-09",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390025086186/ea0256241-f3_xchangetec.htm",
+      "tipo": "empresa"
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "6-K",
+      "fecha": "2026-07-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390026078731/ea0296080-6k_xchange.htm",
+      "precio": null,
+      "acciones": 4374500000000000,
+      "frase": "g lease liabilities, non-current 353 257 37 Total non-current liabilities 353 257 37 Total liabilities 949,521 936,491 135,762 Commitments and contingencies (Note 15) SHAREHOLDERS’ DEFICIT: Class A ordinary shares (US$ 0.0000001 par value per share; 4,374,500,000,000,000 shares authorized; 111,851,094,785 shares issued and outstanding as of September 30, 2025 and March 31, 2026, respectively) 174,941 174,941 25,361 Class B o"
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": null,
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-01-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390026004379/ea0270582-20f_xchange.htm"
+    },
+    "eloc": false,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_en_dinero": false
+   },
+   "costes": {
+    "locate_1c_R": 0.013
+   },
+   "avisos": [
+    "Sube sin ninguna noticia encontrada (caso no medido: días de prueba 2 de 5 ganadoras)"
+   ]
+  }
+ ],
+ "descartadas": [
+  {
+   "sym": "FRGT",
+   "nombre": "Freight Technologies, Inc.",
+   "sector": "Arrangement of  Transportation of  Freight & Cargo",
+   "precio": 0.4069,
+   "cierre_prev": 0.24500000476837158,
+   "gap": 0.6608,
+   "cap": 150621,
+   "acciones": 614783,
+   "vol_pre": null,
+   "bolsa": "NasdaqCM",
+   "clasif": {
+    "tipo": "N",
+    "frase_en": "",
+    "frase_es": "",
+    "cifra": "",
+    "fuentes_abiertas": "Finviz NO responde hoy (página vacía, bloqueo); revisados a mano EDGAR (submissions), Yahoo (búsqueda de noticias), web (búsqueda) — 6-oct ~8:35 NY. Sin nota ni documento desde el 5-oct 16:00 (última nota 18-sep). Precio < $1.",
+    "nota": "Sin noticia en la ventana. Sin nota ni documento desde el 5-oct 16:00 (última nota 18-sep). Precio < $1.",
+    "pasos": {
+     "fuentes": [
+      "EDGAR FRGT: 0 documentos en la ventana",
+      "Yahoo búsqueda: sin noticia en la ventana",
+      "Finviz: no responde hoy",
+      "Búsqueda web: sin noticia de hoy"
+     ],
+     "anexos_leidos": 0,
+     "negativos": "no aplica (sin catalizador)",
+     "historial": "2026-07-15 6-K +18%; 2026-06-23 6-K -4%",
+     "municion": "shelf empresa no; ATM sí; reventa 0 acciones; ELOC no; 424B 12 m: 0; venta 90 d no; warrants [1800.0]; tóxica sí — revisado en la ficha",
+     "caja": "going concern sí; caja a hoy la calcula finalizar (XBRL); la empresa dice: None"
+    },
+    "tipo_es": "Sin noticia"
+   },
+   "motivo": "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5)",
+   "docs_hoy": []
+  },
+  {
+   "sym": "OPCH",
+   "nombre": "Option Care Health, Inc.",
+   "sector": "Services-Home Health Care Services",
+   "precio": 31.09,
+   "cierre_prev": 23.3700008392334,
+   "gap": 0.3303,
+   "cap": 3500481280,
+   "acciones": 149785243,
+   "vol_pre": null,
+   "bolsa": "NasdaqGS",
+   "clasif": {
+    "tipo": "C",
+    "frase_en": "will be automatically cancelled, extinguished and converted into the right to receive cash in an amount equal to $32.05 without interest thereon",
+    "frase_es": "cada acción se cancelará y se convertirá en el derecho a recibir en efectivo 32.05 dólares, sin intereses",
+    "cifra": "$32.05 por acción en efectivo (valor de empresa ≈ $5.8 billion)",
+    "nota": "Acuerdo de fusión DEFINITIVO firmado el 5-oct (8-K 6-oct 08:22, Item 1.01) con CD&R y McKesson: compra en efectivo a $32.05 por acción. Compra en efectivo = NO shortear nunca (el precio queda pegado al de compra). La noticia de ayer tarde (FT/Reuters 16:45) era el rumor; hoy está firmado.",
+    "pasos": {
+     "fuentes": [
+      "8-K 08:22 (1.01, 7.01, 9.01) cuerpo leído",
+      "EX-99.1 nota de prensa leída",
+      "Reuters/Yahoo 5-oct 16:45 «McKesson, CD&R near $5 billion-plus deal…»",
+      "Investing.com 16:44",
+      "Barron's 17:16",
+      "Stocktwits 18:27"
+     ],
+     "anexos_leidos": 2,
+     "negativos": "no aplica (compra en efectivo, descartada)",
+     "historial": "2026-07-29 8-K (resultados) +6%",
+     "municion": "shelf empresa no; ATM no; reventa 0; ELOC no; 424B 12 m: 0; tóxica no — revisado en la ficha",
+     "caja": "going concern no"
+    },
+    "tipo_es": "Compra en efectivo"
+   },
+   "motivo": "Compra en efectivo: el precio queda anclado a la oferta (PF histórico 0.23). No se shortea nunca",
+   "docs_hoy": [
+    {
+     "form": "DEFA14A",
+     "hora": "2026-10-06 08:23",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1014739/000110465926113905/tm2627097d1_8k.htm",
+     "items_es": ""
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-10-06 08:22",
+     "items": "1.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1014739/000110465926113904/tm2627097d1_8k.htm",
+     "items_es": "1.01 acuerdo firmado; 7.01 nota de prensa; 9.01 anexos"
+    }
+   ]
+  },
+  {
+   "sym": "BBBYW",
+   "nombre": "Neighborhood Intelligence, Inc.",
+   "sector": "Retail-Catalog & Mail-Order Houses",
+   "precio": 0.3799,
+   "cierre_prev": 0.30169999599456787,
+   "gap": 0.2592,
+   "cap": 37054918.3173,
+   "acciones": null,
+   "vol_pre": null,
+   "bolsa": "NasdaqGS",
+   "clasif": {
+    "tipo": "H",
+    "frase_en": "Paul Kosturos, a Managing Director with Alvarez & Marsal (“A&M”), has been appointed Interim Chief Financial Officer",
+    "frase_es": "Paul Kosturos, director gerente de Alvarez & Marsal, ha sido nombrado director financiero interino",
+    "cifra": "sin cifra",
+    "nota": "Es el WARRANT (BBBYW) de Neighborhood Intelligence, precio < $1. Nombramiento = cosmético. Contexto: 5-oct 07:19 fin de la fusión con Fathom; 424B5 el 5-oct (venta de acciones ayer).",
+    "pasos": {
+     "fuentes": [
+      "8-K 5-oct 17:15 cuerpo (5.02 dimisión del CFO Brian LaRose, CFO interino de A&M) leído",
+      "EX-99.1 leído",
+      "Yahoo 5-oct 17:00 «Neighborhood Intelligence Strengthens Financial and Operating Leadership as Company Advances Integration» (misma nota)"
+     ],
+     "anexos_leidos": 2,
+     "negativos": "ninguna; leído entero",
+     "historial": "2026-10-05 8-K -18%; 2026-09-08 8-K +8%; 2026-08-14 8-K; 2026-08-05 8-K",
+     "municion": "shelf empresa sí; ATM sí; reventa 46229056 acciones; ELOC no; 424B 12 m: 5; venta 90 d sí; warrants [15.5]; tóxica no — revisado en la ficha",
+     "caja": "going concern no; caja a hoy la calcula finalizar (XBRL); la empresa dice: None"
+    },
+    "tipo_es": "Humo / cosmético"
+   },
+   "motivo": "Precio < $1: con un locate normal ($0.02 por acción) la ventaja histórica pasa a negativa (ronda 5)",
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-10-05 17:15",
+     "items": "5.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1130713/000114036126038653/ef20083311_form8k.htm",
+     "items_es": "5.02 directivos; 7.01 nota de prensa; 9.01 anexos"
+    }
+   ]
+  },
+  {
+   "sym": "APOG",
+   "nombre": "Apogee Enterprises, Inc.",
+   "sector": "Glass Products, Made of  Purchased Glass",
+   "precio": 43.0,
+   "cierre_prev": 35.65999984741211,
+   "gap": 0.2058,
+   "cap": 744163392,
+   "acciones": 20868294,
+   "vol_pre": null,
+   "bolsa": "NasdaqGS",
+   "clasif": {
+    "tipo": "R",
+    "frase_en": "Apogee Enterprises Reports Fiscal 2027 Second Quarter Results",
+    "frase_es": "Apogee Enterprises publica los resultados del 2.º trimestre fiscal 2027",
+    "cifra": "sin cifra",
+    "nota": "Resultados trimestrales con subida de previsiones (titulares de Yahoo: 'earnings beat and raised guidance'). Tipo R = descartada (malo para el corto, PF 0.61).",
+    "pasos": {
+     "fuentes": [
+      "Yahoo 06:30 «Apogee Enterprises Reports Fiscal 2027 Second Quarter Results»",
+      "Yahoo 06:38 «Apogee Enterprises: Fiscal Q2 Earnings Snapshot»",
+      "Yahoo 06:40 «Apogee Enterprises (APOG) Q2 Earnings and Revenues Top Estimates»",
+      "Yahoo 06:49 «Apogee’s (NASDAQ:APOG) Q3 CY2026: Strong Sales, Stock Jumps 19.7%»",
+      "Yahoo 07:12 «Apogee Enterprises stock soars 13% on earnings beat and raised guidance»",
+      "Yahoo 07:38 «This Glass Maker’s Stock Is Rising 19% on Monster Quarter and Guidance Boost»",
+      "EDGAR APOG: 0 documentos en la ventana"
+     ],
+     "anexos_leidos": 0,
+     "negativos": "no aplica (descartada por tipo R)",
+     "historial": "2026-09-23 8-K -2%; 2026-09-14 8-K +1%; 2026-09-02 8-K +0%; 2026-08-05 8-K +0%",
+     "municion": "shelf empresa no; ATM no; reventa 0 acciones; ELOC no; 424B 12 m: 0; venta 90 d no; warrants []; tóxica no — revisado en la ficha",
+     "caja": "going concern no; caja a hoy la calcula finalizar (XBRL); la empresa dice: None"
+    },
+    "frase_url": "https://finance.yahoo.com/markets/stocks/articles/apogee-enterprises-reports-fiscal-2027-103000148.html",
+    "tipo_es": "Resultados"
+   },
+   "motivo": "Resultados o cifras de ventas (trimestrales, anuales o preliminares): históricamente malo para el corto (PF 0.61)",
+   "docs_hoy": []
+  }
+ ],
+ "resultados": null,
+ "auditoria": {
+  "errores": [],
+  "avisos": [],
+  "cobertura": {
+   "universo": 6477,
+   "cotizadas": 6474,
+   "pct": 0.9995,
+   "ficheros_faltan": [],
+   "fuentes_universo": {
+    "nasdaqtrader": 5908,
+    "sec": 7109
+   },
+   "massive": 12621,
+   "tradingview": 9,
+   "solo_tradingview": []
+  },
+  "forzada": false
+ },
+ "salud": {
+  "pruebas": "33/33",
+  "pruebas_ok": true,
+  "universo": 6477,
+  "cobertura": 0.9995,
+  "nasdaqtrader": "ok",
+  "sec": 7109,
+  "massive": true,
+  "tradingview": true,
+  "candidatos": 9,
+  "verificadas": "3/3",
+  "citas_comprobadas": "4/4",
+  "citas_no_comprobables": [],
+  "errores": 0,
+  "avisos": 0,
+  "forzada": false,
+  "linea": "Salud: pruebas 33/33 · universo 6477 (100.0% cotizadas) · nasdaqtrader ok · Massive ok · TradingView ok · candidatos 9 · verificadas 3/3 · citas comprobadas 4/4 · auditoría 0 errores, 0 avisos"
+ }
+}

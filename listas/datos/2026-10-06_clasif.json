@@ -111,10 +111,11 @@
   "nota": "Es el WARRANT (BBBYW) de Neighborhood Intelligence, precio < $1. Nombramiento = cosmético. Contexto: 5-oct 07:19 fin de la fusión con Fathom; 424B5 el 5-oct (venta de acciones ayer).",
   "pasos": {
    "fuentes": [
-    "8-K 5-oct 17:15 (5.02, 7.01) + EX-99.1 leído",
+    "8-K 5-oct 17:15 cuerpo (5.02 dimisión del CFO Brian LaRose, CFO interino de A&M) leído",
+    "EX-99.1 leído",
     "Yahoo 5-oct 17:00 «Neighborhood Intelligence Strengthens Financial and Operating Leadership as Company Advances Integration» (misma nota)"
    ],
-   "anexos_leidos": 1,
+   "anexos_leidos": 2,
    "negativos": "ninguna; leído entero",
    "historial": "2026-10-05 8-K -18%; 2026-09-08 8-K +8%; 2026-08-14 8-K; 2026-08-05 8-K",
    "municion": "shelf empresa sí; ATM sí; reventa 46229056 acciones; ELOC no; 424B 12 m: 5; venta 90 d sí; warrants [15.5]; tóxica no — revisado en la ficha",
@@ -173,7 +174,7 @@
   "frase_es": "",
   "cifra": "",
   "fuentes_abiertas": "Finviz NO responde hoy; revisados a mano EDGAR (submissions), Yahoo (búsqueda de noticias) — 6-oct ~8:42 NY: última nota de prensa 13-ago (intención de comprar First Cycle); último documento SEC 6-K 16-jul",
-  "nota": "Sin noticia en la ventana. Última nota 13-ago-2026 (intención de adquirir First Cycle, 'AI-powered insurance'). Going concern sí (ficha).",
+  "nota": "Sin noticia en la ventana. Última nota 13-ago-2026 (intención de adquirir First Cycle, 'AI-powered insurance'). Going concern sí (ficha). | VERIFICADO (independiente): sin catalizador en la ventana (coincide). Añadido por el verificador: ELOC con VG Master Fund de hasta $100 M (hasta abr-2028, cada compra ≤ 200 % del volumen medio de 5 días); F-3 de la empresa de $300 M; caja $0.6 M al 31-mar con quema ≈ $0.2 M/mes → ≈ 0 meses a hoy; going concern; déficit de circulante RMB 900.55 M; pagaré de $153 M a MMTEC pagado en parte con acciones en 2025; ratio de ADS 1:2 400 (cambio 1:20 en may-2025). La ficha automática decía ELOC = no.",
   "pasos": {
    "fuentes": [
     "EDGAR XHG: 0 documentos en la ventana",
