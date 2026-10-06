@@ -2,7 +2,7 @@
   python 34_largos_lotes.py p1            → paso 1: cuerpo + cada EX-99 recortados a 1 800 caracteres, 60 eventos por lote
   python 34_largos_lotes.py p2 ids.txt    → paso 2: texto completo (hasta 30 000 caracteres por parte), 10 eventos por lote
 Los lotes van a /home/user/data/largos/lotes/<paso>/ y las lecturas a /home/user/data/largos/lecturas/<paso>/."""
-import glob, json, os, sys
+import glob, json, os, re, sys
 import pandas as pd
 
 D = "/home/user/data/largos"
@@ -33,7 +33,12 @@ for i in ids:
     for d in j["docs"]:
         for p in d["partes"]:
             bloque.append(f"--- {p['archivo']} ---")
-            bloque.append(p["texto"][:CORTE])
+            t = p["texto"]
+            m = re.search(r"Item\s*\d\.\d\d", t)
+            # 6-oct: en algunos 8-K con XBRL en línea el texto empieza con la cabecera técnica (RILY) → saltar hasta el primer Item
+            if m and m.start() > 0 and re.search(r"\b0001\d{6}\b|Member\b|SECURITIES AND EXCHANGE COMMISSION", t[:m.start()]):
+                t = t[m.start():]
+            bloque.append(t[:CORTE])
     listos.append("\n".join(bloque))
 n0 = len(glob.glob(f"{D}/lotes/{paso}/*.txt"))
 for k in range(0, len(listos), TAM):
