@@ -392,6 +392,13 @@ def _():
     assert m["toxica"] and m.get("toxica_fuente", {}).get("form") == "424B3", m.get("toxica_fuente")
 
 
+@caso("Catalizador: en 6-K la nota de prensa puede ser EX-1, no EX-99 (AudioCodes 6-nov-2024: tm2427606d1_ex1.htm)")
+def _():
+    partes = l.texto_catalizador(1086434, dict(acc="000110465924114576", doc="tm2427606d1_6k.htm"))
+    nombres = [x["archivo"] for x in partes]
+    assert "tm2427606d1_ex1.htm" in nombres and "tm2427606d1_6k.htm" in nombres, nombres
+
+
 if __name__ == "__main__":
     rapidas = "--rapidas" in sys.argv
     fallos = 0

@@ -10,6 +10,7 @@ import lista_diaria as L
 D = "/home/user/data/largos"
 OUT = f"{D}/textos"
 os.makedirs(OUT, exist_ok=True)
+os.makedirs(f"{D}/textos_v1", exist_ok=True)
 U = pd.read_parquet(f"{D}/universo_U1.parquet")
 U = U[U.pasa_A]
 print("eventos a leer:", len(U), flush=True)
@@ -18,8 +19,10 @@ for i, r in enumerate(U.itertuples(index=False)):
     f = f"{OUT}/{r.cik}_{r.entrada}.json"
     if i % W != K:
         continue
-    if os.path.exists(f) and json.load(open(f))["docs"] and all(d.get("principal") for d in json.load(open(f))["docs"]):
+    if os.path.exists(f) and json.load(open(f)).get("v") == 2:     # v2 (6-oct): anexos EX-1 en 6-K y hasta 8 anexos
         continue
+    if os.path.exists(f):
+        os.replace(f, f.replace("/textos/", "/textos_v1/"))     # se guarda la versión anterior para saber qué cambió
     docs = []
     for acc, doc in zip(r.accns.split(","), r.docs.split(",")):
         a = acc.replace("-", "")
@@ -31,7 +34,7 @@ for i, r in enumerate(U.itertuples(index=False)):
                 partes.insert(0, dict(archivo=doc, url=f"https://www.sec.gov/Archives/edgar/data/{r.cik}/{a}/{doc}",
                                       texto=c[:30000], recortado=len(c) > 30000, negativos=L.negativos(c)))
         docs.append(dict(acc=acc, partes=partes, principal=True))
-    json.dump(dict(cik=int(r.cik), entrada=r.entrada, docs=docs), open(f, "w"))
+    json.dump(dict(cik=int(r.cik), entrada=r.entrada, docs=docs, v=2), open(f, "w"))
     if i % 100 == 0:
         print(i, flush=True)
 print("FIN", flush=True)

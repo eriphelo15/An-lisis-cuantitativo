@@ -385,10 +385,15 @@ def texto_catalizador(cik, p):
         if a and any(x.upper().startswith("EX-99") for x in tp):
             ex.append(a.group(1))
     ex = [n for n in ex if n in docs] or [n for n in docs if re.search(r"ex[-_]?99|ex991|exhibit99|dex99|(^|[^0-9])a?99[1-9]?\.htm", n.lower())]
+    # 6-oct (estudio de largos, AudioCodes 6-K 6-nov-2024): en 6-K la nota de prensa puede ser "EX-1" (tm…_ex1.htm) → si no hay EX-99,
+    # leer los demás .htm de la presentación (sin índices ni tablas XBRL)
+    if not ex:
+        ex = [n for n in docs if n != p["doc"] and n.lower().endswith((".htm", ".html"))
+              and not re.search(r"index|^r\d+\.htm|filingsummary|financial_report", n.lower())]
     partes = []
     # 6-oct (IPDN, lo destapó el verificador): el cuerpo del 8-K/6-K va SIEMPRE, también cuando hay EX-99 — ahí está el Item 1.01
     # (IPDN: arrendamiento + reparto de ingresos + préstamo con Goodwill Labs por $1.177 M que la nota de prensa no contaba)
-    nombres = ([p["doc"]] if ex and p["doc"] not in ex[:4] else []) + (ex[:4] or [p["doc"]])
+    nombres = ([p["doc"]] if ex and p["doc"] not in ex[:8] else []) + (ex[:8] or [p["doc"]])   # 6-oct: hasta 8 anexos (PLG: la nota era el EX-99.8)
     for n in nombres:          # 1-oct: TODOS los anexos (CNTB: el fallo del secundario estaba en la presentación EX-99.2)
         t = get(f"https://www.sec.gov/Archives/edgar/data/{cik}/{p['acc']}/{n}", sec=True)
         if t:
