@@ -361,3 +361,9 @@ la nota de prensa, presentado después en el 10-Q/10-K; tags Revenues / RevenueF
 crecimiento es ≥ 30 % y el paso 1 no lo marcó como tipo que pasa → paso 2. Motivo: la regla anterior, aplicada por palabras de la nota del
 lector, enviaba al paso 2 722 resultados (la mayoría con caída de ventas ya leída) y no mejoraba la precisión. Muestra aleatoria: 15 % por
 hash fijo del id (estable). Recuento paso 1, tramo oct-2024→abr-2025: 3 297 leídos, 0 citas no literales.
+**Enmienda 3 ronda 15 (6-oct, ANTES de mirar precios):** dos fallos de lectura destapados por los propios lectores: (1) el lector de la SEC
+no cogía anexos "EX-1" de 6-K ni más de 4 anexos → textos v2 (hasta 8 anexos, EX-1 incluidos; mismo arreglo en el Radar + caso de oro);
+(2) la herramienta de lectura corta las líneas de > 2 000 caracteres y el paso 2 llevaba cada parte en una sola línea → la lectura completa
+se REHACE entera (carpeta p2v2) con líneas de ≤ 1 000 caracteres; las 22 lecturas p2 anteriores se guardan aparte y no se usan. Entran en
+p2v2: los mismos eventos seleccionados (obligados + 15 % por hash) + todos los eventos cuyo texto cambió en v2. Limitación conocida:
+~2 % de las partes son presentaciones solo con imágenes (sin texto legible).
