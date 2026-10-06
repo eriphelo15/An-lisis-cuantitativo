@@ -41,7 +41,14 @@ for i in ids:
             bloque.append(t[:CORTE])
     listos.append("\n".join(bloque))
 n0 = len(glob.glob(f"{D}/lotes/{paso}/*.txt"))
-for k in range(0, len(listos), TAM):
-    with open(f"{D}/lotes/{paso}/lote_{n0 + k // TAM:04d}.txt", "w") as f:
-        f.write("\n\n".join(listos[k:k + TAM]))
-print("eventos nuevos:", len(listos), "| lotes nuevos:", (len(listos) + TAM - 1) // TAM)
+grupos, g, tam = [], [], 0          # lotes de ≤ TAM eventos y ≤ 250 000 caracteres (el paso 2 lleva textos completos)
+for b in listos:
+    if g and (len(g) >= TAM or tam + len(b) > 250_000):
+        grupos.append(g); g, tam = [], 0
+    g.append(b); tam += len(b)
+if g:
+    grupos.append(g)
+for k, g in enumerate(grupos):
+    with open(f"{D}/lotes/{paso}/lote_{n0 + k:04d}.txt", "w") as f:
+        f.write("\n\n".join(g))
+print("eventos nuevos:", len(listos), "| lotes nuevos:", len(grupos))
