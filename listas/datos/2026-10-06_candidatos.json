@@ -1,9 +1,9 @@
 {
  "fecha": "2026-10-06",
- "generado": "2026-10-06 08:24",
+ "generado": "2026-10-06 08:36",
  "replay": false,
  "desde": "2026-10-05 16:00",
- "corte": "2026-10-06 08:21",
+ "corte": "2026-10-06 08:32",
  "cobertura": {
   "universo": 6477,
   "cotizadas": 6474,
@@ -14,22 +14,291 @@
    "sec": 7109
   },
   "massive": 12621,
-  "tradingview": 13,
-  "solo_tradingview": [
-   "ARAI +36 % (sin cierre anterior o precio < $0.3)",
-   "BFRG +28 % en TradingView pero +16% con el cierre oficial",
-   "WHLR +21 % en TradingView pero +18% con el cierre oficial",
-   "QTEX +20 % en TradingView pero +14% con el cierre oficial"
-  ]
+  "tradingview": 9,
+  "solo_tradingview": []
  },
  "candidatos": [
   {
+   "sym": "AIXI",
+   "nombre": "Xiao-I Corporation",
+   "precio": 3.27,
+   "cierre_prev": 1.5099999904632568,
+   "cierre_massive": 1.51,
+   "gap": 1.1656,
+   "cap": 853468,
+   "vol_pre": null,
+   "acciones": 565211,
+   "bolsa": "NasdaqGM",
+   "estado": "PRE",
+   "split_hoy": null,
+   "cik": 1935172,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Services-Prepackaged Software",
+   "venta_hoy": false,
+   "historial": [
+    {
+     "form": "6-K",
+     "fecha": "2026-10-01 16:31",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026105823/ea0306791-6k_xiao1.htm",
+     "titular": "aixi-20260630 0001935172 Q2 false --12-31 2026-06-30 0001935172 2026-01-01 2026-06-30 0001935172 us-gaap:SubsequentEventMember 2026-08-06 0001935172 us-gaap:CommonStockMember aixi:AmericanDepositarySharesMember us-gaap:S",
+     "reaccion": {
+      "dia": "2026-10-02",
+      "apertura": 0.3992,
+      "cierre": 0.4897
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-09-03 09:20",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026096964/ea0304260-6k_xiao1.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Xiao-I Corporation (the “Company”) is furnishing this Report on Form 6-K to report the issuance of a press release announcing its plan to change the ratio of its American De",
+     "reaccion": {
+      "dia": "2026-09-03",
+      "apertura": -0.0297,
+      "cierre": 0.0276
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-08-26 14:25",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026093894/ea0303405-6k_xiao1.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Entry into Securities Purchase Agreement and Closing On August 26, 2026, Xiao-I Corporation (the “Company”) entered into a Securities Purchase Agreement (the “SPA”) with an ",
+     "reaccion": {
+      "dia": "2026-08-26",
+      "apertura": -0.1489,
+      "cierre": -0.3855
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-08-07 16:30",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026086721/ea0301084-6k_xiao1.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Receipt of Nasdaq Notification Regarding Minimum Market Value of Publicly Held Shares On August 6, 2026, Xiao-I Corporation (the “Company”) received a written notification (",
+     "reaccion": {
+      "dia": "2026-08-10",
+      "apertura": -0.0804,
+      "cierre": -0.0982
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-30 14:35",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026073605/ea0296209-6k_xiao1.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Entry into Securities Purchase Agreement and Closing On June 29, 2026, Xiao-I Corporation (the “Company”) entered into a Securities Purchase Agreement (the “SPA”) with an in",
+     "reaccion": {
+      "dia": "2026-06-30",
+      "apertura": -0.0462,
+      "cierre": -0.0564
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-23 10:48",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026070911/ea0295638-6k_xiao1.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Xiao-I Corporation (the “Company”) is furnishing this Report on Form 6-K to report the issuance of a press release providing an update on patent-related litigation between t",
+     "reaccion": {
+      "dia": "2026-06-23",
+      "apertura": 0.085,
+      "cierre": -0.0131
+     }
+    }
+   ],
+   "municion": {
+    "venta90": true,
+    "s3": "2024-05-20",
+    "s1": null,
+    "ventas_12m": 3,
+    "p424_12m": 3,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-08-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026093890/ea0303406-424b5_xiao1.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-06-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026073606/ea0296185-424b5_xiao1.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-05-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026060946/ea0291728-424b5_xiao1.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-06-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390025055702/ea0246083-424b5_xiao1.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "F-3/A",
+      "fecha": "2024-05-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390024045212/ea0206567-f3a2_xiaoicorp.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "tely $116,337,171 million, which was calculated based on 20,737,463.70 Ordinary Shares held by non-affiliates and the price of $1.87 per ADS (each ADS represents one-third of an Ordinary Share), which was the closing price of our ADS on Nasdaq on March 22, 2024. During the 12 calendar months prior to and including the date of this prospectus, we have not offered or sold any securities pursuant to General Instruction I.B.5 of Form F-3. Xiao-I is a holding company incorporated in the Cayman Islands. As a holding company with no material operations of its own, Xiao-I conducts a substantial majority of its operations through Shanghai Xiao-i Robot Technology Co., Ltd. (“S"
+     },
+     {
+      "form": "F-3/A",
+      "fecha": "2024-05-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390024044935/ea0206534-f3a1_xiaoicorp.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "tely $116,337,171 million, which was calculated based on 20,737,463.70 Ordinary Shares held by non-affiliates and the price of $1.87 per ADS (each ADS represents one-third of an Ordinary Share), which was the closing price of our ADS on Nasdaq on March 22, 2024. During the 12 calendar months prior to and including the date of this prospectus, we have not offered or sold any securities pursuant to General Instruction I.B.5 of Form F-3. Xiao-I is a holding company incorporated in the Cayman Islands. As a holding company with no material operations of its own, Xiao-I conducts a substantial majority of its operations through Shanghai Xiao-i Robot Technology Co., Ltd. (“S"
+     },
+     {
+      "form": "F-3",
+      "fecha": "2024-05-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390024041579/ea0205614-f3_xiaoicorp.htm",
+      "tipo": "empresa"
+     }
+    ],
+    "colocaciones": [],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": null,
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-05-15",
+     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026057986/ea0290336-20f_xiao.htm"
+    },
+    "eloc": false,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_sin_ajustar": [],
+    "ajuste_splits_warrants": 7.0,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "XHG",
+   "nombre": "XChange TEC.INC",
+   "precio": 3.91,
+   "cierre_prev": 1.899999976158142,
+   "cierre_massive": 1.9,
+   "gap": 1.0579,
+   "cap": 97941064,
+   "vol_pre": null,
+   "acciones": 46604623,
+   "bolsa": "NasdaqCM",
+   "estado": "PRE",
+   "split_hoy": null,
+   "cik": 1769256,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Insurance Agents, Brokers & Service",
+   "venta_hoy": false,
+   "historial": [
+    {
+     "form": "6-K",
+     "fecha": "2026-07-16 16:30",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390026078731/ea0296080-6k_xchange.htm",
+     "titular": "xhg-20260331 http://fasb.org/srt/2026#ChiefExecutiveOfficerMember false --09-30 0001769256 Q2 2026-03-31 0001769256 us-gaap:SubsequentEventMember xhg:AmericanDepositarySharesMember 2026-04-16 2026-04-16 0001769256 us-gaa",
+     "reaccion": {
+      "dia": "2026-07-17",
+      "apertura": 0.0,
+      "cierre": 0.1353
+     }
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": "2026-03-11",
+    "s1": null,
+    "ventas_12m": 1,
+    "p424_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-04-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390026044666/ea0285971-424b5_xchange.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-09-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390024081225/ea0215300-424b5_xchange.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2019-11-06",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769256/000119312519285410/d715092d424b4.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "F-3/A",
+      "fecha": "2026-03-11",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390026026180/ea0280458-f3a2_xchangetec.htm",
+      "tipo": "empresa"
+     },
+     {
+      "form": "F-3/A",
+      "fecha": "2025-10-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390025103499/ea0262129-f3a1_xchangetec.htm",
+      "tipo": "empresa"
+     },
+     {
+      "form": "F-3",
+      "fecha": "2025-09-09",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390025086186/ea0256241-f3_xchangetec.htm",
+      "tipo": "empresa"
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "6-K",
+      "fecha": "2026-07-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390026078731/ea0296080-6k_xchange.htm",
+      "precio": null,
+      "acciones": 4374500000000000,
+      "frase": "g lease liabilities, non-current 353 257 37 Total non-current liabilities 353 257 37 Total liabilities 949,521 936,491 135,762 Commitments and contingencies (Note 15) SHAREHOLDERS’ DEFICIT: Class A ordinary shares (US$ 0.0000001 par value per share; 4,374,500,000,000,000 shares authorized; 111,851,094,785 shares issued and outstanding as of September 30, 2025 and March 31, 2026, respectively) 174,941 174,941 25,361 Class B o"
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": null,
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-01-14",
+     "url": "https://www.sec.gov/Archives/edgar/data/1769256/000121390026004379/ea0270582-20f_xchange.htm"
+    },
+    "eloc": false,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_en_dinero": false
+   }
+  },
+  {
    "sym": "IPDN",
    "nombre": "Professional Diversity Network, Inc.",
-   "precio": 6.7997,
+   "precio": 6.01,
    "cierre_prev": 3.0999999046325684,
    "cierre_massive": 3.1,
-   "gap": 1.1935,
+   "gap": 0.9387,
    "cap": 2064014,
    "vol_pre": null,
    "acciones": 665811,
@@ -44,6 +313,13 @@
      "items": "1.01,7.01,9.01",
      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926032105/ipdn20261005_8k.htm",
      "partes": [
+      {
+       "archivo": "ipdn20261005_8k.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926032105/ipdn20261005_8k.htm",
+       "texto": "Item 1.01 Entry into Material Definitive Agreements. On October 5, 2026, PDN Intelligence, Inc. (“PDN Intelligence”), a wholly owned subsidiary of Professional Diversity Network, Inc. (the “Company”), entered into (i) an Equipment Lease Agreement (the “Lease Agreement”) with Goodwill Labs Inc. (“Goodwill”), (ii) a Tri-Party Compute Services Collaboration and Revenue Sharing Agreement (the “Collaboration Agreement”) with Goodwill and HashForest Technology LLC (“HashForest”) and (iii) a Secured Term Loan and Security Agreement (the “Loan Agreement”) with Goodwill. These agreements and the related equipment purchase provide for approximately $1.177 million of initial capital commitments for two NVIDIA B300 eight-GPU systems in the Company’s graphics processing unit (“GPU”) infrastructure business. PDN Intelligence is acquiring one system from AMAX Engineering Corporation (“AMAX”) for $588,581.99 (the “Leased Equipment”), which it will lease to Goodwill, and agreed to lend Goodwill $588,849.23 to finance Goodwill’s acquisition of a second system (the “Financed Equipment”). Goodwill had previously secured the Financed Equipment in an existing AMAX order for which no additional units were available, and the loan structure is intended to accelerate deployment of that system. On September 30, 2026, the Company paid AMAX $294,291.00 of the purchase price of the Leased Equipment on behalf of PDN Intelligence, and the remaining $294,290.99 is payable before shipment. Title to the Leased Equipment will pass directly from AMAX to PDN Intelligence. The Company is funding both arrangements through intercompany funding to PDN Intelligence. Equipment Lease Agreement The Lease Agreement has a 60-month base term beginning upon delivery, installation and acceptance of the Leased Equipment at a data center in Hillsboro, Oregon. Annual base rent equals 20% of the acquisition cost (approximately $117,716), payable bi-monthly, and Goodwill’s rent obligation is not contingent on revenue from the equipment. Either party may terminate for convenience on or after the second anniversary of commencement on 90 days’ notice, without a termination fee. At expiration, Goodwill may return the equipment or purchase it at its appraised fair market value, and PDN Intelligence otherwise retains the residual-value risk. If delivery does not occur by January 15, 2027, PDN Intelligence may cancel the lease as to the undelivered equipment and seek a refund from AMAX, although AMAX’s terms provide that GPU purchases are final. Tri-Party Compute Services Collaboration and Revenue Sharing Agreement The Collaboration Agreement governs the commercial operation of the Leased Equipment only. Goodwill operates the project and contracts with customers, HashForest provides technical-support and billing services, and PDN Intelligence provides market-growth services. Bi-monthly project profit, generally customer collections less specified operating costs and reserves, is allocated 75% to PDN Intelligence and the remainder to Goodwill and HashForest, with base rent under the Lease Agreement credited against, rather than added to, PDN Intelligence’s share. PDN Intelligence’s share may be reduced in later periods to reimburse Goodwill for rent funded from its own resources and for specified carryforward adjustments. The Collaboration Agreement has an initial 24-month term from commercial service commencement and ends following termination of the Lease Agreement. After the initial term, any party may terminate on 90 days’ notice, and termination by Goodwill ends the agreement for all parties. Secured Term Loan and Security Agreement Under the Loan Agreement, PDN Intelligence agreed to lend Goodwill $588,849.23 to acquire the Financed Equipment, which Goodwill will own subject to PDN Intelligence’s first-priority security interest in that equipment and related proceeds. The loan bears no fixed interest and has no scheduled principal payments. Instead, Goodwill must pay PDN Intelligence 75% of the positive bi-monthly distributable profit from the Financed Equipment, and no payment is due for any period without positive distributable profit. The Loan Agreement has an initial two-year term beginning no later than January 15, 2027, during which neither party may terminate, and renews automatically for one-year terms unless either party gives at least 30 days’ notice of non-renewal. Under Sections 3.4 and 3.5 of the Loan Agreement, upon termination following non-renewal at the end of the initial two-year term or any renewal term, PDN Intelligence may elect to take title to the Financed Equipment, directly or through a designee, or to require Goodwill to sell it as PDN Intelligence’s agent, in each case at PDN Intelligence’s cost. Completion of that disposition discharges the loan principal regardless of the equipment’s value, and PDN Intelligence generally cannot require repayment of principal in cash. If the disposition occurs on or after October 1, 2031, or earlier following specified material defaults, Goodwill must pay PDN Intelligence in cash any shortfall between the original loan amount and PDN Intelligence’s aggregate receipts, including profit-share payments and the sale proceeds or market value of the equipment. This undertaking does not apply to a disposition following non-renewal at the end of the initial two-year term, absent a material default. The foregoing descriptions of the Lease Agreement, the Collaboration Agreement and the Loan Agreement do not purport to be complete and are qualified in their entirety by reference to the full text of those agreements. The Company intends to file the agreements as exhibits to its Annual Report on Form 10-K for the fiscal year ending December 31, 2026, with certain portions omitted as permitted by Item 601 of Regulation S-K. Item 7.01 Regulation FD Disclosure. On October 6, 2026, the Company issued a press release announcing PDN Intelligence’s acquisition of one NVIDIA B300-based artificial intelligence computing system described in Item 1.01 of this Current Report on Form 8-K (this “Form 8-K”). A copy of the press release is furnished as Exhibit 99.1 to this Form 8-K. The information in this Item 7.01, including Exhibit 99.1, is being furnished and shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934, as amended (the “Exchange Act”), or otherwise subject to the liabilities of that section, nor shall it be deemed incorporated by reference into any filing under the Securities Act of 1933, as amended (the “Securities Act”), or the Exchange Act, except as expressly set forth by specific reference in such a filing. Forward-Looking Statements This Form 8-K, including Exhibit 99.1, contains forward-looking statements within the meaning of Section 27A of the Securities Act and Section 21E of the Exchange Act, which are intended to be covered by the safe harbor provisions of the Private Securities Litigation Reform Act of 1995. Forward-looking statements include, among others, statements regarding the expected delivery, installation, acceptance and deployment of the Leased Equipment and the Financed Equipment; the timing and amount of the remaining payment to AMAX; the intercompany funding arrangements described above; the expected commencement and performance of commercial compute services; anticipated rent, service-fee and profit-participation receipts under the Lease Agreement, the Collaboration Agreement and the Loan Agreement; PDN Intelligence’s ability to take title to, or direct the sale of, the Financed Equipment; and the development of the Company’s GPU infrastructure business. Words such as “anticipate,” “believe,” “continue,” “could,” “estimate,” “expect,” “intend,” “may,” “plan,” “potential,” “should,” “will” and similar expressions are intended to identify forward-looking statements, although not all forward-looking statements contain these identifying words. These statements are based on the Company’s current expectations and assumptions and are subject to risks and uncertainties that could cause actual results to differ materially from those expressed or implied, including: delays in or failure of delivery of the equipment by the supplier, and the limited availability of any refund or other remedy in that event, including because the supplier’s terms provide that purchases of GPUs are final; loss of or damage to the equipment; the Company’s dependence on a single counterparty, Goodwill, under each of the agreements, and the ability of Goodwill and HashForest to perform their obligations, including Goodwill’s ability to pay rent, profit-participation amounts and any minimum-return shortfall when due; Goodwill’s right to terminate the Lease Agreement after two years without an early-termination fee; the absence of fixed interest or scheduled principal repayment under the Loan Agreement and the discharge of principal upon disposition of the Financed Equipment regardless of its value; reductions in PDN Intelligence’s contingent service fees under the reimbursement and carryforward provisions of the Collaboration Agreement; demand for, utilization of and pricing of GPU compute services, which may be lower than expected; the profitability of the deployed equipment, on which PDN Intelligence’s service-fee and profit-participation receipts depend; changes in the value of GPU equipment, including as a result of technological obsolescence, new product releases or secondary-market conditions; requirements or restrictions imposed by manufacturers, distributors or suppliers, including NVIDIA and AMAX, relating to end users, end uses, resale or transfer of GPU equipment, which could limit, delay or increase the cost of PDN Intelligence’s taking title to, or transferring, selling or redeploying, the equipment; the enforceability and characterization of PDN Intelligence’s title to and security interest in the equipment and of the lease and loan arrangements; the accounting and tax treatment of the arrangements; export-control, sanctions and other regulatory requirements applicable to advanced computing equipment; the Company’s limited operating history in the GPU infrastructure business; the Company’s ability to fund future deployments; and the other risks described under “Risk Factors” in the Company’s most recent Annual Report on Form 10-K and subsequent Quarterly Reports on Form 10-Q and other filings with the SEC. Forward-looking statements speak only as of the date of this Form 8-K, and the Company undertakes no obligation to update or revise any forward-looking statement, whether as a result of new information, future events or otherwise, except as required by law. Item 9.01 Financial Statements and Exhibits. (d) Exhibits. Exhibit No. Description 99.1 Press Release, dated October 6, 2026 104 Cover Page Interactive Data File (embedded within the Inline XBRL Document) SIGNATURES Pursuant to the requirements of the Securities Exchange Act of 1934, as amended, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Professional Diversity Network, Inc. Date: October 6, 2026 By: /s/ Yiran Gu Name: Yiran Gu Title: Chief Executive Officer and Chief Financial Officer",
+       "recortado": false,
+       "negativos": []
+      },
       {
        "archivo": "ex_1022427.htm",
        "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926032105/ex_1022427.htm",
@@ -72,7 +348,7 @@
      "fecha": "2026-09-30 07:18",
      "items": "8.01,9.01",
      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926031531/ipdn20260929_8k.htm",
-     "titular": "DATED SEPTEMBER 30, 2026 ex_1020613.htm EX-99.1 Professional Diversity Network, Inc. Announces Regaining Compliance with Nasdaq Minimum Bid Price Requirement FOR IMMEDIATE RELEASE CHICAGO, September 30, 2026 — Profession",
+     "titular": "Item 8.01 Other Events. As previously disclosed, on June 5, 2026, Professional Diversity Network, Inc. (the “Company”) received a written notification from The Nasdaq Stock Market LLC (“Nasdaq”) indicating that the Compa",
      "reaccion": {
       "dia": "2026-09-30",
       "apertura": -0.0141,
@@ -84,7 +360,7 @@
      "fecha": "2026-09-11 16:59",
      "items": "3.03,5.03,8.01,9.01",
      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926030185/ipdn20260907_8k.htm",
-     "titular": ", DATED SEPTEMBER 10, 2026 ex_1013478.htm EX-99.1 Professional Diversity Network Announces 1-for-30 Reverse Stock Split CHICAGO, September 10, 2026 — Professional Diversity Network, Inc. (NASDAQ: IPDN) (the “Company”) to",
+     "titular": "Item 3.03 Material Modification to Rights of Security Holders. The information contained in Item 5.03 below is incorporated by reference into this Item 3.03. Item 5.03 Amendments to Articles of Incorporation or Bylaws; C",
      "reaccion": {
       "dia": "2026-09-15",
       "apertura": 27.6667,
@@ -96,7 +372,7 @@
      "fecha": "2026-08-14 08:21",
      "items": "2.02,7.01,9.01",
      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926027834/ipdn20260622_8k.htm",
-     "titular": "ex_979903.htm Exhibit 99.1 Professional Diversity Network, Inc. Announces Financial Results for the Quarter Ended June 30, 2026 Chicago, IL, August 14, 2026 (GLOBE NEWSWIRE) — Professional Diversity Network, Inc. (NASDAQ",
+     "titular": "Item 2.02. Results of Operations and Financial Condition On August 14, 2026, Professional Diversity Network, Inc. (the “Company”) issued a press release announcing its financial and operational results for the three mont",
      "reaccion": {
       "dia": "2026-08-14",
       "apertura": 0.0,
@@ -108,7 +384,7 @@
      "fecha": "2026-08-13 16:37",
      "items": "1.01,8.01,9.01",
      "url": "https://www.sec.gov/Archives/edgar/data/1546296/000143774926027711/ipdn20260812_8k.htm",
-     "titular": "ANNOUNCING THE PRICING OF THE OFFERING, DATED AUGUST 12, 2026 ex_1004246.htm Exhibit 99.1 Professional Diversity Network, Inc. Announces Pricing of US$2.0 Million Public Offering CHICAGO, August 12, 2026 (GLOBE NEWSWIRE)",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. On August 13, 2026 (the “Closing Date”), Professional Diversity Network, Inc., a Delaware corporation (the “Company”), in connection with a best efforts public offeri",
      "reaccion": {
       "dia": "2026-08-14",
       "apertura": 0.0,
@@ -291,180 +567,12 @@
    }
   },
   {
-   "sym": "AIXI",
-   "nombre": "Xiao-I Corporation",
-   "precio": 3.09,
-   "cierre_prev": 1.5099999904632568,
-   "cierre_massive": 1.51,
-   "gap": 1.0464,
-   "cap": 853468,
-   "vol_pre": null,
-   "acciones": 565211,
-   "bolsa": "NasdaqGM",
-   "estado": "PRE",
-   "split_hoy": null,
-   "cik": 1935172,
-   "catalizadores": [],
-   "docs_hoy": [],
-   "noticias": [],
-   "sector": "Services-Prepackaged Software",
-   "venta_hoy": false,
-   "historial": [
-    {
-     "form": "6-K",
-     "fecha": "2026-10-01 16:31",
-     "items": "",
-     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026105823/ea0306791-6k_xiao1.htm",
-     "titular": "aixi-20260630 Exhibit 99.1 XIAO-I CORPORATION INDEX TO UNAUDITED CONDENSED CONSOLIDATED FINANCIAL STATEMENTS CONTENTS PAGE(S) CONDENSED CONSOLIDATED BALANCE SHEETS AS OF DECEMBER 31, 2025 AND JUNE 30, 2026 (UNAUDITED) F-",
-     "reaccion": {
-      "dia": "2026-10-02",
-      "apertura": 0.3992,
-      "cierre": 0.4897
-     }
-    },
-    {
-     "form": "6-K",
-     "fecha": "2026-09-03 09:20",
-     "items": "",
-     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026096964/ea0304260-6k_xiao1.htm",
-     "titular": "Xiao-I Corporation Announces ADS Ratio Change with Marketplace Effective Date on September 8, 2026 SHANGHAI, September 3, 2026 /PRNewswire/ -- Xiao-I Corporation (Nasdaq: AIXI) (the “Company”) today announced that it pla",
-     "reaccion": {
-      "dia": "2026-09-03",
-      "apertura": -0.0297,
-      "cierre": 0.0276
-     }
-    },
-    {
-     "form": "6-K",
-     "fecha": "2026-08-26 14:25",
-     "items": "",
-     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026093894/ea0303405-6k_xiao1.htm",
-     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Entry into Securities Purchase Agreement and Closing On August 26, 2026, Xiao-I Corporation (the “Company”) entered into a Securities Purchase Agreement (the “SPA”) with an ",
-     "reaccion": {
-      "dia": "2026-08-26",
-      "apertura": -0.1489,
-      "cierre": -0.3855
-     }
-    },
-    {
-     "form": "6-K",
-     "fecha": "2026-08-07 16:30",
-     "items": "",
-     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026086721/ea0301084-6k_xiao1.htm",
-     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Receipt of Nasdaq Notification Regarding Minimum Market Value of Publicly Held Shares On August 6, 2026, Xiao-I Corporation (the “Company”) received a written notification (",
-     "reaccion": {
-      "dia": "2026-08-10",
-      "apertura": -0.0804,
-      "cierre": -0.0982
-     }
-    },
-    {
-     "form": "6-K",
-     "fecha": "2026-06-30 14:35",
-     "items": "",
-     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026073605/ea0296209-6k_xiao1.htm",
-     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Entry into Securities Purchase Agreement and Closing On June 29, 2026, Xiao-I Corporation (the “Company”) entered into a Securities Purchase Agreement (the “SPA”) with an in",
-     "reaccion": {
-      "dia": "2026-06-30",
-      "apertura": -0.0462,
-      "cierre": -0.0564
-     }
-    },
-    {
-     "form": "6-K",
-     "fecha": "2026-06-23 10:48",
-     "items": "",
-     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026070911/ea0295638-6k_xiao1.htm",
-     "titular": "Xiao-I Corporation Provides Update on First-Instance Rulings in Patent Litigation Against Apple; Company Intends to Appeal to the Supreme People’s Court Shanghai, China, June 20, 2026 – Xiao-I Corporation (NASDAQ: AIXI) ",
-     "reaccion": {
-      "dia": "2026-06-23",
-      "apertura": 0.085,
-      "cierre": -0.0131
-     }
-    }
-   ],
-   "municion": {
-    "venta90": true,
-    "s3": "2024-05-20",
-    "s1": null,
-    "ventas_12m": 3,
-    "p424_12m": 3,
-    "aviso_bolsa": false,
-    "contrasplits_2a": 0,
-    "ultimas_ventas": [
-     {
-      "form": "424B5",
-      "fecha": "2026-08-26",
-      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026093890/ea0303406-424b5_xiao1.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2026-06-30",
-      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026073606/ea0296185-424b5_xiao1.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2026-05-26",
-      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026060946/ea0291728-424b5_xiao1.htm"
-     },
-     {
-      "form": "424B5",
-      "fecha": "2025-06-18",
-      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390025055702/ea0246083-424b5_xiao1.htm"
-     }
-    ],
-    "shelves": [
-     {
-      "form": "F-3/A",
-      "fecha": "2024-05-20",
-      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390024045212/ea0206567-f3a2_xiaoicorp.htm",
-      "tipo": "empresa",
-      "baby_shelf": true,
-      "frase_baby": "tely $116,337,171 million, which was calculated based on 20,737,463.70 Ordinary Shares held by non-affiliates and the price of $1.87 per ADS (each ADS represents one-third of an Ordinary Share), which was the closing price of our ADS on Nasdaq on March 22, 2024. During the 12 calendar months prior to and including the date of this prospectus, we have not offered or sold any securities pursuant to General Instruction I.B.5 of Form F-3. Xiao-I is a holding company incorporated in the Cayman Islands. As a holding company with no material operations of its own, Xiao-I conducts a substantial majority of its operations through Shanghai Xiao-i Robot Technology Co., Ltd. (“S"
-     },
-     {
-      "form": "F-3/A",
-      "fecha": "2024-05-20",
-      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390024044935/ea0206534-f3a1_xiaoicorp.htm",
-      "tipo": "empresa",
-      "baby_shelf": true,
-      "frase_baby": "tely $116,337,171 million, which was calculated based on 20,737,463.70 Ordinary Shares held by non-affiliates and the price of $1.87 per ADS (each ADS represents one-third of an Ordinary Share), which was the closing price of our ADS on Nasdaq on March 22, 2024. During the 12 calendar months prior to and including the date of this prospectus, we have not offered or sold any securities pursuant to General Instruction I.B.5 of Form F-3. Xiao-I is a holding company incorporated in the Cayman Islands. As a holding company with no material operations of its own, Xiao-I conducts a substantial majority of its operations through Shanghai Xiao-i Robot Technology Co., Ltd. (“S"
-     },
-     {
-      "form": "F-3",
-      "fecha": "2024-05-10",
-      "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390024041579/ea0205614-f3_xiaoicorp.htm",
-      "tipo": "empresa"
-     }
-    ],
-    "colocaciones": [],
-    "shelf_empresa": true,
-    "reventa_acciones": 0,
-    "atm_shelf": null,
-    "atm": false,
-    "toxica": true,
-    "going_concern": true,
-    "warrants": [],
-    "informe": {
-     "form": "20-F",
-     "fecha": "2026-05-15",
-     "url": "https://www.sec.gov/Archives/edgar/data/1935172/000121390026057986/ea0290336-20f_xiao.htm"
-    },
-    "eloc": false,
-    "uso_atm": [],
-    "empresa_dice_caja": null,
-    "warrants_sin_ajustar": [],
-    "ajuste_splits_warrants": 7.0,
-    "warrants_en_dinero": false
-   }
-  },
-  {
    "sym": "FRGT",
    "nombre": "Freight Technologies, Inc.",
-   "precio": 0.4199,
+   "precio": 0.4121,
    "cierre_prev": 0.24500000476837158,
    "cierre_massive": 0.245,
-   "gap": 0.7139,
+   "gap": 0.682,
    "cap": 150621,
    "vol_pre": null,
    "acciones": 614783,
@@ -483,7 +591,7 @@
      "fecha": "2026-07-15 09:00",
      "items": "",
      "url": "https://www.sec.gov/Archives/edgar/data/1687542/000149315226033294/form6-k.htm",
-     "titular": "Fr8Tech Advances AI-Native Transformation, Reduces Workforce and Raises Additional Capital Fr8Tech furthers its transition to a pure-play, software-driven logistics technology company as it advances the build-out of an A",
+     "titular": "orm 40-F Securities Purchase Agreement On July 14, 2026, Freight Technologies, Inc., a company organized in the British Virgin Islands (the “Company”), entered into a securities purchase agreement (the “Securities Purcha",
      "reaccion": {
       "dia": "2026-07-15",
       "apertura": -0.0205,
@@ -584,10 +692,10 @@
   {
    "sym": "OLOX",
    "nombre": "Olenox Industries Inc.",
-   "precio": 1.4415,
+   "precio": 1.4098,
    "cierre_prev": 0.8799999952316284,
    "cierre_massive": 0.88,
-   "gap": 0.6381,
+   "gap": 0.602,
    "cap": 1460225,
    "vol_pre": null,
    "acciones": 1659347,
@@ -618,7 +726,7 @@
      "fecha": "2026-08-06 08:30",
      "items": "3.01,7.01,9.01",
      "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390026085927/ea0300785-8k_olenox.htm",
-     "titular": "DATED AUGUST 6, 2026, ANNOUNCING AUGUST LETTER FROM NASDAQ AND REGAINING COMPLIANCE WITH NASDAQ PERIODIC FILING REQUIREMENT Exhibit 99.1 Olenox Industries Regains Compliance with Nasdaq Periodic Filing Requirements CONRO",
+     "titular": "Item 3.01 Notice of Delisting or Failure to Satisfy a Continued Listing Rule or Standard; Transfer of Listing. As previously disclosed, the Company received notification letters from the Listing Qualification Department ",
      "reaccion": {
       "dia": "2026-08-06",
       "apertura": 0.0554,
@@ -821,7 +929,7 @@
     "reventa_acciones": 871428,
     "atm_shelf": null,
     "atm": false,
-    "toxica": false,
+    "toxica": true,
     "going_concern": true,
     "warrants": [],
     "informe": {
@@ -832,16 +940,176 @@
     "eloc": true,
     "uso_atm": [],
     "empresa_dice_caja": null,
+    "warrants_en_dinero": false,
+    "toxica_fuente": {
+     "form": "424B3",
+     "fecha": "2026-01-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1023994/000121390026002154/ea0272095-424b3_safeandgreen.htm"
+    }
+   }
+  },
+  {
+   "sym": "OPCH",
+   "nombre": "Option Care Health, Inc.",
+   "precio": 31.18,
+   "cierre_prev": 23.3700008392334,
+   "cierre_massive": 23.37,
+   "gap": 0.3342,
+   "cap": 3500481280,
+   "vol_pre": null,
+   "acciones": 149785243,
+   "bolsa": "NasdaqGS",
+   "estado": "PRE",
+   "split_hoy": null,
+   "cik": 1014739,
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-10-06 08:22",
+     "items": "1.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1014739/000110465926113904/tm2627097d1_8k.htm",
+     "partes": [
+      {
+       "archivo": "tm2627097d1_8k.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1014739/000110465926113904/tm2627097d1_8k.htm",
+       "texto": "Item 1.01 Entry into a Material Definitive Agreement. Merger Agreement On October 5, 2026, Option Care Health, Inc., a Delaware corporation (the “ Company ”), entered into an Agreement and Plan of Merger (the “ Merger Agreement ”) with Onyx Bidco LLC, a Delaware limited liability company (“ Parent ”), and Onyx Merger Sub, Inc., a Delaware corporation and a wholly owned subsidiary of Parent (“ Merger Sub ”), pursuant to which the Company is to be acquired by an investor group comprised of affiliates of Clayton, Dubilier & Rice, LLC (“ CD&R ”) and McKesson Corporation (“ McKesson ” and such group collectively, the “ Investor Group ”). Merger Pursuant to the Merger Agreement, Merger Sub will be merged with and into the Company (the “ Merger ” and, together with the other transactions contemplated by the Merger Agreement, the “ Transactions ”), with the Company continuing as the surviving corporation of the Merger and as a wholly owned subsidiary of Parent. Board Recommendation The board of directors of the Company (the “ Company Board ”) has unanimously (i) determined that it is fair to, and in the best interests of, the Company and the holders of shares of Company Common Stock (as defined below) (the “ Company Stockholders ”) and declared it advisable to enter into the Merger Agreement and consummate the Merger upon the terms and subject to the conditions set forth therein; (ii) approved the execution and delivery of the Merger Agreement by the Company, the performance by the Company of its covenants and other obligations thereunder, and the consummation of the Merger upon the terms and subject to the conditions set forth therein; (iii) resolved to recommend that the Company Stockholders adopt the Merger Agreement in accordance with the General Corporation Law of the State of Delaware (the “ DGCL ”), and (iv) directed that the adoption of the Merger Agreement be submitted for consideration by the Company Stockholders at a meeting thereof (the “ Company Stockholder Meeting ”). Effect on Capital Stock Upon the terms and subject to the conditions set forth in the Merger Agreement, at the effective time of the Merger (the “ Effective Time ”), (i) each share of common stock, par value $0.0001 per share, of the Company (the “ Company Common Stock ”) that is issued and outstanding as of immediately prior to the Effective Time (other than (A) shares held by the Company or any of its subsidiaries as treasury stock or owned by Parent or any of its subsidiaries (including Merger Sub) (the “ Owned Company Shares ”) and (B) shares held by holders who have not voted in favor of the adoption of the Merger Agreement or consented thereto in writing and who have properly exercised appraisal rights under Section 262 of the DGCL (the “ Dissenting Company Shares ”)) will be automatically cancelled, extinguished and converted into the right to receive cash in an amount equal to $32.05 without interest thereon (the “ Per Share Price ”), and (ii) each Owned Company Share will be automatically cancelled and extinguished without any conversion thereof or consideration paid therefor. Dissenting Company Shares will be entitled to payment of the fair value of such shares in accordance with Section 262 of the DGCL unless the applicable holder fails to perfect, withdraws, waives or otherwise loses those rights. Treatment of Company Equity Awards Company Options At the Effective Time, each option to purchase shares of Company Common Stock (each, a “ Company Option ”) that is outstanding as of immediately prior to the Effective Time, whether vested or unvested, will be automatically cancelled and converted into the right to receive an amount in cash equal to the excess, if any, of the Per Share Price over the applicable exercise price, multiplied by the number of shares subject to such Company Option, without interest and subject to applicable deductions and withholdings. Each Company Option outstanding as of immediately prior to the Effective Time with an exercise price equal to or greater than the Per Share Price will be cancelled without consideration. Company RSUs Vested Company RSUs At the Effective Time, each restricted stock unit of the Company (each, a “ Company RSU ”) that is vested in accordance with its terms (after giving effect to the Transactions) as of the Effective Time and outstanding as of immediately prior to the Effective Time (each, a “ Vested Company RSU ”) will be automatically cancelled and converted into the right to receive cash in an amount equal to the Per Share Price multiplied by the number of underlying shares plus all accrued or credited dividend equivalents with respect to each Vested Company RSU, without interest and subject to applicable deductions and withholdings. Unvested Company RSUs At the Effective Time, each Company RSU that is not a Vested Company RSU (each, an “ Unvested Company RSU ”) will be automatically cancelled and converted into a contingent right to receive a cash award equal to the Per Share Price multiplied by the number of underlying shares, plus all accrued or credited dividend equivalents with respect to each Unvested Company RSU, without interest, subject to the same terms and conditions (excluding dividend equivalent rights), including vesting terms and any accelerated vesting upon a qualifying termination, as applied to the corresponding Unvested Company RSU immediately prior to the Effective Time. Company PSUs At the Effective Time, each performance stock unit of the Company (each, a “ Company PSU ”), other than a Company PSU granted during the period from the execution and delivery of the Merger Agreement until the earlier to occur of the termination of the Merger Agreement pursuant to its terms and the Effective Time, outstanding as of immediately prior to the Effective Time, whether vested or unvested, will automatically be deemed vested with respect to the number of shares determined based on actual performance for performance periods concluded prior to the Effective Time and assuming target performance for performance periods not concluded prior to the Effective Time, and cancelled and converted into the right to receive cash in an amount equal to the Per Share Price multiplied by such number of shares, plus all accrued or credited dividend equivalents with respect to each Company PSU, without interest and subject to applicable deductions and withholdings. Treatment of 2017 Warrants At the Effective Time, each outstanding 2017 Warrant (as defined in the Merger Agreement) will automatically, in accordance with the terms of the applicable warrant agreement, become exercisable by the holder thereof solely for the right to receive the Per Share Price that such holder would have been entitled to receive had such holder held, immediately prior to the Effective Time, the shares of Company Common Stock issuable upon exercise in full of such 2017 Warrant. At and following the Effective Time, the successor of the Company (if any) will assume in writing the obligation to deliver to each holder of a 2017 Warrant, in exchange for such warrant, a security of such successor evidenced by a written instrument substantially similar in form and substance to the 2017 Warrant. Any 2017 Warrant exercised prior to the Effective Time will be treated as an outstanding share of Company Common Stock. Prior to the Closing, the Company has agreed to use commercially reasonable efforts to enter into an agreement with each holder of the 2017 Warrants pursuant to which such holder will agree to (i) exercise its 2017 Warrant at or prior to the Closing and (ii) instruct the Company to withhold from the consideration payable an amount equal to the applicable exercise price. Representations and Warranties and Covenants The Company, Parent and Merger Sub have each made customary representations, warranties and covenants in the Merger Agreement. Among other things, the Company has agreed, subject to certain exceptions, from the date of the Merger Agreement until the earlier to occur of the termination of the Merger Agreement pursuant to Article VIII of the Merger Agreement and the Effective Time, to (i) use commercially reasonable efforts to conduct its business in all material respects in the ordinary course and preserve intact in all material respects its business and operations and current relationships and goodwill with governmental authorities, customers, suppliers, distributors, employees, payors and other significant commercial third parties; (ii) not take certain actions without the prior written consent of Parent (not to be unreasonably withheld, conditioned or delayed); and (iii) not solicit or engage in discussions or negotiations with respect to any alternative acquisition proposal, subject to certain exceptions described below. Closing Conditions The closing of the Merger (the “ Closing ”) is subject to the satisfaction or waiver of certain conditions, including (i) the adoption of the Merger Agreement by the affirmative vote of the holders of a majority of the issued and outstanding shares of Company Common Stock entitled to vote at the Company Stockholder Meeting (the “ Requisite Stockholder Approval ”); (ii) the expiration or termination of the applicable waiting period under the Hart-Scott-Rodino Antitrust Improvements Act of 1976, as amended (the “ HSR Act ”); (iii) the expiration or termination of applicable waiting periods under specified healthcare regulatory filings and the receipt and continued effectiveness of consents, authorizations and approvals, including certain state healthcare regulatory approvals; and (iv) the absence of any law, injunction or order prohibiting, enjoining or otherwise making illegal the consummation of the Merger. Additional conditions include the accuracy of specified representations and warranties (subject to specified materiality standards), performance of covenants in all material respects, receipt of officer certificates and, in the case of Parent’s and Merger Sub’s obligations, the absence of a Company Material Adverse Effect (as defined in the Merger Agreement) since the date of the Merger Agreement. The Closing is not conditioned on Parent’s receipt of financing. Parent, Merger Sub and the Company have agreed to use reasonable best efforts to obtain required governmental and regulatory approvals, including under the HSR Act, and Parent has agreed to use best efforts to obtain the consents, waivers, approvals, orders and authorizations required in connection with the specified healthcare filings, subject to the terms and limitations set forth in the Merger Agreement. No Solicitation From the date of the Merger Agreement, the Company is generally prohibited from, among other things, soliciting, initiating or knowingly encouraging Acquisition Proposals (as defined in the Merger Agreement), providing non-public information to, or engaging in discussions or negotiations with, third parties regarding Acquisition Proposals, and entering into any Alternative Acquisition Agreement (as defined in the Merger Agreement). However, prior to receipt of the Requisite Stockholder Approval, the Company may, under certain circumstances and in compliance with certain obligations set forth in the Merger Agreement, engage in discussions or negotiations with, and provide non-public information to, any third party that has made a bona fide Acquisition Proposal that did not result from a breach (other than a breach in a de minimis respect) of the no-solicitation provisions and that the Company Board determines in good faith constitutes or would reasonably be expected to lead to a Superior Proposal (as defined in the Merger Agreement) if the Company Board determines in good faith that the failure to engage in discussions or negotiations with, and provide non-public information to, such third party would be reasonably likely to be inconsistent with its fiduciary duties under applicable Law. Prior to receipt of the Requisite Stockholder Approval, the Company Board may, subject to complying with specified notice and match-right requirements and the other requirements set forth in the Merger Agreement, (i) change its recommendation (a “ Company Board Recommendation Change ”) in response to a Superior Proposal or an Intervening Event (as defined in the Merger Agreement) or (ii) terminate the Merger Agreement to enter into an Alternative Acquisition Agreement providing for a Superior Proposal, subject to payment of the Company Termination Fee (as defined below). Termination Rights The Merger Agreement contains customary termination rights, including (i) by mutual written agreement of Parent and the Company, (ii) by either Parent or the Company if a final and non-appealable injunction or other judgment or order permanently prohibits the consummation of the Merger, or if a statute, law or regulation is enacted, entered or enforced that permanently prohibits the consummation of the Merger, unless primarily due to such party’s failure to comply with its obligations under the Merger Agreement, (iii) by either Parent or the Company if the Effective Time has not occurred by 11:59 p.m., New York City time, on October 5, 2027 (the “ Termination Date ”), (iv) by either Parent or the Company if the Requisite Stockholder Approval is not obtained at the Company Stockholder Meeting, (v) by Parent for certain uncured breaches by the Company, (vi) by Parent, prior to receipt of the Requisite Stockholder Approval, if the Company Board has effected a Company Board Recommendation Change, (vii) by the Company for certain uncured breaches by Parent or Merger Sub, (viii) by the Company, prior to receipt of the Requisite Stockholder Approval, to enter into an Alternative Acquisition Agreement providing for a Superior Proposal, subject to payment of the Company Termination Fee, and (ix) by the Company if all closing conditions are satisfied or waived, the Company has confirmed it is ready, willing and able to consummate the Closing and Parent fails to consummate the Closing within two (2) business days after the date required under the Merger Agreement. Termination Fees The Company will be required to pay Parent a termination fee of $145,963,976 (the “ Company Termination Fee ”) if the Merger Agreement is terminated (i) by Parent following a Company Board Recommendation Change or (ii) by the Company to enter into an Alternative Acquisition Agreement providing for a Superior Proposal. The Company Termination Fee will also be payable if (A) the Merger Agreement is terminated (1) at the Termination Date without the Requisite Stockholder Approval having been obtained (if all other applicable closing conditions have been satisfied or waived, other than conditions that by their nature are to be satisfied at the Closing and any condition the failure of which to be satisfied was primarily due to the failure of the Company to perform any of its obligations under the Merger Agreement, and the Company was not then entitled to terminate for Parent’s or Merger Sub’s breach), (2) due to failure to obtain the Requisite Stockholder Approval or (3) by Parent due to certain uncured Company breaches, (B) prior to such termination an Acquisition Proposal has been publicly announced or disclosed and not withdrawn or abandoned at least two (2) business days prior to the Company Stockholder Meeting or the date of termination, as applicable, and (C) within twelve (12) months following such termination, the Company consummates, or enters into a definitive agreement providing for, an Acquisition Transaction (as defined in the Merger Agreement, except that references to 20% therein are deemed to be references to 50%). The Company Termination Fee is payable substantially concurrently with, or within three (3) business days after, the applicable termination or event, as specified in the Merger Agreement. Parent will be required to pay the Company a termination fee of $291,927,951 (the “ Parent Termination Fee ”) if the Merger Agreement is terminated (i) by the Company due to certain uncured breaches by Parent or Merger Sub or Parent’s failure to consummate the Closing when required, or (ii) by the Company or Parent at the Termination Date at a time when the Company would have been entitled to terminate for such breach or failure. The Parent Termination Fee is payable within three (3) business days after termination. Payment of the Parent Termination Fee, together with certain reimbursement obligations and enforcement expenses of Parent, is guaranteed by the Guarantors (as defined below), severally and not jointly, pursuant to the Guarantees (as defined below), subject to the caps set forth therein. The Company’s rights to receive the Parent Termination Fee, enforce the Guarantees and seek specific performance and other equitable relief, together with certain reimbursement and enforcement amounts, are subject to the limitations and exclusive-remedy provisions of the Merger Agreement. No party may obtain both specific performance resulting in the Closing and the applicable termination fee. Enforcement expenses payable by the Company, on the one hand, and enforcement expenses and reimbursement obligations payable by Parent, on the other hand, are each capped at $7.5 million in the aggregate. Financing Commitments Parent has delivered to the Company executed equity commitment letters (the “ Equity Commitment Letters ”) from Clayton, Dubilier & Rice Fund XII, L.P. and McKesson (collectively, the “ Guarantors ”), pursuant to which the Guarantors have committed, subject to the terms and conditions set forth therein, to invest in Parent, directly or indirectly, an aggregate amount of $2,873,295,853 to fund a portion of the Transactions. The Equity Commitment Letters provide that the Company is an express third-party beneficiary thereof. Merger Sub has also obtained a debt commitment letter pursuant to which the applicable lenders party thereto have committed, subject to the terms and conditions set forth therein, to (i) lend up to $3.15 billion to fund a portion of the transactions contemplated by the Merger Agreement (including the repayment, prepayment or discharge of the outstanding Company Indebtedness (as defined in the Merger Agreement)) and (ii) provide up to $500.0 million of revolving credit commitments, a portion of which may be used to fund a portion of the transactions contemplated by the Merger Agreement. The Company is required to use reasonable best efforts to provide customary cooperation in connection with the debt financing at Parent’s sole expense. The funding of such debt and equity commitments is subject to the satisfaction of customary closing conditions. Concurrently with the execution and delivery of the Merger Agreement, Parent and Merger Sub delivered guarantees from the Guarantors in favor of the Company (the “ Guarantees ”), pursuant to which, subject to the terms and conditions contained therein, the Guarantors are guaranteeing certain obligations of Parent and Merger Sub under the Merger Agreement. If the financing is not obtained, Parent and Merger Sub remain obligated, subject to the satisfaction or waiver of the conditions to Closing, to consummate the Transactions. Description of Merger Agreement Not Complete The foregoing description of the Merger Agreement is only a summary, does not purport to be complete and is subject to, and qualified in its entirety by reference to, the full text of the Merger Agreement, which is attached as Exhibit 2.1 to this Current Report on Form 8-K and incorporated herein by reference. The Merger Agreement and the above description have been included to provide information regarding the terms of the Merger Agreement. They are not intended to provide any other factual information about the Company or Parent. The representations, warranties and covenants contained in the Merger Agreement were made only for purposes of the Merger Agreement and as of specific dates; were solely for the benefit of the parties to the Merger Agreement; and may be subject to limitations agreed upon by the parties, including being qualified by confidential disclosures made by each contracting party to the other for the purposes of allocating contractual risk between them. Investors should be aware that the representations, warranties and covenants or any description thereof may not reflect the actual state of facts or condition of the Company, Parent or Merger Sub. Moreover, information concerning the subject matter of the representations, warranties and covenants may change after the date of the Merger Agreement. Further, investors should not read the Merger Agreement in isolation, but rather in conjunction with the other information that the Company includes in reports, statements and other filings it makes with the U.S. Securities and Exchange Commission (the “ SEC ”). Item 7.01. Regulation FD Disclosure. On October 6, 2026, the Company, CD&R and McKesson issued a joint press release announcing the entry into the Merger Agreement, a copy of which is attached as Exhibit 99.1 to this Current Report on Form 8-K. The information contained under Item 7.01 of this Current Report on Form 8-K (including Exhibit 99.1 hereto) shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934, as amended (the “ Exchange Act ”), or otherwise subject to the liabilities of that section, nor shall it be deemed incorporated by reference in any filing under the Securities Act of 1933, as amended, or the Exchange Act, except as may be expressly set forth by specific reference in such filing. Item 9.01 Financial Statements and Exhibits. (d) Exhibits Exhibit No. Description 2.1 Agreement and Plan of Merger, dated as of October 5, 2026, by and among Option Care Health, Inc., Onyx Bidco LLC and Onyx Merger Sub, Inc.* 99.1 Joint Press Release, dated as of October 6, 2026. 104 Cover Page Interactive Data File (embedded within the Inline XBRL document). * Schedules and exhibits have been omitted pursuant to Item 601(a)(5) and Item 601(b)(2)(ii) of Regulation S-K. The Company agrees to furnish supplemental copies of any of the omitted schedules and exhibits upon request by the SEC. Additional Information and Where to Find It In connection with the proposed acquisition and related transactions (collectively, the “ proposed transaction ”) involving the Company and the Investor Group, the Company will file a preliminary proxy statement with the SEC. The Company plans to mail a definitive proxy statement (the “ Proxy Statement ”) to the Company’s stockholders. THE COMPANY’S STOCKHOLDERS ARE URGED TO READ THE PROXY STATEMENT (INCLUDING ANY AMENDMENTS OR SUPPLEMENTS THERETO) AND ANY OTHER RELEVANT DOCUMENTS FILED OR TO BE FILED WITH THE SEC WHEN THEY BECOME AVAILABLE BECAUSE THEY WILL CONTAIN IMPORTANT INFORMATION. Investors and security holders will be able to obtain a free copy of the Proxy Statement (when available) as well as other documents filed by the Company with the SEC through the website maintained by the SEC at www.sec.gov. Copies of the documents filed with the SEC by the Company will be available free of charge on the Company’s internet website at www.optioncarehealth.com or by contacting the Company’s investor relations department at investor.relations@optioncare.com. Certain Information Regarding Participants in the Solicitation The Company and its directors and executive officers may be considered participants in the solicitation of proxies from the Company’s stockholders in connection with the proposed transaction. Information about the directors and executive officers of the Company is set forth in its proxy statement for its 2026 annual meeting of stockholders, which was filed with the SEC on April 8, 2026 (the “ Annual Meeting Proxy Statement ”). To the extent the holdings of the Company’s securities by its directors or executive officers have changed since the amounts set forth in the Annual Meeting Proxy Statement, such changes have been or will be reflected on Forms 3, 4 and 5 filed with the SEC. Other information regarding the participants in the proxy solicitation and a description of their direct and indirect interests, by security holdings or otherwise, in the proposed transaction will be contained in the Proxy Statement that the Company expects to file and in other relevant materials to be filed with the SEC regarding the proposed transaction when they become available. You may obtain these documents (when they become available) as described above. Cautionary Statement Regarding Forward-Looking Statements This Current Report on Form 8-K may contain “forward-looking statements” within the meaning of the safe harbor provisions of the U.S. Private Securities Litigation Reform Act of 1995. Forward-looking statements can be identified by words such as: “anticipate,” “intend,” “plan,” “believe,” “project,” “estimate,” “expect,” “may,” “should,” “will” and similar references to future periods. Examples of forward-looking statements include statements regarding the proposed transaction, stockholder approval and the timeline for completing the proposed transaction. Forward-looking statements are neither historical facts nor assurances of future performance. Instead, they are based only on management’s beliefs, expectations and assumptions at the time that these statements were prepared. Because forward-looking statements relate to the future, they are subject to inherent uncertainties, risks and changes in circumstances that are difficult to predict and many of which are outside of the Company’s control. The Company’s actual results and financial condition may differ materially from those indicated in the forward-looking statements as a result of various factors. These factors include, but are not limited to: (1) the termination of or occurrence of any event, change or other circumstances that could give rise to the termination of the merger agreement, including circumstances requiring the Company to pay a termination fee pursuant to the merger agreement, or the inability to complete the proposed transaction on the anticipated terms and timetable, (2) the inability to complete the proposed transaction due to the failure to obtain approval of the stockholders of the Company or to satisfy any other condition to closing in a timely manner or at all, or the risk that a regulatory approval that may be required for the proposed transaction is delayed, is not obtained or is obtained subject to conditions that are not anticipated, (3) costs related to the proposed transaction, including from potential litigation relating to the proposed transaction, (4) the risk that restrictions on the operation of the Company’s business during the pendency of the proposed transaction may impact the Company’s ability to pursue certain business opportunities or strategic transactions or undertake certain actions the Company might otherwise have taken, (5) the risk that any announcements relating to the proposed transaction could have adverse effects on the market price of the Company’s common stock, credit ratings or operating results, (6) the risk that the proposed transaction and its announcement could have an adverse effect on the ability of the Company to retain and hire key personnel, retain customers and maintain relationships with business partners, suppliers and customers and (7) the diversion of management’s time and attention from ordinary course business operations to completion of the proposed transaction. The foregoing review of important factors should not be construed as exhaustive and should be read in conjunction with the other cautionary statements that are included elsewhere. Additional information concerning risks, uncertainties and assumptions can be found in the Company’s filings with the SEC, including the risk factors discussed in the Company’s most recent Annual Report on Form 10-K, as updated by the Company’s Quarterly Reports on Form 10-Q and future filings with the SEC. Any forward-looking statement made in this Current Report on Form 8-K is based only on information currently available to the Company and speaks only as of the date on which it is made. The Company undertakes no obligation to publicly update any forward-looking statement, whether written or oral, that may be made from time to time, whether as a result of new information, future developments or otherwise. You are cautioned not to rely on the Company’s forward-looking statements. SIGNATURES Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Option Care Health, Inc. Dated: October 6, 2026 By: /s/ Meenal Sethna Name: Meenal Sethna Title: Chief Financial Officer",
+       "recortado": false,
+       "negativos": [
+        {
+         "tipo": "cifra 'hasta' / potencial",
+         "frase": "-party beneficiary thereof. Merger Sub has also obtained a debt commitment letter pursuant to which the applicable lenders party thereto have committed, subject to the terms and conditions set forth therein, to (i) lend up to $3.15 billion to fund a portion of the transactions contemplated by the Merger Agreement (including the repayment, prepayment or discharge of the outstanding Company Indebtedness (as defined in the Merger Agreement)) and"
+        },
+        {
+         "tipo": "cifra 'hasta' / potencial",
+         "frase": "to fund a portion of the transactions contemplated by the Merger Agreement (including the repayment, prepayment or discharge of the outstanding Company Indebtedness (as defined in the Merger Agreement)) and (ii) provide up to $500.0 million of revolving credit commitments, a portion of which may be used to fund a portion of the transactions contemplated by the Merger Agreement. The Company is required to use reasonable best efforts to provide"
+        }
+       ]
+      },
+      {
+       "archivo": "tm2627097d1_ex99-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1014739/000110465926113904/tm2627097d1_ex99-1.htm",
+       "texto": "CD&R and McKesson Corporation Sign Agreement to Acquire Option Care Health NEW YORK, IRVING, Texas and BANNOCKBURN, Ill., October 6, 2026 — CD&R, McKesson Corporation (NYSE: MCK) (“McKesson”), and Option Care Health, Inc. (Nasdaq: OPCH) (“Option Care Health”) announced today that they have entered into a definitive agreement, under which CD&R and McKesson will acquire Option Care Health, an independent provider of home and alternate site infusion services, for $32.05 per share, reflecting a total enterprise value of approximately $5.8 billion. At the closing of the transaction, CD&R will hold a majority ownership interest, and McKesson will hold a minority ownership interest. Option Care Health will remain a separate company led by its own management team. “We are pleased to have entered into this agreement, which provides immediate cash value for our stockholders,” said Harry Kraemer, Chairman of the Board of Option Care Health. “The Board of Directors completed an extensive assessment, involving thorough discussions with our advisors, and unanimously concluded this transaction maximizes value for our stockholders.” “This transaction represents a great outcome for Option Care Health and our stockholders, and I want to thank our Board of Directors for their rigorous process and diligence,” said John C. Rademacher, Chief Executive Officer of Option Care Health. “For more than 45 years, Option Care Health has helped transform the way infusion therapy is delivered, led by our team members’ unwavering commitment to providing extraordinary care to patients. We will continue to enhance our platform and deepen our partnerships with hospitals and health systems, physicians, payers, and biopharma manufacturers. We are thrilled to have the support of CD&R and McKesson, empowering us to continue investing strategically and accelerate the pace of our advanced technology deployment to improve clinical outcomes and reduce the total cost of care. Both firms understand our business and the healthcare industry, and have proven track records of fostering growth for some of the largest and fastest-growing healthcare service businesses globally.” “Option Care Health has shown what is possible when high-quality infusion therapy is delivered where patients are most comfortable: at home and in their communities,” said CD&R Partner Sarah Kim. “We look forward to supporting Option Care Health’s proven management team, together with McKesson and applying CD&R’s deep experience in healthcare services to help Option Care Health bring specialized therapies to more patients across the country.” “This investment represents an important opportunity that aligns with McKesson’s long-term strategy to expand access and affordability to innovative therapies across the care continuum,” said Brian Tyler, Chair and Chief Executive Officer of McKesson. “As these therapies continue to grow in importance and their delivery becomes increasingly complex, McKesson is focused on investing in areas where our capabilities can help improve access and advance care in lower-cost community settings, at or closer to home. Option Care Health’s clinical model and national infusion footprint across home and ambulatory sites are well aligned with those priorities, and the company is well positioned for continued growth. As a strategic investor, we look forward to bringing McKesson’s experience and expertise in specialty pharmaceuticals to support Option Care Health’s strategy of broadening access to complex therapies and enabling care delivery in lower-cost settings, while creating long-term value for stakeholders.” The transaction aligns with McKesson’s strategic objectives: · Positioned for growth in specialty care : Continued innovation in specialty, rare and orphan therapies and the increasing need for alternate infusion services represent an attractive long-term growth opportunity to support community providers, health systems, payers, and biopharma companies. Through this investment, McKesson will support the delivery of complex specialty therapies across multiple care settings. · Expanded patient access through community-based care : Option Care Health’s home and ambulatory infusion capabilities help patients access complex therapies outside traditional care settings, aligning with McKesson’s focus to allow accessible and affordable high-quality care to patients. Option Care Health will continue to operate as usual, with the same commitment to its patients, providers, employees, and partners. Transaction Details, Timing, and Approvals Under the definitive agreement, CD&R will hold a majority interest of approximately 51% in Option Care Health and McKesson will invest approximately $1.4 billion for a minority interest of approximately 49%. The transaction also establishes a framework for McKesson’s future acquisition of CD&R’s interest in Option Care Health, subject to specified conditions and regulatory approvals. Following the closing of the transaction, McKesson intends to account for its minority interest in Option Care Health using the equity method of accounting, recording its share of Option Care Health’s net income or loss in Other Income, net. The transaction value represents a premium of approximately 37% to Option Care Health’s closing share price on October 5, 2026, the last full trading day of Option Care Health’s common stock prior to the transaction announcement. The transaction is expected to close in the first half of calendar year 2027, subject to customary closing conditions, including approval by Option Care Health’s stockholders and the receipt of required regulatory approvals. Upon completion of the transaction, Option Care Health’s common stock will no longer be publicly listed on the Nasdaq Stock Exchange, and Option Care Health will become a privately held company. Option Care Health Third Quarter 2026 Financial Results and 2026 Guidance Option Care Health expects to release its financial results for the third quarter ended September 30, 2026, on November 4, 2026. Given the transaction announcement, Option Care Health will not host a live conference call in conjunction with its third quarter earnings release and is also withdrawing its previously disclosed financial guidance. Advisors Centerview Partners LLC is serving as financial advisor, Kirkland & Ellis LLP is serving as legal advisor, and Joele Frank, Wilkinson Brimmer Katcher is serving as strategic communications advisor to Option Care Health. Bank of America, Barclays Bank PLC, Goldman Sachs & Co. LLC, Jefferies and Wells Fargo Bank, N.A. are acting as financial advisors and providing committed financing to the consortium. Debevoise & Plimpton LLP is serving as legal advisor to CD&R. Davis Polk & Wardwell LLP and Reed Smith LLP are serving as McKesson’s legal advisors. About Option Care Health Option Care Health is the nation’s largest independent provider of home and alternate site infusion services. With over 8,000 team members including more than 5,000 clinicians, we work compassionately to elevate standards of care for patients with acute and chronic conditions in all 50 states. Through our clinical leadership, expertise and national scale, Option Care Health is reimagining the infusion care experience for patients, customers and team members. To learn more, please visit our website at optioncarehealth.com . About CD&R Founded in 1978, CD&R is a leading private investment firm with a strategy of generating strong investment returns by building more robust and sustainable businesses through the combination of skilled investment experience and deep operating capabilities. In partnership with the management teams of its portfolio companies, CD&R takes a long-term view of value creation and emphasizes positive stewardship and impact. The firm invests in businesses that span a broad range of industries, including industrial, healthcare, consumer, technology and financial services end markets. CD&R is privately owned by its partners and has offices in New York and London. For more information, please visit www.cdr.com and follow the firm’s activities through LinkedIn . About McKesson Corporation McKesson Corporation is a diversified healthcare services leader dedicated to advancing health outcomes for patients everywhere. Our teams partner with biopharma companies, care providers, pharmacies, manufacturers, governments, and others to deliver insights, products and services to help make quality care more accessible and affordable. Learn more about how McKesson is impacting virtually every aspect of healthcare at McKesson.com and read Stories & Insights . We routinely use our website, investor.mckesson.com , to post information that may be material to investors, such as business developments, earnings, and financial performance, as well as presentation materials and details for upcoming and past events. Additional Information and Where to Find It In connection with the proposed acquisition and related transactions (collectively, the “proposed transaction”) involving Option Care Health and affiliates of CD&R and McKesson (collectively, the “Investor Group”), Option Care Health will file a preliminary proxy statement with the U.S. Securities and Exchange Commission (the “SEC”). Option Care Health plans to mail a definitive proxy statement (the “Proxy Statement”) to Option Care Health’s stockholders. OPTION CARE HEALTH’S STOCKHOLDERS ARE URGED TO READ THE PROXY STATEMENT (INCLUDING ANY AMENDMENTS OR SUPPLEMENTS THERETO) AND ANY OTHER RELEVANT DOCUMENTS FILED OR TO BE FILED WITH THE SEC WHEN THEY BECOME AVAILABLE BECAUSE THEY WILL CONTAIN IMPORTANT INFORMATION. Investors and security holders will be able to obtain a free copy of the Proxy Statement (when available) as well as other documents filed by Option Care Health with the SEC through the website maintained by the SEC at www.sec.gov. Copies of the documents filed with the SEC by Option Care Health will be available free of charge on Option Care Health’s internet website at optioncarehealth.com or by contacting Option Care Health’s investor relations department at investor.relations@optioncare.com. Certain Information Regarding Participants in the Solicitation Option Care Health and its directors and executive officers may be considered participants in the solicitation of proxies from Option Care Health’s stockholders in connection with the proposed transaction. Information about the directors and executive officers of Option Care Health is set forth in its proxy statement for its 2026 annual meeting of stockholders, which was filed with the SEC on April 8, 2026 (the “Annual Meeting Proxy Statement”). To the extent the holdings of Option Care Health’s securities by its directors or executive officers have changed since the amounts set forth in the Annual Meeting Proxy Statement, such changes have been or will be reflected on Forms 3, 4 and 5 filed with the SEC. Other information regarding the participants in the proxy solicitation and a description of their direct and indirect interests, by security holdings or otherwise, in the proposed transaction will be contained in the proxy statement that Option Care Health expects to file and in other relevant materials to be filed with the SEC regarding the proposed transaction when they become available. You may obtain these documents (when they become available) as described above. Cautionary Statement Regarding Forward-Looking Statements - Option Care Health This communication may contain “forward-looking statements” within the meaning of the safe harbor provisions of the U.S. Private Securities Litigation Reform Act of 1995. Forward-looking statements can be identified by words such as: “anticipate,” “intend,” “plan,” “believe,” “project,” “estimate,” “expect,” “may,” “should,” “will” and similar references to future periods. Examples of forward-looking statements include statements regarding the proposed transaction, stockholder approval and the expected benefits of and timeline for completing the proposed transaction. Forward-looking statements are neither historical facts nor assurances of future performance. Instead, they are based only on management’s beliefs, expectations and assumptions at the time that these statements were prepared. Because forward-looking statements relate to the future, they are subject to inherent uncertainties, risks and changes in circumstances that are difficult to predict and many of which are outside of Option Care Health’s control. Option Care Health’s actual results and financial condition may differ materially from those indicated in the forward-looking statements as a result of various factors. These factors include, but are not limited to: (1) the termination of or occurrence of any event, change or other circumstances that could give rise to the termination of the merger agreement, including circumstances requiring Option Care Health to pay a termination fee pursuant to the merger agreement, or the inability to complete the proposed transaction on the anticipated terms and timetable, (2) the inability to complete the proposed transaction due to the failure to obtain approval of the stockholders of Option Care Health or to satisfy any other condition to closing in a timely manner or at all, or the risk that a regulatory approval that may be required for the proposed transaction is delayed, is not obtained or is obtained subject to conditions that are not anticipated, (3) costs related to the proposed transaction, including from potential litigation relating to the proposed transaction, (4) the risk that restrictions on the operation of Option Care Health’s business during the pendency of the proposed transaction may impact Option Care Health’s ability to pursue certain business opportunities or strategic transactions or undertake certain actions Option Care Health might otherwise have taken, (5) the risk that any announcements relating to the proposed transaction could have adverse effects on the market price of Option Care Health’s common stock, credit ratings or operating results, (6) the risk that the proposed transaction and its announcement could have an adverse effect on the ability of Option Care Health to retain and hire key personnel, retain customers and maintain relationships with business partners, suppliers and customers and (7) the diversion of management’s time and attention from ordinary course business operations to completion of the proposed transaction. The foregoing review of important factors should not be construed as exhaustive and should be read in conjunction with the other cautionary statements that are included elsewhere. Additional information concerning risks, uncertainties and assumptions can be found in Option Care Health’s filings with the SEC, including the risk factors discussed in Option Care Health’s most recent Annual Report on Form 10-K, as updated by Option Care Health’s Quarterly Reports on Form 10-Q and future filings with the SEC. Any forward-looking statement made in this communication is based only on information currently available to Option Care Health and speaks only as of the date on which it is made. Option Care Health undertakes no obligation to publicly update any forward-looking statement, whether written or oral, that may be made from time to time, whether as a result of new information, future developments or otherwise. You are cautioned not to rely on Option Care Health’s forward-looking statements. Cautionary Statements - McKesson Corporation Except for historical information, statements in this press release regarding McKesson’s proposed minority investment in Option Care Health, the proposed acquisition of Option Care Health by the CD&R-controlled investment vehicle and related arrangements constitute “forward-looking statements” within the meaning of Section 27A of the Securities Act of 1933 and Section 21E of the Securities Exchange Act of 1934, that involve risks and uncertainties that could cause actual results to differ materially from those in those statements. It is not possible to identify all such risks and uncertainties. The reader should not place undue reliance on forward-looking statements, which speak only as of the date they are first made. Except to the extent required by law, McKesson undertakes no obligation to publicly update forward-looking statements. We encourage investors to read the important risk factors described in McKesson’s publicly available filings with the Securities and Exchange Commission. These risks include, but are not limited to: the parties may be unable to obtain required stockholder or regulatory approvals or satisfy other closing conditions; the transaction may be delayed or may not be completed; McKesson may not achieve the expected benefits of its investment; Option Care Health may not achieve the expected growth or other outcomes described in this release; McKesson may record impairment or other charges relating to its investment; and the parties’ ownership structure may adversely affect the transaction, industry relationships or the businesses involved. Option Care Health Investors Bob Okunski Robert.Okunski@optioncare.com Media Relations Sharon Stern / Arielle Rothstein / Allison Sobel Joele Frank, Wilkinson Brimmer Katcher (212) 355-4449 CD&R External Affairs Jon Selib JSelib@cdr.com McKesson Corporation Investors Investors@McKesson.com Media Relations MediaRelations@McKesson.com",
+       "recortado": false,
+       "negativos": []
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "DEFA14A",
+     "hora": "2026-10-06 08:23",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1014739/000110465926113905/tm2627097d1_8k.htm",
+     "items_es": ""
+    },
+    {
+     "form": "8-K",
+     "hora": "2026-10-06 08:22",
+     "items": "1.01,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1014739/000110465926113904/tm2627097d1_8k.htm",
+     "items_es": "1.01 acuerdo firmado; 7.01 nota de prensa; 9.01 anexos"
+    }
+   ],
+   "noticias": [
+    {
+     "hora": "2026-10-05 18:27",
+     "titular": "OPCH Stock Soars 22% After-Hours On $5B McKesson Buyout Talks",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/opch-stock-soars-22-hours-222737968.html",
+     "fuente": "Stocktwits"
+    },
+    {
+     "hora": "2026-10-05 17:16",
+     "titular": "Report of Possible $5 Billion Takeover Bid Sends Option Care Health Stock Higher",
+     "url": "https://www.barrons.com/articles/option-care-health-stock-mckesson-takeover-report-41c8dffc?mod=bar_FV",
+     "fuente": "Barrons.com"
+    },
+    {
+     "hora": "2026-10-05 16:45",
+     "titular": "McKesson, CD&R near $5 billion-plus deal to buy Option Care, FT reports",
+     "url": "https://finance.yahoo.com/healthcare/articles/mckesson-cd-r-near-5-201744828.html",
+     "fuente": "Reuters"
+    },
+    {
+     "hora": "2026-10-05 16:44",
+     "titular": "Option Care Health surges 22% on report of $5 billion takeover by McKesson, CD&R",
+     "url": "https://finance.yahoo.com/healthcare/articles/option-care-health-surges-22-204447450.html",
+     "fuente": "Investing.com"
+    }
+   ],
+   "sector": "Services-Home Health Care Services",
+   "venta_hoy": false,
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-07-29 06:56",
+     "items": "2.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1014739/000101473926000021/bios-20260729.htm",
+     "titular": "Item 2.02. Results of Operations and Financial Condition. On July 29, 2026 , Option Care Health, Inc. issued a press release reporting its second quarter 2026 financial results. A copy of the press release is furnished w",
+     "reaccion": {
+      "dia": "2026-07-29",
+      "apertura": 0.0645,
+      "cierre": 0.0645
+     }
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 0,
+    "p424_12m": 0,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 1,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2023-03-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/1014739/000110465923028193/tm238329d1_424b4.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2022-08-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1014739/000110465922092377/tm2222910-1_424b4.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2021-09-09",
+      "url": "https://www.sec.gov/Archives/edgar/data/1014739/000110465921114035/tm2127122-1_424b4.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2021-08-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1014739/000110465921100449/tm2123576-1_424b4.htm"
+     }
+    ],
+    "shelves": [],
+    "colocaciones": [],
+    "shelf_empresa": false,
+    "reventa_acciones": 0,
+    "atm_shelf": null,
+    "atm": false,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-07-29",
+     "url": "https://www.sec.gov/Archives/edgar/data/1014739/000101473926000023/bios-20260630.htm"
+    },
+    "eloc": false,
+    "uso_atm": [],
+    "empresa_dice_caja": "Based on our current level of operations and planned capital expenditures, we believe that our existing cash and cash equivalents balances, expected cash flows generated from operations, and availability under our credit facility will be sufficient to meet our operating requirements over the next 12 months and beyond.",
     "warrants_en_dinero": false
    }
   },
   {
    "sym": "JAGX",
    "nombre": "Jaguar Health, Inc.",
-   "precio": 6.4,
+   "precio": 6.31,
    "cierre_prev": 4.730000019073486,
    "cierre_massive": 4.73,
-   "gap": 0.3531,
+   "gap": 0.334,
    "cap": 9202414,
    "vol_pre": null,
    "acciones": 1945542,
@@ -860,7 +1128,7 @@
      "fecha": "2026-10-05 08:45",
      "items": "1.01,2.03,3.03,5.03,7.01,8.01,9.01",
      "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526413233/d183888d8k.htm",
-     "titular": "Jaguar Health Announces a Special Stock Dividend Dividend intended to provide dilution protection to Jaguar shareholders as company continues evaluation of strategic alternatives SAN FRANCISCO, CA / October 2, 2026 / Jag",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. Royalty Interest Global Amendments On September 30, 2026, Jaguar Health, Inc. (the “Company”) entered into an amendment (the “Uptown 2020 Royalty Interest Global Amen",
      "reaccion": {
       "dia": "2026-10-05",
       "apertura": 0.1667,
@@ -1093,7 +1361,7 @@
      "frase_atm": "out, and may only be delivered or utilized in connection with the Prospectus and any future amendments or supplements thereto. Under the Prospectus, we registered shares of our Common Stock having an aggregate offering price of up to $75,000,000 for offer and sale from time to time through Ladenburg Thalmann & Co. Inc. (“Ladenburg”) and Lucid Capital Markets, LLC (“Lucid” and, together with Ladenburg, the “Managers”), acting as the Company’s sales agents, pursua"
     },
     "atm": true,
-    "toxica": false,
+    "toxica": true,
     "going_concern": true,
     "warrants": [
      0.6,
@@ -1126,17 +1394,22 @@
      242.16
     ],
     "ajuste_splits_warrants": 15.0,
-    "warrants_en_dinero": true
+    "warrants_en_dinero": true,
+    "toxica_fuente": {
+     "form": "424B3",
+     "fecha": "2026-08-21",
+     "url": "https://www.sec.gov/Archives/edgar/data/1585608/000119312526360939/d228075d424b3.htm"
+    }
    }
   },
   {
    "sym": "BBBYW",
    "nombre": "Neighborhood Intelligence, Inc.",
-   "precio": 0.3877,
+   "precio": 0.3887,
    "cierre_prev": 0.30169999599456787,
    "cierre_massive": 0.3017,
-   "gap": 0.2851,
-   "cap": 36959587.9383,
+   "gap": 0.2884,
+   "cap": 37054918.3173,
    "vol_pre": null,
    "acciones": null,
    "bolsa": "NasdaqGS",
@@ -1150,6 +1423,13 @@
      "items": "5.02,7.01,9.01",
      "url": "https://www.sec.gov/Archives/edgar/data/1130713/000114036126038653/ef20083311_form8k.htm",
      "partes": [
+      {
+       "archivo": "ef20083311_form8k.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1130713/000114036126038653/ef20083311_form8k.htm",
+       "texto": "Item 5.02 Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers; Compensatory Arrangements of Certain Officers. Interim CFO Appointment On October 5, 2026, the Board of Directors of Neighborhood Intelligence, Inc. (the “Company”) appointed of Paul Kosturos as Interim Chief Financial Officer and, in this capacity, will serve as the Company’s principal financial officer. Mr. Kosturos succeeds Brian LaRose, the Company’s Chief Financial Officer and principal financial officer, who, on October 5, 2026, tendered his resignation effective as of such date. Mr. Kosturos, age 61, is a Managing Director at Alvarez & Marsal Private Equity Performance Improvement Group, LLC (“A&M”), an international professional services firm, where he has worked since 2009. Mr. Kosturas specializes in interim CFO assignments, mergers and acquisitions integrations, including carve-outs, external and internal financial reporting, forecasting and budgeting including identifying and implementing cost reductions, working capital management improvements, internal controls design and process improvements, shared services processing and ERP system design and implementations. Before joining A&M, Mr. Kosturos was the Vice President and Corporate Controller for JDS Uniphase, a billion dollar plus publicly traded telecommunications company. Mr. Kosturos earned a Bachelor’s of Science degree in accounting from the California State Polytechnic University, Pomona, and is a Certified Public Accountant. There are no arrangements or understandings between Mr. Kosturos and any other person pursuant to which he was selected as an officer. Mr. Kosturos does not have any family relationship with any of the Company’s directors or executive officers. Neither Mr. Kosturos nor any of his immediate family members has had (or proposes to have) a direct or indirect material interest in a transaction in which the Company or any of the Company’s subsidiaries was (or is to be) a participant that would be required to be disclosed under Item 404(a) of Regulation S-K. In connection with his appointment, Mr. will also enter into the Company’s standard form of indemnification agreement for directors and officers. Item 7.01 Regulation FD. On October 5, 2026, the Company issued a press release announcing the transition of the Company’s chief financial officer. A copy of the press release is furnished herewith as Exhibit 99.1 and incorporated herein by reference to this Item 7.01. The information set forth in this Item 7.01 including the information set forth in Exhibit 99.1 shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934, as amended (the “Exchange Act”), or otherwise subject to the liabilities of that section, nor shall it be deemed incorporated by reference in any filing under the Securities Act of 1933, as amended, or the Exchange Act, regardless of any general incorporation language in such filing. Item 9.01 Financial Statements and Exhibits. (d) Exhibits. Exhibit Number Description 99.1 Press Release, dated October 5, 2026. 104 Cover Page Interactive Data File (the cover page XBRL tags are embedded within the iXBRL document) SIGNATURES Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. NEIGHBORHOOD INTELLIGENCE, INC. Date: October 5, 2026 By: /s/ Mehgan Peetz Mehgan Peetz Chief Administrative & Legal Officer",
+       "recortado": false,
+       "negativos": []
+      },
       {
        "archivo": "ef20083311_ex99-1.htm",
        "url": "https://www.sec.gov/Archives/edgar/data/1130713/000114036126038653/ef20083311_ex99-1.htm",
@@ -1185,7 +1465,7 @@
      "fecha": "2026-10-05 07:19",
      "items": "1.02,2.02,7.01,9.01",
      "url": "https://www.sec.gov/Archives/edgar/data/1130713/000114036126038532/ef20083268_8k.htm",
-     "titular": "Fathom Holdings and Neighborhood Intelligence Announce Mutual Termination of Proposed Merger Boards conclude that current valuations do not reflect the fair value of either company; Neighborhood Intelligence to retain bl",
+     "titular": "Item 1.02. Termination of a Material Definitive Agreement. On October 5, 2026, Neighborhood Intelligence, Inc. (“the Company ”), a Delaware corporation, and Fathom Holdings, Inc., a North Carolina corporation (“ FTHM ”),",
      "reaccion": {
       "dia": "2026-10-05",
       "apertura": 0.0268,
@@ -1197,7 +1477,7 @@
      "fecha": "2026-09-08 20:22",
      "items": "1.02,7.01,9.01",
      "url": "https://www.sec.gov/Archives/edgar/data/1130713/000114036126035920/ef20081710_8k.htm",
-     "titular": "Neighborhood Intelligence Terminates Proposed Acquisition of F9 Brands Company Reaffirms Disciplined Capital Allocation and Growth Strategy Across Its Home Services Pillar NASHVILLE, Tenn. (BUSINESS WIRE) Neighborhood In",
+     "titular": "Item 1.02. Termination of a Material Definitive Agreement. On September 7, 2026, Beyond Home Services, LLC (“ Purchaser ”), a Delaware limited liability company and wholly owned subsidiary of Neighborhood Intelligence, I",
      "reaccion": {
       "dia": "2026-09-09",
       "apertura": 0.0504,
@@ -1225,7 +1505,7 @@
      "fecha": "2026-08-04 21:55",
      "items": "8.01,9.01",
      "url": "https://www.sec.gov/Archives/edgar/data/1130713/000114036126031294/ef20079337_8k.htm",
-     "titular": "Consolidated Financial Statements The Container Store Group, Inc. As of June 27, 2026 and March 28, 2026 For the Thirteen Weeks Ended June 27, 2026 and June 28, 2025 TABLE OF CONTENTS Consolidated Financial Statements Co",
+     "titular": "Item 8.01. Other Events. As previously disclosed, on July 8, 2026, Bed Bath & Beyond, Inc. (the “ Company ”) completed its acquisition of The Container Store Holdings, LLC (“ TCS Holdings ”), pursuant to that certain Agr",
      "reaccion": null
     },
     {
@@ -1369,7 +1649,7 @@
      "frase_atm": " (File No. 333-297978), as previously supplemented by our prospectus supplement, dated August 18, 2026 (collectively, the “Prior Prospectus”), relating to the offer and sale, from time to time, of an aggregate offering price of up to $200,000,000 of shares of our common stock, $0.0001 par value per share (the “ATM Program”), pursuant to the Capital on Demand TM Sales Agreement, dated August 4, 2026 (the “Original Sales Agreement”) we previously entered into with "
     },
     "atm": true,
-    "toxica": false,
+    "toxica": true,
     "going_concern": false,
     "warrants": [
      15.5
@@ -1386,124 +1666,21 @@
      "We have sold common stock including under our \"at the market\" sales agreement and in follow-on underwritten offerings in the past and may do so in the future."
     ],
     "empresa_dice_caja": null,
-    "warrants_en_dinero": false
-   }
-  },
-  {
-   "sym": "OPCH",
-   "nombre": "Option Care Health, Inc.",
-   "precio": 28.16,
-   "cierre_prev": 23.3700008392334,
-   "cierre_massive": 23.37,
-   "gap": 0.205,
-   "cap": 3500481280,
-   "vol_pre": null,
-   "acciones": 149785243,
-   "bolsa": "NasdaqGS",
-   "estado": "PRE",
-   "split_hoy": null,
-   "cik": 1014739,
-   "catalizadores": [],
-   "docs_hoy": [],
-   "noticias": [
-    {
-     "hora": "2026-10-05 18:27",
-     "titular": "OPCH Stock Soars 22% After-Hours On $5B McKesson Buyout Talks",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/opch-stock-soars-22-hours-222737968.html",
-     "fuente": "Stocktwits"
-    },
-    {
-     "hora": "2026-10-05 17:16",
-     "titular": "Report of Possible $5 Billion Takeover Bid Sends Option Care Health Stock Higher",
-     "url": "https://www.barrons.com/articles/option-care-health-stock-mckesson-takeover-report-41c8dffc?mod=bar_FV",
-     "fuente": "Barrons.com"
-    },
-    {
-     "hora": "2026-10-05 16:45",
-     "titular": "McKesson, CD&R near $5 billion-plus deal to buy Option Care, FT reports",
-     "url": "https://finance.yahoo.com/healthcare/articles/mckesson-cd-r-near-5-201744828.html",
-     "fuente": "Reuters"
-    },
-    {
-     "hora": "2026-10-05 16:44",
-     "titular": "Option Care Health surges 22% on report of $5 billion takeover by McKesson, CD&R",
-     "url": "https://finance.yahoo.com/healthcare/articles/option-care-health-surges-22-204447450.html",
-     "fuente": "Investing.com"
+    "warrants_en_dinero": false,
+    "toxica_fuente": {
+     "form": "424B5",
+     "fecha": "2026-08-18",
+     "url": "https://www.sec.gov/Archives/edgar/data/1130713/000114036126033602/ny20078361x3_424b5.htm"
     }
-   ],
-   "sector": "Services-Home Health Care Services",
-   "venta_hoy": false,
-   "historial": [
-    {
-     "form": "8-K",
-     "fecha": "2026-07-29 06:56",
-     "items": "2.02,9.01",
-     "url": "https://www.sec.gov/Archives/edgar/data/1014739/000101473926000021/bios-20260729.htm",
-     "titular": "OPTION CARE HEALTH ANNOUNCES FINANCIAL RESULTS FOR THE SECOND QUARTER ENDED JUNE 30, 2026 BANNOCKBURN, IL., July 29, 2026 - Option Care Health, Inc. (the “Company” or “Option Care Health”) (Nasdaq: OPCH), the nation’s la",
-     "reaccion": {
-      "dia": "2026-07-29",
-      "apertura": 0.0645,
-      "cierre": 0.0645
-     }
-    }
-   ],
-   "municion": {
-    "venta90": false,
-    "s3": null,
-    "s1": null,
-    "ventas_12m": 0,
-    "p424_12m": 0,
-    "aviso_bolsa": false,
-    "contrasplits_2a": 1,
-    "ultimas_ventas": [
-     {
-      "form": "424B4",
-      "fecha": "2023-03-03",
-      "url": "https://www.sec.gov/Archives/edgar/data/1014739/000110465923028193/tm238329d1_424b4.htm"
-     },
-     {
-      "form": "424B4",
-      "fecha": "2022-08-18",
-      "url": "https://www.sec.gov/Archives/edgar/data/1014739/000110465922092377/tm2222910-1_424b4.htm"
-     },
-     {
-      "form": "424B4",
-      "fecha": "2021-09-09",
-      "url": "https://www.sec.gov/Archives/edgar/data/1014739/000110465921114035/tm2127122-1_424b4.htm"
-     },
-     {
-      "form": "424B4",
-      "fecha": "2021-08-05",
-      "url": "https://www.sec.gov/Archives/edgar/data/1014739/000110465921100449/tm2123576-1_424b4.htm"
-     }
-    ],
-    "shelves": [],
-    "colocaciones": [],
-    "shelf_empresa": false,
-    "reventa_acciones": 0,
-    "atm_shelf": null,
-    "atm": false,
-    "toxica": false,
-    "going_concern": false,
-    "warrants": [],
-    "informe": {
-     "form": "10-Q",
-     "fecha": "2026-07-29",
-     "url": "https://www.sec.gov/Archives/edgar/data/1014739/000101473926000023/bios-20260630.htm"
-    },
-    "eloc": false,
-    "uso_atm": [],
-    "empresa_dice_caja": "Based on our current level of operations and planned capital expenditures, we believe that our existing cash and cash equivalents balances, expected cash flows generated from operations, and availability under our credit facility will be sufficient to meet our operating requirements over the next 12 months and beyond.",
-    "warrants_en_dinero": false
    }
   },
   {
    "sym": "APOG",
    "nombre": "Apogee Enterprises, Inc.",
-   "precio": 42.8,
+   "precio": 43.0,
    "cierre_prev": 35.65999984741211,
    "cierre_massive": 35.66,
-   "gap": 0.2002,
+   "gap": 0.2058,
    "cap": 744163392,
    "vol_pre": null,
    "acciones": 20868294,
@@ -1559,7 +1736,7 @@
      "fecha": "2026-09-23 15:52",
      "items": "2.01,7.01,9.01",
      "url": "https://www.sec.gov/Archives/edgar/data/6845/000000684526000093/apog-20260918.htm",
-     "titular": "Apogee Enterprises, Inc. • 4400 West 78th Street • Minneapolis, MN 55435 • (952) 835-1874 • www.apog.com Press Release FOR RELEASE: September 18, 2026 Apogee Enterprises Completes Acquisition of GroGlass MINNEAPOLIS, MN,",
+     "titular": "Item 2.01 Completion of Acquisition or Disposition of Assets. On September 18, 2026, Apogee Enterprises, Inc. (the “Company”) completed the transaction contemplated by the Share Purchase Agreement, dated September 2, 202",
      "reaccion": {
       "dia": "2026-09-23",
       "apertura": -0.0098,
@@ -1571,7 +1748,7 @@
      "fecha": "2026-09-14 16:41",
      "items": "5.02,7.01,9.01",
      "url": "https://www.sec.gov/Archives/edgar/data/6845/000000684526000091/apog-20260910.htm",
-     "titular": "apogpressrelease-jstreic Apogee Enterprises, Inc. • 4400 West 78th Street • Minneapolis, MN 55435 • (952) 835-1874 • www.apog.com Press Release FOR RELEASE: September 14, 2026 Julie K. Streich Joins Apogee Enterprises’ B",
+     "titular": "Item 5.02 Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers; Compensatory Arrangement of Certain Officers (b) On September 10, 2026, Patricia K. Wagner informed the Board ",
      "reaccion": {
       "dia": "2026-09-15",
       "apertura": -0.0003,
@@ -1583,7 +1760,7 @@
      "fecha": "2026-09-02 17:55",
      "items": "1.01,7.01,9.01",
      "url": "https://www.sec.gov/Archives/edgar/data/6845/000000684526000087/apog-20260902.htm",
-     "titular": "ex991-apogacquisitionann Apogee Enterprises, Inc. • 4400 West 78th Street • Minneapolis, MN 55435 • (952) 835-1874 • www.apog.com Press Release FOR RELEASE: September 2, 2026 Apogee Enterprises to Acquire GroGlass • Lead",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement Share Purchase Agreement On September 2, 2026, Apogee Enterprises, Inc. (the “Company”) entered into a Share Purchase Agreement (the “Purchase Agreement”) with the sel",
      "reaccion": {
       "dia": "2026-09-03",
       "apertura": 0.0202,
@@ -1607,7 +1784,7 @@
      "fecha": "2026-07-01 16:59",
      "items": "2.01,7.01,9.01",
      "url": "https://www.sec.gov/Archives/edgar/data/6845/000000684526000068/apog-20260701.htm",
-     "titular": "ex991 Apogee Enterprises, Inc. • 4400 West 78th Street • Minneapolis, MN 55435 • (952) 835-1874 • www.apog.com Press Release FOR RELEASE: July 1, 2026 Apogee Enterprises Completes Acquisition of Kalwall Companies MINNEAP",
+     "titular": "Item 2.01 Completion of Acquisition or Disposition of Assets. On July 1, 2026, Apogee Enterprises, Inc. (the “Company”) completed the transaction contemplated by the Merger Agreement, dated May 27, 2026 (the “Merger Agre",
      "reaccion": {
       "dia": "2026-07-02",
       "apertura": 0.0032,
@@ -1619,7 +1796,7 @@
      "fecha": "2026-06-26 09:03",
      "items": "2.02,9.01",
      "url": "https://www.sec.gov/Archives/edgar/data/6845/000000684526000058/apog-20260626.htm",
-     "titular": "Document Press Release FOR RELEASE: June 26, 2026 APOGEE ENTERPRISES REPORTS FISCAL 2027 FIRST QUARTER RESULTS • First-quarter net sales of $342.7 million • First-quarter diluted EPS of $0.54 and adjusted diluted EPS of ",
+     "titular": "Item 2.02 of this Current Report on Form 8-K and Exhibit 99.1 attached hereto shall not be deemed to be filed for the purposes of Section 18 of the Securities Exchange Act of 1934, as amended, or otherwise subject to lia",
      "reaccion": {
       "dia": "2026-06-26",
       "apertura": 0.0723,

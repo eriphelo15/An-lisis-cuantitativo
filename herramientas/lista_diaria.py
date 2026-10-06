@@ -386,7 +386,10 @@ def texto_catalizador(cik, p):
             ex.append(a.group(1))
     ex = [n for n in ex if n in docs] or [n for n in docs if re.search(r"ex[-_]?99|ex991|exhibit99|dex99|(^|[^0-9])a?99[1-9]?\.htm", n.lower())]
     partes = []
-    for n in (ex[:4] or [p["doc"]]):          # 1-oct: TODOS los anexos (CNTB: el fallo del secundario estaba en la presentación EX-99.2)
+    # 6-oct (IPDN, lo destapó el verificador): el cuerpo del 8-K/6-K va SIEMPRE, también cuando hay EX-99 — ahí está el Item 1.01
+    # (IPDN: arrendamiento + reparto de ingresos + préstamo con Goodwill Labs por $1.177 M que la nota de prensa no contaba)
+    nombres = ([p["doc"]] if ex and p["doc"] not in ex[:4] else []) + (ex[:4] or [p["doc"]])
+    for n in nombres:          # 1-oct: TODOS los anexos (CNTB: el fallo del secundario estaba en la presentación EX-99.2)
         t = get(f"https://www.sec.gov/Archives/edgar/data/{cik}/{p['acc']}/{n}", sec=True)
         if t:
             completo = resumen_doc(limpiar(t), 10 ** 7)
@@ -579,6 +582,9 @@ def shelves(cik, pres, desde):
 
 
 
+TOXICA = r"not determinable|variable conversion|% of the (average of the )?(three |five )?lowest|lowest (daily )?(vwap|trading price)"
+
+
 def municion(cik, pres, desde, sym, precio):
     hoy = desde.date()
     ant = [p for p in pres if p["hora"] < desde]
@@ -621,7 +627,7 @@ def municion(cik, pres, desde, sym, precio):
         m["informe"] = dict(form=per[0]["form"], fecha=per[0]["fecha"], url=per[0]["url"])
         m["atm"] = bool(re.search(r"at-the-market|at the market offering|equity distribution agreement", t, re.I))
         m["eloc"] = bool(re.search(r"equity line|equity purchase agreement|standby equity|purchase agreement with (lincoln park|yorkville|ya ii)", t, re.I))
-        m["toxica"] = bool(re.search(r"not determinable|variable conversion|% of the (average of the )?(three |five )?lowest|lowest (daily )?(vwap|trading price)", t, re.I))
+        m["toxica"] = bool(re.search(TOXICA, t, re.I))
         m["going_concern"] = bool(re.search(r"substantial doubt", t, re.I))
         m["uso_atm"] = uso_atm(t)
         # lo que la propia empresa dice de su caja (CNTB: "sufficient ... for at least one year" frente a ~2.9 meses con la quema medida)
@@ -643,6 +649,17 @@ def municion(cik, pres, desde, sym, precio):
         ej = sorted(ej)
         m["warrants"] = ej[:8]
         m["warrants_en_dinero"] = bool(precio and any(e < precio for e in ej))   # ojo: sin ajustar por contra-splits posteriores
+    # 6-oct (OLOX, lo destapó el verificador): la nota convertible al "80% of the lowest closing price" solo estaba en el folleto de
+    # REVENTA (424B3 7-ene-2026), no en el 10-Q → leer también los folletos de los últimos 12 meses (máx. 4)
+    if not m.get("toxica"):
+        fol = [p for p in ant if p["form"] in ("424B3", "424B4", "424B5", "S-1", "S-1/A", "F-1", "F-1/A")
+               and (hoy - dt.date.fromisoformat(p["fecha"])).days <= 365][:4]
+        for p in fol:
+            tf = limpiar(get(p["url"], sec=True) or "")
+            if re.search(TOXICA, tf, re.I):
+                m["toxica"] = True
+                m["toxica_fuente"] = dict(form=p["form"], fecha=p["fecha"], url=p["url"])
+                break
     m["atm"] = bool(m.get("atm") or m.get("atm_shelf"))      # la ATM puede estar solo en la shelf (CNTB 30-sep)
     m["eloc"] = bool(m.get("eloc") or any(x.get("eloc") and (hoy - dt.date.fromisoformat(x["fecha"])).days <= 730 for x in m["shelves"]))
     return m

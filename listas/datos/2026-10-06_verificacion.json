@@ -7,5 +7,23 @@
    "Tóxica y going concern: coinciden (sí/sí)."
   ],
   "hora": "08:33"
+ },
+ "OLOX": {
+  "estado": "corregido",
+  "diferencias": [
+   "Catalizador: coinciden (N).",
+   "ERROR NUESTRO: 'tóxica = no' en la ficha; el verificador encontró nota convertible al 80 % del mínimo de 10 días (424B3 7-ene-2026), Serie C ajustable con suelo y Serie E con ajuste a la baja (10-Q 2T-2026). Comprobado leyendo la SEC. Corregido en la nota. Caso de oro + arreglo del detector: pendiente de hoy (después de publicar)."
+  ],
+  "hora": "08:41"
+ },
+ "IPDN": {
+  "estado": "corregido",
+  "diferencias": [
+   "Tipo: coinciden (giro IA / humo).",
+   "ERROR NUESTRO: el Radar no leía el cuerpo del 8-K cuando había EX-99 → se perdía el Item 1.01 ($1.177 M con Goodwill Labs). Corregido en lista_diaria.texto_catalizador + caso de oro; reescaneado.",
+   "Warrants: nuestra ficha decía [204.0] fuera del dinero; el verificador ve reajuste tras el contra-split (probablemente en el dinero). Anotado en la nota; el detector de reajustes de warrants queda pendiente (no da tiempo antes de publicar).",
+   "ATM: nuestra ficha dice sí; el verificador no la encontró (sí hay línea prepagada de Streeterville). Pendiente de revisar."
+  ],
+  "hora": "08:40"
  }
 }

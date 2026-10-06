@@ -4,14 +4,15 @@
   "frase_en": "The Company has placed an order with AMAX Engineering Corporation (“AMAX”) on behalf of PDN Intelligence for one NVIDIA B300-based AI computing system and has paid 50% of the purchase price",
   "frase_es": "La empresa ha hecho un pedido a AMAX Engineering, en nombre de PDN Intelligence, de UN sistema de computación de IA basado en NVIDIA B300 y ha pagado el 50 % del precio",
   "cifra": "1 sistema (compra, no venta); 50 % del precio pagado; importe en dólares NO revelado",
-  "nota": "Giro a IA: la empresa COMPRA un servidor (gasta caja), no vende nada. Sin importe, sin ingresos, sin cliente. Riesgos citados: 'lack of operating history in AI infrastructure', 'ability to obtain sufficient financing'. Item 1.01 del 8-K = el pedido a AMAX. Venta 424B4 el 13-ago-2026 y 4 contra-splits en 2 años.",
+  "nota": "Giro a IA: la empresa COMPRA servidores (gasta caja), no vende nada. El cuerpo del 8-K (Item 1.01) añade: arrendamiento + reparto de ingresos + préstamo con Goodwill Labs (contraparte única) por «approximately $1.177 million of initial capital commitments for two NVIDIA B300 eight-GPU systems»; el préstamo de $588 849 «bears no fixed interest and has no scheduled principal payments»; equipo NO entregado (límite 15-ene-2027); contratos no publicados. | VERIFICADO (independiente): mismo tipo (giro IA cosmético). Añadido por el verificador y comprobado: caja $141 831 al 30-jun (+ $2.495 M restringidos), going concern; oferta 424B4 13-ago a $0.28 por unidad (pre-contra-split 1:30 del 14-sep); warrants de agosto con REAJUSTE tras el contra-split (precio al VWAP mínimo y más acciones, precio agregado constante ≈ $2.0 M) → probablemente en el dinero y ≈ 590 000-670 000 acciones nuevas frente a ~665 811 en circulación (cálculo del verificador, no confirmado); línea prepagada de Streeterville (80 % del VWAP mínimo de 10 días) con pausa de 75 días.",
   "pasos": {
    "fuentes": [
-    "8-K 07:24 (items 1.01, 7.01, 9.01) + EX-99.1 leído completo",
+    "8-K 07:24 (items 1.01, 7.01, 9.01) cuerpo leído completo",
+    "EX-99.1 leído completo",
     "Finviz IPDN: no responde hoy",
     "Yahoo búsqueda IPDN: sin otra noticia"
    ],
-   "anexos_leidos": 1,
+   "anexos_leidos": 2,
    "negativos": "ninguna frase negativa automática; leído entero: sin importe, gasto de caja propio, riesgos de financiación y de cumplimiento Nasdaq",
    "historial": "2026-09-30 8-K -0%; 2026-09-11 8-K +2675%; 2026-08-14 8-K +8%; 2026-08-13 8-K +8%",
    "municion": "shelf empresa sí; ATM sí; reventa 0 acciones; ELOC no; 424B 12 m: 2; venta 90 d sí; warrants [204.0]; tóxica sí — revisado en la ficha",
@@ -45,7 +46,7 @@
   "frase_es": "",
   "cifra": "",
   "fuentes_abiertas": "Finviz NO responde hoy (página vacía, bloqueo); revisados a mano EDGAR (submissions), Yahoo (búsqueda de noticias), web (búsqueda) — 6-oct ~8:35 NY. Última nota de prensa en ir.olenox.com: 17-sep (bitcoin minado en agosto); 8-K/A 1-oct (corrección de estados pro forma, item 9.01). Benzinga y StocksToTrade dicen 'after unveiling a transformative global expansion partnership' pero NO hay documento ni nota de hoy: la alianza OneQode es de oct-2025 (reciclada, no verificable como de hoy).",
-  "nota": "Sin noticia en la ventana. Última nota de prensa en ir.olenox.com: 17-sep (bitcoin minado en agosto); 8-K/A 1-oct (corrección de estados pro forma, item 9.01). Benzinga y StocksToTrade dicen 'after unveiling a transformative global expansion partnership' pero NO hay documento ni nota de hoy: la alianza OneQode es de oct-2025 (reciclada, no verificable como de hoy).",
+  "nota": "Sin noticia en la ventana. Última nota de prensa en ir.olenox.com: 17-sep (bitcoin minado en agosto); 8-K/A 1-oct (corrección de estados pro forma, item 9.01). Benzinga y StocksToTrade dicen 'after unveiling a transformative global expansion partnership' pero NO hay documento ni nota de hoy: la alianza OneQode es de oct-2025 (reciclada, no verificable como de hoy). | VERIFICADO (independiente): sin catalizador en la ventana (coincide; la 'global expansion partnership' de StocksToTrade no tiene fuente). CORRECCIÓN NUESTRA: la ficha decía tóxica = no y SÍ hay financiación tóxica, comprobado en la SEC: nota convertible «80% of the lowest closing price … during the ten trading days prior to the conversion date» (424B3 7-ene-2026), preferentes Serie C con precio ajustable y suelo $0.638, preferentes Serie E «convertible into 100 shares … at a conversion price of $ 1.00 per share … subject to … reduction upon issuances … below the conversion price» (10-Q 2T-2026: 137 840 × 100 = 13 784 000 acciones potenciales, frente a 1 659 347 en circulación el 18-ago), ELOC con General Alpha renovada hasta ago-2028 (el inversor se queda hasta el 30 % de cada venta) y ELOC Tysadco al 90 % del mínimo de 7 días. Going concern, capital circulante −$22.9 M, caja $1.21 M al 30-jun, filial SG Echo en Chapter 11.",
   "pasos": {
    "fuentes": [
     "EDGAR OLOX: 0 documentos en la ventana",
@@ -121,26 +122,26 @@
   }
  },
  "OPCH": {
-  "tipo": "O",
-  "frase_en": "McKesson, CD&R near $5 billion-plus deal to buy Option Care, FT reports",
-  "frase_es": "McKesson y CD&R, cerca de un acuerdo de más de 5 000 millones de dólares para comprar Option Care, según el FT",
-  "cifra": "más de $5 billion (5 000 millones de dólares, valor de la operación según el FT)",
-  "nota": "Informe de prensa (FT vía Reuters), SIN acuerdo firmado ni 8-K: no cumple C (compra en efectivo definitiva). Riesgo para el corto: si se firma, el precio queda pegado al de compra. Empresa grande (~$4 600 M).",
+  "tipo": "C",
+  "frase_en": "will be automatically cancelled, extinguished and converted into the right to receive cash in an amount equal to $32.05 without interest thereon",
+  "frase_es": "cada acción se cancelará y se convertirá en el derecho a recibir en efectivo 32.05 dólares, sin intereses",
+  "cifra": "$32.05 por acción en efectivo (valor de empresa ≈ $5.8 billion)",
+  "nota": "Acuerdo de fusión DEFINITIVO firmado el 5-oct (8-K 6-oct 08:22, Item 1.01) con CD&R y McKesson: compra en efectivo a $32.05 por acción. Compra en efectivo = NO shortear nunca (el precio queda pegado al de compra). La noticia de ayer tarde (FT/Reuters 16:45) era el rumor; hoy está firmado.",
   "pasos": {
    "fuentes": [
+    "8-K 08:22 (1.01, 7.01, 9.01) cuerpo leído",
+    "EX-99.1 nota de prensa leída",
     "Reuters/Yahoo 5-oct 16:45 «McKesson, CD&R near $5 billion-plus deal…»",
     "Investing.com 16:44",
     "Barron's 17:16",
-    "Stocktwits 18:27",
-    "EDGAR OPCH: 0 documentos en la ventana"
+    "Stocktwits 18:27"
    ],
-   "anexos_leidos": 0,
-   "negativos": "no hay acuerdo; 'near' = negociación",
-   "historial": "2026-07-29 8-K +6%",
-   "municion": "shelf empresa no; ATM no; reventa 0 acciones; ELOC no; 424B 12 m: 0; venta 90 d no; warrants []; tóxica no — revisado en la ficha",
-   "caja": "going concern no; caja a hoy la calcula finalizar (XBRL); la empresa dice: Based on our current level of operations and planned capital expenditures, we believe that our existing cash and cash equivalents balances, expected cash flows generated from operations, and availability under our credit facility will be sufficient to meet our operating requirements over the next 12 months and beyond."
-  },
-  "frase_url": "https://finance.yahoo.com/healthcare/articles/mckesson-cd-r-near-5-201744828.html"
+   "anexos_leidos": 2,
+   "negativos": "no aplica (compra en efectivo, descartada)",
+   "historial": "2026-07-29 8-K (resultados) +6%",
+   "municion": "shelf empresa no; ATM no; reventa 0; ELOC no; 424B 12 m: 0; tóxica no — revisado en la ficha",
+   "caja": "going concern no"
+  }
  },
  "APOG": {
   "tipo": "R",
@@ -165,5 +166,25 @@
    "caja": "going concern no; caja a hoy la calcula finalizar (XBRL); la empresa dice: None"
   },
   "frase_url": "https://finance.yahoo.com/markets/stocks/articles/apogee-enterprises-reports-fiscal-2027-103000148.html"
+ },
+ "XHG": {
+  "tipo": "N",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
+  "fuentes_abiertas": "Finviz NO responde hoy; revisados a mano EDGAR (submissions), Yahoo (búsqueda de noticias) — 6-oct ~8:42 NY: última nota de prensa 13-ago (intención de comprar First Cycle); último documento SEC 6-K 16-jul",
+  "nota": "Sin noticia en la ventana. Última nota 13-ago-2026 (intención de adquirir First Cycle, 'AI-powered insurance'). Going concern sí (ficha).",
+  "pasos": {
+   "fuentes": [
+    "EDGAR XHG: 0 documentos en la ventana",
+    "Yahoo búsqueda XHG: última 13-ago",
+    "Finviz: no responde hoy"
+   ],
+   "anexos_leidos": 0,
+   "negativos": "no aplica (sin catalizador)",
+   "historial": "2026-07-16 6-K",
+   "municion": "shelf empresa sí; ATM no; ELOC no; venta 90 d no; tóxica no — revisado en la ficha",
+   "caja": "going concern sí"
+  }
  }
 }

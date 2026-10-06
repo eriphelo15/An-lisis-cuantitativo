@@ -375,6 +375,23 @@ def _():
     assert d["pruebas"] in ("NO EJECUTADAS HOY",) or "/" in d["pruebas"]
 
 
+@caso("Catalizador: el cuerpo del 8-K se lee SIEMPRE, también con EX-99 (IPDN 6-oct: el Item 1.01 de $1.177 M solo estaba en el cuerpo)")
+def _():
+    partes = l.texto_catalizador(1546296, dict(acc="000143774926032105", doc="ipdn20261005_8k.htm"))
+    nombres = [x["archivo"] for x in partes]
+    assert "ipdn20261005_8k.htm" in nombres and "ex_1022427.htm" in nombres, nombres
+    cuerpo = next(x["texto"] for x in partes if x["archivo"] == "ipdn20261005_8k.htm")
+    assert "1.177 million" in cuerpo, cuerpo[:300]
+
+
+@caso("Munición: convertible tóxica en el folleto de REVENTA, no en el 10-Q (OLOX 6-oct: «80% of the lowest closing price», 424B3 7-ene-2026)")
+def _():
+    desde = dt.datetime(2026, 10, 5, 16, 0, tzinfo=l.NY)
+    pres = l.presentaciones(1023994)[0]
+    m = l.municion(1023994, pres, desde, "OLOX", 0.88)
+    assert m["toxica"] and m.get("toxica_fuente", {}).get("form") == "424B3", m.get("toxica_fuente")
+
+
 if __name__ == "__main__":
     rapidas = "--rapidas" in sys.argv
     fallos = 0
