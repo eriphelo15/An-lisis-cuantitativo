@@ -2383,7 +2383,135 @@
    ]
   }
  ],
- "resultados": null,
+ "resultados": {
+  "APUS": {
+   "apertura": 4.989999771118164,
+   "maximo": 5.829999923706055,
+   "minimo": 4.210000038146973,
+   "cierre": 4.590000152587891,
+   "R": 0.234,
+   "subida_max": 0.168,
+   "caida_cierre": -0.08,
+   "gap_apertura": 0.5497,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 35,
+   "tercio_apertura": "Media"
+  },
+  "PCVX": {
+   "apertura": 87.20999908447266,
+   "maximo": 90.75,
+   "minimo": 71.5999984741211,
+   "cierre": 73.81999969482422,
+   "R": 0.478,
+   "subida_max": 0.041,
+   "caida_cierre": -0.154,
+   "gap_apertura": 0.5441,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 71,
+   "tercio_apertura": "Alta"
+  },
+  "SAIQ": {
+   "apertura": 7.130000114440918,
+   "maximo": 9.9399995803833,
+   "minimo": 5.291999816894531,
+   "cierre": 6.670000076293945,
+   "R": -1.25,
+   "subida_max": 0.394,
+   "caida_cierre": -0.065,
+   "gap_apertura": 2.8541,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 63,
+   "tercio_apertura": "Media"
+  },
+  "ALEC": {
+   "apertura": 2.7249999046325684,
+   "maximo": 2.7300000190734863,
+   "minimo": 1.9600000381469727,
+   "cierre": 1.9900000095367432,
+   "R": 0.866,
+   "subida_max": 0.002,
+   "caida_cierre": -0.27,
+   "gap_apertura": 0.5055,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 58,
+   "tercio_apertura": "Media"
+  },
+  "MI": {
+   "apertura": 2.990000009536743,
+   "maximo": 10.420000076293945,
+   "minimo": 2.0199999809265137,
+   "cierre": 7.0,
+   "R": -1.25,
+   "subida_max": 2.485,
+   "caida_cierre": 1.341,
+   "gap_apertura": 2.3445,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 44,
+   "tercio_apertura": "Media"
+  },
+  "CTNT": {
+   "apertura": 2.9600000381469727,
+   "maximo": 3.190000057220459,
+   "minimo": 2.759999990463257,
+   "cierre": 3.130000114440918,
+   "R": -0.225,
+   "subida_max": 0.078,
+   "caida_cierre": 0.057,
+   "gap_apertura": 0.1298,
+   "tramo_apertura": "20-50 %",
+   "puntuacion_apertura": 17,
+   "tercio_apertura": "Baja"
+  },
+  "RETO": {
+   "apertura": 2.0450000762939453,
+   "maximo": 2.4000000953674316,
+   "minimo": 1.6799999475479126,
+   "cierre": 1.9500000476837158,
+   "R": 0.122,
+   "subida_max": 0.174,
+   "caida_cierre": -0.046,
+   "gap_apertura": 0.3194,
+   "tramo_apertura": "20-50 %",
+   "puntuacion_apertura": 16,
+   "tercio_apertura": "Baja"
+  },
+  "VEEA": {
+   "apertura": 5.349999904632568,
+   "maximo": 6.78000020980835,
+   "minimo": 4.659999847412109,
+   "cierre": 5.71999979019165,
+   "R": -0.264,
+   "subida_max": 0.267,
+   "caida_cierre": 0.069
+  },
+  "SDEV": {
+   "apertura": 9.710000038146973,
+   "maximo": 9.819999694824219,
+   "minimo": 3.25,
+   "cierre": 3.940000057220459,
+   "R": 1.947,
+   "subida_max": 0.011,
+   "caida_cierre": -0.594
+  },
+  "PTC": {
+   "apertura": 195.83999633789062,
+   "maximo": 196.0500030517578,
+   "minimo": 191.9199981689453,
+   "cierre": 192.25999450683594,
+   "R": 0.028,
+   "subida_max": 0.001,
+   "caida_cierre": -0.018
+  },
+  "RXO": {
+   "apertura": 29.0,
+   "maximo": 29.110000610351562,
+   "minimo": 28.030000686645508,
+   "cierre": 28.649999618530273,
+   "R": 0.007,
+   "subida_max": 0.004,
+   "caida_cierre": -0.012
+  }
+ },
  "auditoria": {
   "errores": [],
   "avisos": [
