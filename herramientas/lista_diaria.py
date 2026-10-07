@@ -368,8 +368,19 @@ def presentaciones(cik):
             if ho:
                 hora = ho
         out.append(dict(form=r["form"][i], hora=hora, fecha=r["filingDate"][i], items=r.get("items", [""] * 99999)[i] or "",
-                        acc=acc, doc=r["primaryDocument"][i],
+                        acc=acc, doc=r["primaryDocument"][i], oficial=(dt.date.today() - dt.date.fromisoformat(r["filingDate"][i])).days <= 3,
+                        acc_g=r["accessionNumber"][i],
                         url=f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc}/{r['primaryDocument'][i]}"))
+    # 7-oct-2026 (caso de oro CNTB): el JSON pasó a dar TODAS las horas 4 h tarde (16:16 NY oficial → 00:16Z = 20:16 NY). Se calibra el
+    # desfase con la cabecera oficial de UNA presentación antigua y se aplica a las demás (si la SEC lo arregla, el desfase sale 0).
+    viejas = [x for x in out if not x["oficial"]]
+    if viejas:
+        ho = hora_oficial(cik, viejas[0]["acc_g"])
+        if ho:
+            delta = ho - viejas[0]["hora"]
+            if abs(delta.total_seconds()) <= 12 * 3600 and delta.total_seconds() % 3600 == 0:
+                for x in viejas:
+                    x["hora"] = x["hora"] + delta
     return out, d.get("name", ""), d.get("sicDescription", ""), d.get("stateOfIncorporation", "")
 
 

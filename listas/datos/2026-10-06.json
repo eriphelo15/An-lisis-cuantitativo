@@ -1956,7 +1956,109 @@
    "docs_hoy": []
   }
  ],
- "resultados": null,
+ "resultados": {
+  "IPDN": {
+   "apertura": 6.28000020980835,
+   "maximo": 6.78000020980835,
+   "minimo": 4.090000152587891,
+   "cierre": 4.610000133514404,
+   "R": 0.853,
+   "subida_max": 0.08,
+   "caida_cierre": -0.266,
+   "gap_apertura": 1.0258,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 92,
+   "tercio_apertura": "Alta"
+  },
+  "AIXI": {
+   "apertura": 2.9100000858306885,
+   "maximo": 3.25,
+   "minimo": 1.6299999952316284,
+   "cierre": 1.850000023841858,
+   "R": 1.181,
+   "subida_max": 0.117,
+   "caida_cierre": -0.364,
+   "gap_apertura": 0.9272,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 16,
+   "tercio_apertura": "Baja"
+  },
+  "JAGX": {
+   "apertura": 6.559999942779541,
+   "maximo": 7.269999980926514,
+   "minimo": 5.340000152587891,
+   "cierre": 5.619999885559082,
+   "R": 0.444,
+   "subida_max": 0.108,
+   "caida_cierre": -0.143,
+   "gap_apertura": 0.3869,
+   "tramo_apertura": "20-50 %",
+   "puntuacion_apertura": 16,
+   "tercio_apertura": "Baja"
+  },
+  "OLOX": {
+   "apertura": 1.4450000524520874,
+   "maximo": 1.8600000143051147,
+   "minimo": 1.25,
+   "cierre": 1.25,
+   "R": 0.416,
+   "subida_max": 0.287,
+   "caida_cierre": -0.135,
+   "gap_apertura": 0.642,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 15,
+   "tercio_apertura": "Baja"
+  },
+  "XHG": {
+   "apertura": 2.9600000381469727,
+   "maximo": 5.510000228881836,
+   "minimo": 1.809999942779541,
+   "cierre": 2.380000114440918,
+   "R": -1.25,
+   "subida_max": 0.861,
+   "caida_cierre": -0.196,
+   "gap_apertura": 0.5579,
+   "tramo_apertura": "≥ 50 %",
+   "puntuacion_apertura": 7,
+   "tercio_apertura": "Baja"
+  },
+  "FRGT": {
+   "apertura": 0.6579999923706055,
+   "maximo": 0.7310000061988831,
+   "minimo": 0.30000001192092896,
+   "cierre": 0.32199999690055847,
+   "R": 1.669,
+   "subida_max": 0.111,
+   "caida_cierre": -0.511
+  },
+  "OPCH": {
+   "apertura": 31.040000915527344,
+   "maximo": 31.110000610351562,
+   "minimo": 30.969999313354492,
+   "cierre": 31.0,
+   "R": -0.029,
+   "subida_max": 0.002,
+   "caida_cierre": -0.001
+  },
+  "BBBYW": {
+   "apertura": 0.375,
+   "maximo": 0.3799999952316284,
+   "minimo": 0.17000000178813934,
+   "cierre": 0.17499999701976776,
+   "R": 1.744,
+   "subida_max": 0.013,
+   "caida_cierre": -0.533
+  },
+  "APOG": {
+   "apertura": 42.7400016784668,
+   "maximo": 42.88999938964844,
+   "minimo": 37.84000015258789,
+   "cierre": 40.0,
+   "R": 0.18,
+   "subida_max": 0.004,
+   "caida_cierre": -0.064
+  }
+ },
  "auditoria": {
   "errores": [],
   "avisos": [],
