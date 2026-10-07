@@ -4,3 +4,4 @@ _datos/
 datos_mercados/
 .env
 prediction_bot/weather/data/
+prediction_bot/rewards/*.json
