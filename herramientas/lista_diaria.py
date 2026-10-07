@@ -485,17 +485,26 @@ def analizar_shelf(p):
     cab = t[:15000]
     reventa = bool(re.search(r"selling (security ?holders?|shareholders?|stockholders?|holders?)", cab, re.I) and
                    (re.search(r"(will not|do not|shall not) receive any (of the )?proceeds", cab, re.I) or
-                    re.search(r"relates to the (?:proposed )?(?:offer and )?(?:re)?sale[^.]{0,250}by the selling", cab, re.I)))
+                    re.search(r"relates to the (?:proposed )?(?:offer and )?(?:re)?sale[^.]{0,250}by the selling", cab, re.I) or
+                    # 7-oct (SXTC, verificador): «relates to the resale by Smart Mart Limited (the “Selling Shareholder”)» — el nombre va antes
+                    re.search(r"relates to the (?:proposed )?(?:offer and )?resale by [^.]{0,200}Selling (?:Share|Stock|Security ?)holders?", cab, re.I)))
     o = dict(form=p["form"], fecha=p["fecha"], url=p["url"], tipo="reventa" if reventa else "empresa")
     if reventa:
         # 1-oct (FFR): una reventa de un inversor que compra con descuento a petición de la empresa = línea de capital (ELOC)
-        el = re.search(r"VWAP Shares?|equity line|equity purchase agreement|standby equity|purchase agreement[^.]{0,200}(?:from time to time|at our (?:sole )?discretion)|committed equity facility", cab, re.I)
+        el = re.search(r"VWAP Shares?|equity line|equity purchase agreement|standby equity|purchase agreement[^.]{0,200}(?:from time to time|at our (?:sole )?discretion)|committed equity facility|Pre-Paid Purchases?", cab, re.I)
         if el:
             o["eloc"] = True; o["frase_eloc"] = cab[max(0, el.start() - 200):el.end() + 200]
-        m = re.search(r"up to ([0-9][0-9,]{3,}) (?:of (?:the|our) )?(?:ordinary shares|common shares|shares of (?:our )?(?:class a )?common stock|shares|American Depositary Shares|ADSs)", cab, re.I)
+        m = re.search(r"up to (?:an aggregate of )?([0-9][0-9,]{3,}) (?:of (?:the|our) )?(?:Class [AB] ordinary shares|ordinary shares|common shares|shares of (?:our )?(?:class a )?common stock|shares|American Depositary Shares|ADSs)", cab, re.I)
+        m = m or re.search(r"held by the selling (?:share|stock|security ?)holders? consist of ([0-9][0-9,]{3,})", cab, re.I)
         if m:
             o["acciones_reventa"] = int(m.group(1).replace(",", ""))
             o["frase"] = t[max(0, m.start() - 160):m.end() + 60]
+        # 7-oct (BIYA, verificador): shelf MIXTA — la empresa registra $200 M «PRELIMINARY PROSPECTUS … $200,000,000 Class A Ordinary
+        # Shares Preferred Shares Debt Securities…» y ADEMÁS 50 M acciones de reventa → antes solo se veía la reventa
+        b = re.search(r"PROSPECTUS [^$]{0,80}\$\s?([0-9][0-9,.]*)\s*(million|billion)?\s+(?:Class [AB] )?(?:Ordinary Shares|Common Stock)[^.]{0,80}(?:Debt Securities|Warrants|Units)", cab, re.I)
+        if b and p["form"] in ("S-3", "S-3/A", "F-3", "F-3/A", "S-3ASR", "POS AM"):
+            o["base_usd"] = _usd(b.group(1), b.group(2)); o["frase_base"] = cab[max(0, b.start() - 120):b.end() + 120]
+            o["tambien_empresa"] = True
         return o
     m = re.search(r"up to \$\s?([0-9][0-9,.]*)\s*(million|billion)?\s*(?:in the )?aggregate", t, re.I) or \
         re.search(r"PROSPECTUS \$\s?([0-9][0-9,.]*)\s*(million|billion)?", t, re.I)
@@ -622,7 +631,7 @@ def municion(cik, pres, desde, sym, precio):
     # 1-oct (RZAI): un registro presentado DENTRO de la ventana (ayer 16:06, reventa de 19.8 M acciones) también es munición
     m["shelves"] = shelves(cik, pres, desde + dt.timedelta(hours=17, minutes=10))
     m["colocaciones"] = colocaciones(cik, ant, hoy)
-    m["shelf_empresa"] = any(x.get("tipo") == "empresa" and x["form"] != "424B5" for x in m["shelves"])
+    m["shelf_empresa"] = any((x.get("tipo") == "empresa" or x.get("tambien_empresa")) and x["form"] != "424B5" for x in m["shelves"])
     # acciones de cada reventa ajustadas por los splits POSTERIORES al registro (VBIO 30-sep: 51 M "registradas" con 0.89 M en
     # circulación: eran acciones de antes de un contra-split 1:25). Fuente: historial de splits de Yahoo
     spl = splits_de(sym)

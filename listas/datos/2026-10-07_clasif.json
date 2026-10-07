@@ -1,0 +1,124 @@
+{
+ "LPCN": {
+  "tipo": "B",
+  "frase_en": "Health Canada has approved TLANDO® (testosterone undecanoate) capsules for testosterone replacement therapy in adult males",
+  "frase_es": "Health Canada (la agencia del medicamento de Canadá) ha aprobado las cápsulas TLANDO® para la terapia de reemplazo de testosterona en hombres adultos",
+  "cifra": "Sin importe en dólares: aprobación regulatoria en Canadá. Mercado citado por la empresa: «More than 700,000 prescriptions» al año (recetas, no dólares)",
+  "nota": "Aprobación real de una agencia (Canadá), pero a través del socio: «through Lipocine’s licensing partner Verity Pharmaceuticals» — Verity tiene los derechos comerciales y lanzará «by the end of 2026». Lipocine no vende directamente; el 8-K no dice cuánto cobra Lipocine por esta aprobación (ni hito ni regalías en el texto). Es Item 8.01 (nota), no un acuerdo nuevo. | VERIFICADO (independiente): mismo tipo (aprobación real a través del socio). Añadido por el verificador y comprobado en la SEC: el producto ya tiene ventas en EE. UU. por Verity y Lipocine cobró solo «royalty revenue of approximately $ 190,000» en el 2.º trimestre de 2026 (dólares); hitos «up to $ 259.0 million» ligados sobre todo a ventas (cifra 'hasta'); el consejero John W. Higuchi COMPRÓ acciones (Form 4 código P) el 28-30 sep a $2.15-$2.23; caja $23.3 M al 30-jun, la empresa dice tener caja «through at least August 4, 2027». ERROR NUESTRO corregido: la ATM no era de $10.6 M sino de $50 M (ampliada el 26-feb-2026) → caso de oro nuevo.",
+  "pasos": {
+   "fuentes": [
+    "8-K 06:10 (Item 8.01, 9.01) cuerpo leído completo",
+    "EX-99.1 leído completo",
+    "Yahoo 08:00 «Lipocine Announces Health Canada Approval of TLANDO®» (misma nota que el EX-99.1)",
+    "Finviz LPCN: sin otra noticia en la ventana"
+   ],
+   "anexos_leidos": 2,
+   "negativos": "Derechos comerciales del socio Verity (no de Lipocine); lanzamiento a finales de 2026; sin importe para Lipocine en el texto",
+   "historial": "2026-09-16 8-K +3%; 2026-09-14 8-K -2%; 2026-09-11 8-K +1%; 2026-09-10 8-K 0%; 2026-08-04 8-K resultados +1%",
+   "municion": "shelf empresa S-3 de $150 M (efectiva 25-abr-2024); ATM con A.G.P. AMPLIADA a $50 000 000 por el 424B5 del 26-feb-2026 («or $39,384,424 from and after the date hereof»); EN USO: 2 083 276 acciones vendidas en el 1.er semestre de 2026 a $6.67 de media ($13.9 M brutos), 769 138 en el 2.º trimestre a $2.02; 8-K 11-sep: comisión del ATM ajustada (ATM preparada); sin 424B en 90 d; reventa 0; ELOC no; warrants no (caducados); tóxica no — revisado en la ficha y en el 10-Q del 2.º trimestre",
+   "caja": "going concern no; caja a hoy la calcula finalizar (XBRL)"
+  }
+ },
+ "MTEN": {
+  "tipo": "O",
+  "frase_en": "The consideration payable by the Company for the acquisition is USD 15,000,000, which has been paid as of the date hereof.",
+  "frase_es": "El precio que paga la empresa por la adquisición es de 15 000 000 de dólares, que ya se han pagado a la fecha de este informe.",
+  "cifra": "US$15 000 000 PAGADOS por la empresa (sale caja; no es un ingreso)",
+  "nota": "La empresa COMPRA el 100 % de HK Phoenix Gateway Alliance (y sus filiales chinas Shanghai Shangyun Yingfei y Shanghai Minwen) a una persona física, ZHENG Delin; cerrada el 6-oct. No es venta de la empresa (no es C) ni contrato de ventas (no es K): es una compra pagada en efectivo → O. El vendedor es un particular; la valoración (US$15.074 M) es de un informe de Hangzhou PG Advisory al 31-dic-2025. No dice qué ventas ni beneficios tiene lo comprado. 6-K del 6-oct 16:30 = después del cierre anterior → dentro de la ventana.",
+  "pasos": {
+   "fuentes": [
+    "6-K 2026-10-06 16:30 cuerpo leído completo",
+    "EX-10.1 (Share Transfer Agreement) leído: partes, precio y valoración",
+    "Yahoo búsqueda MTEN: sin nota de prensa",
+    "Finviz MTEN: sin noticia en la ventana"
+   ],
+   "anexos_leidos": 2,
+   "negativos": "Compra pagada en efectivo (sale caja); vendedor particular; sin datos de ventas de lo comprado; solo valoración de un tercero",
+   "historial": "2026-06-30 6-K -1%; 2026-06-18 6-K (colocación) -14%; 2026-06-11 6-K +34%; 2026-06-10 6-K +34%",
+   "municion": "shelf empresa F-3 2025-06-06 (baby shelf I.B.5, public float ≈ $15.69 M); ATM de hasta $100 000 000 con AC Sunshine Securities; 424B5 2026-06-18 y 2026-06-10 (venta en 90 d sí); S-1 2026-07-24; reventa 0; ELOC no; tóxica no — revisado en la ficha",
+   "caja": "going concern no; caja a hoy la calcula finalizar (XBRL)"
+  }
+ },
+ "GIPR": {
+  "tipo": "O",
+  "frase_en": "today announced that it has fully satisfied and retired its remaining obligation to Loci Capital.",
+  "frase_es": "anunció hoy que ha pagado por completo y cancelado su obligación pendiente con Loci Capital.",
+  "cifra": "Sin importe en la nota (según la noticia del 25-ago de InvestorsHub el saldo de preferentes de Loci era «about $4 Million», dato de contexto no de hoy)",
+  "frase_url": "https://finance.yahoo.com/real-estate/articles/gipr-announces-full-retirement-loci-203000769.html",
+  "nota": "Nota de ACCESS Newswire del 6-oct 16:30 NY (después del cierre → en la ventana). Cancela una financiación (preferentes de Loci Capital), no capta dinero nuevo → O. Sin 8-K en la ventana (el 8-K del 5-oct 16:30 es una enmienda de un pagaré con Brown Family Enterprises: contexto). Precio < $1 → descartada.",
+  "pasos": {
+   "fuentes": [
+    "Finviz 2026-10-06 16:30 ACCESSWIRE «GIPR Announces Full Retirement of Loci Capital Financing Relationship» abierta (copia en Yahoo)",
+    "Yahoo búsqueda GIPR: misma nota",
+    "EDGAR GIPR: 0 documentos en la ventana (8-K 5-oct 16:30 = contexto)"
+   ],
+   "anexos_leidos": 0,
+   "negativos": "ninguna frase negativa en la nota; sin importe; going concern en la ficha",
+   "historial": "2026-10-05 8-K -9%; 2026-09-25 8-K -6%; 2026-09-21 8-K -17%; 2026-09-16 8-K +21%; 2026-09-04 8-K -20%",
+   "municion": "sin shelf de la empresa; 424B4 2026-06-01 (venta en 90 d sí); warrants $0.06, $0.21, $10, $12.5, $20; tóxica sí; aviso de bolsa sí — revisado en la ficha",
+   "caja": "going concern sí; caja a hoy la calcula finalizar (XBRL)"
+  }
+ },
+ "MI": {
+  "tipo": "N",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
+  "fuentes_abiertas": "Revisados a mano 7-oct ~8:35 NY: EDGAR (submissions) 0 documentos desde el 6-oct 16:00; Yahoo búsqueda (última nota 6-oct 13:20 NY); Finviz sin noticia en la ventana.",
+  "nota": "Sin noticia en la ventana. CONTEXTO (no es el catalizador, es de AYER antes del cierre, 6-oct 13:20 NY, GlobeNewswire): «NFT Ltd. Announces Pricing of $2.55 Million Registered Direct Offering» — 1 890 000 unidades a $1.35 (acción + warrant), cierre previsto el 7-oct → munición nueva a $1.35. El 5-oct 6-K «Statement Regarding Unusual Market Activity» (subió +683 % ese día).",
+  "pasos": {
+   "fuentes": [
+    "EDGAR MI: 0 documentos en la ventana",
+    "Yahoo búsqueda: última nota 6-oct 13:20 NY (registered direct, antes del cierre)",
+    "Finviz MI: sin noticia en la ventana"
+   ],
+   "anexos_leidos": 0,
+   "negativos": "no aplica (sin catalizador)",
+   "historial": "2026-10-05 6-K +683%; 2026-09-30 6-K (colocación privada) -59%; 2026-08-28 6-K +1%",
+   "municion": "shelf empresa F-3 2025-10-08; S-1 2026-08-18; 424B4 2026-08-24 (venta en 90 d sí); registered direct de $2.55 M a $1.35 del 6-oct (cierre 7-oct); warrants $16.8, $22.4, $333.6, $1104; tóxica sí (424B4 ago-2026) — revisado en la ficha",
+   "caja": "going concern no; caja a hoy la calcula finalizar (XBRL)"
+  }
+ },
+ "BIYA": {
+  "tipo": "N",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
+  "fuentes_abiertas": "Revisados a mano 7-oct ~8:35 NY: EDGAR (submissions) 0 documentos desde el 6-oct 16:00; Yahoo búsqueda (solo 'Top Premarket Gainers' de MT Newswires, lista sin noticia); Finviz sin noticia; búsqueda web sin noticia de hoy.",
+  "nota": "Sin noticia en la ventana. Última presentación: 6-K 29-sep 16:28 (estados semestrales). Contexto: inversión en Binance Coin (BNB) mencionada en la web; contra-split en julio. | VERIFICADO (independiente): sin catalizador en la ventana (coincide; el verificador revisó también la búsqueda de texto de EDGAR y PR Newswire). ERROR NUESTRO corregido: el F-3/A del 21-ago es MIXTO (empresa $200 M + reventa de 50 M acciones); leíamos solo la reventa y sin número → caso de oro nuevo. Contexto: vendió el negocio chino por $2 M a 3 años; picos sin noticia (10-jun +36 %, 30-jun +98 %, 27-jul +116 %) devueltos en 1-3 días; ayer 9.9 M acciones de volumen sin noticia.",
+  "pasos": {
+   "fuentes": [
+    "EDGAR BIYA: 0 documentos en la ventana",
+    "Yahoo búsqueda: solo lista de 'Top Premarket Gainers' (MT Newswires 7-oct 07:08 NY), sin noticia",
+    "Finviz BIYA: sin noticia",
+    "Búsqueda web: sin noticia de hoy"
+   ],
+   "anexos_leidos": 0,
+   "negativos": "no aplica (sin catalizador)",
+   "historial": "2026-09-29 6-K -4%; 2026-07-08 6-K (contra-split) +24%; 2026-07-06 6-K -8%; 2026-06-25 6-K -16%; 2026-06-11 6-K -34%; 2026-06-08 6-K +10%",
+   "municion": "F-3 + F-3/A (23-jul y 21-ago-2026, NO efectivo) MIXTO: shelf de la EMPRESA de $200 000 000 + REVENTA de 50 000 000 acciones (≈ 18 veces las 2 780 752 acciones Clase A); baby shelf I.B.5 (public float ≈ $5.0 M → límite ≈ $1.67 M en 12 m); líneas de capital SESA (ELOC) al 70 % de la media de 3 cierres: 4 M acciones (F-1 dic-2025) y 30 M acciones (F-1 mar-2026), ambas antes del contra-split 1:10 (= 0.4 M y 3.0 M hoy); colocación privada abr-2026 de 13.5 M acciones a $0.312 (= 1.35 M a $3.12 ajustado); sin 424B en 90 d; warrants ni convertibles: ninguno — revisado en la ficha y por el verificador",
+   "caja": "going concern SÍ (6-K 29-sep); caja $1 181 159 al 30-jun-2026 (+ $3.7 M en BNB/USDT); flujo operativo continuo −$983 857 en 6 meses ≈ $164 000/mes → ≈ 4 meses solo con caja a hoy (cálculo del verificador, comprobado); préstamos sin interés a terceros $18.8 M"
+  }
+ },
+ "SXTC": {
+  "tipo": "N",
+  "frase_en": "",
+  "frase_es": "",
+  "cifra": "",
+  "fuentes_abiertas": "Revisados a mano 7-oct ~8:35 NY: EDGAR (submissions) 0 documentos desde el 6-oct 16:00; Yahoo búsqueda (última nota 5-ago, contra-split); Finviz sin noticia; búsqueda web sin noticia de hoy.",
+  "nota": "Sin noticia en la ventana. Última presentación: 6-K 28-ago 17:00 (enmienda de un contrato de compra de valores). Contra-split anunciado el 5-ago. | VERIFICADO (independiente): sin catalizador en la ventana (coincide). ERROR NUESTRO corregido: el F-3/A del 28-ago NO es shelf de la empresa sino REVENTA de 157.5 M acciones (≈ 119 veces las acciones en circulación) de un pre-paid purchase de precio variable con mínimo $0.20 → caso de oro nuevo. Otro error nuestro (pendiente de arreglar en el código): 'going concern sí' viene del informe del auditor anterior (ejercicio 2024). Contexto del verificador: cayó −39.9 % el 6-oct con 8.8 M acciones sin documento; picos sin noticia (+31 % 14-ago, +37 % 18-ago, +33 % 11-sep) que se deshicieron en 1-3 días.",
+  "pasos": {
+   "fuentes": [
+    "EDGAR SXTC: 0 documentos en la ventana",
+    "Yahoo búsqueda: última nota 5-ago (contra-split)",
+    "Finviz SXTC: sin noticia",
+    "Búsqueda web: sin noticia de hoy"
+   ],
+   "anexos_leidos": 0,
+   "negativos": "no aplica (sin catalizador)",
+   "historial": "2026-08-28 6-K -15%; 2026-07-24 6-K (compra de valores) +9%; 2026-07-06 6-K +3%",
+   "municion": "shelf empresa F-3 de $600 M (efectiva 1-dic-2025); ATM de hasta $100 000 000 con Univest (1-jun-2026, uso no publicado); REVENTA F-3/A 28-ago-2026 de 157 500 000 acciones de Smart Mart Limited (pre-paid purchase de hasta $30 M a precio VARIABLE: 50 % del cierre más bajo de 180 días, mínimo $0.20) frente a 1 321 418 acciones en circulación (28-ago); 424B5 24-jul-2026: 4 500 000 unidades a $2.00 (antes del contra-split 1:80); contra-splits 1:8 (feb-2025), 1:150 (feb-2026), 1:80 (ago-2026); warrants: «there are no outstanding warrants» (F-3/A 28-ago); tóxica sí (pre-paid) — revisado en la ficha y por el verificador",
+   "caja": "caja $28 175 865 al 31-mar-2026 (20-F), de ella $17 639 241 en yuanes en China; flujo operativo −$4 017 456 en 12 meses; going concern: el 'substantial doubt' del 20-F es del auditor ANTERIOR sobre el ejercicio 2024, no del actual (la ficha automática lo marca sí: falso positivo)"
+  }
+ }
+}

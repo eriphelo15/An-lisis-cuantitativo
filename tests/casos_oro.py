@@ -93,6 +93,18 @@ def _():
     assert p["hora"].strftime("%Y-%m-%d %H:%M") == "2026-08-12 16:16", p["hora"]
 
 
+@caso("Shelf MIXTA: empresa $200 M + reventa de 50 000 000 acciones en el mismo F-3/A (BIYA 7-oct, verificador; antes solo se veía la reventa y sin número)")
+def _():
+    o = l.analizar_shelf(dict(form="F-3/A", fecha="2026-08-21", url="https://www.sec.gov/Archives/edgar/data/1944712/000121390026092611/ea0302933-f3a1_baiya.htm"))
+    assert o["tipo"] == "reventa" and o.get("acciones_reventa") == 50000000 and o.get("base_usd") == 200e6 and o.get("tambien_empresa"), {k: v for k, v in o.items() if "frase" not in k}
+
+
+@caso("Reventa con el nombre del inversor antes de «Selling Shareholder» (SXTC 7-oct: F-3/A 28-ago-2026 = reventa de 157 500 000 acciones de Smart Mart, pre-paid purchase a precio variable)")
+def _():
+    o = l.analizar_shelf(dict(form="F-3/A", fecha="2026-08-28", url="https://www.sec.gov/Archives/edgar/data/1723980/000121390026095149/ea0298922-f3a1_chinasxt.htm"))
+    assert o["tipo"] == "reventa" and o.get("acciones_reventa") == 157500000 and o.get("eloc"), {k: v for k, v in o.items() if "frase" not in k}
+
+
 @caso("ATM AMPLIADA: se toma la más reciente (LPCN 7-oct: 424B5 26-feb-2026 sube la ATM de A.G.P. a $50 M, quedan $39 384 424; antes se leía la de $10.6 M de 2024)")
 def _():
     o = l.analizar_shelf(dict(form="424B5", fecha="2026-02-26", url="https://www.sec.gov/Archives/edgar/data/1535955/000149315226008201/form424b5.htm"))

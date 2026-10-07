@@ -1,0 +1,1227 @@
+{
+ "fecha": "2026-10-07",
+ "generado": "2026-10-07 08:40",
+ "replay": false,
+ "desde": "2026-10-06 16:00",
+ "corte": "2026-10-07 08:37",
+ "cobertura": {
+  "universo": 6478,
+  "cotizadas": 6476,
+  "pct": 0.9997,
+  "ficheros_faltan": [],
+  "fuentes_universo": {
+   "nasdaqtrader": 5905,
+   "sec": 7109
+  },
+  "massive": 12579,
+  "tradingview": 8,
+  "solo_tradingview": [
+   "TOPP +108 % (sin cierre anterior o precio < $0.3)",
+   "SPRC +24 % en TradingView pero +4% con el cierre oficial"
+  ]
+ },
+ "candidatos": [
+  {
+   "sym": "BIYA",
+   "nombre": "Baiya International Group Inc.",
+   "precio": 3.03,
+   "cierre_prev": 1.3650000095367432,
+   "cierre_massive": 1.365,
+   "gap": 1.2198,
+   "cap": 9322764,
+   "vol_pre": null,
+   "acciones": 3229864,
+   "bolsa": "NasdaqCM",
+   "estado": "PRE",
+   "split_hoy": null,
+   "cik": 1944712,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Services-Employment Agencies",
+   "venta_hoy": false,
+   "historial": [
+    {
+     "form": "6-K",
+     "fecha": "2026-09-29 16:28",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1944712/000121390026104687/ea0306763-6k_baiya.htm",
+     "titular": "biya-20260630 0001944712 false 2026-06-30 Q2 --12-31 0001944712 2026-01-01 2026-06-30 0001944712 us-gaap:SubsequentEventMember biya:StarfishTechnologyFzeMember 2026-07-02 2026-07-02 0001944712 2025-09-19 2025-09-19 00019",
+     "reaccion": {
+      "dia": "2026-09-30",
+      "apertura": 0.1951,
+      "cierre": -0.0439
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-07-08 08:51",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1944712/000121390026076193/ea0297337-6k_baiya.htm",
+     "titular": " Reverse Stock Split; Record Date Baiya International Group Inc. (the “Company” or the “Registrant”) is reporting that its board of directors has approved a reverse stock split (the “Reverse Stock Split”) of the Company’",
+     "reaccion": {
+      "dia": "2026-07-08",
+      "apertura": -0.2736,
+      "cierre": 0.2421
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-07-06 16:51",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1944712/000121390026075562/ea0297176-6k_baiya.htm",
+     "titular": " Entry into a Material Agreement On July 2, 2026, Baiya International Group Inc. (the “Company”) entered into a Stock Purchase Agreement (the “Agreement”) with Shengshi International Group Inc. (“Acquiror”) and Starfish ",
+     "reaccion": {
+      "dia": "2026-07-07",
+      "apertura": -0.0489,
+      "cierre": -0.0822
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-25 17:47",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1944712/000121390026072163/ea0295989-6k_baiya.htm",
+     "titular": " Completion of Disposition of Assets On June 25, 2026, Baiya International Group Inc. (the “Company”) completed the previously announced disposition of its 100% equity interest in Juxing Investment Group (Hong Kong) Limi",
+     "reaccion": {
+      "dia": "2026-06-26",
+      "apertura": -0.05,
+      "cierre": -0.16
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-11 16:23",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1944712/000121390026067845/ea029452801-6k_baiyaint.htm",
+     "titular": " Change of Directors Effective June 6, 2026, Mr. Bin Tan (“Mr. Tan”) resigned as the Chief Operating Officer (“COO”) of the Company. The resignation of Mr. Tan was not a result of any disagreement with the Company on any",
+     "reaccion": {
+      "dia": "2026-06-12",
+      "apertura": 0.0297,
+      "cierre": -0.3386
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-08 17:52",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1944712/000121390026066409/ea0294022-6k_baiya.htm",
+     "titular": " Entry into a Material Agreement On June 8, 2026, Baiya International Group Inc. (the “Registrant” or the “Company”) entered into a share purchase agreement (the “SPA”) with Shengshi International Group Inc., a Cayman Is",
+     "reaccion": {
+      "dia": "2026-06-09",
+      "apertura": 0.1262,
+      "cierre": 0.0978
+     }
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": "2026-08-21",
+    "s1": "2026-03-20",
+    "ventas_12m": 0,
+    "p424_12m": 2,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2025-03-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1944712/000101376225001683/ea0200053-11.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "F-3/A",
+      "fecha": "2026-08-21",
+      "url": "https://www.sec.gov/Archives/edgar/data/1944712/000121390026092611/ea0302933-f3a1_baiya.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 50000000,
+      "frase": " addition, from time to time, the selling shareholders (if any) named in a prospectus supplement may offer and sell the securities held by them. The securities held by the selling shareholders consist of 50,000,000 of our Class A ordinary shares. The selling shareholders (i",
+      "base_usd": 200000000.0,
+      "frase_base": "urities in any state where the offer or sale is not permitted. Subject to Completion, dated August 21, 2026 PRELIMINARY PROSPECTUS Baiya International Group Inc. $200,000,000 Class A Ordinary Shares Preferred Shares Debt Securities Warrants Rights Units 50,000,000 Class A Ordinary Shares offered by the Selling Shareholders We may from time to time in one or more offering",
+      "tambien_empresa": true,
+      "acciones_reventa_hoy": 50000000
+     },
+     {
+      "form": "F-3",
+      "fecha": "2026-07-23",
+      "url": "https://www.sec.gov/Archives/edgar/data/1944712/000121390026080910/ea0298908-f3_baiya.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 50000000,
+      "frase": " up to $200,000,000 (or its equivalent in foreign or composite currencies), and the selling shareholders may offer from time to time, in one or more offerings, up to 50,000,000 Class A Ordinary Shares. This prospectus provides you with a general description of",
+      "base_usd": 200000000.0,
+      "frase_base": "ecurities in any state where the offer or sale is not permitted. Subject to Completion, dated July 23, 2026 PRELIMINARY PROSPECTUS Baiya International Group Inc. $200,000,000 Class A Ordinary Shares Preferred Shares Debt Securities Warrants Rights Units 50,000,000 Class A Ordinary Shares offered by the Selling Shareholders We may from time to time in one or more offering",
+      "tambien_empresa": true,
+      "repetida": true,
+      "acciones_reventa_hoy": 50000000
+     },
+     {
+      "form": "F-1",
+      "fecha": "2026-03-20",
+      "url": "https://www.sec.gov/Archives/edgar/data/1944712/000121390026032455/ea0282470-f1_baiyainter.htm",
+      "tipo": "reventa",
+      "eloc": true,
+      "frase_eloc": "pledgees, donees or successors). See “Selling Shareholders” for additional information regarding the Selling Shareholders. The Shares offered by the Selling Shareholders may be issued pursuant to the Standby Equity Subscription Agreements, dated February 26, 2026 that we entered into with Selling Shareholders (the “Subscription Agreements”). We are not selling any securities under this prospectus and will not r",
+      "acciones_reventa": 30000000,
+      "frase": "such offer, solicitation or sale would be unlawful. PRELIMINARY PROSPECTUS SUBJECT TO COMPLETION, DATED MARCH 20, 2026 BAIYA INTERNATIONAL GROUP INC. Resale of up to 30,000,000 Ordinary Shares by the Selling Shareholders This prospectus relates to resa",
+      "acciones_reventa_hoy": 3000000,
+      "ajuste_splits": 0.1
+     },
+     {
+      "form": "F-1/A",
+      "fecha": "2026-01-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1944712/000121390026008872/ea0273669-f1a1_baiyainter.htm",
+      "tipo": "reventa",
+      "eloc": true,
+      "frase_eloc": ", pledgees, donees or successors) See “Selling Shareholders” for additional information regarding the Selling Shareholders. The Shares offered by the Selling Stockholder may be issued pursuant to the Standby Equity Subscription Agreements, dated November 5, 2025 that we entered into with Selling Shareholders (the “Subscription Agreements”). We are not selling any securities under this prospectus and will not re",
+      "acciones_reventa": 4000000,
+      "frase": "ch offer, solicitation or sale would be unlawful. PRELIMINARY PROSPECTUS SUBJECT TO COMPLETION, DATED JANUARY 28, 2026 BAIYA INTERNATIONAL GROUP INC. Resale of up to 4,000,000 Ordinary Shares by the Selling Shareholders This prospectus relates to resa",
+      "acciones_reventa_hoy": 400000,
+      "ajuste_splits": 0.1
+     },
+     {
+      "form": "F-1",
+      "fecha": "2025-12-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1944712/000121390025126346/ea0269107-f1_baiyainter.htm",
+      "tipo": "reventa",
+      "eloc": true,
+      "frase_eloc": ", pledgees, donees or successors) See “Selling Shareholders” for additional information regarding the Selling Shareholders. The Shares offered by the Selling Stockholder may be issued pursuant to the Standby Equity Subscription Agreements, dated November 5, 2025 that we entered into with Selling Shareholders (the “Subscription Agreements”). We are not selling any securities under this prospectus and will not re",
+      "acciones_reventa": 100000000,
+      "frase": "h offer, solicitation or sale would be unlawful. PRELIMINARY PROSPECTUS SUBJECT TO COMPLETION, DATED DECEMBER 30, 2025 BAIYA INTERNATIONAL GROUP INC. Resale of up to 100,000,000 Ordinary Shares by the Selling Shareholders This prospectus relates to resa",
+      "acciones_reventa_hoy": 10000000,
+      "ajuste_splits": 0.1
+     }
+    ],
+    "colocaciones": [],
+    "shelf_empresa": true,
+    "reventa_acciones": 63400000,
+    "atm_shelf": null,
+    "atm": false,
+    "toxica": false,
+    "going_concern": true,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-04-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1944712/000121390026050223/ea0287704-20f_baiya.htm"
+    },
+    "eloc": true,
+    "uso_atm": [],
+    "empresa_dice_caja": "Going Concern We believe that the current cash and cash flows provided by future operating activities and loans from banks and third parties will be sufficient to meet the working capital needs in the next 12 months from the date the audited financial statements were issued.",
+    "warrants_sin_ajustar": [],
+    "ajuste_splits_warrants": 10.0,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "SXTC",
+   "nombre": "China SXT Pharmaceuticals, Inc.",
+   "precio": 2.27,
+   "cierre_prev": 1.25,
+   "cierre_massive": 1.25,
+   "gap": 0.816,
+   "cap": 1651772,
+   "vol_pre": null,
+   "acciones": 1321418,
+   "bolsa": "NasdaqCM",
+   "estado": "PRE",
+   "split_hoy": null,
+   "cik": 1723980,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Pharmaceutical Preparations",
+   "venta_hoy": false,
+   "historial": [
+    {
+     "form": "6-K",
+     "fecha": "2026-08-28 17:00",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1723980/000121390026095147/ea0303801-6k_china.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Amendment to Securities Purchase Agreement On July 3, 2026, China SXT Pharmaceuticals Inc. (the “Company”) entered into a securities purchase agreement (the “Securities Purc",
+     "reaccion": {
+      "dia": "2026-08-31",
+      "apertura": 0.01,
+      "cierre": -0.1467
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-07-24 16:30",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1723980/000121390026081405/ea0299108-6k_chinasxt.htm",
+     "titular": " On July 23, 2026, China SXT Pharmaceuticals, Inc. (the “Company”) entered into a securities purchase agreement (the “Purchase Agreement”) with certain investors in connection with a registered direct offering for the of",
+     "reaccion": {
+      "dia": "2026-07-27",
+      "apertura": 0.0156,
+      "cierre": 0.0938
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-07-06 16:30",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1723980/000121390026075528/ea0296876-6k_chinasxt.htm",
+     "titular": " INFORMATION CONTAINED IN THIS FORM 6-K REPORT Entry into a Material Definitive Agreement. On July 3, 2026, China SXT Pharmaceuticals Inc. (the “Company”) entered into a securities purchase agreement (the “Securities Pur",
+     "reaccion": {
+      "dia": "2026-07-07",
+      "apertura": -0.0335,
+      "cierre": 0.0293
+     }
+    }
+   ],
+   "municion": {
+    "venta90": true,
+    "s3": "2026-08-28",
+    "s1": null,
+    "ventas_12m": 4,
+    "p424_12m": 4,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-07-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1723980/000121390026081135/ea0299103-424b5_chinasxt.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-06-01",
+      "url": "https://www.sec.gov/Archives/edgar/data/1723980/000121390026063590/ea0292898-424b5_chinasxt.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-04-09",
+      "url": "https://www.sec.gov/Archives/edgar/data/1723980/000121390026041766/ea0285552-424b5_chinasxt.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-01-12",
+      "url": "https://www.sec.gov/Archives/edgar/data/1723980/000121390026003205/ea0272507-424b5_chinasxt.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "F-3/A",
+      "fecha": "2026-08-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1723980/000121390026095149/ea0298922-f3a1_chinasxt.htm",
+      "tipo": "reventa",
+      "eloc": true,
+      "frase_eloc": "s Inc. (the “Company”) entered into a securities purchase agreement (the “Securities Purchase Agreement”) with certain institutional investor (the “Investor”) for the issuance and sale of one or more pre-paid purchases at an aggregate principal amount of up to $31,500,000 (before an original issue discount of $1,500,000) for the purchase of the Company’s Class A ordinary shares, no par value (the “Class A Ordinary ",
+      "acciones_reventa": 157500000,
+      "frase": "ticals, Inc. 157,500,000 Class A Ordinary Shares This prospectus relates to the resale by Smart Mart Limited (the “Selling Shareholder”), from time to time, of up to an aggregate of 157,500,000 Class A ordinary shares with no par value per share (the “Class A Ordinary Shares”)",
+      "acciones_reventa_hoy": 157500000
+     },
+     {
+      "form": "F-3",
+      "fecha": "2026-07-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1723980/000121390026075977/ea0296874-f3_chinasxt.htm",
+      "tipo": "reventa",
+      "eloc": true,
+      "frase_eloc": "ticals, Inc.(“China SXT,” collectively with its consolidated subsidiaries, the “Company,” “we,” “us,” “our” or similar terminology), potentially issuable to the Selling Shareholder in satisfaction of pre-paid purchase balances outstanding from time to time pursuant to a Securities Purchase Agreement, dated as of July 3, 2026 (the “Securities Purchase Agreement”), by and between the Company and the Selling Sharehol",
+      "acciones_reventa": 157500000,
+      "frase": "ticals, Inc. 157,500,000 Class A Ordinary Shares This prospectus relates to the resale by Smart Mart Limited (the “Selling Shareholder”), from time to time, of up to an aggregate of 157,500,000 Class A ordinary shares with no par value per share (the “Class A Ordinary Shares”)",
+      "repetida": true,
+      "acciones_reventa_hoy": 1968750,
+      "ajuste_splits": 0.0125
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-06-01",
+      "url": "https://www.sec.gov/Archives/edgar/data/1723980/000121390026063590/ea0292898-424b5_chinasxt.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": " F-3 and the aggregate offering price of the securities we sell pursuant to this prospectus will not exceed $600,000,000. In no event will we sell securities registered on this Registration Statement in a public primary offering for an aggregate offering amount exceeding one-third of our public float in any 12-month period if our public float falls below $75 million, calculated in accordance with General Instruction I.B.5 of Form F-3. During the 12 calendar months prior to and including the date of this prospectus, we have sold, pursuant to General Instruction I.B.5 of Form F-3, an aggregate offering amount of approximately $29,200,000. We are a holding company incor",
+      "atm_usd": 100000000.0,
+      "atm_agente": "Univest",
+      "frase_atm": "nary Shares”), offered by this prospectus supplement and the accompanying prospectus. In accordance with the terms of the Sales Agreement, we may offer and sell our Class A Ordinary Shares, having an aggregate offering price of up to $100,000,000 from time to time through or to Univest as sales agent or principal. Sales of our Class A Ordinary Shares, if any, under this prospectus supplement may be made in sales deemed to be “at the market offerings” as defined i"
+     },
+     {
+      "form": "F-3",
+      "fecha": "2025-11-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1723980/000121390025108285/ea0264327-f3_chinasxt.htm",
+      "tipo": "empresa",
+      "base_usd": 600000000.0,
+      "frase_base": "y Shares, Debt Securities Warrants, Rights and Units We may, from time to time in one or more offerings, offer and sell up to $600,000,000 in the aggregate of Class A Ordinary Shares, warrants to purchase Class A Ordinary Shares, debt securities, units and rights or any comb",
+      "baby_shelf": true,
+      "frase_baby": " F-3 and the aggregate offering price of the securities we sell pursuant to this prospectus will not exceed $600,000,000. In no event will we sell securities registered on this Registration Statement in a public primary offering for an aggregate offering amount exceeding one-third of our public float in any 12-month period if our public float falls below $75 million, calculated in accordance with General Instruction I.B.5 of Form F-3. During the 12 calendar months prior to and including the date of this prospectus, we have sold, pursuant to General Instruction I.B.5 of Form F-3, an aggregate offering amount of approximately $29,200,000. We are a holding company incor"
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "6-K",
+      "fecha": "2026-07-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1723980/000121390026081405/ea0299108-6k_chinasxt.htm",
+      "precio": null,
+      "acciones": 4500000,
+      "frase": " ☒ Form 40-F ☐ On July 23, 2026, China SXT Pharmaceuticals, Inc. (the “Company”) entered into a securities purchase agreement (the “Purchase Agreement”) with certain investors in connection with a registered direct offering for the offer and sale of 4,500,000 units (each, a “Unit”), with each Unit consisting of one Class A ordinary share of the Company, no par value per share (each, a “Class A ordinary share”), "
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 157500000,
+    "atm_shelf": {
+     "form": "424B5",
+     "fecha": "2026-06-01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1723980/000121390026063590/ea0292898-424b5_chinasxt.htm",
+     "tipo": "empresa",
+     "baby_shelf": true,
+     "frase_baby": " F-3 and the aggregate offering price of the securities we sell pursuant to this prospectus will not exceed $600,000,000. In no event will we sell securities registered on this Registration Statement in a public primary offering for an aggregate offering amount exceeding one-third of our public float in any 12-month period if our public float falls below $75 million, calculated in accordance with General Instruction I.B.5 of Form F-3. During the 12 calendar months prior to and including the date of this prospectus, we have sold, pursuant to General Instruction I.B.5 of Form F-3, an aggregate offering amount of approximately $29,200,000. We are a holding company incor",
+     "atm_usd": 100000000.0,
+     "atm_agente": "Univest",
+     "frase_atm": "nary Shares”), offered by this prospectus supplement and the accompanying prospectus. In accordance with the terms of the Sales Agreement, we may offer and sell our Class A Ordinary Shares, having an aggregate offering price of up to $100,000,000 from time to time through or to Univest as sales agent or principal. Sales of our Class A Ordinary Shares, if any, under this prospectus supplement may be made in sales deemed to be “at the market offerings” as defined i"
+    },
+    "atm": true,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     80.0
+    ],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-07-01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1723980/000121390026074310/ea0295524-20f_chinasxt.htm"
+    },
+    "eloc": true,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_sin_ajustar": [
+     1.0
+    ],
+    "ajuste_splits_warrants": 80.0,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "MTEN",
+   "nombre": "Mingteng International Corporation Inc.",
+   "precio": 1.42,
+   "cierre_prev": 0.9589999914169312,
+   "cierre_massive": 0.9587,
+   "gap": 0.4807,
+   "cap": 7323902,
+   "vol_pre": null,
+   "acciones": 7639410,
+   "bolsa": "NasdaqCM",
+   "estado": "PRE",
+   "split_hoy": null,
+   "cik": 1948099,
+   "catalizadores": [
+    {
+     "form": "6-K",
+     "hora": "2026-10-06 16:30",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026107243/ea0307735-6k_mingteng.htm",
+     "partes": [
+      {
+       "archivo": "ea0307735-6k_mingteng.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026107243/ea0307735-6k_mingteng.htm",
+       "texto": " Share Transfer Agreement On October 6, 2026, Mingteng International Corporation Inc. (the “Company”) entered into a Share Transfer Agreement (the “Agreement”) with Mr. ZHENG Delin (the “Transferor”) and HK Phoenix Gateway Alliance Limited (the “Target Company”), pursuant to which the Company agreed to acquire 10,000 ordinary shares, no par value, which represents 100% of the issued ordinary shares of the Target Company. The transactions contemplated by the Agreement were completed on October 6, 2026. Through the acquisition of the Target Company, the Company indirectly acquired 100% of the equity interest in Shanghai Shangyun Yingfei Technology Co., Ltd. (“Shanghai Shangyun Yingfei”), a wholly foreign-owned enterprise (“WFOE”) established under the laws of the People’s Republic of China (the “PRC”), and 100% of the equity interest in Shanghai Minwen Industrial Co., Ltd. (“Shanghai Minwen”), a wholly-owned subsidiary of Shanghai Shangyun Yingfei (collectively with the Target Company and Shanghai Shangyun Yingfei, the “Group”). Consideration The consideration payable by the Company for the acquisition is USD 15,000,000, which has been paid as of the date hereof. Closing Conditions The key closing conditions for the transaction included, but were not limited to: (i) completion of all corporate approvals required by the parties; (ii) compliance with, or waiver of, any pre-emptive rights and transfer restrictions applicable to the shares of the Target Company; (iii) completion of legal, financial, and tax due diligence on the Group to the satisfaction of the Company; (iv) receipt of all material counterparty, bank, or regulatory consents and approvals; (v) the absence of any material adverse change in the business, financial condition, or operations of the Group; and (vi) delivery of the valuation report, audited accounts, management accounts, statutory registers, and such other information as reasonably requested by the Company. Closing Deliverables The Transferor has delivered to the Company, among other things, duly executed transfer instruments, share certificates representing all shares of the Target Company, board resolutions approving the transfer, director appointment and resignation letters, updated statutory registers, and all company records of the Target Company. Representations and Warranties The Transferor made customary representations and warranties to the Company, including, among others, representations and warranties as to clear title to the shares of the Target Company, free from all encumbrances; valid corporate existence and good standing of each member of the Group; the authorized and issued share capital of the Target Company; the accuracy and completeness of the financial statements of the Group; compliance with applicable tax laws; material contracts; labor and data protection compliance; and the absence of any material adverse change. General The foregoing summary, representations and warranties included within the Share Transfer Agreement does not purport to be complete and is qualified in its entirety by reference to the Share Transfer Agreement, which is filed as Exhibit 10.1 hereto and incorporated herein by reference. This report does not constitute an offer to sell, or the solicitation of an offer to buy, nor shall there be any sale of these securities in any state or jurisdiction in which such offer, solicitation, or sale would be unlawful prior to the registration or qualification under the securities laws of any such state or jurisdiction. 1 EXHIBIT INDEX Exhibit No. Description 10.1 Share Transfer Agreement, dated October 6, 2026, by and among ZHENG Delin, Mingteng International Corporation Inc. and HK Phoenix Gateway Alliance Limited 2 SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Mingteng International Corporation Inc. Date: October 6, 2026 By: /s/ Yingkai Xu Name: Yingkai Xu Title Chief Executive Officer 3",
+       "recortado": false,
+       "negativos": []
+      },
+      {
+       "archivo": "ea030773501ex10-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026107243/ea030773501ex10-1.htm",
+       "texto": "EX-10.1 2 ea030773501ex10-1.htm SHARE TRANSFER AGREEMENT, DATED OCTOBER 6, 2026, BY AND AMONG ZHENG DELIN, MINGTENG INTERNATIONAL CORPORATION INC. AND HK PHOENIX GATEWAY ALLIANCE LIMITED Exhibit 10.1 SHARE TRANSFER AGREEMENT This Agreement is entered into on this 6 th day of October, 2026 (the “Execution Date”) by and among the following parties: Party A (Transferor): Name: ZHENG Delin; ID Document Type and Number: [ ] Party B (Transferee): Company Name: MINGTENG INTERNATIONAL CORPORATION INC. (“Party B” or the “Transferee”) Company Registration Number: 381299 Registered Address: [ ] Party C (Target Company): Company Name: HK Phoenix Gateway Alliance Limited (“Party C” or the “Target Company”) Company Number: 78770601 Registered Office Address: [ ] WHEREAS: As of the Execution Date, the Target Company has 10,000 issued ordinary shares (all being shares with no par value and fully paid). Party A is the sole legal and beneficial owner of the 10,000 ordinary shares, possesses the right to sell and transfer all such shares (the “Target Shares”), and the Target Shares are free and clear of any Encumbrances. The Target Company legally and beneficially holds 100% of the equity interest in Shanghai Shangyun Yingfei Technology Co., Ltd. (hereinafter referred to as “Shanghai Shangyun Yingfei”), a Wholly Foreign-Owned Enterprise (WFOE) established within the territory of the PRC. Shanghai Shangyun Yingfei is the wholly-owned parent company of Shanghai Minwen Industrial Co., Ltd. (hereinafter referred to as “Shanghai Minwen”), meaning Shanghai Shangyun Yingfei legally and beneficially holds 100% of the equity interest in Shanghai Minwen. According to the valuation report (Report No.: PG-HZ-2026-0229) issued by Hangzhou PG Advisory Co., Ltd., as of the valuation benchmark date of December 31, 2025, the market value of the 100% equity interest in Shanghai Minwen is USD 15,074,000. Party A agrees to sell the Target Shares in accordance with the terms and conditions of this Agreement, and Party B agrees to purchase the Target Shares. Through the acquisition of 100% of the issued shares of the Target Company under this transaction, Party B will indirectly obtain all equity interests in Shanghai Shangyun Yingfei and Shanghai Minwen. Through friendly negotiations, the Parties hereby agree as follows: Article 1 Definitions and Interpretation 1. “Completion” or “Closing”: refers to the completion of the sale, purchase, and closing of the Target Shares by the Parties in accordance with Article 3; 2. “Completion Date”: refers to the date agreed upon by the Parties in writing; if not otherwise agreed in writing, it shall mean the 5th Business Day after all conditions precedent listed in Article 2 of this Agreement have been satisfied or waived in writing by the entitled party; 3. “Encumbrance”: refers to any mortgage, pledge, lien, charge, pre-emptive right, trust, option, claim, attachment order, or any form of third-party rights or interests, or any similar encumbrance of any nature; 4. “Group”: refers to the Target Company, Shanghai Shangyun Yingfei, and Shanghai Minwen; 5. “Hong Kong”: refers to the Hong Kong Special Administrative Region of the People’s Republic of China; 6. “Stamp Duty Ordinance”: refers to the Stamp Duty Ordinance (Chapter 117 of the Laws of Hong Kong); 7. “Companies Ordinance”: refers to the Companies Ordinance (Chapter 622 of the Laws of Hong Kong); 8. “Valuation Report”: refers to the Valuation Report numbered PG-HZ-2026-0229 issued by Hangzhou PG Advisory Co., Ltd.; 9. “Business Day”: refers to a day on which licensed banks in Hong Kong are generally open for business (excluding Saturdays, Sundays, and public holidays in Hong Kong); 10. “Disclosed Information”: refers to the information truthfully and specifically disclosed in writing by Party A to Party B prior to the Execution Date, which is sufficient to enable Party B to reasonably identify the relevant matters; 11. Headings are inserted for convenience of reference only and shall not affect the interpretation of this Agreement; the singular shall include the plural and vice versa; the term “including” is not restrictive; and references to any law shall include any amendments, re-enactments, or substitutions thereof from time to time. Article 2 Target Shares, Transfer Price and Conditions Precedent 1. Party A agrees to sell the Target Shares to Party B for USD 15,000,000.00 (the “Transfer Price”), and Party B agrees to purchase the Target Shares. The Target Shares shall be transferred at Completion free from any Encumbrances, together with all rights and benefits attached or accruing thereto on and after the Completion Date. 2. At Completion, Party B shall remit the Transfer Price by wire transfer in immediately available funds to the bank account designated by Party A in writing at least 3 Business Days in advance and reasonably verified by Party B. The payment of the Transfer Price shall be deemed complete upon actual receipt of funds; fees charged by the remitting bank shall be borne by Party B, and fees charged by the receiving bank and intermediary banks shall be borne by Party A. If Party B has a statutory withholding obligation, it shall have the right to withhold taxes in accordance with the law and provide Party A with the tax payment voucher, and such withheld amount shall be deemed to have been paid to Party A. 2 3. If Party B delays the payment of any amount payable without justifiable reasons, it shall pay liquidated damages on the overdue amount at a rate of 0.05% per day starting from the due date; if such rate is deemed excessively high by a competent court or arbitration tribunal, it shall be adjusted to the maximum rate enforceable by law. If the delay exceeds 15 days and payment is still not made within 5 Business Days after Party A issues a written demand, Party A may terminate this Agreement and claim damages in accordance with Article 7. 4. Unless waived in writing by the entitled party, Completion is conditional upon the satisfaction of the following conditions precedent: (1) The Parties have obtained the necessary internal authorizations for the execution and performance of this Agreement; (2) Pre-emptive rights or transfer restrictions applicable to the Target Shares under the Target Company’s Articles of Association have been complied with or validly waived; (3) Party B has completed legal, financial, and tax due diligence on the Group, and the results are reasonably satisfactory to Party B; (4) Material counterparties, bank, or regulatory approvals required for this transaction have been obtained; (5) No material adverse change has occurred between the Execution Date and the Completion Date; and (6) Party A has provided Party B with the Valuation Report, the Group’s latest audited accounts, management accounts, statutory registers, and any other information reasonably requested by Party B. 5. From the Execution Date to the Completion Date, Party A shall cause the Group to operate in the ordinary course of business; without the prior written consent of Party B, the Group shall not issue shares, declare dividends, incur material indebtedness or provide guarantees, dispose of material assets, enter into abnormal material contracts, engage in material related-party transactions, or undertake any other acts that may materially affect the value of the Group. Article 3 Closing 1. At Completion, Party A shall deliver or cause the Target Company to deliver the following documents and items to Party B: (1) The Bought Note, Sold Note, and Instrument of Transfer duly executed by both Party A and Party B; (2) The original share certificate for the Target Shares, as well as the resolutions of the board of directors of the Target Company approving the transfer, the registration of Party B as a shareholder, the cancellation of the old share certificate, and the issuance of a new share certificate; (3) First, validly appoint a natural person director designated by Party B who qualifies under the law and the Articles of Association, followed by the submission of resignation letters by current directors effective upon Completion, along with their confirmations of no claims against the Target Company; the relevant Form ND2A shall be filed with the Companies Registry within the statutory time limit; (4) The updated Register of Members, Register of Directors, and Significant Controllers Register, Party B’s new share certificate, as well as the Group companies’ statutory registers, Articles of Association, company seals, and accounting, tax, banking, contract, and business records; (5) Any other documents reasonably requested by Party B to acquire the Target Shares and control over the Group. 2. At Completion, Party B shall: (1) Pay the Transfer Price in accordance with Article 2; and (2) Deliver to Party A and the Target Company the Instrument of Transfer and Bought Note duly executed by Party B, as well as the board resolutions or other authorization documents approving this transaction and authorizing the execution of this Agreement. 3 3. The delivery of documents, payment of the Transfer Price, change of directors, and registration in the Register of Members at Completion shall be deemed to occur simultaneously. Unless waived in writing by the entitled party, if any party fails to complete its closing obligations, the other non-defaulting parties may refuse to proceed with Completion without constituting a breach of contract. The legal title to the Target Shares shall transfer to Party B at the time Party B’s name is entered into the Register of Members of the Target Company. Article 4 Representations, Warranties and Undertakings of Party A 1. Party A represents, warrants, and undertakes to Party B that, as of the date of this Agreement and the Completion Date, the following matters are true and accurate: (1) Title and Authority: Party A is the sole legal and beneficial owner of the Target Shares, the Target Shares have been validly issued and fully paid, and are free from any Encumbrances. Party A has the unrestricted right to sell and transfer the Target Shares; (2) Corporate Existence and Compliance: The Target Company is a private company limited by shares, duly incorporated and validly existing under the Companies Ordinance of Hong Kong; Shanghai Shangyun Yingfei and Shanghai Minwen are limited liability companies duly established and validly existing under PRC law. No entity within the Group has passed any resolution for winding-up, dissolution, or any similar actions, nor has any receiver, liquidator, or administrator been appointed; each Group company has obtained the material licenses necessary for its operations and complies with applicable laws in all material respects; (3) Share Capital: Other than the Target Shares, the Target Company has no other issued or agreed to be issued share capital, debentures, options, warrants, or rights convertible into shares; Party C is the sole legal and beneficial owner of all equity interests in Shanghai Shangyun Yingfei, and Shanghai Shangyun Yingfei is the sole legal and beneficial owner of all equity interests in Shanghai Minwen, and such equity interests are free from any Encumbrances. (4) Finance, Liabilities, and Disclosure: The financial statements of the Group provided to Party B truly and fairly reflect its financial condition during the relevant periods in all material respects; except for the Disclosed Information, the Group has no material undisclosed liabilities, guarantees, related-party transactions, or off-balance-sheet obligations; all information provided by Party A to Party B regarding the Group is true, complete, and not misleading in all material respects; (5) Tax and Disputes: The Group has lawfully filed all material tax returns and paid all taxes due, and there are no undisclosed material tax investigations, litigations, arbitrations, administrative penalties, or potential claims; (6) Material Contracts and Assets: The material contracts of the Group remain in full force and effect, and there are no undisclosed circumstances where such contracts would automatically terminate or constitute a breach as a result of this transaction; the Group possesses lawful rights to its material assets, intellectual property, and business information; (7) Labor and Data: The Group complies with applicable labor, social insurance, personal data, and data security regulations in all material respects; (8) No Material Adverse Change: From the valuation benchmark date to the Completion Date, except for the Disclosed Information, no event has occurred that would constitute a material adverse effect on the Group’s assets, liabilities, business, or results of operations. 4 8.1 The occurrence of any of the following circumstances shall be deemed a material adverse change as described in Section 8 of this Article, unless such circumstances have been disclosed in the Disclosed Information: (a) During the period from the valuation benchmark date (inclusive) to the Completion Date (inclusive), the Group incurs new liabilities (including but not limited to new borrowings, bonds payable, finance lease payables, and other financing liabilities) in a single or cumulative amount reaching or exceeding RMB 20 million; (b) During the aforementioned period, the Group creates new external guarantees, including but not limited to providing guarantees for third-party debts in the form of surety, mortgage, pledge, or otherwise, or executing legal documents in the nature of a guarantee; (c) During the aforementioned period, the Group’s performance falls below 50% of its performance in the same period of the preceding year. “Performance” in this item refers to the audited consolidated net profit of the Group, or any other financial metric otherwise agreed by the Parties in writing; (d) In addition to the circumstances listed in items (a) through (c) above, any other event or circumstance occurs during the period from the valuation benchmark date (inclusive) to the Completion Date (inclusive) that causes or is likely to cause a material adverse effect on the Group’s assets, liabilities, business, or results of operations. 2. If Party A breaches any representation, warranty, or undertaking in this Article, Party A shall indemnify Party B and/or the Group for the losses, liabilities, costs, and expenses reasonably and actually suffered as a result thereof, subject however to the procedures and limitations set forth in Article 7. Each warranty is an independent warranty and shall not automatically lapse upon Completion, Party B’s investigation, or Party B’s knowledge of any matter, except for matters that have been truthfully and specifically disclosed in the Disclosed Information. 3. The representations and warranties in this Article are made as of the Execution Date and shall be deemed to be repeated as of the Completion Date based on the facts existing at that time. If Party A becomes aware prior to Completion that any warranty is untrue, inaccurate, or misleading, it shall immediately notify Party B in writing; such notice itself shall not constitute a waiver by Party B of the relevant breach. Article 5 Representations, Warranties and Undertakings of Party B Party B represents, warrants, and undertakes to Party A that: it is duly established and validly existing under the laws of its place of incorporation; it possesses all requisite corporate power, authority, and approvals to execute and perform this Agreement; its source of funds is lawful and complies with applicable anti-money laundering, anti-bribery, and sanctions laws; the execution and performance of this Agreement will not breach any laws, articles of association, or contracts binding upon it; and Party B will provide information regarding its beneficial owners, source of funds, and authorized signatories upon request. The representations and warranties of Party B are made on the Execution Date and shall be deemed repeated on the Completion Date based on the facts existing at that time. Article 6 Stamp Duty, Tax and Registration 1. The Parties shall strictly comply with the applicable time limits prescribed by the Stamp Duty Ordinance for stamping the Bought Note, Sold Note, and Instrument of Transfer. If the sale and purchase is effected in Hong Kong, the Bought Note and Sold Note should generally be stamped within 2 days after the sale; if effected outside Hong Kong, they should generally be stamped within 30 days after the sale. Non-gift instruments of transfer executed in Hong Kong should be stamped before execution; if executed outside Hong Kong, they should generally be stamped within 30 days after execution. The final deadlines shall be subject to the applicable requirements of the Stamp Duty Ordinance and the Stamp Office at the time. 5 2. The Buyer and Seller shall respectively bear the ad valorem stamp duty on the contract notes as required by law, and the fixed stamp duty on the Instrument of Transfer shall be borne by Party B. The tax base, exchange rate, and final tax amount shall be subject to the assessment by the Stamp Office; if the fair market value of the Target Shares is higher than the Transfer Price, stamp duty may be assessed based on the higher value. Any penalties and additional costs resulting from a party’s delay, misrepresentation, or failure to provide information shall be borne by such party. 3. The duly stamped Instrument of Transfer shall be submitted to the Target Company immediately. The Target Company shall update the Register of Members at Completion or within no more than 5 Business Days thereafter, and complete the issuance of the new share certificate and related corporate records within the statutory time limit. Article 7 Default, Indemnification and Limitation of Liability 1. Any party in breach of this Agreement shall indemnify the non-defaulting party for the direct losses, liabilities, and reasonable legal and professional fees reasonably and actually suffered as a result thereof. The claiming party shall take measures to mitigate losses to the extent reasonably practicable and shall not be entitled to double recovery for the same loss. 2. Except for the following matters, Party A’s cumulative aggregate liability for indemnification under this Agreement shall not exceed the Transfer Price actually received by it, and shall not include purely indirect or consequential losses: (1) Defects in the ownership of or the right to dispose of the Target Shares; (2) Tax liabilities originating prior to the Completion Date; (3) Fraud, intentional misrepresentation, deliberate concealment, or willful breach; and (4) Liabilities that cannot be limited or excluded by law. 3. General warranty claims must be notified to Party A in writing within 24 months after the Completion Date; tax claims must be notified within 6 months after the expiration of the relevant statutory tax recovery period; claims relating to title and fraud are not subject to the aforementioned contractual time limits, but shall remain subject to the mandatory provisions of applicable law. The notice of claim shall reasonably articulate the factual basis and the estimated amount. Article 8 Governing Law and Dispute Resolution 1. The formation, validity, interpretation, performance, and dispute resolution of this Agreement shall be governed by the laws of the Hong Kong Special Administrative Region. 2. Any dispute arising out of or in connection with this Agreement (including the existence, validity, interpretation, performance, breach, or termination of this Agreement) shall first be resolved through good faith negotiation by the Parties; if it cannot be resolved within 15 days after any party issues a dispute notice, it shall be submitted to the Hong Kong International Arbitration Centre (HKIAC) for final resolution by arbitration in accordance with the HKIAC Administered Arbitration Rules in force when the Notice of Arbitration is submitted. The seat of arbitration shall be Hong Kong, the arbitral tribunal shall consist of one (1) arbitrator, and the language of the arbitration shall be Chinese; however, if the evidence is in English, the English text may be submitted directly. The arbitral award shall be final and binding on the Parties. Any party may apply to a competent court or an emergency arbitrator for interim or conservatory measures. 6 Article 9 Miscellaneous 1. Unless otherwise provided in this Agreement, no party may assign its rights, interests, or obligations under this Agreement without the prior written consent of the other parties; however, Party B may assign its rights to its affiliates after Completion, provided that Party B shall remain jointly and severally liable for the relevant obligations and shall provide prior written notice to the other parties. 2. This Agreement constitutes the entire agreement among the Parties with respect to the transaction contemplated herein. This Agreement may not be amended, modified, or supplemented unless by a written instrument signed by the Parties. A failure or delay by any party to exercise any right shall not constitute a waiver thereof. 3. This Agreement is executed in Chinese in triplicate, with Party A, Party B, and Party C each holding one copy, and each copy shall have equal legal effect. This Agreement may be executed in counterparts and signature pages may be exchanged electronically; provided, however, that documents required by law to be stamped or registered with the Companies Registry in physical original form must be executed separately and delivered in original. 4. This Agreement shall become effective upon due execution by the Parties; the legal title to the Target Shares shall transfer only when Party B is entered into the Register of Members of the Target Company. 5. If any provision of this Agreement is held to be invalid or unenforceable, the validity of the remaining provisions shall not be affected, and the Parties shall replace the invalid or unenforceable provision with a valid provision that most closely approximates the original commercial intent. 6. Except as expressly provided in this Agreement, a person who is not a party to this Agreement shall have no right under the Contracts (Rights of Third Parties) Ordinance (Chapter 623 of the Laws of Hong Kong) to enforce any of its terms. 7",
+       "recortado": false,
+       "negativos": []
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "6-K",
+     "hora": "2026-10-06 16:30",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026107243/ea0307735-6k_mingteng.htm",
+     "items_es": ""
+    }
+   ],
+   "noticias": [],
+   "sector": "Metal Doors, Sash, Frames, Moldings & Trim",
+   "venta_hoy": false,
+   "historial": [
+    {
+     "form": "6-K",
+     "fecha": "2026-06-30 17:21",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026073823/ea0295834-6k_mingteng.htm",
+     "titular": " INFORMATION CONTAINED IN THIS REPORT ON FORM 6-K Lock-Up Waiver and Registration Rights Agreement On June 29, 2026 (the “Effective Date”), Mingteng International Corporation Inc. (the “Company”) entered into (i) a Waive",
+     "reaccion": {
+      "dia": "2026-07-01",
+      "apertura": -0.0382,
+      "cierre": -0.0064
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-18 16:15",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026070137/ea0295187-6k_mingteng.htm",
+     "titular": " On June 17, 2026, Mingteng International Corporation Inc. (the “Company”) entered into a securities purchase agreement (the “Purchase Agreement”) with certain institutional investors (the “Purchasers”), pursuant to whic",
+     "reaccion": {
+      "dia": "2026-06-22",
+      "apertura": -0.0044,
+      "cierre": -0.1372
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-11 07:00",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026067546/ea0294416-6k_mingteng.htm",
+     "titular": " As previously disclosed, on December 4, 2025, Mingteng International Corporation Inc. (the “Company”) entered into a sales agreement (the “Sales Agreement”) with AC Sunshine Securities LLC, as sales agent in “at the mar",
+     "reaccion": {
+      "dia": "2026-06-11",
+      "apertura": 0.3041,
+      "cierre": 0.3392
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-06-10 16:40",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026067367/ea0294254-6k_mingteng.htm",
+     "titular": " On June 9, 2026, Mingteng International Corporation Inc. (the “Company”) entered into a securities purchase agreement (the “Purchase Agreement”) with certain institutional investors (the “Purchasers”), pursuant to which",
+     "reaccion": {
+      "dia": "2026-06-11",
+      "apertura": 0.3041,
+      "cierre": 0.3392
+     }
+    }
+   ],
+   "municion": {
+    "venta90": true,
+    "s3": "2025-06-06",
+    "s1": "2026-07-24",
+    "ventas_12m": 3,
+    "p424_12m": 5,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-06-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026069961/ea0294955-424b5_mingteng.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-06-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026067198/ea0294199-424b5_mingteng.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2025-12-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390025119078/ea0268405-424b5_mingteng.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2024-04-19",
+      "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390024034492/ea0204240-424b4_mingteng.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "F-1/A",
+      "fecha": "2026-07-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026081222/ea0299036-f1a1_mingteng.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 2280000,
+      "frase": "ffer to buy these securities in any state where the offer or sale is not permitted. PRELIMINARY PROSPECTUS SUBJECT TO COMPLETION, DATED JULY 24, 2026 Resale of up to 2,280,000 Class A Ordinary Shares Resale of up to 1,480,000 Class A Ordinary Shares Issuable ",
+      "acciones_reventa_hoy": 2280000
+     },
+     {
+      "form": "F-1",
+      "fecha": "2026-07-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026077280/ea0297202-f1_mingteng.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 2280000,
+      "frase": "ffer to buy these securities in any state where the offer or sale is not permitted. PRELIMINARY PROSPECTUS SUBJECT TO COMPLETION, DATED JULY 10, 2026 Resale of up to 2,280,000 Class A Ordinary Shares Resale of up to 1,480,000 Class A Ordinary Shares Issuable ",
+      "repetida": true,
+      "acciones_reventa_hoy": 2280000
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-06-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026069961/ea0294955-424b5_mingteng.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "rs of our Class A Ordinary Shares ” in our 2025 Annual Report. As of June 15, 2026, the aggregate market value of our outstanding common equity held by non-affiliates (our “public float”) was approximately $15.69 million, based on 4,629,365 Class A Ordinary Shares held by non-affiliates and a closing price of $3.39 per share on June 15, 2026. As such, we are subject to the one-third limitation of General Instruction I.B.5. We have engaged FT Global Capital, Inc. as our exclusive Placement Agent to use its reasonable best efforts to solicit offers to purchase our securities in this offering. The Placement Agent has no obligation to purchase and are not purchasing or s",
+      "atm_usd": 100000000.0,
+      "atm_agente": null,
+      "frase_atm": "5, the Company entered into a sales agreement with AC Sunshine Securities LLC (“Sales Agreement”), pursuant to which the Company may offer and sell from time to time Class A Ordinary Shares having an aggregate offering price of up to $100,000,000 through an “at-the-market” offering program under the Company’s shelf registration statement on Form F-3(No. 333- 287843). Under the Sales Agreement, shares may be sold from time to time through AC Sunshine Securities LL"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-06-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026067198/ea0294199-424b5_mingteng.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "lders of our Class A Ordinary Shares ” in our 2025 Annual Report. As of June 9, 2026, the aggregate market value of our outstanding common equity held by non-affiliates (our “public float”) was approximately $2.26 million, based on 3,498,361 Class A Ordinary Shares held by non-affiliates and a closing price of $1.94 per share on June 8, 2026. As such, we are subject to the one-third limitation of General Instruction I.B.5. We have engaged FT Global Capital, Inc. as our exclusive Placement Agent to use its reasonable best efforts to solicit offers to purchase our securities in this offering. The Placement Agent has no obligation to purchase and are not purchasing or s",
+      "atm_usd": 100000000.0,
+      "atm_agente": null,
+      "frase_atm": "5, the Company entered into a sales agreement with AC Sunshine Securities LLC (“Sales Agreement”), pursuant to which the Company may offer and sell from time to time Class A Ordinary Shares having an aggregate offering price of up to $100,000,000 through an “at-the-market” offering program under the Company’s shelf registration statement on Form F-3(No. 333- 287843). Under the Sales Agreement, shares may be sold from time to time through AC Sunshine Securities LL"
+     },
+     {
+      "form": "F-3",
+      "fecha": "2025-06-06",
+      "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390025052095/ea0242981-f3_mingteng.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "the securities may be sold. The aggregate market value of our outstanding Ordinary Shares held by non-affiliates or public float, as of the date of this prospectus, was approximately $33,368,328, which was calculated based on 2,739,600 Ordinary Shares held by non-affiliates and the per share price of $12.18, which was the closing price of our Ordinary Shares on Nasdaq on June 3, 2025. Pursuant to General Instruction I.B.5. of Form F-3, in no event will we sell the securities covered hereby in a public primary offering with a value exceeding more than one-third of the aggregate market value of our ordinary shares in any 12-month period so long as the aggregate market "
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "6-K",
+      "fecha": "2026-06-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026070137/ea0295187-6k_mingteng.htm",
+      "precio": 2.0,
+      "acciones": null,
+      "frase": "“Purchasers”), pursuant to which the Company agreed to issue and sell, in a registered direct offering (the “Offering”): (i) 457,355 Class A ordinary shares of the Company, par value $0.00005 per share (the “Class A Ordinary Shares”) (the “Shares”), at a purchase price of $2.00 per Share; and (ii) pre-funded warrants (the “Pre-Funded Warrants”) to purchase up to 1,022,645 Class A Ordinary Shares, at a purchase price of $1.99995 per Pr"
+     },
+     {
+      "form": "6-K",
+      "fecha": "2026-06-10",
+      "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026067367/ea0294254-6k_mingteng.htm",
+      "precio": 2.0,
+      "acciones": null,
+      "frase": "“Purchasers”), pursuant to which the Company agreed to issue and sell, in a registered direct offering (the “Offering”): (i) 501,834 Class A ordinary shares of the Company, par value $0.00005 per share (the “Class A Ordinary Shares”) (the “Shares”), at a purchase price of $2.00 per Share; and (ii) pre-funded warrants (the “Pre-Funded Warrants”) to purchase up to 629,170 Class A Ordinary Shares, at a purchase price of $1.99995 per Pre-"
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 2280000,
+    "atm_shelf": {
+     "form": "424B5",
+     "fecha": "2026-06-18",
+     "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026069961/ea0294955-424b5_mingteng.htm",
+     "tipo": "empresa",
+     "baby_shelf": true,
+     "frase_baby": "rs of our Class A Ordinary Shares ” in our 2025 Annual Report. As of June 15, 2026, the aggregate market value of our outstanding common equity held by non-affiliates (our “public float”) was approximately $15.69 million, based on 4,629,365 Class A Ordinary Shares held by non-affiliates and a closing price of $3.39 per share on June 15, 2026. As such, we are subject to the one-third limitation of General Instruction I.B.5. We have engaged FT Global Capital, Inc. as our exclusive Placement Agent to use its reasonable best efforts to solicit offers to purchase our securities in this offering. The Placement Agent has no obligation to purchase and are not purchasing or s",
+     "atm_usd": 100000000.0,
+     "atm_agente": null,
+     "frase_atm": "5, the Company entered into a sales agreement with AC Sunshine Securities LLC (“Sales Agreement”), pursuant to which the Company may offer and sell from time to time Class A Ordinary Shares having an aggregate offering price of up to $100,000,000 through an “at-the-market” offering program under the Company’s shelf registration statement on Form F-3(No. 333- 287843). Under the Sales Agreement, shares may be sold from time to time through AC Sunshine Securities LL"
+    },
+    "atm": true,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-04-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1948099/000121390026050226/ea0287175-20f_mingteng.htm"
+    },
+    "eloc": false,
+    "uso_atm": [
+     "Because the shares sold in the ATM offering may be sold at various times and at prevailing market prices, the prices at which shares are sold may vary and may be lower than the price paid by existing shareholders.",
+     "We have sold and may continue to sell a significant number of shares under the ATM program, the resulting dilution and increased supply of our shares in the market could adversely affect the market price of our Class A Ordinary Shares.",
+     "Under the Sales Agreement, shares may be sold from time to time through AC Sunshine Securities LLC acting as the Company’s sales agent at prevailing market prices on The Nasdaq Capital Market or otherwise in accordance with applicable law.",
+     "As of the date of this annual report, the Company had sold an aggregate of 222,568,877 Class A Ordinary Shares (this amount does not give effect to the 1-for-200 reverse share split that became effective on January 26, 2026) under the ATM program for gross proceeds of approximately $20."
+    ],
+    "empresa_dice_caja": null,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "GIPR",
+   "nombre": "Generation Income Properties, Inc.",
+   "precio": 0.5291,
+   "cierre_prev": 0.38100001215934753,
+   "cierre_massive": 0.3806,
+   "gap": 0.3887,
+   "cap": 1156316,
+   "vol_pre": null,
+   "acciones": 3038140,
+   "bolsa": "NasdaqCM",
+   "estado": "PRE",
+   "split_hoy": null,
+   "cik": 1651721,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [
+    {
+     "hora": "2026-10-06 16:30",
+     "titular": "GIPR Announces Full Retirement of Loci Capital Financing Relationship",
+     "url": "https://finviz.com/news/399587/gipr-announces-full-retirement-of-loci-capital-financing-relationship",
+     "fuente": "ACCESSWIRE"
+    }
+   ],
+   "sector": "Real Estate Investment Trusts",
+   "venta_hoy": false,
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-10-05 16:30",
+     "items": "1.01,2.03,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1651721/000119312526414221/gipr-20261002.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. Amendment to Secured Promissory Note with Brown Family Enterprises LLC On October 2, 2026, Generation Income Properties, Inc. (the “Company”), through its operating p",
+     "reaccion": {
+      "dia": "2026-10-06",
+      "apertura": -0.0837,
+      "cierre": -0.0885
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-25 16:45",
+     "items": "7.01,8.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1651721/000119312526402935/gipr-20260925.htm",
+     "titular": "Item 7.01 Regulation FD Disclosure. On September 25, 2026, Generation Income Properties, Inc. (the “Company”) issued a press release announcing the completion of the redemption described in Item 8.01 below. A copy of the",
+     "reaccion": {
+      "dia": "2026-09-28",
+      "apertura": -0.0442,
+      "cierre": -0.0605
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-21 17:20",
+     "items": "8.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1651721/000119312526396828/gipr-20260616.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. The disclosure under Item 2.01 below regarding the DC Termination Agreement, the Dollar General Purchase Agreement, and the Fresenius Purchase Agreement (each as defi",
+     "reaccion": {
+      "dia": "2026-09-22",
+      "apertura": -0.041,
+      "cierre": -0.1654
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-21 17:05",
+     "items": "1.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1651721/000119312526396787/gipr-20260921.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. On September 18, 2026, Generation Income Properties, Inc. (the “ Company ”) entered into an inducement offer letter agreement (the “ Inducement Agreement ”) with a ho",
+     "reaccion": {
+      "dia": "2026-09-22",
+      "apertura": -0.041,
+      "cierre": -0.1654
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-16 16:15",
+     "items": "8.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1651721/000119312526393084/gipr-20260916.htm",
+     "titular": "Item 8.01 Other Information. As previously disclosed, Generation Income Properties, Inc. (the “Company”) received a determination letter from the Listing Qualifications Department (the Staff) of The Nasdaq Stock Market L",
+     "reaccion": {
+      "dia": "2026-09-17",
+      "apertura": 0.0165,
+      "cierre": 0.2088
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-04 16:15",
+     "items": "1.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1651721/000119312526383669/gipr-20260831.htm",
+     "titular": "Item 1.01 Entry into a Material Definitive Agreement. On August 31, 2026, Generation Income Properties, L.P., the operating partnership of Generation Income Properties, Inc. (the “Company”), in its capacity as a member a",
+     "reaccion": {
+      "dia": "2026-09-08",
+      "apertura": -0.0835,
+      "cierre": -0.2041
+     }
+    }
+   ],
+   "municion": {
+    "venta90": true,
+    "s3": null,
+    "s1": null,
+    "ventas_12m": 1,
+    "p424_12m": 4,
+    "aviso_bolsa": true,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2026-06-01",
+      "url": "https://www.sec.gov/Archives/edgar/data/1651721/000119312526250992/gipr-20260601.htm"
+     },
+     {
+      "form": "424B4",
+      "fecha": "2021-09-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/1651721/000119312521265096/d845232d424b4.htm"
+     }
+    ],
+    "shelves": [],
+    "colocaciones": [],
+    "shelf_empresa": false,
+    "reventa_acciones": 0,
+    "atm_shelf": null,
+    "atm": false,
+    "toxica": true,
+    "going_concern": true,
+    "warrants": [
+     0.06,
+     0.21,
+     10.0,
+     12.5,
+     20.0
+    ],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-17",
+     "url": "https://www.sec.gov/Archives/edgar/data/1651721/000119312526352781/gipr-20260630.htm"
+    },
+    "eloc": false,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_en_dinero": true
+   }
+  },
+  {
+   "sym": "LPCN",
+   "nombre": "Lipocine Inc.",
+   "precio": 2.76,
+   "cierre_prev": 2.0999999046325684,
+   "cierre_massive": 2.1,
+   "gap": 0.3143,
+   "cap": 17312930,
+   "vol_pre": null,
+   "acciones": 8244253,
+   "bolsa": "NasdaqCM",
+   "estado": "PRE",
+   "split_hoy": null,
+   "cik": 1535955,
+   "catalizadores": [
+    {
+     "form": "8-K",
+     "hora": "2026-10-07 06:10",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315226046060/form8-k.htm",
+     "partes": [
+      {
+       "archivo": "form8-k.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315226046060/form8-k.htm",
+       "texto": "Item 8.01 Other Events On October 7, 2026, the Company announced that Health Canada had approved TLANDO ® for testosterone replacement therapy in adult males. A copy of the press release is furnished as Exhibit 99.1 to this report and incorporated by reference herein. Item 9.01 Financial Statements and Exhibits. (d) Exhibits The following exhibits are filed with this report: Exhibit No. Description 99.1 Press Release Lipocine Announces Health Canada Approval of TLANDO ® for Testosterone Replacement Therapy 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURES Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. LIPOCINE INC. Date: October 7, 2026 By: /s/ Mahesh V. Patel Mahesh V. Patel President and Chief Executive Officer",
+       "recortado": false,
+       "negativos": []
+      },
+      {
+       "archivo": "ex99-1.htm",
+       "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315226046060/ex99-1.htm",
+       "texto": "Lipocine Announces Health Canada Approval of TLANDO ® for Testosterone Replacement Therapy SALT LAKE CITY, October 7, 2026 -- Lipocine Inc. (NASDAQ: LPCN), a specialty pharmaceutical company focused on the development of novel oral therapeutics, today announced that, through Lipocine’s licensing partner Verity Pharmaceuticals Inc (Verity Pharma), Health Canada has approved TLANDO® (testosterone undecanoate) capsules for testosterone replacement therapy in adult males for the conditions associated with a deficiency or absence of endogenous testosterone (male hypogonadism). Verity Pharma holds exclusive commercial rights to TLANDO in North America and is planning for launch and commercialization in the Canadian market by the end of 2026. “Men with low testosterone in Canada have been served largely by injections and topical gels, and Health Canada’s approval of TLANDO means they will have access to a convenient oral option without needing dose titration,” said Dr. Mahesh Patel, President and Chief Executive Officer of Lipocine. “This approval represents an important step in expanding the geographic reach of TLANDO and further validates the value of Lipocine’s partnered commercial strategy. We look forward to supporting Verity as it prepares for launch in Canada.” “Health Canada’s approval of TLANDO gives Canadian men with hypogonadism and their physicians a new oral treatment option with a simple, fixed dosing regimen that does not require dose titration,” said Dr. Neil Flesher, Chief Medical Officer of Verity Pharma. “Starting and managing testosterone therapy can be complicated for both patients and prescribers, and a fixed dose can make treatment easier to start. We value our partnership with Lipocine and look forward to making TLANDO available to patients across Canada.” Lipocine and Verity Pharma entered into an exclusive license agreement in January 2024 under which Verity Pharma gained commercial rights to TLANDO in the United States and Canada. Verity Pharma is responsible for regulatory and commercialization obligations in both markets and for further development of the TLANDO franchise in North America. The Canadian TRT Market More than 700,000 prescriptions are written annually in Canada for TRT, and approximately 50% of this patient population is covered through private insurance. Promotional activity surrounding currently available TRT products in Canada is limited, which Lipocine believes creates an opportunity for TLANDO to capture a meaningful share of this large and growing market. Intramuscular injections hold the largest share of TRT prescriptions. Topical gels are also widely used but carry a risk of transference to others and are messy to apply. Both injections and topical gels require titration and have been associated with compliance issues and high rates of discontinuation. Lipocine believes a safe and effective oral therapy without a titration requirement can improve patient convenience and compliance while eliminating the transference risk of gels and the injection site reactions associated with injectables. About TLANDO Canada TLANDO is approved by Health Canada as a testosterone replacement therapy in adult males indicated for conditions associated with a deficiency or absence of endogenous testosterone (male hypogonadism). IMPORTANT SAFETY INFORMATION TLANDO Testosterone Undecanoate Capsules, 112.5mg, For oral use TLANDO should not be used to treat non-specific symptoms suggestive of hypogonadism if testosterone deficiency has not been demonstrated and if other etiologies responsible for the symptoms have not been excluded. Testosterone deficiency should be clearly demonstrated by clinical features and confirmed by two separate validated biochemical assays (morning testosterone) before initiating therapy with any testosterone replacement, including TLANDO treatment. 1.1. Pediatrics Pediatrics (males < 18 years old): No data are available to Health Canada; therefore, Health Canada has not authorized an indication for pediatric use. 1.2. Geriatrics Geriatrics (males ≥ 65 years): There have not been sufficient numbers of geriatric patients in controlled clinical studies with TLANDO to determine whether use in the geriatric population is associated with differences in safety or effectiveness. Therefore, safety and efficacy of TLANDO in men with age-related hypogonadism has not been established. 2. Contraindications TLANDO (testosterone undecanoate capsules) is contraindicated in: ● Patients with known hypersensitivity to this drug or to any of its ingredients. For a complete listing of ingredients see 6 Dosage Forms, Composition and Packaging. ● Men with known or suspected carcinoma of the breast or prostate r (See 7 Warnings and Precautions). ● Women and women who are pregnant. Testosterone is teratogenic and may cause fetal harm (see 16 Non-clinical Toxicology). Testosterone can cause virilization of the female fetus when administered to a pregnant woman (see 7.1.1. Warnings and precautions, Special Populations, Pregnancy). 7. Warnings and Precautions General If testosterone deficiency has not been established, testosterone replacement therapy should not be used for the treatment of sexual dysfunction. With large doses of exogenous androgens, including TLANDO, spermatogenesis may be suppressed through feedback inhibition of pituitary follicle-stimulating hormone (FSH) possible leading to adverse effects on semen parameters including sperm count. TLANDO should not be used to attempt to improve body composition, bone and muscle mass, increase lean body mass and decrease total fat mass. Efficacy and safety have not been established. Serious long-term deleterious health issues may arise. TLANDO has not been shown to be safe and effective for the enhancement of athletic performance. Because of the potential risk of serious adverse health effects, this drug should not be used for such purpose. Clinical studies have not established testosterone replacement therapy as a treatment for male infertility. Carcinogenesis and Genotoxicity Prostate Androgens may accelerate the progression of sub-clinical prostatic cancer and benign prostatic hyperplasia (BPH). Patients receiving testosterone replacement therapy should undergo careful and regular monitoring of the prostate gland consistent with current practices for eugonadal men. Prior to testosterone initiation, at risk patients (those with clinical and familial factors) should be identified and all patients must undergo a detailed examination, including the monitoring of the prostate specific antigen (PSA), in order to detect preexisting prostatic cancer (see Monitoring and Laboratory Tests). Geriatric patients treated with testosterone products may be at an increased risk for the development of prostatic hyperplasia and prostatic carcinoma. Breast Patients using long-term parenteral testosterone replacement therapy may be at an increased risk for the development of breast cancer. In men receiving testosterone replacement therapy, careful and regular monitoring of the breast should be conducted. Skeletal Patients with skeletal metastases are at risk of exacerbating hypercalcemia/ hypercalciuria with concomitant testosterone replacement therapy. Regular monitoring of serum calcium concentrations is recommended in these patients. Cardiovascular Before starting testosterone therapy, patients should be assessed for any cardiovascular risk factors (e.g., existing ischemic heart disease) or prior history of cardiovascular events (e.g., myocardial infarction, stroke, or heart failure); ensure that blood pressure is adequately controlled. Check blood pressure approximately 6 weeks after initiating TLANDO and periodically thereafter. Treat new-onset hypertension or exacerbations of pre-existing hypertension and re-evaluate whether the benefits of continued treatment with TLANDO outweigh its risks in patients who develop cardiovascular risk factors or cardiovascular disease. Cardiovascular risk The results of TRAVERSE, a randomized, double-blind, placebo-controlled phase 4 clinical trial study, indicated that testosterone-replacement therapy did not influence the incidence of major adverse cardiac events in middle-aged and older patients with hypogonadism and with pre-existing or an increased risk of cardiovascular diseases (topical testosterone gel 7.0% vs. placebo 7.3%). However, additional adverse reactions reported in TRAVERSE at an incidence rate >2% in either treatment group and greater in topical testosterone gel versus placebo included: nonfatal arrythmias warranting intervention (5.2% vs 3.3%), atrial fibrillation (3.5% vs 2.4%), acute kidney injury (2.3% vs 1.5%) and bone fracture (3.5% vs 2.5%). For the adverse reaction of bone fracture, each event was adjudicated by clinical review. In the TRAVERSE Study, topical testosterone gel was associated with a higher risk of VTE (1.7% vs 1.2%) which included deep vein thrombosis (0.6% vs 0.5%) and pulmonary embolism (0.9% vs 0.5%) Edema Androgens, including TLANDO, may promote retention of sodium and water. Edema, with or without congestive heart failure, may be a serious complication in patients with pre-existing cardiac, renal, or hepatic disease. Diuretic therapy may be required, in addition to discontinuation of the drug. Increase in blood pressure Testosterone may increase blood pressure and is not recommended in patients with uncontrolled hypertension. Based on ambulatory blood pressure monitoring (ABPM) in Study 18-001, TLANDO increased mean systolic/diastolic BP by 4.3/1.4 mm Hg from baseline after 4 months of treatment. In patients with hypertension on antihypertensive therapy, TLANDO increased the mean systolic/diastolic BP by 4.8/1.6 mm Hg from baseline (see 8 Adverse Reactions). Blood pressure increases can increase cardiovascular (CV) risk over time. There have been post-marketing reports of venous thromboembolic events, including deep vein thrombosis (DVT) and pulmonary embolism (PE), in patients using testosterone products. Evaluate patients who report symptoms of pain, edema, warmth and erythema in the lower extremity for DVT and those who present with acute shortness of breath for PE. If a venous thromboembolic event is suspected, discontinue treatment with TLANDO and initiate appropriate management. Dependence, Tolerance and/or Abuse Liability TLANDO contains testosterone undecanoate, which is a Schedule G controlled substance as defined by the Food and Drugs Act. Testosterone has been subject to abuse, typically at doses higher than recommended for the approved indication(s) and in combination with other anabolic androgenic steroids. Counsel patients concerning the serious adverse reactions associated with abuse of testosterone and anabolic androgenic steroids. Conversely, consider the possibility of testosterone and anabolic androgenic steroid abuse in suspected patients presenting with serious cardiovascular or psychiatric adverse events. Abuse Abuse and misuse of testosterone are seen in male and female adults and adolescents. Testosterone, often in combination with other anabolic androgenic steroids (AAS), and not obtained by prescription through a pharmacy, may be abused by athletes and bodybuilders. There have been reports of misuse by men taking higher doses of legally obtained testosterone than prescribed and continuing testosterone despite adverse events or against medical advice. Abuse-Related Adverse Reactions Serious adverse reactions have been reported in individuals who abuse anabolic androgenic steroids (with fatal outcomes in some cases) and include cardiac arrest, myocardial infarction, hypertrophic cardiomyopathy, congestive heart failure, cerebrovascular accident, hepatotoxicity, and serious psychiatric manifestations, including major depression, mania, paranoia, psychosis, delusions, hallucinations, hostility and aggression. The following adverse reactions have also been reported in men: transient ischemic attacks, convulsions, hypomania, irritability, dyslipidemias, testicular atrophy, subfertility, and infertility. The following additional adverse reactions have been reported in women: hirsutism, virilization, deepening of voice, clitoral enlargement, breast atrophy, male-pattern baldness, and menstrual irregularities. The following adverse reactions have been reported in male and female adolescents: premature closure of bony epiphyses with termination of growth, and precocious puberty. Because these reactions are reported voluntarily from a population of uncertain size and may include abuse of other agents, it is not always possible to reliably estimate their frequency or establish a causal relationship to drug exposure. Dependence Continued abuse of testosterone and other anabolic steroids leading to addiction is characterized by the following behaviors: ● Taking greater dosages than prescribed ● Continued drug use despite medical and social problems due to drug use ● Spending significant time to obtain the drug when supplies of the drug are interrupted ● Giving a higher priority to drug use than other obligations ● Having difficulty in discontinuing the drug despite desires and attempts to do so ● Experiencing withdrawal symptoms upon abrupt discontinuation of use Physical dependence is characterized by withdrawal symptoms after abrupt drug discontinuation or a significant dose reduction of a drug. Individuals taking supratherapeutic doses of testosterone may experience withdrawal symptoms lasting for weeks or months which include depressed mood, major depression, fatigue, craving, restlessness, irritability, anorexia, insomnia, decreased libido and hypogonadotropic hypogonadism. Drug dependence in individuals using approved doses of testosterone for approved indications has not been documented. Endocrine and Metabolism Androgens, including TLANDO, should be used with caution in cancer patients at risk of hypercalcemia (and associated hypercalciuria). Regular monitoring of serum calcium concentrations is recommended in these patients. Testosterone products have been shown to alter glucose tolerance tests. Diabetics should be followed carefully and the insulin or oral hypoglycemic dosage adjusted accordingly. In addition, decreases in concentrations of thyroxin-binding globulins may occur, resulting in decreased total T4 serum concentrations and increased resin uptake of triiodothyronine (T3) and thyroxine (T4). Free thyroid hormone concentrations remain unchanged, however, and there is no clinical evidence of thyroid dysfunction. Changes in serum lipid profile may require dose adjustment of lipid lowering drugs or discontinuation of testosterone therapy. Genitourinary Patients with benign prostatic hyperplasia (BPH) may develop acute urethral obstruction. Patients should be monitored for worsening of signs and symptoms of BPH. Hematologic Increases in hematocrit levels, reflective of increases in red blood cell mass, may require lowering of dose or discontinuation of therapy. Check hematocrit prior to initiating treatment. It would also be appropriate to re-evaluate hematocrit 3 to 6 months after starting treatment, and then annually. If hematocrit becomes elevated, stop therapy until hematocrit decreases to an acceptable level. If TLANDO is restarted and again causes hematocrit to become elevated, stop TLANDO permanently. An increase in red blood cell mass may increase the risk of thromboembolic events. Hepatic/Biliary/Pancreatic Prolonged use of high doses of orally active 17-alpha-alkyl androgens (e.g., methyltestosterone) has been associated with serious hepatic adverse effects (peliosis hepatis, hepatic neoplasms, cholestatic hepatitis, and jaundice). Peliosis hepatis can be a life-threatening or fatal complication. Long-term therapy with intramuscular testosterone enanthate has produced multiple hepatic adenomas. TLANDO is not a 17 alpha-alkyl androgen and is not known to produce hepatic adverse effects associated with 17-alpha-alkyl androgens. Nonetheless, patients should be instructed to report any signs or symptoms of hepatic dysfunction (e.g., jaundice). If these occur, promptly discontinue TLANDO while the cause is evaluated. Monitoring and Laboratory Tests The patient should be monitored (including serum testosterone levels) at baseline and on a regular basis to ensure adequate response to treatment. The following laboratory tests, performed routinely, are recommended to ensure that adverse experience possibly caused by or related to testosterone replacement therapy is detected and addressed: ● hemoglobin and hematocrit levels should be checked periodically (to detect polycythemia); ● liver function tests; ● prostate specific antigen (PSA), digital rectal examination (DRE), especially if the patient presents with progressive difficulty with urination or a change in voiding habits; ● lipid profile, total cholesterol, LDL, HDL, and triglycerides; serum cholesterol levels may increase and/or decrease during androgen therapy; serum prolactin levels may increase, monitor prior and following initiation of treatment; ● diabetics should be followed carefully and the insulin or oral hypoglycemic dosage adjusted accordingly (see 9.4 Drug-Drug Interactions). Reproductive Health ● Fertility Oligospermia may occur after prolonged administration or excessive dosage. With large doses of exogenous androgens, including TLANDO, spermatogenesis may be suppressed through feedback inhibition of pituitary follicle-stimulating hormone (FSH) possibly leading to adverse effects on semen parameters including sperm count. Patients should be informed of this possible risk when deciding whether to use or to continue to use TLANDO. Reduced fertility is observed in some men taking testosterone replacement therapy. Testicular atrophy, subfertility, and infertility have also been reported in men who abuse anabolic androgenic steroids. With either type of use, the impact on fertility may be irreversible. ● Function Gynecomastia may develop and persist in patients being treated for hypogonadism. Priapism or excessive sexual stimulation may develop. If testosterone deficiency has not been established, testosterone replacement therapy should not be used for the treatment of sexual dysfunction. Respiratory The treatment of hypogonadal men with testosterone products may potentiate sleep apnea in some patients, particularly for those with risk factors such as obesity or chronic lung diseases. 7.1. Special Populations 7.1.1. Pregnancy TLANDO is contraindicated in pregnant women and not indicated for use in females. TLANDO may cause fetal harm when administered to a pregnant woman based on data from animal studies and its mechanism of action (see 2 Contraindications, 10 Clinical Pharmacology and 16 Nonclinical Toxicology). Testosterone exposure during pregnancy has been reported to be associated with fetal abnormalities. Testosterone is known to cause virilization of the external genitalia of the female fetus when administrated to pregnant women. In animal developmental studies, exposure to testosterone in utero resulted in hormonal and behavioral changes in offspring and structural impairments of reproductive tissues in female and male offspring. These studies did not meet current standards for nonclinical development toxicity studies. If a pregnant woman is exposed to testosterone, she should be apprised of the potential hazard to the fetus (see 16 Non-Clinical Toxicology). 7.1.2. Breastfeeding TLANDO should not be used in nursing women. TLANDO may cause serious adverse reactions in nursing infants. It is unknown if testosterone undecanoate is excreted in human milk. 7.1.3. Pediatrics No data are available to Health Canada; therefore, Health Canada has not authorized an indication for pediatric use. 7.1.4. Geriatrics There have not been sufficient numbers of geriatric patients in controlled clinical studies with TLANDO to determine whether efficacy or safety in those over 65 years of age differs from younger subjects. Therefore, safety and efficacy of TLANDO in men with age-related hypogonadism has not been established. 8. Adverse Reactions 8.1. Adverse Reaction Overview Safety of TLANDO was evaluated in Phase 1, 2, and 3 trials with treatment duration between 1 day and 52 weeks at doses of 50 to 225 mg (for single dose studies) and between 75 and 300 mg BID (for multiple dose studies). Among the 654 patients that received TLANDO, the following Treatment-Related Treatment Emergent Adverse Events were reported in at least 1.0% of the patients: headache (1.5%), increased hematocrit (1.2%). In addition, testosterone has been subject to abuse, typically at doses higher than recommended for the approved indication and in combination with other anabolic androgenic steroids. Anabolic androgenic steroid abuse can lead to serious cardiovascular and psychiatric adverse reactions (see 7 Warnings and Precautions, Dependence, Tolerance and/or Abuse Liability). 8.2. Clinical Trial Adverse Reactions Clinical trials are conducted under very specific conditions. The adverse reaction rates observed in the clinical trials, therefore, may not reflect the rates observed in practice and should not be compared to the rates in the clinical trials of another drug. Adverse reaction information from clinical trials may be useful in identifying and approximating rates of adverse drug reactions in real-world use. TLANDO was evaluated in multiple clinical trials conducted in hypogonadal men, a total of 654 subjects were exposed to TLANDO, including 210 subjects who participated in a 52-week pivotal safety study, 95 subjects who participated in a pivotal efficacy study and 138 subjects who participated in the ambulatory blood pressure monitoring (ABPM) study. The 52-week pivotal safety study (Study 13-001) was an active controlled randomized study with dose titration in hypogonadal men, including 210 subjects receiving TLANDO and 104 receiving Health Canada approved topical gel product AndroGel 1.62% (active control arm). All subjects started at the dose of 225 mg BID that could be increased to 300 mg BID or decreased to 150 mg BID (based on testosterone levels) after approximately 3 and 7 weeks of treatment. Throughout the study (after week 3), between 52% and 58% of the subjects were dosed at 225 mg BID. Subject’s mean age at baseline was 53.1 years. Mean weight and BMI of subjects at baseline were 97.8 kg and 30.9 kg/m2, respectively. Most of the subjects enrolled were white (83.8%), followed by black or African American (13.3%), while subjects of other races comprised less than 3%. 8.3. Less Common Clinical Trial Adverse Reactions Blood and Lymphatic System: anemia, blood triglyceride increased, hemoglobin increased, high density lipoprotein decreased, hypercholesterolemia, hyperlipidemia, lipids Increased, polycythaemia, red blood cell count increased Cardiovascular Disorders: atrial fibrillation, blood pressure increased, cardiac flutter, electrocardiogram change/abnormal, electrocardiogram T wave inversion, enzyme level increased, heart rate increased, mitral valve incompetence, palpitations, tachycardia, tricuspid valve incompetence, ventricular hypertrophy Endocrine investigations: blood prolactin increased Gastrointestinal disorders: constipation General disorders: oedema peripheral Hepatic System: alanine aminotransferase increased Nervous System: dizziness, sleep apnea syndrome, tension headache, transient ischemic attack Psychiatric System: abnormal dreams, agitation, anxiety, insomnia, irritability, libido decreased, mood altered, panic attack, restlessness Renal and Reproductive System: prostatic specific antigen increased, prostatitis, prostatomegaly, urinary retention Other Potential Androgen Effects: gynaecosmastia, hirsutism, oedema 8.5. Post-Market Adverse Reactions The following adverse reactions have been identified during post-approval use of testosterone replacement products. Because these reactions are reported voluntarily from a population of uncertain size, it is not always possible to reliably estimate their frequency or establish a causal relationship to drug exposure. Cardiovascular Disorders : myocardial infarction, stroke Vascular Disorders : venous thromboembolism Find the full product monograph that is prepared for healthcare professionals and includes Patient Medication Information by visiting the Health Canada Drug Product Database website (http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drugs-product-datebase.html); the manufacturers website www.veritypharma.com ; or by calling 1-800-977-9778 About Lipocine Lipocine is a biopharmaceutical company developing oral therapeutics using its proprietary drug-delivery technology platform. The Company advances product candidates addressing significant unmet medical needs and explores partnerships to support their development and commercialization. Lipocine’s development pipeline includes: LPCN 1154 for the treatment of postpartum depression, LPCN 2201 for treatment of major depressive disorder, LPCN 2101 for the treatment of epilepsy, LPCN 2203 targeted for the management of essential tremor, LPCN 2401 as an aid for improved body composition in obesity management, LPCN 1148 targeted for the management of symptoms associated with liver cirrhosis, and LPCN 1107 our candidate for prevention of preterm birth. TLANDO, a novel oral prodrug of testosterone containing testosterone undecanoate developed by Lipocine, is approved by the FDA for conditions associated with a deficiency of endogenous testosterone, also known as hypogonadism, in adult males. For more information, please visit www.lipocine.com . Forward Looking Statements This release contains “forward-looking statements” that are made pursuant to the safe harbor provisions of the Private Securities Litigation Reform Act of 1995 and include statements that are not historical facts regarding our development of our products and product candidates and related efforts with the FDA, including the design, planned enrollment, timing and potential outcomes of the BLOOM study; the sufficiency of existing financial and operational resources to execute the study; expected average monthly cash use, study expenditures and cash needs; the timing of clinical trials and regulatory submissions, the potential uses and benefits of our products and product candidates, the commercial potential for our product candidates, and potential strategic partnerships and other opportunities. Investors are cautioned that all such forward-looking statements involve risks and uncertainties, including, without limitation, the risks that we may not be successful in developing product candidates, we may not have sufficient capital to complete the development processes for our product candidates or we may decide to allocate our available capital to other product candidates, we may not be able to enter into partnerships or other strategic relationships to monetize our assets, safety and efficacy studies, including those relating to LPCN 1154, may not be successful or may not provide results that would support the submission of an NDA, the FDA may not approve any of our products, risks related to our products, expected product benefits not being realized, clinical and regulatory expectations and plans not being realized, new regulatory developments and requirements, risks related to the FDA approval process including the receipt of regulatory approvals and our ability to utilize a streamlined approval pathway for LPCN 1154, the results and timing of clinical trials, variability in enrollment and site performance, study costs exceeding current estimates, patient acceptance of Lipocine’s products, the manufacturing and commercialization of Lipocine’s products, and other risks detailed in Lipocine’s filings with the SEC, including, without limitation, its Form 10-K and other reports on Forms 8-K and 10-Q, all of which can be obtained on the SEC website at www.sec.gov . Lipocine assumes no obligation to update or revise publicly any forward-looking statements contained in this release, except as required by law. SOURCE Lipocine Inc. For further information: Krista Fogarty Phone: (801) 994-7383 kf@lipocine.com Investors: PJ Kelleher Phone: (617) 430-7579 pkelleher@lifesciadvisors.com",
+       "recortado": false,
+       "negativos": []
+      }
+     ]
+    }
+   ],
+   "docs_hoy": [
+    {
+     "form": "8-K",
+     "hora": "2026-10-07 06:10",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315226046060/form8-k.htm",
+     "items_es": "8.01 otros hechos; 9.01 anexos"
+    }
+   ],
+   "noticias": [
+    {
+     "hora": "2026-10-07 08:00",
+     "titular": "Lipocine Announces Health Canada Approval of TLANDO® for Testosterone Replacement Therapy",
+     "url": "https://finance.yahoo.com/healthcare/articles/lipocine-announces-health-canada-approval-120000872.html?.tsrc=rss",
+     "fuente": "Yahoo"
+    }
+   ],
+   "sector": "Pharmaceutical Preparations",
+   "venta_hoy": false,
+   "historial": [
+    {
+     "form": "8-K",
+     "fecha": "2026-09-16 16:38",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315226042933/form8-k.htm",
+     "titular": "Item 8.01 Other Events On September 16, 2026, the Company presented at H.C. Wainwright 28 th Annual Global Investor Conference which was being held September 14 – 16, 2026, in New York City, NY. A copy of the presentatio",
+     "reaccion": {
+      "dia": "2026-09-17",
+      "apertura": 0.0,
+      "cierre": 0.0278
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-14 06:15",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315226042466/form8-k.htm",
+     "titular": "Item 8.01 Other Events On September 14, 2026, the Company issued a press release announcing the initiation of its BLOOM Phase 3 Study of LPCN 1154 for postpartum depression. A copy of the press release is furnished as Ex",
+     "reaccion": {
+      "dia": "2026-09-14",
+      "apertura": -0.0308,
+      "cierre": -0.022
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-11 06:10",
+     "items": "8.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315226042286/form8-k.htm",
+     "titular": "Item 8.01. Other Events. On September 8, 2026, Lipocine Inc. (the “Company”) and A.G.P./Alliance Global Partners (the “Sales Agent”) agreed that the Sales Agent’s fee on sales made under that certain Sales Agreement date",
+     "reaccion": {
+      "dia": "2026-09-11",
+      "apertura": 0.0178,
+      "cierre": 0.0089
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-09-10 06:14",
+     "items": "8.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315226042052/form8-k.htm",
+     "titular": "Item 8.01 Other Events On September 10, 2026, the Company issued a press release announcing that it is presenting and meeting with investors at the H.C. Wainwright 28 th Annual Global Investor Conference held September 1",
+     "reaccion": {
+      "dia": "2026-09-10",
+      "apertura": 0.0289,
+      "cierre": 0.0
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-04 06:08",
+     "items": "2.02,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315226035913/form8-k.htm",
+     "titular": "Item 2.02 Results of Operations and Financial Condition. On August 4, 2026, the Company issued a press release announcing financial and operational results for the quarter ended June 30, 2026. A copy of this press releas",
+     "reaccion": {
+      "dia": "2026-08-04",
+      "apertura": 0.0095,
+      "cierre": 0.0095
+     }
+    },
+    {
+     "form": "8-K",
+     "fecha": "2026-08-03 09:35",
+     "items": "5.02,7.01,9.01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315226035762/form8-k.htm",
+     "titular": "Item 5.02. Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers; Compensatory Arrangements of Certain Offices Appointment of Michael Grissinger as a Director On August 3, 202",
+     "reaccion": {
+      "dia": "2026-08-03",
+      "apertura": 0.0561,
+      "cierre": -0.0047
+     }
+    }
+   ],
+   "municion": {
+    "venta90": false,
+    "s3": "2024-04-23",
+    "s1": null,
+    "ventas_12m": 1,
+    "p424_12m": 1,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 2,
+    "ultimas_ventas": [
+     {
+      "form": "424B5",
+      "fecha": "2026-02-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315226008201/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-04-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315224016773/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2023-04-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315223010614/form424b5.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2021-01-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1535955/000110465921007982/tm214206-1_424b5.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "424B5",
+      "fecha": "2026-02-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315226008201/form424b5.htm",
+      "tipo": "empresa",
+      "atm_usd": 50000000.0,
+      "atm_agente": "A.G.P.",
+      "frase_atm": "under the Prior Prospectus. As of the date of this prospectus supplement, we are increasing the aggregate amount of common stock that we are offering pursuant to the Sales Agreement, such that we are offering up to an aggregate of $50,000,000 of our common stock for sale under the Sales Agreement, including the shares of common stock previously sold, or $39,384,424 from and after the date hereof. Neither the Securities and Exchange Commission nor any state se",
+      "atm_restante_usd": 39384424.0
+     },
+     {
+      "form": "424B5",
+      "fecha": "2024-04-26",
+      "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315224016773/form424b5.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": " approximately $33,803,454, which was calculated based on 5,192,543 shares of outstanding common stock held by non-affiliates and on a price per share of $6.51, the closing price of our common stock on the Nasdaq Capital Market on April 10, 2024. During the 12 calendar months prior to and including the date of this prospectus supplement, we have sold $651,648 of shares of common stock pursuant to General Instruction I.B.6 of Form S-3. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell securities registered on this registration statement in a public primary offering with a value exceeding more than one-third of our public float (the market val",
+      "atm_usd": 10616169.0,
+      "atm_agente": "A.G.P.",
+      "frase_atm": " Information contained in or accessible through our website does not constitute a part of this prospectus supplement. S- 2 THE OFFERING Common stock offered by us Shares of our common stock having an aggregate offering price of up to $10,616,169. Common stock outstanding after this offering Up to 2,211,702 shares, based on $10,616,169 available under the sales agreement and assuming sales at a price of $4.80 per share, which was the closing price of our common st"
+     },
+     {
+      "form": "S-3/A",
+      "fecha": "2024-04-23",
+      "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315224015699/forms-3a.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": " or the public float, was $33,803,454, which was calculated based on 5,347,940 shares of outstanding common stock held by non-affiliates and on a price per share of $6.51, the closing price of our common stock on The Nasdaq Capital Market on April 10, 2024. During the 12 calendar months prior to and including the date of this prospectus, we have sold $651,649 of shares of common stock pursuant to General Instruction I.B.6 of Form S-3. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell securities registered on this registration statement in a public primary offering with a value exceeding more than one-third of our public float (the market val"
+     },
+     {
+      "form": "S-3",
+      "fecha": "2023-11-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315223042500/forms-3.htm",
+      "tipo": "empresa",
+      "baby_shelf": true,
+      "frase_baby": "float, was approximately $15,997,342, which was calculated based on 5,160,433 shares of outstanding common stock held by non-affiliates and on a price per share of $3.10, the closing price of our common stock on The Nasdaq Capital Market on September 25, 2023. During the 12 calendar months prior to and including the date of this prospectus, we have sold $434,209 shares of common stock pursuant to General Instruction I.B.6 of Form S-3. Pursuant to General Instruction I.B.6 of Form S-3, in no event will we sell securities registered on this registration statement in a public primary offering with a value exceeding more than one-third of our public float (the market val"
+     }
+    ],
+    "colocaciones": [],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": {
+     "form": "424B5",
+     "fecha": "2026-02-26",
+     "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315226008201/form424b5.htm",
+     "tipo": "empresa",
+     "atm_usd": 50000000.0,
+     "atm_agente": "A.G.P.",
+     "frase_atm": "under the Prior Prospectus. As of the date of this prospectus supplement, we are increasing the aggregate amount of common stock that we are offering pursuant to the Sales Agreement, such that we are offering up to an aggregate of $50,000,000 of our common stock for sale under the Sales Agreement, including the shares of common stock previously sold, or $39,384,424 from and after the date hereof. Neither the Securities and Exchange Commission nor any state se",
+     "atm_restante_usd": 39384424.0
+    },
+    "atm": true,
+    "toxica": false,
+    "going_concern": false,
+    "warrants": [],
+    "informe": {
+     "form": "10-Q",
+     "fecha": "2026-08-04",
+     "url": "https://www.sec.gov/Archives/edgar/data/1535955/000149315226035909/form10-q.htm"
+    },
+    "eloc": false,
+    "uso_atm": [
+     "- - - - ( 17,846 ) - ( 17,846 ) Unrealized net loss on marketable investment securities - - - - - ( 17,846 ) - ( 17,846 ) Stock-based compensation - - - - 123,543 - - 123,543 Option exercises 1,325 - - - 6,986 - - 6,986 Vesting of restricted stock units 1,209 - - - - - - - Common stock sold through ATM offering, net of costs 2,083,276 209 - - 13,471,585 - - 13,471,794 Balances at June 30, 2026 8,244,253 $ 9,153 336 $ ( 40,712 ) $ 237,503,220 $ ( 13,401 ) $ ( 215,690,856 ) $ 21,767,404 Balances 8,244,253 $ 9,153 336 $ ( 40,712 ) $ 237,503,220 $ ( 13,401 ) $ ( 215,690,856 ) $ 21,767,404 See accompanying notes to condensed consolidated financial statements 6 LIPOCINE INC.",
+     "Sales Agreement will be sold and issued pursuant to the Form S-3, as amended, which was previously declared effective by the Securities and Exchange Commission, and the related prospectus and one or more prospectus supplements.",
+     "Sales Agreement will be sold and issued pursuant to the Form S-3, as amended, which was previously declared effective by the SEC, and the related prospectus and one or more prospectus supplements."
+    ],
+    "empresa_dice_caja": null,
+    "warrants_en_dinero": false
+   }
+  },
+  {
+   "sym": "MI",
+   "nombre": "NFT Limited",
+   "precio": 1.57,
+   "cierre_prev": 1.2300000190734863,
+   "cierre_massive": 1.23,
+   "gap": 0.2764,
+   "cap": 752009,
+   "vol_pre": null,
+   "acciones": 611390,
+   "bolsa": "NYSE American",
+   "estado": "PRE",
+   "split_hoy": null,
+   "cik": 1958713,
+   "catalizadores": [],
+   "docs_hoy": [],
+   "noticias": [],
+   "sector": "Finance Services",
+   "venta_hoy": false,
+   "historial": [
+    {
+     "form": "6-K",
+     "fecha": "2026-10-05 14:25",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026106769/ea0307744-6k_nft.htm",
+     "titular": " Statement Regarding Unusual Market Activity NFT Limited (the “Company”) today issued the following statement pursuant to Section 401(d) of the NYSE American Company Guide in response to unusual trading activity in its s",
+     "reaccion": {
+      "dia": "2026-10-05",
+      "apertura": 2.3445,
+      "cierre": 6.83
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-09-30 16:20",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026105254/ea0307224-6k_nft.htm",
+     "titular": " Entry into Material Definitive Agreements Private Placement On September 30, 2026, NFT Limited (the “ Company ”) entered into certain securities purchase agreement (the “ SPA ”) with certain “non-U.S. Persons” (the “ Pu",
+     "reaccion": {
+      "dia": "2026-10-01",
+      "apertura": -0.5833,
+      "cierre": -0.5903
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-09-30 16:16",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026105247/ea0300243-6k_nft.htm",
+     "titular": "mi-20260630 2026-06-30 --12-31 Q2 0001958713 false 0001958713 2026-01-01 2026-06-30 0001958713 us-gaap:SubsequentEventMember 2026-08-04 2026-08-04 0001958713 us-gaap:SubsequentEventMember 2026-08-04 0001958713 srt:Scenar",
+     "reaccion": {
+      "dia": "2026-10-01",
+      "apertura": -0.5833,
+      "cierre": -0.5903
+     }
+    },
+    {
+     "form": "6-K",
+     "fecha": "2026-08-28 16:05",
+     "items": "",
+     "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026095036/ea0303759-6k_nft.htm",
+     "titular": " Pricing and Closing of $2 Million Public Offering On August 21, 2026, NFT Limited (the \"Company\") entered into a securities purchase agreement (“Purchase Agreement”) with investors in connection with a registered offeri",
+     "reaccion": {
+      "dia": "2026-08-31",
+      "apertura": -0.0122,
+      "cierre": 0.0081
+     }
+    }
+   ],
+   "municion": {
+    "venta90": true,
+    "s3": "2025-10-08",
+    "s1": "2026-08-18",
+    "ventas_12m": 2,
+    "p424_12m": 2,
+    "aviso_bolsa": false,
+    "contrasplits_2a": 0,
+    "ultimas_ventas": [
+     {
+      "form": "424B4",
+      "fecha": "2026-08-24",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026092917/ea0303127-424b4_nftlimited.htm"
+     },
+     {
+      "form": "424B5",
+      "fecha": "2026-03-11",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026026081/ea028097501-424b5_nft.htm"
+     }
+    ],
+    "shelves": [
+     {
+      "form": "F-3/A",
+      "fecha": "2025-10-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390025097396/ea0260312-f3a5_nftlimited.htm",
+      "tipo": "empresa",
+      "base_usd": 500000000.0,
+      "frase_base": "y Shares, Debt Securities Warrants, Rights and Units We may, from time to time in one or more offerings, offer and sell up to $500,000,000 in the aggregate of Class A ordinary shares, par value $0.005 per share (the “ Class A Ordinary Shares ”), debt securities, warrants, un",
+      "baby_shelf": true,
+      "frase_baby": " this prospectus. You should read carefully this prospectus, the applicable prospectus supplement and any related free writing prospectus, as well as the documents incorporated or deemed to be incorporated by reference, before you invest in any of our securities. This prospectus may not be used to offer or sell any securities unless accompanied by the applicable prospectus supplement. Pursuant to General Instruction I.B.5. of Form F-3, in no event will we sell the securities covered hereby in a public primary offering with a value exceeding more than one-third of the aggregate market value of our Class A Ordinary Shares in any 12-month period so long as the aggregate"
+     },
+     {
+      "form": "F-1/A",
+      "fecha": "2025-09-04",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390025084613/ea0255937-f1a2_nft.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 9253262,
+      "frase": "ies in any jurisdiction where such offer or sale is not permitted. SUBJECT TO COMPLETION PRELIMINARY PROSPECTUS DATED SEPTEMBER 4, 2025 NFT Limited Issuance of up to 9,253,262 Class A Ordinary Shares This prospectus relates to the offer and sale, from time to",
+      "acciones_reventa_hoy": 115665,
+      "ajuste_splits": 0.0125
+     },
+     {
+      "form": "F-1/A",
+      "fecha": "2025-08-15",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390025077445/ea0253380-f1a1_nft.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 9253262,
+      "frase": "ities in any jurisdiction where such offer or sale is not permitted. SUBJECT TO COMPLETION PRELIMINARY PROSPECTUS DATED AUGUST 15, 2025 NFT Limited Issuance of up to 9,253,262 Class A Ordinary Shares This prospectus relates to the offer and sale, from time to",
+      "repetida": true,
+      "acciones_reventa_hoy": 115665,
+      "ajuste_splits": 0.0125
+     },
+     {
+      "form": "F-3/A",
+      "fecha": "2025-07-29",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390025068563/ea0250567-f3a4_nftlimited.htm",
+      "tipo": "empresa"
+     },
+     {
+      "form": "F-3/A",
+      "fecha": "2025-07-14",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390025063800/ea0248616-f3a3_nftlimited.htm",
+      "tipo": "empresa",
+      "base_usd": 500000000.0,
+      "frase_base": "y Shares, Debt Securities Warrants, Rights and Units We may, from time to time in one or more offerings, offer and sell up to $500,000,000 in the aggregate of Class A ordinary shares, par value $0.005 per share (the “ Class A Ordinary Shares ”), debt securities, warrants, un",
+      "baby_shelf": true,
+      "frase_baby": " this prospectus. You should read carefully this prospectus, the applicable prospectus supplement and any related free writing prospectus, as well as the documents incorporated or deemed to be incorporated by reference, before you invest in any of our securities. This prospectus may not be used to offer or sell any securities unless accompanied by the applicable prospectus supplement. Pursuant to General Instruction I.B.5. of Form F-3, in no event will we sell the securities covered hereby in a public primary offering with a value exceeding more than one-third of the aggregate market value of our Class A Ordinary Shares in any 12-month period so long as the aggregate"
+     },
+     {
+      "form": "F-3/A",
+      "fecha": "2025-06-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390025059147/ea0247366-f3a2_nftlimited.htm",
+      "tipo": "empresa",
+      "base_usd": 500000000.0,
+      "frase_base": "y Shares, Debt Securities Warrants, Rights and Units We may, from time to time in one or more offerings, offer and sell up to $500,000,000 in the aggregate of Class A ordinary shares, par value $0.005 per share (the “ Class A Ordinary Shares ”), debt securities, warrants, un",
+      "baby_shelf": true,
+      "frase_baby": " this prospectus. You should read carefully this prospectus, the applicable prospectus supplement and any related free writing prospectus, as well as the documents incorporated or deemed to be incorporated by reference, before you invest in any of our securities. This prospectus may not be used to offer or sell any securities unless accompanied by the applicable prospectus supplement. Pursuant to General Instruction I.B.5. of Form F-3, in no event will we sell the securities covered hereby in a public primary offering with a value exceeding more than one-third of the aggregate market value of our Class A Ordinary Shares in any 12-month period so long as the aggregate"
+     },
+     {
+      "form": "F-1",
+      "fecha": "2025-06-23",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390025056766/ea0245886-f1_nft.htm",
+      "tipo": "reventa",
+      "acciones_reventa": 9253262,
+      "frase": "urities in any jurisdiction where such offer or sale is not permitted. SUBJECT TO COMPLETION PRELIMINARY PROSPECTUS DATED JUNE 23, 2025 NFT Limited Issuance of up to 9,253,262 Class A Ordinary Shares This prospectus relates to the offer and sale, from time to",
+      "repetida": true,
+      "acciones_reventa_hoy": 115665,
+      "ajuste_splits": 0.0125
+     },
+     {
+      "form": "F-3/A",
+      "fecha": "2025-03-07",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390025021724/ea0233624-f3a1_nftlimited.htm",
+      "tipo": "empresa",
+      "base_usd": 500000000.0,
+      "frase_base": "y Shares, Debt Securities Warrants, Rights and Units We may, from time to time in one or more offerings, offer and sell up to $500,000,000 in the aggregate of Class A ordinary shares, par value $0.005 per share (the “ Class A Ordinary Shares ”), debt securities, warrants, un",
+      "baby_shelf": true,
+      "frase_baby": " this prospectus. You should read carefully this prospectus, the applicable prospectus supplement and any related free writing prospectus, as well as the documents incorporated or deemed to be incorporated by reference, before you invest in any of our securities. This prospectus may not be used to offer or sell any securities unless accompanied by the applicable prospectus supplement. Pursuant to General Instruction I.B.5. of Form F-3, in no event will we sell the securities covered hereby in a public primary offering with a value exceeding more than one-third of the aggregate market value of our Class A Ordinary Shares in any 12-month period so long as the aggregate"
+     }
+    ],
+    "colocaciones": [
+     {
+      "form": "6-K",
+      "fecha": "2026-09-30",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026105254/ea0307224-6k_nft.htm",
+      "precio": 0.45,
+      "acciones": null,
+      "frase": "s ”) as defined in Regulation S of the Securities Act of 1933, as amended (the “ Securities Act ”) pursuant to which the Company agreed to sell an aggregate of 80,000,000 Class A Ordinary Shares of the Company, par value $0.04 per share (“ Share ”), at a price of $0.45 per Share, for an aggregate purchase price of approximately $36 million (the “ Offering ”). The net proceeds to the Company from such Offering shall be used by"
+     },
+     {
+      "form": "6-K",
+      "fecha": "2026-08-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026095036/ea0303759-6k_nft.htm",
+      "precio": null,
+      "acciones": 437957,
+      "frase": " On August 21, 2026, NFT Limited (the \"Company\") entered into a securities purchase agreement (“Purchase Agreement”) with investors in connection with a registered offering (the \"Offering\"). The Offering closed on August 24, 2026. The Company issued 437,957 units, consisting of 279,600 units (the \"Common Units\") and 158,357 pre-funded units (the “Pre-Funded Units”). Each Common Unit consisted of one Class A or"
+     }
+    ],
+    "shelf_empresa": true,
+    "reventa_acciones": 0,
+    "atm_shelf": null,
+    "atm": false,
+    "toxica": true,
+    "going_concern": false,
+    "warrants": [
+     16.8,
+     22.4,
+     333.6,
+     1104.0
+    ],
+    "informe": {
+     "form": "20-F",
+     "fecha": "2026-05-01",
+     "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026050939/ea0285153-20f_nftltd.htm"
+    },
+    "eloc": false,
+    "uso_atm": [],
+    "empresa_dice_caja": null,
+    "warrants_sin_ajustar": [
+     0.21,
+     0.28,
+     4.17,
+     13.8
+    ],
+    "ajuste_splits_warrants": 80.0,
+    "warrants_en_dinero": false,
+    "toxica_fuente": {
+     "form": "424B4",
+     "fecha": "2026-08-24",
+     "url": "https://www.sec.gov/Archives/edgar/data/1958713/000121390026092917/ea0303127-424b4_nftlimited.htm"
+    }
+   }
+  }
+ ]
+}

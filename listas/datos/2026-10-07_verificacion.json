@@ -1,0 +1,30 @@
+{
+ "LPCN": {
+  "estado": "corregido",
+  "hora": "08:40",
+  "diferencias": [
+   "ATM: nosotros $10.6 M (2024); verificador $50 M ampliada el 26-feb-2026 con $39 384 424 disponibles → comprobado en el 424B5, error nuestro corregido + caso de oro",
+   "Añadido por el verificador y comprobado: regalías de solo ~$190 000 en el 2.º trimestre; hitos 'hasta' $259 M ligados a ventas; consejero compró acciones (Form 4 P) 28-30 sep; caja $23.3 M al 30-jun",
+   "Tipo B: coincide (aprobación real, a través del socio Verity)"
+  ]
+ },
+ "SXTC": {
+  "estado": "corregido",
+  "hora": "08:41",
+  "diferencias": [
+   "F-3/A 28-ago: nosotros shelf de la empresa; verificador REVENTA de 157 500 000 acciones (pre-paid de precio variable de Smart Mart) → comprobado, error nuestro corregido + caso de oro",
+   "Going concern: nosotros sí; el 'substantial doubt' es del auditor anterior (ejercicio 2024) → error nuestro, anotado; arreglo del código PENDIENTE",
+   "Warrants $80: el F-3/A dice que no hay warrants en circulación → anotado",
+   "Sin catalizador: coincide"
+  ]
+ },
+ "BIYA": {
+  "estado": "corregido",
+  "hora": "08:43",
+  "diferencias": [
+   "F-3/A 21-ago: nosotros solo reventa sin número; verificador MIXTO empresa $200 M + reventa 50 M acciones → comprobado, error nuestro corregido + caso de oro",
+   "Sin catalizador: coincide",
+   "Añadido por el verificador: SESA (ELOC) al 70 %, colocación a $3.12 ajustado, caja ≈ 4 meses, going concern"
+  ]
+ }
+}
