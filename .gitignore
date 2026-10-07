@@ -3,3 +3,4 @@ datos_radar/
 _datos/
 datos_mercados/
 .env
+prediction_bot/weather/data/
