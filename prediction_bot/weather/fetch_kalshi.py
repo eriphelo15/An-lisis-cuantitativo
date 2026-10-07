@@ -26,7 +26,11 @@ def get(path, params=None, rps=8.0):
             if espera > 0:
                 time.sleep(espera)
             _last[0] = time.time()
-        r = requests.get(K + path, params=params, timeout=30)
+        try:
+            r = requests.get(K + path, params=params, timeout=30)
+        except requests.RequestException:
+            time.sleep(2 ** intento)
+            continue
         if r.status_code == 429 or r.status_code >= 500:
             time.sleep(2 ** intento)
             continue
