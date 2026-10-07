@@ -93,6 +93,12 @@ def _():
     assert p["hora"].strftime("%Y-%m-%d %H:%M") == "2026-08-12 16:16", p["hora"]
 
 
+@caso("ATM AMPLIADA: se toma la más reciente (LPCN 7-oct: 424B5 26-feb-2026 sube la ATM de A.G.P. a $50 M, quedan $39 384 424; antes se leía la de $10.6 M de 2024)")
+def _():
+    o = l.analizar_shelf(dict(form="424B5", fecha="2026-02-26", url="https://www.sec.gov/Archives/edgar/data/1535955/000149315226008201/form424b5.htm"))
+    assert o["atm_usd"] == 50e6 and o.get("atm_restante_usd") == 39384424, o
+
+
 @caso("ATM en la shelf aunque el 10-Q no la mencione: CNTB $150 M con Cantor Fitzgerald, sin usar")
 def _():
     _, m = cntb()

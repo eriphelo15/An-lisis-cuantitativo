@@ -504,7 +504,10 @@ def analizar_shelf(p):
     bs = re.search(r"General Instruction I\.B\.[56]", t)
     if bs:
         o["baby_shelf"] = True; o["frase_baby"] = t[max(0, bs.start() - 400):bs.end() + 250]
-    a = re.search(r"aggregate offering price of up to \$\s?([0-9][0-9,.]*)\s*(million|billion)?", t, re.I)
+    a = re.search(r"aggregate offering price of up to \$\s?([0-9][0-9,.]*)\s*(million|billion)?", t, re.I) or \
+        re.search(r"(?:offering|offer and sell|sell) up to an aggregate of \$\s?([0-9][0-9,.]*)\s*(million|billion)?", t, re.I)
+    # 7-oct (LPCN, verificador): la AMPLIACIÓN de una ATM (424B5 26-feb-2026) dice «offering up to an aggregate of $50,000,000 …
+    # or $39,384,424 from and after the date hereof» → antes se leía la ATM vieja de $10.6 M; ahora la más reciente con lo que queda
     atm_ctx = re.search(r"at[- ]the[- ]market|sales agreement|equity distribution agreement|ATM [Aa]greement", t, re.I)
     if a and atm_ctx:
         o["atm_usd"] = _usd(a.group(1), a.group(2))
@@ -512,6 +515,9 @@ def analizar_shelf(p):
         ag = re.search(AGENTES, ventana)
         o["atm_agente"] = ag.group(1) if ag else None
         o["frase_atm"] = t[max(0, a.start() - 200):a.end() + 220]
+        rest = re.search(r"or \$\s?([0-9][0-9,.]*)\s*(million|billion)? from and after the date", t[a.start():a.end() + 600], re.I)
+        if rest:
+            o["atm_restante_usd"] = _usd(rest.group(1), rest.group(2))
         nv = re.search(r"(we have not (?:yet )?sold any[^.]{0,120}\.)", t, re.I)
         if nv:
             o["frase_sin_uso"] = nv.group(1)
